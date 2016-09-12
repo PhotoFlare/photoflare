@@ -1,0 +1,55 @@
+<RCC>
+    <qresource prefix="/toolpalette_icons">
+        <file>toolpalette_icons/Pointer.png</file>
+        <file>toolpalette_icons/Blur.png</file>
+        <file>toolpalette_icons/Bucket.png</file>
+        <file>toolpalette_icons/ColourPicker.png</file>
+        <file>toolpalette_icons/Line.png</file>
+        <file>toolpalette_icons/PaintBrush.png</file>
+        <file>toolpalette_icons/PaintBrush-Plus.png</file>
+        <file>toolpalette_icons/Spraycan.png</file>
+        <file>toolpalette_icons/Stamp.png</file>
+        <file>toolpalette_icons/Wand.png</file>
+    </qresource>
+    <qresource prefix="/pixmaps">
+        <file>pixmaps/logo-sml.png</file>
+        <file>pixmaps/logo.png</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>icons/autobright.png</file>
+        <file>icons/autolevel.png</file>
+        <file>icons/batch.png</file>
+        <file>icons/blur.png</file>
+        <file>icons/brightness-.png</file>
+        <file>icons/brightness+.png</file>
+        <file>icons/cansize.png</file>
+        <file>icons/contrast-.png</file>
+        <file>icons/contrast+.png</file>
+        <file>icons/dustreduction.png</file>
+        <file>icons/flipH.png</file>
+        <file>icons/flipV.png</file>
+        <file>icons/gammacorrect-.png</file>
+        <file>icons/gammacorrect+.png</file>
+        <file>icons/gradient.png</file>
+        <file>icons/grayscale.png</file>
+        <file>icons/hue.png</file>
+        <file>icons/imgsize.png</file>
+        <file>icons/index.png</file>
+        <file>icons/linked.png</file>
+        <file>icons/noicon.png</file>
+        <file>icons/oldphoto.png</file>
+        <file>icons/pref.png</file>
+        <file>icons/reinforce.png</file>
+        <file>icons/rgb.png</file>
+        <file>icons/rotateCCW.png</file>
+        <file>icons/rotateCW.png</file>
+        <file>icons/saturation-.png</file>
+        <file>icons/saturation+.png</file>
+        <file>icons/scan.png</file>
+        <file>icons/sharpen.png</file>
+        <file>icons/show.png</file>
+        <file>icons/soften.png</file>
+        <file>icons/text.png</file>
+        <file>icons/trans.png</file>
+    </qresource>
+</RCC>

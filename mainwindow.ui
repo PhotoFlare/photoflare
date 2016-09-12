@@ -1,0 +1,1560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1030</width>
+    <height>673</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Ubuntu</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>PhotoFiltre LX Studio</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Icons.qrc">
+    <normaloff>:/pixmaps/pixmaps/logo-sml.png</normaloff>:/pixmaps/pixmaps/logo-sml.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <property name="movable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1030</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionRevert"/>
+    <addaction name="actionRecent_files"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionClose"/>
+    <addaction name="actionClose_all"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrint"/>
+    <addaction name="actionImport_twain"/>
+    <addaction name="separator"/>
+    <addaction name="actionImage_properties"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="actionFade"/>
+    <addaction name="separator"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="actionClear"/>
+    <addaction name="separator"/>
+    <addaction name="actionPaste_as_new_image"/>
+    <addaction name="actionPaste_special"/>
+    <addaction name="separator"/>
+    <addaction name="actionStroke_and_fill"/>
+    <addaction name="actionOptimized_Clipping"/>
+    <addaction name="separator"/>
+    <addaction name="actionValidate"/>
+    <addaction name="actionOptions"/>
+    <addaction name="actionTransform"/>
+    <addaction name="separator"/>
+    <addaction name="actionDefine_pattern"/>
+    <addaction name="actionFill_with_pattern"/>
+    <addaction name="separator"/>
+    <addaction name="actionPurge"/>
+   </widget>
+   <widget class="QMenu" name="menuImage">
+    <property name="title">
+     <string>Image</string>
+    </property>
+    <widget class="QMenu" name="menuMode">
+     <property name="title">
+      <string>Mode</string>
+     </property>
+     <addaction name="actionRGB_Mode"/>
+     <addaction name="actionIndexed_Mode"/>
+    </widget>
+    <widget class="QMenu" name="menuRotate">
+     <property name="title">
+      <string>Rotate</string>
+     </property>
+     <addaction name="actionRotate_CCW"/>
+     <addaction name="actionRotate_CW"/>
+    </widget>
+    <addaction name="menuMode"/>
+    <addaction name="separator"/>
+    <addaction name="actionFlip_Vertical"/>
+    <addaction name="actionFlip_Horizontal"/>
+    <addaction name="menuRotate"/>
+    <addaction name="actionSkew"/>
+    <addaction name="actionOffset"/>
+    <addaction name="separator"/>
+    <addaction name="actionImage_Size"/>
+    <addaction name="actionCanvas_Size"/>
+    <addaction name="actionFit_Image"/>
+    <addaction name="actionDuplicate"/>
+    <addaction name="separator"/>
+    <addaction name="actionCrop"/>
+    <addaction name="actionAutomatic_Crop"/>
+    <addaction name="actionOutside_frame"/>
+    <addaction name="actionOutside_drop_shadow"/>
+    <addaction name="separator"/>
+    <addaction name="actionTransparent_colour"/>
+    <addaction name="actionAutomatic_transparency"/>
+    <addaction name="actionTransparency_mask"/>
+    <addaction name="separator"/>
+    <addaction name="actionText"/>
+    <addaction name="actionCopyright"/>
+   </widget>
+   <widget class="QMenu" name="menuSelection">
+    <property name="title">
+     <string>Selection</string>
+    </property>
+    <addaction name="actionShow_selection"/>
+    <addaction name="actionSelect_all"/>
+    <addaction name="separator"/>
+    <addaction name="actionSet_shape"/>
+    <addaction name="actionInvert"/>
+    <addaction name="actionManual_settings"/>
+    <addaction name="separator"/>
+    <addaction name="actionCenter"/>
+    <addaction name="actionFit_ratio"/>
+    <addaction name="actionContract"/>
+    <addaction name="actionExpand"/>
+    <addaction name="actionTransform_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionAntialiasing"/>
+    <addaction name="actionBounding_box"/>
+    <addaction name="actionPaste_and_text_bounding_box"/>
+    <addaction name="separator"/>
+    <addaction name="actionCopy_shape"/>
+    <addaction name="actionPaste_shape"/>
+    <addaction name="separator"/>
+    <addaction name="actionLoad_shape"/>
+    <addaction name="actionSave_shape"/>
+   </widget>
+   <widget class="QMenu" name="menuAdjust">
+    <property name="title">
+     <string>Adjust</string>
+    </property>
+    <addaction name="actionBright_Contrast"/>
+    <addaction name="actionHue_Saturation"/>
+    <addaction name="actionColour_balance"/>
+    <addaction name="actionGamma_correct"/>
+    <addaction name="separator"/>
+    <addaction name="actionAuto_levels"/>
+    <addaction name="actionAuto_contrast"/>
+    <addaction name="separator"/>
+    <addaction name="actionMore_shadows"/>
+    <addaction name="actionMore_highlights"/>
+    <addaction name="actionLevels"/>
+    <addaction name="separator"/>
+    <addaction name="actionSwap_RGB_channel"/>
+    <addaction name="actionReplace_colour"/>
+    <addaction name="actionReplace_colour_range"/>
+    <addaction name="separator"/>
+    <addaction name="actionDuotone"/>
+    <addaction name="actionDithering"/>
+    <addaction name="actionNegative"/>
+    <addaction name="actionPosterize"/>
+    <addaction name="separator"/>
+    <addaction name="actionHue_variation"/>
+   </widget>
+   <widget class="QMenu" name="menuFilter">
+    <property name="title">
+     <string>Filter</string>
+    </property>
+    <addaction name="actionSoften"/>
+    <addaction name="actionSharpen"/>
+    <addaction name="actionNoise"/>
+    <addaction name="actionRelief"/>
+    <addaction name="actionColour"/>
+    <addaction name="separator"/>
+    <addaction name="actionArtistic"/>
+    <addaction name="actionVisual_effect"/>
+    <addaction name="actionDeform"/>
+    <addaction name="actionStylize"/>
+    <addaction name="actionAged_effect"/>
+    <addaction name="separator"/>
+    <addaction name="actionFrame"/>
+    <addaction name="actionFlatten"/>
+    <addaction name="actionEdges"/>
+    <addaction name="actionTexture"/>
+    <addaction name="actionOther"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionFilterbar"/>
+    <addaction name="actionToolpalette"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_grid"/>
+    <addaction name="actionSnap_to_grid"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoom_in"/>
+    <addaction name="actionZoom_out"/>
+    <addaction name="actionOriginal_size"/>
+    <addaction name="actionAuto_zoom"/>
+    <addaction name="actionFull_screen"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionAutomate_Batch"/>
+    <addaction name="separator"/>
+    <addaction name="actionSet_wallpaper"/>
+    <addaction name="actionExport_as_icon"/>
+    <addaction name="separator"/>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>?</string>
+    </property>
+    <addaction name="actionInformation"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuImage"/>
+   <addaction name="menuSelection"/>
+   <addaction name="menuAdjust"/>
+   <addaction name="menuFilter"/>
+   <addaction name="menuView"/>
+   <addaction name="menuTools"/>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionPrint"/>
+   <addaction name="actionScan"/>
+   <addaction name="separator"/>
+   <addaction name="actionUndo"/>
+   <addaction name="actionRedo"/>
+   <addaction name="separator"/>
+   <addaction name="actionRGB_Mode"/>
+   <addaction name="actionIndexed_Mode"/>
+   <addaction name="actionTransparent_colour"/>
+   <addaction name="separator"/>
+   <addaction name="actionImage_Size"/>
+   <addaction name="actionCanvas_Size"/>
+   <addaction name="actionShow_selection"/>
+   <addaction name="actionText"/>
+   <addaction name="separator"/>
+   <addaction name="actionAutomate_Batch"/>
+   <addaction name="actionPreferences"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidget_palette">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>100</width>
+     <height>242</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>140</width>
+     <height>250</height>
+    </size>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea|Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContentsToolpalette">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton {
+border: none;
+}
+
+QToolButton:hover {
+	border: 1px solid gray;
+}
+
+QToolButton:checked {
+	border: 1px solid gray;
+}
+</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="2" column="1">
+      <widget class="QToolButton" name="toolButtonSprayCan">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QToolButton" name="toolButtonPointer">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/Pointer.png</normaloff>:/toolpalette_icons/toolpalette_icons/Pointer.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QToolButton" name="toolButtonPaintBrushAdv">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush-Plus.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush-Plus.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QToolButton" name="toolButtonWand">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QToolButton" name="toolButtonDropper">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/ColourPicker.png</normaloff>:/toolpalette_icons/toolpalette_icons/ColourPicker.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QToolButton" name="toolButtonPaintBucket">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QToolButton" name="toolButtonBlur">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QToolButton" name="toolButtonStamp">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QToolButton" name="toolButtonLine">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QToolButton" name="toolButtonPaintBrush">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
+   <addaction name="actionAuto_levels"/>
+   <addaction name="actionAuto_contrast"/>
+   <addaction name="separator"/>
+   <addaction name="actionBrightminus"/>
+   <addaction name="actionBrightplus"/>
+   <addaction name="separator"/>
+   <addaction name="actionContrastminus"/>
+   <addaction name="actionContrastplus"/>
+   <addaction name="separator"/>
+   <addaction name="actionSaturationminus"/>
+   <addaction name="actionSaturationplus"/>
+   <addaction name="separator"/>
+   <addaction name="actionGammaCorrectminus"/>
+   <addaction name="actionGammaCorrectplus"/>
+   <addaction name="separator"/>
+   <addaction name="actionGrayScale"/>
+   <addaction name="actionOldPhoto"/>
+   <addaction name="separator"/>
+   <addaction name="actionDustReduction"/>
+   <addaction name="actionSoften"/>
+   <addaction name="actionBlur"/>
+   <addaction name="separator"/>
+   <addaction name="actionSharpen"/>
+   <addaction name="actionReinforce"/>
+   <addaction name="separator"/>
+   <addaction name="actionHue_variation"/>
+   <addaction name="actionGradient"/>
+   <addaction name="separator"/>
+   <addaction name="actionFlip_Horizontal"/>
+   <addaction name="actionFlip_Vertical"/>
+   <addaction name="separator"/>
+   <addaction name="actionRotate_CCW"/>
+   <addaction name="actionRotate_CW"/>
+  </widget>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset theme="document-new">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>New...</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset theme="document-open">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Open...</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRevert">
+   <property name="text">
+    <string>Revert</string>
+   </property>
+  </action>
+  <action name="actionRecent_files">
+   <property name="text">
+    <string>Recent files</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset theme="document-save">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionClose_all">
+   <property name="text">
+    <string>Close all</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset theme="document-print">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Print...</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionImport_twain">
+   <property name="text">
+    <string>Import twain</string>
+   </property>
+  </action>
+  <action name="actionImage_properties">
+   <property name="text">
+    <string>Image properties</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset theme="edit-undo">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset theme="edit-redo">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionFade">
+   <property name="text">
+    <string>Fade</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </action>
+  <action name="actionPaste_as_new_image">
+   <property name="text">
+    <string>Paste as new image</string>
+   </property>
+  </action>
+  <action name="actionPaste_special">
+   <property name="text">
+    <string>Paste special</string>
+   </property>
+  </action>
+  <action name="actionStroke_and_fill">
+   <property name="text">
+    <string>Stroke and fill...</string>
+   </property>
+  </action>
+  <action name="actionOptimized_Clipping">
+   <property name="text">
+    <string>Optimized Clipping...</string>
+   </property>
+  </action>
+  <action name="actionValidate">
+   <property name="text">
+    <string>Validate</string>
+   </property>
+  </action>
+  <action name="actionOptions">
+   <property name="text">
+    <string>Options...</string>
+   </property>
+  </action>
+  <action name="actionTransform">
+   <property name="text">
+    <string>Transform</string>
+   </property>
+  </action>
+  <action name="actionDefine_pattern">
+   <property name="text">
+    <string>Define pattern</string>
+   </property>
+  </action>
+  <action name="actionFill_with_pattern">
+   <property name="text">
+    <string>Fill with pattern</string>
+   </property>
+  </action>
+  <action name="actionPurge">
+   <property name="text">
+    <string>Purge</string>
+   </property>
+  </action>
+  <action name="actionFlip_Vertical">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/flipV.png</normaloff>:/icons/icons/flipV.png</iconset>
+   </property>
+   <property name="text">
+    <string>Flip Vertical</string>
+   </property>
+  </action>
+  <action name="actionFlip_Horizontal">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/flipH.png</normaloff>:/icons/icons/flipH.png</iconset>
+   </property>
+   <property name="text">
+    <string>Flip Horizontal</string>
+   </property>
+  </action>
+  <action name="actionSkew">
+   <property name="text">
+    <string>Skew...</string>
+   </property>
+  </action>
+  <action name="actionOffset">
+   <property name="text">
+    <string>Offset...</string>
+   </property>
+  </action>
+  <action name="actionImage_Size">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/imgsize.png</normaloff>:/icons/icons/imgsize.png</iconset>
+   </property>
+   <property name="text">
+    <string>Image Size...</string>
+   </property>
+  </action>
+  <action name="actionCanvas_Size">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/cansize.png</normaloff>:/icons/icons/cansize.png</iconset>
+   </property>
+   <property name="text">
+    <string>Canvas Size...</string>
+   </property>
+  </action>
+  <action name="actionFit_Image">
+   <property name="text">
+    <string>Fit Image...</string>
+   </property>
+  </action>
+  <action name="actionDuplicate">
+   <property name="text">
+    <string>Duplicate</string>
+   </property>
+  </action>
+  <action name="actionCrop">
+   <property name="text">
+    <string>Crop</string>
+   </property>
+  </action>
+  <action name="actionAutomatic_Crop">
+   <property name="text">
+    <string>Automatic Crop</string>
+   </property>
+  </action>
+  <action name="actionOutside_frame">
+   <property name="text">
+    <string>Outside frame...</string>
+   </property>
+  </action>
+  <action name="actionOutside_drop_shadow">
+   <property name="text">
+    <string>Outside drop shadow...</string>
+   </property>
+  </action>
+  <action name="actionTransparent_colour">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/trans.png</normaloff>:/icons/icons/trans.png</iconset>
+   </property>
+   <property name="text">
+    <string>Transparent colour...</string>
+   </property>
+  </action>
+  <action name="actionAutomatic_transparency">
+   <property name="text">
+    <string>Automatic transparency</string>
+   </property>
+  </action>
+  <action name="actionTransparency_mask">
+   <property name="text">
+    <string>Transparency mask...</string>
+   </property>
+  </action>
+  <action name="actionText">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/text.png</normaloff>:/icons/icons/text.png</iconset>
+   </property>
+   <property name="text">
+    <string>Text...</string>
+   </property>
+  </action>
+  <action name="actionCopyright">
+   <property name="text">
+    <string>Copyright...</string>
+   </property>
+  </action>
+  <action name="actionShow_selection">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/show.png</normaloff>:/icons/icons/show.png</iconset>
+   </property>
+   <property name="text">
+    <string>Show selection</string>
+   </property>
+  </action>
+  <action name="actionSelect_all">
+   <property name="text">
+    <string>Select all</string>
+   </property>
+  </action>
+  <action name="actionSet_shape">
+   <property name="text">
+    <string>Set shape</string>
+   </property>
+  </action>
+  <action name="actionInvert">
+   <property name="text">
+    <string>Invert</string>
+   </property>
+  </action>
+  <action name="actionManual_settings">
+   <property name="text">
+    <string>Manual settings...</string>
+   </property>
+  </action>
+  <action name="actionCenter">
+   <property name="text">
+    <string>Center</string>
+   </property>
+  </action>
+  <action name="actionFit_ratio">
+   <property name="text">
+    <string>Fit ratio</string>
+   </property>
+  </action>
+  <action name="actionContract">
+   <property name="text">
+    <string>Contract...</string>
+   </property>
+  </action>
+  <action name="actionExpand">
+   <property name="text">
+    <string>Expand...</string>
+   </property>
+  </action>
+  <action name="actionTransform_2">
+   <property name="text">
+    <string>Transform</string>
+   </property>
+  </action>
+  <action name="actionAntialiasing">
+   <property name="text">
+    <string>Antialiasing</string>
+   </property>
+  </action>
+  <action name="actionBounding_box">
+   <property name="text">
+    <string>Bounding box</string>
+   </property>
+  </action>
+  <action name="actionPaste_and_text_bounding_box">
+   <property name="text">
+    <string>Paste and text bounding box</string>
+   </property>
+  </action>
+  <action name="actionCopy_shape">
+   <property name="text">
+    <string>Copy shape</string>
+   </property>
+  </action>
+  <action name="actionPaste_shape">
+   <property name="text">
+    <string>Paste shape</string>
+   </property>
+  </action>
+  <action name="actionLoad_shape">
+   <property name="text">
+    <string>Load shape</string>
+   </property>
+  </action>
+  <action name="actionSave_shape">
+   <property name="text">
+    <string>Save shape</string>
+   </property>
+  </action>
+  <action name="actionBright_Contrast">
+   <property name="text">
+    <string>Bright/Contrast...</string>
+   </property>
+  </action>
+  <action name="actionHue_Saturation">
+   <property name="text">
+    <string>Hue/Saturation...</string>
+   </property>
+  </action>
+  <action name="actionColour_balance">
+   <property name="text">
+    <string>Colour balance...</string>
+   </property>
+  </action>
+  <action name="actionGamma_correct">
+   <property name="text">
+    <string>Gamma correct...</string>
+   </property>
+  </action>
+  <action name="actionAuto_levels">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/autolevel.png</normaloff>:/icons/icons/autolevel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Auto levels</string>
+   </property>
+  </action>
+  <action name="actionAuto_contrast">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/autobright.png</normaloff>:/icons/icons/autobright.png</iconset>
+   </property>
+   <property name="text">
+    <string>Auto contrast</string>
+   </property>
+  </action>
+  <action name="actionMore_shadows">
+   <property name="text">
+    <string>More shadows</string>
+   </property>
+  </action>
+  <action name="actionMore_highlights">
+   <property name="text">
+    <string>More highlights</string>
+   </property>
+  </action>
+  <action name="actionLevels">
+   <property name="text">
+    <string>Levels...</string>
+   </property>
+  </action>
+  <action name="actionSwap_RGB_channel">
+   <property name="text">
+    <string>Swap RGB channel...</string>
+   </property>
+  </action>
+  <action name="actionReplace_colour">
+   <property name="text">
+    <string>Replace colour...</string>
+   </property>
+  </action>
+  <action name="actionReplace_colour_range">
+   <property name="text">
+    <string>Replace colour range...</string>
+   </property>
+  </action>
+  <action name="actionDuotone">
+   <property name="text">
+    <string>Duotone...</string>
+   </property>
+  </action>
+  <action name="actionDithering">
+   <property name="text">
+    <string>Dithering</string>
+   </property>
+  </action>
+  <action name="actionNegative">
+   <property name="text">
+    <string>Negative</string>
+   </property>
+  </action>
+  <action name="actionPosterize">
+   <property name="text">
+    <string>Posterize...</string>
+   </property>
+  </action>
+  <action name="actionHue_variation">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/hue.png</normaloff>:/icons/icons/hue.png</iconset>
+   </property>
+   <property name="text">
+    <string>Hue variation...</string>
+   </property>
+  </action>
+  <action name="actionSoften">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/soften.png</normaloff>:/icons/icons/soften.png</iconset>
+   </property>
+   <property name="text">
+    <string>Soften</string>
+   </property>
+  </action>
+  <action name="actionSharpen">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/sharpen.png</normaloff>:/icons/icons/sharpen.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sharpen</string>
+   </property>
+  </action>
+  <action name="actionNoise">
+   <property name="text">
+    <string>Noise</string>
+   </property>
+  </action>
+  <action name="actionRelief">
+   <property name="text">
+    <string>Relief</string>
+   </property>
+  </action>
+  <action name="actionColour">
+   <property name="text">
+    <string>Colour</string>
+   </property>
+  </action>
+  <action name="actionArtistic">
+   <property name="text">
+    <string>Artistic</string>
+   </property>
+  </action>
+  <action name="actionVisual_effect">
+   <property name="text">
+    <string>Visual effect</string>
+   </property>
+  </action>
+  <action name="actionDeform">
+   <property name="text">
+    <string>Deform</string>
+   </property>
+  </action>
+  <action name="actionStylize">
+   <property name="text">
+    <string>Stylize</string>
+   </property>
+  </action>
+  <action name="actionAged_effect">
+   <property name="text">
+    <string>Aged effect</string>
+   </property>
+  </action>
+  <action name="actionFrame">
+   <property name="text">
+    <string>Frame</string>
+   </property>
+  </action>
+  <action name="actionFlatten">
+   <property name="text">
+    <string>Flatten</string>
+   </property>
+  </action>
+  <action name="actionEdges">
+   <property name="text">
+    <string>Edges</string>
+   </property>
+  </action>
+  <action name="actionTexture">
+   <property name="text">
+    <string>Texture</string>
+   </property>
+  </action>
+  <action name="actionOther">
+   <property name="text">
+    <string>Other</string>
+   </property>
+  </action>
+  <action name="actionFilterbar">
+   <property name="text">
+    <string>Filterbar</string>
+   </property>
+  </action>
+  <action name="actionToolpalette">
+   <property name="text">
+    <string>Toolpalette</string>
+   </property>
+  </action>
+  <action name="actionShow_grid">
+   <property name="text">
+    <string>Show grid</string>
+   </property>
+  </action>
+  <action name="actionSnap_to_grid">
+   <property name="text">
+    <string>Snap to grid</string>
+   </property>
+  </action>
+  <action name="actionZoom_in">
+   <property name="text">
+    <string>Zoom in</string>
+   </property>
+  </action>
+  <action name="actionZoom_out">
+   <property name="text">
+    <string>Zoom out</string>
+   </property>
+  </action>
+  <action name="actionOriginal_size">
+   <property name="text">
+    <string>Original size</string>
+   </property>
+  </action>
+  <action name="actionAuto_zoom">
+   <property name="text">
+    <string>Auto zoom</string>
+   </property>
+  </action>
+  <action name="actionFull_screen">
+   <property name="text">
+    <string>Full screen</string>
+   </property>
+  </action>
+  <action name="actionAutomate_Batch">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/batch.png</normaloff>:/icons/icons/batch.png</iconset>
+   </property>
+   <property name="text">
+    <string>Automate/Batch...</string>
+   </property>
+  </action>
+  <action name="actionSet_wallpaper">
+   <property name="text">
+    <string>Set wallpaper</string>
+   </property>
+  </action>
+  <action name="actionExport_as_icon">
+   <property name="text">
+    <string>Export as icon...</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/pref.png</normaloff>:/icons/icons/pref.png</iconset>
+   </property>
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionInformation">
+   <property name="text">
+    <string>Information</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionScan">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/scan.png</normaloff>:/icons/icons/scan.png</iconset>
+   </property>
+   <property name="text">
+    <string>Scan</string>
+   </property>
+   <property name="toolTip">
+    <string>Scan</string>
+   </property>
+  </action>
+  <action name="actionRGB_Mode">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/rgb.png</normaloff>:/icons/icons/rgb.png</iconset>
+   </property>
+   <property name="text">
+    <string>RGB Mode</string>
+   </property>
+  </action>
+  <action name="actionIndexed_Mode">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/index.png</normaloff>:/icons/icons/index.png</iconset>
+   </property>
+   <property name="text">
+    <string>Indexed Mode</string>
+   </property>
+  </action>
+  <action name="actionBrightminus">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/brightness-.png</normaloff>:/icons/icons/brightness-.png</iconset>
+   </property>
+   <property name="text">
+    <string>brightminus</string>
+   </property>
+   <property name="toolTip">
+    <string>Brightness (-)</string>
+   </property>
+  </action>
+  <action name="actionBrightplus">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/brightness+.png</normaloff>:/icons/icons/brightness+.png</iconset>
+   </property>
+   <property name="text">
+    <string>Brightplus</string>
+   </property>
+   <property name="toolTip">
+    <string>Brightness (+)</string>
+   </property>
+  </action>
+  <action name="actionContrastminus">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/contrast-.png</normaloff>:/icons/icons/contrast-.png</iconset>
+   </property>
+   <property name="text">
+    <string>contrastminus</string>
+   </property>
+   <property name="toolTip">
+    <string>Contrast (-)</string>
+   </property>
+  </action>
+  <action name="actionContrastplus">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/contrast+.png</normaloff>:/icons/icons/contrast+.png</iconset>
+   </property>
+   <property name="text">
+    <string>contrastplus</string>
+   </property>
+   <property name="toolTip">
+    <string>Contrast (+)</string>
+   </property>
+  </action>
+  <action name="actionSaturationminus">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/saturation-.png</normaloff>:/icons/icons/saturation-.png</iconset>
+   </property>
+   <property name="text">
+    <string>saturationminus</string>
+   </property>
+   <property name="toolTip">
+    <string>Saturation (-)</string>
+   </property>
+  </action>
+  <action name="actionSaturationplus">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/saturation+.png</normaloff>:/icons/icons/saturation+.png</iconset>
+   </property>
+   <property name="text">
+    <string>saturationplus</string>
+   </property>
+   <property name="toolTip">
+    <string>Saturation (+)</string>
+   </property>
+  </action>
+  <action name="actionGammaCorrectminus">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/gammacorrect-.png</normaloff>:/icons/icons/gammacorrect-.png</iconset>
+   </property>
+   <property name="text">
+    <string>gammaCorrectminus</string>
+   </property>
+   <property name="toolTip">
+    <string>Gamma Correct (-)</string>
+   </property>
+  </action>
+  <action name="actionGammaCorrectplus">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/gammacorrect+.png</normaloff>:/icons/icons/gammacorrect+.png</iconset>
+   </property>
+   <property name="text">
+    <string>gammaCorrectplus</string>
+   </property>
+   <property name="toolTip">
+    <string>Gamma Correct (+)</string>
+   </property>
+  </action>
+  <action name="actionGrayScale">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/grayscale.png</normaloff>:/icons/icons/grayscale.png</iconset>
+   </property>
+   <property name="text">
+    <string>grayScale</string>
+   </property>
+   <property name="toolTip">
+    <string>Grayscale</string>
+   </property>
+  </action>
+  <action name="actionOldPhoto">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/oldphoto.png</normaloff>:/icons/icons/oldphoto.png</iconset>
+   </property>
+   <property name="text">
+    <string>oldPhoto</string>
+   </property>
+   <property name="toolTip">
+    <string>Old Photography</string>
+   </property>
+  </action>
+  <action name="actionDustReduction">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/dustreduction.png</normaloff>:/icons/icons/dustreduction.png</iconset>
+   </property>
+   <property name="text">
+    <string>dustReduction</string>
+   </property>
+   <property name="toolTip">
+    <string>Dust Reduction</string>
+   </property>
+  </action>
+  <action name="actionBlur">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/blur.png</normaloff>:/icons/icons/blur.png</iconset>
+   </property>
+   <property name="text">
+    <string>blur</string>
+   </property>
+   <property name="toolTip">
+    <string>Blur</string>
+   </property>
+  </action>
+  <action name="actionReinforce">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/reinforce.png</normaloff>:/icons/icons/reinforce.png</iconset>
+   </property>
+   <property name="text">
+    <string>reinforce</string>
+   </property>
+   <property name="toolTip">
+    <string>Reinforce</string>
+   </property>
+  </action>
+  <action name="actionGradient">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/gradient.png</normaloff>:/icons/icons/gradient.png</iconset>
+   </property>
+   <property name="text">
+    <string>gradient</string>
+   </property>
+   <property name="toolTip">
+    <string>Gradient</string>
+   </property>
+  </action>
+  <action name="actionRotate_CCW">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/rotateCCW.png</normaloff>:/icons/icons/rotateCCW.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rotate CCW</string>
+   </property>
+  </action>
+  <action name="actionRotate_CW">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/rotateCW.png</normaloff>:/icons/icons/rotateCW.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rotate CW</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="Icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
