@@ -1,0 +1,26 @@
+PhotoFiltre LX Studio Release Notes:
+
+Version 0.1 alpha 12 Feb 2015
+-----------------------------
+
+Second alpha version based on Qt.
+File save now adds file extension to filename.
+Support for more file types.
+Paint area is now centered inside tab widget and has a dark grey background color.
+File/Close and File/Close All have been implemented.
+Supports two colour selection boxes, each opens a colour selector dialog.
+Support for drawing with primary or secondary colours, depending on which mouse button is pressed.
+Paint brush slider and anti-aliasing checkbox are now on tools palette
+
+Version 0.1 alpha 5 Feb 2015
+----------------------------
+
+First alpha version based on Qt.
+Supports painting using the paint brush tool. You can modify color, width and antialising.
+Supports image loading and saving in png, jpg, and gif formats.
+Color picker is available as a dock widget.
+Implemented two filters using the GraphicsMagick library: Oil Paint and Charcoal Drawing.
+Unimplemented actions are disabled.
+Startup preferences are implemented.
+Window size is saved and restored.
+Has been tested on Linux and Windows platforms.

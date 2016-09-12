@@ -1,3 +1,9 @@
+/*
+
+  About dialog class for the PhotoFiltre LX application.
+
+*/
+
 #ifndef ABOUTDIALOG_H
 #define ABOUTDIALOG_H
 
@@ -17,7 +23,6 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
 
 private:

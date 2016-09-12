@@ -1,3 +1,10 @@
+/*
+
+  Text dialog class for the PhotoFiltre LX application.
+
+*/
+
+
 #include "textdialog.h"
 #include "ui_textdialog.h"
 
@@ -63,7 +70,7 @@ void textDialog::on_checkBoxUnderline_toggled(bool checked)
 
 void textDialog::on_buttonBoxtextDialog_accepted()
 {
-    //Create font layer
+    // Create font layer.
 }
 
 void textDialog::on_buttonBoxtextDialog_rejected()

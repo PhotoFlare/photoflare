@@ -39,41 +39,41 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>6</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>Folders</string>
+     <string>&amp;Folders</string>
     </attribute>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
-     <string>Saving</string>
+     <string>S&amp;aving</string>
     </attribute>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
-     <string>Compression</string>
+     <string>&amp;Compression</string>
     </attribute>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
-     <string>Layout</string>
+     <string>&amp;Layout</string>
     </attribute>
    </widget>
    <widget class="QWidget" name="tab_5">
     <attribute name="title">
-     <string>Default Values</string>
+     <string>&amp;Default Values</string>
     </attribute>
    </widget>
    <widget class="QWidget" name="tab_6">
     <attribute name="title">
-     <string>History</string>
+     <string>&amp;History</string>
     </attribute>
    </widget>
    <widget class="QWidget" name="tab_7">
     <attribute name="title">
-     <string>Startup</string>
+     <string>&amp;Startup</string>
     </attribute>
     <widget class="QCheckBox" name="checkBoxMaximize">
      <property name="geometry">
@@ -86,61 +86,6 @@
      </property>
      <property name="text">
       <string>Maximize on Startup</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBoxManualSize">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>50</y>
-       <width>121</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Manual Size:</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBoxManualWidth">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>50</y>
-       <width>71</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2600</number>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>50</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>x</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBoxManualHeight">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>50</y>
-       <width>71</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>1300</number>
      </property>
     </widget>
    </widget>

@@ -1,6 +1,12 @@
 #ifndef PREFSDIALOG_H
 #define PREFSDIALOG_H
 
+/*
+
+  Preferences dialog class.
+
+*/
+
 #include <QDialog>
 
 namespace Ui {

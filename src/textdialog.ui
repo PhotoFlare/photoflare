@@ -23,11 +23,11 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>Text</string>
+     <string>&amp;Text</string>
     </attribute>
     <widget class="QFontComboBox" name="fontComboBox">
      <property name="geometry">
@@ -201,7 +201,7 @@
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
-     <string>Effects</string>
+     <string>&amp;Effects</string>
     </attribute>
    </widget>
   </widget>

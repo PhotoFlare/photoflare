@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1030</width>
-    <height>673</height>
+    <width>1082</width>
+    <height>645</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -19,7 +31,7 @@
    <string>PhotoFiltre LX Studio</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="Icons.qrc">
+   <iconset resource="../Icons.qrc">
     <normaloff>:/pixmaps/pixmaps/logo-sml.png</normaloff>:/pixmaps/pixmaps/logo-sml.png</iconset>
   </property>
   <property name="styleSheet">
@@ -53,7 +65,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1030</width>
+     <width>1082</width>
      <height>25</height>
     </rect>
    </property>
@@ -65,7 +77,7 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
@@ -86,7 +98,7 @@
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
-     <string>Edit</string>
+     <string>&amp;Edit</string>
     </property>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
@@ -114,18 +126,18 @@
    </widget>
    <widget class="QMenu" name="menuImage">
     <property name="title">
-     <string>Image</string>
+     <string>&amp;Image</string>
     </property>
     <widget class="QMenu" name="menuMode">
      <property name="title">
-      <string>Mode</string>
+      <string>&amp;Mode</string>
      </property>
      <addaction name="actionRGB_Mode"/>
      <addaction name="actionIndexed_Mode"/>
     </widget>
     <widget class="QMenu" name="menuRotate">
      <property name="title">
-      <string>Rotate</string>
+      <string>&amp;Rotate</string>
      </property>
      <addaction name="actionRotate_CCW"/>
      <addaction name="actionRotate_CW"/>
@@ -157,7 +169,7 @@
    </widget>
    <widget class="QMenu" name="menuSelection">
     <property name="title">
-     <string>Selection</string>
+     <string>&amp;Selection</string>
     </property>
     <addaction name="actionShow_selection"/>
     <addaction name="actionSelect_all"/>
@@ -184,7 +196,7 @@
    </widget>
    <widget class="QMenu" name="menuAdjust">
     <property name="title">
-     <string>Adjust</string>
+     <string>&amp;Adjust</string>
     </property>
     <addaction name="actionBright_Contrast"/>
     <addaction name="actionHue_Saturation"/>
@@ -211,7 +223,7 @@
    </widget>
    <widget class="QMenu" name="menuFilter">
     <property name="title">
-     <string>Filter</string>
+     <string>&amp;Filter</string>
     </property>
     <addaction name="actionSoften"/>
     <addaction name="actionSharpen"/>
@@ -230,10 +242,12 @@
     <addaction name="actionEdges"/>
     <addaction name="actionTexture"/>
     <addaction name="actionOther"/>
+    <addaction name="actionOil_Paint"/>
+    <addaction name="actionCharcoal_Drawing"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>View</string>
+     <string>&amp;View</string>
     </property>
     <addaction name="actionFilterbar"/>
     <addaction name="actionToolpalette"/>
@@ -249,7 +263,7 @@
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
-     <string>Tools</string>
+     <string>&amp;Tools</string>
     </property>
     <addaction name="actionAutomate_Batch"/>
     <addaction name="separator"/>
@@ -260,7 +274,7 @@
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
-     <string>?</string>
+     <string>&amp;?</string>
     </property>
     <addaction name="actionInformation"/>
     <addaction name="separator"/>
@@ -285,6 +299,9 @@
      <width>0</width>
      <height>0</height>
     </size>
+   </property>
+   <property name="windowTitle">
+    <string>Main ToolBar</string>
    </property>
    <property name="iconSize">
     <size>
@@ -324,9 +341,9 @@
    <addaction name="actionPreferences"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockWidget_palette">
+  <widget class="QDockWidget" name="dockWidget_Colourbox">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -334,13 +351,66 @@
    <property name="minimumSize">
     <size>
      <width>100</width>
-     <height>242</height>
+     <height>60</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>100</height>
+    </size>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <widget class="ColorBoxWidget" name="colorBoxWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>130</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_palette">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>140</width>
+     <height>400</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>140</width>
-     <height>250</height>
+     <height>400</height>
     </size>
    </property>
    <property name="layoutDirection">
@@ -354,6 +424,9 @@
    </property>
    <property name="allowedAreas">
     <set>Qt::BottomDockWidgetArea|Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string/>
    </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
@@ -385,258 +458,277 @@ QToolButton:checked {
 }
 </string>
     </property>
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="2" column="1">
-      <widget class="QToolButton" name="toolButtonSprayCan">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="horizontalSpacing">
+        <number>6</number>
        </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QToolButton" name="toolButtonPointer">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/Pointer.png</normaloff>:/toolpalette_icons/toolpalette_icons/Pointer.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QToolButton" name="toolButtonPaintBrushAdv">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush-Plus.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush-Plus.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QToolButton" name="toolButtonWand">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QToolButton" name="toolButtonDropper">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/ColourPicker.png</normaloff>:/toolpalette_icons/toolpalette_icons/ColourPicker.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QToolButton" name="toolButtonPaintBucket">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QToolButton" name="toolButtonBlur">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QToolButton" name="toolButtonStamp">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QToolButton" name="toolButtonLine">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QToolButton" name="toolButtonPaintBrush">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icons.qrc">
-         <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
+       <item row="4" column="0">
+        <widget class="QToolButton" name="toolButtonStamp">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QToolButton" name="toolButtonPaintBrushAdv">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush-Plus.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush-Plus.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QToolButton" name="toolButtonPaintBrush">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QToolButton" name="toolButtonDropper">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/ColourPicker.png</normaloff>:/toolpalette_icons/toolpalette_icons/ColourPicker.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QToolButton" name="toolButtonPointer">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Pointer.png</normaloff>:/toolpalette_icons/toolpalette_icons/Pointer.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QToolButton" name="toolButtonBlur">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QToolButton" name="toolButtonSprayCan">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QToolButton" name="toolButtonLine">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QToolButton" name="toolButtonWand">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QToolButton" name="toolButtonPaintBucket">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>Extra ToolBar</string>
    </property>
    <property name="iconSize">
     <size>
@@ -691,7 +783,7 @@ QToolButton:checked {
     </iconset>
    </property>
    <property name="text">
-    <string>New...</string>
+    <string>&amp;New...</string>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -707,7 +799,7 @@ QToolButton:checked {
     </iconset>
    </property>
    <property name="text">
-    <string>Open...</string>
+    <string>&amp;Open...</string>
    </property>
    <property name="iconVisibleInMenu">
     <bool>false</bool>
@@ -720,7 +812,7 @@ QToolButton:checked {
   </action>
   <action name="actionRecent_files">
    <property name="text">
-    <string>Recent files</string>
+    <string>Recent Files</string>
    </property>
   </action>
   <action name="actionSave">
@@ -730,7 +822,7 @@ QToolButton:checked {
     </iconset>
    </property>
    <property name="text">
-    <string>Save</string>
+    <string>&amp;Save</string>
    </property>
    <property name="iconVisibleInMenu">
     <bool>false</bool>
@@ -738,17 +830,17 @@ QToolButton:checked {
   </action>
   <action name="actionSave_As">
    <property name="text">
-    <string>Save As...</string>
+    <string>&amp;Save As...</string>
    </property>
   </action>
   <action name="actionClose">
    <property name="text">
-    <string>Close</string>
+    <string>&amp;Close</string>
    </property>
   </action>
   <action name="actionClose_all">
    <property name="text">
-    <string>Close all</string>
+    <string>Close &amp;All</string>
    </property>
   </action>
   <action name="actionPrint">
@@ -766,17 +858,17 @@ QToolButton:checked {
   </action>
   <action name="actionImport_twain">
    <property name="text">
-    <string>Import twain</string>
+    <string>Import TWAIN</string>
    </property>
   </action>
   <action name="actionImage_properties">
    <property name="text">
-    <string>Image properties</string>
+    <string>Image Properties</string>
    </property>
   </action>
   <action name="actionQuit">
    <property name="text">
-    <string>Quit</string>
+    <string>&amp;Quit</string>
    </property>
   </action>
   <action name="actionUndo">
@@ -826,17 +918,17 @@ QToolButton:checked {
   </action>
   <action name="actionPaste_as_new_image">
    <property name="text">
-    <string>Paste as new image</string>
+    <string>Paste As New Image</string>
    </property>
   </action>
   <action name="actionPaste_special">
    <property name="text">
-    <string>Paste special</string>
+    <string>Paste Special</string>
    </property>
   </action>
   <action name="actionStroke_and_fill">
    <property name="text">
-    <string>Stroke and fill...</string>
+    <string>Stroke and Fill...</string>
    </property>
   </action>
   <action name="actionOptimized_Clipping">
@@ -861,12 +953,12 @@ QToolButton:checked {
   </action>
   <action name="actionDefine_pattern">
    <property name="text">
-    <string>Define pattern</string>
+    <string>Define Pattern</string>
    </property>
   </action>
   <action name="actionFill_with_pattern">
    <property name="text">
-    <string>Fill with pattern</string>
+    <string>Fill With Pattern</string>
    </property>
   </action>
   <action name="actionPurge">
@@ -876,7 +968,7 @@ QToolButton:checked {
   </action>
   <action name="actionFlip_Vertical">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/flipV.png</normaloff>:/icons/icons/flipV.png</iconset>
    </property>
    <property name="text">
@@ -885,7 +977,7 @@ QToolButton:checked {
   </action>
   <action name="actionFlip_Horizontal">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/flipH.png</normaloff>:/icons/icons/flipH.png</iconset>
    </property>
    <property name="text">
@@ -904,7 +996,7 @@ QToolButton:checked {
   </action>
   <action name="actionImage_Size">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/imgsize.png</normaloff>:/icons/icons/imgsize.png</iconset>
    </property>
    <property name="text">
@@ -913,7 +1005,7 @@ QToolButton:checked {
   </action>
   <action name="actionCanvas_Size">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/cansize.png</normaloff>:/icons/icons/cansize.png</iconset>
    </property>
    <property name="text">
@@ -942,36 +1034,36 @@ QToolButton:checked {
   </action>
   <action name="actionOutside_frame">
    <property name="text">
-    <string>Outside frame...</string>
+    <string>Outside Frame...</string>
    </property>
   </action>
   <action name="actionOutside_drop_shadow">
    <property name="text">
-    <string>Outside drop shadow...</string>
+    <string>Outside Drop Shadow...</string>
    </property>
   </action>
   <action name="actionTransparent_colour">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/trans.png</normaloff>:/icons/icons/trans.png</iconset>
    </property>
    <property name="text">
-    <string>Transparent colour...</string>
+    <string>Transparent Colour...</string>
    </property>
   </action>
   <action name="actionAutomatic_transparency">
    <property name="text">
-    <string>Automatic transparency</string>
+    <string>Automatic Transparency</string>
    </property>
   </action>
   <action name="actionTransparency_mask">
    <property name="text">
-    <string>Transparency mask...</string>
+    <string>Transparency Mask...</string>
    </property>
   </action>
   <action name="actionText">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/text.png</normaloff>:/icons/icons/text.png</iconset>
    </property>
    <property name="text">
@@ -985,21 +1077,21 @@ QToolButton:checked {
   </action>
   <action name="actionShow_selection">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/show.png</normaloff>:/icons/icons/show.png</iconset>
    </property>
    <property name="text">
-    <string>Show selection</string>
+    <string>Show Selection</string>
    </property>
   </action>
   <action name="actionSelect_all">
    <property name="text">
-    <string>Select all</string>
+    <string>Select All</string>
    </property>
   </action>
   <action name="actionSet_shape">
    <property name="text">
-    <string>Set shape</string>
+    <string>Set Shape</string>
    </property>
   </action>
   <action name="actionInvert">
@@ -1009,7 +1101,7 @@ QToolButton:checked {
   </action>
   <action name="actionManual_settings">
    <property name="text">
-    <string>Manual settings...</string>
+    <string>Manual Settings...</string>
    </property>
   </action>
   <action name="actionCenter">
@@ -1019,7 +1111,7 @@ QToolButton:checked {
   </action>
   <action name="actionFit_ratio">
    <property name="text">
-    <string>Fit ratio</string>
+    <string>Fit Ratio</string>
    </property>
   </action>
   <action name="actionContract">
@@ -1044,32 +1136,32 @@ QToolButton:checked {
   </action>
   <action name="actionBounding_box">
    <property name="text">
-    <string>Bounding box</string>
+    <string>Bounding Box</string>
    </property>
   </action>
   <action name="actionPaste_and_text_bounding_box">
    <property name="text">
-    <string>Paste and text bounding box</string>
+    <string>Paste and Text Bounding Box</string>
    </property>
   </action>
   <action name="actionCopy_shape">
    <property name="text">
-    <string>Copy shape</string>
+    <string>Copy Shape</string>
    </property>
   </action>
   <action name="actionPaste_shape">
    <property name="text">
-    <string>Paste shape</string>
+    <string>Paste Shape</string>
    </property>
   </action>
   <action name="actionLoad_shape">
    <property name="text">
-    <string>Load shape</string>
+    <string>Load Shape</string>
    </property>
   </action>
   <action name="actionSave_shape">
    <property name="text">
-    <string>Save shape</string>
+    <string>Save Shape</string>
    </property>
   </action>
   <action name="actionBright_Contrast">
@@ -1084,40 +1176,40 @@ QToolButton:checked {
   </action>
   <action name="actionColour_balance">
    <property name="text">
-    <string>Colour balance...</string>
+    <string>Colour Balance...</string>
    </property>
   </action>
   <action name="actionGamma_correct">
    <property name="text">
-    <string>Gamma correct...</string>
+    <string>Gamma Correct...</string>
    </property>
   </action>
   <action name="actionAuto_levels">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/autolevel.png</normaloff>:/icons/icons/autolevel.png</iconset>
    </property>
    <property name="text">
-    <string>Auto levels</string>
+    <string>Auto Levels</string>
    </property>
   </action>
   <action name="actionAuto_contrast">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/autobright.png</normaloff>:/icons/icons/autobright.png</iconset>
    </property>
    <property name="text">
-    <string>Auto contrast</string>
+    <string>Auto Contrast</string>
    </property>
   </action>
   <action name="actionMore_shadows">
    <property name="text">
-    <string>More shadows</string>
+    <string>More Shadows</string>
    </property>
   </action>
   <action name="actionMore_highlights">
    <property name="text">
-    <string>More highlights</string>
+    <string>More Highlights</string>
    </property>
   </action>
   <action name="actionLevels">
@@ -1127,17 +1219,17 @@ QToolButton:checked {
   </action>
   <action name="actionSwap_RGB_channel">
    <property name="text">
-    <string>Swap RGB channel...</string>
+    <string>Swap RGB Channel...</string>
    </property>
   </action>
   <action name="actionReplace_colour">
    <property name="text">
-    <string>Replace colour...</string>
+    <string>Replace Colour...</string>
    </property>
   </action>
   <action name="actionReplace_colour_range">
    <property name="text">
-    <string>Replace colour range...</string>
+    <string>Replace Colour Range...</string>
    </property>
   </action>
   <action name="actionDuotone">
@@ -1162,16 +1254,16 @@ QToolButton:checked {
   </action>
   <action name="actionHue_variation">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/hue.png</normaloff>:/icons/icons/hue.png</iconset>
    </property>
    <property name="text">
-    <string>Hue variation...</string>
+    <string>Hue Variation...</string>
    </property>
   </action>
   <action name="actionSoften">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/soften.png</normaloff>:/icons/icons/soften.png</iconset>
    </property>
    <property name="text">
@@ -1180,7 +1272,7 @@ QToolButton:checked {
   </action>
   <action name="actionSharpen">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/sharpen.png</normaloff>:/icons/icons/sharpen.png</iconset>
    </property>
    <property name="text">
@@ -1209,7 +1301,7 @@ QToolButton:checked {
   </action>
   <action name="actionVisual_effect">
    <property name="text">
-    <string>Visual effect</string>
+    <string>Visual Effect</string>
    </property>
   </action>
   <action name="actionDeform">
@@ -1224,7 +1316,7 @@ QToolButton:checked {
   </action>
   <action name="actionAged_effect">
    <property name="text">
-    <string>Aged effect</string>
+    <string>Aged Effect</string>
    </property>
   </action>
   <action name="actionFrame">
@@ -1264,42 +1356,42 @@ QToolButton:checked {
   </action>
   <action name="actionShow_grid">
    <property name="text">
-    <string>Show grid</string>
+    <string>Show Grid</string>
    </property>
   </action>
   <action name="actionSnap_to_grid">
    <property name="text">
-    <string>Snap to grid</string>
+    <string>Snap To Grid</string>
    </property>
   </action>
   <action name="actionZoom_in">
    <property name="text">
-    <string>Zoom in</string>
+    <string>Zoom In</string>
    </property>
   </action>
   <action name="actionZoom_out">
    <property name="text">
-    <string>Zoom out</string>
+    <string>Zoom Out</string>
    </property>
   </action>
   <action name="actionOriginal_size">
    <property name="text">
-    <string>Original size</string>
+    <string>Original Size</string>
    </property>
   </action>
   <action name="actionAuto_zoom">
    <property name="text">
-    <string>Auto zoom</string>
+    <string>Auto Zoom</string>
    </property>
   </action>
   <action name="actionFull_screen">
    <property name="text">
-    <string>Full screen</string>
+    <string>Full Screen</string>
    </property>
   </action>
   <action name="actionAutomate_Batch">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/batch.png</normaloff>:/icons/icons/batch.png</iconset>
    </property>
    <property name="text">
@@ -1308,21 +1400,21 @@ QToolButton:checked {
   </action>
   <action name="actionSet_wallpaper">
    <property name="text">
-    <string>Set wallpaper</string>
+    <string>Set Wallpaper</string>
    </property>
   </action>
   <action name="actionExport_as_icon">
    <property name="text">
-    <string>Export as icon...</string>
+    <string>Export As Icon...</string>
    </property>
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/pref.png</normaloff>:/icons/icons/pref.png</iconset>
    </property>
    <property name="text">
-    <string>Preferences</string>
+    <string>&amp;Preferences</string>
    </property>
   </action>
   <action name="actionInformation">
@@ -1332,12 +1424,12 @@ QToolButton:checked {
   </action>
   <action name="actionAbout">
    <property name="text">
-    <string>About</string>
+    <string>&amp;About</string>
    </property>
   </action>
   <action name="actionScan">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/scan.png</normaloff>:/icons/icons/scan.png</iconset>
    </property>
    <property name="text">
@@ -1349,7 +1441,7 @@ QToolButton:checked {
   </action>
   <action name="actionRGB_Mode">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/rgb.png</normaloff>:/icons/icons/rgb.png</iconset>
    </property>
    <property name="text">
@@ -1358,7 +1450,7 @@ QToolButton:checked {
   </action>
   <action name="actionIndexed_Mode">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/index.png</normaloff>:/icons/icons/index.png</iconset>
    </property>
    <property name="text">
@@ -1367,7 +1459,7 @@ QToolButton:checked {
   </action>
   <action name="actionBrightminus">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/brightness-.png</normaloff>:/icons/icons/brightness-.png</iconset>
    </property>
    <property name="text">
@@ -1379,7 +1471,7 @@ QToolButton:checked {
   </action>
   <action name="actionBrightplus">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/brightness+.png</normaloff>:/icons/icons/brightness+.png</iconset>
    </property>
    <property name="text">
@@ -1391,7 +1483,7 @@ QToolButton:checked {
   </action>
   <action name="actionContrastminus">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/contrast-.png</normaloff>:/icons/icons/contrast-.png</iconset>
    </property>
    <property name="text">
@@ -1403,7 +1495,7 @@ QToolButton:checked {
   </action>
   <action name="actionContrastplus">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/contrast+.png</normaloff>:/icons/icons/contrast+.png</iconset>
    </property>
    <property name="text">
@@ -1415,7 +1507,7 @@ QToolButton:checked {
   </action>
   <action name="actionSaturationminus">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/saturation-.png</normaloff>:/icons/icons/saturation-.png</iconset>
    </property>
    <property name="text">
@@ -1427,7 +1519,7 @@ QToolButton:checked {
   </action>
   <action name="actionSaturationplus">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/saturation+.png</normaloff>:/icons/icons/saturation+.png</iconset>
    </property>
    <property name="text">
@@ -1439,7 +1531,7 @@ QToolButton:checked {
   </action>
   <action name="actionGammaCorrectminus">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/gammacorrect-.png</normaloff>:/icons/icons/gammacorrect-.png</iconset>
    </property>
    <property name="text">
@@ -1451,7 +1543,7 @@ QToolButton:checked {
   </action>
   <action name="actionGammaCorrectplus">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/gammacorrect+.png</normaloff>:/icons/icons/gammacorrect+.png</iconset>
    </property>
    <property name="text">
@@ -1463,7 +1555,7 @@ QToolButton:checked {
   </action>
   <action name="actionGrayScale">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/grayscale.png</normaloff>:/icons/icons/grayscale.png</iconset>
    </property>
    <property name="text">
@@ -1475,7 +1567,7 @@ QToolButton:checked {
   </action>
   <action name="actionOldPhoto">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/oldphoto.png</normaloff>:/icons/icons/oldphoto.png</iconset>
    </property>
    <property name="text">
@@ -1487,7 +1579,7 @@ QToolButton:checked {
   </action>
   <action name="actionDustReduction">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/dustreduction.png</normaloff>:/icons/icons/dustreduction.png</iconset>
    </property>
    <property name="text">
@@ -1499,7 +1591,7 @@ QToolButton:checked {
   </action>
   <action name="actionBlur">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/blur.png</normaloff>:/icons/icons/blur.png</iconset>
    </property>
    <property name="text">
@@ -1511,7 +1603,7 @@ QToolButton:checked {
   </action>
   <action name="actionReinforce">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/reinforce.png</normaloff>:/icons/icons/reinforce.png</iconset>
    </property>
    <property name="text">
@@ -1523,7 +1615,7 @@ QToolButton:checked {
   </action>
   <action name="actionGradient">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/gradient.png</normaloff>:/icons/icons/gradient.png</iconset>
    </property>
    <property name="text">
@@ -1535,7 +1627,7 @@ QToolButton:checked {
   </action>
   <action name="actionRotate_CCW">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/rotateCCW.png</normaloff>:/icons/icons/rotateCCW.png</iconset>
    </property>
    <property name="text">
@@ -1544,17 +1636,35 @@ QToolButton:checked {
   </action>
   <action name="actionRotate_CW">
    <property name="icon">
-    <iconset resource="Icons.qrc">
+    <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/rotateCW.png</normaloff>:/icons/icons/rotateCW.png</iconset>
    </property>
    <property name="text">
     <string>Rotate CW</string>
    </property>
   </action>
+  <action name="actionOil_Paint">
+   <property name="text">
+    <string>&amp;Oil Paint</string>
+   </property>
+  </action>
+  <action name="actionCharcoal_Drawing">
+   <property name="text">
+    <string>&amp;Charcoal Drawing</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>ColorBoxWidget</class>
+   <extends>QWidget</extends>
+   <header>src/ColorBoxWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
-  <include location="Icons.qrc"/>
+  <include location="../Icons.qrc"/>
  </resources>
  <connections/>
 </ui>

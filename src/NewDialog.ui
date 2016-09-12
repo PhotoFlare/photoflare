@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>newDialog</class>
- <widget class="QDialog" name="newDialog">
+ <class>NewDialog</class>
+ <widget class="QDialog" name="NewDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -59,6 +59,9 @@
    <property name="maximum">
     <number>9999</number>
    </property>
+   <property name="value">
+    <number>800</number>
+   </property>
    <property name="displayIntegerBase">
     <number>10</number>
    </property>
@@ -87,6 +90,9 @@
    </property>
    <property name="maximum">
     <number>9999</number>
+   </property>
+   <property name="value">
+    <number>600</number>
    </property>
   </widget>
   <widget class="QLabel" name="imageRes">
@@ -134,6 +140,24 @@
      <height>27</height>
     </rect>
    </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>100 x 100 pixels</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>640 x 480 pixels</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>800 x 600 pixels</string>
+    </property>
+   </item>
   </widget>
   <widget class="QComboBox" name="imageWHcombo">
    <property name="geometry">
@@ -144,6 +168,21 @@
      <height>27</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>Pixels</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cm</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Inches</string>
+    </property>
+   </item>
   </widget>
   <widget class="QComboBox" name="imageResCombo">
    <property name="geometry">
@@ -154,6 +193,16 @@
      <height>27</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>Pixels/cm</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Pixels/inch</string>
+    </property>
+   </item>
   </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
@@ -281,7 +330,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>newDialog</receiver>
+   <receiver>NewDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -297,7 +346,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>newDialog</receiver>
+   <receiver>NewDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
