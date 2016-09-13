@@ -225,15 +225,28 @@
     <property name="title">
      <string>&amp;Filter</string>
     </property>
+    <widget class="QMenu" name="menuDeform">
+     <property name="title">
+      <string>Deform</string>
+     </property>
+     <addaction name="actionSwirl"/>
+    </widget>
+    <widget class="QMenu" name="menuArtistic">
+     <property name="title">
+      <string>Artistic</string>
+     </property>
+     <addaction name="actionOil_Paint"/>
+     <addaction name="actionCharcoal_Drawing"/>
+    </widget>
     <addaction name="actionSoften"/>
     <addaction name="actionSharpen"/>
     <addaction name="actionNoise"/>
     <addaction name="actionRelief"/>
     <addaction name="actionColour"/>
     <addaction name="separator"/>
-    <addaction name="actionArtistic"/>
+    <addaction name="menuArtistic"/>
     <addaction name="actionVisual_effect"/>
-    <addaction name="actionDeform"/>
+    <addaction name="menuDeform"/>
     <addaction name="actionStylize"/>
     <addaction name="actionAged_effect"/>
     <addaction name="separator"/>
@@ -242,8 +255,6 @@
     <addaction name="actionEdges"/>
     <addaction name="actionTexture"/>
     <addaction name="actionOther"/>
-    <addaction name="actionOil_Paint"/>
-    <addaction name="actionCharcoal_Drawing"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -1294,19 +1305,9 @@ QToolButton:checked {
     <string>Colour</string>
    </property>
   </action>
-  <action name="actionArtistic">
-   <property name="text">
-    <string>Artistic</string>
-   </property>
-  </action>
   <action name="actionVisual_effect">
    <property name="text">
     <string>Visual Effect</string>
-   </property>
-  </action>
-  <action name="actionDeform">
-   <property name="text">
-    <string>Deform</string>
    </property>
   </action>
   <action name="actionStylize">
@@ -1651,6 +1652,11 @@ QToolButton:checked {
   <action name="actionCharcoal_Drawing">
    <property name="text">
     <string>&amp;Charcoal Drawing</string>
+   </property>
+  </action>
+  <action name="actionSwirl">
+   <property name="text">
+    <string>Swirl</string>
    </property>
   </action>
  </widget>

@@ -53,6 +53,10 @@ private slots:
     void showError(const QString &message);
     void onPaintBrushSettingsChanged();
 
+    void on_actionSwirl_triggered();
+
+    void on_actionGrayScale_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
 

@@ -399,6 +399,22 @@ void MainWindow::on_actionCharcoal_Drawing_triggered()
     }
 }
 
+void MainWindow::on_actionSwirl_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->swirl(widget->image()));
+    }
+}
+
+void MainWindow::on_actionGrayScale_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->grayscale(widget->image()));
+    }
+}
+
 void MainWindow::on_actionClose_triggered()
 {
     int index = ui->tabWidget->currentIndex();
@@ -429,7 +445,7 @@ void MainWindow::disableUnimplementedActions()
 {
     ui->actionAged_effect->setEnabled(false);
     ui->actionAntialiasing->setEnabled(false);
-    ui->actionArtistic->setEnabled(false);
+    //ui->actionArtistic->setEnabled(false);
     ui->actionAuto_contrast->setEnabled(false);
     ui->actionAuto_levels->setEnabled(false);
     ui->actionAuto_zoom->setEnabled(false);
@@ -455,7 +471,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionCrop->setEnabled(false);
     ui->actionCut->setEnabled(false);
     ui->actionDefine_pattern->setEnabled(false);
-    ui->actionDeform->setEnabled(false);
+    //ui->actionDeform->setEnabled(false);
     ui->actionDithering->setEnabled(false);
     ui->actionDuotone->setEnabled(false);
     ui->actionDuplicate->setEnabled(false);
@@ -477,7 +493,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionGammaCorrectplus->setEnabled(false);
     ui->actionGamma_correct->setEnabled(false);
     ui->actionGradient->setEnabled(false);
-    ui->actionGrayScale->setEnabled(false);
+    //ui->actionGrayScale->setEnabled(false);
     ui->actionHue_Saturation->setEnabled(false);
     ui->actionHue_variation->setEnabled(false);
     ui->actionImage_Size->setEnabled(false);

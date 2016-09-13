@@ -94,6 +94,32 @@ QImage FilterManager::charcoal(const QImage &image)
     return modifiedImage.convertToFormat(QImage::Format_RGB32);
 }
 
+QImage FilterManager::swirl(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->swirl(90);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    // NOTE: Conversion is needed because Magick++ API changes the image's format
+    // after applying filter.
+    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+}
+
+QImage FilterManager::grayscale(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->type(Magick::GrayscaleType);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    // NOTE: Conversion is needed because Magick++ API changes the image's format
+    // after applying filter.
+    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+}
+
 FilterManager::FilterManager()
     : d(new FilterManagerPrivate)
 {

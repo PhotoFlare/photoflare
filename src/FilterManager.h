@@ -22,6 +22,8 @@ public:
 
     QImage oilPaint(const QImage &image);
     QImage charcoal(const QImage &image);
+    QImage swirl(const QImage &image);
+    QImage grayscale(const QImage &image);
 
 private:
     FilterManager();
