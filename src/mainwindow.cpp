@@ -44,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
     // Disable actions that are not yet implemented.
-    //disableUnimplementedActions();
+    disableUnimplementedActions();
 
     QComboBox* zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
@@ -141,6 +141,9 @@ void MainWindow::on_actionSave_As_triggered()
                                                     QString(), filters.join(";;"), &defaultFilter);
 
 
+    if (fileName.isEmpty())
+        return;
+
     // WORKAROUND: Add the extension to the file name manually.
     QString fileNameSuffix = QFileInfo(fileName).suffix();
 
@@ -219,7 +222,7 @@ void MainWindow::addTab(PaintWidget *widget)
     connect(widget, &PaintWidget::contentChanged, [closeButton, tabIndex, this] () {
         if (!closeButton->isWindowModified()) {
             closeButton->setWindowModified(true);
-            QString modifiedText = ui->tabWidget->tabText(tabIndex) + QStringLiteral(" *");
+            QString modifiedText = ui->tabWidget->tabText(tabIndex) + " *";
             ui->tabWidget->setTabText(tabIndex, modifiedText);
         }
     });
@@ -232,7 +235,7 @@ void MainWindow::saveContent(int tabIndex)
     if (tabText == UNTITLED_TAB_NAME || tabText == MODIFIED_UNTITLED_TAB_NAME) {
         return on_actionSave_As_triggered();
     } else {
-        tabText.remove(QStringLiteral(" *"));
+        tabText.remove(" *");
         if (saveImage(tabIndex, tabText)) {
             ui->tabWidget->tabBar()->tabButton(tabIndex, QTabBar::RightSide)->setWindowModified(false);
             ui->tabWidget->setTabText(tabIndex, tabText);
@@ -391,7 +394,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
-QImage& MainWindow::getCurrentWidget()
+QImage MainWindow::getCurrentTabImage()
 {
     PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
     return widget->image();
@@ -487,7 +490,7 @@ void MainWindow::onPaintBrushSettingsChanged()
 
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
 {
-    const QImage& image = this->getCurrentWidget();
+    const QImage& image = this->getCurrentTabImage();
     const QColor& color = image.pixel(pos);
 
     ui->colorBoxWidget->setPrimaryColor(color);
@@ -495,7 +498,7 @@ void MainWindow::onPickPrimaryColor(const QPoint& pos)
 
 void MainWindow::onPickSecondaryColor(const QPoint& pos)
 {
-    const QImage& image = this->getCurrentWidget();
+    const QImage& image = this->getCurrentTabImage();
     const QColor& color = image.pixel(pos);
 
     ui->colorBoxWidget->setSecondaryColor(color);

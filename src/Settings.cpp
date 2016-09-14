@@ -13,8 +13,8 @@ class SettingsPrivate
 public:
     SettingsPrivate()
     {
-        maximizeWindow = settings.value(QStringLiteral("MaximizeOnStartup")).toBool();
-        geometry = settings.value(QStringLiteral("CustomWindowGeometry")).toRect();
+        maximizeWindow = settings.value("MaximizeOnStartup").toBool();
+        geometry = settings.value("CustomWindowGeometry").toRect();
     }
 
     ~SettingsPrivate()
@@ -58,7 +58,7 @@ Settings *Settings::instance()
 void Settings::setMaximizeWindow(bool maximize)
 {
     d->maximizeWindow = maximize;
-    d->setValue(QStringLiteral("MaximizeOnStartup"), maximize);
+    d->setValue("MaximizeOnStartup", maximize);
 }
 
 bool Settings::isMaximizeWindow() const
@@ -69,7 +69,7 @@ bool Settings::isMaximizeWindow() const
 void Settings::setCustomWindowGeometry(const QRect &rect)
 {
     d->geometry = rect;
-    d->setValue(QStringLiteral("CustomWindowGeometry"), rect);
+    d->setValue("CustomWindowGeometry", rect);
 }
 
 QRect Settings::customWindowGeometry() const

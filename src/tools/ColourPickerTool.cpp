@@ -3,7 +3,6 @@
 #include "../PaintWidget.h"
 
 #include <QPainter>
-#include <QDebug>
 
 class ColourPickerToolPrivate
 {
@@ -36,7 +35,6 @@ void ColourPickerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     d->lastPos = pos;
     d->mouseButton = button;
-    qDebug() << "Pos " << pos.x() << " " << pos.y();
 
     switch(button)
     {

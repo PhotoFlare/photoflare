@@ -30,7 +30,7 @@ public:
     void setPaintTool(Tool *tool);
 
     void setImage(const QImage &image);
-    QImage& image() const;
+    QImage image() const;
 
     QString imagePath() const;
 

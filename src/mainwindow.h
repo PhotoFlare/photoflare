@@ -24,7 +24,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QImage& getCurrentWidget();
+    QImage getCurrentTabImage();
 
 private slots:
     void on_actionAbout_triggered();

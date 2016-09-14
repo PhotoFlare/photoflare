@@ -119,7 +119,7 @@ void PaintWidget::setImage(const QImage &image)
     this->contentChanged();
 }
 
-QImage& PaintWidget::image() const
+QImage PaintWidget::image() const
 {
     return d->image;
 }

@@ -1665,7 +1665,7 @@ QToolButton:checked {
   <customwidget>
    <class>ColorBoxWidget</class>
    <extends>QWidget</extends>
-   <header>src/ColorBoxWidget.h</header>
+   <header>ColorBoxWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
