@@ -20,6 +20,8 @@
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/ColourPickerTool.h"
+#include "./tools/PaintBucketTool.h"
+
 #include "PaintBrushSettingsWidget.h"
 #include "ToolManager.h"
 #include "Settings.h"
@@ -27,6 +29,7 @@
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define COLOUR_PICKER ToolManager::instance()->colourPicker()
+#define PAINT_BUCKET ToolManager::instance()->paintBucket()
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
@@ -44,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
     // Disable actions that are not yet implemented.
-    disableUnimplementedActions();
+    //disableUnimplementedActions();
 
     QComboBox* zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
@@ -76,6 +79,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
     QObject::connect(COLOUR_PICKER, SIGNAL(pickSecondaryColor(const QPoint&)), this, SLOT(onPickSecondaryColor(const QPoint&)));
+
+    QObject::connect(PAINT_BUCKET, SIGNAL(floodFillPrimaryColor(const QPoint&)), this, SLOT(onFloodFillPrimaryColor(const QPoint&)));
+    QObject::connect(PAINT_BUCKET, SIGNAL(floodFillSecondaryColor(const QPoint&)), this, SLOT(onFloodFillSecondaryColor(const QPoint&)));
 }
 
 MainWindow::~MainWindow()
@@ -336,6 +342,9 @@ void MainWindow::on_toolButtonPaintBucket_clicked()
     clearToolpalette();
     m_toolSelected = "paintBucket";
     ui->toolButtonPaintBucket->setChecked(true);
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget)
+        widget->setPaintTool(PAINT_BUCKET);
 }
 
 void MainWindow::on_toolButtonSprayCan_clicked()
@@ -486,6 +495,7 @@ void MainWindow::onPaintBrushSettingsChanged()
 {
     PAINT_BRUSH->setWidth(m_pbSettingsWidget->brushWidth());
     PAINT_BRUSH->setAntialiasing(m_pbSettingsWidget->antialiasing());
+    PAINT_BRUSH->setCapStyle(m_pbSettingsWidget->brushCapStyle());
 }
 
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
@@ -502,6 +512,26 @@ void MainWindow::onPickSecondaryColor(const QPoint& pos)
     const QColor& color = image.pixel(pos);
 
     ui->colorBoxWidget->setSecondaryColor(color);
+}
+
+void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
+{
+    const QImage& image = this->getCurrentTabImage();
+    const QColor& color = ui->colorBoxWidget->primaryColor();
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
+    }
+}
+
+void MainWindow::onFloodFillSecondaryColor(const QPoint& pos)
+{
+    const QImage& image = this->getCurrentTabImage();
+    const QColor& color = ui->colorBoxWidget->secondaryColor();
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
+    }
 }
 
 // This method disables actions that are not yet implemented.

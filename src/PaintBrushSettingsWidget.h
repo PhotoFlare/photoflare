@@ -27,8 +27,15 @@ public:
     void setBrushWidth(int width);
     int brushWidth() const;
 
+    Qt::PenCapStyle brushCapStyle();
+
 signals:
     void settingsChanged();
+
+private slots:
+    void on_buttonRoundCap_clicked();
+
+    void on_buttonSquareCap_clicked();
 
 private:
     void setLabelRadiusValue(int value);

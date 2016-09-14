@@ -23,6 +23,8 @@ public:
     void setAntialiasing(bool value);
     bool antialiasing() const;
 
+    void setCapStyle(Qt::PenCapStyle capStyle);
+
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;

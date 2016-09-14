@@ -2,8 +2,6 @@
 #include "../mainwindow.h"
 #include "../PaintWidget.h"
 
-#include <QPainter>
-
 class ColourPickerToolPrivate
 {
 public:

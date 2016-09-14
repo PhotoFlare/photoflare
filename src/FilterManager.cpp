@@ -11,6 +11,7 @@
 #include <QApplication>
 #include <Magick++.h>
 #include <QBuffer>
+#include <QColor>
 
 class FilterManagerPrivate
 {
@@ -33,7 +34,8 @@ public:
         QBuffer buffer(&byteArray);
         buffer.open(QIODevice::WriteOnly);
 
-        if (!image.save(&buffer, "JPG"))
+        //Use raw format instead of JPG to avoid image format conversion and quality loss
+        if (!image.save(&buffer, "BMP"))
             return 0;
 
         Magick::Blob blob(byteArray.data(), byteArray.length());
@@ -76,9 +78,7 @@ QImage FilterManager::oilPaint(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    // NOTE: Conversion is needed because Magick++ API changes the image's format
-    // after applying filter.
-    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+    return modifiedImage;
 }
 
 QImage FilterManager::charcoal(const QImage &image)
@@ -89,9 +89,7 @@ QImage FilterManager::charcoal(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    // NOTE: Conversion is needed because Magick++ API changes the image's format
-    // after applying filter.
-    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+    return modifiedImage;
 }
 
 QImage FilterManager::swirl(const QImage &image)
@@ -102,9 +100,7 @@ QImage FilterManager::swirl(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    // NOTE: Conversion is needed because Magick++ API changes the image's format
-    // after applying filter.
-    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+    return modifiedImage;
 }
 
 QImage FilterManager::grayscale(const QImage &image)
@@ -115,9 +111,7 @@ QImage FilterManager::grayscale(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    // NOTE: Conversion is needed because Magick++ API changes the image's format
-    // after applying filter.
-    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+    return modifiedImage;
 }
 
 QImage FilterManager::flipHorz(const QImage &image)
@@ -128,9 +122,7 @@ QImage FilterManager::flipHorz(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    // NOTE: Conversion is needed because Magick++ API changes the image's format
-    // after applying filter.
-    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+    return modifiedImage;
 }
 
 QImage FilterManager::flipVert(const QImage &image)
@@ -141,9 +133,7 @@ QImage FilterManager::flipVert(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    // NOTE: Conversion is needed because Magick++ API changes the image's format
-    // after applying filter.
-    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+    return modifiedImage;
 }
 
 QImage FilterManager::rotateCCW(const QImage &image)
@@ -154,9 +144,7 @@ QImage FilterManager::rotateCCW(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    // NOTE: Conversion is needed because Magick++ API changes the image's format
-    // after applying filter.
-    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+    return modifiedImage;
 }
 
 QImage FilterManager::rotateCW(const QImage &image)
@@ -167,9 +155,26 @@ QImage FilterManager::rotateCW(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    // NOTE: Conversion is needed because Magick++ API changes the image's format
-    // after applying filter.
-    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+    return modifiedImage;
+}
+
+QImage FilterManager::floodFill(const QImage &image, const QPoint &pos, const QColor &color)
+{
+    //RAII - magickImage will be deleted automatically after func return
+    QScopedPointer<Magick::Image> magickImage( d->fromQtImage(image) );
+
+    //Workaround to make it work on black color. May be it could be done more gracefully
+    bool changeStartColor = (QColor(image.pixel(pos)) == QColor("black")) ? true : false;
+
+    if(changeStartColor)
+        magickImage->opaque(Magick::ColorRGB(0, 0, 0), Magick::ColorRGB(0.01f, 0, 0));
+
+    magickImage->floodFillColor(pos.x(), pos.y(), Magick::ColorRGB(color.redF(), color.greenF(), color.blueF()));
+
+    if(changeStartColor)
+        magickImage->opaque(Magick::ColorRGB(0.01f, 0, 0), Magick::ColorRGB(0, 0, 0));
+
+    return d->toQtImage(magickImage.data());
 }
 
 FilterManager::FilterManager()

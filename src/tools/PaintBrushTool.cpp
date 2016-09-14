@@ -76,6 +76,12 @@ bool PaintBrushTool::antialiasing() const
     return d->antialiasing;
 }
 
+void PaintBrushTool::setCapStyle(Qt::PenCapStyle capStyle)
+{
+    d->primaryPen.setCapStyle(capStyle);
+    d->secondaryPen.setCapStyle(capStyle);
+}
+
 void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     Q_UNUSED(button);

@@ -6,11 +6,16 @@ On the Mac OS platform, depending on the version of OS X being used,
 you may see errors at run time. This is a known issue with Qt.
 See: https://bugreports.qt.io/browse/QTBUG-43248
 
+Version 0.2 alpha 05 Mar 2015
+-----------------------------
+
+Added buttons for circle and square brushes.
+
 Version 0.2 alpha 03 Mar 2015
 -----------------------------
 
 Third alpha version based on Qt.
-Added instructions on how to build ImageMagick on Windows and Mac OS.
+Added instructions on how to build GraphicsMagick on Windows and Mac OS.
 Made some fixes for file save under Windows.
 Updated project file with sample settings for Windows and Mac platforms.
 

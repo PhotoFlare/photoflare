@@ -6,21 +6,36 @@ TARGET = PhotoFiltreLX
 TEMPLATE = app
 CONFIG += c++11
 
-# Adjust this for the path to the header files and library for GraphicsMagick on your system.
+# This path is used inside ui_mainwindow.h in order to find ColorBoxWidget.h
+INCLUDEPATH += ./src
+
+# Project settings for Windows. Adjust the paths as needed on your system.
 win32 {
-    INCLUDEPATH += C:/Program Files (x86)/ImageSoftware/Magick++/lib/Magick.h
-    LIBS += -L/usr/lib -lGraphicsMagick++
+    INCLUDEPATH += C:/ImageMagick-6.9.0/Magick++/lib C:/ImageMagick-6.9.0
+    LIBS += -LC:/ImageMagick-6.9.0/VisualMagick/lib -lCORE_DB_Magick++_
 }
+
+# Project settings for Linux. Adjust the paths as needed on your system.
 linux {
     INCLUDEPATH += /usr/include/GraphicsMagick
     LIBS += -L/usr/lib -lGraphicsMagick++
 }
+
+# Project settings for Mac OS. Adjust the paths as needed on your system.
 macx {
-    INCLUDEPATH += /usr/include/GraphicsMagick
-    LIBS += -L/usr/lib -lGraphicsMagick++
+  INCLUDEPATH += /usr/local/graphicsmagick/include/GraphicsMagick
+  LIBS += -L$$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/ -lGraphicsMagick++
+  LIBS += -L$$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/ -lGraphicsMagick
+  LIBS += -L$$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/ -lGraphicsMagickWand
+  INCLUDEPATH += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/include
+  DEPENDPATH += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/include
+  PRE_TARGETDEPS += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/libGraphicsMagick++.a
+  PRE_TARGETDEPS += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/libGraphicsMagick.a
+  PRE_TARGETDEPS += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/libGraphicsMagickWand.a
+  LIBS += -lbz2 -lxml2 -lz -lm
 }
 
-SOURCES += src/main.cpp\
+SOURCES += src/main.cpp \
     src/mainwindow.cpp \
     src/aboutdialog.cpp \
     src/textdialog.cpp \
@@ -34,7 +49,8 @@ SOURCES += src/main.cpp\
     src/ToolManager.cpp \
     src/PaintBrushSettingsWidget.cpp \
     src/ColorBoxWidget.cpp \
-    src/tools/ColourPickerTool.cpp
+    src/tools/ColourPickerTool.cpp \
+    src/tools/PaintBucketTool.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -49,7 +65,8 @@ HEADERS += src/mainwindow.h \
     src/ToolManager.h \
     src/PaintBrushSettingsWidget.h \
     src/ColorBoxWidget.h \
-    src/tools/ColourPickerTool.h
+    src/tools/ColourPickerTool.h \
+    src/tools/PaintBucketTool.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \

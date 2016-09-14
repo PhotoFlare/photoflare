@@ -29,6 +29,8 @@ public:
     QImage rotateCCW(const QImage &image);
     QImage rotateCW(const QImage &image);
 
+    QImage floodFill(const QImage &image, const QPoint &pos, const QColor &color);
+
 private:
     FilterManager();
     FilterManager(const FilterManager &);

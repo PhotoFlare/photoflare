@@ -52,4 +52,8 @@
         <file>icons/text.png</file>
         <file>icons/trans.png</file>
     </qresource>
+    <qresource prefix="/brushes">
+        <file>brushes/circle.png</file>
+        <file>brushes/square.png</file>
+    </qresource>
 </RCC>

@@ -56,6 +56,8 @@ private slots:
     void onPaintBrushSettingsChanged();
     void onPickPrimaryColor(const QPoint&);
     void onPickSecondaryColor(const QPoint&);
+    void onFloodFillPrimaryColor(const QPoint&);
+    void onFloodFillSecondaryColor(const QPoint&);
 
     void on_actionSwirl_triggered();
 
