@@ -24,6 +24,10 @@ public:
     QImage charcoal(const QImage &image);
     QImage swirl(const QImage &image);
     QImage grayscale(const QImage &image);
+    QImage flipHorz(const QImage &image);
+    QImage flipVert(const QImage &image);
+    QImage rotateCCW(const QImage &image);
+    QImage rotateCW(const QImage &image);
 
 private:
     FilterManager();

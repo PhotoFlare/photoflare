@@ -383,6 +383,46 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
+void MainWindow::on_actionGrayScale_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->grayscale(widget->image()));
+    }
+}
+
+void MainWindow::on_actionFlip_Horizontal_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->flipHorz(widget->image()));
+    }
+}
+
+void MainWindow::on_actionFlip_Vertical_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->flipVert(widget->image()));
+    }
+}
+
+void MainWindow::on_actionRotate_CCW_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->rotateCCW(widget->image()));
+    }
+}
+
+void MainWindow::on_actionRotate_CW_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setImage(FilterManager::instance()->rotateCW(widget->image()));
+    }
+}
+
 void MainWindow::on_actionOil_Paint_triggered()
 {
     PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
@@ -404,14 +444,6 @@ void MainWindow::on_actionSwirl_triggered()
     PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
     if (widget) {
         widget->setImage(FilterManager::instance()->swirl(widget->image()));
-    }
-}
-
-void MainWindow::on_actionGrayScale_triggered()
-{
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
-    if (widget) {
-        widget->setImage(FilterManager::instance()->grayscale(widget->image()));
     }
 }
 
@@ -485,8 +517,8 @@ void MainWindow::disableUnimplementedActions()
     ui->actionFit_Image->setEnabled(false);
     ui->actionFit_ratio->setEnabled(false);
     ui->actionFlatten->setEnabled(false);
-    ui->actionFlip_Horizontal->setEnabled(false);
-    ui->actionFlip_Vertical->setEnabled(false);
+    //ui->actionFlip_Horizontal->setEnabled(false);
+    //ui->actionFlip_Vertical->setEnabled(false);
     ui->actionFrame->setEnabled(false);
     ui->actionFull_screen->setEnabled(false);
     ui->actionGammaCorrectminus->setEnabled(false);
@@ -533,8 +565,8 @@ void MainWindow::disableUnimplementedActions()
     ui->actionReplace_colour->setEnabled(false);
     ui->actionReplace_colour_range->setEnabled(false);
     ui->actionRevert->setEnabled(false);
-    ui->actionRotate_CCW->setEnabled(false);
-    ui->actionRotate_CW->setEnabled(false);
+    //ui->actionRotate_CCW->setEnabled(false);
+    //ui->actionRotate_CW->setEnabled(false);
     ui->actionSaturationminus->setEnabled(false);
     ui->actionSaturationplus->setEnabled(false);
     ui->actionSave_shape->setEnabled(false);

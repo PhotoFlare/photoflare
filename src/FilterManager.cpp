@@ -120,6 +120,58 @@ QImage FilterManager::grayscale(const QImage &image)
     return modifiedImage.convertToFormat(QImage::Format_RGB32);
 }
 
+QImage FilterManager::flipHorz(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->flop();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    // NOTE: Conversion is needed because Magick++ API changes the image's format
+    // after applying filter.
+    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+}
+
+QImage FilterManager::flipVert(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->flip();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    // NOTE: Conversion is needed because Magick++ API changes the image's format
+    // after applying filter.
+    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+}
+
+QImage FilterManager::rotateCCW(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->rotate(270);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    // NOTE: Conversion is needed because Magick++ API changes the image's format
+    // after applying filter.
+    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+}
+
+QImage FilterManager::rotateCW(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->rotate(90);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    // NOTE: Conversion is needed because Magick++ API changes the image's format
+    // after applying filter.
+    return modifiedImage.convertToFormat(QImage::Format_RGB32);
+}
+
 FilterManager::FilterManager()
     : d(new FilterManagerPrivate)
 {

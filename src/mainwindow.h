@@ -57,6 +57,14 @@ private slots:
 
     void on_actionGrayScale_triggered();
 
+    void on_actionFlip_Vertical_triggered();
+
+    void on_actionFlip_Horizontal_triggered();
+
+    void on_actionRotate_CCW_triggered();
+
+    void on_actionRotate_CW_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
 
