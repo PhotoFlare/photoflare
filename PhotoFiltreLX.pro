@@ -33,7 +33,8 @@ SOURCES += src/main.cpp\
     src/FilterManager.cpp \
     src/ToolManager.cpp \
     src/PaintBrushSettingsWidget.cpp \
-    src/ColorBoxWidget.cpp
+    src/ColorBoxWidget.cpp \
+    src/tools/ColourPickerTool.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -47,7 +48,8 @@ HEADERS += src/mainwindow.h \
     src/FilterManager.h \
     src/ToolManager.h \
     src/PaintBrushSettingsWidget.h \
-    src/ColorBoxWidget.h
+    src/ColorBoxWidget.h \
+    src/tools/ColourPickerTool.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \

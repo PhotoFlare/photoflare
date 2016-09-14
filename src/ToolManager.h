@@ -10,6 +10,7 @@
 
 #include <QObject>
 
+class ColourPickerTool;
 class PaintBrushTool;
 class ToolManagerPrivate;
 
@@ -20,6 +21,7 @@ public:
     static ToolManager* instance();
     ~ToolManager();
 
+    ColourPickerTool* colourPicker() const;
     PaintBrushTool* paintBrush() const;
 
 private:

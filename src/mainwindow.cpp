@@ -19,12 +19,14 @@
 #include <QMouseEvent>
 
 #include "./tools/PaintBrushTool.h"
+#include "./tools/ColourPickerTool.h"
 #include "PaintBrushSettingsWidget.h"
 #include "ToolManager.h"
 #include "Settings.h"
 #include "FilterManager.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
+#define COLOUR_PICKER ToolManager::instance()->colourPicker()
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
@@ -42,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
     // Disable actions that are not yet implemented.
-    disableUnimplementedActions();
+    //disableUnimplementedActions();
 
     QComboBox* zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
@@ -304,6 +306,9 @@ void MainWindow::on_toolButtonDropper_clicked()
     clearToolpalette();
     m_toolSelected = "dropper";
     ui->toolButtonDropper->setChecked(true);
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget)
+        widget->setPaintTool(COLOUR_PICKER);
 }
 
 void MainWindow::on_toolButtonWand_clicked()
@@ -381,6 +386,12 @@ void MainWindow::closeEvent(QCloseEvent *event)
     } else {
         event->ignore();
     }
+}
+
+PaintWidget* MainWindow::getCurrentWidget()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    return widget;
 }
 
 void MainWindow::on_actionGrayScale_triggered()
