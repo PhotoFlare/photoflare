@@ -13,7 +13,6 @@ public:
     }
     ~ColourPickerToolPrivate()
     {
-
     }
 
     QPoint lastPos;
@@ -22,7 +21,7 @@ public:
 
 ColourPickerTool::ColourPickerTool(QObject *parent)
     : Tool(parent)
-  , d(new ColourPickerToolPrivate)
+    , d(new ColourPickerToolPrivate)
 {
 }
 
@@ -37,8 +36,17 @@ void ColourPickerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     d->lastPos = pos;
     d->mouseButton = button;
-    qDebug() << "Hello world." << pos.x() << " " << pos.y();
+    qDebug() << "Pos " << pos.x() << " " << pos.y();
 
-    PaintWidget *currentWidget = main->getCurrentWidget();
-
+    switch(button)
+    {
+        case Qt::LeftButton:
+            emit pickPrimaryColor(d->lastPos);
+            break;
+        case Qt::RightButton:
+            emit pickSecondaryColor(d->lastPos);
+            break;
+        default:
+            break;
+    }
 }

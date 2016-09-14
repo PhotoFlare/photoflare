@@ -73,6 +73,9 @@ MainWindow::MainWindow(QWidget *parent) :
         if (geometry.isValid())
             this->setGeometry(geometry);
     }
+
+    QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
+    QObject::connect(COLOUR_PICKER, SIGNAL(pickSecondaryColor(const QPoint&)), this, SLOT(onPickSecondaryColor(const QPoint&)));
 }
 
 MainWindow::~MainWindow()
@@ -388,10 +391,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
-PaintWidget* MainWindow::getCurrentWidget()
+QImage& MainWindow::getCurrentWidget()
 {
     PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
-    return widget;
+    return widget->image();
 }
 
 void MainWindow::on_actionGrayScale_triggered()
@@ -480,6 +483,22 @@ void MainWindow::onPaintBrushSettingsChanged()
 {
     PAINT_BRUSH->setWidth(m_pbSettingsWidget->brushWidth());
     PAINT_BRUSH->setAntialiasing(m_pbSettingsWidget->antialiasing());
+}
+
+void MainWindow::onPickPrimaryColor(const QPoint& pos)
+{
+    const QImage& image = this->getCurrentWidget();
+    const QColor& color = image.pixel(pos);
+
+    ui->colorBoxWidget->setPrimaryColor(color);
+}
+
+void MainWindow::onPickSecondaryColor(const QPoint& pos)
+{
+    const QImage& image = this->getCurrentWidget();
+    const QColor& color = image.pixel(pos);
+
+    ui->colorBoxWidget->setSecondaryColor(color);
 }
 
 // This method disables actions that are not yet implemented.

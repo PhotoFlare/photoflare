@@ -38,6 +38,18 @@ QColor ColorBoxWidget::secondaryColor() const
     return getColorFromLabel(ui->secondaryColorLabel);
 }
 
+void ColorBoxWidget::setPrimaryColor(const QColor &color)
+{
+    setColor(color, ui->primaryColorLabel);
+    emit primaryColorChanged(color);
+}
+
+void ColorBoxWidget::setSecondaryColor(const QColor &color)
+{
+    setColor(color, ui->secondaryColorLabel);
+    emit secondaryColorChanged(color);
+}
+
 bool ColorBoxWidget::eventFilter(QObject *obj, QEvent *event)
 {
     if (event->type() == QEvent::MouseButtonRelease) {

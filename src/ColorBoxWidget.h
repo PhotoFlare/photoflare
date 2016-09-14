@@ -24,6 +24,9 @@ public:
     QColor primaryColor() const;
     QColor secondaryColor() const;
 
+    void setPrimaryColor(const QColor &color);
+    void setSecondaryColor(const QColor &color);
+
     bool eventFilter(QObject *obj, QEvent *event) override;
 
 signals:

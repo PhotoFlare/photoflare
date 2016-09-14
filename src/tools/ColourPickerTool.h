@@ -8,20 +8,19 @@ class MainWindow;
 
 class ColourPickerTool : public Tool
 {
+    Q_OBJECT
 public:
-    ColourPickerTool(QObject *parent = 0);
-    ~ColourPickerTool();
+    explicit ColourPickerTool(QObject *parent = 0);
+    virtual ~ColourPickerTool();
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
 
 signals:
-
-public slots:
+    void pickPrimaryColor(const QPoint&);
+    void pickSecondaryColor(const QPoint&);
 
 private:
     ColourPickerToolPrivate *d;
-    MainWindow *main;
-
 };
 
 #endif // COLOURPICKERTOOL_H

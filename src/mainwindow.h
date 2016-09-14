@@ -24,7 +24,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    PaintWidget* getCurrentWidget();
+    QImage& getCurrentWidget();
 
 private slots:
     void on_actionAbout_triggered();
@@ -54,6 +54,8 @@ private slots:
 
     void showError(const QString &message);
     void onPaintBrushSettingsChanged();
+    void onPickPrimaryColor(const QPoint&);
+    void onPickSecondaryColor(const QPoint&);
 
     void on_actionSwirl_triggered();
 
