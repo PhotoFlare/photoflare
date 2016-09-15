@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QPoint>
+#include <QImage>
 
 class QPaintDevice;
 
@@ -31,6 +32,8 @@ signals:
      * This signal must be emitted after the tool completes any paint action
      */
     void painted(QPaintDevice *paintDevice);
+
+    void overlaid(const QImage &overlayImage);
 
 protected:
     QPaintDevice *m_paintDevice;

@@ -58,6 +58,7 @@ private slots:
     void onPickSecondaryColor(const QPoint&);
     void onFloodFillPrimaryColor(const QPoint&);
     void onFloodFillSecondaryColor(const QPoint&);
+    void onCrop(const QRect&);
 
     void on_actionSwirl_triggered();
 

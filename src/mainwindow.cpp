@@ -21,6 +21,7 @@
 #include "./tools/PaintBrushTool.h"
 #include "./tools/ColourPickerTool.h"
 #include "./tools/PaintBucketTool.h"
+#include "./tools/PointerTool.h"
 
 #include "PaintBrushSettingsWidget.h"
 #include "ToolManager.h"
@@ -30,6 +31,7 @@
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define COLOUR_PICKER ToolManager::instance()->colourPicker()
 #define PAINT_BUCKET ToolManager::instance()->paintBucket()
+#define MOUSE_POINTER ToolManager::instance()->mousePointer()
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
@@ -82,6 +84,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QObject::connect(PAINT_BUCKET, SIGNAL(floodFillPrimaryColor(const QPoint&)), this, SLOT(onFloodFillPrimaryColor(const QPoint&)));
     QObject::connect(PAINT_BUCKET, SIGNAL(floodFillSecondaryColor(const QPoint&)), this, SLOT(onFloodFillSecondaryColor(const QPoint&)));
+
+    QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
 }
 
 MainWindow::~MainWindow()
@@ -311,6 +315,9 @@ void MainWindow::on_toolButtonPointer_clicked()
     clearToolpalette();
     m_toolSelected = "pointer";
     ui->toolButtonPointer->setChecked(true);
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget)
+        widget->setPaintTool(MOUSE_POINTER);
 }
 
 void MainWindow::on_toolButtonDropper_clicked()
@@ -516,7 +523,6 @@ void MainWindow::onPickSecondaryColor(const QPoint& pos)
 
 void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
 {
-    const QImage& image = this->getCurrentTabImage();
     const QColor& color = ui->colorBoxWidget->primaryColor();
     PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
     if (widget) {
@@ -526,11 +532,19 @@ void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
 
 void MainWindow::onFloodFillSecondaryColor(const QPoint& pos)
 {
-    const QImage& image = this->getCurrentTabImage();
     const QColor& color = ui->colorBoxWidget->secondaryColor();
     PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
     if (widget) {
         widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
+    }
+}
+
+void MainWindow::onCrop(const QRect& rect)
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        QRect crop = widget->image().rect().intersected(rect);
+        widget->setImage(widget->image().copy(crop));
     }
 }
 

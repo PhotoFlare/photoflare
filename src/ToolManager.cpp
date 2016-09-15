@@ -9,6 +9,7 @@
 #include "./tools/ColourPickerTool.h"
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBucketTool.h"
+#include "./tools/PointerTool.h"
 
 ToolManager * ToolManager::m_instance = 0;
 
@@ -20,6 +21,7 @@ public:
         colourPicker = new ColourPickerTool;
         paintBrush = new PaintBrushTool;
         paintBucket = new PaintBucketTool;
+        mousePointer = new PointerTool;
     }
 
     ~ToolManagerPrivate()
@@ -27,11 +29,13 @@ public:
         delete colourPicker;
         delete paintBrush;
         delete paintBucket;
+        delete mousePointer;
     }
 
     ColourPickerTool *colourPicker;
     PaintBrushTool *paintBrush;
     PaintBucketTool *paintBucket;
+    PointerTool *mousePointer;
 };
 
 ToolManager::ToolManager(QObject *parent)
@@ -59,6 +63,11 @@ PaintBrushTool *ToolManager::paintBrush() const
 PaintBucketTool *ToolManager::paintBucket() const
 {
     return d->paintBucket;
+}
+
+PointerTool *ToolManager::mousePointer() const
+{
+    return d->mousePointer;
 }
 
 ToolManager *ToolManager::instance()

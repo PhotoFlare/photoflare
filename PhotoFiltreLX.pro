@@ -50,7 +50,8 @@ SOURCES += src/main.cpp \
     src/PaintBrushSettingsWidget.cpp \
     src/ColorBoxWidget.cpp \
     src/tools/ColourPickerTool.cpp \
-    src/tools/PaintBucketTool.cpp
+    src/tools/PaintBucketTool.cpp \
+    src/tools/PointerTool.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -66,7 +67,8 @@ HEADERS += src/mainwindow.h \
     src/PaintBrushSettingsWidget.h \
     src/ColorBoxWidget.h \
     src/tools/ColourPickerTool.h \
-    src/tools/PaintBucketTool.h
+    src/tools/PaintBucketTool.h \
+    src/tools/PointerTool.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \

@@ -30,6 +30,7 @@ public:
     void initialize(const QImage &image)
     {
         this->image = image;
+
         updateImageLabel();
 
         q->setAlignment(Qt::AlignCenter);
@@ -40,6 +41,18 @@ public:
     void updateImageLabel()
     {
         imageLabel->setPixmap(QPixmap::fromImage(image));
+    }
+
+    void updateImageLabelWithOverlay(const QImage &overlayImage)
+    {
+        QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
+        QPainter painter(&surface);
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.drawImage(0, 0, overlayImage);
+        painter.setCompositionMode(QPainter::CompositionMode_Multiply);
+        painter.drawImage(0, 0, image);
+        painter.end();
+        imageLabel->setPixmap(QPixmap::fromImage(surface));
     }
 
     QPoint calcScrollAreaPos(const QPoint &pos) const
@@ -53,11 +66,24 @@ public:
         return pos - (scrollPoint.isNull() ? offsetPoint : QPoint()) + scrollPoint;
     }
 
+    void setImage(const QImage &image)
+    {
+        //The only way to change imageLabel size is to recreate it
+        if(this->image.size() != image.size())
+        {
+            delete imageLabel;
+            imageLabel = new QLabel;
+        }
+
+        this->image = image;
+        this->updateImageLabel();
+        q->setWidget(imageLabel);
+    }
+
     void disconnectLastTool()
     {
-        bool result = QObject::disconnect(lastConnection);
-        Q_ASSERT(result);
-        Q_UNUSED(result);
+        Q_ASSERT( QObject::disconnect(lastConnection) );
+        Q_ASSERT( QObject::disconnect(lastOverlayConnection) );
     }
 
     QString imagePath;
@@ -65,6 +91,7 @@ public:
     QImage image;
     Tool *currentTool;
     QMetaObject::Connection lastConnection;
+    QMetaObject::Connection lastOverlayConnection;
 
     PaintWidget *q;
 };
@@ -102,6 +129,7 @@ void PaintWidget::setPaintTool(Tool *tool)
 
     if (d->currentTool) {
         d->currentTool->setPaintDevice(&d->image);
+        d->updateImageLabel();
 
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
                 if (&d->image == paintDevice) {
@@ -109,13 +137,15 @@ void PaintWidget::setPaintTool(Tool *tool)
                 this->contentChanged();
                 }
             });
+        d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (const QImage &overlayImage) {
+                d->updateImageLabelWithOverlay(overlayImage);
+            });
     }
 }
 
 void PaintWidget::setImage(const QImage &image)
 {
-    d->image = image;
-    d->updateImageLabel();
+    d->setImage(image);
     this->contentChanged();
 }
 

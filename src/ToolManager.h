@@ -14,6 +14,7 @@ class ColourPickerTool;
 class PaintBrushTool;
 class PaintBucketTool;
 class ToolManagerPrivate;
+class PointerTool;
 
 class ToolManager : public QObject
 {
@@ -25,6 +26,7 @@ public:
     ColourPickerTool* colourPicker() const;
     PaintBrushTool* paintBrush() const;
     PaintBucketTool* paintBucket() const;
+    PointerTool* mousePointer() const;
 
 private:
     explicit ToolManager(QObject *parent = 0);
