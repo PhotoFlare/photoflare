@@ -183,8 +183,12 @@ void PaintWidget::autoScale()
     float scaleX = (float)this->geometry().width() / (float)image().width();
     float scaleY = (float)this->geometry().height() / (float)image().height();
     float scaleFactor = scaleX < scaleY ? scaleX : scaleY;
-    resetMatrix();
-    scale(scaleFactor, scaleFactor);
+
+    if(scaleFactor < 1)
+    {
+        resetMatrix();
+        scale(scaleFactor, scaleFactor);
+    }
 }
 
 void PaintWidget::setScale(const QString &rate)

@@ -111,7 +111,7 @@ QImage FilterManager::grayscale(const QImage &image)
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    return modifiedImage;
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
 }
 
 QImage FilterManager::flipHorz(const QImage &image)
