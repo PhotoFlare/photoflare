@@ -59,6 +59,7 @@ private slots:
     void onFloodFillPrimaryColor(const QPoint&);
     void onFloodFillSecondaryColor(const QPoint&);
     void onCrop(const QRect&);
+    void onZoomChanged(const QString&);
 
     void on_actionSwirl_triggered();
 
@@ -71,6 +72,8 @@ private slots:
     void on_actionRotate_CCW_triggered();
 
     void on_actionRotate_CW_triggered();
+
+    void on_actionImage_Size_triggered();
 
 protected:
     void closeEvent(QCloseEvent *event);

@@ -7,12 +7,12 @@
 
 */
 
-#include <QScrollArea>
+#include <QGraphicsView>
 
 class PaintWidgetPrivate;
 class Tool;
 
-class PaintWidget : public QScrollArea
+class PaintWidget : public QGraphicsView
 {
     friend class PaintWidgetPrivate;
     Q_OBJECT
@@ -34,15 +34,17 @@ public:
 
     QString imagePath() const;
 
+    void autoScale();
+    void setScale(const QString &scale);
 signals:
     // Temporary signal to inform UI that user painted something.
     void contentChanged();
 
 protected:
-    void mousePressEvent(QMouseEvent * event);
-    void mouseMoveEvent(QMouseEvent * event);
-    void mouseReleaseEvent(QMouseEvent * event);
-
+//    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+//    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+//    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    void wheelEvent(QWheelEvent *event);
 private:
     PaintWidgetPrivate *d;
 };

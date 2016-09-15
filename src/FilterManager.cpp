@@ -35,7 +35,7 @@ public:
         buffer.open(QIODevice::WriteOnly);
 
         //Use raw format instead of JPG to avoid image format conversion and quality loss
-        if (!image.save(&buffer, "BMP"))
+        if (!image.save(&buffer, "PNG"))
             return 0;
 
         Magick::Blob blob(byteArray.data(), byteArray.length());

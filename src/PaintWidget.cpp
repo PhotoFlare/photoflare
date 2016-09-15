@@ -10,18 +10,23 @@
 #include <QPainter>
 #include <QScrollBar>
 #include <QMouseEvent>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsSceneMouseEvent>
 
 #include "./tools/Tool.h"
 
-class PaintWidgetPrivate
+class PaintWidgetPrivate : public QGraphicsScene
 {
 public:
-    PaintWidgetPrivate(PaintWidget *widget)
+    PaintWidgetPrivate(PaintWidget *widget) :
+        QGraphicsScene(widget)
     {
-        imageLabel = new QLabel;
         currentTool = 0;
-
         q = widget;
+
+        q->setScene(this);
     }
     ~PaintWidgetPrivate()
     {
@@ -30,17 +35,15 @@ public:
     void initialize(const QImage &image)
     {
         this->image = image;
+        q->setSceneRect(image.rect());
+        canvas = addPixmap(QPixmap::fromImage(image));
 
-        updateImageLabel();
-
-        q->setAlignment(Qt::AlignCenter);
         q->setStyleSheet("background-color: rgb(128, 128, 128);");
-        q->setWidget(imageLabel);
     }
 
     void updateImageLabel()
     {
-        imageLabel->setPixmap(QPixmap::fromImage(image));
+        canvas->setPixmap(QPixmap::fromImage(image));
     }
 
     void updateImageLabelWithOverlay(const QImage &overlayImage)
@@ -48,36 +51,24 @@ public:
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.drawImage(0, 0, overlayImage);
-        painter.setCompositionMode(QPainter::CompositionMode_Multiply);
+        painter.fillRect(surface.rect(), Qt::transparent);
+        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawImage(0, 0, image);
+        painter.setCompositionMode(QPainter::CompositionMode_Difference);
+        painter.drawImage(0, 0, overlayImage);
         painter.end();
-        imageLabel->setPixmap(QPixmap::fromImage(surface));
-    }
-
-    QPoint calcScrollAreaPos(const QPoint &pos) const
-    {
-        QPoint offsetPoint = QPoint(imageLabel->x(), imageLabel->y());// Needed because the image is in the center of scroll area.
-
-        int contentX = q->horizontalScrollBar()->value();
-        int contentY = q->verticalScrollBar()->value();
-        QPoint scrollPoint = QPoint(contentX, contentY);
-
-        return pos - (scrollPoint.isNull() ? offsetPoint : QPoint()) + scrollPoint;
+        canvas->setPixmap(QPixmap::fromImage(surface));
     }
 
     void setImage(const QImage &image)
     {
-        //The only way to change imageLabel size is to recreate it
         if(this->image.size() != image.size())
         {
-            delete imageLabel;
-            imageLabel = new QLabel;
+            q->setSceneRect(image.rect());
         }
 
         this->image = image;
         this->updateImageLabel();
-        q->setWidget(imageLabel);
     }
 
     void disconnectLastTool()
@@ -86,18 +77,43 @@ public:
         Q_ASSERT( QObject::disconnect(lastOverlayConnection) );
     }
 
+    void mousePressEvent(QGraphicsSceneMouseEvent *event)
+    {
+        if (currentTool) {
+            // Set current image to the tool when we start painting.
+            currentTool->setPaintDevice(&image);
+            currentTool->onMousePress(QPoint(event->scenePos().x(), event->scenePos().y()) , event->button());
+        }
+    }
+
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+    {
+        if(event->buttons() != Qt::LeftButton && event->buttons() != Qt::RightButton)
+            return;
+
+        if (currentTool)
+            currentTool->onMouseMove(QPoint(event->scenePos().x(), event->scenePos().y()));
+    }
+
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+    {
+        if (currentTool)
+            currentTool->onMouseRelease(QPoint(event->scenePos().x(), event->scenePos().y()));
+    }
+
     QString imagePath;
     QLabel *imageLabel;
     QImage image;
     Tool *currentTool;
     QMetaObject::Connection lastConnection;
     QMetaObject::Connection lastOverlayConnection;
+    QGraphicsPixmapItem *canvas;
 
     PaintWidget *q;
 };
 
 PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
-    : QScrollArea(parent)
+    : QGraphicsView(parent)
     , d(new PaintWidgetPrivate(this))
 {
     d->initialize(QImage(imagePath));
@@ -105,10 +121,10 @@ PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
 }
 
 PaintWidget::PaintWidget(const QSize &imageSize, QWidget *parent)
-    : QScrollArea(parent)
+    : QGraphicsView(parent)
     , d(new PaintWidgetPrivate(this))
 {
-    QImage image(imageSize, QImage::Format_RGB888);
+    QImage image(imageSize, QImage::Format_ARGB32_Premultiplied);
     image.fill(Qt::white);
     d->initialize(image);
 }
@@ -159,23 +175,29 @@ QString PaintWidget::imagePath() const
     return d->imagePath;
 }
 
-void PaintWidget::mousePressEvent(QMouseEvent *event)
+void PaintWidget::autoScale()
 {
-    if (d->currentTool) {
-        // Set current image to the tool when we start painting.
-        d->currentTool->setPaintDevice(&d->image);
-        d->currentTool->onMousePress(d->calcScrollAreaPos(event->pos()), event->button());
+    //Scale paint area to fit window
+    float scaleX = (float)this->geometry().width() / (float)image().width();
+    float scaleY = (float)this->geometry().height() / (float)image().height();
+    float scaleFactor = scaleX < scaleY ? scaleX : scaleY;
+    resetMatrix();
+    scale(scaleFactor, scaleFactor);
+}
+
+void PaintWidget::setScale(const QString &rate)
+{
+    resetMatrix();
+    float scaleFactor = (rate.mid(0,rate.lastIndexOf("%"))).toFloat() / 100.0f;
+    scale(scaleFactor, scaleFactor);
+}
+
+void PaintWidget::wheelEvent(QWheelEvent *event)
+{
+    float scaleFactor = 1.1f;
+    if(event->delta() > 0) {
+       scale(1.0f/scaleFactor, 1.0f/scaleFactor);
+    } else {
+       scale(scaleFactor, scaleFactor);
     }
-}
-
-void PaintWidget::mouseMoveEvent(QMouseEvent *event)
-{
-    if (d->currentTool)
-        d->currentTool->onMouseMove(d->calcScrollAreaPos(event->pos()));
-}
-
-void PaintWidget::mouseReleaseEvent(QMouseEvent *event)
-{
-    if (d->currentTool)
-        d->currentTool->onMouseRelease(d->calcScrollAreaPos(event->pos()));
 }

@@ -69,13 +69,12 @@ void PointerTool::onMouseMove(const QPoint &pos)
         const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
         QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
-
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.fillRect(surface.rect(), Qt::transparent);
         QPen pen = QPen(QBrush(), 1, Qt::DashLine);
-        pen.setColor(Qt::black);
+        pen.setColor(Qt::gray);
         painter.setPen(pen);
-
-        painter.fillRect(surface.rect(), Qt::white);
-        painter.drawRect(QRect(d->firstPos, pos));
+        painter.drawRect(QRect(d->firstPos, d->secondPos));
         painter.end();
 
         emit overlaid(surface);

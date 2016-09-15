@@ -56,8 +56,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // FIXME: String below should probably be localized.
     QStringList list(QStringList() << "100%" << "90%" << "80%" << "70%" << "60%" << "50%" << "40%" << "30%" << "20%" << "10%");
     zoomCombo->addItems(list);
-    zoomCombo->setEnabled(false); // Disable for now because it is not implemented.
+    zoomCombo->setEnabled(true);
     ui->mainToolBar->addWidget(zoomCombo);
+    connect(zoomCombo, &QComboBox::currentTextChanged, this, &MainWindow::onZoomChanged);
 
     m_toolSelected = "paintBrush";
     ui->toolButtonPaintBrush->setChecked(true);
@@ -194,6 +195,18 @@ void MainWindow::on_actionPreferences_triggered()
     dialog.exec();
 }
 
+void MainWindow::on_actionImage_Size_triggered()
+{
+    NewDialog dialog;
+    if (dialog.exec()) {
+
+        PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+        if (widget) {
+            widget->setImage(widget->image().scaled(dialog.newImageSize()));
+        }
+    }
+}
+
 void MainWindow::clearToolpalette()
 {
     ui->toolButtonPointer->setChecked(false);
@@ -225,6 +238,7 @@ void MainWindow::addTab(PaintWidget *widget)
 
     int tabIndex = ui->tabWidget->addTab(widget, widget->imagePath().isEmpty() ? UNTITLED_TAB_NAME : widget->imagePath());
     ui->tabWidget->setCurrentIndex(tabIndex);
+    widget->autoScale();
     QWidget *closeButton = ui->tabWidget->tabBar()->tabButton(tabIndex, QTabBar::RightSide);
     // Remove our paint widget after tab closing.
     connect(closeButton, &QWidget::destroyed, widget, &PaintWidget::deleteLater);
@@ -548,6 +562,13 @@ void MainWindow::onCrop(const QRect& rect)
     }
 }
 
+void MainWindow::onZoomChanged(const QString& scale)
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->setScale(scale);
+    }
+}
 // This method disables actions that are not yet implemented.
 // They still appear in menus, but are greyed out.
 void MainWindow::disableUnimplementedActions()
