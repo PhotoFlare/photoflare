@@ -47,7 +47,7 @@
     <string>Width:</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="imageWvalue">
+  <widget class="QDoubleSpinBox" name="imageWvalue">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -56,13 +56,16 @@
      <height>27</height>
     </rect>
    </property>
+   <property name="decimals">
+    <number>0</number>
+   </property>
    <property name="maximum">
-    <number>9999</number>
+    <double>9999.000000000000000</double>
    </property>
    <property name="value">
-    <number>800</number>
+    <double>800.000000000000000</double>
    </property>
-   <property name="displayIntegerBase">
+   <property name="displayIntegerBase" stdset="0">
     <number>10</number>
    </property>
   </widget>
@@ -79,7 +82,7 @@
     <string>Height:</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="imageHvalue">
+  <widget class="QDoubleSpinBox" name="imageHvalue">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -88,11 +91,14 @@
      <height>27</height>
     </rect>
    </property>
+   <property name="decimals">
+    <number>0</number>
+   </property>
    <property name="maximum">
-    <number>9999</number>
+    <double>9999.000000000000000</double>
    </property>
    <property name="value">
-    <number>600</number>
+    <double>600.000000000000000</double>
    </property>
   </widget>
   <widget class="QLabel" name="imageRes">
@@ -108,7 +114,7 @@
     <string>Resolution:</string>
    </property>
   </widget>
-  <widget class="QDoubleSpinBox" name="doubleSpinBox">
+  <widget class="QDoubleSpinBox" name="imageRvalue">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -167,6 +173,9 @@
      <width>150</width>
      <height>27</height>
     </rect>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
    </property>
    <item>
     <property name="text">
@@ -258,7 +267,7 @@
      <string>Memory:</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+   <widget class="QDoubleSpinBox" name="pixelWvalue">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -268,7 +277,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+   <widget class="QDoubleSpinBox" name="pixelHvalue">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -318,7 +327,7 @@
   <zorder>imageHeight</zorder>
   <zorder>imageHvalue</zorder>
   <zorder>imageRes</zorder>
-  <zorder>doubleSpinBox</zorder>
+  <zorder>imageRvalue</zorder>
   <zorder>imagePreset</zorder>
   <zorder>imagePresetCombo</zorder>
   <zorder>imageWHcombo</zorder>

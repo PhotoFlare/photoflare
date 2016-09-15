@@ -22,6 +22,7 @@
 #include "./tools/ColourPickerTool.h"
 #include "./tools/PaintBucketTool.h"
 #include "./tools/PointerTool.h"
+#include "./tools/TextTool.h"
 
 #include "PaintBrushSettingsWidget.h"
 #include "ToolManager.h"
@@ -32,6 +33,7 @@
 #define COLOUR_PICKER ToolManager::instance()->colourPicker()
 #define PAINT_BUCKET ToolManager::instance()->paintBucket()
 #define MOUSE_POINTER ToolManager::instance()->mousePointer()
+#define TEXT_TOOL ToolManager::instance()->textTool()
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
@@ -87,6 +89,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(PAINT_BUCKET, SIGNAL(floodFillSecondaryColor(const QPoint&)), this, SLOT(onFloodFillSecondaryColor(const QPoint&)));
 
     QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
+
+    QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&)), this, SLOT(onEditText(const QString&,const QFont&)));
 }
 
 MainWindow::~MainWindow()
@@ -186,7 +190,16 @@ void MainWindow::on_tabWidget_tabCloseRequested(int index)
 void MainWindow::on_actionText_triggered()
 {
     textDialog dialog(this);
-    dialog.exec();
+    if(dialog.exec())
+    {
+        clearToolpalette();
+        m_toolSelected = "text";
+        PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+        if (widget) {
+            widget->setPaintTool(TEXT_TOOL);
+            TEXT_TOOL->setText(dialog.text(), dialog.font());
+        }
+    }
 }
 
 void MainWindow::on_actionPreferences_triggered()
@@ -567,6 +580,16 @@ void MainWindow::onZoomChanged(const QString& scale)
     PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
     if (widget) {
         widget->setScale(scale);
+    }
+}
+
+void MainWindow::onEditText(const QString& text,const QFont& font)
+{
+    textDialog dialog(this);
+    dialog.editText(text, font);
+    if(dialog.exec())
+    {
+        TEXT_TOOL->setText(dialog.text(), dialog.font());
     }
 }
 // This method disables actions that are not yet implemented.

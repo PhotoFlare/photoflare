@@ -27,6 +27,8 @@ public:
     virtual void onMouseMove(const QPoint &pos);
     virtual void onMouseRelease(const QPoint &pos);
 
+    virtual void disconnect();
+
 signals:
     /*!
      * This signal must be emitted after the tool completes any paint action

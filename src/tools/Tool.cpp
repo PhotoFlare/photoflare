@@ -24,6 +24,10 @@ QPaintDevice *Tool::paintDevice() const
     return m_paintDevice;
 }
 
+void Tool::disconnect()
+{
+}
+
 void Tool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     Q_UNUSED(pos);

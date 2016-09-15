@@ -138,8 +138,10 @@ PaintWidget::~PaintWidget()
 
 void PaintWidget::setPaintTool(Tool *tool)
 {
-    if (d->currentTool)
+    if (d->currentTool) {
+        d->currentTool->disconnect();
         d->disconnectLastTool();
+    }
 
     d->currentTool = tool;
 

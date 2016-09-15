@@ -21,6 +21,10 @@ public:
     explicit textDialog(QWidget *parent = 0);
     ~textDialog();
 
+    QString text() {return currentText;}
+    QFont font() {return currentFont;}
+
+    void editText(const QString &text, const QFont &font);
 private slots:
     void updateFont();
     void on_fontComboBox_currentFontChanged(const QFont &f);
@@ -32,13 +36,14 @@ private slots:
     void on_buttonBoxtextDialog_accepted();
     void on_buttonBoxtextDialog_rejected();
 
+signals:
+    void textAdded(const QString&, const QFont&);
+
 private:
     Ui::textDialog *ui;
-    bool boldState;
-    bool italicState;
-    bool strikeState;
-    bool underlineState;
-    int fontSize;
+
+    QString currentText;
+    QFont currentFont;
 };
 
 #endif // TEXTDIALOG_H

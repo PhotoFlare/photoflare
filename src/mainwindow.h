@@ -60,6 +60,7 @@ private slots:
     void onFloodFillSecondaryColor(const QPoint&);
     void onCrop(const QRect&);
     void onZoomChanged(const QString&);
+    void onEditText(const QString&,const QFont&);
 
     void on_actionSwirl_triggered();
 

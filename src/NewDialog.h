@@ -33,10 +33,24 @@ private slots:
 
     void on_imagePresetCombo_currentIndexChanged(int index);
 
+    void on_imageResCombo_currentIndexChanged(int index);
+
+    void on_imageWHcombo_currentIndexChanged(int index);
+
+    void on_imageRvalue_valueChanged(double arg1);
+
+    void on_imageHvalue_valueChanged(double arg1);
+
+    void on_imageWvalue_valueChanged(double arg1);
+
 private:
     Ui::NewDialog *ui;
 
     QSize m_chosenSize;
+
+    float width_px;
+    float height_px;
+    int currentUnit;
 };
 
 #endif // NEWDIALOG_H
