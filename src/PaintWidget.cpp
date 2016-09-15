@@ -24,6 +24,7 @@ public:
         QGraphicsScene(widget)
     {
         currentTool = 0;
+        scale = 1.0f;
         q = widget;
 
         q->setScene(this);
@@ -108,6 +109,7 @@ public:
     QMetaObject::Connection lastConnection;
     QMetaObject::Connection lastOverlayConnection;
     QGraphicsPixmapItem *canvas;
+    float scale;
 
     PaintWidget *q;
 };
@@ -186,24 +188,33 @@ void PaintWidget::autoScale()
 
     if(scaleFactor < 1)
     {
+        d->scale = scaleFactor;
         resetMatrix();
-        scale(scaleFactor, scaleFactor);
+        scale(d->scale, d->scale);
     }
+
+    emit zoomChanged(d->scale);
 }
 
 void PaintWidget::setScale(const QString &rate)
 {
     resetMatrix();
-    float scaleFactor = (rate.mid(0,rate.lastIndexOf("%"))).toFloat() / 100.0f;
-    scale(scaleFactor, scaleFactor);
+    d->scale = (rate.mid(0,rate.lastIndexOf("%"))).toFloat() / 100.0f;
+    scale(d->scale, d->scale);
 }
 
 void PaintWidget::wheelEvent(QWheelEvent *event)
 {
     float scaleFactor = 1.1f;
     if(event->delta() > 0) {
-       scale(1.0f/scaleFactor, 1.0f/scaleFactor);
+       d->scale = d->scale / scaleFactor;
+       d->scale = (d->scale < 0.1f) ? 0.1f : d->scale;
     } else {
-       scale(scaleFactor, scaleFactor);
+       d->scale = d->scale * scaleFactor;
+       d->scale = (d->scale > 8) ? 8 : d->scale;
     }
+
+    resetMatrix();
+    scale(d->scale, d->scale);
+    emit zoomChanged(d->scale);
 }

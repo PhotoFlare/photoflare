@@ -40,6 +40,8 @@ signals:
     // Temporary signal to inform UI that user painted something.
     void contentChanged();
 
+    void zoomChanged(float scale);
+
 protected:
 //    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 //    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
