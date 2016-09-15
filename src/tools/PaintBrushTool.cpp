@@ -21,7 +21,6 @@ public:
     QPen secondaryPen;
     bool antialiasing;
     Qt::MouseButton mouseButton;
-    QVector<QPoint> points;
 };
 
 PaintBrushTool::PaintBrushTool(QObject *parent)
@@ -89,9 +88,6 @@ void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     d->lastPos = pos;
     d->mouseButton = button;
-
-    d->points.clear();
-    d->points.append(pos);
 }
 
 void PaintBrushTool::onMouseMove(const QPoint &pos)
@@ -103,29 +99,43 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
             painter.setRenderHint(QPainter::Antialiasing);
 
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
-        painter.setPen(pen);
 
-        QPainterPath path;
-        path.moveTo(d->points.at(0));
+        int w = pen.width();
+        if(pen.capStyle() == Qt::SquareCap && w > 1)
+        {
+            painter.setPen(QPen(pen.color()));
+            QBrush brush(pen.color());
+            painter.setBrush(brush);
 
-        if(pen.capStyle() == Qt::SquareCap) {
-            if(QLineF(d->points.last().x(), d->points.last().y(), pos.x(), pos.y()).length() > 2)
-                d->points.append(pos);
-        } else {
-            d->points.append(pos);
+            int x1 = d->lastPos.x();
+            int x2 = pos.x();
+            int y1 = d->lastPos.y();
+            int y2 = pos.y();
+            if(x1 > x2) {
+                int temp = x1; x1 = x2; x2 = temp;
+                temp = y1; y1 = y2; y2 = temp;
+            }
+
+            for(int y, x = x1; x < x2; x += w/2) {
+                y = (x - x1)*(y2 - y1)/(x2 - x1) + y1;
+                painter.drawRect(QRect(x - w/2, y - w/2, w, w));
+            }
+
+            if(y1 > y2) {
+                int temp = x1; x1 = x2; x2 = temp;
+                temp = y1; y1 = y2; y2 = temp;
+            }
+
+            for(int x, y = y1; y < y2; y += w/2) {
+                x = (y - y1)*(x2 - x1)/(y2 - y1) + x1;
+                painter.drawRect(QRect(x - w/2, y - w/2, w, w));
+            }
+
+        } else
+        {
+            painter.setPen(pen);
+            painter.drawLine(d->lastPos, pos);
         }
-
-        for(int i=1; i+1 < d->points.size(); i+=2) {
-            path.quadTo(d->points.at(i),d->points.at(i+1));
-        }
-
-        QPainterPathStroker stroker;
-        stroker.setWidth(pen.width());
-        stroker.setJoinStyle(pen.joinStyle());
-        stroker.setCapStyle(Qt::RoundCap);
-
-        QPainterPath stroke = stroker.createStroke(path);
-        painter.fillPath(stroke, pen.color());
 
         d->lastPos = pos;
         emit painted(m_paintDevice);
@@ -135,29 +145,6 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
 void PaintBrushTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
-
-    if (m_paintDevice) {
-        if(d->points.size() > 1)
-        {
-            QPainter painter(m_paintDevice);
-
-            if (d->antialiasing)
-                painter.setRenderHint(QPainter::Antialiasing);
-
-            QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
-
-            if(pen.capStyle() == Qt::SquareCap)
-            {
-                painter.setPen(pen);
-                painter.drawLine(d->points.at(0), d->points.at(1));
-                QPoint preLast = d->points.at(d->points.size()-2);
-                QPoint last = d->points.last();
-                painter.drawLine((preLast + last)/2, last);
-                emit painted(m_paintDevice);
-            }
-        }
-    }
-
 
     d->mouseButton = Qt::NoButton;
 }

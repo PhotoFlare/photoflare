@@ -36,6 +36,7 @@ public:
 
     void autoScale();
     void setScale(const QString &scale);
+    float getScale();
 signals:
     // Temporary signal to inform UI that user painted something.
     void contentChanged();

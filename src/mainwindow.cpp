@@ -53,14 +53,18 @@ MainWindow::MainWindow(QWidget *parent) :
     // Disable actions that are not yet implemented.
     //disableUnimplementedActions();
 
-    QComboBox* zoomCombo = new QComboBox;
+    zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
     // FIXME: String below should probably be localized.
-    QStringList list(QStringList() << "100%" << "90%" << "80%" << "70%" << "60%" << "50%" << "40%" << "30%" << "20%" << "10%");
+    QStringList list(QStringList() << "" << "10%" << "25%" << "33%" << "50%" << "66%" << "75%" << "100%" << "200%" << "300%" << "400%" << "500%" << "600%" << "800%");
     zoomCombo->addItems(list);
     zoomCombo->setEnabled(true);
+    zoomCombo->insertSeparator(1);
+    zoomCombo->insertSeparator(8);
+    zoomCombo->insertSeparator(10);
     ui->mainToolBar->addWidget(zoomCombo);
-    connect(zoomCombo, &QComboBox::currentTextChanged, this, &MainWindow::onZoomChanged);
+    connect(zoomCombo, SIGNAL(activated(const QString&)), this, SLOT(onZoomChanged(const QString&)));
+    connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
 
     m_toolSelected = "paintBrush";
     ui->toolButtonPaintBrush->setChecked(true);
@@ -251,7 +255,7 @@ void MainWindow::addTab(PaintWidget *widget)
 
     int tabIndex = ui->tabWidget->addTab(widget, widget->imagePath().isEmpty() ? UNTITLED_TAB_NAME : widget->imagePath());
     ui->tabWidget->setCurrentIndex(tabIndex);
-    widget->autoScale();
+
     QWidget *closeButton = ui->tabWidget->tabBar()->tabButton(tabIndex, QTabBar::RightSide);
     // Remove our paint widget after tab closing.
     connect(closeButton, &QWidget::destroyed, widget, &PaintWidget::deleteLater);
@@ -263,6 +267,12 @@ void MainWindow::addTab(PaintWidget *widget)
             ui->tabWidget->setTabText(tabIndex, modifiedText);
         }
     });
+
+    connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
+        this->zoomCombo->setItemText(0, QString::number((int)(scale*100)).append("%"));
+        this->zoomCombo->setCurrentIndex(0);
+    });
+    widget->autoScale();
 }
 
 void MainWindow::saveContent(int tabIndex)
@@ -592,6 +602,24 @@ void MainWindow::onEditText(const QString& text,const QFont& font)
         TEXT_TOOL->setText(dialog.text(), dialog.font());
     }
 }
+
+void MainWindow::onTabChanged(int index)
+{
+    Q_UNUSED(index)
+
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        QString scale = QString::number((int)(widget->getScale()*100)).append("%");
+        int index = this->zoomCombo->findText(scale);
+        if(index < 0) {
+            this->zoomCombo->setItemText(0, scale);
+            this->zoomCombo->setCurrentIndex(0);
+        } else {
+            this->zoomCombo->setCurrentIndex(index);
+        }
+    }
+}
+
 // This method disables actions that are not yet implemented.
 // They still appear in menus, but are greyed out.
 void MainWindow::disableUnimplementedActions()

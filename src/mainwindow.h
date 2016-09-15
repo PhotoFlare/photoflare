@@ -15,6 +15,7 @@ class MainWindow;
 
 class PaintWidget;
 class PaintBrushSettingsWidget;
+class QComboBox;
 
 class MainWindow : public QMainWindow
 {
@@ -60,6 +61,7 @@ private slots:
     void onFloodFillSecondaryColor(const QPoint&);
     void onCrop(const QRect&);
     void onZoomChanged(const QString&);
+    void onTabChanged(int);
     void onEditText(const QString&,const QFont&);
 
     void on_actionSwirl_triggered();
@@ -92,6 +94,7 @@ private:
     Ui::MainWindow *ui;
     QString m_toolSelected;
     PaintBrushSettingsWidget *m_pbSettingsWidget;
+    QComboBox *zoomCombo;
 };
 
 #endif // MAINWINDOW_H

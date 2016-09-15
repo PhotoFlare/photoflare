@@ -203,6 +203,11 @@ void PaintWidget::setScale(const QString &rate)
     scale(d->scale, d->scale);
 }
 
+float PaintWidget::getScale()
+{
+    return d->scale;
+}
+
 void PaintWidget::wheelEvent(QWheelEvent *event)
 {
     float scaleFactor = 1.1f;
