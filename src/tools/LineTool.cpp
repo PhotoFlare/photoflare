@@ -11,8 +11,8 @@ class LineToolPrivate
 public:
     LineToolPrivate()
     {
-        primaryPen = QPen(QBrush(), 1, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin);
-        secondaryPen = QPen(QBrush(), 1, Qt::DashDotLine, Qt::RoundCap, Qt::RoundJoin);
+        primaryPen = QPen(QBrush(), 1, Qt::DotLine, Qt::RoundCap, Qt::MiterJoin);
+        secondaryPen = QPen(QBrush(), 1, Qt::DashDotLine, Qt::RoundCap, Qt::MiterJoin);
     }
     ~LineToolPrivate()
     {
@@ -26,6 +26,9 @@ public:
 
     bool antialias;
     int opacity;
+
+    bool oneWayArrow;
+    bool twoWaysArrow;
 };
 
 LineTool::LineTool(QObject *parent)
@@ -71,6 +74,66 @@ void LineTool::setAntialias(bool antialias)
 void LineTool::setOpacity(int opacity)
 {
     d->opacity = opacity;
+}
+
+void LineTool::setArrowStyle(int arrowStyle)
+{
+    d->oneWayArrow = false;
+    d->twoWaysArrow = false;
+    switch(arrowStyle)
+    {
+    case 1:
+        d->oneWayArrow =true;
+        break;
+    case 2:
+        d->twoWaysArrow =true;
+        break;
+    }
+}
+
+void LineTool::drawArrow(QPainter& painter, QPoint pFrom, QPoint pTo)
+{
+    QPoint pBase;
+    QPoint aptPoly[3];
+    float vecLine[2];
+    float vecLeft[2];
+    float fLength;
+    float th;
+    float ta;
+
+    QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+
+    aptPoly[0] = pTo;
+
+    vecLine[0] = aptPoly[0].x() - pFrom.x();
+    vecLine[1] = aptPoly[0].y() - pFrom.y();
+
+    vecLeft[0] = -vecLine[1];
+    vecLeft[1] = vecLine[0];
+
+    float width = 15 + 2*pen.width();
+    float angle = 3.1415 / 4;
+
+    fLength = qSqrt(vecLine[0]*vecLine[0] + vecLine[1]*vecLine[1]);
+    th =  width / (2 * fLength);
+    ta = width / (qTan(angle) * fLength);
+
+    pBase.setX(aptPoly[0].x() + -ta * vecLine[0]);
+    pBase.setY(aptPoly[0].y() + -ta * vecLine[1]);
+
+    aptPoly[1].setX(pBase.x() + th*vecLeft[0]);
+    aptPoly[1].setY(pBase.y() + th*vecLeft[1]);
+    aptPoly[2].setX(pBase.x() + -th*vecLeft[0]);
+    aptPoly[2].setY(pBase.y() + -th*vecLeft[1]);
+
+    if(pen.capStyle() == Qt::RoundCap)
+    {
+        painter.drawLine(aptPoly[0], aptPoly[1]);
+        painter.drawLine(aptPoly[0], aptPoly[2]);
+    } else
+    {
+        painter.drawPolygon(aptPoly, 3);
+    }
 }
 
 void LineTool::setStyle(int style)
@@ -124,9 +187,27 @@ void LineTool::onMouseMove(const QPoint &pos)
         painter.fillRect(surface.rect(), Qt::transparent);
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
         painter.setPen(pen);
-        QBrush brush = QBrush(QColor(255,0,0), Qt::NoBrush);
+
+        QBrush brush = QBrush(pen.color(), Qt::SolidPattern);
         painter.setBrush(brush);
+
         painter.drawLine(d->firstPos, d->secondPos);
+
+        Qt::PenStyle penStyle = pen.style();
+        pen.setStyle(Qt::SolidLine);
+        painter.setPen(pen);
+
+        if(d->oneWayArrow)
+            drawArrow(painter, d->firstPos, d->secondPos);
+
+        if(d->twoWaysArrow) {
+            drawArrow(painter, d->firstPos, d->secondPos);
+            drawArrow(painter, d->secondPos, d->firstPos);
+        }
+
+        pen.setStyle(penStyle);
+        painter.setPen(pen);
+
         painter.end();
 
         emit overlaid(surface, QPainter::CompositionMode_SourceOver);
@@ -146,7 +227,26 @@ void LineTool::onMouseRelease(const QPoint &pos)
         }
         painter.setOpacity((float)d->opacity / 100.0f);
         painter.setPen(pen);
+        QBrush brush = QBrush(pen.color(), Qt::SolidPattern);
+        painter.setBrush(brush);
+
         painter.drawLine(d->firstPos, d->secondPos);
+
+        Qt::PenStyle penStyle = pen.style();
+        pen.setStyle(Qt::SolidLine);
+        painter.setPen(pen);
+
+        if(d->oneWayArrow)
+            drawArrow(painter, d->firstPos, d->secondPos);
+
+        if(d->twoWaysArrow) {
+            drawArrow(painter, d->firstPos, d->secondPos);
+            drawArrow(painter, d->secondPos, d->firstPos);
+        }
+
+        pen.setStyle(penStyle);
+        painter.setPen(pen);
+
         painter.end();
 
         emit painted(m_paintDevice);

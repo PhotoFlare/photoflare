@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -905,9 +905,8 @@ QToolButton:checked {
   </widget>
   <action name="actionNew">
    <property name="icon">
-    <iconset theme="document-new">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../Icons.qrc">
+     <normaloff>:/icons/icons/new.png</normaloff>:/icons/icons/new.png</iconset>
    </property>
    <property name="text">
     <string>&amp;New...</string>
@@ -921,9 +920,8 @@ QToolButton:checked {
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset theme="document-open">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../Icons.qrc">
+     <normaloff>:/icons/icons/open.png</normaloff>:/icons/icons/open.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Open...</string>
@@ -944,9 +942,8 @@ QToolButton:checked {
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset theme="document-save">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../Icons.qrc">
+     <normaloff>:/icons/icons/save.png</normaloff>:/icons/icons/save.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Save</string>
@@ -972,9 +969,8 @@ QToolButton:checked {
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset theme="document-print">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../Icons.qrc">
+     <normaloff>:/icons/icons/print.png</normaloff>:/icons/icons/print.png</iconset>
    </property>
    <property name="text">
     <string>Print...</string>
@@ -1000,9 +996,8 @@ QToolButton:checked {
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset theme="edit-undo">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../Icons.qrc">
+     <normaloff>:/icons/icons/undo.png</normaloff>:/icons/icons/undo.png</iconset>
    </property>
    <property name="text">
     <string>Undo</string>
@@ -1010,9 +1005,8 @@ QToolButton:checked {
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset theme="edit-redo">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../Icons.qrc">
+     <normaloff>:/icons/icons/redo.png</normaloff>:/icons/icons/redo.png</iconset>
    </property>
    <property name="text">
     <string>Redo</string>

@@ -25,10 +25,15 @@ public:
     int opacity();
     bool antialias();
     int style();
+    int arrowStyle();
 signals:
     void settingsChanged();
 
 private slots:
+
+    void on_arrowCheckBox_clicked(bool checked);
+
+    void on_arrowCheckBox2_clicked(bool checked);
 
 private:
 

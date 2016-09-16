@@ -346,7 +346,7 @@
    <property name="flat">
     <bool>false</bool>
    </property>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="lockedRatioButton">
     <property name="geometry">
      <rect>
       <x>108</x>

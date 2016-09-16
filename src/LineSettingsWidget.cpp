@@ -24,6 +24,9 @@ LineSettingsWidget::LineSettingsWidget(QWidget *parent) :
     connect(ui->widthSpinBox, SIGNAL(valueChanged(int)), this, SIGNAL(settingsChanged()));
     connect(ui->opacitySpinBox, SIGNAL(valueChanged(int)), this, SIGNAL(settingsChanged()));
     connect(ui->antialiasCheckBox, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
+
+    connect(ui->arrowCheckBox, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
+    connect(ui->arrowCheckBox2, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
 }
 
 LineSettingsWidget::~LineSettingsWidget()
@@ -49,4 +52,26 @@ bool LineSettingsWidget::antialias()
 int LineSettingsWidget::style()
 {
     return ui->styleComboBox->currentIndex();
+}
+
+int LineSettingsWidget::arrowStyle()
+{
+    if(ui->arrowCheckBox2->isChecked())
+        return 2;
+    else if(ui->arrowCheckBox->isChecked())
+        return 1;
+    else
+        return 0;
+}
+
+void LineSettingsWidget::on_arrowCheckBox_clicked(bool checked)
+{
+    Q_UNUSED(checked);
+    ui->arrowCheckBox2->setChecked(false);
+}
+
+void LineSettingsWidget::on_arrowCheckBox2_clicked(bool checked)
+{
+    Q_UNUSED(checked);
+    ui->arrowCheckBox->setChecked(false);
 }
