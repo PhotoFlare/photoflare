@@ -4,12 +4,15 @@
 #include <QClipboard>
 #include <QPainter>
 #include <QMenu>
+#include <QtMath>
 
 class LineToolPrivate
 {
 public:
     LineToolPrivate()
     {
+        primaryPen = QPen(QBrush(), 1, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin);
+        secondaryPen = QPen(QBrush(), 1, Qt::DashDotLine, Qt::RoundCap, Qt::RoundJoin);
     }
     ~LineToolPrivate()
     {
@@ -17,9 +20,12 @@ public:
 
     QPoint firstPos;
     QPoint secondPos;
-    bool handMode;
-    QImage image;
-    QPoint imagePos;
+    QPen primaryPen;
+    QPen secondaryPen;
+    Qt::MouseButton mouseButton;
+
+    bool antialias;
+    int opacity;
 };
 
 LineTool::LineTool(QObject *parent)
@@ -36,82 +42,74 @@ LineTool::~LineTool()
 
 void LineTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
-    switch(button)
+    d->firstPos = pos;
+    d->secondPos = pos;
+    d->mouseButton = button;
+}
+
+void LineTool::setPrimaryColor(const QColor &color)
+{
+    d->primaryPen.setColor(color);
+}
+
+void LineTool::setSecondaryColor(const QColor &color)
+{
+    d->secondaryPen.setColor(color);
+}
+
+void LineTool::setWidth(int width)
+{
+    d->primaryPen.setWidth(width);
+    d->secondaryPen.setWidth(width);
+}
+
+void LineTool::setAntialias(bool antialias)
+{
+    d->antialias = antialias;
+}
+
+void LineTool::setOpacity(int opacity)
+{
+    d->opacity = opacity;
+}
+
+void LineTool::setStyle(int style)
+{
+    Qt::PenStyle penStyle;
+    Qt::PenCapStyle capStyle;
+    switch(style)
     {
-        case Qt::LeftButton:
-            d->firstPos = pos;
-            d->secondPos = pos;
-            if(!d->handMode) {
-                emit painted(m_paintDevice);
-            } else {
-                QRect rect = QRect(d->imagePos.x(), d->imagePos.y(), d->image.width(), d->image.height());
-                if(!rect.contains(pos)) {
-                    d->handMode = false;
-                    if (m_paintDevice) {
-                        QPainter painter(m_paintDevice);
-                        painter.drawImage(d->imagePos.x(), d->imagePos.y(), d->image);
-                        painter.end();
-
-                        emit painted(m_paintDevice);
-                    }
-                }
-            }
-            break;
-        case Qt::RightButton: {
-            if(d->firstPos != d->secondPos)
-            {
-                QMenu contextMenu("crop");
-                QAction crop("Crop", this);
-                connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
-                contextMenu.addAction(&crop);
-                contextMenu.exec(QCursor::pos());
-            } else
-            {
-                QMenu contextMenu("copy");
-                QAction copy("Copy", this);
-                QAction paste("Paste", this);
-
-                connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
-                contextMenu.addAction(&copy);
-
-                QClipboard *clipboard = QApplication::clipboard();
-                if(!clipboard->image().isNull())
-                {
-                    connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
-                    contextMenu.addAction(&paste);
-                }
-
-                contextMenu.exec(QCursor::pos());
-            }}
-            break;
+        case 0:
         default:
+            penStyle = Qt::SolidLine;
+            capStyle = Qt::SquareCap;
+            break;
+        case 1:
+            penStyle = Qt::SolidLine;
+            capStyle = Qt::RoundCap;
+            break;
+        case 2:
+            penStyle = Qt::DashLine;
+            capStyle = Qt::RoundCap;
+           break;
+        case 3:
+            penStyle = Qt::DotLine;
+            capStyle = Qt::RoundCap;
+            break;
+        case 4:
+            penStyle = Qt::DashDotLine;
+            capStyle = Qt::RoundCap;
+            break;
+        case 5:
+            penStyle = Qt::DashDotDotLine;
+            capStyle = Qt::RoundCap;
             break;
     }
-}
+    d->primaryPen.setStyle(penStyle);
+    d->secondaryPen.setStyle(penStyle);
 
-void LineTool::onCrop()
-{
-    const QRect &rect = QRect(d->firstPos, d->secondPos);
-    d->secondPos = d->firstPos;
-    emit crop(rect);
-}
-
-void LineTool::onCopy()
-{
-    emit copy();
-}
-
-void LineTool::onPaste()
-{
-    emit paste();
-}
-
-void LineTool::setOverlayImage(const QImage& image)
-{
-    d->handMode = true;
-    d->image = image;
-    d->imagePos = QPoint(0,0);
-    emit overlaid(d->image, QPainter::CompositionMode_SourceOver);
+    d->primaryPen.setCapStyle(capStyle);
+    d->secondaryPen.setCapStyle(capStyle);
 }
 
 void LineTool::onMouseMove(const QPoint &pos)
@@ -119,51 +117,42 @@ void LineTool::onMouseMove(const QPoint &pos)
     d->secondPos = pos;
 
     if (m_paintDevice) {
+        const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
+        QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
+        QPainter painter(&surface);
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.fillRect(surface.rect(), Qt::transparent);
+        QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+        painter.setPen(pen);
+        QBrush brush = QBrush(QColor(255,0,0), Qt::NoBrush);
+        painter.setBrush(brush);
+        painter.drawLine(d->firstPos, d->secondPos);
+        painter.end();
 
-        if(d->handMode)
-        {
-            const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
-            QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
-            QPainter painter(&surface);
-            painter.setCompositionMode(QPainter::CompositionMode_Source);
-            painter.fillRect(surface.rect(), Qt::transparent);
-            QPen pen = QPen(QBrush(), 1, Qt::DashLine);
-            pen.setColor(Qt::red);
-            painter.setPen(pen);
-
-            QRect rect = QRect(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y(),
-                               d->image.width(), d->image.height());
-            painter.drawImage(rect, d->image);
-            painter.drawRect(rect);
-            painter.end();
-
-            emit overlaid(surface, QPainter::CompositionMode_SourceOver);
-        } else
-        {
-            const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
-            QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
-            QPainter painter(&surface);
-            painter.setCompositionMode(QPainter::CompositionMode_Source);
-            painter.fillRect(surface.rect(), Qt::transparent);
-            QPen pen = QPen(QBrush(), 1, Qt::DashLine);
-            pen.setColor(Qt::gray);
-            painter.setPen(pen);
-            painter.drawRect(QRect(d->firstPos, d->secondPos));
-            painter.end();
-
-            emit overlaid(surface, QPainter::CompositionMode_Difference);
-        }
+        emit overlaid(surface, QPainter::CompositionMode_SourceOver);
     }
 }
 
 void LineTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
-    if(d->handMode)
-    {
-        d->imagePos = QPoint(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y());
-        d->firstPos = d->secondPos;
+
+    if (m_paintDevice) {
+        QPainter painter(m_paintDevice);
+        QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+        if (d->antialias) {
+            painter.setRenderHint(QPainter::Antialiasing);
+            painter.setRenderHint(QPainter::HighQualityAntialiasing);
+        }
+        painter.setOpacity((float)d->opacity / 100.0f);
+        painter.setPen(pen);
+        painter.drawLine(d->firstPos, d->secondPos);
+        painter.end();
+
+        emit painted(m_paintDevice);
     }
+
+    d->mouseButton = Qt::NoButton;
 }
 
 

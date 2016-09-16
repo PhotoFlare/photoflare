@@ -4,7 +4,7 @@
 
 */
 
-#include "colorboxwidget.h"
+#include "ColorBoxWidget.h"
 #include "ui_ColorBoxWidget.h"
 #include <QColorDialog>
 

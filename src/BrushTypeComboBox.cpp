@@ -2,7 +2,7 @@
 #include <QStyledItemDelegate>
 #include <QStyleOptionViewItem>
 
-#include "brushtypecombobox.h"
+#include "BrushTypeComboBox.h"
 
 class BrushTypeDelegate : public QStyledItemDelegate
 {
@@ -10,7 +10,7 @@ class BrushTypeDelegate : public QStyledItemDelegate
     {
         QStyledItemDelegate::paint(painter, option, index);
         const QPixmap pixmap = index.data(Qt::UserRole).value<QPixmap>();
-        QRect rect = QRect(option.rect.x(), option.rect.y(), 32, 32);
+        QRect rect = QRect(option.rect.x(), option.rect.y(), 96, 32);
         painter->drawPixmap(rect, pixmap);
     }
 
@@ -36,7 +36,7 @@ void BrushTypeComboBox::paintEvent(QPaintEvent* pEvent)
 {
     QComboBox::paintEvent(pEvent);
     const QPixmap pixmap = this->itemData(this->currentIndex(), Qt::UserRole).value<QPixmap>();
-    QRect rect = QRect(1,1,32,this->height()-1);
+    QRect rect = QRect(1,1,96,this->height()-1);
 
     QPainter painter(this);
     painter.drawPixmap(rect, pixmap);

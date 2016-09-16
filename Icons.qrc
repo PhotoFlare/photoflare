@@ -65,4 +65,14 @@
         <file>brushes/type_8.png</file>
         <file>brushes/type_9.png</file>
     </qresource>
+    <qresource prefix="/lines">
+        <file>lines/type_1.png</file>
+        <file>lines/type_2.png</file>
+        <file>lines/type_3.png</file>
+        <file>lines/type_4.png</file>
+        <file>lines/type_5.png</file>
+        <file>lines/type_6.png</file>
+        <file>lines/arrow_1.png</file>
+        <file>lines/arrow_2.png</file>
+    </qresource>
 </RCC>
