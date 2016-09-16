@@ -21,6 +21,8 @@ public:
     static Settings* instance();
     void setMaximizeWindow(bool maximize);
     bool isMaximizeWindow() const;
+    void setMultiWindowMode(bool multiWindowMode);
+    bool isMultiWindowMode() const;
     void setCustomWindowGeometry(const QRect &rect);
     QRect customWindowGeometry() const;
     void addRecentFile(const QString &file);

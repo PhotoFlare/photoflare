@@ -8,6 +8,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSignalMapper>
+#include <QMdiArea>
 
 namespace Ui {
 class MainWindow;
@@ -19,6 +21,7 @@ class PaintBrushAdvSettingsWidget;
 class SprayCanSettingsWidget;
 class LineSettingsWidget;
 class QComboBox;
+class PaintWidget;
 
 class MainWindow : public QMainWindow
 {
@@ -28,7 +31,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QImage getCurrentTabImage();
+    PaintWidget* getCurrentPaintWidget();
     void openFile(const QString& fileName);
 
 private slots:
@@ -104,6 +107,7 @@ private slots:
 
     void on_actionRedo_triggered();
 
+    void setActiveSubWindow(QWidget *window);
 protected:
     void closeEvent(QCloseEvent *event);
 
@@ -124,6 +128,10 @@ private:
     SprayCanSettingsWidget *m_scSettingsWidget;
     LineSettingsWidget *m_lineSettingsWidget;
     QComboBox *zoomCombo;
+
+
+    QSignalMapper *windowMapper;
+    QMdiArea *mdiArea;
 };
 
 #endif // MAINWINDOW_H

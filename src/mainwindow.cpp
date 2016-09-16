@@ -20,6 +20,7 @@
 #include <QPixmap>
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QMdiSubWindow>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -55,6 +56,7 @@ const QString MODIFIED_UNTITLED_TAB_NAME = QObject::tr("Untitled *");
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
+    mdiArea(new QMdiArea),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -243,7 +245,7 @@ void MainWindow::on_actionText_triggered()
     {
         clearToolpalette();
         m_toolSelected = "text";
-        PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+        PaintWidget *widget = getCurrentPaintWidget();
         if (widget) {
             widget->setPaintTool(TEXT_TOOL);
             TEXT_TOOL->setText(dialog.text(), dialog.font());
@@ -260,10 +262,9 @@ void MainWindow::on_actionPreferences_triggered()
 void MainWindow::on_actionImage_Size_triggered()
 {
     NewDialog dialog;
-    dialog.setWindowTitle("Resize Image");
     if (dialog.exec()) {
 
-        PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+        PaintWidget *widget = getCurrentPaintWidget();
         if (widget) {
             widget->setImage(widget->image().scaled(dialog.newImageSize()));
         }
@@ -323,32 +324,50 @@ PaintWidget *MainWindow::createPaintWidget(const QSize &imageSize) const
     return new PaintWidget(imageSize);
 }
 
+#include <QDebug>
 void MainWindow::addTab(PaintWidget *widget)
 {
     on_toolButtonPaintBrush_clicked();
+    widget->autoScale();
 
-    int tabIndex = ui->tabWidget->addTab(widget, widget->imagePath().isEmpty() ? UNTITLED_TAB_NAME : widget->imagePath());
-    ui->tabWidget->setCurrentIndex(tabIndex);
+//    int tabIndex = ui->tabWidget->addTab(widget, widget->imagePath().isEmpty() ? UNTITLED_TAB_NAME : widget->imagePath());
+//    ui->tabWidget->setCurrentIndex(tabIndex);
 
-    QWidget *closeButton = ui->tabWidget->tabBar()->tabButton(tabIndex, QTabBar::RightSide);
-    // Remove our paint widget after tab closing.
-    connect(closeButton, &QWidget::destroyed, widget, &PaintWidget::deleteLater);
+//    QWidget *closeButton = ui->tabWidget->tabBar()->tabButton(tabIndex, QTabBar::RightSide);
+//    // Remove our paint widget after tab closing.
+//    connect(closeButton, &QWidget::destroyed, widget, &PaintWidget::deleteLater);
 
-    connect(widget, &PaintWidget::contentChanged, [widget, closeButton, tabIndex, this] () {
-        if (!closeButton->isWindowModified()) {
-            closeButton->setWindowModified(true);
-            QString modifiedText = ui->tabWidget->tabText(tabIndex) + " *";
-            ui->tabWidget->setTabText(tabIndex, modifiedText);
-        }
-        ui->actionUndo->setEnabled(widget->isUndoEnabled());
-        ui->actionRedo->setEnabled(widget->isRedoEnabled());
-    });
+//    connect(widget, &PaintWidget::contentChanged, [widget, closeButton, tabIndex, this] () {
+//        if (!closeButton->isWindowModified()) {
+//            closeButton->setWindowModified(true);
+//            QString modifiedText = ui->tabWidget->tabText(tabIndex) + " *";
+//            ui->tabWidget->setTabText(tabIndex, modifiedText);
+//        }
+//        ui->actionUndo->setEnabled(widget->isUndoEnabled());
+//        ui->actionRedo->setEnabled(widget->isRedoEnabled());
+//    });
 
     connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
         this->zoomCombo->setItemText(0, QString::number((int)(scale*100)).append("%"));
         this->zoomCombo->setCurrentIndex(0);
     });
-    widget->autoScale();
+
+    mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    setCentralWidget(mdiArea);
+    windowMapper = new QSignalMapper(this);
+    connect(windowMapper, SIGNAL(mapped(QWidget*)), this, SLOT(setActiveSubWindow(QWidget*)));
+
+    mdiArea->addSubWindow(widget);
+    widget->show();
+}
+
+void MainWindow::setActiveSubWindow(QWidget *window)
+{
+    if (!window)
+        return;
+
+     mdiArea->setActiveSubWindow(qobject_cast<QMdiSubWindow *>(window));
 }
 
 void MainWindow::saveContent(int tabIndex)
@@ -428,7 +447,7 @@ void MainWindow::on_toolButtonPointer_clicked()
     clearToolpalette();
     m_toolSelected = "pointer";
     ui->toolButtonPointer->setChecked(true);
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(MOUSE_POINTER);
 }
@@ -438,7 +457,7 @@ void MainWindow::on_toolButtonDropper_clicked()
     clearToolpalette();
     m_toolSelected = "dropper";
     ui->toolButtonDropper->setChecked(true);
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(COLOUR_PICKER);
 }
@@ -457,7 +476,7 @@ void MainWindow::on_toolButtonLine_clicked()
     ui->toolButtonLine->setChecked(true);
     m_lineSettingsWidget->setVisible(true);
     onLineSettingsChanged();
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(LINE_TOOL);
 }
@@ -467,7 +486,7 @@ void MainWindow::on_toolButtonPaintBucket_clicked()
     clearToolpalette();
     m_toolSelected = "paintBucket";
     ui->toolButtonPaintBucket->setChecked(true);
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(PAINT_BUCKET);
 }
@@ -480,7 +499,7 @@ void MainWindow::on_toolButtonSprayCan_clicked()
     m_scSettingsWidget->setVisible(true);
     onSprayCanSettingsChanged();
 
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(SPRAY_CAN);
 }
@@ -492,7 +511,7 @@ void MainWindow::on_toolButtonPaintBrush_clicked()
     ui->toolButtonPaintBrush->setChecked(true);
     m_pbSettingsWidget->setVisible(true);
 
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(PAINT_BRUSH);
 }
@@ -505,7 +524,7 @@ void MainWindow::on_toolButtonPaintBrushAdv_clicked()
     m_pbAdvSettingsWidget->setVisible(true);
     onPaintBrushAdvSettingsChanged();
 
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(PAINT_BRUSH_ADV);
 
@@ -542,15 +561,25 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
-QImage MainWindow::getCurrentTabImage()
+PaintWidget* MainWindow::getCurrentPaintWidget()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
-    return widget->image();
+    PaintWidget *widget = 0;
+    if(SETTINGS->isMultiWindowMode())
+    {
+        if(mdiArea->currentSubWindow())
+            widget = static_cast<PaintWidget *>(mdiArea->currentSubWindow()->widget());
+    } else
+    {
+        widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+
+    }
+
+    return widget;
 }
 
 void MainWindow::on_actionGrayScale_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->grayscale(widget->image()));
     }
@@ -558,7 +587,7 @@ void MainWindow::on_actionGrayScale_triggered()
 
 void MainWindow::on_actionFlip_Horizontal_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->flipHorz(widget->image()));
     }
@@ -566,7 +595,7 @@ void MainWindow::on_actionFlip_Horizontal_triggered()
 
 void MainWindow::on_actionFlip_Vertical_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->flipVert(widget->image()));
     }
@@ -574,7 +603,7 @@ void MainWindow::on_actionFlip_Vertical_triggered()
 
 void MainWindow::on_actionRotate_CCW_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->rotateCCW(widget->image()));
     }
@@ -582,7 +611,7 @@ void MainWindow::on_actionRotate_CCW_triggered()
 
 void MainWindow::on_actionRotate_CW_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->rotateCW(widget->image()));
     }
@@ -590,7 +619,7 @@ void MainWindow::on_actionRotate_CW_triggered()
 
 void MainWindow::on_actionOil_Paint_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->oilPaint(widget->image()));
     }
@@ -598,7 +627,7 @@ void MainWindow::on_actionOil_Paint_triggered()
 
 void MainWindow::on_actionCharcoal_Drawing_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->charcoal(widget->image()));
     }
@@ -606,7 +635,7 @@ void MainWindow::on_actionCharcoal_Drawing_triggered()
 
 void MainWindow::on_actionSwirl_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->swirl(widget->image()));
     }
@@ -695,28 +724,39 @@ void MainWindow::onLineSettingsChanged()
     LINE_TOOL->setOpacity(m_lineSettingsWidget->opacity());
     LINE_TOOL->setAntialias(m_lineSettingsWidget->antialias());
     LINE_TOOL->setStyle(m_lineSettingsWidget->style());
+    LINE_TOOL->setArrowStyle(m_lineSettingsWidget->arrowStyle());
 }
 
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
 {
-    const QImage& image = this->getCurrentTabImage();
-    const QColor& color = image.pixel(pos);
+    //PaintWidget *widget = getCurrentPaintWidget();
+    PaintWidget *widget = 0;
+    if(widget)
+    {
+        const QImage& image = widget->image();
+        const QColor& color = image.pixel(pos);
 
-    ui->colorBoxWidget->setPrimaryColor(color);
+        ui->colorBoxWidget->setPrimaryColor(color);
+    }
 }
 
 void MainWindow::onPickSecondaryColor(const QPoint& pos)
 {
-    const QImage& image = this->getCurrentTabImage();
-    const QColor& color = image.pixel(pos);
+//    PaintWidget *widget = getCurrentPaintWidget();
+    PaintWidget *widget = 0;
+    if(widget)
+    {
+        const QImage& image = widget->image();
+        const QColor& color = image.pixel(pos);
 
-    ui->colorBoxWidget->setSecondaryColor(color);
+        ui->colorBoxWidget->setSecondaryColor(color);
+    }
 }
 
 void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
 {
     const QColor& color = ui->colorBoxWidget->primaryColor();
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
     }
@@ -725,7 +765,7 @@ void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
 void MainWindow::onFloodFillSecondaryColor(const QPoint& pos)
 {
     const QColor& color = ui->colorBoxWidget->secondaryColor();
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
     }
@@ -733,7 +773,7 @@ void MainWindow::onFloodFillSecondaryColor(const QPoint& pos)
 
 void MainWindow::onCrop(const QRect& rect)
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         QRect crop = widget->image().rect().intersected(rect);
         widget->setImage(widget->image().copy(crop));
@@ -742,7 +782,7 @@ void MainWindow::onCrop(const QRect& rect)
 
 void MainWindow::onCopy()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         QClipboard *clipboard = QApplication::clipboard();
         clipboard->setImage(widget->image());
@@ -751,7 +791,7 @@ void MainWindow::onCopy()
 
 void MainWindow::onPaste()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         QClipboard *clipboard = QApplication::clipboard();
         MOUSE_POINTER->setOverlayImage(clipboard->image());
@@ -760,7 +800,7 @@ void MainWindow::onPaste()
 
 void MainWindow::onZoomChanged(const QString& scale)
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setScale(scale);
     }
@@ -780,7 +820,7 @@ void MainWindow::onTabChanged(int index)
 {
     Q_UNUSED(index)
 
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         QString scale = QString::number((int)(widget->getScale()*100)).append("%");
         int index = this->zoomCombo->findText(scale);
@@ -801,7 +841,7 @@ void MainWindow::on_actionRegister_triggered()
 
 void MainWindow::on_actionUndo_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->undo();
     }
@@ -809,7 +849,7 @@ void MainWindow::on_actionUndo_triggered()
 
 void MainWindow::on_actionRedo_triggered()
 {
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->redo();
     }

@@ -14,16 +14,6 @@ textDialog::textDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     updateFont();
-
-    const QStringList colourNames = QColor::colorNames();
-    int index = 0;
-    foreach (const QString &colourName, colourNames) {
-        const QColor color(colourName);
-        ui->comboBox->addItem(colourName, color);
-        const QModelIndex idx = ui->comboBox->model()->index(index++, 0);
-        ui->comboBox->model()->setData(idx, color, Qt::BackgroundColorRole);
-    }
-
 }
 
 textDialog::~textDialog()

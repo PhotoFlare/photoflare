@@ -15,6 +15,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->setupUi(this);
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
+    ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
 }
 
 prefsDialog::~prefsDialog()
@@ -26,4 +27,7 @@ void prefsDialog::on_buttonBox_accepted()
 {
     if (ui->checkBoxMaximize->isChecked() != SETTINGS->isMaximizeWindow())
         SETTINGS->setMaximizeWindow(ui->checkBoxMaximize->isChecked());
+
+    if (ui->checkBox->isChecked() != SETTINGS->isMultiWindowMode())
+        SETTINGS->setMultiWindowMode(ui->checkBox->isChecked());
 }

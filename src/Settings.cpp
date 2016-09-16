@@ -16,6 +16,7 @@ public:
         maximizeWindow = settings.value("MaximizeOnStartup").toBool();
         geometry = settings.value("CustomWindowGeometry").toRect();
         recentFiles = settings.value("RecentFiles").toList();
+        multiWindowMode = settings.value("MultiWindowMode").toBool();
     }
 
     ~SettingsPrivate()
@@ -30,6 +31,7 @@ public:
     }
 
     bool maximizeWindow;
+    bool multiWindowMode;
     QRect geometry;
     QList<QVariant> recentFiles;
     QSettings settings;
@@ -67,6 +69,17 @@ void Settings::setMaximizeWindow(bool maximize)
 bool Settings::isMaximizeWindow() const
 {
     return d->maximizeWindow;
+}
+
+void Settings::setMultiWindowMode(bool multiWindowMode)
+{
+    d->multiWindowMode = multiWindowMode;
+    d->setValue("MultiWindowMode", multiWindowMode);
+}
+
+bool Settings::isMultiWindowMode() const
+{
+    return d->multiWindowMode;
 }
 
 void Settings::setCustomWindowGeometry(const QRect &rect)

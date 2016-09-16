@@ -48,7 +48,6 @@ private:
 
     QSize m_chosenSize;
 
-    double imageRatio;
     float width_px;
     float height_px;
     int currentUnit;
