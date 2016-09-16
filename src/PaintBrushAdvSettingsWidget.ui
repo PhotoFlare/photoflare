@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>134</width>
-    <height>185</height>
+    <height>198</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>48</width>
+         <width>115</width>
          <height>32</height>
         </size>
        </property>
@@ -53,7 +53,7 @@
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Preassure</string>
+          <string>Pressure</string>
          </property>
         </widget>
        </item>

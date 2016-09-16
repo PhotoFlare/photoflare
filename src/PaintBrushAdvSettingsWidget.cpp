@@ -13,7 +13,7 @@ PaintBrushAdvSettingsWidget::PaintBrushAdvSettingsWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    for(int i=1; i < 4; i++)
+    for(int i=1; i < 10; i++)
     {
         QPixmap pixmap = QPixmap (QString(":/brushes/brushes/type_%1.png").arg(i));
         ui->comboBox->addItem(QString(), pixmap);

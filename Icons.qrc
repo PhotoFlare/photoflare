@@ -57,5 +57,12 @@
         <file>brushes/square.png</file>
         <file>brushes/type_1.png</file>
         <file>brushes/type_2.png</file>
+        <file>brushes/type_3.png</file>
+        <file>brushes/type_4.png</file>
+        <file>brushes/type_5.png</file>
+        <file>brushes/type_6.png</file>
+        <file>brushes/type_7.png</file>
+        <file>brushes/type_8.png</file>
+        <file>brushes/type_9.png</file>
     </qresource>
 </RCC>

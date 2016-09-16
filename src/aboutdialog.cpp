@@ -16,7 +16,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
     bool creditsVisible = false;
     ui->setupUi(this);
     ui->creditsTextArea->setVisible(creditsVisible);
-    ui->creditsTextArea->setText(tr("<b>Developers</b><br>Commercial - ICS<br>Lead - Dylan Coakley<br><br><b>Graphics</b><br>Website graphics - Raqasa<br>Application icons - Attari B<br><br><b>Promotional Media</b><br>Art Designer - Catherine Fister<br>Advertising - Don Murphy<br><br><b>Contributors</b><br>Duzy Chan - Code<br>Samuel Cowen - Code<br>Richard Senior - GNU Autotools<br>Alexandre Kharlamov - Code<br>Michael Sheppard - Code<br>Helene Levernieux - Project Icon<br><br><b>Special thanks</b><br>I would to thank Catherine for her strong support of myself and the project over the years. You gave me the courage to keep going and accomplish my goals."));
+    ui->creditsTextArea->setText(tr("<b>Developers</b><br>Commercial - ICS<br>Lead - Dylan Coakley<br>Developer - Ackios<br><br><b>Graphics</b><br>Website graphics - Raqasa<br>Application icons - Attari B<br><br><b>Promotional Media</b><br>Art Designer - Catherine Fister<br>Advertising - Don Murphy<br><br><b>Contributors</b><br>Duzy Chan - Code<br>Samuel Cowen - Code<br>Richard Senior - GNU Autotools<br>Alexandre Kharlamov - Code<br>Michael Sheppard - Code<br>Helene Levernieux - Project Icon<br><br><b>Special thanks</b><br>I would to thank Catherine for her strong support of myself and the project over the years. You gave me the courage to keep going and accomplish my goals."));
 
     ui->appName->setText(qApp->applicationName());
     QFont font;

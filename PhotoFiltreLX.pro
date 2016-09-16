@@ -89,7 +89,7 @@ FORMS += src/mainwindow.ui \
     src/PaintBrushAdvSettingsWidget.ui \
     src/ColorBoxWidget.ui \
     src/registerdialog.ui \
-    src/brushtypecombobox.ui
+    src/BrushTypeComboBox.ui
 
 RESOURCES += \
     Icons.qrc

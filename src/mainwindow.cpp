@@ -57,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
     // Disable actions that are not yet implemented.
-    //disableUnimplementedActions();
+    disableUnimplementedActions();
 
     zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
@@ -745,6 +745,22 @@ void MainWindow::on_actionRegister_triggered()
     dialog.exec();
 }
 
+void MainWindow::on_actionUndo_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->undo();
+    }
+}
+
+void MainWindow::on_actionRedo_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->redo();
+    }
+}
+
 // This method disables actions that are not yet implemented.
 // They still appear in menus, but are greyed out.
 void MainWindow::disableUnimplementedActions()
@@ -771,7 +787,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionContract->setEnabled(false);
     ui->actionContrastminus->setEnabled(false);
     ui->actionContrastplus->setEnabled(false);
-    ui->actionCopy->setEnabled(false);
+    //ui->actionCopy->setEnabled(false);
     ui->actionCopy_shape->setEnabled(false);
     ui->actionCopyright->setEnabled(false);
     ui->actionCrop->setEnabled(false);
@@ -823,7 +839,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionOutside_drop_shadow->setEnabled(false);
     ui->actionOutside_frame->setEnabled(false);
     ui->actionOptions->setEnabled(false);
-    ui->actionPaste->setEnabled(false);
+    //ui->actionPaste->setEnabled(false);
     ui->actionPaste_and_text_bounding_box->setEnabled(false);
     ui->actionPaste_as_new_image->setEnabled(false);
     ui->actionPaste_shape->setEnabled(false);
@@ -832,8 +848,8 @@ void MainWindow::disableUnimplementedActions()
     ui->actionPrint->setEnabled(false);
     ui->actionPurge->setEnabled(false);
     ui->actionRGB_Mode->setEnabled(false);
-    ui->actionRecent_files->setEnabled(false);
-    ui->actionRedo->setEnabled(false);
+    //ui->actionRecent_files->setEnabled(false);
+    //ui->actionRedo->setEnabled(false);
     ui->actionReinforce->setEnabled(false);
     ui->actionRelief->setEnabled(false);
     ui->actionReplace_colour->setEnabled(false);
@@ -864,7 +880,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionTransform_2->setEnabled(false);
     ui->actionTransparency_mask->setEnabled(false);
     ui->actionTransparent_colour->setEnabled(false);
-    ui->actionUndo->setEnabled(false);
+    //ui->actionUndo->setEnabled(false);
     ui->actionValidate->setEnabled(false);
     ui->actionVisual_effect->setEnabled(false);
     ui->actionZoom_in->setEnabled(false);
@@ -873,23 +889,7 @@ void MainWindow::disableUnimplementedActions()
     ui->toolButtonWand->setEnabled(false);
     ui->toolButtonStamp->setEnabled(false);
     ui->toolButtonSprayCan->setEnabled(false);
-    ui->toolButtonPaintBrushAdv->setEnabled(false);
+    //ui->toolButtonPaintBrushAdv->setEnabled(false);
     ui->toolButtonLine->setEnabled(false);
     ui->toolButtonBlur->setEnabled(false);
-}
-
-void MainWindow::on_actionUndo_triggered()
-{
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
-    if (widget) {
-        widget->undo();
-    }
-}
-
-void MainWindow::on_actionRedo_triggered()
-{
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
-    if (widget) {
-        widget->redo();
-    }
 }
