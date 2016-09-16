@@ -56,7 +56,10 @@ SOURCES += src/main.cpp \
     src/registerdialog.cpp \
     src/tools/PaintBrushAdvTool.cpp \
     src/PaintBrushAdvSettingsWidget.cpp \
-    src/BrushTypeComboBox.cpp
+    src/BrushTypeComboBox.cpp \
+    src/tools/SprayCanTool.cpp \
+    src/tools/LineTool.cpp \
+    src/SprayCanSettingsWidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -70,7 +73,7 @@ HEADERS += src/mainwindow.h \
     src/FilterManager.h \
     src/ToolManager.h \
     src/PaintBrushSettingsWidget.h \
-    src/ColorBoxWidget.h \
+    src/colorboxwidget.h \
     src/tools/ColourPickerTool.h \
     src/tools/PaintBucketTool.h \
     src/tools/PointerTool.h \
@@ -78,7 +81,10 @@ HEADERS += src/mainwindow.h \
     src/registerdialog.h \
     src/tools/PaintBrushAdvTool.h \
     src/PaintBrushAdvSettingsWidget.h \
-    src/BrushTypeComboBox.h
+    src/brushtypecombobox.h \
+    src/tools/SprayCanTool.h \
+    src/tools/LineTool.h \
+    src/SprayCanSettingsWidget.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -89,7 +95,8 @@ FORMS += src/mainwindow.ui \
     src/PaintBrushAdvSettingsWidget.ui \
     src/ColorBoxWidget.ui \
     src/registerdialog.ui \
-    src/BrushTypeComboBox.ui
+    src/BrushTypeComboBox.ui \
+    src/SprayCanSettingsWidget.ui
 
 RESOURCES += \
     Icons.qrc

@@ -17,6 +17,8 @@ class PaintBucketTool;
 class ToolManagerPrivate;
 class PointerTool;
 class TextTool;
+class SprayCanTool;
+class LineTool;
 
 class ToolManager : public QObject
 {
@@ -31,6 +33,8 @@ public:
     PaintBucketTool* paintBucket() const;
     PointerTool* mousePointer() const;
     TextTool* textTool() const;
+    SprayCanTool* sprayCanTool() const;
+    LineTool* lineTool() const;
 
 private:
     explicit ToolManager(QObject *parent = 0);

@@ -27,9 +27,12 @@
 #include "./tools/PaintBucketTool.h"
 #include "./tools/PointerTool.h"
 #include "./tools/TextTool.h"
+#include "./tools/SprayCanTool.h"
+#include "./tools/LineTool.h"
 
 #include "PaintBrushSettingsWidget.h"
 #include "PaintBrushAdvSettingsWidget.h"
+#include "SprayCanSettingsWidget.h"
 #include "ToolManager.h"
 #include "Settings.h"
 #include "FilterManager.h"
@@ -40,6 +43,8 @@
 #define PAINT_BUCKET ToolManager::instance()->paintBucket()
 #define MOUSE_POINTER ToolManager::instance()->mousePointer()
 #define TEXT_TOOL ToolManager::instance()->textTool()
+#define SPRAY_CAN ToolManager::instance()->sprayCanTool()
+#define LINE_TOOL ToolManager::instance()->lineTool()
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
@@ -80,6 +85,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dockWidgetSettings->layout()->addWidget(m_pbAdvSettingsWidget);
     connect(m_pbAdvSettingsWidget, &PaintBrushAdvSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushAdvSettingsChanged);
 
+    m_scSettingsWidget = new SprayCanSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_scSettingsWidget);
+    connect(m_scSettingsWidget, &SprayCanSettingsWidget::settingsChanged, this, &MainWindow::onSprayCanSettingsChanged);
+
     on_toolButtonPaintBrush_clicked();
 
     ui->actionUndo->setEnabled(false);
@@ -94,6 +103,11 @@ MainWindow::MainWindow(QWidget *parent) :
     PAINT_BRUSH_ADV->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, PAINT_BRUSH_ADV, &PaintBrushAdvTool::setPrimaryColor);
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, PAINT_BRUSH_ADV, &PaintBrushAdvTool::setSecondaryColor);
+
+    SPRAY_CAN->setPrimaryColor(ui->colorBoxWidget->primaryColor());
+    SPRAY_CAN->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
+    QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, SPRAY_CAN, &SprayCanTool::setPrimaryColor);
+    QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, SPRAY_CAN, &SprayCanTool::setSecondaryColor);
 
     bool maximize = SETTINGS->isMaximizeWindow();
     if (maximize) {
@@ -284,6 +298,7 @@ void MainWindow::clearToolpalette()
 
     m_pbSettingsWidget->setVisible(false);
     m_pbAdvSettingsWidget->setVisible(false);
+    m_scSettingsWidget->setVisible(false);
 }
 
 PaintWidget *MainWindow::createPaintWidget(const QString &imagePath) const
@@ -428,6 +443,9 @@ void MainWindow::on_toolButtonLine_clicked()
     clearToolpalette();
     m_toolSelected = "line";
     ui->toolButtonLine->setChecked(true);
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget)
+        widget->setPaintTool(LINE_TOOL);
 }
 
 void MainWindow::on_toolButtonPaintBucket_clicked()
@@ -445,6 +463,12 @@ void MainWindow::on_toolButtonSprayCan_clicked()
     clearToolpalette();
     m_toolSelected = "sprayCan";
     ui->toolButtonSprayCan->setChecked(true);
+    m_scSettingsWidget->setVisible(true);
+    onSprayCanSettingsChanged();
+
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget)
+        widget->setPaintTool(SPRAY_CAN);
 }
 
 void MainWindow::on_toolButtonPaintBrush_clicked()
@@ -641,6 +665,14 @@ void MainWindow::onPaintBrushAdvSettingsChanged()
     PAINT_BRUSH_ADV->setPreassure(m_pbAdvSettingsWidget->preassure());
     PAINT_BRUSH_ADV->setFade(m_pbAdvSettingsWidget->fade());
     PAINT_BRUSH_ADV->setStep(m_pbAdvSettingsWidget->step());
+}
+
+void MainWindow::onSprayCanSettingsChanged()
+{
+    SPRAY_CAN->setRadius(m_scSettingsWidget->radius());
+    SPRAY_CAN->setPressure(m_scSettingsWidget->pressure());
+    SPRAY_CAN->setDispersion(m_scSettingsWidget->dispersion());
+    SPRAY_CAN->setRainbow(m_scSettingsWidget->rainbow());
 }
 
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
@@ -888,7 +920,7 @@ void MainWindow::disableUnimplementedActions()
 
     ui->toolButtonWand->setEnabled(false);
     ui->toolButtonStamp->setEnabled(false);
-    ui->toolButtonSprayCan->setEnabled(false);
+    //ui->toolButtonSprayCan->setEnabled(false);
     //ui->toolButtonPaintBrushAdv->setEnabled(false);
     ui->toolButtonLine->setEnabled(false);
     ui->toolButtonBlur->setEnabled(false);

@@ -16,6 +16,7 @@ class MainWindow;
 class PaintWidget;
 class PaintBrushSettingsWidget;
 class PaintBrushAdvSettingsWidget;
+class SprayCanSettingsWidget;
 class QComboBox;
 
 class MainWindow : public QMainWindow
@@ -59,6 +60,7 @@ private slots:
     void showError(const QString &message);
     void onPaintBrushSettingsChanged();
     void onPaintBrushAdvSettingsChanged();
+    void onSprayCanSettingsChanged();
     void onPickPrimaryColor(const QPoint&);
     void onPickSecondaryColor(const QPoint&);
     void onFloodFillPrimaryColor(const QPoint&);
@@ -117,6 +119,7 @@ private:
     QString m_toolSelected;
     PaintBrushSettingsWidget *m_pbSettingsWidget;
     PaintBrushAdvSettingsWidget *m_pbAdvSettingsWidget;
+    SprayCanSettingsWidget *m_scSettingsWidget;
     QComboBox *zoomCombo;
 };
 

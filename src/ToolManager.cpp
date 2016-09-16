@@ -12,6 +12,8 @@
 #include "./tools/PaintBucketTool.h"
 #include "./tools/PointerTool.h"
 #include "./tools/TextTool.h"
+#include "./tools/SprayCanTool.h"
+#include "./tools/LineTool.h"
 
 ToolManager * ToolManager::m_instance = 0;
 
@@ -26,6 +28,8 @@ public:
         paintBucket = new PaintBucketTool;
         mousePointer = new PointerTool;
         textTool = new TextTool;
+        sprayCanTool = new SprayCanTool;
+        lineTool = new LineTool;
     }
 
     ~ToolManagerPrivate()
@@ -36,6 +40,8 @@ public:
         delete paintBucket;
         delete mousePointer;
         delete textTool;
+        delete sprayCanTool;
+        delete lineTool;
     }
 
     ColourPickerTool *colourPicker;
@@ -44,6 +50,8 @@ public:
     PaintBucketTool *paintBucket;
     PointerTool *mousePointer;
     TextTool *textTool;
+    SprayCanTool *sprayCanTool;
+    LineTool *lineTool;
 };
 
 ToolManager::ToolManager(QObject *parent)
@@ -86,6 +94,16 @@ PointerTool *ToolManager::mousePointer() const
 TextTool *ToolManager::textTool() const
 {
     return d->textTool;
+}
+
+SprayCanTool *ToolManager::sprayCanTool() const
+{
+    return d->sprayCanTool;
+}
+
+LineTool *ToolManager::lineTool() const
+{
+    return d->lineTool;
 }
 
 ToolManager *ToolManager::instance()

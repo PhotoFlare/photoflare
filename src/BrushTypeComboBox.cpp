@@ -2,7 +2,7 @@
 #include <QStyledItemDelegate>
 #include <QStyleOptionViewItem>
 
-#include "BrushTypeComboBox.h"
+#include "brushtypecombobox.h"
 
 class BrushTypeDelegate : public QStyledItemDelegate
 {
