@@ -267,6 +267,7 @@ void MainWindow::on_actionPreferences_triggered()
 void MainWindow::on_actionImage_Size_triggered()
 {
     NewDialog dialog;
+    dialog.setWindowTitle("Resize Image");
     if (dialog.exec()) {
 
         PaintWidget *widget = getCurrentPaintWidget();

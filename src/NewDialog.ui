@@ -346,6 +346,35 @@
    <property name="flat">
     <bool>false</bool>
    </property>
+   <widget class="QPushButton" name="lockedRatioButton">
+    <property name="geometry">
+     <rect>
+      <x>108</x>
+      <y>76</y>
+      <width>31</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../Icons.qrc">
+      <normaloff>:/icons/icons/linked.png</normaloff>:/icons/icons/linked.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <zorder>groupBox_2</zorder>
   <zorder>buttonBox</zorder>
@@ -361,7 +390,9 @@
   <zorder>imageResCombo</zorder>
   <zorder>groupBox</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="../Icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>
