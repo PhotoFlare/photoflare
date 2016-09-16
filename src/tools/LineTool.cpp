@@ -91,7 +91,7 @@ void LineTool::setArrowStyle(int arrowStyle)
     }
 }
 
-void LineTool::drawArrow(QPainter& painter, QPoint pFrom, QPoint pTo)
+void LineTool::drawArrow(QPainter& painter, QPoint pFrom, QPoint pTo, QPoint& pOutMedian)
 {
     QPoint pBase;
     QPoint aptPoly[3];
@@ -134,6 +134,9 @@ void LineTool::drawArrow(QPainter& painter, QPoint pFrom, QPoint pTo)
     {
         painter.drawPolygon(aptPoly, 3);
     }
+
+    pOutMedian.setX(aptPoly[1].x()/2 + aptPoly[2].x()/2);
+    pOutMedian.setY(aptPoly[1].y()/2 + aptPoly[2].y()/2);
 }
 
 void LineTool::setStyle(int style)
@@ -191,26 +194,28 @@ void LineTool::onMouseMove(const QPoint &pos)
         QBrush brush = QBrush(pen.color(), Qt::SolidPattern);
         painter.setBrush(brush);
 
-        painter.drawLine(d->firstPos, d->secondPos);
-
         Qt::PenStyle penStyle = pen.style();
         pen.setStyle(Qt::SolidLine);
         painter.setPen(pen);
 
+       QPoint firstPos = d->firstPos;
+       QPoint secondPos = d->secondPos;
         if(d->oneWayArrow)
-            drawArrow(painter, d->firstPos, d->secondPos);
+            drawArrow(painter, d->firstPos, d->secondPos, secondPos);
 
         if(d->twoWaysArrow) {
-            drawArrow(painter, d->firstPos, d->secondPos);
-            drawArrow(painter, d->secondPos, d->firstPos);
+            drawArrow(painter, d->firstPos, d->secondPos, secondPos);
+            drawArrow(painter, d->secondPos, d->firstPos, firstPos);
         }
 
         pen.setStyle(penStyle);
         painter.setPen(pen);
 
+        painter.drawLine(firstPos, secondPos);
+
         painter.end();
 
-        emit overlaid(surface, QPainter::CompositionMode_SourceOver);
+        emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
     }
 }
 
@@ -230,22 +235,24 @@ void LineTool::onMouseRelease(const QPoint &pos)
         QBrush brush = QBrush(pen.color(), Qt::SolidPattern);
         painter.setBrush(brush);
 
-        painter.drawLine(d->firstPos, d->secondPos);
-
         Qt::PenStyle penStyle = pen.style();
         pen.setStyle(Qt::SolidLine);
         painter.setPen(pen);
 
+        QPoint firstPos = d->firstPos;
+        QPoint secondPos = d->secondPos;
         if(d->oneWayArrow)
-            drawArrow(painter, d->firstPos, d->secondPos);
+            drawArrow(painter, d->firstPos, d->secondPos, secondPos);
 
         if(d->twoWaysArrow) {
-            drawArrow(painter, d->firstPos, d->secondPos);
-            drawArrow(painter, d->secondPos, d->firstPos);
+            drawArrow(painter, d->firstPos, d->secondPos, secondPos);
+            drawArrow(painter, d->secondPos, d->firstPos, firstPos);
         }
 
         pen.setStyle(penStyle);
         painter.setPen(pen);
+
+        painter.drawLine(firstPos, secondPos);
 
         painter.end();
 

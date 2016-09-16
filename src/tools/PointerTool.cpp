@@ -111,7 +111,7 @@ void PointerTool::setOverlayImage(const QImage& image)
     d->handMode = true;
     d->image = image;
     d->imagePos = QPoint(0,0);
-    emit overlaid(d->image, QPainter::CompositionMode_SourceOver);
+    emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
 }
 
 void PointerTool::onMouseMove(const QPoint &pos)
@@ -137,7 +137,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
             painter.drawRect(rect);
             painter.end();
 
-            emit overlaid(surface, QPainter::CompositionMode_SourceOver);
+            emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
         } else
         {
             const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
@@ -151,7 +151,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
             painter.drawRect(QRect(d->firstPos, d->secondPos));
             painter.end();
 
-            emit overlaid(surface, QPainter::CompositionMode_Difference);
+            emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_Difference);
         }
     }
 }

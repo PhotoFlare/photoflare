@@ -75,6 +75,7 @@ void Settings::setMultiWindowMode(bool multiWindowMode)
 {
     d->multiWindowMode = multiWindowMode;
     d->setValue("MultiWindowMode", multiWindowMode);
+    emit multiWindowModeChanged(multiWindowMode);
 }
 
 bool Settings::isMultiWindowMode() const

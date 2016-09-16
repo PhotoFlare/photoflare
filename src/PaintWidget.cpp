@@ -151,7 +151,6 @@ void PaintWidget::init()
 PaintWidget::~PaintWidget()
 {
     d->disconnectLastTool();
-
     delete d;
 }
 
@@ -175,8 +174,10 @@ void PaintWidget::setPaintTool(Tool *tool)
                     d->imageChanged = true;
                 }
             });
-        d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (const QImage &overlayImage, QPainter::CompositionMode mode) {
-                d->updateImageLabelWithOverlay(overlayImage, mode);
+        d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode) {
+               if (&d->image == paintDevice) {
+                    d->updateImageLabelWithOverlay(overlayImage, mode);
+                }
             });
     }
 }

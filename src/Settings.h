@@ -35,6 +35,8 @@ private:
     static Settings* m_instance;
     SettingsPrivate *d;
     static const int MAX_RECENTS_COUNT;
+signals:
+    void multiWindowModeChanged(bool multiWindowMode);
 };
 
 #endif // SETTINGS_H

@@ -50,16 +50,21 @@
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
-// Temporary const variable.
-const QString MODIFIED_UNTITLED_TAB_NAME = QObject::tr("Untitled *");
 }
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    mdiArea(new QMdiArea),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    if(SETTINGS->isMultiWindowMode())
+    {
+        ui->mdiArea->setViewMode(QMdiArea::SubWindowView);
+    } else
+    {
+        ui->mdiArea->setViewMode(QMdiArea::TabbedView);
+    }
 
     // Center colorBox in tool palette.
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
@@ -78,7 +83,7 @@ MainWindow::MainWindow(QWidget *parent) :
     zoomCombo->insertSeparator(10);
     ui->mainToolBar->addWidget(zoomCombo);
     connect(zoomCombo, SIGNAL(activated(const QString&)), this, SLOT(onZoomChanged(const QString&)));
-    connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
+    connect(ui->mdiArea, &QMdiArea::subWindowActivated, this, &MainWindow::onSubWindowActivated);
 
     m_pbSettingsWidget = new PaintBrushSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_pbSettingsWidget);
@@ -143,6 +148,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(onPaste()));
 
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&)), this, SLOT(onEditText(const QString&,const QFont&)));
+
+    QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
 }
 
 MainWindow::~MainWindow()
@@ -160,7 +167,7 @@ void MainWindow::on_actionNew_triggered()
 {
     NewDialog dialog;
     if (dialog.exec()) {
-        addTab(createPaintWidget(dialog.newImageSize()));
+        addPaintWidget(createPaintWidget(dialog.newImageSize()));
     }
 }
 
@@ -173,13 +180,15 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionSave_triggered()
 {
-    saveContent(ui->tabWidget->currentIndex());
+    saveContent();
 }
 
 void MainWindow::on_actionSave_As_triggered()
 {
     // Load default filter by image file name.
-    QString currentFileName = ui->tabWidget->tabText(ui->tabWidget->currentIndex());
+    QString currentFileName;
+    currentFileName = ui->mdiArea->currentSubWindow()->windowTitle();
+
     QString suffix = QFileInfo(currentFileName).suffix();
 
     QStringList filters;
@@ -224,18 +233,14 @@ void MainWindow::on_actionSave_As_triggered()
         }
     }
 
-    if (saveImage(ui->tabWidget->currentIndex(), fileName)) {
-        ui->tabWidget->tabBar()->tabButton(ui->tabWidget->currentIndex(), QTabBar::RightSide)->setWindowModified(false);
-        ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), fileName);
+    if (saveImage(fileName)) {
+        ui->mdiArea->currentSubWindow()->setWindowModified(false);
+        ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
+        SETTINGS->addRecentFile(fileName);
+        updateRecents();
     } else {
         showError(tr("Unable to save image."));
     }
-
-}
-
-void MainWindow::on_tabWidget_tabCloseRequested(int index)
-{
-    handleCloseTab(index);
 }
 
 void MainWindow::on_actionText_triggered()
@@ -274,7 +279,7 @@ void MainWindow::on_actionImage_Size_triggered()
 void MainWindow::openFile(const QString& fileName)
 {
     if (!fileName.isEmpty()) {
-        addTab(createPaintWidget(fileName));
+        addPaintWidget(createPaintWidget(fileName));
         SETTINGS->addRecentFile(fileName);
         updateRecents();
     }
@@ -290,7 +295,7 @@ void MainWindow::updateRecents()
         const QString& fileName = (*i).toString();
         QAction* action = ui->menuRecent_Files->addAction(fileName);
         connect(action, &QAction::triggered, [this, fileName] () {
-            addTab(createPaintWidget(fileName));
+            addPaintWidget(createPaintWidget(fileName));
         });
     }
 }
@@ -324,109 +329,106 @@ PaintWidget *MainWindow::createPaintWidget(const QSize &imageSize) const
     return new PaintWidget(imageSize);
 }
 
-#include <QDebug>
-void MainWindow::addTab(PaintWidget *widget)
+void MainWindow::addPaintWidget(PaintWidget *widget)
 {
-    on_toolButtonPaintBrush_clicked();
     widget->autoScale();
-
-//    int tabIndex = ui->tabWidget->addTab(widget, widget->imagePath().isEmpty() ? UNTITLED_TAB_NAME : widget->imagePath());
-//    ui->tabWidget->setCurrentIndex(tabIndex);
-
-//    QWidget *closeButton = ui->tabWidget->tabBar()->tabButton(tabIndex, QTabBar::RightSide);
-//    // Remove our paint widget after tab closing.
-//    connect(closeButton, &QWidget::destroyed, widget, &PaintWidget::deleteLater);
-
-//    connect(widget, &PaintWidget::contentChanged, [widget, closeButton, tabIndex, this] () {
-//        if (!closeButton->isWindowModified()) {
-//            closeButton->setWindowModified(true);
-//            QString modifiedText = ui->tabWidget->tabText(tabIndex) + " *";
-//            ui->tabWidget->setTabText(tabIndex, modifiedText);
-//        }
-//        ui->actionUndo->setEnabled(widget->isUndoEnabled());
-//        ui->actionRedo->setEnabled(widget->isRedoEnabled());
-//    });
 
     connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
         this->zoomCombo->setItemText(0, QString::number((int)(scale*100)).append("%"));
         this->zoomCombo->setCurrentIndex(0);
     });
 
-    mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    setCentralWidget(mdiArea);
-    windowMapper = new QSignalMapper(this);
-    connect(windowMapper, SIGNAL(mapped(QWidget*)), this, SLOT(setActiveSubWindow(QWidget*)));
+    addChildWindow(widget);
 
-    mdiArea->addSubWindow(widget);
-    widget->show();
+    on_toolButtonPaintBrush_clicked();
 }
 
-void MainWindow::setActiveSubWindow(QWidget *window)
+void MainWindow::addChildWindow(PaintWidget *widget)
 {
-    if (!window)
-        return;
+    ui->mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    ui->mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
-     mdiArea->setActiveSubWindow(qobject_cast<QMdiSubWindow *>(window));
-}
+    QMdiSubWindow *mdiSubWindow = ui->mdiArea->addSubWindow(widget);
+    QString title = widget->imagePath().isEmpty() ? UNTITLED_TAB_NAME : widget->imagePath();
+    title = title + " [*]";
+    mdiSubWindow->setWindowTitle(title);
+    mdiSubWindow->installEventFilter(this);
+    mdiSubWindow->show();
 
-void MainWindow::saveContent(int tabIndex)
-{
-    QString tabText = ui->tabWidget->tabText(tabIndex);
-
-    if (tabText == UNTITLED_TAB_NAME || tabText == MODIFIED_UNTITLED_TAB_NAME) {
-        return on_actionSave_As_triggered();
-    } else {
-        tabText.remove(" *");
-        if (saveImage(tabIndex, tabText)) {
-            ui->tabWidget->tabBar()->tabButton(tabIndex, QTabBar::RightSide)->setWindowModified(false);
-            ui->tabWidget->setTabText(tabIndex, tabText);
+    connect(widget, &PaintWidget::contentChanged, [widget, mdiSubWindow, title, this] () {
+        if (!mdiSubWindow->isWindowModified()) {
+            mdiSubWindow->setWindowModified(true);
         }
+        ui->actionUndo->setEnabled(widget->isUndoEnabled());
+        ui->actionRedo->setEnabled(widget->isRedoEnabled());
+    });
+}
+
+void MainWindow::saveContent()
+{
+    QString currentFileName = ui->mdiArea->currentSubWindow()->windowTitle();
+
+    if(currentFileName.contains(UNTITLED_TAB_NAME + " [*]"))
+    {
+        on_actionSave_As_triggered();
+    } else
+    {
+        saveImage(currentFileName.mid(0,currentFileName.length() - 4));
+        ui->mdiArea->currentSubWindow()->setWindowModified(false);
     }
 }
 
-bool MainWindow::saveImage(int tabIndex, const QString &fileName)
+bool MainWindow::saveImage(const QString &fileName)
 {
     if (fileName.isEmpty())
         return false;
 
-    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->widget(tabIndex));
+    PaintWidget *widget;
+    widget = getCurrentPaintWidget();
+
     return widget ? widget->image().save(fileName) : false;
 }
 
-bool MainWindow::handleCloseTab(int index)
+bool MainWindow::handleCloseChildWindow(QMdiSubWindow *subWindow)
 {
-    QWidget *tab = ui->tabWidget->tabBar()->tabButton(index, QTabBar::RightSide);
-    if (!tab)
+    if (!subWindow)
         return false;
 
-    if (tab->isWindowModified()) {
+    ui->mdiArea->setActiveSubWindow(subWindow);
+
+    if (subWindow->isWindowModified()) {
         int buttonCode = QMessageBox::question(this, tr("Unsaved Changes"), tr("Save changes before leaving?"),
                                                QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::Cancel);
 
         if (buttonCode == QMessageBox::Cancel) {
             return true;
         } else if (buttonCode == QMessageBox::Yes) {
-            saveContent(index);
+            saveContent();
         }
     }
 
-    ui->tabWidget->removeTab(index);
+    subWindow->setWindowModified(false);
+    subWindow->close();
 
     return false;
 }
 
 bool MainWindow::handleCloseTabs()
 {
-    for (int i = ui->tabWidget->count() - 1; i >=0; --i) {
-        QWidget *tab = ui->tabWidget->tabBar()->tabButton(i, QTabBar::RightSide);
-        if (tab->isWindowModified()) {
-            ui->tabWidget->setCurrentIndex(i);
-            if (handleCloseTab(i))
-                return true;
-        } else {
-            ui->tabWidget->removeTab(i);
-        }
+    QList<QMdiSubWindow *> windows = ui->mdiArea->subWindowList();
+
+    for (int i = 0; i < windows.size(); ++i) {
+       QMdiSubWindow *subWindow = windows.at(i);
+       if(subWindow->isWindowModified())
+       {
+           if (handleCloseChildWindow(subWindow)) {
+               return true;
+           } else {
+
+           }
+       } else {
+           subWindow->close();
+       }
     }
 
     return false;
@@ -440,6 +442,30 @@ void MainWindow::saveGeometryState()
     } else if (!SETTINGS->isMaximizeWindow()) { // Save custom window geometry.
         SETTINGS->setCustomWindowGeometry(this->geometry());
     }
+}
+
+bool MainWindow::eventFilter(QObject * obj, QEvent * e)
+{
+    switch (e->type())
+    {
+        case QEvent::Close:
+        {
+            QMdiSubWindow * subWindow = dynamic_cast<QMdiSubWindow*>(obj);
+            Q_ASSERT (subWindow != NULL);
+            if(handleCloseChildWindow(subWindow))
+            {
+                e->ignore();
+                return true;
+            }
+
+            subWindow->widget()->deleteLater();
+            break;
+        }
+        default:
+            qt_noop();
+    }
+
+    return QObject::eventFilter(obj, e);
 }
 
 void MainWindow::on_toolButtonPointer_clicked()
@@ -564,14 +590,9 @@ void MainWindow::closeEvent(QCloseEvent *event)
 PaintWidget* MainWindow::getCurrentPaintWidget()
 {
     PaintWidget *widget = 0;
-    if(SETTINGS->isMultiWindowMode())
+    if(ui->mdiArea->currentSubWindow())
     {
-        if(mdiArea->currentSubWindow())
-            widget = static_cast<PaintWidget *>(mdiArea->currentSubWindow()->widget());
-    } else
-    {
-        widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
-
+        widget = static_cast<PaintWidget *>(ui->mdiArea->currentSubWindow()->widget());
     }
 
     return widget;
@@ -643,10 +664,7 @@ void MainWindow::on_actionSwirl_triggered()
 
 void MainWindow::on_actionClose_triggered()
 {
-    int index = ui->tabWidget->currentIndex();
-    if (index != -1) {
-        handleCloseTab(index);
-    }
+    handleCloseChildWindow(ui->mdiArea->currentSubWindow());
 }
 
 void MainWindow::on_actionClose_all_triggered()
@@ -729,8 +747,7 @@ void MainWindow::onLineSettingsChanged()
 
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
 {
-    //PaintWidget *widget = getCurrentPaintWidget();
-    PaintWidget *widget = 0;
+    PaintWidget *widget = getCurrentPaintWidget();
     if(widget)
     {
         const QImage& image = widget->image();
@@ -742,8 +759,7 @@ void MainWindow::onPickPrimaryColor(const QPoint& pos)
 
 void MainWindow::onPickSecondaryColor(const QPoint& pos)
 {
-//    PaintWidget *widget = getCurrentPaintWidget();
-    PaintWidget *widget = 0;
+    PaintWidget *widget = getCurrentPaintWidget();
     if(widget)
     {
         const QImage& image = widget->image();
@@ -816,10 +832,20 @@ void MainWindow::onEditText(const QString& text,const QFont& font)
     }
 }
 
-void MainWindow::onTabChanged(int index)
+void MainWindow::onMultiWindowModeChanged(bool multiWindowMode)
 {
-    Q_UNUSED(index)
+    if(multiWindowMode)
+    {
+        ui->mdiArea->setViewMode(QMdiArea::SubWindowView);
+    } else
+    {
+        ui->mdiArea->setViewMode(QMdiArea::TabbedView);
+    }
+}
 
+void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
+{
+    Q_UNUSED(window)
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         QString scale = QString::number((int)(widget->getScale()*100)).append("%");

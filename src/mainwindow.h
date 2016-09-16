@@ -40,7 +40,6 @@ private slots:
     void on_actionOpen_triggered();
     void on_actionSave_triggered();
     void on_actionSave_As_triggered();
-    void on_tabWidget_tabCloseRequested(int index);
     void on_actionText_triggered();
     void on_actionPreferences_triggered();
     void on_toolButtonPointer_clicked();
@@ -74,8 +73,9 @@ private slots:
     void onCopy();
     void onPaste();
     void onZoomChanged(const QString&);
-    void onTabChanged(int);
+    void onSubWindowActivated(QMdiSubWindow*);
     void onEditText(const QString&,const QFont&);
+    void onMultiWindowModeChanged(bool);
 
     void on_actionSwirl_triggered();
 
@@ -106,19 +106,20 @@ private slots:
     void on_actionUndo_triggered();
 
     void on_actionRedo_triggered();
-
-    void setActiveSubWindow(QWidget *window);
 protected:
     void closeEvent(QCloseEvent *event);
+    bool eventFilter(QObject * obj, QEvent * e);
 
 private:
     PaintWidget* createPaintWidget(const QString &imagePath) const;
     PaintWidget* createPaintWidget(const QSize &imageSize) const;
+    void addPaintWidget(PaintWidget *widget);
     void addTab(PaintWidget *widget);
-    void saveContent(int tabIndex);
-    bool saveImage(int tabIndex, const QString &fileName);
-    bool handleCloseTab(int index); // Returns true if cancelled.
-    bool handleCloseTabs(); // Returns true if cancelled.
+    void addChildWindow(PaintWidget *widget);
+    void saveContent();
+    bool saveImage(const QString &fileName);
+    bool handleCloseChildWindow(QMdiSubWindow *subWindow);
+    bool handleCloseTabs();
     void saveGeometryState();
     void disableUnimplementedActions();
     Ui::MainWindow *ui;
@@ -128,10 +129,6 @@ private:
     SprayCanSettingsWidget *m_scSettingsWidget;
     LineSettingsWidget *m_lineSettingsWidget;
     QComboBox *zoomCombo;
-
-
-    QSignalMapper *windowMapper;
-    QMdiArea *mdiArea;
 };
 
 #endif // MAINWINDOW_H

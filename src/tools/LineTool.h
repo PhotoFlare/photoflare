@@ -24,7 +24,7 @@ public slots:
     void setOpacity(int opacity);
     void setStyle(int style);
     void setArrowStyle(int arrowStyle);
-    void drawArrow(QPainter& painter, QPoint from, QPoint to);
+    void drawArrow(QPainter& painter, QPoint from, QPoint to, QPoint& pOutMedian);
 
 private:
     LineToolPrivate *d;

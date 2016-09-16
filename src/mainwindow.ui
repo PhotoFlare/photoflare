@@ -13,7 +13,7 @@
   <property name="minimumSize">
    <size>
     <width>0</width>
-    <height>0</height>
+    <height>645</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -43,17 +43,17 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="viewMode">
+       <enum>QMdiArea::TabbedView</enum>
       </property>
-      <property name="currentIndex">
-       <number>-1</number>
+      <property name="documentMode">
+       <bool>true</bool>
       </property>
       <property name="tabsClosable">
        <bool>true</bool>
       </property>
-      <property name="movable">
+      <property name="tabsMovable">
        <bool>true</bool>
       </property>
      </widget>

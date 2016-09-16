@@ -36,7 +36,7 @@ signals:
      */
     void painted(QPaintDevice *paintDevice);
 
-    void overlaid(const QImage &overlayImage, QPainter::CompositionMode mode);
+    void overlaid(QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode);
 
 protected:
     QPaintDevice *m_paintDevice;
