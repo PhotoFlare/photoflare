@@ -28,17 +28,15 @@ NewDialog::NewDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Disable parts of the dialog that are not implemented yet.
-    ui->pixelHvalue->setEnabled(false);
-    ui->pixelWvalue->setEnabled(false);
-    ui->doubleSpinBox_4->setEnabled(false);
-
     width_px = 800;
     height_px = 600;
     currentUnit = PX;
     ui->imageResCombo->setCurrentIndex(PPI);
     //Standard ppi
     ui->imageRvalue->setValue(96.0);
+    ui->pixelWvalue->setValue(width_px);
+    ui->pixelHvalue->setValue(height_px);
+    ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
 }
 
 NewDialog::~NewDialog()
@@ -128,6 +126,8 @@ void NewDialog::on_imageHvalue_valueChanged(double value)
     } else if(currentUnit == IN) {
         height_px = ui->imageHvalue->value() * resoulution_in;
     }
+    ui->pixelHvalue->setValue(height_px);
+    ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
 }
 
 void NewDialog::on_imageWvalue_valueChanged(double value)
@@ -143,4 +143,6 @@ void NewDialog::on_imageWvalue_valueChanged(double value)
     } else if(currentUnit == IN) {
         width_px = ui->imageWvalue->value() * resoulution_in;
     }
+    ui->pixelWvalue->setValue(width_px);
+    ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
 }

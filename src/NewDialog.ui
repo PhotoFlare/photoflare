@@ -276,6 +276,18 @@
       <height>27</height>
      </rect>
     </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="decimals">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <double>9000.000000000000000</double>
+    </property>
    </widget>
    <widget class="QDoubleSpinBox" name="pixelHvalue">
     <property name="geometry">
@@ -286,8 +298,17 @@
       <height>27</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="decimals">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <double>9000.000000000000000</double>
+    </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+   <widget class="QDoubleSpinBox" name="memoryValue">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -295,6 +316,12 @@
       <width>69</width>
       <height>27</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="maximum">
+     <double>9999999.000000000000000</double>
     </property>
    </widget>
   </widget>

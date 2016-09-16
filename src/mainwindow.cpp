@@ -9,6 +9,7 @@
 #include "textdialog.h"
 #include "prefsdialog.h"
 #include "aboutdialog.h"
+#include "registerdialog.h"
 #include "PaintWidget.h"
 #include "ui_mainwindow.h"
 #include <QComboBox>
@@ -306,7 +307,7 @@ bool MainWindow::handleCloseTab(int index)
         return false;
 
     if (tab->isWindowModified()) {
-        int buttonCode = QMessageBox::question(this, tr("Unsaved Changes"), tr("Do you want to save changes before leaving?"),
+        int buttonCode = QMessageBox::question(this, tr("Unsaved Changes"), tr("Save changes before leaving?"),
                                                QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::Cancel);
 
         if (buttonCode == QMessageBox::Cancel) {
@@ -545,11 +546,9 @@ void MainWindow::on_actionToolpalette_triggered()
     if(ui->dockWidget_palette->isVisible())
     {
         ui->dockWidget_palette->hide();
-        ui->dockWidget_Colourbox->hide();
     }
     else
         ui->dockWidget_palette->show();
-        ui->dockWidget_Colourbox->show();
 }
 
 void MainWindow::on_actionZoom_in_triggered()
@@ -657,6 +656,12 @@ void MainWindow::onTabChanged(int index)
     }
 }
 
+void MainWindow::on_actionRegister_triggered()
+{
+    registerDialog dialog(this);
+    dialog.exec();
+}
+
 // This method disables actions that are not yet implemented.
 // They still appear in menus, but are greyed out.
 void MainWindow::disableUnimplementedActions()
@@ -699,7 +704,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionExport_as_icon->setEnabled(false);
     ui->actionFade->setEnabled(false);
     ui->actionFill_with_pattern->setEnabled(false);
-    ui->actionFilterbar->setEnabled(false);
+    //ui->actionFilterbar->setEnabled(false);
     ui->actionFit_Image->setEnabled(false);
     ui->actionFit_ratio->setEnabled(false);
     ui->actionFlatten->setEnabled(false);
@@ -714,7 +719,7 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionGrayScale->setEnabled(false);
     ui->actionHue_Saturation->setEnabled(false);
     ui->actionHue_variation->setEnabled(false);
-    ui->actionImage_Size->setEnabled(false);
+    //ui->actionImage_Size->setEnabled(false);
     ui->actionImage_properties->setEnabled(false);
     ui->actionImport_twain->setEnabled(false);
     ui->actionIndexed_Mode->setEnabled(false);
@@ -769,9 +774,9 @@ void MainWindow::disableUnimplementedActions()
     ui->actionStroke_and_fill->setEnabled(false);
     ui->actionStylize->setEnabled(false);
     ui->actionSwap_RGB_channel->setEnabled(false);
-    ui->actionText->setEnabled(false);
+    //ui->actionText->setEnabled(false);
     ui->actionTexture->setEnabled(false);
-    ui->actionToolpalette->setEnabled(false);
+    //ui->actionToolpalette->setEnabled(false);
     ui->actionTransform->setEnabled(false);
     ui->actionTransform_2->setEnabled(false);
     ui->actionTransparency_mask->setEnabled(false);
@@ -781,4 +786,11 @@ void MainWindow::disableUnimplementedActions()
     ui->actionVisual_effect->setEnabled(false);
     ui->actionZoom_in->setEnabled(false);
     ui->actionZoom_out->setEnabled(false);
+
+    ui->toolButtonWand->setEnabled(false);
+    ui->toolButtonStamp->setEnabled(false);
+    ui->toolButtonSprayCan->setEnabled(false);
+    ui->toolButtonPaintBrushAdv->setEnabled(false);
+    ui->toolButtonLine->setEnabled(false);
+    ui->toolButtonBlur->setEnabled(false);
 }

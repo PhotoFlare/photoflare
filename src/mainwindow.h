@@ -88,6 +88,8 @@ private slots:
 
     void on_actionAuto_zoom_triggered();
 
+    void on_actionRegister_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
 

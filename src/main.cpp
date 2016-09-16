@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 
     // TODO: Add support for filenames passed on the command line.
 
-    app.setApplicationName(QObject::tr("PhotoFiltre LX Studio"));
-    app.setApplicationVersion(QObject::tr("0.1 alpha"));
+    app.setApplicationName(QObject::tr("PhotoFiltre LX Studio Demo"));
+    app.setApplicationVersion(QObject::tr("0.3 demo version"));
     app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
     app.setOrganizationName(QObject::tr("photofiltre-lx"));
 
