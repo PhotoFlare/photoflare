@@ -78,6 +78,16 @@ private slots:
 
     void on_actionImage_Size_triggered();
 
+    void on_actionFilterbar_triggered();
+
+    void on_actionToolpalette_triggered();
+
+    void on_actionZoom_in_triggered();
+
+    void on_actionZoom_out_triggered();
+
+    void on_actionAuto_zoom_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
 

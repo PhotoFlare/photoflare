@@ -530,6 +530,43 @@ void MainWindow::on_actionClose_all_triggered()
     handleCloseTabs();
 }
 
+void MainWindow::on_actionFilterbar_triggered()
+{
+    if(ui->toolBar->isVisible())
+    {
+        ui->toolBar->hide();
+    }
+    else
+        ui->toolBar->show();
+}
+
+void MainWindow::on_actionToolpalette_triggered()
+{
+    if(ui->dockWidget_palette->isVisible())
+    {
+        ui->dockWidget_palette->hide();
+        ui->dockWidget_Colourbox->hide();
+    }
+    else
+        ui->dockWidget_palette->show();
+        ui->dockWidget_Colourbox->show();
+}
+
+void MainWindow::on_actionZoom_in_triggered()
+{
+
+}
+
+void MainWindow::on_actionZoom_out_triggered()
+{
+
+}
+
+void MainWindow::on_actionAuto_zoom_triggered()
+{
+
+}
+
 void MainWindow::showError(const QString &message)
 {
     QMessageBox::critical(this, tr("Error"), message);
