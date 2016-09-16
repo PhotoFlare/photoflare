@@ -55,5 +55,7 @@
     <qresource prefix="/brushes">
         <file>brushes/circle.png</file>
         <file>brushes/square.png</file>
+        <file>brushes/type_1.png</file>
+        <file>brushes/type_2.png</file>
     </qresource>
 </RCC>

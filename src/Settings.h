@@ -23,6 +23,8 @@ public:
     bool isMaximizeWindow() const;
     void setCustomWindowGeometry(const QRect &rect);
     QRect customWindowGeometry() const;
+    void addRecentFile(const QString &file);
+    QList<QVariant> getRecentFiles() const;
 
 private:
     explicit Settings(QObject *parent = 0);
@@ -30,6 +32,7 @@ private:
     Settings& operator=(const Settings &);
     static Settings* m_instance;
     SettingsPrivate *d;
+    static const int MAX_RECENTS_COUNT;
 };
 
 #endif // SETTINGS_H

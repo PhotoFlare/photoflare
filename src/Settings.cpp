@@ -15,6 +15,7 @@ public:
     {
         maximizeWindow = settings.value("MaximizeOnStartup").toBool();
         geometry = settings.value("CustomWindowGeometry").toRect();
+        recentFiles = settings.value("RecentFiles").toList();
     }
 
     ~SettingsPrivate()
@@ -30,10 +31,12 @@ public:
 
     bool maximizeWindow;
     QRect geometry;
+    QList<QVariant> recentFiles;
     QSettings settings;
 };
 
 Settings* Settings::m_instance = 0;
+const int Settings::MAX_RECENTS_COUNT = 8;
 
 Settings::Settings(QObject *parent)
     : QObject(parent)
@@ -75,4 +78,21 @@ void Settings::setCustomWindowGeometry(const QRect &rect)
 QRect Settings::customWindowGeometry() const
 {
     return d->geometry;
+}
+
+void Settings::addRecentFile(const QString &file)
+{
+    if(!d->recentFiles.contains(file)) {
+        d->recentFiles.append(file);
+
+        if(d->recentFiles.size() > MAX_RECENTS_COUNT)
+            d->recentFiles.removeFirst();
+    }
+
+    d->setValue("RecentFiles", d->recentFiles);
+}
+
+QList<QVariant> Settings::getRecentFiles() const
+{
+    return d->recentFiles;
 }

@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -79,10 +79,15 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <widget class="QMenu" name="menuRecent_Files">
+     <property name="title">
+      <string>Recent Files</string>
+     </property>
+    </widget>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionRevert"/>
-    <addaction name="actionRecent_files"/>
+    <addaction name="menuRecent_Files"/>
     <addaction name="separator"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
@@ -431,7 +436,7 @@ QToolButton:checked {
       <number>0</number>
      </property>
      <item>
-      <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0,0,0,0,0,0" columnstretch="0,0">
+      <layout class="QGridLayout" name="toolsGridLayout" rowstretch="0,0,0,0,0,0,0,0" columnstretch="0,0">
        <property name="sizeConstraint">
         <enum>QLayout::SetDefaultConstraint</enum>
        </property>
@@ -453,8 +458,8 @@ QToolButton:checked {
        <property name="verticalSpacing">
         <number>10</number>
        </property>
-       <item row="8" column="0">
-        <widget class="QToolButton" name="toolButtonStamp">
+       <item row="4" column="1">
+        <widget class="QToolButton" name="toolButtonLine">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -475,7 +480,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</iconset>
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -488,7 +493,42 @@ QToolButton:checked {
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
+       <item row="4" column="0">
+        <widget class="QToolButton" name="toolButtonWand">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
         <widget class="QToolButton" name="toolButtonPaintBrushAdv">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -524,7 +564,7 @@ QToolButton:checked {
         </widget>
        </item>
        <item row="7" column="0">
-        <widget class="QToolButton" name="toolButtonPaintBrush">
+        <widget class="QToolButton" name="toolButtonStamp">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -545,182 +585,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1">
-        <widget class="QToolButton" name="toolButtonBlur">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string>...</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QToolButton" name="toolButtonSprayCan">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string>...</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QToolButton" name="toolButtonLine">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string>...</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QToolButton" name="toolButtonWand">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string>...</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QToolButton" name="toolButtonPaintBucket">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string>...</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</iconset>
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -755,7 +620,42 @@ QToolButton:checked {
          </property>
         </widget>
        </item>
-       <item row="4" column="0">
+       <item row="7" column="1">
+        <widget class="QToolButton" name="toolButtonBlur">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
         <widget class="QToolButton" name="toolButtonPointer">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -796,7 +696,77 @@ QToolButton:checked {
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
+       <item row="5" column="0">
+        <widget class="QToolButton" name="toolButtonPaintBucket">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QToolButton" name="toolButtonSprayCan">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
         <widget class="QToolButton" name="toolButtonDropper">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -831,37 +801,40 @@ QToolButton:checked {
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
+       <item row="6" column="0">
+        <widget class="QToolButton" name="toolButtonPaintBrush">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
+         <property name="minimumSize">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
-        </spacer>
-       </item>
-       <item row="1" column="1">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
+         <property name="text">
+          <string>...</string>
          </property>
-         <property name="sizeHint" stdset="0">
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</iconset>
+         </property>
+         <property name="iconSize">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
-        </spacer>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -917,6 +890,18 @@ QToolButton:checked {
    <addaction name="separator"/>
    <addaction name="actionRotate_CCW"/>
    <addaction name="actionRotate_CW"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetSettings">
+   <property name="maximumSize">
+    <size>
+     <width>140</width>
+     <height>280</height>
+    </size>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -1801,7 +1786,7 @@ QToolButton:checked {
   <customwidget>
    <class>ColorBoxWidget</class>
    <extends>QWidget</extends>
-   <header>ColorBoxWidget.h</header>
+   <header>colorboxwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

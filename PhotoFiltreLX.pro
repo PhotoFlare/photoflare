@@ -11,8 +11,8 @@ INCLUDEPATH += ./src
 
 # Project settings for Windows. Adjust the paths as needed on your system.
 win32 {
-    INCLUDEPATH += C:/ImageMagick-6.9.0/Magick++/lib C:/ImageMagick-6.9.0
-    LIBS += -LC:/ImageMagick-6.9.0/VisualMagick/lib -lCORE_DB_Magick++_
+    INCLUDEPATH +=  $$PWD/external/GraphicsMagick-1.3.21/Magick++/lib
+    LIBS += -L$$PWD/external/GraphicsMagick-1.3.21/VisualMagick/lib -lCORE_DB_Magick++_
 }
 
 # Project settings for Linux. Adjust the paths as needed on your system.
@@ -52,7 +52,11 @@ SOURCES += src/main.cpp \
     src/tools/ColourPickerTool.cpp \
     src/tools/PaintBucketTool.cpp \
     src/tools/PointerTool.cpp \
-    src/tools/TextTool.cpp
+    src/tools/TextTool.cpp \
+    src/registerdialog.cpp \
+    src/tools/PaintBrushAdvTool.cpp \
+    src/PaintBrushAdvSettingsWidget.cpp \
+    src/BrushTypeComboBox.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -70,7 +74,11 @@ HEADERS += src/mainwindow.h \
     src/tools/ColourPickerTool.h \
     src/tools/PaintBucketTool.h \
     src/tools/PointerTool.h \
-    src/tools/TextTool.h
+    src/tools/TextTool.h \
+    src/registerdialog.h \
+    src/tools/PaintBrushAdvTool.h \
+    src/PaintBrushAdvSettingsWidget.h \
+    src/BrushTypeComboBox.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -78,7 +86,10 @@ FORMS += src/mainwindow.ui \
     src/prefsdialog.ui \
     src/NewDialog.ui \
     src/PaintBrushSettingsWidget.ui \
-    src/ColorBoxWidget.ui
+    src/PaintBrushAdvSettingsWidget.ui \
+    src/ColorBoxWidget.ui \
+    src/registerdialog.ui \
+    src/brushtypecombobox.ui
 
 RESOURCES += \
     Icons.qrc

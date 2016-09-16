@@ -37,6 +37,12 @@ public:
     void autoScale();
     void setScale(const QString &scale);
     float getScale();
+
+    void undo();
+    void redo();
+
+    bool isUndoEnabled();
+    bool isRedoEnabled();
 signals:
     // Temporary signal to inform UI that user painted something.
     void contentChanged();
@@ -50,6 +56,11 @@ protected:
     void wheelEvent(QWheelEvent *event);
 private:
     PaintWidgetPrivate *d;
+    QList<QImage> historyList;
+    int historyIndex;
+private slots:
+    void onContentChanged();
+    void init();
 };
 
 #endif // PAINTWIDGET_H

@@ -8,6 +8,7 @@
 #include "ToolManager.h"
 #include "./tools/ColourPickerTool.h"
 #include "./tools/PaintBrushTool.h"
+#include "./tools/PaintBrushAdvTool.h"
 #include "./tools/PaintBucketTool.h"
 #include "./tools/PointerTool.h"
 #include "./tools/TextTool.h"
@@ -21,6 +22,7 @@ public:
     {
         colourPicker = new ColourPickerTool;
         paintBrush = new PaintBrushTool;
+        paintBrushAdv = new PaintBrushAdvTool;
         paintBucket = new PaintBucketTool;
         mousePointer = new PointerTool;
         textTool = new TextTool;
@@ -30,6 +32,7 @@ public:
     {
         delete colourPicker;
         delete paintBrush;
+        delete paintBrushAdv;
         delete paintBucket;
         delete mousePointer;
         delete textTool;
@@ -37,6 +40,7 @@ public:
 
     ColourPickerTool *colourPicker;
     PaintBrushTool *paintBrush;
+    PaintBrushAdvTool *paintBrushAdv;
     PaintBucketTool *paintBucket;
     PointerTool *mousePointer;
     TextTool *textTool;
@@ -62,6 +66,11 @@ ColourPickerTool *ToolManager::colourPicker() const
 PaintBrushTool *ToolManager::paintBrush() const
 {
     return d->paintBrush;
+}
+
+PaintBrushAdvTool *ToolManager::paintBrushAdv() const
+{
+    return d->paintBrushAdv;
 }
 
 PaintBucketTool *ToolManager::paintBucket() const

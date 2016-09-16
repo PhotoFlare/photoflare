@@ -12,6 +12,8 @@
 #include "registerdialog.h"
 #include "PaintWidget.h"
 #include "ui_mainwindow.h"
+#include <QApplication>
+#include <QClipboard>
 #include <QComboBox>
 #include <QSettings>
 #include <QFileDialog>
@@ -20,17 +22,20 @@
 #include <QMouseEvent>
 
 #include "./tools/PaintBrushTool.h"
+#include "./tools/PaintBrushAdvTool.h"
 #include "./tools/ColourPickerTool.h"
 #include "./tools/PaintBucketTool.h"
 #include "./tools/PointerTool.h"
 #include "./tools/TextTool.h"
 
 #include "PaintBrushSettingsWidget.h"
+#include "PaintBrushAdvSettingsWidget.h"
 #include "ToolManager.h"
 #include "Settings.h"
 #include "FilterManager.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
+#define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
 #define COLOUR_PICKER ToolManager::instance()->colourPicker()
 #define PAINT_BUCKET ToolManager::instance()->paintBucket()
 #define MOUSE_POINTER ToolManager::instance()->mousePointer()
@@ -67,16 +72,28 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(zoomCombo, SIGNAL(activated(const QString&)), this, SLOT(onZoomChanged(const QString&)));
     connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
 
-    m_toolSelected = "paintBrush";
-    ui->toolButtonPaintBrush->setChecked(true);
     m_pbSettingsWidget = new PaintBrushSettingsWidget;
-    ui->dockWidgetContentsToolpalette->layout()->addWidget(m_pbSettingsWidget);
+    ui->dockWidgetSettings->layout()->addWidget(m_pbSettingsWidget);
     connect(m_pbSettingsWidget, &PaintBrushSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushSettingsChanged);
+
+    m_pbAdvSettingsWidget = new PaintBrushAdvSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_pbAdvSettingsWidget);
+    connect(m_pbAdvSettingsWidget, &PaintBrushAdvSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushAdvSettingsChanged);
+
+    on_toolButtonPaintBrush_clicked();
+
+    ui->actionUndo->setEnabled(false);
+    ui->actionRedo->setEnabled(false);
 
     PAINT_BRUSH->setPrimaryColor(ui->colorBoxWidget->primaryColor());
     PAINT_BRUSH->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, PAINT_BRUSH, &PaintBrushTool::setPrimaryColor);
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, PAINT_BRUSH, &PaintBrushTool::setSecondaryColor);
+
+    PAINT_BRUSH_ADV->setPrimaryColor(ui->colorBoxWidget->primaryColor());
+    PAINT_BRUSH_ADV->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
+    QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, PAINT_BRUSH_ADV, &PaintBrushAdvTool::setPrimaryColor);
+    QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, PAINT_BRUSH_ADV, &PaintBrushAdvTool::setSecondaryColor);
 
     bool maximize = SETTINGS->isMaximizeWindow();
     if (maximize) {
@@ -87,6 +104,8 @@ MainWindow::MainWindow(QWidget *parent) :
             this->setGeometry(geometry);
     }
 
+    updateRecents();
+
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
     QObject::connect(COLOUR_PICKER, SIGNAL(pickSecondaryColor(const QPoint&)), this, SLOT(onPickSecondaryColor(const QPoint&)));
 
@@ -94,6 +113,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(PAINT_BUCKET, SIGNAL(floodFillSecondaryColor(const QPoint&)), this, SLOT(onFloodFillSecondaryColor(const QPoint&)));
 
     QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
+    QObject::connect(MOUSE_POINTER, SIGNAL(copy()), this, SLOT(onCopy()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(onPaste()));
 
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&)), this, SLOT(onEditText(const QString&,const QFont&)));
 }
@@ -119,10 +140,9 @@ void MainWindow::on_actionNew_triggered()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
+    const QString& fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     QString(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
-    if (!fileName.isEmpty())
-        addTab(createPaintWidget(fileName));
+    openFile(fileName);
 }
 
 void MainWindow::on_actionSave_triggered()
@@ -225,6 +245,30 @@ void MainWindow::on_actionImage_Size_triggered()
     }
 }
 
+void MainWindow::openFile(const QString& fileName)
+{
+    if (!fileName.isEmpty()) {
+        addTab(createPaintWidget(fileName));
+        SETTINGS->addRecentFile(fileName);
+        updateRecents();
+    }
+}
+
+void MainWindow::updateRecents()
+{
+    ui->menuRecent_Files->clear();
+
+    QList<QVariant> recentFiles = SETTINGS->getRecentFiles();
+    QList<QVariant>::iterator i;
+    for(i = recentFiles.begin(); i != recentFiles.end(); i++) {
+        const QString& fileName = (*i).toString();
+        QAction* action = ui->menuRecent_Files->addAction(fileName);
+        connect(action, &QAction::triggered, [this, fileName] () {
+            addTab(createPaintWidget(fileName));
+        });
+    }
+}
+
 void MainWindow::clearToolpalette()
 {
     ui->toolButtonPointer->setChecked(false);
@@ -237,6 +281,9 @@ void MainWindow::clearToolpalette()
     ui->toolButtonPaintBrushAdv->setChecked(false);
     ui->toolButtonStamp->setChecked(false);
     ui->toolButtonBlur->setChecked(false);
+
+    m_pbSettingsWidget->setVisible(false);
+    m_pbAdvSettingsWidget->setVisible(false);
 }
 
 PaintWidget *MainWindow::createPaintWidget(const QString &imagePath) const
@@ -251,8 +298,7 @@ PaintWidget *MainWindow::createPaintWidget(const QSize &imageSize) const
 
 void MainWindow::addTab(PaintWidget *widget)
 {
-    if (m_toolSelected == "paintBrush")
-        widget->setPaintTool(PAINT_BRUSH);
+    on_toolButtonPaintBrush_clicked();
 
     int tabIndex = ui->tabWidget->addTab(widget, widget->imagePath().isEmpty() ? UNTITLED_TAB_NAME : widget->imagePath());
     ui->tabWidget->setCurrentIndex(tabIndex);
@@ -261,12 +307,14 @@ void MainWindow::addTab(PaintWidget *widget)
     // Remove our paint widget after tab closing.
     connect(closeButton, &QWidget::destroyed, widget, &PaintWidget::deleteLater);
 
-    connect(widget, &PaintWidget::contentChanged, [closeButton, tabIndex, this] () {
+    connect(widget, &PaintWidget::contentChanged, [widget, closeButton, tabIndex, this] () {
         if (!closeButton->isWindowModified()) {
             closeButton->setWindowModified(true);
             QString modifiedText = ui->tabWidget->tabText(tabIndex) + " *";
             ui->tabWidget->setTabText(tabIndex, modifiedText);
         }
+        ui->actionUndo->setEnabled(widget->isUndoEnabled());
+        ui->actionRedo->setEnabled(widget->isRedoEnabled());
     });
 
     connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
@@ -404,6 +452,7 @@ void MainWindow::on_toolButtonPaintBrush_clicked()
     clearToolpalette();
     m_toolSelected = "paintBrush";
     ui->toolButtonPaintBrush->setChecked(true);
+    m_pbSettingsWidget->setVisible(true);
 
     PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
     if (widget)
@@ -415,6 +464,13 @@ void MainWindow::on_toolButtonPaintBrushAdv_clicked()
     clearToolpalette();
     m_toolSelected = "paintBrushAdv";
     ui->toolButtonPaintBrushAdv->setChecked(true);
+    m_pbAdvSettingsWidget->setVisible(true);
+    onPaintBrushAdvSettingsChanged();
+
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget)
+        widget->setPaintTool(PAINT_BRUSH_ADV);
+
 }
 
 void MainWindow::on_toolButtonStamp_clicked()
@@ -578,6 +634,15 @@ void MainWindow::onPaintBrushSettingsChanged()
     PAINT_BRUSH->setCapStyle(m_pbSettingsWidget->brushCapStyle());
 }
 
+void MainWindow::onPaintBrushAdvSettingsChanged()
+{
+    PAINT_BRUSH_ADV->setWidth(m_pbAdvSettingsWidget->brushWidth());
+    PAINT_BRUSH_ADV->setBrushPixmap(m_pbAdvSettingsWidget->brushPixmap());
+    PAINT_BRUSH_ADV->setPreassure(m_pbAdvSettingsWidget->preassure());
+    PAINT_BRUSH_ADV->setFade(m_pbAdvSettingsWidget->fade());
+    PAINT_BRUSH_ADV->setStep(m_pbAdvSettingsWidget->step());
+}
+
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
 {
     const QImage& image = this->getCurrentTabImage();
@@ -618,6 +683,24 @@ void MainWindow::onCrop(const QRect& rect)
     if (widget) {
         QRect crop = widget->image().rect().intersected(rect);
         widget->setImage(widget->image().copy(crop));
+    }
+}
+
+void MainWindow::onCopy()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        QClipboard *clipboard = QApplication::clipboard();
+        clipboard->setImage(widget->image());
+    }
+}
+
+void MainWindow::onPaste()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        QClipboard *clipboard = QApplication::clipboard();
+        MOUSE_POINTER->setOverlayImage(clipboard->image());
     }
 }
 
@@ -793,4 +876,20 @@ void MainWindow::disableUnimplementedActions()
     ui->toolButtonPaintBrushAdv->setEnabled(false);
     ui->toolButtonLine->setEnabled(false);
     ui->toolButtonBlur->setEnabled(false);
+}
+
+void MainWindow::on_actionUndo_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->undo();
+    }
+}
+
+void MainWindow::on_actionRedo_triggered()
+{
+    PaintWidget *widget = static_cast<PaintWidget *>(ui->tabWidget->currentWidget());
+    if (widget) {
+        widget->redo();
+    }
 }

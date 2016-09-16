@@ -15,6 +15,7 @@ class MainWindow;
 
 class PaintWidget;
 class PaintBrushSettingsWidget;
+class PaintBrushAdvSettingsWidget;
 class QComboBox;
 
 class MainWindow : public QMainWindow
@@ -26,6 +27,7 @@ public:
     ~MainWindow();
 
     QImage getCurrentTabImage();
+    void openFile(const QString& fileName);
 
 private slots:
     void on_actionAbout_triggered();
@@ -53,13 +55,17 @@ private slots:
     void on_actionClose_triggered();
     void on_actionClose_all_triggered();
 
+    void updateRecents();
     void showError(const QString &message);
     void onPaintBrushSettingsChanged();
+    void onPaintBrushAdvSettingsChanged();
     void onPickPrimaryColor(const QPoint&);
     void onPickSecondaryColor(const QPoint&);
     void onFloodFillPrimaryColor(const QPoint&);
     void onFloodFillSecondaryColor(const QPoint&);
     void onCrop(const QRect&);
+    void onCopy();
+    void onPaste();
     void onZoomChanged(const QString&);
     void onTabChanged(int);
     void onEditText(const QString&,const QFont&);
@@ -90,6 +96,10 @@ private slots:
 
     void on_actionRegister_triggered();
 
+    void on_actionUndo_triggered();
+
+    void on_actionRedo_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
 
@@ -106,6 +116,7 @@ private:
     Ui::MainWindow *ui;
     QString m_toolSelected;
     PaintBrushSettingsWidget *m_pbSettingsWidget;
+    PaintBrushAdvSettingsWidget *m_pbAdvSettingsWidget;
     QComboBox *zoomCombo;
 };
 

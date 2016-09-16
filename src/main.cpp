@@ -7,12 +7,11 @@
 
 #include "mainwindow.h"
 #include <QApplication>
+#include <QFileInfo>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-
-    // TODO: Add support for filenames passed on the command line.
 
     app.setApplicationName(QObject::tr("PhotoFiltre LX Studio Demo"));
     app.setApplicationVersion(QObject::tr("0.3 demo version"));
@@ -21,6 +20,13 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.show();
+
+    if(argc > 1) {
+        QFileInfo fileInfo(argv[1]);
+        if(fileInfo.exists()) {
+            w.openFile(QString(fileInfo.absoluteFilePath()));
+        }
+    }
 
     return app.exec();
 }

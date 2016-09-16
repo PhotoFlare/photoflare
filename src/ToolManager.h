@@ -12,6 +12,7 @@
 
 class ColourPickerTool;
 class PaintBrushTool;
+class PaintBrushAdvTool;
 class PaintBucketTool;
 class ToolManagerPrivate;
 class PointerTool;
@@ -26,6 +27,7 @@ public:
 
     ColourPickerTool* colourPicker() const;
     PaintBrushTool* paintBrush() const;
+    PaintBrushAdvTool* paintBrushAdv() const;
     PaintBucketTool* paintBucket() const;
     PointerTool* mousePointer() const;
     TextTool* textTool() const;

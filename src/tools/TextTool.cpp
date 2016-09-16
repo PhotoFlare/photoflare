@@ -68,7 +68,7 @@ void TextTool::previewText()
 
         painter.end();
 
-        emit overlaid(surface);
+        emit overlaid(surface, QPainter::CompositionMode_Difference);
     }
 }
 

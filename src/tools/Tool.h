@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QPoint>
 #include <QImage>
+#include <QPainter>
 
 class QPaintDevice;
 
@@ -35,7 +36,7 @@ signals:
      */
     void painted(QPaintDevice *paintDevice);
 
-    void overlaid(const QImage &overlayImage);
+    void overlaid(const QImage &overlayImage, QPainter::CompositionMode mode);
 
 protected:
     QPaintDevice *m_paintDevice;

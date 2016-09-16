@@ -47,7 +47,7 @@ public:
         canvas->setPixmap(QPixmap::fromImage(image));
     }
 
-    void updateImageLabelWithOverlay(const QImage &overlayImage)
+    void updateImageLabelWithOverlay(const QImage &overlayImage, QPainter::CompositionMode mode)
     {
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
@@ -55,7 +55,7 @@ public:
         painter.fillRect(surface.rect(), Qt::transparent);
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawImage(0, 0, image);
-        painter.setCompositionMode(QPainter::CompositionMode_Difference);
+        painter.setCompositionMode(mode);
         painter.drawImage(0, 0, overlayImage);
         painter.end();
         canvas->setPixmap(QPixmap::fromImage(surface));
@@ -83,6 +83,7 @@ public:
         if (currentTool) {
             // Set current image to the tool when we start painting.
             currentTool->setPaintDevice(&image);
+            imageChanged = false;
             currentTool->onMousePress(QPoint(event->scenePos().x(), event->scenePos().y()) , event->button());
         }
     }
@@ -98,8 +99,14 @@ public:
 
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     {
-        if (currentTool)
+        if (currentTool) {
             currentTool->onMouseRelease(QPoint(event->scenePos().x(), event->scenePos().y()));
+            if(imageChanged)
+            {
+                q->onContentChanged();
+                q->contentChanged();
+            }
+        }
     }
 
     QString imagePath;
@@ -110,6 +117,7 @@ public:
     QMetaObject::Connection lastOverlayConnection;
     QGraphicsPixmapItem *canvas;
     float scale;
+    bool imageChanged;
 
     PaintWidget *q;
 };
@@ -120,6 +128,7 @@ PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
 {
     d->initialize(QImage(imagePath));
     d->imagePath = imagePath;
+    this->init();
 }
 
 PaintWidget::PaintWidget(const QSize &imageSize, QWidget *parent)
@@ -129,6 +138,14 @@ PaintWidget::PaintWidget(const QSize &imageSize, QWidget *parent)
     QImage image(imageSize, QImage::Format_ARGB32_Premultiplied);
     image.fill(Qt::white);
     d->initialize(image);
+    this->init();
+}
+
+void PaintWidget::init()
+{
+    historyIndex = 0;
+    historyList.clear();
+    historyList.append(d->image);
 }
 
 PaintWidget::~PaintWidget()
@@ -153,12 +170,13 @@ void PaintWidget::setPaintTool(Tool *tool)
 
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
                 if (&d->image == paintDevice) {
-                d->updateImageLabel();
-                this->contentChanged();
+                    d->updateImageLabel();
+                    this->contentChanged();
+                    d->imageChanged = true;
                 }
             });
-        d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (const QImage &overlayImage) {
-                d->updateImageLabelWithOverlay(overlayImage);
+        d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (const QImage &overlayImage, QPainter::CompositionMode mode) {
+                d->updateImageLabelWithOverlay(overlayImage, mode);
             });
     }
 }
@@ -166,6 +184,7 @@ void PaintWidget::setPaintTool(Tool *tool)
 void PaintWidget::setImage(const QImage &image)
 {
     d->setImage(image);
+    onContentChanged();
     this->contentChanged();
 }
 
@@ -222,4 +241,45 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
     resetMatrix();
     scale(d->scale, d->scale);
     emit zoomChanged(d->scale);
+}
+
+void PaintWidget::onContentChanged()
+{
+    for(int i=historyList.size() - 1; i > historyIndex; i--)
+    {
+        historyList.removeAt(i);
+    }
+
+    historyList.append(d->image);
+    historyIndex++;
+}
+
+void PaintWidget::undo()
+{
+    if(isUndoEnabled())
+    {
+        historyIndex--;
+        d->setImage(historyList.at(historyIndex));
+        this->contentChanged();
+    }
+}
+
+void PaintWidget::redo()
+{
+    if(isRedoEnabled())
+    {
+        historyIndex++;
+        d->setImage(historyList.at(historyIndex));
+        this->contentChanged();
+    }
+}
+
+bool PaintWidget::isUndoEnabled()
+{
+    return (historyIndex > 0);
+}
+
+bool PaintWidget::isRedoEnabled()
+{
+    return (historyIndex < historyList.size() - 1);
 }
