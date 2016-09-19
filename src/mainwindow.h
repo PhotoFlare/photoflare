@@ -72,6 +72,7 @@ private slots:
     void onPickSecondaryColor(const QPoint&);
     void onFloodFillPrimaryColor(const QPoint&);
     void onFloodFillSecondaryColor(const QPoint&);
+    void onSelectPrimaryColor(const QPoint& pos);
     void onCrop(const QRect&);
     void onCopy();
     void onPaste();

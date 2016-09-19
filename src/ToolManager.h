@@ -18,6 +18,7 @@ class ToolManagerPrivate;
 class PointerTool;
 class TextTool;
 class SprayCanTool;
+class MagicWandTool;
 class LineTool;
 
 class ToolManager : public QObject
@@ -35,6 +36,7 @@ public:
     TextTool* textTool() const;
     SprayCanTool* sprayCanTool() const;
     LineTool* lineTool() const;
+    MagicWandTool* magicWandTool() const;
 
 private:
     explicit ToolManager(QObject *parent = 0);

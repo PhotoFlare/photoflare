@@ -34,6 +34,7 @@
 #include "./tools/TextTool.h"
 #include "./tools/SprayCanTool.h"
 #include "./tools/LineTool.h"
+#include "./tools/MagicWandTool.h"
 
 #include "PaintBrushSettingsWidget.h"
 #include "PaintBrushAdvSettingsWidget.h"
@@ -51,6 +52,7 @@
 #define TEXT_TOOL ToolManager::instance()->textTool()
 #define SPRAY_CAN ToolManager::instance()->sprayCanTool()
 #define LINE_TOOL ToolManager::instance()->lineTool()
+#define MAGIC_WAND ToolManager::instance()->magicWandTool()
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
@@ -155,6 +157,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&)), this, SLOT(onEditText(const QString&,const QFont&)));
 
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
+
+    QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&)), this, SLOT(onSelectPrimaryColor(const QPoint&)));
 
     m_scanManager = new ScanManager();
     QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
@@ -504,6 +508,9 @@ void MainWindow::on_toolButtonWand_clicked()
     clearToolpalette();
     m_toolSelected = "wand";
     ui->toolButtonWand->setChecked(true);
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->setPaintTool(MAGIC_WAND);
 }
 
 void MainWindow::on_toolButtonLine_clicked()
@@ -777,6 +784,15 @@ void MainWindow::onPickSecondaryColor(const QPoint& pos)
         const QColor& color = image.pixel(pos);
 
         ui->colorBoxWidget->setSecondaryColor(color);
+    }
+}
+
+void MainWindow::onSelectPrimaryColor(const QPoint& pos)
+{
+    const QColor& color = ui->colorBoxWidget->primaryColor();
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        MAGIC_WAND->setSelection(FilterManager::instance()->selectArea(widget->image(), pos, color));
     }
 }
 
@@ -1112,7 +1128,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionZoom_in->setEnabled(false);
     ui->actionZoom_out->setEnabled(false);
 
-    ui->toolButtonWand->setEnabled(false);
+    ui->toolButtonWand->setEnabled(true);
     ui->toolButtonStamp->setEnabled(false);
     //ui->toolButtonSprayCan->setEnabled(false);
     //ui->toolButtonPaintBrushAdv->setEnabled(false);

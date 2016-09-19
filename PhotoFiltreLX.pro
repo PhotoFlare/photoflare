@@ -59,6 +59,7 @@ SOURCES += src/main.cpp \
     src/BrushTypeComboBox.cpp \
     src/tools/SprayCanTool.cpp \
     src/tools/LineTool.cpp \
+    src/tools/MagicWandTool.cpp \
     src/SprayCanSettingsWidget.cpp \
     src/LineSettingsWidget.cpp \
     src/ScanManager.cpp \
@@ -82,6 +83,7 @@ HEADERS += src/mainwindow.h \
     src/tools/PaintBucketTool.h \
     src/tools/PointerTool.h \
     src/tools/TextTool.h \
+    src/tools/MagicWandTool.h \
     src/registerdialog.h \
     src/tools/PaintBrushAdvTool.h \
     src/PaintBrushAdvSettingsWidget.h \
@@ -103,7 +105,6 @@ FORMS += src/mainwindow.ui \
     src/PaintBrushAdvSettingsWidget.ui \
     src/ColorBoxWidget.ui \
     src/registerdialog.ui \
-    src/brushtypecombobox.ui \
     src/SprayCanSettingsWidget.ui \
     src/LineSettingsWidget.ui \
     src/scandevicesdialog.ui

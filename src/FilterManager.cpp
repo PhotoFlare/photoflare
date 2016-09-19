@@ -12,6 +12,7 @@
 #include <Magick++.h>
 #include <QBuffer>
 #include <QColor>
+#include <QPolygon>
 
 class FilterManagerPrivate
 {
@@ -175,6 +176,64 @@ QImage FilterManager::floodFill(const QImage &image, const QPoint &pos, const QC
         magickImage->opaque(Magick::ColorRGB(0.01f, 0, 0), Magick::ColorRGB(0, 0, 0));
 
     return d->toQtImage(magickImage.data());
+}
+
+QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, const QColor &color)
+{
+    //RAII - magickImage will be deleted automatically after func return
+    QScopedPointer<Magick::Image> magickImage( d->fromQtImage(image) );
+    QScopedPointer<Magick::Image> magickImage2( d->fromQtImage(image) );
+
+    //Workaround to make it work on black color. May be it could be done more gracefully
+    bool changeStartColor = (QColor(image.pixel(pos)) == QColor("black")) ? true : false;
+
+    if(changeStartColor)
+        magickImage->opaque(Magick::ColorRGB(0, 0, 0), Magick::ColorRGB(0.01f, 0, 0));
+
+//    magickImage->colorFuzz(100);
+    magickImage->floodFillColor(pos.x(), pos.y(), Magick::ColorRGB(0,0,0));
+
+    QPolygon polygon;
+    for(int j=0; j<magickImage->rows(); j++)
+    {
+        bool marked = false;
+        for(int i=0; i<magickImage->columns(); i++)
+        {
+            if((i == magickImage->columns() - 1) && marked)
+                marked = false;
+
+            if(magickImage->pixelColor(i,j) == Magick::ColorRGB(0, 0, 0) && !marked ||
+               magickImage->pixelColor(i,j) != Magick::ColorRGB(0, 0, 0) && marked )
+            {
+                polygon<<QPoint(i,j);
+                //marked = !marked;
+                break;
+            }
+        }
+    }
+
+    for(int j=magickImage->rows(); j>0; j--)
+    {
+        bool marked = false;
+        for(int i=magickImage->columns(); i>0; i--)
+        {
+            if((i == magickImage->columns() - 1) && marked)
+                marked = false;
+
+            if(magickImage->pixelColor(i,j) == Magick::ColorRGB(0, 0, 0) && !marked ||
+               magickImage->pixelColor(i,j) != Magick::ColorRGB(0, 0, 0) && marked )
+            {
+                polygon<<QPoint(i,j);
+                //marked = !marked;
+                break;
+            }
+        }
+    }
+
+    if(changeStartColor)
+        magickImage->opaque(Magick::ColorRGB(0.01f, 0, 0), Magick::ColorRGB(0, 0, 0));
+
+    return polygon;//d->toQtImage(magickImage2.data());
 }
 
 FilterManager::FilterManager()

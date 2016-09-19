@@ -14,6 +14,7 @@
 #include "./tools/TextTool.h"
 #include "./tools/SprayCanTool.h"
 #include "./tools/LineTool.h"
+#include "./tools/MagicWandTool.h"
 
 ToolManager * ToolManager::m_instance = 0;
 
@@ -30,6 +31,7 @@ public:
         textTool = new TextTool;
         sprayCanTool = new SprayCanTool;
         lineTool = new LineTool;
+        magicWandTool = new MagicWandTool;
     }
 
     ~ToolManagerPrivate()
@@ -42,6 +44,8 @@ public:
         delete textTool;
         delete sprayCanTool;
         delete lineTool;
+        delete magicWandTool;
+
     }
 
     ColourPickerTool *colourPicker;
@@ -52,6 +56,7 @@ public:
     TextTool *textTool;
     SprayCanTool *sprayCanTool;
     LineTool *lineTool;
+    MagicWandTool *magicWandTool;
 };
 
 ToolManager::ToolManager(QObject *parent)
@@ -104,6 +109,11 @@ SprayCanTool *ToolManager::sprayCanTool() const
 LineTool *ToolManager::lineTool() const
 {
     return d->lineTool;
+}
+
+MagicWandTool *ToolManager::magicWandTool() const
+{
+    return d->magicWandTool;
 }
 
 ToolManager *ToolManager::instance()
