@@ -1,6 +1,6 @@
 lessThan(QT_VERSION, 5.0.0): error(This project requires Qt 5.0.0 or later)
 
-QT += core gui widgets
+QT += core gui widgets printsupport
 
 TARGET = PhotoFiltreLX
 TEMPLATE = app

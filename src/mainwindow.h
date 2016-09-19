@@ -106,6 +106,8 @@ private slots:
     void on_actionUndo_triggered();
 
     void on_actionRedo_triggered();
+    void on_actionPrint_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

@@ -21,6 +21,8 @@
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QMdiSubWindow>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -882,6 +884,26 @@ void MainWindow::on_actionRedo_triggered()
     }
 }
 
+void MainWindow::on_actionPrint_triggered()
+{
+    QPrinter printer;
+
+    QPrintDialog *dialog = new QPrintDialog(&printer);
+    if (dialog->exec() == QDialog::Accepted)
+    {
+        QPainter painter;
+        if (! painter.begin(&printer)) {
+            qWarning("Failed to init printer");
+            return;
+        }
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget) {
+            painter.drawImage(0,0,widget->image());
+        }
+        painter.end();
+    }
+}
+
 // This method disables actions that are not yet implemented.
 // They still appear in menus, but are greyed out.
 void MainWindow::disableUnimplementedActions()
@@ -966,7 +988,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionPaste_shape->setEnabled(false);
     ui->actionPaste_special->setEnabled(false);
     ui->actionPosterize->setEnabled(false);
-    ui->actionPrint->setEnabled(false);
+    ui->actionPrint->setEnabled(true);
     ui->actionPurge->setEnabled(false);
     ui->actionRGB_Mode->setEnabled(false);
     //ui->actionRecent_files->setEnabled(false);
