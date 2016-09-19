@@ -27,6 +27,7 @@ public:
     int step;
     QPoint lastStep;
     Qt::MouseButton mouseButton;
+    QCursor cursor;
 };
 
 PaintBrushAdvTool::PaintBrushAdvTool(QObject *parent)
@@ -90,6 +91,19 @@ void PaintBrushAdvTool::setFade(bool fade)
 void PaintBrushAdvTool::setStep(int step)
 {
     d->step = step;
+}
+
+QCursor PaintBrushAdvTool::getCursor()
+{
+    QPixmap pixmap(QSize(32,32));
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+    pen.setColor(Qt::gray);
+    painter.setPen(pen);
+
+    painter.drawEllipse(pixmap.rect());
+    return QCursor(pixmap);
 }
 
 void PaintBrushAdvTool::onMousePress(const QPoint &pos, Qt::MouseButton button)

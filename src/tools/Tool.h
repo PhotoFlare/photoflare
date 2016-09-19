@@ -5,6 +5,7 @@
 #include <QPoint>
 #include <QImage>
 #include <QPainter>
+#include <QCursor>
 
 class QPaintDevice;
 
@@ -29,6 +30,8 @@ public:
     virtual void onMouseRelease(const QPoint &pos);
 
     virtual void disconnect();
+
+    virtual QCursor getCursor();
 
 signals:
     /*!

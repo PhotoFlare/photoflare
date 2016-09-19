@@ -185,6 +185,8 @@ void PaintWidget::setPaintTool(Tool *tool)
         d->currentTool->setPaintDevice(&d->image);
         d->updateImageLabel();
 
+        d->q->setCursor(d->currentTool->getCursor());
+
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
                 if (&d->image == paintDevice) {
                     d->updateImageLabel();

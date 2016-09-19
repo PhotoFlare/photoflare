@@ -44,5 +44,8 @@ void Tool::onMouseRelease(const QPoint &pos)
     Q_UNUSED(pos);
 }
 
-
+QCursor Tool::getCursor()
+{
+    return Qt::ArrowCursor;
+}
 
