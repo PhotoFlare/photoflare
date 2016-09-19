@@ -64,7 +64,8 @@ SOURCES += src/main.cpp \
     src/LineSettingsWidget.cpp \
     src/ScanManager.cpp \
     src/ScanDevicesDialog.cpp \
-    src/QProgressIndicator.cpp
+    src/QProgressIndicator.cpp \
+    src/MagicWandSettingsWidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -94,7 +95,8 @@ HEADERS += src/mainwindow.h \
     src/LineSettingsWidget.h \
     src/ScanManager.h \
     src/ScanDevicesDialog.h \
-    src/QProgressIndicator.h
+    src/QProgressIndicator.h \
+    src/MagicWandSettingsWidget.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -105,9 +107,11 @@ FORMS += src/mainwindow.ui \
     src/PaintBrushAdvSettingsWidget.ui \
     src/ColorBoxWidget.ui \
     src/registerdialog.ui \
+    src/BrushTypeComboBox.ui \
     src/SprayCanSettingsWidget.ui \
     src/LineSettingsWidget.ui \
-    src/scandevicesdialog.ui
+    src/scandevicesdialog.ui \
+    src/MagicWandSettingsWidget.ui
 
 RESOURCES += \
     Icons.qrc

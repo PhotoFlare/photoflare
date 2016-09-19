@@ -178,7 +178,7 @@ QImage FilterManager::floodFill(const QImage &image, const QPoint &pos, const QC
     return d->toQtImage(magickImage.data());
 }
 
-QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, const QColor &color)
+QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color)
 {
     //RAII - magickImage will be deleted automatically after func return
     QScopedPointer<Magick::Image> magickImage( d->fromQtImage(image) );
@@ -187,10 +187,12 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, const
     //Workaround to make it work on black color. May be it could be done more gracefully
     bool changeStartColor = (QColor(image.pixel(pos)) == QColor("black")) ? true : false;
 
+    Magick::Color targetColor = magickImage->pixelColor(pos.x(), pos.y());
+
     if(changeStartColor)
         magickImage->opaque(Magick::ColorRGB(0, 0, 0), Magick::ColorRGB(0.01f, 0, 0));
 
-//    magickImage->colorFuzz(100);
+    magickImage->colorFuzz(tolerance);
     magickImage->floodFillColor(pos.x(), pos.y(), Magick::ColorRGB(0,0,0));
 
     QPolygon polygon;
@@ -199,6 +201,11 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, const
         bool marked = false;
         for(int i=0; i<magickImage->columns(); i++)
         {
+            if(color && magickImage->pixelColor(i,j) == targetColor)
+            {
+                magickImage->floodFillColor(i, j, Magick::ColorRGB(0,0,0));
+            }
+
             if((i == magickImage->columns() - 1) && marked)
                 marked = false;
 

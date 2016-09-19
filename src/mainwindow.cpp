@@ -40,6 +40,7 @@
 #include "PaintBrushAdvSettingsWidget.h"
 #include "SprayCanSettingsWidget.h"
 #include "LineSettingsWidget.h"
+#include "MagicWandSettingsWidget.h"
 #include "ToolManager.h"
 #include "Settings.h"
 #include "FilterManager.h"
@@ -108,6 +109,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dockWidgetSettings->layout()->addWidget(m_lineSettingsWidget);
     connect(m_lineSettingsWidget, &LineSettingsWidget::settingsChanged, this, &MainWindow::onLineSettingsChanged);
 
+    m_magicWandSettingsWidget = new MagicWandSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_magicWandSettingsWidget);
+    connect(m_magicWandSettingsWidget, &MagicWandSettingsWidget::settingsChanged, this, &MainWindow::onMagicWandSettingsChanged);
+
     on_toolButtonPaintBrush_clicked();
 
     ui->actionUndo->setEnabled(false);
@@ -158,7 +163,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
 
-    QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&)), this, SLOT(onSelectPrimaryColor(const QPoint&)));
+    QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&,int,bool)), this, SLOT(onSelectPrimaryColor(const QPoint&,int,bool)));
 
     m_scanManager = new ScanManager();
     QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
@@ -332,6 +337,7 @@ void MainWindow::clearToolpalette()
     m_pbAdvSettingsWidget->setVisible(false);
     m_scSettingsWidget->setVisible(false);
     m_lineSettingsWidget->setVisible(false);
+    m_magicWandSettingsWidget->setVisible(false);
 }
 
 PaintWidget *MainWindow::createPaintWidget(const QString &imagePath) const
@@ -508,6 +514,8 @@ void MainWindow::on_toolButtonWand_clicked()
     clearToolpalette();
     m_toolSelected = "wand";
     ui->toolButtonWand->setChecked(true);
+    m_magicWandSettingsWidget->setVisible(true);
+    onMagicWandSettingsChanged();
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(MAGIC_WAND);
@@ -763,6 +771,12 @@ void MainWindow::onLineSettingsChanged()
     LINE_TOOL->setArrowStyle(m_lineSettingsWidget->arrowStyle());
 }
 
+void MainWindow::onMagicWandSettingsChanged()
+{
+    MAGIC_WAND->setTolerance(m_magicWandSettingsWidget->tolerance());
+    MAGIC_WAND->setColor(m_magicWandSettingsWidget->color());
+}
+
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -787,12 +801,11 @@ void MainWindow::onPickSecondaryColor(const QPoint& pos)
     }
 }
 
-void MainWindow::onSelectPrimaryColor(const QPoint& pos)
+void MainWindow::onSelectPrimaryColor(const QPoint& pos, int tolerance, bool color)
 {
-    const QColor& color = ui->colorBoxWidget->primaryColor();
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
-        MAGIC_WAND->setSelection(FilterManager::instance()->selectArea(widget->image(), pos, color));
+        MAGIC_WAND->setSelection(FilterManager::instance()->selectArea(widget->image(), pos, tolerance, color));
     }
 }
 

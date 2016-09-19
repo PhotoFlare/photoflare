@@ -30,7 +30,7 @@ public:
     QImage rotateCW(const QImage &image);
 
     QImage floodFill(const QImage &image, const QPoint &pos, const QColor &color);
-    QPolygon selectArea(const QImage &image, const QPoint &pos, const QColor &color);
+    QPolygon selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color);
 
 private:
     FilterManager();

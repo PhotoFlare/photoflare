@@ -16,8 +16,10 @@ public:
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
 
     void setSelection(const QPolygon& poly);
+    void setTolerance(int tolerance);
+    void setColor(bool color);
 signals:
-    void selectPrimaryColor(const QPoint&);
+    void selectPrimaryColor(const QPoint&,int,bool);
 
 private:
     MagicWandToolPrivate *d;

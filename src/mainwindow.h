@@ -23,6 +23,7 @@ class PaintBrushSettingsWidget;
 class PaintBrushAdvSettingsWidget;
 class SprayCanSettingsWidget;
 class LineSettingsWidget;
+class MagicWandSettingsWidget;
 class QComboBox;
 class PaintWidget;
 
@@ -68,11 +69,12 @@ private slots:
     void onPaintBrushAdvSettingsChanged();
     void onSprayCanSettingsChanged();
     void onLineSettingsChanged();
+    void onMagicWandSettingsChanged();
     void onPickPrimaryColor(const QPoint&);
     void onPickSecondaryColor(const QPoint&);
     void onFloodFillPrimaryColor(const QPoint&);
     void onFloodFillSecondaryColor(const QPoint&);
-    void onSelectPrimaryColor(const QPoint& pos);
+    void onSelectPrimaryColor(const QPoint&,int,bool);
     void onCrop(const QRect&);
     void onCopy();
     void onPaste();
@@ -142,6 +144,7 @@ private:
     PaintBrushAdvSettingsWidget *m_pbAdvSettingsWidget;
     SprayCanSettingsWidget *m_scSettingsWidget;
     LineSettingsWidget *m_lineSettingsWidget;
+    MagicWandSettingsWidget *m_magicWandSettingsWidget;
     QComboBox *zoomCombo;
     ScanManager *m_scanManager;
 };

@@ -5,7 +5,19 @@
 class MagicWandToolPrivate
 {
 public:
+    MagicWandToolPrivate()
+    {
+        tolerance = 0;
+        color = false;
+    }
+
+    ~MagicWandToolPrivate()
+    {
+    }
+
     QPolygon selection;
+    int tolerance;
+    bool color;
 };
 
 
@@ -25,7 +37,7 @@ void MagicWandTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     switch(button)
     {
         case Qt::LeftButton:
-            emit selectPrimaryColor(pos);
+            emit selectPrimaryColor(pos, d->tolerance, d->color);
             if(m_paintDevice)
             {
                 const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
@@ -38,6 +50,7 @@ void MagicWandTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                 painter.setPen(pen);
 
                 painter.drawPolygon(d->selection, Qt::WindingFill);
+                //painter.drawRect(d->selection.boundingRect());
                 painter.end();
 
                 emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_Difference);
@@ -53,4 +66,14 @@ void MagicWandTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 void MagicWandTool::setSelection(const QPolygon& poly)
 {
     d->selection = poly;
+}
+
+void MagicWandTool::setTolerance(int tolerance)
+{
+    d->tolerance = tolerance;
+}
+
+void MagicWandTool::setColor(bool color)
+{
+    d->color = color;
 }
