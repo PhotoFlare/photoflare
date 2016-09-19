@@ -10,6 +10,9 @@
 #include <QMainWindow>
 #include <QSignalMapper>
 #include <QMdiArea>
+#include <QProcess>
+
+#include "ScanManager.h"
 
 namespace Ui {
 class MainWindow;
@@ -108,6 +111,13 @@ private slots:
     void on_actionRedo_triggered();
     void on_actionPrint_triggered();
 
+    void on_actionAcquire_image_triggered();
+    void onScanFnished(int,QProcess::ExitStatus);
+    void onListFnished(int,QProcess::ExitStatus);
+    void on_actionSelect_device_triggered();
+
+    void on_actionScan_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
@@ -123,6 +133,7 @@ private:
     bool handleCloseChildWindow(QMdiSubWindow *subWindow);
     bool handleCloseTabs();
     void saveGeometryState();
+    void createKeyboardShortcuts();
     void disableUnimplementedActions();
     Ui::MainWindow *ui;
     QString m_toolSelected;
@@ -131,6 +142,7 @@ private:
     SprayCanSettingsWidget *m_scSettingsWidget;
     LineSettingsWidget *m_lineSettingsWidget;
     QComboBox *zoomCombo;
+    ScanManager *m_scanManager;
 };
 
 #endif // MAINWINDOW_H

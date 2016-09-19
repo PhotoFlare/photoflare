@@ -17,6 +17,8 @@
 #include <QGraphicsPixmapItem>
 #include <QDebug>
 
+#include "Settings.h"
+
 enum {PPM, PPI};
 enum {PX, CM, IN};
 enum {x100y100, x640y480, x800y600};
@@ -31,8 +33,7 @@ NewDialog::NewDialog(QWidget *parent) :
 
     width_px = 800;
     height_px = 600;
-    imageRatio = trunc((width_px/height_px));
-    qDebug()<< " imageRatio " <<imageRatio;
+    imageRatio = (width_px/height_px);
     currentUnit = PX;
     ui->imageResCombo->setCurrentIndex(PPI);
     //Standard ppi
@@ -50,6 +51,12 @@ NewDialog::~NewDialog()
 QSize NewDialog::newImageSize() const
 {
     return m_chosenSize;
+}
+
+void NewDialog::setImageSize(QSize size)
+{
+    ui->imageWvalue->setValue(size.width());
+    ui->imageHvalue->setValue(size.height());
 }
 
 void NewDialog::on_buttonBox_accepted()
@@ -133,7 +140,10 @@ void NewDialog::on_imageHvalue_valueChanged(double value)
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
 
     if(ui->lockedRatioButton->isChecked()) {
-        ui->imageWvalue->setValue(ui->imageHvalue->value() * imageRatio); //width = height * imageRatio
+        if(ui->imageHvalue->hasFocus())
+            ui->imageWvalue->setValue(ui->imageHvalue->value() * imageRatio); //width = height * imageRatio
+    } else {
+        imageRatio = (width_px/height_px);
     }
 }
 
@@ -154,6 +164,9 @@ void NewDialog::on_imageWvalue_valueChanged(double value)
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
 
     if(ui->lockedRatioButton->isChecked()) {
-        ui->imageHvalue->setValue(ui->imageWvalue->value() * imageRatio); //height = width * imageRatio
+        if(ui->imageWvalue->hasFocus())
+            ui->imageHvalue->setValue(ui->imageWvalue->value() / imageRatio); //height = width / imageRatio
+    } else {
+        imageRatio = (width_px/height_px);
     }
 }

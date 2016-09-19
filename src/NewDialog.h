@@ -27,7 +27,7 @@ public:
      * accepted, otherwise you will get an invalid size.
      */
     QSize newImageSize() const;
-
+    void setImageSize(QSize size);
 private slots:
     void on_buttonBox_accepted();
 

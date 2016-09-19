@@ -14,8 +14,11 @@
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsProxyWidget>
 
 #include "./tools/Tool.h"
+
+#include "QProgressIndicator.h"
 
 class PaintWidgetPrivate : public QGraphicsScene
 {
@@ -44,15 +47,28 @@ public:
 
     void updateImageLabel()
     {
-        canvas->setPixmap(QPixmap::fromImage(image));
+        QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
+        QPainter painter(&surface);
+        QBrush brush(Qt::TexturePattern);
+        brush.setTextureImage(QImage(":/pixmaps/pixmaps/checkers.png"));
+        painter.setBrush(brush);
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.fillRect(surface.rect(), brush);
+        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+        painter.drawImage(0, 0, image);
+        painter.end();
+        canvas->setPixmap(QPixmap::fromImage(surface));
     }
 
     void updateImageLabelWithOverlay(const QImage &overlayImage, QPainter::CompositionMode mode)
     {
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
+        QBrush brush(Qt::TexturePattern);
+        brush.setTextureImage(QImage(":/pixmaps/pixmaps/checkers.png"));
+        painter.setBrush(brush);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.fillRect(surface.rect(), Qt::transparent);
+        painter.fillRect(surface.rect(), brush);
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawImage(0, 0, image);
         painter.setCompositionMode(mode);
@@ -134,6 +150,7 @@ PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
 PaintWidget::PaintWidget(const QSize &imageSize, QWidget *parent)
     : QGraphicsView(parent)
     , d(new PaintWidgetPrivate(this))
+    , mProgressIndicator(new QProgressIndicator())
 {
     QImage image(imageSize, QImage::Format_ARGB32_Premultiplied);
     image.fill(Qt::white);
@@ -152,6 +169,7 @@ PaintWidget::~PaintWidget()
 {
     d->disconnectLastTool();
     delete d;
+    delete mProgressIndicator;
 }
 
 void PaintWidget::setPaintTool(Tool *tool)
@@ -226,6 +244,21 @@ void PaintWidget::setScale(const QString &rate)
 float PaintWidget::getScale()
 {
     return d->scale;
+}
+
+void PaintWidget::showProgressIndicator(bool visible)
+{
+    if(visible)
+    {
+        mProgressIndicator->setSize(QSize(d->image.width()/4,d->image.height()/4));
+        QGraphicsProxyWidget *proxy = scene()->addWidget(mProgressIndicator);
+        proxy->setPos(3*d->image.width()/8, 3*d->image.height()/8);
+        mProgressIndicator->setVisible(true);
+        mProgressIndicator->startAnimation();
+    } else {
+        mProgressIndicator->stopAnimation();
+        mProgressIndicator->setVisible(false);
+    }
 }
 
 void PaintWidget::wheelEvent(QWheelEvent *event)

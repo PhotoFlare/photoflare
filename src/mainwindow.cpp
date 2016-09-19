@@ -8,6 +8,7 @@
 #include "NewDialog.h"
 #include "textdialog.h"
 #include "prefsdialog.h"
+#include "ScanDevicesDialog.h"
 #include "aboutdialog.h"
 #include "registerdialog.h"
 #include "PaintWidget.h"
@@ -23,6 +24,7 @@
 #include <QMdiSubWindow>
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
+#include <QShortcut>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -73,6 +75,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Disable actions that are not yet implemented.
     disableUnimplementedActions();
+    createKeyboardShortcuts();
 
     zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
@@ -152,6 +155,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&)), this, SLOT(onEditText(const QString&,const QFont&)));
 
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
+
+    m_scanManager = new ScanManager();
+    QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
+    QObject::connect(m_scanManager, SIGNAL(scanFinished(int,QProcess::ExitStatus)), this, SLOT(onScanFnished(int,QProcess::ExitStatus)));
 }
 
 MainWindow::~MainWindow()
@@ -268,14 +275,15 @@ void MainWindow::on_actionPreferences_triggered()
 
 void MainWindow::on_actionImage_Size_triggered()
 {
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (!widget)
+        return;
+
     NewDialog dialog;
     dialog.setWindowTitle("Resize Image");
+    dialog.setImageSize(widget->image().size());
     if (dialog.exec()) {
-
-        PaintWidget *widget = getCurrentPaintWidget();
-        if (widget) {
-            widget->setImage(widget->image().scaled(dialog.newImageSize()));
-        }
+        widget->setImage(widget->image().scaled(dialog.newImageSize()));
     }
 }
 
@@ -902,6 +910,81 @@ void MainWindow::on_actionPrint_triggered()
         }
         painter.end();
     }
+    delete dialog;
+}
+
+void MainWindow::on_actionAcquire_image_triggered()
+{
+    addPaintWidget(createPaintWidget(QSize(480,640)));
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->showProgressIndicator(true);
+    }
+    m_scanManager->scan();
+}
+
+void MainWindow::on_actionScan_triggered()
+{
+   this->on_actionAcquire_image_triggered();
+}
+
+void MainWindow::on_actionSelect_device_triggered()
+{
+    m_scanManager->list();
+}
+
+void MainWindow::onListFnished(int,QProcess::ExitStatus status)
+{
+    if(status == QProcess::NormalExit)
+    {
+        ScanDevicesDialog dlg(this);
+        dlg.setSourceList(m_scanManager->getSourceList());
+        if (dlg.exec() == QDialog::Accepted)
+        {
+            m_scanManager->setCurrentSourceId(dlg.getCurrentSourceId());
+        }
+    }
+}
+
+void MainWindow::onScanFnished(int,QProcess::ExitStatus status)
+{
+    if(status == QProcess::NormalExit)
+    {
+        QFile file("FROM_SCANNER.bmp");
+
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget) {
+            widget->showProgressIndicator(false);
+            widget->setImage(QImage(file.fileName()));
+            widget->autoScale();
+        }
+
+        file.remove();
+    }
+}
+
+void MainWindow::createKeyboardShortcuts() {
+    //File Menu
+    ui->actionNew->setShortcut(QString("Ctrl+N"));
+    ui->actionOpen->setShortcut(QString("Ctrl+O"));
+    ui->actionSave->setShortcut(QString("Ctrl+S"));
+    ui->actionSave_As->setShortcut(QString("Ctrl+Shift+S")); //broken
+    ui->actionPrint->setShortcut(QString("Ctrl+P"));
+    ui->actionClose->setShortcut(QString("Ctrl+W"));
+    ui->actionQuit->setShortcut(QString("Ctrl+Q"));
+    //Edit Menu
+    ui->actionCut->setShortcut(QString("Ctrl+X")); //not implemented
+    ui->actionCopy->setShortcut(QString("Ctrl+C")); //broken
+    ui->actionPaste->setShortcut(QString("Ctrl+V")); //broken
+    ui->actionUndo->setShortcut(QString("Ctrl+Z"));
+    ui->actionRedo->setShortcut(QString("Ctrl+Y"));
+    ui->actionImage_properties->setShortcut(QString("Ctrl+J")); //not implemented
+    //Image Menu
+    ui->actionImage_Size->setShortcut(QString("Ctrl+H"));
+    ui->actionCrop->setShortcut(QString("Ctrl+Shift+H")); //broken
+    //View Menu
+    ui->actionToolpalette->setShortcut(QString("Ctrl+L")); //broken
+
 }
 
 // This method disables actions that are not yet implemented.
@@ -963,7 +1046,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionHue_variation->setEnabled(false);
     //ui->actionImage_Size->setEnabled(false);
     ui->actionImage_properties->setEnabled(false);
-    ui->actionImport_twain->setEnabled(false);
+    ui->actionAcquire_image->setEnabled(true);
     ui->actionIndexed_Mode->setEnabled(false);
     ui->actionInformation->setEnabled(false);
     ui->actionInvert->setEnabled(false);
@@ -1003,7 +1086,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionSaturationminus->setEnabled(false);
     ui->actionSaturationplus->setEnabled(false);
     ui->actionSave_shape->setEnabled(false);
-    ui->actionScan->setEnabled(false);
+    //ui->actionScan->setEnabled(false);
     ui->actionSelect_all->setEnabled(false);
     ui->actionSet_shape->setEnabled(false);
     ui->actionSet_wallpaper->setEnabled(false);

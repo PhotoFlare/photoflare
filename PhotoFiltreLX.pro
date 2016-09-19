@@ -12,7 +12,7 @@ INCLUDEPATH += ./src
 # Project settings for Windows. Adjust the paths as needed on your system.
 win32 {
     INCLUDEPATH +=  $$PWD/external/GraphicsMagick-1.3.21/Magick++/lib
-    LIBS += -L$$PWD/external/GraphicsMagick-1.3.21/VisualMagick/lib -lCORE_DB_Magick++_
+    LIBS += -L$$PWD/external/GraphicsMagick-1.3.21/VisualMagick/lib -lCORE_RL_Magick++_
 }
 
 # Project settings for Linux. Adjust the paths as needed on your system.
@@ -60,7 +60,10 @@ SOURCES += src/main.cpp \
     src/tools/SprayCanTool.cpp \
     src/tools/LineTool.cpp \
     src/SprayCanSettingsWidget.cpp \
-    src/LineSettingsWidget.cpp
+    src/LineSettingsWidget.cpp \
+    src/ScanManager.cpp \
+    src/ScanDevicesDialog.cpp \
+    src/QProgressIndicator.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -86,7 +89,10 @@ HEADERS += src/mainwindow.h \
     src/tools/SprayCanTool.h \
     src/tools/LineTool.h \
     src/SprayCanSettingsWidget.h \
-    src/LineSettingsWidget.h
+    src/LineSettingsWidget.h \
+    src/ScanManager.h \
+    src/ScanDevicesDialog.h \
+    src/QProgressIndicator.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -97,9 +103,10 @@ FORMS += src/mainwindow.ui \
     src/PaintBrushAdvSettingsWidget.ui \
     src/ColorBoxWidget.ui \
     src/registerdialog.ui \
-    src/BrushTypeComboBox.ui \
+    src/brushtypecombobox.ui \
     src/SprayCanSettingsWidget.ui \
-    src/LineSettingsWidget.ui
+    src/LineSettingsWidget.ui \
+    src/scandevicesdialog.ui
 
 RESOURCES += \
     Icons.qrc

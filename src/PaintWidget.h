@@ -10,6 +10,7 @@
 #include <QGraphicsView>
 
 class PaintWidgetPrivate;
+class QProgressIndicator;
 class Tool;
 
 class PaintWidget : public QGraphicsView
@@ -43,6 +44,8 @@ public:
 
     bool isUndoEnabled();
     bool isRedoEnabled();
+
+    void showProgressIndicator(bool visible);
 signals:
     // Temporary signal to inform UI that user painted something.
     void contentChanged();
@@ -58,6 +61,7 @@ private:
     PaintWidgetPrivate *d;
     QList<QImage> historyList;
     int historyIndex;
+    QProgressIndicator *mProgressIndicator;
 private slots:
     void onContentChanged();
     void init();
