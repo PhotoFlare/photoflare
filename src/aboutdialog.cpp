@@ -13,10 +13,9 @@ aboutDialog::aboutDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::aboutDialog)
 {
-    bool creditsVisible = false;
     ui->setupUi(this);
-    ui->creditsTextArea->setVisible(creditsVisible);
-    ui->creditsTextArea->setText(tr("<b>Developers</b><br>Commercial - ICS<br>Lead - Dylan Coakley<br>Developer - Dmitry Vasilenko<br><br><b>Graphics</b><br>Website graphics - Raqasa<br>Application icons - Attari B<br><br><b>Promotional Media</b><br>Art Designer - Catherine Fister<br>Advertising - Don Murphy<br><br><b>Contributors</b><br>Duzy Chan - Code<br>Samuel Cowen - Code<br>Richard Senior - GNU Autotools<br>Alexandre Kharlamov - Code<br>Michael Sheppard - Code<br>Helene Levernieux - Project Icon<br><br><b>Special thanks</b><br>I would to thank Samantha for her strong support of myself and the project over the years. You gave me the courage to keep going and accomplish my goals."));
+    ui->creditsTextArea->setVisible(false);
+    ui->creditsTextArea->setText(tr("<b>Developers</b><br>Commercial - ICS<br>Lead - Dylan Coakley<br>Developer - Dmitry Vasilenko<br><br><b>Graphics</b><br>Website graphics - Raqasa<br>Application icons - Attari B<br><br><b>Promotional Media</b><br>Art Designer - Catherine Fister<br>Advertising - Don Murphy<br><br><b>Contributors</b><br>Duzy Chan - Code<br>Samuel Cowen - Code<br>Richard Senior - GNU Autotools<br>Alexandre Kharlamov - Code<br>Michael Sheppard - Code<br>Helene Levernieux - Project Icon<br><br><b>Special thanks</b><br>I would to thank Samantha for being an absolute gem of a person. You light up my life and I'm so glad to have found you."));
 
     ui->appName->setText(qApp->applicationName());
     QFont font;
@@ -43,11 +42,11 @@ void aboutDialog::on_pushButton_clicked()
 
 void aboutDialog::on_pushButton_2_clicked()
 {
-    if (creditsVisible==false) {
+    if (ui->creditsTextArea->isVisible()==false) {
         ui->creditsTextArea->setVisible(true);
         creditsVisible=true;
     }
-    else if (creditsVisible==true) {
+    else if (ui->creditsTextArea->isVisible()==true) {
         ui->creditsTextArea->setVisible(false);
         creditsVisible=false;
     }
