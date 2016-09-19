@@ -49,7 +49,7 @@ public:
     {
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
-        QBrush brush(Qt::TexturePattern);
+        QBrush brush;
         brush.setTextureImage(QImage(":/pixmaps/pixmaps/checkers.png"));
         painter.setBrush(brush);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
@@ -64,7 +64,7 @@ public:
     {
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
-        QBrush brush(Qt::TexturePattern);
+        QBrush brush;
         brush.setTextureImage(QImage(":/pixmaps/pixmaps/checkers.png"));
         painter.setBrush(brush);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
@@ -141,6 +141,7 @@ public:
 PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
     : QGraphicsView(parent)
     , d(new PaintWidgetPrivate(this))
+    , progressIndicator(nullptr)
 {
     d->initialize(QImage(imagePath));
     d->imagePath = imagePath;
@@ -150,7 +151,7 @@ PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
 PaintWidget::PaintWidget(const QSize &imageSize, QWidget *parent)
     : QGraphicsView(parent)
     , d(new PaintWidgetPrivate(this))
-    , mProgressIndicator(new QProgressIndicator())
+    , progressIndicator(nullptr)
 {
     QImage image(imageSize, QImage::Format_ARGB32_Premultiplied);
     image.fill(Qt::white);
@@ -169,7 +170,6 @@ PaintWidget::~PaintWidget()
 {
     d->disconnectLastTool();
     delete d;
-    delete mProgressIndicator;
 }
 
 void PaintWidget::setPaintTool(Tool *tool)
@@ -250,14 +250,17 @@ void PaintWidget::showProgressIndicator(bool visible)
 {
     if(visible)
     {
-        mProgressIndicator->setSize(QSize(d->image.width()/4,d->image.height()/4));
-        QGraphicsProxyWidget *proxy = scene()->addWidget(mProgressIndicator);
-        proxy->setPos(3*d->image.width()/8, 3*d->image.height()/8);
-        mProgressIndicator->setVisible(true);
-        mProgressIndicator->startAnimation();
+        progressIndicator = new QProgressIndicator;
+        progressIndicator->setSize(QSize(d->image.width()/4,d->image.height()/4));
+        progressIndicator->setVisible(true);
+        progressIndicator->startAnimation();
+        QGraphicsProxyWidget *progressIndicatorProxy = scene()->addWidget(progressIndicator);
+        progressIndicatorProxy->setPos(3*d->image.width()/8, 3*d->image.height()/8);
     } else {
-        mProgressIndicator->stopAnimation();
-        mProgressIndicator->setVisible(false);
+        if(progressIndicator) {
+            progressIndicator->stopAnimation();
+            progressIndicator->setVisible(false);
+        }
     }
 }
 

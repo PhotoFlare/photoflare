@@ -61,7 +61,7 @@ private:
     PaintWidgetPrivate *d;
     QList<QImage> historyList;
     int historyIndex;
-    QProgressIndicator *mProgressIndicator;
+    QProgressIndicator *progressIndicator;
 private slots:
     void onContentChanged();
     void init();
