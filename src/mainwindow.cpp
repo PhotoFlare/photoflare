@@ -3,7 +3,6 @@
   Main window class for the PhotoFiltre LX application.
 
 */
-
 #include "mainwindow.h"
 #include "NewDialog.h"
 #include "textdialog.h"
@@ -152,15 +151,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, LINE_TOOL, &LineTool::setPrimaryColor);
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, LINE_TOOL, &LineTool::setSecondaryColor);
 
-    bool maximize = SETTINGS->isMaximizeWindow();
-    if (maximize) {
-        this->setWindowState(Qt::WindowMaximized);
-    } else {
-        QRect geometry = SETTINGS->customWindowGeometry();
-        if (geometry.isValid())
-            this->setGeometry(geometry);
-    }
-
+    setWindowSize();
     updateRecents();
 
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
@@ -187,6 +178,18 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::setWindowSize()
+{
+    bool maximize = SETTINGS->isMaximizeWindow();
+    if (maximize) {
+        this->setWindowState(Qt::WindowMaximized);
+    } else {
+        QRect geometry = SETTINGS->customWindowGeometry();
+        if (geometry.isValid())
+            this->setGeometry(geometry);
+    }
 }
 
 void MainWindow::on_actionAbout_triggered()
@@ -377,7 +380,7 @@ void MainWindow::addPaintWidget(PaintWidget *widget)
 
     addChildWindow(widget);
 
-    on_toolButtonPaintBrush_clicked();
+    //on_toolButtonPaintBrush_clicked();
 }
 
 void MainWindow::addChildWindow(PaintWidget *widget)
@@ -749,17 +752,44 @@ void MainWindow::on_actionToolpalette_triggered()
 
 void MainWindow::on_actionZoom_in_triggered()
 {
+    this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
 
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setScale(this->zoomCombo->currentText());
+    }
 }
 
 void MainWindow::on_actionZoom_out_triggered()
 {
+    if(this->zoomCombo->currentIndex() > 0)
+    {
+        this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()-1);
+    }
 
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setScale(this->zoomCombo->currentText());
+    }
 }
 
-void MainWindow::on_actionAuto_zoom_triggered()
+void MainWindow::on_actionAuto_zoom_triggered(PaintWidget *widget)
 {
+    widget->autoScale();
+    connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
+        this->zoomCombo->setItemText(0, QString::number((int)(scale*100)).append("%"));
+        this->zoomCombo->setCurrentIndex(0);
+    });
+}
 
+void MainWindow::on_actionOriginal_size_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        this->zoomCombo->setItemText(0,"100%");
+        this->zoomCombo->setCurrentIndex(0);
+        widget->setScale("100%");
+    }
 }
 
 void MainWindow::showError(const QString &message)
@@ -1037,6 +1067,16 @@ void MainWindow::onScanFnished(int,QProcess::ExitStatus status)
     }
 }
 
+void MainWindow::on_actionFull_screen_triggered()
+{
+    if(this->isFullScreen()) {
+        setWindowSize();
+    }
+    else {
+        this->showFullScreen();
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1070,7 +1110,7 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionArtistic->setEnabled(false);
     ui->actionAuto_contrast->setEnabled(false);
     ui->actionAuto_levels->setEnabled(false);
-    ui->actionAuto_zoom->setEnabled(false);
+    //ui->actionAuto_zoom->setEnabled(false);
     ui->actionAutomate_Batch->setEnabled(false);
     ui->actionAutomatic_Crop->setEnabled(false);
     ui->actionAutomatic_transparency->setEnabled(false);
@@ -1110,7 +1150,7 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionFlip_Horizontal->setEnabled(false);
     //ui->actionFlip_Vertical->setEnabled(false);
     ui->actionFrame->setEnabled(false);
-    ui->actionFull_screen->setEnabled(false);
+    //ui->actionFull_screen->setEnabled(false);
     ui->actionGammaCorrectminus->setEnabled(false);
     ui->actionGammaCorrectplus->setEnabled(false);
     ui->actionGamma_correct->setEnabled(false);
@@ -1134,7 +1174,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionOffset->setEnabled(false);
     ui->actionOldPhoto->setEnabled(false);
     ui->actionOptimized_Clipping->setEnabled(false);
-    ui->actionOriginal_size->setEnabled(false);
+    //ui->actionOriginal_size->setEnabled(false);
     ui->actionOther->setEnabled(false);
     ui->actionOutside_drop_shadow->setEnabled(false);
     ui->actionOutside_frame->setEnabled(false);
@@ -1183,8 +1223,8 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionUndo->setEnabled(false);
     ui->actionValidate->setEnabled(false);
     ui->actionVisual_effect->setEnabled(false);
-    ui->actionZoom_in->setEnabled(false);
-    ui->actionZoom_out->setEnabled(false);
+    //ui->actionZoom_in->setEnabled(false);
+    //ui->actionZoom_out->setEnabled(false);
 
     ui->toolButtonWand->setEnabled(true);
     ui->toolButtonStamp->setEnabled(true);

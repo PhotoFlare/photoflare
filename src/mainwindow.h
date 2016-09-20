@@ -65,6 +65,7 @@ private slots:
     void on_actionClose_triggered();
     void on_actionClose_all_triggered();
 
+    void setWindowSize();
     void updateRecents();
     void showError(const QString &message);
     void onPaintBrushSettingsChanged();
@@ -109,7 +110,7 @@ private slots:
 
     void on_actionZoom_out_triggered();
 
-    void on_actionAuto_zoom_triggered();
+
 
     void on_actionRegister_triggered();
 
@@ -125,6 +126,10 @@ private slots:
 
     void on_actionScan_triggered();
 
+    void on_actionFull_screen_triggered();
+
+    void on_actionOriginal_size_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
@@ -135,6 +140,7 @@ private:
     void addPaintWidget(PaintWidget *widget);
     void addTab(PaintWidget *widget);
     void addChildWindow(PaintWidget *widget);
+    void on_actionAuto_zoom_triggered(PaintWidget *widget);
     void saveContent();
     bool saveImage(const QString &fileName);
     bool handleCloseChildWindow(QMdiSubWindow *subWindow);
