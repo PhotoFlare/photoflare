@@ -24,6 +24,7 @@ public:
     Qt::MouseButton mouseButton;
     int radius;
     int pressure;
+    QImage origin;
 };
 
 BlurTool::BlurTool(QObject *parent)
@@ -97,6 +98,8 @@ void BlurTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     d->lastPos = pos;
     d->mouseButton = button;
+    const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
+    d->origin = *image;
 
     onMouseMove(pos);
 }
@@ -106,18 +109,12 @@ void BlurTool::onMouseMove(const QPoint &pos)
     if (m_paintDevice) {
         const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
         QPainter painter(m_paintDevice);
-        painter.setRenderHint(QPainter::Antialiasing);
 
         QPixmap pixmap(QSize(d->radius,d->radius));
         pixmap.fill(Qt::transparent);
         QPainter painterPix(&pixmap);
+        painterPix.setRenderHint(QPainter::Antialiasing);
         QPen pen = QPen(QBrush(), 0);
-
-        QRadialGradient rg(d->radius/2,d->radius/2,d->pressure,d->radius/2,d->radius/2);
-        rg.setColorAt(0, Qt::white);
-        rg.setColorAt(0.5, Qt::white);
-        rg.setColorAt(1, Qt::transparent);
-        painterPix.setBrush(QBrush(rg));
 
         for(int i=-d->radius/2; i < d->radius/2; i++)
         {
@@ -133,20 +130,23 @@ void BlurTool::onMouseMove(const QPoint &pos)
                     continue;
                 pen.setColor(image->pixel(pos.x() + i, pos.y() + j));
                 painterPix.setPen(pen);
+                painterPix.setOpacity(((float)1 - ((float)(i*i + j*j) / (float)(d->radius*d->radius/4))));
                 painterPix.drawPoint(i+d->radius/2, j+d->radius/2);
             }
         }
 
         QGraphicsBlurEffect *effect = new QGraphicsBlurEffect();
-        effect->setBlurRadius(1.001f);
+        effect->setBlurHints(QGraphicsBlurEffect::QualityHint);
+        effect->setBlurRadius(2.f);
 
         QGraphicsScene scene;
         QGraphicsPixmapItem item;
         item.setPixmap(pixmap);
         item.setGraphicsEffect(effect);
         scene.addItem(&item);
-        scene.render(&painterPix, QRectF(), QRectF( 0, 0, d->radius, d->radius ));
+        scene.render(&painterPix, QRectF(), QRectF( 0, 0, d->radius, d->radius));
 
+        painter.setOpacity((float)d->pressure / 20.f);
         painter.drawPixmap(pos.x()-d->radius/2, pos.y()-d->radius/2, pixmap);
 
         emit painted(m_paintDevice);

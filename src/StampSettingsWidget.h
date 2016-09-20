@@ -26,6 +26,7 @@ public:
     int step() const;
     bool fixed() const;
     bool diffuse() const;
+    bool precise() const;
 signals:
     void settingsChanged();
 

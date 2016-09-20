@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>134</width>
-    <height>223</height>
+    <height>246</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -125,6 +125,13 @@
       <widget class="QCheckBox" name="fixedCheckBox">
        <property name="text">
         <string>Fixed</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="preciseCheckBox">
+       <property name="text">
+        <string>Precise</string>
        </property>
       </widget>
      </item>

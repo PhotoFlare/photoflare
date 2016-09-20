@@ -21,6 +21,7 @@ StampSettingsWidget::StampSettingsWidget(QWidget *parent) :
     connect(ui->pressureSlider, &QSlider::valueChanged, this, &StampSettingsWidget::settingsChanged);
     connect(ui->stepSlider, &QSlider::valueChanged, this, &StampSettingsWidget::settingsChanged);
     connect(ui->fixedCheckBox, &QCheckBox::clicked, this, &StampSettingsWidget::settingsChanged);
+    connect(ui->preciseCheckBox, &QCheckBox::clicked, this, &StampSettingsWidget::settingsChanged);
     connect(ui->diffuseCheckBox, &QCheckBox::clicked, this, &StampSettingsWidget::settingsChanged);
 
     connect(ui->fixedCheckBox, &QCheckBox::clicked, this, &StampSettingsWidget::onFixedChanged);
@@ -54,6 +55,11 @@ bool StampSettingsWidget::fixed() const
 bool StampSettingsWidget::diffuse() const
 {
     return ui->diffuseCheckBox->isChecked();
+}
+
+bool StampSettingsWidget::precise() const
+{
+    return ui->preciseCheckBox->isChecked();
 }
 
 void StampSettingsWidget::onFixedChanged()

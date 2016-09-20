@@ -812,6 +812,7 @@ void MainWindow::onStampSettingsChanged()
     STAMP_TOOL->setPressure(m_stampSettingsWidget->pressure());
     STAMP_TOOL->setStep(m_stampSettingsWidget->step());
     STAMP_TOOL->setFixed(m_stampSettingsWidget->fixed());
+    STAMP_TOOL->setPrecise(m_stampSettingsWidget->precise());
     STAMP_TOOL->setDiffuse(m_stampSettingsWidget->diffuse());
 }
 

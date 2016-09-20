@@ -21,6 +21,7 @@ public:
     void setPressure(int pressure);
     void setStep(int step);
     void setFixed(bool fixed);
+    void setPrecise(bool precise);
     void setDiffuse(bool diffuse);
 
     QCursor getCursor();

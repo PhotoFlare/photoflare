@@ -7,6 +7,7 @@
 #include <QGraphicsEffect>
 #include <QGraphicsPixmapItem>
 #include <QLinearGradient>
+#include <QBitmap>
 
 class StampToolPrivate
 {
@@ -33,6 +34,7 @@ public:
     int pressure;
     int step;
     bool fixed;
+    bool precise;
     bool diffuse;
     bool selectMode;
     QPoint selectPos;
@@ -92,6 +94,11 @@ void StampTool::setStep(int step)
 void StampTool::setFixed(bool fixed)
 {
     d->fixed = fixed;
+}
+
+void StampTool::setPrecise(bool precise)
+{
+    d->precise = precise;
 }
 
 void StampTool::setDiffuse(bool diffuse)
@@ -179,9 +186,15 @@ void StampTool::onMouseMove(const QPoint &pos)
         }
 
         QPainter painter(m_paintDevice);
+        painter.setRenderHint(QPainter::Antialiasing);
         painter.setOpacity(d->opacity);
-        QPoint base;
 
+        QPixmap pixmap(QSize(d->radius,d->radius));
+        pixmap.fill(Qt::transparent);
+        QPainter painterPix(&pixmap);
+        painterPix.setRenderHint(QPainter::Antialiasing);
+
+        QPoint base;
         if(d->fixed)
         {
             base = d->selectPos;
@@ -206,10 +219,21 @@ void StampTool::onMouseMove(const QPoint &pos)
                 if(i*i + j*j > d->radius*d->radius/4)
                     continue;
                 pen.setColor(d->origin.pixel(base.x() + i,base.y() + j));
-                painter.setPen(pen);
-                painter.drawPoint(pos.x() + i, pos.y() + j);
+                painterPix.setPen(pen);
+
+                if(!d->precise) {
+                    if(i*i + j*j > d->radius*d->radius/16) {
+                        painterPix.setOpacity(((float)1 - ((float)(i*i + j*j) / (float)(d->radius*d->radius/4)))/10.0f);
+                    } else {
+                        painterPix.setOpacity(1.f);
+                    }
+                }
+
+                painterPix.drawPoint(i+d->radius/2, j+d->radius/2);
             }
         }
+
+        painter.drawPixmap(pos.x()-d->radius/2, pos.y()-d->radius/2, pixmap);
 
         emit painted(m_paintDevice);
         emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
