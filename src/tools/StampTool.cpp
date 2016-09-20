@@ -2,6 +2,7 @@
 #include "../PaintWidget.h"
 
 #include <QPainter>
+#include <QtMath>
 
 class StampToolPrivate
 {
@@ -12,6 +13,8 @@ public:
         secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
 
         selectMode = false;
+        selectPos = QPoint(0,0);
+        offset = QPoint(0,0);
     }
     ~StampToolPrivate()
     {
@@ -30,6 +33,7 @@ public:
     bool selectMode;
     QPoint selectPos;
     QPoint offset;
+    float opacity;
 };
 
 StampTool::StampTool(QObject *parent)
@@ -118,13 +122,14 @@ void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     d->lastPos = pos;
     d->mouseButton = button;
+    d->opacity = d->pressure / 10.0f;
 
     if(d->selectMode)
     {
         d->selectPos = pos;
     } else
     {
-        if(d->selectPos.x() >= 0)
+        if(d->selectPos.x() >= 0 || d->fixed)
         {
             d->offset = pos - d->selectPos;
         } else
@@ -164,12 +169,36 @@ void StampTool::onMouseMove(const QPoint &pos)
 
         cursor.drawEllipse(pos - d->offset, 5, 5);
 
+        if(d->fixed)
+        {
+            QPoint diff = d->lastPos-pos;
+            if(qSqrt(diff.x()*diff.x() + diff.y()*diff.y()) >= d->step)
+            {
+                d->lastPos = pos;
+            } else
+            {
+                return;
+            }
+        }
+
         QPainter painter(m_paintDevice);
-        QPoint base = pos - d->offset;
+        painter.setOpacity(d->opacity);
+        QPoint base;
+        if(d->fixed)
+        {
+            base = d->selectPos;
+        } else
+        {
+            base = pos - d->offset;
+        }
+
         for(int i=-d->radius/2; i < d->radius/2;i++)
         {
             for(int j=-d->radius/2; j < d->radius/2;j++)
             {
+                if(d->diffuse && (float)rand()/(float)RAND_MAX > 0.5f)
+                    continue;
+
                 if(base.x() + i < 0 || base.y() + j < 0)
                     continue;
 
@@ -185,7 +214,6 @@ void StampTool::onMouseMove(const QPoint &pos)
         }
 
         emit painted(m_paintDevice);
-        d->lastPos = pos;
         emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
     }
 }
@@ -195,7 +223,7 @@ void StampTool::onMouseRelease(const QPoint &pos)
     Q_UNUSED(pos);
 
     d->mouseButton = Qt::NoButton;
-    if(!d->selectMode)
+    if(!d->selectMode && !d->fixed)
     {
         d->selectPos.setX(-1);
     }

@@ -30,7 +30,7 @@ signals:
     void settingsChanged();
 
 private slots:
-
+    void onFixedChanged();
 private:
     Ui::StampSettingsWidget *ui;
 };
