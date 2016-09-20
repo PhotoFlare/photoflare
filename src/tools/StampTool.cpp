@@ -4,6 +4,10 @@
 #include <QPainter>
 #include <QtMath>
 
+#include <QGraphicsEffect>
+#include <QGraphicsPixmapItem>
+#include <QLinearGradient>
+
 class StampToolPrivate
 {
 public:
@@ -34,6 +38,7 @@ public:
     QPoint selectPos;
     QPoint offset;
     float opacity;
+    QImage origin;
 };
 
 StampTool::StampTool(QObject *parent)
@@ -139,6 +144,7 @@ void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
         if (m_paintDevice) {
             const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
+            d->origin = *image;
             QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
             QPainter painter(&surface);
             painter.setCompositionMode(QPainter::CompositionMode_Source);
@@ -207,11 +213,26 @@ void StampTool::onMouseMove(const QPoint &pos)
 
                 if(i*i + j*j > d->radius*d->radius/4)
                     continue;
-                pen.setColor(image->pixel(base.x() + i,base.y() + j));
+                pen.setColor(d->origin.pixel(base.x() + i,base.y() + j));
                 painter.setPen(pen);
                 painter.drawPoint(pos.x() + i, pos.y() + j);
             }
         }
+
+//        QLinearGradient alphaGradient(0, 0, image->width(), image->height());
+//        alphaGradient.setColorAt(0.0, Qt::transparent);
+//        alphaGradient.setColorAt(0.5, Qt::white);
+//        alphaGradient.setColorAt(1.0, Qt::transparent);
+
+//        QGraphicsBlurEffect *blur = new QGraphicsBlurEffect;
+//        blur->setBlurRadius(1.5f);
+
+//        QGraphicsScene scene;
+//        QGraphicsPixmapItem item;
+//        item.setPixmap(QPixmap::fromImage(*image));
+//        item.setGraphicsEffect(blur);
+//        scene.addItem(&item);
+//        scene.render(&painter, QRectF(), QRectF(0, 0, image->width(), image->height()));
 
         emit painted(m_paintDevice);
         emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
