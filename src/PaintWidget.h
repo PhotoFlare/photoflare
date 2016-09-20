@@ -33,6 +33,8 @@ public:
     void setImage(const QImage &image);
     QImage image() const;
 
+    void onCursorChanged(QCursor cursor);
+
     QString imagePath() const;
 
     void autoScale();

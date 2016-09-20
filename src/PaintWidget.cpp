@@ -211,9 +211,7 @@ void PaintWidget::setPaintTool(Tool *tool)
                 }
             });
 
-        d->cursorConnection = connect(d->currentTool, &Tool::cursorChanged, [this] (QCursor cursor) {
-                d->q->setCursor(cursor);
-            });
+        d->cursorConnection = connect(d->currentTool, &Tool::cursorChanged, this, &PaintWidget::onCursorChanged);
 
         d->currentTool->setScale(d->scale);
         d->currentTool->setPaintDevice(&d->image);
@@ -231,6 +229,11 @@ void PaintWidget::setImage(const QImage &image)
 QImage PaintWidget::image() const
 {
     return d->image;
+}
+
+void PaintWidget::onCursorChanged(QCursor cursor)
+{
+    setCursor(cursor);
 }
 
 QString PaintWidget::imagePath() const
