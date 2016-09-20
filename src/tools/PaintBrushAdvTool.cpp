@@ -95,7 +95,7 @@ void PaintBrushAdvTool::setStep(int step)
 
 QCursor PaintBrushAdvTool::getCursor()
 {
-    QPixmap pixmap(QSize(32,32));
+    QPixmap pixmap(QSize(32*m_scale,32*m_scale));
     pixmap.fill(Qt::transparent);
     QPainter painter(&pixmap);
     QPen pen = QPen(QBrush(), 1, Qt::DashLine);

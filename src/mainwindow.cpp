@@ -35,12 +35,14 @@
 #include "./tools/SprayCanTool.h"
 #include "./tools/LineTool.h"
 #include "./tools/MagicWandTool.h"
+#include "./tools/StampTool.h"
 
 #include "PaintBrushSettingsWidget.h"
 #include "PaintBrushAdvSettingsWidget.h"
 #include "SprayCanSettingsWidget.h"
 #include "LineSettingsWidget.h"
 #include "MagicWandSettingsWidget.h"
+#include "StampSettingsWidget.h"
 #include "ToolManager.h"
 #include "Settings.h"
 #include "FilterManager.h"
@@ -54,6 +56,7 @@
 #define SPRAY_CAN ToolManager::instance()->sprayCanTool()
 #define LINE_TOOL ToolManager::instance()->lineTool()
 #define MAGIC_WAND ToolManager::instance()->magicWandTool()
+#define STAMP_TOOL ToolManager::instance()->stampTool()
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
@@ -112,6 +115,10 @@ MainWindow::MainWindow(QWidget *parent) :
     m_magicWandSettingsWidget = new MagicWandSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_magicWandSettingsWidget);
     connect(m_magicWandSettingsWidget, &MagicWandSettingsWidget::settingsChanged, this, &MainWindow::onMagicWandSettingsChanged);
+
+    m_stampSettingsWidget = new StampSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_stampSettingsWidget);
+    connect(m_stampSettingsWidget, &StampSettingsWidget::settingsChanged, this, &MainWindow::onStampSettingsChanged);
 
     on_toolButtonPaintBrush_clicked();
 
@@ -338,6 +345,7 @@ void MainWindow::clearToolpalette()
     m_scSettingsWidget->setVisible(false);
     m_lineSettingsWidget->setVisible(false);
     m_magicWandSettingsWidget->setVisible(false);
+    m_stampSettingsWidget->setVisible(false);
 }
 
 PaintWidget *MainWindow::createPaintWidget(const QString &imagePath) const
@@ -587,6 +595,12 @@ void MainWindow::on_toolButtonStamp_clicked()
     clearToolpalette();
     m_toolSelected = "stamp";
     ui->toolButtonStamp->setChecked(true);
+    m_stampSettingsWidget->setVisible(true);
+    onStampSettingsChanged();
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->setPaintTool(STAMP_TOOL);
 }
 
 void MainWindow::on_toolButtonBlur_clicked()
@@ -775,6 +789,15 @@ void MainWindow::onMagicWandSettingsChanged()
 {
     MAGIC_WAND->setTolerance(m_magicWandSettingsWidget->tolerance());
     MAGIC_WAND->setColor(m_magicWandSettingsWidget->color());
+}
+
+void MainWindow::onStampSettingsChanged()
+{
+    STAMP_TOOL->setRadius(m_stampSettingsWidget->radius());
+    STAMP_TOOL->setPressure(m_stampSettingsWidget->pressure());
+    STAMP_TOOL->setStep(m_stampSettingsWidget->step());
+    STAMP_TOOL->setFixed(m_stampSettingsWidget->fixed());
+    STAMP_TOOL->setDiffuse(m_stampSettingsWidget->diffuse());
 }
 
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
@@ -1142,7 +1165,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionZoom_out->setEnabled(false);
 
     ui->toolButtonWand->setEnabled(true);
-    ui->toolButtonStamp->setEnabled(false);
+    ui->toolButtonStamp->setEnabled(true);
     //ui->toolButtonSprayCan->setEnabled(false);
     //ui->toolButtonPaintBrushAdv->setEnabled(false);
     ui->toolButtonLine->setEnabled(true);

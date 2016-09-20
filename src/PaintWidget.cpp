@@ -92,6 +92,7 @@ public:
     {
         Q_ASSERT( QObject::disconnect(lastConnection) );
         Q_ASSERT( QObject::disconnect(lastOverlayConnection) );
+        Q_ASSERT( QObject::disconnect(cursorConnection) );
     }
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -125,12 +126,27 @@ public:
         }
     }
 
+    void keyPressEvent(QKeyEvent * keyEvent)
+    {
+        if (currentTool) {
+            currentTool->onKeyPressed(keyEvent);
+        }
+    }
+
+    void keyReleaseEvent(QKeyEvent * keyEvent)
+    {
+        if (currentTool) {
+            currentTool->onKeyReleased(keyEvent);
+        }
+    }
+
     QString imagePath;
     QLabel *imageLabel;
     QImage image;
     Tool *currentTool;
     QMetaObject::Connection lastConnection;
     QMetaObject::Connection lastOverlayConnection;
+    QMetaObject::Connection cursorConnection;
     QGraphicsPixmapItem *canvas;
     float scale;
     bool imageChanged;
@@ -182,11 +198,6 @@ void PaintWidget::setPaintTool(Tool *tool)
     d->currentTool = tool;
 
     if (d->currentTool) {
-        d->currentTool->setPaintDevice(&d->image);
-        d->updateImageLabel();
-
-        d->q->setCursor(d->currentTool->getCursor());
-
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
                 if (&d->image == paintDevice) {
                     d->updateImageLabel();
@@ -199,6 +210,14 @@ void PaintWidget::setPaintTool(Tool *tool)
                     d->updateImageLabelWithOverlay(overlayImage, mode);
                 }
             });
+
+        d->cursorConnection = connect(d->currentTool, &Tool::cursorChanged, [this] (QCursor cursor) {
+                d->q->setCursor(cursor);
+            });
+
+        d->currentTool->setScale(d->scale);
+        d->currentTool->setPaintDevice(&d->image);
+        d->updateImageLabel();
     }
 }
 
@@ -234,6 +253,9 @@ void PaintWidget::autoScale()
     }
 
     emit zoomChanged(d->scale);
+
+    if(d->currentTool)
+        d->currentTool->setScale(d->scale);
 }
 
 void PaintWidget::setScale(const QString &rate)
@@ -241,6 +263,9 @@ void PaintWidget::setScale(const QString &rate)
     resetMatrix();
     d->scale = (rate.mid(0,rate.lastIndexOf("%"))).toFloat() / 100.0f;
     scale(d->scale, d->scale);
+
+    if(d->currentTool)
+        d->currentTool->setScale(d->scale);
 }
 
 float PaintWidget::getScale()
@@ -280,6 +305,9 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
     resetMatrix();
     scale(d->scale, d->scale);
     emit zoomChanged(d->scale);
+
+    if(d->currentTool)
+        d->currentTool->setScale(d->scale);
 }
 
 void PaintWidget::onContentChanged()

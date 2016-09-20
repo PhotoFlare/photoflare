@@ -15,6 +15,7 @@
 #include "./tools/SprayCanTool.h"
 #include "./tools/LineTool.h"
 #include "./tools/MagicWandTool.h"
+#include "./tools/StampTool.h"
 
 ToolManager * ToolManager::m_instance = 0;
 
@@ -32,6 +33,8 @@ public:
         sprayCanTool = new SprayCanTool;
         lineTool = new LineTool;
         magicWandTool = new MagicWandTool;
+        stampTool = new StampTool;
+
     }
 
     ~ToolManagerPrivate()
@@ -45,6 +48,7 @@ public:
         delete sprayCanTool;
         delete lineTool;
         delete magicWandTool;
+        delete stampTool;
 
     }
 
@@ -57,6 +61,7 @@ public:
     SprayCanTool *sprayCanTool;
     LineTool *lineTool;
     MagicWandTool *magicWandTool;
+    StampTool *stampTool;
 };
 
 ToolManager::ToolManager(QObject *parent)
@@ -114,6 +119,12 @@ LineTool *ToolManager::lineTool() const
 MagicWandTool *ToolManager::magicWandTool() const
 {
     return d->magicWandTool;
+}
+
+
+StampTool *ToolManager::stampTool() const
+{
+    return d->stampTool;
 }
 
 ToolManager *ToolManager::instance()

@@ -39,6 +39,8 @@ void PaintBrushTool::setWidth(int width)
 {
     d->primaryPen.setWidth(width);
     d->secondaryPen.setWidth(width);
+
+    emit cursorChanged(getCursor());
 }
 
 int PaintBrushTool::width() const
@@ -80,6 +82,22 @@ void PaintBrushTool::setCapStyle(Qt::PenCapStyle capStyle)
 {
     d->primaryPen.setCapStyle(capStyle);
     d->secondaryPen.setCapStyle(capStyle);
+}
+
+QCursor PaintBrushTool::getCursor()
+{
+    int width = d->primaryPen.width()*m_scale;
+    if(width < 5)
+        width = 5;
+    QPixmap pixmap(QSize(width,width));
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+    pen.setColor(Qt::gray);
+    painter.setPen(pen);
+
+    painter.drawEllipse(pixmap.rect());
+    return QCursor(pixmap);
 }
 
 void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)

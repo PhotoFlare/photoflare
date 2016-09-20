@@ -1,18 +1,15 @@
-#ifndef PAINTBRUSHTOOL_H
-#define PAINTBRUSHTOOL_H
+#ifndef STAMPTOOL_H
+#define STAMPTOOL_H
 
 #include "Tool.h"
 
-class PaintBrushToolPrivate;
+class StampToolPrivate;
 
-class PaintBrushTool : public Tool
+class StampTool : public Tool
 {
 public:
-    PaintBrushTool(QObject *parent = 0);
-    ~PaintBrushTool();
-
-    void setWidth(int width);
-    int width() const;
+    StampTool(QObject *parent = 0);
+    ~StampTool();
 
     // This color is used when painting the left mouse button
     QColor primaryColor() const;
@@ -20,8 +17,11 @@ public:
     // This color is used when painting the right mouse button
     QColor secondaryColor() const;
 
-    void setAntialiasing(bool value);
-    bool antialiasing() const;
+    void setRadius(int radius);
+    void setPressure(int pressure);
+    void setStep(int step);
+    void setFixed(bool fixed);
+    void setDiffuse(bool diffuse);
 
     QCursor getCursor();
 
@@ -30,16 +30,17 @@ public:
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
-
+    void onKeyPressed(QKeyEvent * keyEvent) override;
+    void onKeyReleased(QKeyEvent * keyEvent) override;
 public slots:
     void setPrimaryColor(const QColor &color);
     void setSecondaryColor(const QColor &color);
 
 private:
-    PaintBrushToolPrivate *d;
+    StampToolPrivate *d;
 };
 
 
 
-#endif // PAINTBRUSHTOOL_H
+#endif // STAMPTOOL_H
 

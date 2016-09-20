@@ -65,7 +65,9 @@ SOURCES += src/main.cpp \
     src/ScanManager.cpp \
     src/ScanDevicesDialog.cpp \
     src/QProgressIndicator.cpp \
-    src/MagicWandSettingsWidget.cpp
+    src/MagicWandSettingsWidget.cpp \
+    src/tools/StampTool.cpp \
+    src/StampSettingsWidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -96,7 +98,9 @@ HEADERS += src/mainwindow.h \
     src/ScanManager.h \
     src/ScanDevicesDialog.h \
     src/QProgressIndicator.h \
-    src/MagicWandSettingsWidget.h
+    src/MagicWandSettingsWidget.h \
+    src/tools/StampTool.h \
+    src/StampSettingsWidget.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -111,7 +115,8 @@ FORMS += src/mainwindow.ui \
     src/SprayCanSettingsWidget.ui \
     src/LineSettingsWidget.ui \
     src/scandevicesdialog.ui \
-    src/MagicWandSettingsWidget.ui
+    src/MagicWandSettingsWidget.ui \
+    src/StampSettingsWidget.ui
 
 RESOURCES += \
     Icons.qrc

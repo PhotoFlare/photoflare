@@ -64,6 +64,8 @@ void LineTool::setWidth(int width)
 {
     d->primaryPen.setWidth(width);
     d->secondaryPen.setWidth(width);
+
+    emit cursorChanged(getCursor());
 }
 
 void LineTool::setAntialias(bool antialias)
@@ -112,7 +114,7 @@ void LineTool::drawArrow(QPainter& painter, QPoint pFrom, QPoint pTo, QPoint& pO
     vecLeft[1] = vecLine[0];
 
     float width = 15 + 2*pen.width();
-    float angle = 3.1415 / 4;
+    float angle = (float)3.1415 / 4;
 
     fLength = qSqrt(vecLine[0]*vecLine[0] + vecLine[1]*vecLine[1]);
     th =  width / (2 * fLength);
@@ -177,6 +179,23 @@ void LineTool::setStyle(int style)
     d->primaryPen.setCapStyle(capStyle);
     d->secondaryPen.setCapStyle(capStyle);
 }
+
+QCursor LineTool::getCursor()
+{
+    int width = d->primaryPen.width();
+    if(width < 5)
+        width = 5;
+    QPixmap pixmap(QSize(width,width));
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+    pen.setColor(Qt::gray);
+    painter.setPen(pen);
+
+    painter.drawEllipse(pixmap.rect());
+    return QCursor(pixmap);
+}
+
 
 void LineTool::onMouseMove(const QPoint &pos)
 {

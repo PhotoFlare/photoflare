@@ -17,11 +17,18 @@ Tool::~Tool()
 void Tool::setPaintDevice(QPaintDevice *paintDevice)
 {
     m_paintDevice = paintDevice;
+    emit cursorChanged(getCursor());
 }
 
 QPaintDevice *Tool::paintDevice() const
 {
     return m_paintDevice;
+}
+
+void Tool::setScale(float scale)
+{
+    m_scale = scale;
+    emit cursorChanged(getCursor());
 }
 
 void Tool::disconnect()
@@ -42,6 +49,16 @@ void Tool::onMouseMove(const QPoint &pos)
 void Tool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
+}
+
+void Tool::onKeyPressed(QKeyEvent * keyEvent)
+{
+    Q_UNUSED(keyEvent);
+}
+
+void Tool::onKeyReleased(QKeyEvent * keyEvent)
+{
+    Q_UNUSED(keyEvent);
 }
 
 QCursor Tool::getCursor()
