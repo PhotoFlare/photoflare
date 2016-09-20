@@ -104,6 +104,83 @@ QImage FilterManager::swirl(const QImage &image)
     return modifiedImage;
 }
 
+QImage FilterManager::solarize(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->solarize();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::wave(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->wave();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::implode(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->implode(0.5);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::soften(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->blur(0.1,1.0);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::blur(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->blur(0.5,1.0);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::sharpen(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->sharpen(0.1,1.0);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::reinforce(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->sharpen(0.5,1.0);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
 QImage FilterManager::grayscale(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);

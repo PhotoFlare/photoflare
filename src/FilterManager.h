@@ -23,6 +23,13 @@ public:
     QImage oilPaint(const QImage &image);
     QImage charcoal(const QImage &image);
     QImage swirl(const QImage &image);
+    QImage solarize(const QImage &image);
+    QImage wave(const QImage &image);
+    QImage implode(const QImage &image);
+    QImage soften(const QImage &image);
+    QImage blur(const QImage &image);
+    QImage sharpen(const QImage &image);
+    QImage reinforce(const QImage &image);
     QImage grayscale(const QImage &image);
     QImage flipHorz(const QImage &image);
     QImage flipVert(const QImage &image);

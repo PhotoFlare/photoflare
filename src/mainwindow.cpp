@@ -3,6 +3,7 @@
   Main window class for the PhotoFiltre LX application.
 
 */
+//#include <QDebug>
 #include "mainwindow.h"
 #include "NewDialog.h"
 #include "textdialog.h"
@@ -126,7 +127,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
     connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
 
-    on_toolButtonPaintBrush_clicked();
+    //on_toolButtonPaintBrush_clicked();
+    on_toolButtonPointer_clicked();
 
     ui->actionUndo->setEnabled(false);
     ui->actionRedo->setEnabled(false);
@@ -720,6 +722,63 @@ void MainWindow::on_actionSwirl_triggered()
     }
 }
 
+
+void MainWindow::on_actionSolarize_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->solarize(widget->image()));
+    }
+}
+
+void MainWindow::on_actionWave_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->wave(widget->image()));
+    }
+}
+
+void MainWindow::on_actionImplode_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->implode(widget->image()));
+    }
+}
+
+void MainWindow::on_actionSoften_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->soften(widget->image()));
+    }
+}
+
+void MainWindow::on_actionBlur_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->blur(widget->image()));
+    }
+}
+
+void MainWindow::on_actionSharpen_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->sharpen(widget->image()));
+    }
+}
+
+void MainWindow::on_actionReinforce_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->reinforce(widget->image()));
+    }
+}
+
 void MainWindow::on_actionClose_triggered()
 {
     handleCloseChildWindow(ui->mdiArea->currentSubWindow());
@@ -753,6 +812,10 @@ void MainWindow::on_actionToolpalette_triggered()
 void MainWindow::on_actionZoom_in_triggered()
 {
     this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
+    if(this->zoomCombo->currentText() == "")
+    {
+        this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
+    }
 
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
@@ -763,6 +826,11 @@ void MainWindow::on_actionZoom_in_triggered()
 void MainWindow::on_actionZoom_out_triggered()
 {
     if(this->zoomCombo->currentIndex() > 0)
+    {
+        this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()-1);
+    }
+
+    if(this->zoomCombo->currentText() == "")
     {
         this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()-1);
     }
@@ -1114,7 +1182,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionAutomate_Batch->setEnabled(false);
     ui->actionAutomatic_Crop->setEnabled(false);
     ui->actionAutomatic_transparency->setEnabled(false);
-    ui->actionBlur->setEnabled(false);
+    //ui->actionBlur->setEnabled(false);
     ui->actionBounding_box->setEnabled(false);
     ui->actionBright_Contrast->setEnabled(false);
     ui->actionBrightminus->setEnabled(false);
@@ -1190,7 +1258,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionRGB_Mode->setEnabled(false);
     //ui->actionRecent_files->setEnabled(false);
     //ui->actionRedo->setEnabled(false);
-    ui->actionReinforce->setEnabled(false);
+    //ui->actionReinforce->setEnabled(false);
     ui->actionRelief->setEnabled(false);
     ui->actionReplace_colour->setEnabled(false);
     ui->actionReplace_colour_range->setEnabled(false);
@@ -1204,12 +1272,12 @@ void MainWindow::disableUnimplementedActions()
     ui->actionSelect_all->setEnabled(false);
     ui->actionSet_shape->setEnabled(false);
     ui->actionSet_wallpaper->setEnabled(false);
-    ui->actionSharpen->setEnabled(false);
+    //ui->actionSharpen->setEnabled(false);
     ui->actionShow_grid->setEnabled(false);
     ui->actionShow_selection->setEnabled(false);
     ui->actionSkew->setEnabled(false);
     ui->actionSnap_to_grid->setEnabled(false);
-    ui->actionSoften->setEnabled(false);
+    //ui->actionSoften->setEnabled(false);
     ui->actionStroke_and_fill->setEnabled(false);
     ui->actionStylize->setEnabled(false);
     ui->actionSwap_RGB_channel->setEnabled(false);
@@ -1226,10 +1294,10 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionZoom_in->setEnabled(false);
     //ui->actionZoom_out->setEnabled(false);
 
-    ui->toolButtonWand->setEnabled(true);
-    ui->toolButtonStamp->setEnabled(true);
+    //ui->toolButtonWand->setEnabled(false);
+    //ui->toolButtonStamp->setEnabled(false);
     //ui->toolButtonSprayCan->setEnabled(false);
     //ui->toolButtonPaintBrushAdv->setEnabled(false);
-    ui->toolButtonLine->setEnabled(true);
-    ui->toolButtonBlur->setEnabled(true);
+    //ui->toolButtonLine->setEnabled(false);
+    //ui->toolButtonBlur->setEnabled(false);
 }

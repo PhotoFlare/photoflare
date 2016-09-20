@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>25</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -242,6 +242,8 @@
       <string>Deform</string>
      </property>
      <addaction name="actionSwirl"/>
+     <addaction name="actionWave"/>
+     <addaction name="actionImplode"/>
     </widget>
     <widget class="QMenu" name="menuArtistic">
      <property name="title">
@@ -249,9 +251,24 @@
      </property>
      <addaction name="actionOil_Paint"/>
      <addaction name="actionCharcoal_Drawing"/>
+     <addaction name="actionSolarize"/>
     </widget>
-    <addaction name="actionSoften"/>
-    <addaction name="actionSharpen"/>
+    <widget class="QMenu" name="menuSoften">
+     <property name="title">
+      <string>Soften</string>
+     </property>
+     <addaction name="actionSoften"/>
+     <addaction name="actionBlur"/>
+    </widget>
+    <widget class="QMenu" name="menuSharpen">
+     <property name="title">
+      <string>Sharpen</string>
+     </property>
+     <addaction name="actionSharpen"/>
+     <addaction name="actionReinforce"/>
+    </widget>
+    <addaction name="menuSoften"/>
+    <addaction name="menuSharpen"/>
     <addaction name="actionNoise"/>
     <addaction name="actionRelief"/>
     <addaction name="actionColour"/>
@@ -1790,6 +1807,21 @@ QToolButton:checked {
   <action name="actionSelect_device">
    <property name="text">
     <string>Select source...</string>
+   </property>
+  </action>
+  <action name="actionSolarize">
+   <property name="text">
+    <string>Solarize</string>
+   </property>
+  </action>
+  <action name="actionWave">
+   <property name="text">
+    <string>Wave</string>
+   </property>
+  </action>
+  <action name="actionImplode">
+   <property name="text">
+    <string>Implode</string>
    </property>
   </action>
  </widget>

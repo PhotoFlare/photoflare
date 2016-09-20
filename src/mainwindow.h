@@ -130,6 +130,20 @@ private slots:
 
     void on_actionOriginal_size_triggered();
 
+    void on_actionSolarize_triggered();
+
+    void on_actionWave_triggered();
+
+    void on_actionImplode_triggered();
+
+    void on_actionSoften_triggered();
+
+    void on_actionBlur_triggered();
+
+    void on_actionSharpen_triggered();
+
+    void on_actionReinforce_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
