@@ -25,6 +25,7 @@ class SprayCanSettingsWidget;
 class LineSettingsWidget;
 class MagicWandSettingsWidget;
 class StampSettingsWidget;
+class BlurSettingsWidget;
 class QComboBox;
 class PaintWidget;
 
@@ -72,6 +73,7 @@ private slots:
     void onLineSettingsChanged();
     void onMagicWandSettingsChanged();
     void onStampSettingsChanged();
+    void onBlurSettingsChanged();
     void onPickPrimaryColor(const QPoint&);
     void onPickSecondaryColor(const QPoint&);
     void onFloodFillPrimaryColor(const QPoint&);
@@ -148,6 +150,7 @@ private:
     LineSettingsWidget *m_lineSettingsWidget;
     MagicWandSettingsWidget *m_magicWandSettingsWidget;
     StampSettingsWidget *m_stampSettingsWidget;
+    BlurSettingsWidget *m_blurSettingsWidget;
     QComboBox *zoomCombo;
     ScanManager *m_scanManager;
 };

@@ -36,6 +36,7 @@
 #include "./tools/LineTool.h"
 #include "./tools/MagicWandTool.h"
 #include "./tools/StampTool.h"
+#include "./tools/BlurTool.h"
 
 #include "PaintBrushSettingsWidget.h"
 #include "PaintBrushAdvSettingsWidget.h"
@@ -43,6 +44,7 @@
 #include "LineSettingsWidget.h"
 #include "MagicWandSettingsWidget.h"
 #include "StampSettingsWidget.h"
+#include "BlurSettingsWidget.h"
 #include "ToolManager.h"
 #include "Settings.h"
 #include "FilterManager.h"
@@ -57,6 +59,7 @@
 #define LINE_TOOL ToolManager::instance()->lineTool()
 #define MAGIC_WAND ToolManager::instance()->magicWandTool()
 #define STAMP_TOOL ToolManager::instance()->stampTool()
+#define BLUR_TOOL ToolManager::instance()->blurTool()
 
 namespace {
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
@@ -119,6 +122,10 @@ MainWindow::MainWindow(QWidget *parent) :
     m_stampSettingsWidget = new StampSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_stampSettingsWidget);
     connect(m_stampSettingsWidget, &StampSettingsWidget::settingsChanged, this, &MainWindow::onStampSettingsChanged);
+
+    m_blurSettingsWidget = new BlurSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
+    connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
 
     on_toolButtonPaintBrush_clicked();
 
@@ -346,6 +353,7 @@ void MainWindow::clearToolpalette()
     m_lineSettingsWidget->setVisible(false);
     m_magicWandSettingsWidget->setVisible(false);
     m_stampSettingsWidget->setVisible(false);
+    m_blurSettingsWidget->setVisible(false);
 }
 
 PaintWidget *MainWindow::createPaintWidget(const QString &imagePath) const
@@ -608,6 +616,13 @@ void MainWindow::on_toolButtonBlur_clicked()
     clearToolpalette();
     m_toolSelected = "blur";
     ui->toolButtonBlur->setChecked(true);
+    m_blurSettingsWidget->setVisible(true);
+    onBlurSettingsChanged();
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->setPaintTool(BLUR_TOOL);
+
 }
 
 void MainWindow::on_actionQuit_triggered()
@@ -798,6 +813,12 @@ void MainWindow::onStampSettingsChanged()
     STAMP_TOOL->setStep(m_stampSettingsWidget->step());
     STAMP_TOOL->setFixed(m_stampSettingsWidget->fixed());
     STAMP_TOOL->setDiffuse(m_stampSettingsWidget->diffuse());
+}
+
+void MainWindow::onBlurSettingsChanged()
+{
+    BLUR_TOOL->setRadius(m_blurSettingsWidget->radius());
+    BLUR_TOOL->setPressure(m_blurSettingsWidget->pressure());
 }
 
 void MainWindow::onPickPrimaryColor(const QPoint& pos)
@@ -1169,5 +1190,5 @@ void MainWindow::disableUnimplementedActions()
     //ui->toolButtonSprayCan->setEnabled(false);
     //ui->toolButtonPaintBrushAdv->setEnabled(false);
     ui->toolButtonLine->setEnabled(true);
-    ui->toolButtonBlur->setEnabled(false);
+    ui->toolButtonBlur->setEnabled(true);
 }

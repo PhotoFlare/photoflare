@@ -16,6 +16,7 @@
 #include "./tools/LineTool.h"
 #include "./tools/MagicWandTool.h"
 #include "./tools/StampTool.h"
+#include "./tools/BlurTool.h"
 
 ToolManager * ToolManager::m_instance = 0;
 
@@ -34,7 +35,7 @@ public:
         lineTool = new LineTool;
         magicWandTool = new MagicWandTool;
         stampTool = new StampTool;
-
+        blurTool = new BlurTool;
     }
 
     ~ToolManagerPrivate()
@@ -62,6 +63,7 @@ public:
     LineTool *lineTool;
     MagicWandTool *magicWandTool;
     StampTool *stampTool;
+    BlurTool *blurTool;
 };
 
 ToolManager::ToolManager(QObject *parent)
@@ -125,6 +127,11 @@ MagicWandTool *ToolManager::magicWandTool() const
 StampTool *ToolManager::stampTool() const
 {
     return d->stampTool;
+}
+
+BlurTool *ToolManager::blurTool() const
+{
+    return d->blurTool;
 }
 
 ToolManager *ToolManager::instance()

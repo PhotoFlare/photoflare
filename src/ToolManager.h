@@ -21,6 +21,7 @@ class SprayCanTool;
 class MagicWandTool;
 class LineTool;
 class StampTool;
+class BlurTool;
 
 class ToolManager : public QObject
 {
@@ -39,6 +40,7 @@ public:
     LineTool* lineTool() const;
     MagicWandTool* magicWandTool() const;
     StampTool* stampTool() const;
+    BlurTool* blurTool() const;
 
 private:
     explicit ToolManager(QObject *parent = 0);

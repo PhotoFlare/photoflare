@@ -67,7 +67,9 @@ SOURCES += src/main.cpp \
     src/QProgressIndicator.cpp \
     src/MagicWandSettingsWidget.cpp \
     src/tools/StampTool.cpp \
-    src/StampSettingsWidget.cpp
+    src/StampSettingsWidget.cpp \
+    src/tools/BlurTool.cpp \
+    src/BlurSettingsWidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -100,7 +102,9 @@ HEADERS += src/mainwindow.h \
     src/QProgressIndicator.h \
     src/MagicWandSettingsWidget.h \
     src/tools/StampTool.h \
-    src/StampSettingsWidget.h
+    src/StampSettingsWidget.h \
+    src/tools/BlurTool.h \
+    src/BlurSettingsWidget.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -116,7 +120,8 @@ FORMS += src/mainwindow.ui \
     src/LineSettingsWidget.ui \
     src/scandevicesdialog.ui \
     src/MagicWandSettingsWidget.ui \
-    src/StampSettingsWidget.ui
+    src/StampSettingsWidget.ui \
+    src/BlurSettingsWidget.ui
 
 RESOURCES += \
     Icons.qrc

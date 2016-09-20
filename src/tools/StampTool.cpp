@@ -145,17 +145,7 @@ void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
         if (m_paintDevice) {
             const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
             d->origin = *image;
-            QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
-            QPainter painter(&surface);
-            painter.setCompositionMode(QPainter::CompositionMode_Source);
-            painter.fillRect(surface.rect(), Qt::transparent);
-
-            QPen pen = QPen(QBrush(), 1, Qt::DashLine);
-            pen.setColor(Qt::gray);
-            painter.setPen(pen);
-
-            painter.drawEllipse(d->selectPos, 5, 5);
-            emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
+            onMouseMove(pos);
         }
     }
 }
@@ -178,7 +168,8 @@ void StampTool::onMouseMove(const QPoint &pos)
         if(d->fixed)
         {
             QPoint diff = d->lastPos-pos;
-            if(qSqrt(diff.x()*diff.x() + diff.y()*diff.y()) >= d->step)
+            float len = qSqrt(diff.x()*diff.x() + diff.y()*diff.y());
+            if(len >= d->step || len == 0)
             {
                 d->lastPos = pos;
             } else
@@ -190,6 +181,7 @@ void StampTool::onMouseMove(const QPoint &pos)
         QPainter painter(m_paintDevice);
         painter.setOpacity(d->opacity);
         QPoint base;
+
         if(d->fixed)
         {
             base = d->selectPos;
@@ -218,21 +210,6 @@ void StampTool::onMouseMove(const QPoint &pos)
                 painter.drawPoint(pos.x() + i, pos.y() + j);
             }
         }
-
-//        QLinearGradient alphaGradient(0, 0, image->width(), image->height());
-//        alphaGradient.setColorAt(0.0, Qt::transparent);
-//        alphaGradient.setColorAt(0.5, Qt::white);
-//        alphaGradient.setColorAt(1.0, Qt::transparent);
-
-//        QGraphicsBlurEffect *blur = new QGraphicsBlurEffect;
-//        blur->setBlurRadius(1.5f);
-
-//        QGraphicsScene scene;
-//        QGraphicsPixmapItem item;
-//        item.setPixmap(QPixmap::fromImage(*image));
-//        item.setGraphicsEffect(blur);
-//        scene.addItem(&item);
-//        scene.render(&painter, QRectF(), QRectF(0, 0, image->width(), image->height()));
 
         emit painted(m_paintDevice);
         emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
