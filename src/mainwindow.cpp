@@ -11,6 +11,8 @@
 #include "ScanDevicesDialog.h"
 #include "aboutdialog.h"
 #include "registerdialog.h"
+#include "imagepropertiesdialog.h"
+#include "batchdialog.h"
 #include "PaintWidget.h"
 #include "ui_mainwindow.h"
 #include <QApplication>
@@ -1048,6 +1050,18 @@ void MainWindow::on_actionRegister_triggered()
     dialog.exec();
 }
 
+void MainWindow::on_actionImage_properties_triggered()
+{
+    imagePropertiesDialog dialog(this);
+    dialog.exec();
+}
+
+void MainWindow::on_actionAutomate_Batch_triggered()
+{
+    batchDialog dialog(this);
+    dialog.exec();
+}
+
 void MainWindow::on_actionUndo_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -1179,7 +1193,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionAuto_contrast->setEnabled(false);
     ui->actionAuto_levels->setEnabled(false);
     //ui->actionAuto_zoom->setEnabled(false);
-    ui->actionAutomate_Batch->setEnabled(false);
+    //ui->actionAutomate_Batch->setEnabled(false);
     ui->actionAutomatic_Crop->setEnabled(false);
     ui->actionAutomatic_transparency->setEnabled(false);
     //ui->actionBlur->setEnabled(false);
@@ -1227,7 +1241,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionHue_Saturation->setEnabled(false);
     ui->actionHue_variation->setEnabled(false);
     //ui->actionImage_Size->setEnabled(false);
-    ui->actionImage_properties->setEnabled(false);
+    //ui->actionImage_properties->setEnabled(false);
     ui->actionAcquire_image->setEnabled(true);
     ui->actionIndexed_Mode->setEnabled(false);
     ui->actionInformation->setEnabled(false);

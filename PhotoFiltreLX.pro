@@ -69,7 +69,9 @@ SOURCES += src/main.cpp \
     src/tools/StampTool.cpp \
     src/StampSettingsWidget.cpp \
     src/tools/BlurTool.cpp \
-    src/BlurSettingsWidget.cpp
+    src/BlurSettingsWidget.cpp \
+    src/imagepropertiesdialog.cpp \
+    src/batchdialog.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -104,7 +106,9 @@ HEADERS += src/mainwindow.h \
     src/tools/StampTool.h \
     src/StampSettingsWidget.h \
     src/tools/BlurTool.h \
-    src/BlurSettingsWidget.h
+    src/BlurSettingsWidget.h \
+    src/imagepropertiesdialog.h \
+    src/batchdialog.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -121,7 +125,9 @@ FORMS += src/mainwindow.ui \
     src/scandevicesdialog.ui \
     src/MagicWandSettingsWidget.ui \
     src/StampSettingsWidget.ui \
-    src/BlurSettingsWidget.ui
+    src/BlurSettingsWidget.ui \
+    src/imagepropertiesdialog.ui \
+    src/batchdialog.ui
 
 RESOURCES += \
     Icons.qrc

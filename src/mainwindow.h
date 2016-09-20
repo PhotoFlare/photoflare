@@ -144,6 +144,10 @@ private slots:
 
     void on_actionReinforce_triggered();
 
+    void on_actionImage_properties_triggered();
+
+    void on_actionAutomate_Batch_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
