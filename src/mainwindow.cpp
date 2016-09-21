@@ -27,6 +27,7 @@
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 #include <QShortcut>
+#include <QDateTime>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -1055,6 +1056,24 @@ void MainWindow::on_actionRegister_triggered()
 void MainWindow::on_actionImage_properties_triggered()
 {
     imagePropertiesDialog dialog(this);
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        if(!widget->imagePath().isEmpty())
+        {
+            QFileInfo fileInfo(widget->imagePath());
+
+            dialog.setImageName(fileInfo.fileName());
+            dialog.setFolder(fileInfo.path());
+            dialog.setFileSize(fileInfo.size());
+            dialog.setDate(QString("%1").arg(fileInfo.lastModified().toString("dd/MM/yyyy hh:mm")));
+        }
+        dialog.setColorCount(widget->image());
+        dialog.setSize(widget->image().size());
+        int size = widget->image().width() * widget->image().height() * 3;
+        dialog.setMemorySize(size);
+        dialog.setTotalSize((widget->undoCount()+1)*size);
+    }
     dialog.exec();
 }
 

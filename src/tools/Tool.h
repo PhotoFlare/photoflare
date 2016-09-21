@@ -40,7 +40,7 @@ public:
 signals:
 
     void cursorChanged(QCursor);
-    void selectionChanged(QRect);
+    void selectionChanged(QPolygon);
     /*!
      * This signal must be emitted after the tool completes any paint action
      */

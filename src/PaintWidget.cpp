@@ -63,7 +63,7 @@ public:
             pen.setColor(Qt::gray);
             painter.setPen(pen);
             painter.setBrush(QBrush());
-            painter.drawRect(selection);
+            painter.drawPolygon(selection, Qt::WindingFill);
         }
         painter.end();
         canvas->setPixmap(QPixmap::fromImage(surface));
@@ -161,7 +161,7 @@ public:
     QGraphicsPixmapItem *canvas;
     float scale;
     bool imageChanged;
-    QRect selection;
+    QPolygon selection;
     bool isSelectionVisible;
 
     PaintWidget *q;
@@ -251,9 +251,9 @@ void PaintWidget::onCursorChanged(QCursor cursor)
     setCursor(cursor);
 }
 
-void PaintWidget::onSelectionChanged(QRect rect)
+void PaintWidget::onSelectionChanged(QPolygon poly)
 {
-    d->selection = rect;
+    d->selection = poly;
 }
 
 QString PaintWidget::imagePath() const
@@ -372,6 +372,11 @@ bool PaintWidget::isUndoEnabled()
 bool PaintWidget::isRedoEnabled()
 {
     return (historyIndex < historyList.size() - 1);
+}
+
+int PaintWidget::undoCount()
+{
+    return historyIndex;
 }
 
 void PaintWidget::setSelectionVisible(bool visible)

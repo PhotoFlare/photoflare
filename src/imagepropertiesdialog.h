@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+class ImagePropertiesPrivate;
+
 namespace Ui {
 class imagePropertiesDialog;
 }
@@ -15,6 +17,16 @@ public:
     explicit imagePropertiesDialog(QWidget *parent = 0);
     ~imagePropertiesDialog();
 
+    void setImageName(QString);
+    void setFolder(QString);
+    void setSize(QSize);
+    void setColorCount(QImage);
+
+    void setFileSize(qint64);
+    void setDate(QString);
+
+    void setMemorySize(qint64);
+    void setTotalSize(qint64);
 private:
     Ui::imagePropertiesDialog *ui;
 };

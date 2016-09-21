@@ -34,7 +34,7 @@ public:
     QImage image() const;
 
     void onCursorChanged(QCursor cursor);
-    void onSelectionChanged(QRect rect);
+    void onSelectionChanged(QPolygon poly);
 
     QString imagePath() const;
 
@@ -45,6 +45,7 @@ public:
     void undo();
     void redo();
 
+    int undoCount();
     bool isUndoEnabled();
     bool isRedoEnabled();
 

@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>30</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -1737,7 +1737,7 @@ QToolButton:checked {
      <normaloff>:/icons/icons/blur.png</normaloff>:/icons/icons/blur.png</iconset>
    </property>
    <property name="text">
-    <string>blur</string>
+    <string>Blur</string>
    </property>
    <property name="toolTip">
     <string>Blur</string>
@@ -1749,7 +1749,7 @@ QToolButton:checked {
      <normaloff>:/icons/icons/reinforce.png</normaloff>:/icons/icons/reinforce.png</iconset>
    </property>
    <property name="text">
-    <string>reinforce</string>
+    <string>Reinforce</string>
    </property>
    <property name="toolTip">
     <string>Reinforce</string>
