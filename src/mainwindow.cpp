@@ -207,6 +207,7 @@ void MainWindow::on_actionNew_triggered()
     NewDialog dialog;
     if (dialog.exec()) {
         addPaintWidget(createPaintWidget(dialog.newImageSize()));
+        on_toolButtonPointer_clicked();
     }
 }
 
@@ -215,6 +216,7 @@ void MainWindow::on_actionOpen_triggered()
     const QString& fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     QString(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
     openFile(fileName);
+    on_toolButtonPointer_clicked();
 }
 
 void MainWindow::on_actionSave_triggered()
@@ -1159,6 +1161,14 @@ void MainWindow::on_actionFull_screen_triggered()
     }
 }
 
+void MainWindow::on_actionShow_selection_triggered(bool checked)
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setSelectionVisible(checked);
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1288,7 +1298,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionSet_wallpaper->setEnabled(false);
     //ui->actionSharpen->setEnabled(false);
     ui->actionShow_grid->setEnabled(false);
-    ui->actionShow_selection->setEnabled(false);
+    ui->actionShow_selection->setEnabled(true);
     ui->actionSkew->setEnabled(false);
     ui->actionSnap_to_grid->setEnabled(false);
     //ui->actionSoften->setEnabled(false);

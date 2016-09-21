@@ -148,6 +148,8 @@ private slots:
 
     void on_actionAutomate_Batch_triggered();
 
+    void on_actionShow_selection_triggered(bool checked);
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

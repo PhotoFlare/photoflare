@@ -93,6 +93,7 @@ void PointerTool::onCrop()
 {
     const QRect &rect = QRect(d->firstPos, d->secondPos);
     d->secondPos = d->firstPos;
+    emit selectionChanged(QRect());
     emit crop(rect);
 }
 
@@ -140,18 +141,19 @@ void PointerTool::onMouseMove(const QPoint &pos)
             emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
         } else
         {
-            const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
-            QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
-            QPainter painter(&surface);
-            painter.setCompositionMode(QPainter::CompositionMode_Source);
-            painter.fillRect(surface.rect(), Qt::transparent);
-            QPen pen = QPen(QBrush(), 1, Qt::DashLine);
-            pen.setColor(Qt::gray);
-            painter.setPen(pen);
-            painter.drawRect(QRect(d->firstPos, d->secondPos));
-            painter.end();
-
-            emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_Difference);
+//            const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
+//            QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
+//            QPainter painter(&surface);
+//            painter.setCompositionMode(QPainter::CompositionMode_Source);
+//            painter.fillRect(surface.rect(), Qt::transparent);
+//            QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+//            pen.setColor(Qt::gray);
+//            painter.setPen(pen);
+//            painter.drawRect(QRect(d->firstPos, d->secondPos));
+//            painter.end();
+//            emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_Difference);
+            emit selectionChanged(QRect(d->firstPos, d->secondPos));
+            emit painted(m_paintDevice);
         }
     }
 }
@@ -163,6 +165,10 @@ void PointerTool::onMouseRelease(const QPoint &pos)
     {
         d->imagePos = QPoint(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y());
         d->firstPos = d->secondPos;
+    } else
+    {
+        emit selectionChanged(QRect(d->firstPos, d->secondPos));
+        emit painted(m_paintDevice);
     }
 }
 

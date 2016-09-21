@@ -34,6 +34,7 @@ public:
     QImage image() const;
 
     void onCursorChanged(QCursor cursor);
+    void onSelectionChanged(QRect rect);
 
     QString imagePath() const;
 
@@ -46,6 +47,8 @@ public:
 
     bool isUndoEnabled();
     bool isRedoEnabled();
+
+    void setSelectionVisible(bool visible);
 
     void showProgressIndicator(bool visible);
 signals:

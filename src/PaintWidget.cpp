@@ -31,6 +31,8 @@ public:
         q = widget;
 
         q->setScene(this);
+
+        isSelectionVisible = true;
     }
     ~PaintWidgetPrivate()
     {
@@ -56,6 +58,13 @@ public:
         painter.fillRect(surface.rect(), brush);
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawImage(0, 0, image);
+        if(isSelectionVisible) {
+            QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+            pen.setColor(Qt::gray);
+            painter.setPen(pen);
+            painter.setBrush(QBrush());
+            painter.drawRect(selection);
+        }
         painter.end();
         canvas->setPixmap(QPixmap::fromImage(surface));
     }
@@ -93,6 +102,7 @@ public:
         Q_ASSERT( QObject::disconnect(lastConnection) );
         Q_ASSERT( QObject::disconnect(lastOverlayConnection) );
         Q_ASSERT( QObject::disconnect(cursorConnection) );
+        Q_ASSERT( QObject::disconnect(selectionConnection) );
     }
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -147,9 +157,12 @@ public:
     QMetaObject::Connection lastConnection;
     QMetaObject::Connection lastOverlayConnection;
     QMetaObject::Connection cursorConnection;
+    QMetaObject::Connection selectionConnection;
     QGraphicsPixmapItem *canvas;
     float scale;
     bool imageChanged;
+    QRect selection;
+    bool isSelectionVisible;
 
     PaintWidget *q;
 };
@@ -213,6 +226,8 @@ void PaintWidget::setPaintTool(Tool *tool)
 
         d->cursorConnection = connect(d->currentTool, &Tool::cursorChanged, this, &PaintWidget::onCursorChanged);
 
+        d->selectionConnection = connect(d->currentTool, &Tool::selectionChanged, this, &PaintWidget::onSelectionChanged);
+
         d->currentTool->setScale(d->scale);
         d->currentTool->setPaintDevice(&d->image);
         d->updateImageLabel();
@@ -234,6 +249,11 @@ QImage PaintWidget::image() const
 void PaintWidget::onCursorChanged(QCursor cursor)
 {
     setCursor(cursor);
+}
+
+void PaintWidget::onSelectionChanged(QRect rect)
+{
+    d->selection = rect;
 }
 
 QString PaintWidget::imagePath() const
@@ -352,4 +372,10 @@ bool PaintWidget::isUndoEnabled()
 bool PaintWidget::isRedoEnabled()
 {
     return (historyIndex < historyList.size() - 1);
+}
+
+void PaintWidget::setSelectionVisible(bool visible)
+{
+    d->isSelectionVisible = visible;
+    d->updateImageLabel();
 }

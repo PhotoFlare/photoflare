@@ -1222,6 +1222,12 @@ QToolButton:checked {
    </property>
   </action>
   <action name="actionShow_selection">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../Icons.qrc">
      <normaloff>:/icons/icons/show.png</normaloff>:/icons/icons/show.png</iconset>
