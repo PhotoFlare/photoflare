@@ -12,7 +12,7 @@ public:
     TextTool(QObject *parent = 0);
     ~TextTool();
 
-    void setText(const QString &text, const QFont &font);
+    void setText(const QString &text, const QFont &font, const QColor&);
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
@@ -22,7 +22,7 @@ public:
 public slots:
 
 signals:
-    void editText(const QString&, const QFont&);
+    void editText(const QString&, const QFont&, const QColor&);
 private:
     void previewText();
     void drawText();

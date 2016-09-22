@@ -23,8 +23,9 @@ public:
 
     QString text() {return currentText;}
     QFont font() {return currentFont;}
+    QColor color() {return currentColor;}
 
-    void editText(const QString &text, const QFont &font);
+    void editText(const QString &text, const QFont &font, const QColor &color);
 private slots:
     void updateFont();
     void on_fontComboBox_currentFontChanged(const QFont &f);
@@ -35,6 +36,10 @@ private slots:
     void on_checkBoxUnderline_toggled(bool checked);
     void on_buttonBoxtextDialog_accepted();
     void on_buttonBoxtextDialog_rejected();
+    void setColor(const QColor &color, QWidget *colorLabel);
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    void showColorDialog(QWidget *colorLabel);
+    QColor getColorFromLabel(QWidget *colorLabel) const;
 
 signals:
     void textAdded(const QString&, const QFont&);
@@ -44,6 +49,7 @@ private:
 
     QString currentText;
     QFont currentFont;
+    QColor currentColor;
 };
 
 #endif // TEXTDIALOG_H

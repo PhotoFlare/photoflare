@@ -85,7 +85,7 @@ private slots:
     void onPaste();
     void onZoomChanged(const QString&);
     void onSubWindowActivated(QMdiSubWindow*);
-    void onEditText(const QString&,const QFont&);
+    void onEditText(const QString&,const QFont&, const QColor&);
     void onMultiWindowModeChanged(bool);
 
     void on_actionSwirl_triggered();

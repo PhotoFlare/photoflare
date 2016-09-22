@@ -169,7 +169,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MOUSE_POINTER, SIGNAL(copy()), this, SLOT(onCopy()));
     QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(onPaste()));
 
-    QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&)), this, SLOT(onEditText(const QString&,const QFont&)));
+    QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));
 
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
 
@@ -295,7 +295,7 @@ void MainWindow::on_actionText_triggered()
         PaintWidget *widget = getCurrentPaintWidget();
         if (widget) {
             widget->setPaintTool(TEXT_TOOL);
-            TEXT_TOOL->setText(dialog.text(), dialog.font());
+            TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color());
         }
     }
 }
@@ -1010,13 +1010,13 @@ void MainWindow::onZoomChanged(const QString& scale)
     }
 }
 
-void MainWindow::onEditText(const QString& text,const QFont& font)
+void MainWindow::onEditText(const QString& text,const QFont& font, const QColor& color)
 {
     textDialog dialog(this);
-    dialog.editText(text, font);
+    dialog.editText(text, font, color);
     if(dialog.exec())
     {
-        TEXT_TOOL->setText(dialog.text(), dialog.font());
+        TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color());
     }
 }
 

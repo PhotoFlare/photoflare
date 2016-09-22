@@ -7,18 +7,57 @@
 
 #include "textdialog.h"
 #include "ui_textdialog.h"
+#include <QColorDialog>
 
 textDialog::textDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::textDialog)
 {
     ui->setupUi(this);
+    ui->textColour->setAutoFillBackground(true);
+    QPalette palette = ui->textColour->palette();
+    palette.setColor(ui->textColour->backgroundRole(),Qt::black);
+    ui->textColour->setPalette(palette);
+    ui->textColour->installEventFilter(this);
     updateFont();
 }
 
 textDialog::~textDialog()
 {
     delete ui;
+}
+
+QColor textDialog::getColorFromLabel(QWidget *colorLabel) const
+{
+    return colorLabel->palette().color(colorLabel->backgroundRole());
+}
+
+void textDialog::showColorDialog(QWidget *colorLabel)
+{
+    QColor selectedColor = QColorDialog::getColor(getColorFromLabel(colorLabel), this);
+    if (selectedColor.isValid()) {
+        setColor(selectedColor, colorLabel);
+    }
+}
+
+bool textDialog::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonRelease) {
+        if (obj == ui->textColour) {
+            showColorDialog(static_cast<QWidget *>(obj));
+            return true;
+        }
+    }
+
+    return QWidget::eventFilter(obj, event);
+}
+
+void textDialog::setColor(const QColor &color, QWidget *colorLabel)
+{
+    QPalette palette = colorLabel->palette();
+    palette.setColor(colorLabel->backgroundRole(), color);
+    colorLabel->setPalette(palette);
+    currentColor = color;
 }
 
 void textDialog::on_fontComboBox_currentFontChanged(const QFont &f)
@@ -39,7 +78,7 @@ void textDialog::updateFont()
     ui->textPreview->setFont(currentFont);
 }
 
-void textDialog::editText(const QString &text, const QFont &font)
+void textDialog::editText(const QString &text, const QFont &font, const QColor &color)
 {
     ui->fontComboBox->setCurrentFont(font);
     ui->fontSizeSpinner->setValue(font.pixelSize());
@@ -50,6 +89,11 @@ void textDialog::editText(const QString &text, const QFont &font)
     ui->plainTextEdit->setPlainText(text);
     ui->textPreview->setFont(font);
     currentFont = font;
+    currentColor = color;
+
+    QPalette palette = ui->textColour->palette();
+    palette.setColor(ui->textColour->backgroundRole(),color);
+    ui->textColour->setPalette(palette);
 }
 
 void textDialog::on_fontSizeSpinner_valueChanged(int value)

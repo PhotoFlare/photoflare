@@ -20,6 +20,7 @@ public:
     QRect textRect;
     QString text;
     QFont font;
+    QColor color;
     bool previewMode;
 };
 
@@ -35,10 +36,11 @@ TextTool::~TextTool()
     delete d;
 }
 
-void TextTool::setText(const QString &text, const QFont &font)
+void TextTool::setText(const QString &text, const QFont &font, const QColor &color)
 {
     d->text = text;
     d->font = font;
+    d->color = color;
 
     QFontMetrics fontMetrics(font);
     d->textRect = fontMetrics.boundingRect(d->textRect ,Qt::TextWordWrap, text);
@@ -62,7 +64,7 @@ void TextTool::previewText()
 
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.fillRect(d->textRect, Qt::gray);
-        painter.setPen(Qt::black);
+        painter.setPen(d->color);
         painter.setFont(d->font);
         painter.drawText(d->textRect, Qt::TextWordWrap, d->text);
 
@@ -76,7 +78,7 @@ void TextTool::drawText()
 {
     if (m_paintDevice) {
         QPainter painter(m_paintDevice);
-        painter.setPen(Qt::black);
+        painter.setPen(d->color);
         painter.setFont(d->font);
         painter.drawText(d->textRect, d->text);
         painter.end();
@@ -128,7 +130,7 @@ void TextTool::onMouseRelease(const QPoint &pos)
        d->firstPos == d->secondPos &&
        d->textRect.contains(pos))
     {
-        emit editText(d->text, d->font);
+        emit editText(d->text, d->font, d->color);
     }
 }
 
