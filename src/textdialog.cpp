@@ -19,6 +19,7 @@ textDialog::textDialog(QWidget *parent) :
     palette.setColor(ui->textColour->backgroundRole(),Qt::black);
     ui->textColour->setPalette(palette);
     ui->textColour->installEventFilter(this);
+    antialiasEnabled = false;
     updateFont();
 }
 
@@ -124,6 +125,12 @@ void textDialog::on_checkBoxUnderline_toggled(bool checked)
 {
     Q_UNUSED(checked);
     updateFont();
+}
+
+void textDialog::on_checkBoxAntialias_toggled(bool checked)
+{
+    Q_UNUSED(checked);
+    antialiasEnabled = true;
 }
 
 void textDialog::on_buttonBoxtextDialog_accepted()

@@ -295,7 +295,7 @@ void MainWindow::on_actionText_triggered()
         PaintWidget *widget = getCurrentPaintWidget();
         if (widget) {
             widget->setPaintTool(TEXT_TOOL);
-            TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color());
+            TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias());
         }
     }
 }
@@ -1016,7 +1016,7 @@ void MainWindow::onEditText(const QString& text,const QFont& font, const QColor&
     dialog.editText(text, font, color);
     if(dialog.exec())
     {
-        TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color());
+        TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias());
     }
 }
 
@@ -1229,6 +1229,7 @@ void MainWindow::on_actionShow_selection_triggered(bool checked)
 void MainWindow::on_actionCanvas_Size_triggered()
 {
     NewDialog dialog;
+    dialog.setWindowTitle("Resize Canvas");
     dialog.setMode(NewDialog::ResizeCanvas);
     if (dialog.exec()) {
         QImage canvas (dialog.newImageSize(), QImage::Format_ARGB32_Premultiplied);

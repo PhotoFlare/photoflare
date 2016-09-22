@@ -24,6 +24,7 @@ public:
     QString text() {return currentText;}
     QFont font() {return currentFont;}
     QColor color() {return currentColor;}
+    bool antialias() {return antialiasEnabled;}
 
     void editText(const QString &text, const QFont &font, const QColor &color);
 private slots:
@@ -34,6 +35,7 @@ private slots:
     void on_checkBoxItalic_toggled(bool checked);
     void on_checkBoxStrike_toggled(bool checked);
     void on_checkBoxUnderline_toggled(bool checked);
+    void on_checkBoxAntialias_toggled(bool checked);
     void on_buttonBoxtextDialog_accepted();
     void on_buttonBoxtextDialog_rejected();
     void setColor(const QColor &color, QWidget *colorLabel);
@@ -50,6 +52,7 @@ private:
     QString currentText;
     QFont currentFont;
     QColor currentColor;
+    bool antialiasEnabled;
 };
 
 #endif // TEXTDIALOG_H

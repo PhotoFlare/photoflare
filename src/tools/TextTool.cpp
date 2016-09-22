@@ -21,6 +21,7 @@ public:
     QString text;
     QFont font;
     QColor color;
+    bool antialiasEnabled;
     bool previewMode;
 };
 
@@ -36,11 +37,12 @@ TextTool::~TextTool()
     delete d;
 }
 
-void TextTool::setText(const QString &text, const QFont &font, const QColor &color)
+void TextTool::setText(const QString &text, const QFont &font, const QColor &color, const bool &antialiasEnabled)
 {
     d->text = text;
     d->font = font;
     d->color = color;
+    d->antialiasEnabled = antialiasEnabled;
 
     QFontMetrics fontMetrics(font);
     d->textRect = fontMetrics.boundingRect(d->textRect ,Qt::TextWordWrap, text);
@@ -66,6 +68,7 @@ void TextTool::previewText()
         painter.fillRect(d->textRect, Qt::gray);
         painter.setPen(d->color);
         painter.setFont(d->font);
+        painter.setRenderHint(QPainter::Antialiasing, d->antialiasEnabled);
         painter.drawText(d->textRect, Qt::TextWordWrap, d->text);
 
         painter.end();
@@ -80,6 +83,7 @@ void TextTool::drawText()
         QPainter painter(m_paintDevice);
         painter.setPen(d->color);
         painter.setFont(d->font);
+        painter.setRenderHint(QPainter::Antialiasing, d->antialiasEnabled);
         painter.drawText(d->textRect, d->text);
         painter.end();
 
