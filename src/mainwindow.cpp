@@ -1234,9 +1234,40 @@ void MainWindow::on_actionCanvas_Size_triggered()
         QImage canvas (dialog.newImageSize(), QImage::Format_ARGB32_Premultiplied);
         canvas.fill(dialog.backgroundColor());
         PaintWidget *widget = getCurrentPaintWidget();
+        QPoint pos;
         if (widget) {
             QPainter painter(&canvas);
-            painter.drawImage(0, 0, widget->image());
+            switch(dialog.imagePosition())
+            {
+                case LeftTop:
+                    pos = QPoint(0,0);
+                    break;
+                case CenterTop:
+                    pos = QPoint(canvas.width()/2 - widget->image().width()/2, 0);
+                    break;
+                case RightTop:
+                    pos = QPoint(canvas.width() - widget->image().width(), 0);
+                    break;
+                case LeftCenter:
+                    pos = QPoint(0, canvas.height()/2 - widget->image().height()/2);
+                    break;
+                case CenterCenter:
+                    pos = QPoint(canvas.width()/2 - widget->image().width()/2, canvas.height()/2 - widget->image().height()/2);
+                    break;
+                case RightCenter:
+                    pos = QPoint(canvas.width() - widget->image().width(), canvas.height()/2 - widget->image().height()/2);
+                    break;
+                case LeftBottom:
+                    pos = QPoint(0, canvas.height() - widget->image().height());
+                    break;
+                case CenterBottom:
+                    pos = QPoint(canvas.width()/2 - widget->image().width()/2, canvas.height() - widget->image().height());
+                    break;
+                case RightBottom:
+                    pos = QPoint(canvas.width() - widget->image().width(), canvas.height() - widget->image().height());
+                    break;
+            }
+            painter.drawImage(pos, widget->image());
             painter.end();
             widget->setImage(canvas);
         }

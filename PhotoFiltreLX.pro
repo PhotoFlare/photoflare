@@ -71,7 +71,8 @@ SOURCES += src/main.cpp \
     src/tools/BlurTool.cpp \
     src/BlurSettingsWidget.cpp \
     src/imagepropertiesdialog.cpp \
-    src/batchdialog.cpp
+    src/batchdialog.cpp \
+    src/imagepositionwidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -108,7 +109,8 @@ HEADERS += src/mainwindow.h \
     src/tools/BlurTool.h \
     src/BlurSettingsWidget.h \
     src/imagepropertiesdialog.h \
-    src/batchdialog.h
+    src/batchdialog.h \
+    src/imagepositionwidget.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -127,7 +129,8 @@ FORMS += src/mainwindow.ui \
     src/StampSettingsWidget.ui \
     src/BlurSettingsWidget.ui \
     src/imagepropertiesdialog.ui \
-    src/batchdialog.ui
+    src/batchdialog.ui \
+    src/imagepositionwidget.ui
 
 RESOURCES += \
     Icons.qrc

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>353</width>
-    <height>469</height>
+    <height>463</height>
    </rect>
   </property>
   <property name="font">
@@ -334,7 +334,7 @@
      <x>10</x>
      <y>100</y>
      <width>331</width>
-     <height>301</height>
+     <height>311</height>
     </rect>
    </property>
    <property name="focusPolicy">
@@ -385,6 +385,29 @@
      </rect>
     </property>
    </widget>
+   <widget class="ImagePositionWidget" name="positionWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>180</y>
+      <width>120</width>
+      <height>120</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="positionLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>160</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Position:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="backgroundLabel">
    <property name="geometry">
@@ -419,6 +442,12 @@
    <class>BrushTypeComboBox</class>
    <extends>QWidget</extends>
    <header>brushtypecombobox.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ImagePositionWidget</class>
+   <extends>QWidget</extends>
+   <header>imagepositionwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -20,6 +20,7 @@
 #include <QColorDialog>
 
 #include "Settings.h"
+#include "imagepositionwidget.h"
 
 enum {PPM, PPI};
 enum {PX, CM, IN};
@@ -139,11 +140,13 @@ void NewDialog::on_imageWHcombo_currentIndexChanged(int index)
 
 void NewDialog::on_imageRvalue_valueChanged(double value)
 {
+    Q_UNUSED(value)
     on_imageWHcombo_currentIndexChanged(currentUnit);
 }
 
 void NewDialog::on_imageHvalue_valueChanged(double value)
 {
+    Q_UNUSED(value)
     float resoulution_in = ui->imageRvalue->value();
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;
@@ -168,6 +171,7 @@ void NewDialog::on_imageHvalue_valueChanged(double value)
 
 void NewDialog::on_imageWvalue_valueChanged(double value)
 {
+    Q_UNUSED(value)
     float resoulution_in = ui->imageRvalue->value();
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;
@@ -203,6 +207,8 @@ void NewDialog::setMode(Mode mode)
         ui->imageResCombo->setVisible(true);
         ui->backgroundLabel->setVisible(false);
         ui->backgroundColorComboBox->setVisible(false);
+        ui->positionLabel->setVisible(false);
+        ui->positionWidget->setVisible(false);
    } else
    {
        ui->lockedRatioButton->setVisible(false);
@@ -214,11 +220,19 @@ void NewDialog::setMode(Mode mode)
        ui->imageResCombo->setVisible(false);
        ui->backgroundLabel->setVisible(true);
        ui->backgroundColorComboBox->setVisible(true);
+       ui->positionLabel->setVisible(true);
+       ui->positionWidget->setVisible(true);
    }
 }
 
 void NewDialog::mousePressEvent(QMouseEvent *e)
 {
+    if(!ui->backgroundColorComboBox->isVisible())
+    {
+        e->accept();
+        return;
+    }
+
     if(e->x() < ui->backgroundColorComboBox->width() - 20) {
         QColor selectedColor = QColorDialog::getColor(Qt::white, this);
         if (selectedColor.isValid()) {
@@ -231,4 +245,9 @@ void NewDialog::mousePressEvent(QMouseEvent *e)
     } else {
         e->accept();
     }
+}
+
+ImagePosition NewDialog::imagePosition()
+{
+    return ui->positionWidget->imagePosition();
 }

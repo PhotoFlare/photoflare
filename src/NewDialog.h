@@ -10,6 +10,8 @@
 #include <QDialog>
 #include <BrushTypeComboBox.h>
 
+#include "imagepositionwidget.h"
+
 namespace Ui {
 class NewDialog;
 }
@@ -34,6 +36,7 @@ public:
 
     enum Mode {ResizeImage, ResizeCanvas};
     void setMode(Mode mode);
+    ImagePosition imagePosition();
 
     void onComboBoxPressed();
     //QComboBoxEventsInterface methods
