@@ -150,6 +150,8 @@ private slots:
 
     void on_actionShow_selection_triggered(bool checked);
 
+    void on_actionCanvas_Size_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

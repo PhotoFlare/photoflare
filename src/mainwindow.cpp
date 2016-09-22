@@ -1080,7 +1080,45 @@ void MainWindow::on_actionImage_properties_triggered()
 void MainWindow::on_actionAutomate_Batch_triggered()
 {
     batchDialog dialog(this);
-    dialog.exec();
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        foreach (QString file, dialog.fileList()) {
+            openFile(file);
+            foreach (QString filter, dialog.filterList()) {
+                PaintWidget *widget = getCurrentPaintWidget();
+                if (widget) {
+                    if(filter.contains("Oil"))
+                        widget->setImage(FilterManager::instance()->oilPaint(widget->image()));
+                    if(filter.contains("Charcoal"))
+                        widget->setImage(FilterManager::instance()->charcoal(widget->image()));
+                    if(filter.contains("Swirl"))
+                        widget->setImage(FilterManager::instance()->swirl(widget->image()));
+                    if(filter.contains("Solarize"))
+                        widget->setImage(FilterManager::instance()->solarize(widget->image()));
+                    if(filter.contains("Wave"))
+                        widget->setImage(FilterManager::instance()->wave(widget->image()));
+                    if(filter.contains("Implode"))
+                        widget->setImage(FilterManager::instance()->implode(widget->image()));
+                    if(filter.contains("Blur"))
+                        widget->setImage(FilterManager::instance()->blur(widget->image()));
+                    if(filter.contains("Sharpen"))
+                        widget->setImage(FilterManager::instance()->sharpen(widget->image()));
+                    if(filter.contains("Reinforce"))
+                        widget->setImage(FilterManager::instance()->reinforce(widget->image()));
+                    if(filter.contains("Grayscale"))
+                        widget->setImage(FilterManager::instance()->grayscale(widget->image()));
+                }
+            }
+            QString newFile = dialog.outDir() + "/" + QFileInfo(file).fileName();
+            if(saveImage(newFile))
+            {
+                ui->mdiArea->currentSubWindow()->setWindowModified(false);
+                ui->mdiArea->currentSubWindow()->setWindowTitle(newFile);
+            }
+        }
+        dialog.onFinished();
+        dialog.exec();
+    }
 }
 
 void MainWindow::on_actionUndo_triggered()
@@ -1188,6 +1226,23 @@ void MainWindow::on_actionShow_selection_triggered(bool checked)
     }
 }
 
+void MainWindow::on_actionCanvas_Size_triggered()
+{
+    NewDialog dialog;
+    dialog.setMode(NewDialog::ResizeCanvas);
+    if (dialog.exec()) {
+        QImage canvas (dialog.newImageSize(), QImage::Format_ARGB32_Premultiplied);
+        canvas.fill(dialog.backgroundColor());
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget) {
+            QPainter painter(&canvas);
+            painter.drawImage(0, 0, widget->image());
+            painter.end();
+            widget->setImage(canvas);
+        }
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1230,7 +1285,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionBright_Contrast->setEnabled(false);
     ui->actionBrightminus->setEnabled(false);
     ui->actionBrightplus->setEnabled(false);
-    ui->actionCanvas_Size->setEnabled(false);
+    ui->actionCanvas_Size->setEnabled(true);
     ui->actionCenter->setEnabled(false);
     ui->actionClear->setEnabled(false);
     ui->actionColour->setEnabled(false);

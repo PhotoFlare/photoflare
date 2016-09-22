@@ -375,6 +375,29 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="BrushTypeComboBox" name="backgroundColorComboBox" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>150</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="backgroundLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>260</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
   </widget>
   <zorder>groupBox_2</zorder>
   <zorder>buttonBox</zorder>
@@ -389,7 +412,16 @@
   <zorder>imageWHcombo</zorder>
   <zorder>imageResCombo</zorder>
   <zorder>groupBox</zorder>
+  <zorder>backgroundLabel</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BrushTypeComboBox</class>
+   <extends>QWidget</extends>
+   <header>brushtypecombobox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../Icons.qrc"/>
  </resources>

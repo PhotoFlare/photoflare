@@ -16,6 +16,8 @@
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
 #include <QDebug>
+#include <QMouseEvent>
+#include <QColorDialog>
 
 #include "Settings.h"
 
@@ -41,6 +43,17 @@ NewDialog::NewDialog(QWidget *parent) :
     ui->pixelWvalue->setValue(width_px);
     ui->pixelHvalue->setValue(height_px);
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
+
+    for(int i=Qt::white; i <= Qt::yellow; i++)
+    {
+        QPixmap pixmap(QSize(ui->backgroundColorComboBox->width(),ui->backgroundColorComboBox->height()));
+        pixmap.fill(static_cast<Qt::GlobalColor>(i));
+        ui->backgroundColorComboBox->addItem(QString(), pixmap);
+    }
+
+    ui->backgroundColorComboBox->setOnClickHandler(this);
+
+    setMode(ResizeImage);
 }
 
 NewDialog::~NewDialog()
@@ -57,6 +70,12 @@ void NewDialog::setImageSize(QSize size)
 {
     ui->imageWvalue->setValue(size.width());
     ui->imageHvalue->setValue(size.height());
+}
+
+QColor NewDialog::backgroundColor() const
+{
+    QImage img = (QImage)ui->backgroundColorComboBox->currentData().value<QImage>();
+    return img.pixel(0,0);
 }
 
 void NewDialog::on_buttonBox_accepted()
@@ -168,5 +187,48 @@ void NewDialog::on_imageWvalue_valueChanged(double value)
             ui->imageHvalue->setValue(ui->imageWvalue->value() / imageRatio); //height = width / imageRatio
     } else {
         imageRatio = (width_px/height_px);
+    }
+}
+
+void NewDialog::setMode(Mode mode)
+{
+   if(mode == ResizeImage)
+   {
+        ui->lockedRatioButton->setVisible(true);
+        ui->imageRes->setVisible(true);
+        ui->imageRvalue->setVisible(true);
+        ui->imageResCombo->setVisible(true);
+        ui->imagePreset->setVisible(true);
+        ui->imagePresetCombo->setVisible(true);
+        ui->imageResCombo->setVisible(true);
+        ui->backgroundLabel->setVisible(false);
+        ui->backgroundColorComboBox->setVisible(false);
+   } else
+   {
+       ui->lockedRatioButton->setVisible(false);
+       ui->imageRes->setVisible(false);
+       ui->imageRvalue->setVisible(false);
+       ui->imageResCombo->setVisible(false);
+       ui->imagePreset->setVisible(false);
+       ui->imagePresetCombo->setVisible(false);
+       ui->imageResCombo->setVisible(false);
+       ui->backgroundLabel->setVisible(true);
+       ui->backgroundColorComboBox->setVisible(true);
+   }
+}
+
+void NewDialog::mousePressEvent(QMouseEvent *e)
+{
+    if(e->x() < ui->backgroundColorComboBox->width() - 20) {
+        QColor selectedColor = QColorDialog::getColor(Qt::white, this);
+        if (selectedColor.isValid()) {
+            QPixmap pixmap(QSize(ui->backgroundColorComboBox->width(),ui->backgroundColorComboBox->height()));
+            pixmap.fill(selectedColor);
+            ui->backgroundColorComboBox->insertItem(0, QString(), pixmap);
+            ui->backgroundColorComboBox->setCurrentIndex(0);
+        }
+        e->ignore();
+    } else {
+        e->accept();
     }
 }

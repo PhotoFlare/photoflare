@@ -26,7 +26,6 @@ PointerTool::PointerTool(QObject *parent)
     : Tool(parent)
     , d(new PointerToolPrivate)
 {
-
 }
 
 PointerTool::~PointerTool()

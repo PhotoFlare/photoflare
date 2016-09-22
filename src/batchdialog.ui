@@ -14,6 +14,9 @@
    <string>Automate/Batch</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>420</x>
@@ -119,6 +122,9 @@
        <height>27</height>
       </rect>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
@@ -133,7 +139,8 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset theme="search"/>
+      <iconset theme="search">
+       <normaloff>.</normaloff>.</iconset>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">
@@ -230,17 +237,17 @@
     <attribute name="title">
      <string>Summary</string>
     </attribute>
-    <widget class="QLabel" name="label_6">
+    <widget class="QPlainTextEdit" name="plainTextEdit">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>40</y>
-       <width>241</width>
-       <height>17</height>
+       <x>0</x>
+       <y>10</y>
+       <width>741</width>
+       <height>271</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Summary of all changes to happen</string>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>

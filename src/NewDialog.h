@@ -8,12 +8,13 @@
 */
 
 #include <QDialog>
+#include <BrushTypeComboBox.h>
 
 namespace Ui {
 class NewDialog;
 }
 
-class NewDialog : public QDialog
+class NewDialog : public QDialog, QComboBoxEventsInterface
 {
     Q_OBJECT
 
@@ -28,6 +29,15 @@ public:
      */
     QSize newImageSize() const;
     void setImageSize(QSize size);
+
+    QColor backgroundColor() const;
+
+    enum Mode {ResizeImage, ResizeCanvas};
+    void setMode(Mode mode);
+
+    void onComboBoxPressed();
+    //QComboBoxEventsInterface methods
+    virtual void mousePressEvent(QMouseEvent *e);
 private slots:
     void on_buttonBox_accepted();
 
