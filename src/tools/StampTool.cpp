@@ -8,6 +8,7 @@
 #include <QGraphicsPixmapItem>
 #include <QLinearGradient>
 #include <QBitmap>
+#include <QMessageBox>
 
 class StampToolPrivate
 {
@@ -20,6 +21,7 @@ public:
         selectMode = false;
         selectPos = QPoint(0,0);
         offset = QPoint(0,0);
+        firstRun = true;
     }
     ~StampToolPrivate()
     {
@@ -37,6 +39,7 @@ public:
     bool precise;
     bool diffuse;
     bool selectMode;
+    bool firstRun;
     QPoint selectPos;
     QPoint offset;
     float opacity;
@@ -130,31 +133,42 @@ QCursor StampTool::getCursor()
 
 void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
-    Q_UNUSED(button);
-
-    d->lastPos = pos;
-    d->mouseButton = button;
-    d->opacity = d->pressure / 10.0f;
-
-    if(d->selectMode)
+    if(d->firstRun == true)
     {
-        d->selectPos = pos;
-    } else
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("CloneStamp Tool");
+        msgBox.setText("Use [CTRL+left click] to select clone area.");
+        msgBox.exec();
+    }
+    if(d->firstRun == false)
     {
-        if(d->selectPos.x() >= 0 || d->fixed)
+        Q_UNUSED(button);
+
+        d->lastPos = pos;
+        d->mouseButton = button;
+        d->opacity = d->pressure / 10.0f;
+
+        if(d->selectMode)
         {
-            d->offset = pos - d->selectPos;
+            d->selectPos = pos;
         } else
         {
-            d->selectPos = pos - d->offset;
-        }
+            if(d->selectPos.x() >= 0 || d->fixed)
+            {
+                d->offset = pos - d->selectPos;
+            } else
+            {
+                d->selectPos = pos - d->offset;
+            }
 
-        if (m_paintDevice) {
-            const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
-            d->origin = *image;
-            onMouseMove(pos);
+            if (m_paintDevice) {
+                const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
+                d->origin = *image;
+                onMouseMove(pos);
+            }
         }
     }
+
 }
 
 void StampTool::onMouseMove(const QPoint &pos)
@@ -257,6 +271,7 @@ void StampTool::onKeyPressed(QKeyEvent * keyEvent)
     if(keyEvent->key() == Qt::Key_Control)
     {
         d->selectMode = true;
+        d->firstRun = false;
         emit cursorChanged(Qt::ArrowCursor);
     }
 }
