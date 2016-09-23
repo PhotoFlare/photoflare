@@ -12,6 +12,7 @@
 #include <QImage>
 
 class FilterManagerPrivate;
+class ChannelType;
 
 class FilterManager
 {
@@ -35,6 +36,11 @@ public:
     QImage flipVert(const QImage &image);
     QImage rotateCCW(const QImage &image);
     QImage rotateCW(const QImage &image);
+
+    QImage setBrightness(const QImage &image, int brightness, int channel);
+    QImage setSaturation(const QImage &image, int saturation, int channel);
+    QImage setContrast(const QImage &image, int contrast, int channel);
+    QImage setGamma(const QImage &image, int gamma, int channel);
 
     QImage floodFill(const QImage &image, const QPoint &pos, const QColor &color);
     QPolygon selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color);

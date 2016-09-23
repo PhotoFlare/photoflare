@@ -236,6 +236,74 @@ QImage FilterManager::rotateCW(const QImage &image)
     return modifiedImage;
 }
 
+static Magick::ChannelType channelById(int channelId)
+{
+    switch(channelId)
+    {
+    case 0:
+        return Magick::AllChannels;
+    case 1:
+        return Magick::RedChannel;
+    case 2:
+        return Magick::GreenChannel;
+    case 3:
+        return Magick::BlueChannel;
+    case 4:
+        return Magick::CyanChannel;
+    case 5:
+        return Magick::MagentaChannel;
+    case 6:
+        return Magick::YellowChannel;
+    default:
+        return Magick::AllChannels;
+    }
+}
+
+QImage FilterManager::setBrightness(const QImage &image, int brightness, int channelId)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->modulate(brightness + 100.0f, 100.0f, 100.0f);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::setSaturation(const QImage &image, int saturation, int channelId)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->modulate(100.0f, saturation + 100.0f, 100.0f);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::setContrast(const QImage &image, int contrast, int channelId)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->contrast(contrast);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::setGamma(const QImage &image, int agamma, int channelId)
+{
+    double gamma = (float)agamma / 100.0f;
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->gamma(gamma, gamma, gamma);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
 QImage FilterManager::floodFill(const QImage &image, const QPoint &pos, const QColor &color)
 {
     //RAII - magickImage will be deleted automatically after func return
