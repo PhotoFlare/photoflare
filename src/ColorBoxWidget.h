@@ -33,6 +33,9 @@ signals:
     void primaryColorChanged(const QColor &color);
     void secondaryColorChanged(const QColor &color);
 
+private slots:
+    void on_swapColorButton_clicked();
+
 private:
     void showColorDialog(QWidget *colorLabel);
     void setColor(const QColor &color, QWidget *colorLabel);

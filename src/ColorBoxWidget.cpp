@@ -14,8 +14,6 @@ ColorBoxWidget::ColorBoxWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->primaryColorLabel->setAutoFillBackground(true);
-    ui->secondaryColorLabel->setAutoFillBackground(true);
     setColor(Qt::black, ui->primaryColorLabel);
     setColor(Qt::red, ui->secondaryColorLabel);
 
@@ -85,4 +83,15 @@ void ColorBoxWidget::setColor(const QColor &color, QWidget *colorLabel)
 QColor ColorBoxWidget::getColorFromLabel(QWidget *colorLabel) const
 {
     return colorLabel->palette().color(colorLabel->backgroundRole());
+}
+
+void ColorBoxWidget::on_swapColorButton_clicked()
+{
+    QColor primaryC = getColorFromLabel(ui->primaryColorLabel);
+    QColor secondaryC = getColorFromLabel(ui->secondaryColorLabel);
+
+    setColor(secondaryC, ui->primaryColorLabel);
+    emit primaryColorChanged(secondaryC);
+    setColor(primaryC, ui->secondaryColorLabel);
+    emit secondaryColorChanged(primaryC);
 }

@@ -640,7 +640,7 @@ QToolButton:checked {
          <property name="maximumSize">
           <size>
            <width>150</width>
-           <height>40</height>
+           <height>120</height>
           </size>
          </property>
          <property name="cursor">

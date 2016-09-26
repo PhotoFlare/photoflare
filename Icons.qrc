@@ -10,6 +10,7 @@
         <file>toolpalette_icons/Spraycan.png</file>
         <file>toolpalette_icons/Stamp.png</file>
         <file>toolpalette_icons/Wand.png</file>
+        <file>icons/swap.png</file>
     </qresource>
     <qresource prefix="/pixmaps">
         <file>pixmaps/logo-sml.png</file>
