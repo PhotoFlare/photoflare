@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     app.setApplicationName(QObject::tr("PhotoFiltre LX Studio Demo"));
-    app.setApplicationVersion(QObject::tr("0.8 demo version (Build 54)"));
+    app.setApplicationVersion(QObject::tr("0.9 demo version (Build 56)"));
     app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
     app.setOrganizationName(QObject::tr("photofiltre-lx"));
 
@@ -22,9 +22,11 @@ int main(int argc, char *argv[])
     w.show();
 
     if(argc > 1) {
-        QFileInfo fileInfo(argv[1]);
-        if(fileInfo.exists()) {
-            w.openFile(QString(fileInfo.absoluteFilePath()));
+        for (int i = 0; i < argc; ++i) {
+            QFileInfo fileInfo(argv[i]);
+            if(fileInfo.exists()) {
+                w.openFile(QString(fileInfo.absoluteFilePath()));
+            }
         }
     }
 

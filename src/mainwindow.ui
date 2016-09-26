@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>23</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -438,11 +438,15 @@ border: none;
 }
 
 QToolButton:hover {
-	border: 1px solid gray;
+	background: #ddd;
+	border-radius:4px;
+	border: 1px solid #eee;
 }
 
 QToolButton:checked {
-	border: 1px solid gray;
+	background: #ddd;
+	border-radius:4px;
+	border: 1px solid #c0c2c2;
 }
 </string>
     </property>
@@ -622,7 +626,7 @@ QToolButton:checked {
        <item row="0" column="0" colspan="2">
         <widget class="ColorBoxWidget" name="colorBoxWidget" native="true">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -638,6 +642,9 @@ QToolButton:checked {
            <width>150</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>ArrowCursor</cursorShape>
          </property>
         </widget>
        </item>
@@ -826,7 +833,7 @@ QToolButton:checked {
          </property>
          <property name="minimumSize">
           <size>
-           <width>24</width>
+           <width>25</width>
            <height>50</height>
           </size>
          </property>
