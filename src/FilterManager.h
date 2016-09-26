@@ -32,6 +32,8 @@ public:
     QImage sharpen(const QImage &image);
     QImage reinforce(const QImage &image);
     QImage grayscale(const QImage &image);
+    QImage sepia(const QImage &image);
+    QImage dustreduction(const QImage &image);
     QImage flipHorz(const QImage &image);
     QImage flipVert(const QImage &image);
     QImage rotateCCW(const QImage &image);
@@ -40,7 +42,7 @@ public:
     QImage setBrightness(const QImage &image, int brightness, int channel);
     QImage setSaturation(const QImage &image, int saturation, int channel);
     QImage setContrast(const QImage &image, int contrast, int channel);
-    QImage setGamma(const QImage &image, int gamma, int channel);
+    QImage setGamma(const QImage &image, float gamma, int channel);
 
     QImage floodFill(const QImage &image, const QPoint &pos, const QColor &color);
     QPolygon selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color);

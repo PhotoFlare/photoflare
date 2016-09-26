@@ -192,6 +192,30 @@ QImage FilterManager::grayscale(const QImage &image)
     return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
 }
 
+QImage FilterManager::sepia(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+
+    magickImage->colorize(127,255,255,Magick::Color(255,127,127));
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::dustreduction(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+
+    magickImage->reduceNoise();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
 QImage FilterManager::flipHorz(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
@@ -292,11 +316,11 @@ QImage FilterManager::setContrast(const QImage &image, int contrast, int channel
     return modifiedImage;
 }
 
-QImage FilterManager::setGamma(const QImage &image, int agamma, int channelId)
+QImage FilterManager::setGamma(const QImage &image, float agamma, int channelId)
 {
-    double gamma = (float)agamma / 100.0f;
+    double gamma = agamma / 100.0f;
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->gamma(gamma, gamma, gamma);
+    magickImage->gamma(0, 0, gamma);
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;

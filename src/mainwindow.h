@@ -156,6 +156,24 @@ private slots:
 
     void on_actionBrightplus_triggered();
 
+    void on_actionBrightminus_triggered();
+
+    void on_actionContrastplus_triggered();
+
+    void on_actionContrastminus_triggered();
+
+    void on_actionGammaCorrectplus_triggered();
+
+    void on_actionGammaCorrectminus_triggered();
+
+    void on_actionSaturationplus_triggered();
+
+    void on_actionSaturationminus_triggered();
+
+    void on_actionOldPhoto_triggered();
+
+    void on_actionDustReduction_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
@@ -174,6 +192,7 @@ private:
     void saveGeometryState();
     void createKeyboardShortcuts();
     void disableUnimplementedActions();
+    //void gsettingsSet(const QString &schema, const QString &key, const QString &value);
     Ui::MainWindow *ui;
     QString m_toolSelected;
     PaintBrushSettingsWidget *m_pbSettingsWidget;

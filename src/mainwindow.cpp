@@ -1373,6 +1373,64 @@ void MainWindow::on_actionBrightplus_triggered()
     widget->setImage(FilterManager::instance()->setBrightness(widget->image(), 5, 0));
 }
 
+void MainWindow::on_actionBrightminus_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    widget->setImage(FilterManager::instance()->setBrightness(widget->image(), -5, 0));
+}
+
+void MainWindow::on_actionContrastplus_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    widget->setImage(FilterManager::instance()->setContrast(widget->image(), 5, 0));
+}
+
+void MainWindow::on_actionContrastminus_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    widget->setImage(FilterManager::instance()->setContrast(widget->image(), -5, 0));
+}
+
+void MainWindow::on_actionSaturationplus_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    widget->setImage(FilterManager::instance()->setSaturation(widget->image(), +15, 0));
+}
+
+void MainWindow::on_actionSaturationminus_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    widget->setImage(FilterManager::instance()->setSaturation(widget->image(), -15, 0));
+}
+
+void MainWindow::on_actionGammaCorrectplus_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    widget->setImage(FilterManager::instance()->setGamma(widget->image(), +0.1, 0));
+}
+
+void MainWindow::on_actionGammaCorrectminus_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    widget->setImage(FilterManager::instance()->setGamma(widget->image(), -0.1, 0));
+}
+
+void MainWindow::on_actionOldPhoto_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->sepia(widget->image()));
+    }
+}
+
+void MainWindow::on_actionDustReduction_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->dustreduction(widget->image()));
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1398,7 +1456,7 @@ void MainWindow::createKeyboardShortcuts() {
 }
 
 // This method disables actions that are not yet implemented.
-// They still appear in menus, but are greyed out.
+// They still appear in menus, but areed out.
 void MainWindow::disableUnimplementedActions()
 {
     ui->actionAged_effect->setEnabled(false);
@@ -1413,7 +1471,7 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionBlur->setEnabled(false);
     ui->actionBounding_box->setEnabled(false);
     ui->actionBright_Contrast->setEnabled(false);
-    ui->actionBrightminus->setEnabled(false);
+    //ui->actionBrightminus->setEnabled(false);
     //ui->actionBrightplus->setEnabled(false);
     ui->actionCanvas_Size->setEnabled(true);
     ui->actionCenter->setEnabled(false);
@@ -1421,8 +1479,8 @@ void MainWindow::disableUnimplementedActions()
     ui->actionColour->setEnabled(false);
     ui->actionColour_balance->setEnabled(false);
     ui->actionContract->setEnabled(false);
-    ui->actionContrastminus->setEnabled(false);
-    ui->actionContrastplus->setEnabled(false);
+    //ui->actionContrastminus->setEnabled(false);
+    //ui->actionContrastplus->setEnabled(false);
     //ui->actionCopy->setEnabled(false);
     ui->actionCopy_shape->setEnabled(false);
     ui->actionCopyright->setEnabled(false);
@@ -1433,7 +1491,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionDithering->setEnabled(false);
     ui->actionDuotone->setEnabled(false);
     ui->actionDuplicate->setEnabled(false);
-    ui->actionDustReduction->setEnabled(false);
+    //ui->actionDustReduction->setEnabled(false);
     ui->actionEdges->setEnabled(false);
     ui->actionExpand->setEnabled(false);
     ui->actionExport_as_icon->setEnabled(false);
@@ -1447,8 +1505,8 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionFlip_Vertical->setEnabled(false);
     ui->actionFrame->setEnabled(false);
     //ui->actionFull_screen->setEnabled(false);
-    ui->actionGammaCorrectminus->setEnabled(false);
-    ui->actionGammaCorrectplus->setEnabled(false);
+    //ui->actionGammaCorrectminus->setEnabled(false);
+    //ui->actionGammaCorrectplus->setEnabled(false);
     ui->actionGamma_correct->setEnabled(false);
     ui->actionGradient->setEnabled(false);
     //ui->actionGrayScale->setEnabled(false);
@@ -1468,7 +1526,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionNegative->setEnabled(false);
     ui->actionNoise->setEnabled(false);
     ui->actionOffset->setEnabled(false);
-    ui->actionOldPhoto->setEnabled(false);
+    //ui->actionOldPhoto->setEnabled(false);
     ui->actionOptimized_Clipping->setEnabled(false);
     //ui->actionOriginal_size->setEnabled(false);
     ui->actionOther->setEnabled(false);
@@ -1493,13 +1551,13 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionRevert->setEnabled(false);
     //ui->actionRotate_CCW->setEnabled(false);
     //ui->actionRotate_CW->setEnabled(false);
-    ui->actionSaturationminus->setEnabled(false);
-    ui->actionSaturationplus->setEnabled(false);
+    //ui->actionSaturationminus->setEnabled(false);
+    //ui->actionSaturationplus->setEnabled(false);
     ui->actionSave_shape->setEnabled(false);
     //ui->actionScan->setEnabled(false);
     ui->actionSelect_all->setEnabled(false);
     ui->actionSet_shape->setEnabled(false);
-    ui->actionSet_wallpaper->setEnabled(false);
+    ui->actionSet_wallpaper->setVisible(false);
     //ui->actionSharpen->setEnabled(false);
     ui->actionShow_grid->setEnabled(false);
     ui->actionShow_selection->setEnabled(true);
