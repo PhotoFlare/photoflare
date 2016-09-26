@@ -36,6 +36,10 @@ signals:
 private slots:
     void on_swapColorButton_clicked();
 
+    void on_prevPage_clicked();
+
+    void on_nextPage_clicked();
+
 private:
     void showColorDialog(QWidget *colorLabel);
     void setColor(const QColor &color, QWidget *colorLabel);

@@ -316,8 +316,8 @@ void batchDialog::on_addFilesButton_clicked()
 
         for(QString file : d->fileList)
         {
-            QListWidgetItem *itm = new QListWidgetItem(file);
-            itm->setSizeHint(QSize(128,64));
+            QListWidgetItem *itm = new QListWidgetItem(QFileInfo(file).fileName() + "\r\n" + file);
+            itm->setSizeHint(QSize(64,64));
             itm->setIcon(QIcon(file));
             ui->listWidget->setIconSize(QSize(128,64));
             ui->listWidget->addItem(itm);

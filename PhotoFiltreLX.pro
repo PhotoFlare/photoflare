@@ -74,7 +74,8 @@ SOURCES += src/main.cpp \
     src/batchdialog.cpp \
     src/imagepositionwidget.cpp \
     src/outerframedialog.cpp \
-    src/BatchProcessWorker.cpp
+    src/BatchProcessWorker.cpp \
+    src/batchpregress.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -114,7 +115,8 @@ HEADERS += src/mainwindow.h \
     src/batchdialog.h \
     src/imagepositionwidget.h \
     src/outerframedialog.h \
-    src/BatchProcessWorker.h
+    src/BatchProcessWorker.h \
+    src/batchpregress.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -135,7 +137,8 @@ FORMS += src/mainwindow.ui \
     src/imagepropertiesdialog.ui \
     src/batchdialog.ui \
     src/imagepositionwidget.ui \
-    src/outerframedialog.ui
+    src/outerframedialog.ui \
+    src/batchpregress.ui
 
 RESOURCES += \
     Icons.qrc

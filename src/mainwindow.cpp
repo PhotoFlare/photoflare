@@ -53,6 +53,7 @@
 #include "FilterManager.h"
 
 #include "BatchProcessWorker.h"
+#include "batchpregress.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
@@ -1090,14 +1091,18 @@ void MainWindow::on_actionAutomate_Batch_triggered()
         worker->moveToThread(thread);
 
         connect(thread, SIGNAL(started()), worker, SLOT(process()));
-        connect(worker, SIGNAL(fileProcessFinished(QString,QImage)), this, SLOT(on_batchProcess_fileProcessFinished(QString,QImage)));
-        connect(worker, SIGNAL(batchProgress(int,int)), this, SLOT(on_batchProcess_batchProgress(int,int)));
+        connect(worker, SIGNAL(fileProcessFinished(QString,QImage)), this, SLOT(batchProcess_fileProcessFinished(QString,QImage)));
+        connect(worker, SIGNAL(batchProgress(int,int)), this, SLOT(batchProcess_batchProgress(int,int)));
+
+        BatchPregress *progress = new BatchPregress(this);
+        connect(worker, SIGNAL(batchProgress(int,int)), progress, SLOT(progress(int,int)));
+        progress->show();
 
         thread->start();
     }
 }
 
-void MainWindow::on_batchProcess_fileProcessFinished(QString file, QImage image)
+void MainWindow::batchProcess_fileProcessFinished(QString file, QImage image)
 {
     addPaintWidget(createPaintWidget(image.size()));
     PaintWidget *widget = getCurrentPaintWidget();
@@ -1110,12 +1115,9 @@ void MainWindow::on_batchProcess_fileProcessFinished(QString file, QImage image)
         ui->mdiArea->currentSubWindow()->setWindowModified(false);
         ui->mdiArea->currentSubWindow()->setWindowTitle(file);
     }
-
-//    dialog.onFinished();
-//    dialog.exec();
 }
 
-void MainWindow::on_batchProcess_batchProgress(int index,int total)
+void MainWindow::batchProcess_batchProgress(int index,int total)
 {
     if(index < total) {
         this->setWindowTitle(QString("PhotoFiltre LX Studio - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));

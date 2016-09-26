@@ -213,8 +213,8 @@ private slots:
 
     void on_actionAuto_contrast_triggered();
 
-    void on_batchProcess_fileProcessFinished(QString file, QImage image);
-    void on_batchProcess_batchProgress(int index,int total);
+    void batchProcess_fileProcessFinished(QString file, QImage image);
+    void batchProcess_batchProgress(int index,int total);
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
