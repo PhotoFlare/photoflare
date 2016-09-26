@@ -48,7 +48,7 @@ SOURCES += src/main.cpp \
     src/FilterManager.cpp \
     src/ToolManager.cpp \
     src/PaintBrushSettingsWidget.cpp \
-    src/ColorBoxWidget.cpp \
+    src/colorboxwidget.cpp \
     src/tools/ColourPickerTool.cpp \
     src/tools/PaintBucketTool.cpp \
     src/tools/PointerTool.cpp \
@@ -56,7 +56,7 @@ SOURCES += src/main.cpp \
     src/registerdialog.cpp \
     src/tools/PaintBrushAdvTool.cpp \
     src/PaintBrushAdvSettingsWidget.cpp \
-    src/BrushTypeComboBox.cpp \
+    src/brushtypecombobox.cpp \
     src/tools/SprayCanTool.cpp \
     src/tools/LineTool.cpp \
     src/tools/MagicWandTool.cpp \
@@ -90,7 +90,7 @@ HEADERS += src/mainwindow.h \
     src/FilterManager.h \
     src/ToolManager.h \
     src/PaintBrushSettingsWidget.h \
-    src/ColorBoxWidget.h \
+    src/colorboxwidget.h \
     src/tools/ColourPickerTool.h \
     src/tools/PaintBucketTool.h \
     src/tools/PointerTool.h \
@@ -99,7 +99,7 @@ HEADERS += src/mainwindow.h \
     src/registerdialog.h \
     src/tools/PaintBrushAdvTool.h \
     src/PaintBrushAdvSettingsWidget.h \
-    src/BrushTypeComboBox.h \
+    src/brushtypecombobox.h \
     src/tools/SprayCanTool.h \
     src/tools/LineTool.h \
     src/SprayCanSettingsWidget.h \

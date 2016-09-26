@@ -3,7 +3,7 @@
 #include <QStyleOptionViewItem>
 #include <QMouseEvent>
 
-#include "BrushTypeComboBox.h"
+#include "brushtypecombobox.h"
 
 class BrushTypeDelegate : public QStyledItemDelegate
 {
