@@ -137,3 +137,5 @@ FORMS += src/mainwindow.ui \
 
 RESOURCES += \
     Icons.qrc
+
+TRANSLATIONS = languages/en.ts languages/fr.ts

@@ -8,6 +8,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <QFileInfo>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
@@ -29,6 +30,10 @@ int main(int argc, char *argv[])
             }
         }
     }
+
+    QTranslator translator;
+    translator.load("fr");
+    app.installTranslator(&translator);
 
     return app.exec();
 }
