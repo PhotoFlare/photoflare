@@ -195,8 +195,20 @@ QImage FilterManager::grayscale(const QImage &image)
 QImage FilterManager::oldPhoto(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->emboss(1.0,1.0);
-    magickImage->type(Magick::GrayscaleType);
+    magickImage->modulate(100.0f, 0.0f, 100.0f);
+    magickImage->colorize(15, 21, 40, Magick::Color(0,0,0));
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::sepia(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->modulate(115.0f, 0.0f, 100.0f);
+    magickImage->colorize(7, 21, 50, Magick::Color(0,0,0));
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
@@ -496,7 +508,7 @@ QImage FilterManager::setGamma(const QImage &image, float agamma, int channelId)
 {
     double gamma = agamma / 100.0f;
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->gamma(0, 0, gamma);
+    magickImage->gamma(gamma, gamma, gamma);
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
@@ -519,6 +531,28 @@ QImage FilterManager::deSpeckle(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->despeckle();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::autoLevels(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->equalize();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
+QImage FilterManager::autoContrast(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->normalize();
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;

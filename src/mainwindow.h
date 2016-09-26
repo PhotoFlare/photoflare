@@ -206,6 +206,12 @@ private slots:
 
     void on_actionDespeckle_triggered();
 
+    void on_actionSepia_triggered();
+
+    void on_actionAuto_levels_triggered();
+
+    void on_actionAuto_contrast_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

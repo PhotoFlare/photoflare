@@ -33,6 +33,7 @@ public:
     QImage reinforce(const QImage &image);
     QImage grayscale(const QImage &image);
     QImage oldPhoto(const QImage &image);
+    QImage sepia(const QImage &image);
     QImage dustreduction(const QImage &image);
     QImage flipHorz(const QImage &image);
     QImage flipVert(const QImage &image);
@@ -62,6 +63,9 @@ public:
     QImage fitImage(const QImage &image);
     QImage deSpeckle(const QImage &image);
     QImage outsideFrame(const QImage &image, int width);
+
+    QImage autoLevels(const QImage &image);
+    QImage autoContrast(const QImage &image);
 
     QImage floodFill(const QImage &image, const QPoint &pos, const QColor &color);
     QPolygon selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color);

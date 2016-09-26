@@ -1422,6 +1422,14 @@ void MainWindow::on_actionOldPhoto_triggered()
     }
 }
 
+void MainWindow::on_actionSepia_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->sepia(widget->image()));
+    }
+}
+
 void MainWindow::on_actionDustReduction_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -1562,6 +1570,22 @@ void MainWindow::on_actionDespeckle_triggered()
     }
 }
 
+void MainWindow::on_actionAuto_levels_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->autoLevels(widget->image()));
+    }
+}
+
+void MainWindow::on_actionAuto_contrast_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->autoContrast(widget->image()));
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1593,8 +1617,8 @@ void MainWindow::disableUnimplementedActions()
     ui->actionAged_effect->setEnabled(false);
     ui->actionAntialiasing->setEnabled(false);
     //ui->actionArtistic->setEnabled(false);
-    ui->actionAuto_contrast->setEnabled(false);
-    ui->actionAuto_levels->setEnabled(false);
+    //ui->actionAuto_contrast->setEnabled(false);
+    //ui->actionAuto_levels->setEnabled(false);
     //ui->actionAuto_zoom->setEnabled(false);
     //ui->actionAutomate_Batch->setEnabled(false);
     ui->actionAutomatic_Crop->setEnabled(false);
@@ -1718,5 +1742,3 @@ void MainWindow::disableUnimplementedActions()
     //ui->toolButtonLine->setEnabled(false);
     //ui->toolButtonBlur->setEnabled(false);
 }
-
-
