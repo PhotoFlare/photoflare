@@ -204,6 +204,8 @@ private slots:
 
     void on_actionExplode_triggered();
 
+    void on_actionDespeckle_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

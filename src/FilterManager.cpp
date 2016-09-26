@@ -515,6 +515,17 @@ QImage FilterManager::outsideFrame(const QImage &image, int width)
     return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
 }
 
+QImage FilterManager::deSpeckle(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->despeckle();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
 QImage FilterManager::floodFill(const QImage &image, const QPoint &pos, const QColor &color)
 {
     //RAII - magickImage will be deleted automatically after func return

@@ -60,6 +60,7 @@ public:
     QImage skew(const QImage &image);
     QImage explode(const QImage &image);
     QImage fitImage(const QImage &image);
+    QImage deSpeckle(const QImage &image);
     QImage outsideFrame(const QImage &image, int width);
 
     QImage floodFill(const QImage &image, const QPoint &pos, const QColor &color);

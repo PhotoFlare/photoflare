@@ -147,20 +147,21 @@
      <addaction name="actionRGB_Mode"/>
      <addaction name="actionIndexed_Mode"/>
     </widget>
-    <widget class="QMenu" name="menuRotate">
+    <widget class="QMenu" name="menuTransform">
      <property name="title">
-      <string>&amp;Rotate</string>
+      <string>Transform</string>
      </property>
+     <addaction name="actionFlip_Vertical"/>
+     <addaction name="actionFlip_Horizontal"/>
+     <addaction name="separator"/>
      <addaction name="actionRotate_CCW"/>
      <addaction name="actionRotate_CW"/>
+     <addaction name="separator"/>
+     <addaction name="actionSkew"/>
     </widget>
     <addaction name="menuMode"/>
     <addaction name="separator"/>
-    <addaction name="actionFlip_Vertical"/>
-    <addaction name="actionFlip_Horizontal"/>
-    <addaction name="menuRotate"/>
-    <addaction name="actionSkew"/>
-    <addaction name="actionOffset"/>
+    <addaction name="menuTransform"/>
     <addaction name="separator"/>
     <addaction name="actionImage_Size"/>
     <addaction name="actionCanvas_Size"/>
@@ -284,6 +285,8 @@
      <property name="title">
       <string>Noise</string>
      </property>
+     <addaction name="actionDustReduction"/>
+     <addaction name="actionDespeckle"/>
      <addaction name="actionGaussian"/>
      <addaction name="actionImpulse"/>
      <addaction name="actionLaplacian"/>
@@ -302,6 +305,8 @@
      <property name="title">
       <string>Colour</string>
      </property>
+     <addaction name="actionGrayScale"/>
+     <addaction name="actionOldPhoto"/>
      <addaction name="actionEqualize"/>
      <addaction name="actionNormalize"/>
     </widget>
@@ -1176,11 +1181,6 @@ QToolButton:checked {
     <string>Skew...</string>
    </property>
   </action>
-  <action name="actionOffset">
-   <property name="text">
-    <string>Offset...</string>
-   </property>
-  </action>
   <action name="actionImage_Size">
    <property name="icon">
     <iconset resource="../Icons.qrc">
@@ -1712,10 +1712,10 @@ QToolButton:checked {
      <normaloff>:/icons/icons/grayscale.png</normaloff>:/icons/icons/grayscale.png</iconset>
    </property>
    <property name="text">
-    <string>grayScale</string>
+    <string>Gray Scale</string>
    </property>
    <property name="toolTip">
-    <string>Grayscale</string>
+    <string>Gray Scale</string>
    </property>
   </action>
   <action name="actionOldPhoto">
@@ -1724,7 +1724,7 @@ QToolButton:checked {
      <normaloff>:/icons/icons/oldphoto.png</normaloff>:/icons/icons/oldphoto.png</iconset>
    </property>
    <property name="text">
-    <string>oldPhoto</string>
+    <string>Old Photo</string>
    </property>
    <property name="toolTip">
     <string>Old Photography</string>
@@ -1736,7 +1736,7 @@ QToolButton:checked {
      <normaloff>:/icons/icons/dustreduction.png</normaloff>:/icons/icons/dustreduction.png</iconset>
    </property>
    <property name="text">
-    <string>dustReduction</string>
+    <string>Dust Reduction</string>
    </property>
    <property name="toolTip">
     <string>Dust Reduction</string>
@@ -1915,6 +1915,11 @@ QToolButton:checked {
   <action name="actionExplode">
    <property name="text">
     <string>Explode</string>
+   </property>
+  </action>
+  <action name="actionDespeckle">
+   <property name="text">
+    <string>Despeckle</string>
    </property>
   </action>
  </widget>

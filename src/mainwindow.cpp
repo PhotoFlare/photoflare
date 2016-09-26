@@ -1554,6 +1554,14 @@ void MainWindow::on_actionExplode_triggered()
     }
 }
 
+void MainWindow::on_actionDespeckle_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->deSpeckle(widget->image()));
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1648,7 +1656,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionMore_shadows->setEnabled(false);
     ui->actionNegative->setEnabled(false);
     //ui->actionNoise->setEnabled(false);
-    ui->actionOffset->setEnabled(false);
+
     //ui->actionOldPhoto->setEnabled(false);
     ui->actionOptimized_Clipping->setEnabled(false);
     //ui->actionOriginal_size->setEnabled(false);
@@ -1710,3 +1718,5 @@ void MainWindow::disableUnimplementedActions()
     //ui->toolButtonLine->setEnabled(false);
     //ui->toolButtonBlur->setEnabled(false);
 }
+
+
