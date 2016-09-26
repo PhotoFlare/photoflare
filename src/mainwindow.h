@@ -176,6 +176,34 @@ private slots:
 
     void on_actionOutside_frame_triggered();
 
+    void on_actionEmboss_triggered();
+
+    void on_actionTrim_triggered();
+
+    void on_actionGaussian_triggered();
+
+    void on_actionImpulse_triggered();
+
+    void on_actionLaplacian_triggered();
+
+    void on_actionPoisson_triggered();
+
+    void on_actionMonoChromatic_triggered();
+
+    void on_actionEqualize_triggered();
+
+    void on_actionCrop_To_Center_triggered();
+
+    void on_actionAdd_Simple_Frame_triggered();
+
+    void on_actionMotion_blur_triggered();
+
+    void on_actionNormalize_triggered();
+
+    void on_action3D_frame_triggered();
+
+    void on_actionExplode_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

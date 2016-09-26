@@ -1418,7 +1418,7 @@ void MainWindow::on_actionOldPhoto_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
-        widget->setImage(FilterManager::instance()->sepia(widget->image()));
+        widget->setImage(FilterManager::instance()->oldPhoto(widget->image()));
     }
 }
 
@@ -1439,6 +1439,118 @@ void MainWindow::on_actionOutside_frame_triggered()
         if (widget) {
             widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),10));
         }
+    }
+}
+
+void MainWindow::on_actionEmboss_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->emboss(widget->image()));
+    }
+}
+
+void MainWindow::on_actionTrim_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->trim(widget->image()));
+    }
+}
+
+void MainWindow::on_actionGaussian_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->gaussianNoise(widget->image()));
+    }
+}
+
+void MainWindow::on_actionImpulse_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->impulseNoise(widget->image()));
+    }
+}
+
+void MainWindow::on_actionLaplacian_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->laplacianNoise(widget->image()));
+    }
+}
+
+void MainWindow::on_actionPoisson_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->poissonNoise(widget->image()));
+    }
+}
+
+void MainWindow::on_actionMonoChromatic_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->monoChromeEdges(widget->image()));
+    }
+}
+
+void MainWindow::on_actionEqualize_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->equalizeColours(widget->image()));
+    }
+}
+
+void MainWindow::on_actionCrop_To_Center_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->cropToCenter(widget->image()));
+    }
+}
+
+void MainWindow::on_actionAdd_Simple_Frame_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->simpleFrame(widget->image()));
+    }
+}
+
+void MainWindow::on_actionMotion_blur_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->motionBlur(widget->image()));
+    }
+}
+
+void MainWindow::on_actionNormalize_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->normalize(widget->image()));
+    }
+}
+
+void MainWindow::on_action3D_frame_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->advFrame(widget->image()));
+    }
+}
+
+void MainWindow::on_actionExplode_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->explode(widget->image()));
     }
 }
 
@@ -1487,7 +1599,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionCanvas_Size->setEnabled(true);
     ui->actionCenter->setEnabled(false);
     ui->actionClear->setEnabled(false);
-    ui->actionColour->setEnabled(false);
+
     ui->actionColour_balance->setEnabled(false);
     ui->actionContract->setEnabled(false);
     //ui->actionContrastminus->setEnabled(false);
@@ -1503,7 +1615,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionDuotone->setEnabled(false);
     ui->actionDuplicate->setEnabled(false);
     //ui->actionDustReduction->setEnabled(false);
-    ui->actionEdges->setEnabled(false);
+    //ui->actionEdges->setEnabled(false);
     ui->actionExpand->setEnabled(false);
     ui->actionExport_as_icon->setEnabled(false);
     ui->actionFade->setEnabled(false);
@@ -1511,10 +1623,10 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionFilterbar->setEnabled(false);
     ui->actionFit_Image->setEnabled(false);
     ui->actionFit_ratio->setEnabled(false);
-    ui->actionFlatten->setEnabled(false);
+
     //ui->actionFlip_Horizontal->setEnabled(false);
     //ui->actionFlip_Vertical->setEnabled(false);
-    ui->actionFrame->setEnabled(false);
+    //ui->actionFrame->setEnabled(false);
     //ui->actionFull_screen->setEnabled(false);
     //ui->actionGammaCorrectminus->setEnabled(false);
     //ui->actionGammaCorrectplus->setEnabled(false);
@@ -1535,7 +1647,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionMore_highlights->setEnabled(false);
     ui->actionMore_shadows->setEnabled(false);
     ui->actionNegative->setEnabled(false);
-    ui->actionNoise->setEnabled(false);
+    //ui->actionNoise->setEnabled(false);
     ui->actionOffset->setEnabled(false);
     //ui->actionOldPhoto->setEnabled(false);
     ui->actionOptimized_Clipping->setEnabled(false);
@@ -1587,7 +1699,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionTransparent_colour->setEnabled(false);
     //ui->actionUndo->setEnabled(false);
     ui->actionValidate->setEnabled(false);
-    ui->actionVisual_effect->setEnabled(false);
+
     //ui->actionZoom_in->setEnabled(false);
     //ui->actionZoom_out->setEnabled(false);
 

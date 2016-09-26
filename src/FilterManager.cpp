@@ -192,10 +192,187 @@ QImage FilterManager::grayscale(const QImage &image)
     return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
 }
 
-QImage FilterManager::sepia(const QImage &image)
+QImage FilterManager::oldPhoto(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->colorize(127,255,255,Magick::Color(255,127,127));
+    magickImage->emboss(1.0,1.0);
+    magickImage->type(Magick::GrayscaleType);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::fitImage(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->thumbnail(Magick::Geometry(640,400,0,0,false,false));
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::explode(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->spread(25);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::skew(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->shear(1.5,20.5);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::advFrame(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->raise(Magick::Geometry(15,15,0,0,false,false));
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::normalize(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->normalize();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::motionBlur(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->motionBlur(55.5,22.5,1.2);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::simpleFrame(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->frame(15,15,6,6);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::cropToCenter(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->extent(Magick::Geometry(640,400,0,0,false,false),Magick::Color(127,127,127),Magick::StaticGravity);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::equalizeColours(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->equalize();
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::monoChromeEdges(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->edge(0.1);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::gaussianNoise(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->addNoise(Magick::GaussianNoise);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::impulseNoise(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->addNoise(Magick::ImpulseNoise);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::laplacianNoise(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->addNoise(Magick::LaplacianNoise);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::poissonNoise(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->addNoise(Magick::PoissonNoise);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::emboss(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->shade(30,30,true);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::trim(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->chop(Magick::Geometry(15,15,0,0,false,false));
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;

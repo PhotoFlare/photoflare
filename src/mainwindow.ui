@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>20</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -244,6 +244,7 @@
      <addaction name="actionSwirl"/>
      <addaction name="actionWave"/>
      <addaction name="actionImplode"/>
+     <addaction name="actionExplode"/>
     </widget>
     <widget class="QMenu" name="menuArtistic">
      <property name="title">
@@ -267,21 +268,64 @@
      <addaction name="actionSharpen"/>
      <addaction name="actionReinforce"/>
     </widget>
+    <widget class="QMenu" name="menuFlatten">
+     <property name="title">
+      <string>Flatten</string>
+     </property>
+     <addaction name="actionEmboss"/>
+    </widget>
+    <widget class="QMenu" name="menuEdges">
+     <property name="title">
+      <string>Edges</string>
+     </property>
+     <addaction name="actionMonoChromatic"/>
+    </widget>
+    <widget class="QMenu" name="menuNoise">
+     <property name="title">
+      <string>Noise</string>
+     </property>
+     <addaction name="actionGaussian"/>
+     <addaction name="actionImpulse"/>
+     <addaction name="actionLaplacian"/>
+     <addaction name="actionPoisson"/>
+    </widget>
+    <widget class="QMenu" name="menuFrame">
+     <property name="title">
+      <string>Frame</string>
+     </property>
+     <addaction name="actionTrim"/>
+     <addaction name="actionCrop_To_Center"/>
+     <addaction name="actionAdd_Simple_Frame"/>
+     <addaction name="action3D_frame"/>
+    </widget>
+    <widget class="QMenu" name="menuColour">
+     <property name="title">
+      <string>Colour</string>
+     </property>
+     <addaction name="actionEqualize"/>
+     <addaction name="actionNormalize"/>
+    </widget>
+    <widget class="QMenu" name="menuVisual_Effect">
+     <property name="title">
+      <string>Visual Effect</string>
+     </property>
+     <addaction name="actionMotion_blur"/>
+    </widget>
     <addaction name="menuSoften"/>
     <addaction name="menuSharpen"/>
-    <addaction name="actionNoise"/>
+    <addaction name="menuNoise"/>
     <addaction name="actionRelief"/>
-    <addaction name="actionColour"/>
+    <addaction name="menuColour"/>
     <addaction name="separator"/>
     <addaction name="menuArtistic"/>
-    <addaction name="actionVisual_effect"/>
+    <addaction name="menuVisual_Effect"/>
     <addaction name="menuDeform"/>
     <addaction name="actionStylize"/>
     <addaction name="actionAged_effect"/>
     <addaction name="separator"/>
-    <addaction name="actionFrame"/>
-    <addaction name="actionFlatten"/>
-    <addaction name="actionEdges"/>
+    <addaction name="menuFrame"/>
+    <addaction name="menuFlatten"/>
+    <addaction name="menuEdges"/>
     <addaction name="actionTexture"/>
     <addaction name="actionOther"/>
    </widget>
@@ -316,7 +360,6 @@
     <property name="title">
      <string>&amp;?</string>
     </property>
-    <addaction name="actionInformation"/>
     <addaction name="separator"/>
     <addaction name="actionRegister"/>
     <addaction name="actionAbout"/>
@@ -1429,24 +1472,9 @@ QToolButton:checked {
     <string>Sharpen</string>
    </property>
   </action>
-  <action name="actionNoise">
-   <property name="text">
-    <string>Noise</string>
-   </property>
-  </action>
   <action name="actionRelief">
    <property name="text">
     <string>Relief</string>
-   </property>
-  </action>
-  <action name="actionColour">
-   <property name="text">
-    <string>Colour</string>
-   </property>
-  </action>
-  <action name="actionVisual_effect">
-   <property name="text">
-    <string>Visual Effect</string>
    </property>
   </action>
   <action name="actionStylize">
@@ -1457,21 +1485,6 @@ QToolButton:checked {
   <action name="actionAged_effect">
    <property name="text">
     <string>Aged Effect</string>
-   </property>
-  </action>
-  <action name="actionFrame">
-   <property name="text">
-    <string>Frame</string>
-   </property>
-  </action>
-  <action name="actionFlatten">
-   <property name="text">
-    <string>Flatten</string>
-   </property>
-  </action>
-  <action name="actionEdges">
-   <property name="text">
-    <string>Edges</string>
    </property>
   </action>
   <action name="actionTexture">
@@ -1826,6 +1839,82 @@ QToolButton:checked {
   <action name="actionImplode">
    <property name="text">
     <string>Implode</string>
+   </property>
+  </action>
+  <action name="actionEmboss">
+   <property name="text">
+    <string>Emboss</string>
+   </property>
+  </action>
+  <action name="actionTrim">
+   <property name="text">
+    <string>Trim</string>
+   </property>
+  </action>
+  <action name="actionGaussian">
+   <property name="text">
+    <string>Gaussian</string>
+   </property>
+  </action>
+  <action name="actionImpulse">
+   <property name="text">
+    <string>Impulse</string>
+   </property>
+  </action>
+  <action name="actionLaplacian">
+   <property name="text">
+    <string>Laplacian</string>
+   </property>
+  </action>
+  <action name="actionPoisson">
+   <property name="text">
+    <string>Poisson</string>
+   </property>
+  </action>
+  <action name="actionMonoChromatic">
+   <property name="text">
+    <string>MonoChromatic</string>
+   </property>
+  </action>
+  <action name="actionEqualize">
+   <property name="text">
+    <string>Equalize</string>
+   </property>
+  </action>
+  <action name="actionCrop_To_Center">
+   <property name="text">
+    <string>Crop center</string>
+   </property>
+   <property name="toolTip">
+    <string>Crop center</string>
+   </property>
+  </action>
+  <action name="actionAdd_Simple_Frame">
+   <property name="text">
+    <string>Simple frame</string>
+   </property>
+   <property name="toolTip">
+    <string>Simple frame</string>
+   </property>
+  </action>
+  <action name="actionMotion_blur">
+   <property name="text">
+    <string>Motion blur</string>
+   </property>
+  </action>
+  <action name="actionNormalize">
+   <property name="text">
+    <string>Normalize</string>
+   </property>
+  </action>
+  <action name="action3D_frame">
+   <property name="text">
+    <string>3D frame</string>
+   </property>
+  </action>
+  <action name="actionExplode">
+   <property name="text">
+    <string>Explode</string>
    </property>
   </action>
  </widget>
