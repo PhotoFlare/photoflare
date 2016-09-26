@@ -174,6 +174,8 @@ private slots:
 
     void on_actionDustReduction_triggered();
 
+    void on_actionOutside_frame_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

@@ -195,7 +195,6 @@ QImage FilterManager::grayscale(const QImage &image)
 QImage FilterManager::sepia(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-
     magickImage->colorize(127,255,255,Magick::Color(255,127,127));
 
     QImage modifiedImage = d->toQtImage(magickImage);
@@ -326,6 +325,17 @@ QImage FilterManager::setGamma(const QImage &image, float agamma, int channelId)
     delete magickImage;
 
     return modifiedImage;
+}
+
+QImage FilterManager::outsideFrame(const QImage &image, int width)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->border(Magick::Geometry(width,width,0,0,false,false));
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
 }
 
 QImage FilterManager::floodFill(const QImage &image, const QPoint &pos, const QColor &color)

@@ -13,6 +13,7 @@
 #include "registerdialog.h"
 #include "imagepropertiesdialog.h"
 #include "batchdialog.h"
+#include "outerframedialog.h"
 #include "PaintWidget.h"
 #include "ui_mainwindow.h"
 #include <QApplication>
@@ -386,8 +387,6 @@ void MainWindow::addPaintWidget(PaintWidget *widget)
     });
 
     addChildWindow(widget);
-
-    //on_toolButtonPaintBrush_clicked();
 }
 
 void MainWindow::addChildWindow(PaintWidget *widget)
@@ -1431,6 +1430,18 @@ void MainWindow::on_actionDustReduction_triggered()
     }
 }
 
+void MainWindow::on_actionOutside_frame_triggered()
+{
+    OuterFrameDialog dialog(this);
+
+    if (dialog.exec() == QDialog::Accepted) {
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget) {
+            widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),10));
+        }
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1531,7 +1542,7 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionOriginal_size->setEnabled(false);
     ui->actionOther->setEnabled(false);
     ui->actionOutside_drop_shadow->setEnabled(false);
-    ui->actionOutside_frame->setEnabled(false);
+    //ui->actionOutside_frame->setEnabled(false);
     ui->actionOptions->setEnabled(false);
     //ui->actionPaste->setEnabled(false);
     ui->actionPaste_and_text_bounding_box->setEnabled(false);

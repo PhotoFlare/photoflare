@@ -44,6 +44,9 @@ public:
     QImage setContrast(const QImage &image, int contrast, int channel);
     QImage setGamma(const QImage &image, float gamma, int channel);
 
+
+    QImage outsideFrame(const QImage &image, int width);
+
     QImage floodFill(const QImage &image, const QPoint &pos, const QColor &color);
     QPolygon selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color);
 

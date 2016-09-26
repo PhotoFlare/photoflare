@@ -72,7 +72,8 @@ SOURCES += src/main.cpp \
     src/BlurSettingsWidget.cpp \
     src/imagepropertiesdialog.cpp \
     src/batchdialog.cpp \
-    src/imagepositionwidget.cpp
+    src/imagepositionwidget.cpp \
+    src/outerframedialog.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -110,7 +111,8 @@ HEADERS += src/mainwindow.h \
     src/BlurSettingsWidget.h \
     src/imagepropertiesdialog.h \
     src/batchdialog.h \
-    src/imagepositionwidget.h
+    src/imagepositionwidget.h \
+    src/outerframedialog.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -130,7 +132,8 @@ FORMS += src/mainwindow.ui \
     src/BlurSettingsWidget.ui \
     src/imagepropertiesdialog.ui \
     src/batchdialog.ui \
-    src/imagepositionwidget.ui
+    src/imagepositionwidget.ui \
+    src/outerframedialog.ui
 
 RESOURCES += \
     Icons.qrc
