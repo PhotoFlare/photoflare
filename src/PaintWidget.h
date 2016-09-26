@@ -51,6 +51,8 @@ public:
     bool isRedoEnabled();
 
     void setSelectionVisible(bool visible);
+    QPolygon selection();
+    bool isSelectionVisible();
 
     void showProgressIndicator(bool visible);
 signals:
@@ -58,6 +60,7 @@ signals:
     void contentChanged();
 
     void zoomChanged(float scale);
+    void selectionChanged(bool visible);
 
 protected:
 //    void mousePressEvent(QGraphicsSceneMouseEvent *event);

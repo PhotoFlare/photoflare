@@ -174,7 +174,7 @@ void batchDialog::on_imageHvalue_valueChanged(double value)
     }
 }
 
-void batchDialog::mousePressEvent(QMouseEvent *e)
+void batchDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
 {
     if(!ui->backgroundColorComboBox->isVisible())
     {

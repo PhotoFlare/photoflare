@@ -41,6 +41,9 @@ public:
     PaintWidget* getCurrentPaintWidget();
     void openFile(const QString& fileName);
 
+public slots:
+    void handleMessage(const QString& message);
+
 private slots:
     void on_actionAbout_triggered();
     void on_actionNew_triggered();
@@ -218,6 +221,11 @@ private slots:
     void on_actionHue_variation_triggered();
     void onHuePreviewChanged(QImage image, bool colorize, QColor color, int degrees);
 
+    void on_actionGradient_triggered();
+
+    void on_actionCrop_triggered();
+    void onSelectionChanged(bool visible);
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
@@ -236,7 +244,6 @@ private:
     void saveGeometryState();
     void createKeyboardShortcuts();
     void disableUnimplementedActions();
-    void changeEvent(QEvent* event);
     //void gsettingsSet(const QString &schema, const QString &key, const QString &value);
     Ui::MainWindow *ui;
     QString m_toolSelected;

@@ -33,6 +33,7 @@ public:
         q->setScene(this);
 
         isSelectionVisible = true;
+        selection = QRect();
     }
     ~PaintWidgetPrivate()
     {
@@ -254,6 +255,7 @@ void PaintWidget::onCursorChanged(QCursor cursor)
 void PaintWidget::onSelectionChanged(QPolygon poly)
 {
     d->selection = poly;
+    setSelectionVisible(d->selection.first() != d->selection.last());
 }
 
 QString PaintWidget::imagePath() const
@@ -390,4 +392,15 @@ void PaintWidget::setSelectionVisible(bool visible)
 {
     d->isSelectionVisible = visible;
     d->updateImageLabel();
+    emit selectionChanged(visible);
+}
+
+QPolygon PaintWidget::selection()
+{
+    return d->selection;
+}
+
+bool PaintWidget::isSelectionVisible()
+{
+    return d->isSelectionVisible && d->selection.first() != d->selection.last();
 }

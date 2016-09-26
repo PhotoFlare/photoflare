@@ -13,6 +13,8 @@
 #include <QBuffer>
 #include <QColor>
 #include <QPolygon>
+#include <QLinearGradient>
+#include <QPainter>
 
 class FilterManagerPrivate
 {
@@ -239,10 +241,27 @@ QImage FilterManager::hue(const QImage &image, int degrees)
     return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
 }
 
+QImage FilterManager::gradient(const QImage &image, QPoint startPoint, QPoint stopPoint, QColor startColor, QColor stopColor)
+{
+    QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
+    QPainter painter(&surface);
+    painter.drawImage(0,0,image);
+
+    QLinearGradient brush(startPoint, stopPoint);
+    brush.setColorAt(0.0, startColor);
+    brush.setColorAt(1.0, stopColor);
+
+    painter.setBrush(brush);
+    painter.fillRect(surface.rect(), brush);
+
+    return surface;
+}
+
+
 QImage FilterManager::fitImage(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->thumbnail(Magick::Geometry(640,400,0,0,false,false));
+    //magickImage->thumbnail(Magick::Geometry(640,400,0,0,false,false));
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
@@ -319,7 +338,7 @@ QImage FilterManager::simpleFrame(const QImage &image)
 QImage FilterManager::cropToCenter(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->extent(Magick::Geometry(640,400,0,0,false,false),Magick::Color(127,127,127),Magick::StaticGravity);
+    //magickImage->extent(Magick::Geometry(640,400,0,0,false,false),Magick::Color(127,127,127),Magick::StaticGravity);
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
@@ -539,10 +558,11 @@ QImage FilterManager::setGamma(const QImage &image, float agamma, int channelId)
     return modifiedImage;
 }
 
-QImage FilterManager::outsideFrame(const QImage &image, int width)
+QImage FilterManager::outsideFrame(const QImage &image, int width, QColor color)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->border(Magick::Geometry(width,width,0,0,false,false));
+    magickImage->borderColor(Magick::ColorRGB(color.redF(), color.greenF(), color.blueF()));
+    magickImage->border(Magick::Geometry(width,width));
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;

@@ -166,7 +166,11 @@ void PointerTool::onMouseRelease(const QPoint &pos)
         d->firstPos = d->secondPos;
     } else
     {
-        emit selectionChanged(QRect(d->firstPos, d->secondPos));
+        if(d->firstPos == d->secondPos) {
+            emit selectionChanged(QRect());
+        } else {
+            emit selectionChanged(QRect(d->firstPos, d->secondPos));
+        }
         emit painted(m_paintDevice);
     }
 }

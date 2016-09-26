@@ -48,7 +48,6 @@ SOURCES += src/main.cpp \
     src/FilterManager.cpp \
     src/ToolManager.cpp \
     src/PaintBrushSettingsWidget.cpp \
-    src/colorboxwidget.cpp \
     src/tools/ColourPickerTool.cpp \
     src/tools/PaintBucketTool.cpp \
     src/tools/PointerTool.cpp \
@@ -56,7 +55,6 @@ SOURCES += src/main.cpp \
     src/registerdialog.cpp \
     src/tools/PaintBrushAdvTool.cpp \
     src/PaintBrushAdvSettingsWidget.cpp \
-    src/brushtypecombobox.cpp \
     src/tools/SprayCanTool.cpp \
     src/tools/LineTool.cpp \
     src/tools/MagicWandTool.cpp \
@@ -76,7 +74,10 @@ SOURCES += src/main.cpp \
     src/outerframedialog.cpp \
     src/BatchProcessWorker.cpp \
     src/batchpregress.cpp \
-    src/huedialog.cpp
+    src/huedialog.cpp \
+    src/gradientdialog.cpp \
+    src/brushtypecombobox.cpp \
+    src/colorboxwidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -90,7 +91,6 @@ HEADERS += src/mainwindow.h \
     src/FilterManager.h \
     src/ToolManager.h \
     src/PaintBrushSettingsWidget.h \
-    src/colorboxwidget.h \
     src/tools/ColourPickerTool.h \
     src/tools/PaintBucketTool.h \
     src/tools/PointerTool.h \
@@ -99,7 +99,6 @@ HEADERS += src/mainwindow.h \
     src/registerdialog.h \
     src/tools/PaintBrushAdvTool.h \
     src/PaintBrushAdvSettingsWidget.h \
-    src/brushtypecombobox.h \
     src/tools/SprayCanTool.h \
     src/tools/LineTool.h \
     src/SprayCanSettingsWidget.h \
@@ -118,7 +117,10 @@ HEADERS += src/mainwindow.h \
     src/outerframedialog.h \
     src/BatchProcessWorker.h \
     src/batchpregress.h \
-    src/huedialog.h
+    src/huedialog.h \
+    src/gradientdialog.h \
+    src/brushtypecombobox.h \
+    src/colorboxwidget.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -141,10 +143,15 @@ FORMS += src/mainwindow.ui \
     src/imagepositionwidget.ui \
     src/outerframedialog.ui \
     src/batchpregress.ui \
-    src/huedialog.ui
+    src/huedialog.ui \
+    src/gradientdialog.ui
 
 RESOURCES += \
     Icons.qrc
+
+include (external/qt-solutions/qtsingleapplication/qtsingleapplication.pri)
+
+INCLUDEPATH += external/qt-solutions/qtsingleapplication
 
 TRANSLATIONS = languages/en.ts\
                 languages/fr.ts

@@ -29,7 +29,7 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QSpinBox" name="borderWidth">
+  <widget class="QSpinBox" name="colorValue">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -44,12 +44,12 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>57</width>
-     <height>15</height>
+     <width>41</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Width</string>
+    <string>Width:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -57,15 +57,33 @@
     <rect>
      <x>130</x>
      <y>20</y>
-     <width>57</width>
-     <height>15</height>
+     <width>41</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Colour</string>
+    <string>Colour:</string>
+   </property>
+  </widget>
+  <widget class="BrushTypeComboBox" name="colorComboBox" native="true">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>40</y>
+     <width>120</width>
+     <height>24</height>
+    </rect>
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BrushTypeComboBox</class>
+   <extends>QWidget</extends>
+   <header>brushtypecombobox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>

@@ -28,6 +28,7 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QShortcut>
 #include <QDateTime>
+#include <QThread>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -56,6 +57,7 @@
 #include "batchpregress.h"
 
 #include "huedialog.h"
+#include "gradientdialog.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
@@ -183,8 +185,6 @@ MainWindow::MainWindow(QWidget *parent) :
     m_scanManager = new ScanManager();
     QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
     QObject::connect(m_scanManager, SIGNAL(scanFinished(int,QProcess::ExitStatus)), this, SLOT(onScanFnished(int,QProcess::ExitStatus)));
-
-
 }
 
 MainWindow::~MainWindow()
@@ -192,16 +192,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::changeEvent(QEvent* event)
+void MainWindow::handleMessage(const QString& message)
 {
-    if (event->type() == QEvent::LanguageChange)
-    {
-        // retranslate designer form (single inheritance approach)
-        ui->retranslateUi(this);
+    QFileInfo fileInfo(message);
+    if(fileInfo.exists()) {
+        openFile(QString(fileInfo.absoluteFilePath()));
     }
-
-    // remember to call base class implementation
-    QMainWindow::changeEvent(event);
 }
 
 void MainWindow::setWindowSize()
@@ -403,6 +399,8 @@ void MainWindow::addPaintWidget(PaintWidget *widget)
         this->zoomCombo->setItemText(0, QString::number((int)(scale*100)).append("%"));
         this->zoomCombo->setCurrentIndex(0);
     });
+
+    connect(widget, &PaintWidget::selectionChanged, this, &MainWindow::onSelectionChanged);
 
     addChildWindow(widget);
 }
@@ -1094,7 +1092,6 @@ void MainWindow::on_actionImage_properties_triggered()
     dialog.exec();
 }
 
-#include <QThread>
 void MainWindow::on_actionAutomate_Batch_triggered()
 {
     batchDialog *dialog = new batchDialog(this);
@@ -1244,7 +1241,13 @@ void MainWindow::on_actionShow_selection_triggered(bool checked)
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->setSelectionVisible(checked);
+        ui->actionCrop->setEnabled(checked && widget->isSelectionVisible());
     }
+}
+
+void MainWindow::onSelectionChanged(bool visible)
+{
+    ui->actionCrop->setEnabled(ui->actionShow_selection->isChecked() && visible);
 }
 
 void MainWindow::on_actionCanvas_Size_triggered()
@@ -1383,7 +1386,7 @@ void MainWindow::on_actionOutside_frame_triggered()
     if (dialog.exec() == QDialog::Accepted) {
         PaintWidget *widget = getCurrentPaintWidget();
         if (widget) {
-            widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),10));
+            widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),dialog.width(),dialog.color()));
         }
     }
 }
@@ -1546,6 +1549,63 @@ void MainWindow::onHuePreviewChanged(QImage image, bool colorize, QColor color, 
     }
 }
 
+void MainWindow::on_actionGradient_triggered()
+{
+    GradientDialog dlg(this);
+    if(dlg.exec()) {
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget) {
+            QImage image = widget->image();
+            QPoint startPoint;
+            QPoint stopPoint;
+            switch (dlg.direction()) {
+            case N:
+                startPoint.setX(image.width()/2);startPoint.setY(0);
+                stopPoint.setX(image.width()/2);stopPoint.setY(image.height());
+                break;
+            case NE:
+                startPoint.setX(image.width());startPoint.setY(0);
+                stopPoint.setX(0);stopPoint.setY(image.height());
+                break;
+            case E:
+                startPoint.setX(image.width());startPoint.setY(image.height()/2);
+                stopPoint.setX(0);stopPoint.setY(image.height()/2);
+                break;
+            case SE:
+                startPoint.setX(image.width());startPoint.setY(image.height());
+                stopPoint.setX(0);stopPoint.setY(0);
+                break;
+            case S:
+                startPoint.setX(image.width()/2);startPoint.setY(image.height());
+                stopPoint.setX(image.width()/2);stopPoint.setY(0);
+                break;
+            case SW:
+                startPoint.setX(0);startPoint.setY(image.height());
+                stopPoint.setX(image.width());stopPoint.setY(0);
+                break;
+            case W:
+                startPoint.setX(0);startPoint.setY(image.height()/2);
+                stopPoint.setX(image.width());stopPoint.setY(image.height()/2);
+                break;
+            case NW:
+                startPoint.setX(0);startPoint.setY(0);
+                stopPoint.setX(image.width());stopPoint.setY(image.height());
+                break;
+            }
+            widget->setImage(FilterManager::instance()->gradient(image,startPoint,stopPoint,dlg.startColor(),dlg.stopColor()));
+        }
+    }
+}
+
+void MainWindow::on_actionCrop_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        MOUSE_POINTER->onCrop();
+        widget->onSelectionChanged(QRect());
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1623,7 +1683,7 @@ void MainWindow::disableUnimplementedActions()
     //ui->actionGammaCorrectminus->setEnabled(false);
     //ui->actionGammaCorrectplus->setEnabled(false);
     ui->actionGamma_correct->setEnabled(false);
-    ui->actionGradient->setEnabled(false);
+//    ui->actionGradient->setEnabled(false);
     //ui->actionGrayScale->setEnabled(false);
     ui->actionHue_Saturation->setEnabled(false);
     //ui->actionHue_variation->setEnabled(false);

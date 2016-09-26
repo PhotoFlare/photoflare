@@ -14,6 +14,7 @@ HueDialog::HueDialog(QWidget *parent, QImage preview) :
                                        stop: 0.48 cyan, stop: 0.64 blue, stop: 0.8 magenta, stop: 1 red);");
 
     m_preview = preview.scaled(240,180);
+    setPreviewImage(m_preview);
 }
 
 HueDialog::~HueDialog()

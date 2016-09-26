@@ -47,7 +47,7 @@ void BrushTypeComboBox::mousePressEvent(QMouseEvent *e)
 {
     if(onClickHandler)
     {
-        onClickHandler->mousePressEvent(e);
+        onClickHandler->mousePressEvent(this,e);
         if(e->isAccepted())
             QComboBox::mousePressEvent(e);
     } else

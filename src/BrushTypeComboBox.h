@@ -6,7 +6,7 @@
 class QComboBoxEventsInterface
 {
 public:
-    virtual void mousePressEvent(QMouseEvent *e) = 0;
+    virtual void mousePressEvent(QComboBox* obj,QMouseEvent *e) = 0;
 };
 
 class BrushTypeComboBox : public QComboBox

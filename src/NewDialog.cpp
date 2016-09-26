@@ -225,7 +225,7 @@ void NewDialog::setMode(Mode mode)
    }
 }
 
-void NewDialog::mousePressEvent(QMouseEvent *e)
+void NewDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
 {
     if(!ui->backgroundColorComboBox->isVisible())
     {

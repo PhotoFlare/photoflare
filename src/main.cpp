@@ -13,12 +13,14 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QtSingleApplication app("PhotoFiltre LX Studio Demo", argc, argv);
 
-    app.setApplicationName(QObject::tr("PhotoFiltre LX Studio Demo"));
-    app.setApplicationVersion(QObject::tr("0.9 demo version (Build 68)"));
-    app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
-    app.setOrganizationName(QObject::tr("photofiltre-lx"));
+    if(!app.isRunning())
+    {
+        app.setApplicationName(QObject::tr("PhotoFiltre LX Studio Demo"));
+        app.setApplicationVersion(QObject::tr("0.9 demo version (Build 61)"));
+        app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
+        app.setOrganizationName(QObject::tr("photofiltre-lx"));
 
     QTranslator translator;
     if(translator.load("languages/fr.qm", app.applicationDirPath()))
@@ -27,17 +29,26 @@ int main(int argc, char *argv[])
         qDebug() << "Translation not loaded";
     app.installTranslator(&translator);
 
-    MainWindow w;
-    w.show();
-
-    if(argc > 1) {
-        for (int i = 0; i < argc; ++i) {
-            QFileInfo fileInfo(argv[i]);
-            if(fileInfo.exists()) {
-                w.openFile(QString(fileInfo.absoluteFilePath()));
+        if(argc > 1) {
+            for (int i = 1; i < argc; ++i) {
+                    w.handleMessage(QString(argv[i]));
+                }
             }
-        }
+
+        app.setActivationWindow(&w, true);
+
+        QObject::connect(&app, SIGNAL(messageReceived(QString)), &w, SLOT(handleMessage(QString)));
+
+        return app.exec();
+
+    } else
+    {
+        if(argc > 1) {
+            for (int i = 1; i < argc; ++i) {
+                    app.sendMessage(QString(argv[i]));
+                }
+            }
     }
 
-    return app.exec();
+    return 0;
 }

@@ -71,7 +71,7 @@ private slots:
     void on_imageHvalue_valueChanged(double arg1);
 
     //QComboBoxEventsInterface methods
-    virtual void mousePressEvent(QMouseEvent *e);
+    virtual void mousePressEvent(QComboBox* obj, QMouseEvent *e);
 
     void on_rotateCheckBox_clicked(bool checked);
 

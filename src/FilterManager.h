@@ -36,6 +36,7 @@ public:
     QImage sepia(const QImage &image);
     QImage colorize(const QImage &image, QColor color);
     QImage hue(const QImage &image, int degrees);
+    QImage gradient(const QImage &image, QPoint startPoint, QPoint stopPoint, QColor startColor, QColor stopColor);
     QImage dustreduction(const QImage &image);
     QImage flipHorz(const QImage &image);
     QImage flipVert(const QImage &image);
@@ -64,7 +65,7 @@ public:
     QImage explode(const QImage &image);
     QImage fitImage(const QImage &image);
     QImage deSpeckle(const QImage &image);
-    QImage outsideFrame(const QImage &image, int width);
+    QImage outsideFrame(const QImage &image, int width, QColor color);
 
     QImage autoLevels(const QImage &image);
     QImage autoContrast(const QImage &image);

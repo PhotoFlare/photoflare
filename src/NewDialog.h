@@ -40,7 +40,7 @@ public:
 
     void onComboBoxPressed();
     //QComboBoxEventsInterface methods
-    virtual void mousePressEvent(QMouseEvent *e);
+    virtual void mousePressEvent(QComboBox* obj,QMouseEvent *e);
 private slots:
     void on_buttonBox_accepted();
 
