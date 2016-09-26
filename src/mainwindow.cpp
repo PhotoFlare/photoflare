@@ -183,11 +183,25 @@ MainWindow::MainWindow(QWidget *parent) :
     m_scanManager = new ScanManager();
     QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
     QObject::connect(m_scanManager, SIGNAL(scanFinished(int,QProcess::ExitStatus)), this, SLOT(onScanFnished(int,QProcess::ExitStatus)));
+
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::LanguageChange)
+    {
+        // retranslate designer form (single inheritance approach)
+        ui->retranslateUi(this);
+    }
+
+    // remember to call base class implementation
+    QMainWindow::changeEvent(event);
 }
 
 void MainWindow::setWindowSize()

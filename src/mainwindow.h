@@ -236,6 +236,7 @@ private:
     void saveGeometryState();
     void createKeyboardShortcuts();
     void disableUnimplementedActions();
+    void changeEvent(QEvent* event);
     //void gsettingsSet(const QString &schema, const QString &key, const QString &value);
     Ui::MainWindow *ui;
     QString m_toolSelected;

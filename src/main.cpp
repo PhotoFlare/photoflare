@@ -9,15 +9,23 @@
 #include <QApplication>
 #include <QFileInfo>
 #include <QTranslator>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
     app.setApplicationName(QObject::tr("PhotoFiltre LX Studio Demo"));
-    app.setApplicationVersion(QObject::tr("0.9 demo version (Build 67)"));
+    app.setApplicationVersion(QObject::tr("0.9 demo version (Build 68)"));
     app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
     app.setOrganizationName(QObject::tr("photofiltre-lx"));
+
+    QTranslator translator;
+    if(translator.load("languages/fr.qm", app.applicationDirPath()))
+        qDebug() << "Loaded translation";
+    else
+        qDebug() << "Translation not loaded";
+    app.installTranslator(&translator);
 
     MainWindow w;
     w.show();
@@ -30,10 +38,6 @@ int main(int argc, char *argv[])
             }
         }
     }
-
-    QTranslator translator;
-    translator.load("fr");
-    app.installTranslator(&translator);
 
     return app.exec();
 }
