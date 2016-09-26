@@ -216,6 +216,29 @@ QImage FilterManager::sepia(const QImage &image)
     return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
 }
 
+QImage FilterManager::colorize(const QImage &image, QColor color)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->modulate(100.0f, 0.0f, 1.0f);
+    magickImage->colorize(20, Magick::ColorRGB(color.redF(), color.greenF(), color.blueF()));
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
+QImage FilterManager::hue(const QImage &image, int degrees)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->modulate(100.0f, 100.0f, degrees*(float)200/(float)360 + 70);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+}
+
 QImage FilterManager::fitImage(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);

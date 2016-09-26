@@ -34,6 +34,8 @@ public:
     QImage grayscale(const QImage &image);
     QImage oldPhoto(const QImage &image);
     QImage sepia(const QImage &image);
+    QImage colorize(const QImage &image, QColor color);
+    QImage hue(const QImage &image, int degrees);
     QImage dustreduction(const QImage &image);
     QImage flipHorz(const QImage &image);
     QImage flipVert(const QImage &image);

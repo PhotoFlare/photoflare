@@ -55,6 +55,8 @@
 #include "BatchProcessWorker.h"
 #include "batchpregress.h"
 
+#include "huedialog.h"
+
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
 #define COLOUR_PICKER ToolManager::instance()->colourPicker()
@@ -1508,6 +1510,28 @@ void MainWindow::on_actionAuto_contrast_triggered()
     }
 }
 
+void MainWindow::on_actionHue_variation_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        HueDialog dlg(this, widget->image());
+        QObject::connect(&dlg, SIGNAL(huePreviewChanged(QImage,bool,QColor,int)), this, SLOT(onHuePreviewChanged(QImage,bool,QColor,int)));
+        if (dlg.exec()) {
+            widget->setImage(FilterManager::instance()->colorize(widget->image(), dlg.color()));
+        }
+    }
+}
+
+void MainWindow::onHuePreviewChanged(QImage image, bool colorize, QColor color, int degrees)
+{
+    HueDialog *dlg = qobject_cast<HueDialog*>(sender());
+    if(colorize) {
+        dlg->setPreviewImage(FilterManager::instance()->colorize(image, color));
+    } else {
+        dlg->setPreviewImage(FilterManager::instance()->hue(image, degrees));
+    }
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1588,7 +1612,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionGradient->setEnabled(false);
     //ui->actionGrayScale->setEnabled(false);
     ui->actionHue_Saturation->setEnabled(false);
-    ui->actionHue_variation->setEnabled(false);
+    //ui->actionHue_variation->setEnabled(false);
     //ui->actionImage_Size->setEnabled(false);
     //ui->actionImage_properties->setEnabled(false);
     ui->actionAcquire_image->setEnabled(true);

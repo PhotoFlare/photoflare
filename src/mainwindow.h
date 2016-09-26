@@ -215,6 +215,9 @@ private slots:
 
     void batchProcess_fileProcessFinished(QString file, QImage image);
     void batchProcess_batchProgress(int index,int total);
+    void on_actionHue_variation_triggered();
+    void onHuePreviewChanged(QImage image, bool colorize, QColor color, int degrees);
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
