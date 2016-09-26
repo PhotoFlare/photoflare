@@ -312,7 +312,16 @@ void batchDialog::on_addFilesButton_clicked()
         d->fileList = QFileDialog::getOpenFileNames(this, tr("Select Files"),
                                                         QString(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
         ui->listWidget->clear();
-        ui->listWidget->addItems(d->fileList);
+        //ui->listWidget->addItems(d->fileList);
+
+        for(QString file : d->fileList)
+        {
+            QListWidgetItem *itm = new QListWidgetItem(file);
+            itm->setSizeHint(QSize(128,64));
+            itm->setIcon(QIcon(file));
+            ui->listWidget->setIconSize(QSize(128,64));
+            ui->listWidget->addItem(itm);
+        }
 }
 
 void batchDialog::on_outFolderPushButton_clicked()

@@ -73,7 +73,8 @@ SOURCES += src/main.cpp \
     src/imagepropertiesdialog.cpp \
     src/batchdialog.cpp \
     src/imagepositionwidget.cpp \
-    src/outerframedialog.cpp
+    src/outerframedialog.cpp \
+    src/BatchProcessWorker.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -112,7 +113,8 @@ HEADERS += src/mainwindow.h \
     src/imagepropertiesdialog.h \
     src/batchdialog.h \
     src/imagepositionwidget.h \
-    src/outerframedialog.h
+    src/outerframedialog.h \
+    src/BatchProcessWorker.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \

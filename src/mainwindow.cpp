@@ -12,7 +12,6 @@
 #include "aboutdialog.h"
 #include "registerdialog.h"
 #include "imagepropertiesdialog.h"
-#include "batchdialog.h"
 #include "outerframedialog.h"
 #include "PaintWidget.h"
 #include "ui_mainwindow.h"
@@ -52,6 +51,8 @@
 #include "ToolManager.h"
 #include "Settings.h"
 #include "FilterManager.h"
+
+#include "BatchProcessWorker.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
@@ -1076,131 +1077,50 @@ void MainWindow::on_actionImage_properties_triggered()
     dialog.exec();
 }
 
+#include <QThread>
 void MainWindow::on_actionAutomate_Batch_triggered()
 {
-    batchDialog dialog(this);
-    if (dialog.exec() == QDialog::Accepted)
+    batchDialog *dialog = new batchDialog(this);
+    if (dialog->exec() == QDialog::Accepted)
     {
-        foreach (QString file, dialog.fileList()) {
-            openFile(file);
-            PaintWidget *widget = getCurrentPaintWidget();
-            if (!widget)
-                continue;
+        QThread *thread = new QThread();
+        BatchProcessWorker *worker = new BatchProcessWorker();
+        worker->setParams(dialog);
+        worker->setParent(this);
+        worker->moveToThread(thread);
 
-            if(dialog.changeImageSize()) {
-                if(!dialog.imageSizeUnits()) {
-                    widget->setImage(widget->image().scaled(dialog.imageSize()));
-                } else {
-                    widget->setImage(widget->image().scaled( QSize(
-                           widget->image().width() * dialog.imageSize().width() / 100,
-                           widget->image().height() * dialog.imageSize().height() / 100)));
-                }
-            }
+        connect(thread, SIGNAL(started()), worker, SLOT(process()));
+        connect(worker, SIGNAL(fileProcessFinished(QString,QImage)), this, SLOT(on_batchProcess_fileProcessFinished(QString,QImage)));
+        connect(worker, SIGNAL(batchProgress(int,int)), this, SLOT(on_batchProcess_batchProgress(int,int)));
 
-            if(dialog.changeCanvasSize())
-            {
-                QImage canvas (dialog.canvasSize(), QImage::Format_ARGB32_Premultiplied);
-                canvas.fill(dialog.backgroundColor());
-                QPoint pos;
-                QPainter painter(&canvas);
-                switch(dialog.imagePosition())
-                {
-                    case LeftTop:
-                        pos = QPoint(0,0);
-                        break;
-                    case CenterTop:
-                        pos = QPoint(canvas.width()/2 - widget->image().width()/2, 0);
-                        break;
-                    case RightTop:
-                        pos = QPoint(canvas.width() - widget->image().width(), 0);
-                        break;
-                    case LeftCenter:
-                        pos = QPoint(0, canvas.height()/2 - widget->image().height()/2);
-                        break;
-                    case CenterCenter:
-                        pos = QPoint(canvas.width()/2 - widget->image().width()/2, canvas.height()/2 - widget->image().height()/2);
-                        break;
-                    case RightCenter:
-                        pos = QPoint(canvas.width() - widget->image().width(), canvas.height()/2 - widget->image().height()/2);
-                        break;
-                    case LeftBottom:
-                        pos = QPoint(0, canvas.height() - widget->image().height());
-                        break;
-                    case CenterBottom:
-                        pos = QPoint(canvas.width()/2 - widget->image().width()/2, canvas.height() - widget->image().height());
-                        break;
-                    case RightBottom:
-                        pos = QPoint(canvas.width() - widget->image().width(), canvas.height() - widget->image().height());
-                        break;
-                }
-                painter.drawImage(pos, widget->image());
-                painter.end();
-                widget->setImage(canvas);
-            }
+        thread->start();
+    }
+}
 
-            foreach (QString filter, dialog.filterList()) {
-                if(filter.contains("Oil"))
-                    widget->setImage(FilterManager::instance()->oilPaint(widget->image()));
-                if(filter.contains("Charcoal"))
-                    widget->setImage(FilterManager::instance()->charcoal(widget->image()));
-                if(filter.contains("Swirl"))
-                    widget->setImage(FilterManager::instance()->swirl(widget->image()));
-                if(filter.contains("Solarize"))
-                    widget->setImage(FilterManager::instance()->solarize(widget->image()));
-                if(filter.contains("Wave"))
-                    widget->setImage(FilterManager::instance()->wave(widget->image()));
-                if(filter.contains("Implode"))
-                    widget->setImage(FilterManager::instance()->implode(widget->image()));
-                if(filter.contains("Blur"))
-                    widget->setImage(FilterManager::instance()->blur(widget->image()));
-                if(filter.contains("Sharpen"))
-                    widget->setImage(FilterManager::instance()->sharpen(widget->image()));
-                if(filter.contains("Reinforce"))
-                    widget->setImage(FilterManager::instance()->reinforce(widget->image()));
-                if(filter.contains("Grayscale"))
-                    widget->setImage(FilterManager::instance()->grayscale(widget->image()));
-            }
+void MainWindow::on_batchProcess_fileProcessFinished(QString file, QImage image)
+{
+    addPaintWidget(createPaintWidget(image.size()));
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(image);
+    }
 
-            switch (dialog.rotate()) {
-                case Rotate90CW:
-                    widget->setImage(FilterManager::instance()->rotateCW(widget->image()));
-                    break;
-                case Rotate90CCW:
-                    widget->setImage(FilterManager::instance()->rotateCCW(widget->image()));
-                    break;
-                case Rotate180:
-                    widget->setImage(FilterManager::instance()->rotateCW(widget->image()));
-                    widget->setImage(FilterManager::instance()->rotateCW(widget->image()));
-                    break;
-                default:
-                    break;
-            }
+    if(saveImage(file))
+    {
+        ui->mdiArea->currentSubWindow()->setWindowModified(false);
+        ui->mdiArea->currentSubWindow()->setWindowTitle(file);
+    }
 
-            switch (dialog.flip()) {
-                case FlipVertical:
-                    widget->setImage(FilterManager::instance()->flipVert(widget->image()));
-                    break;
-                case FlipHorizontal:
-                    widget->setImage(FilterManager::instance()->flipHorz(widget->image()));
-                    break;
-                default:
-                    break;
-            }
+//    dialog.onFinished();
+//    dialog.exec();
+}
 
-            widget->setImage(FilterManager::instance()->setBrightness(widget->image(), dialog.brightness(), dialog.brightnessChannel()));
-            widget->setImage(FilterManager::instance()->setSaturation(widget->image(), dialog.saturation(), dialog.saturationChannel()));
-            widget->setImage(FilterManager::instance()->setContrast(widget->image(), dialog.contrast(), dialog.contrastChannel()));
-            widget->setImage(FilterManager::instance()->setGamma(widget->image(), dialog.gamma(), dialog.gammaChannel()));
-
-            QString newFile = dialog.outDir() + "/" + QFileInfo(file).fileName();
-            if(saveImage(newFile))
-            {
-                ui->mdiArea->currentSubWindow()->setWindowModified(false);
-                ui->mdiArea->currentSubWindow()->setWindowTitle(newFile);
-            }
-        }
-        dialog.onFinished();
-        dialog.exec();
+void MainWindow::on_batchProcess_batchProgress(int index,int total)
+{
+    if(index < total) {
+        this->setWindowTitle(QString("PhotoFiltre LX Studio - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
+    } else {
+        this->setWindowTitle(QString("PhotoFiltre LX Studio"));
     }
 }
 
