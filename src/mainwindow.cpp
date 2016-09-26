@@ -1359,6 +1359,20 @@ void MainWindow::on_actionCanvas_Size_triggered()
     }
 }
 
+void MainWindow::on_actionRevert_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->revert();
+    }
+}
+
+void MainWindow::on_actionBrightplus_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    widget->setImage(FilterManager::instance()->setBrightness(widget->image(), 5, 0));
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1400,7 +1414,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionBounding_box->setEnabled(false);
     ui->actionBright_Contrast->setEnabled(false);
     ui->actionBrightminus->setEnabled(false);
-    ui->actionBrightplus->setEnabled(false);
+    //ui->actionBrightplus->setEnabled(false);
     ui->actionCanvas_Size->setEnabled(true);
     ui->actionCenter->setEnabled(false);
     ui->actionClear->setEnabled(false);
@@ -1476,7 +1490,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionRelief->setEnabled(false);
     ui->actionReplace_colour->setEnabled(false);
     ui->actionReplace_colour_range->setEnabled(false);
-    ui->actionRevert->setEnabled(false);
+    //ui->actionRevert->setEnabled(false);
     //ui->actionRotate_CCW->setEnabled(false);
     //ui->actionRotate_CW->setEnabled(false);
     ui->actionSaturationminus->setEnabled(false);

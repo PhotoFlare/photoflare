@@ -44,6 +44,7 @@ public:
 
     void undo();
     void redo();
+    void revert();
 
     int undoCount();
     bool isUndoEnabled();

@@ -344,6 +344,13 @@ void PaintWidget::onContentChanged()
     historyIndex++;
 }
 
+void PaintWidget::revert()
+{
+    historyIndex = 0;
+    d->setImage(historyList.at(historyIndex));
+    this->contentChanged();
+}
+
 void PaintWidget::undo()
 {
     if(isUndoEnabled())

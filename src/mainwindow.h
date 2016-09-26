@@ -152,6 +152,10 @@ private slots:
 
     void on_actionCanvas_Size_triggered();
 
+    void on_actionRevert_triggered();
+
+    void on_actionBrightplus_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
