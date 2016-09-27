@@ -16,14 +16,14 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>290</x>
      <y>230</y>
-     <width>81</width>
+     <width>151</width>
      <height>61</height>
     </rect>
    </property>
    <property name="orientation">
-    <enum>Qt::Vertical</enum>
+    <enum>Qt::Horizontal</enum>
    </property>
    <property name="standardButtons">
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
@@ -50,7 +50,7 @@
     <rect>
      <x>10</x>
      <y>0</y>
-     <width>31</width>
+     <width>41</width>
      <height>21</height>
     </rect>
    </property>
@@ -970,9 +970,9 @@
   <widget class="QRadioButton" name="method1">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>280</x>
      <y>70</y>
-     <width>141</width>
+     <width>161</width>
      <height>17</height>
     </rect>
    </property>
@@ -986,9 +986,9 @@
   <widget class="QRadioButton" name="method2">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>280</x>
      <y>90</y>
-     <width>121</width>
+     <width>141</width>
      <height>17</height>
     </rect>
    </property>

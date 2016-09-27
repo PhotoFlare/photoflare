@@ -212,7 +212,7 @@
      <string>&amp;Adjust</string>
     </property>
     <addaction name="actionBright_Contrast"/>
-    <addaction name="actionHue_Saturation"/>
+    <addaction name="actionHue_variation"/>
     <addaction name="actionColour_balance"/>
     <addaction name="actionGamma_correct"/>
     <addaction name="separator"/>
@@ -232,7 +232,6 @@
     <addaction name="actionNegative"/>
     <addaction name="actionPosterize"/>
     <addaction name="separator"/>
-    <addaction name="actionHue_variation"/>
    </widget>
    <widget class="QMenu" name="menuFilter">
     <property name="title">
