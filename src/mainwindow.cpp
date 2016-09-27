@@ -95,6 +95,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Disable actions that are not yet implemented.
     disableUnimplementedActions();
+
+    // Create the keyboard shortcut bindings
     createKeyboardShortcuts();
 
     zoomCombo = new QComboBox;
@@ -138,7 +140,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
     connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
 
-    //on_toolButtonPaintBrush_clicked();
     on_toolButtonPointer_clicked();
 
     ui->actionUndo->setEnabled(false);
@@ -186,6 +187,15 @@ MainWindow::MainWindow(QWidget *parent) :
     m_scanManager = new ScanManager();
     QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
     QObject::connect(m_scanManager, SIGNAL(scanFinished(int,QProcess::ExitStatus)), this, SLOT(onScanFnished(int,QProcess::ExitStatus)));
+
+    // Enable/Disable actions implemented depending if we have an image
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        toggleImplementedActions(true);
+    }
+    else {
+        //toggleImplementedActions(false);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -1649,64 +1659,35 @@ void MainWindow::createKeyboardShortcuts() {
 }
 
 // This method disables actions that are not yet implemented.
-// They still appear in menus, but areed out.
 void MainWindow::disableUnimplementedActions()
 {
     ui->actionAged_effect->setEnabled(false);
     ui->actionAntialiasing->setEnabled(false);
-    //ui->actionArtistic->setEnabled(false);
-    //ui->actionAuto_contrast->setEnabled(false);
-    //ui->actionAuto_levels->setEnabled(false);
-    //ui->actionAuto_zoom->setEnabled(false);
-    //ui->actionAutomate_Batch->setEnabled(false);
     ui->actionAutomatic_Crop->setEnabled(false);
     ui->actionAutomatic_transparency->setEnabled(false);
-    //ui->actionBlur->setEnabled(false);
     ui->actionBounding_box->setEnabled(false);
     ui->actionBright_Contrast->setEnabled(false);
-    //ui->actionBrightminus->setEnabled(false);
-    //ui->actionBrightplus->setEnabled(false);
     ui->actionCanvas_Size->setEnabled(true);
     ui->actionCenter->setEnabled(false);
     ui->actionClear->setEnabled(false);
-
     ui->actionColour_balance->setEnabled(false);
     ui->actionContract->setEnabled(false);
-    //ui->actionContrastminus->setEnabled(false);
-    //ui->actionContrastplus->setEnabled(false);
-    //ui->actionCopy->setEnabled(false);
     ui->actionCopy_shape->setEnabled(false);
     ui->actionCopyright->setEnabled(false);
     ui->actionCrop->setEnabled(false);
     ui->actionCut->setEnabled(false);
     ui->actionDefine_pattern->setEnabled(false);
-    //ui->actionDeform->setEnabled(false);
     ui->actionDithering->setEnabled(false);
     ui->actionDuotone->setEnabled(false);
     ui->actionDuplicate->setEnabled(false);
-    //ui->actionDustReduction->setEnabled(false);
-    //ui->actionEdges->setEnabled(false);
     ui->actionExpand->setEnabled(false);
     ui->actionExport_as_icon->setEnabled(false);
     ui->actionFade->setEnabled(false);
     ui->actionFill_with_pattern->setEnabled(false);
-    //ui->actionFilterbar->setEnabled(false);
     ui->actionFit_Image->setEnabled(false);
     ui->actionFit_ratio->setEnabled(false);
-
-    //ui->actionFlip_Horizontal->setEnabled(false);
-    //ui->actionFlip_Vertical->setEnabled(false);
-    //ui->actionFrame->setEnabled(false);
-    //ui->actionFull_screen->setEnabled(false);
-    //ui->actionGammaCorrectminus->setEnabled(false);
-    //ui->actionGammaCorrectplus->setEnabled(false);
     ui->actionGamma_correct->setEnabled(false);
-//    ui->actionGradient->setEnabled(false);
-    //ui->actionGrayScale->setEnabled(false);
     ui->actionHue_Saturation->setEnabled(false);
-    //ui->actionHue_variation->setEnabled(false);
-    //ui->actionImage_Size->setEnabled(false);
-    //ui->actionImage_properties->setEnabled(false);
     ui->actionAcquire_image->setEnabled(true);
     ui->actionIndexed_Mode->setEnabled(false);
     ui->actionInformation->setEnabled(false);
@@ -1717,16 +1698,10 @@ void MainWindow::disableUnimplementedActions()
     ui->actionMore_highlights->setEnabled(false);
     ui->actionMore_shadows->setEnabled(false);
     ui->actionNegative->setEnabled(false);
-    //ui->actionNoise->setEnabled(false);
-
-    //ui->actionOldPhoto->setEnabled(false);
     ui->actionOptimized_Clipping->setEnabled(false);
-    //ui->actionOriginal_size->setEnabled(false);
     ui->actionOther->setEnabled(false);
     ui->actionOutside_drop_shadow->setEnabled(false);
-    //ui->actionOutside_frame->setEnabled(false);
     ui->actionOptions->setEnabled(false);
-    //ui->actionPaste->setEnabled(false);
     ui->actionPaste_and_text_bounding_box->setEnabled(false);
     ui->actionPaste_as_new_image->setEnabled(false);
     ui->actionPaste_shape->setEnabled(false);
@@ -1735,48 +1710,118 @@ void MainWindow::disableUnimplementedActions()
     ui->actionPrint->setEnabled(true);
     ui->actionPurge->setEnabled(false);
     ui->actionRGB_Mode->setEnabled(false);
-    //ui->actionRecent_files->setEnabled(false);
-    //ui->actionRedo->setEnabled(false);
-    //ui->actionReinforce->setEnabled(false);
     ui->actionRelief->setEnabled(false);
     ui->actionReplace_colour->setEnabled(false);
     ui->actionReplace_colour_range->setEnabled(false);
-    //ui->actionRevert->setEnabled(false);
-    //ui->actionRotate_CCW->setEnabled(false);
-    //ui->actionRotate_CW->setEnabled(false);
-    //ui->actionSaturationminus->setEnabled(false);
-    //ui->actionSaturationplus->setEnabled(false);
     ui->actionSave_shape->setEnabled(false);
-    //ui->actionScan->setEnabled(false);
     ui->actionSelect_all->setEnabled(false);
     ui->actionSet_shape->setEnabled(false);
     ui->actionSet_wallpaper->setVisible(false);
-    //ui->actionSharpen->setEnabled(false);
     ui->actionShow_grid->setEnabled(false);
     ui->actionShow_selection->setEnabled(true);
     ui->actionSkew->setEnabled(false);
     ui->actionSnap_to_grid->setEnabled(false);
-    //ui->actionSoften->setEnabled(false);
     ui->actionStroke_and_fill->setEnabled(false);
     ui->actionStylize->setEnabled(false);
     ui->actionSwap_RGB_channel->setEnabled(false);
-    //ui->actionText->setEnabled(false);
     ui->actionTexture->setEnabled(false);
-    //ui->actionToolpalette->setEnabled(false);
     ui->actionTransform->setEnabled(false);
     ui->actionTransform_2->setEnabled(false);
     ui->actionTransparency_mask->setEnabled(false);
     ui->actionTransparent_colour->setEnabled(false);
-    //ui->actionUndo->setEnabled(false);
     ui->actionValidate->setEnabled(false);
+}
 
-    //ui->actionZoom_in->setEnabled(false);
-    //ui->actionZoom_out->setEnabled(false);
+// This method disables actions that are implemented in the case of not having an image open to work on
+void MainWindow::toggleImplementedActions(bool enabledstatus)
+{
+    ui->actionAuto_contrast->setEnabled(enabledstatus);
+       ui->actionAuto_levels->setEnabled(enabledstatus);
+       ui->actionAuto_zoom->setEnabled(enabledstatus);
+       ui->actionAutomate_Batch->setEnabled(enabledstatus);
+       ui->actionBlur->setEnabled(enabledstatus);
+       ui->actionBrightminus->setEnabled(enabledstatus);
+       ui->actionBrightplus->setEnabled(enabledstatus);
+       ui->actionContrastminus->setEnabled(enabledstatus);
+       ui->actionContrastplus->setEnabled(enabledstatus);
+       ui->actionCopy->setEnabled(enabledstatus);
+       ui->actionCanvas_Size->setEnabled(enabledstatus);
+       ui->actionClose->setEnabled(enabledstatus);
+       ui->actionClose_all->setEnabled(enabledstatus);
+       ui->actionDustReduction->setEnabled(enabledstatus);
+       ui->actionFilterbar->setEnabled(enabledstatus);
+       ui->actionFlip_Horizontal->setEnabled(enabledstatus);
+       ui->actionFlip_Vertical->setEnabled(enabledstatus);
+       ui->actionFull_screen->setEnabled(enabledstatus);
+       ui->actionGammaCorrectminus->setEnabled(enabledstatus);
+       ui->actionGammaCorrectplus->setEnabled(enabledstatus);
+       ui->actionGradient->setEnabled(enabledstatus);
+       ui->actionGrayScale->setEnabled(enabledstatus);
+       ui->actionHue_variation->setEnabled(enabledstatus);
+       ui->actionImage_Size->setEnabled(enabledstatus);
+       ui->actionImage_properties->setEnabled(enabledstatus);
+       ui->actionOldPhoto->setEnabled(enabledstatus);
+       ui->actionOriginal_size->setEnabled(enabledstatus);
+       ui->actionOutside_frame->setEnabled(enabledstatus);
+       ui->actionPaste->setEnabled(enabledstatus);
+       ui->actionPrint->setEnabled(enabledstatus);
+       ui->actionRecent_files->setEnabled(enabledstatus);
+       ui->actionRedo->setEnabled(enabledstatus);
+       ui->actionReinforce->setEnabled(enabledstatus);
+       ui->actionRevert->setEnabled(enabledstatus);
+       ui->actionRotate_CCW->setEnabled(enabledstatus);
+       ui->actionRotate_CW->setEnabled(enabledstatus);
+       ui->actionSaturationminus->setEnabled(enabledstatus);
+       ui->actionSaturationplus->setEnabled(enabledstatus);
+       ui->actionScan->setEnabled(enabledstatus);
+       ui->actionSharpen->setEnabled(enabledstatus);
+       ui->actionSoften->setEnabled(enabledstatus);
+       ui->actionSave->setEnabled(enabledstatus);
+       ui->actionSave_As->setEnabled(enabledstatus);
+       ui->actionShow_selection->setEnabled(enabledstatus);
+       ui->actionText->setEnabled(enabledstatus);
+       ui->actionToolpalette->setEnabled(enabledstatus);
+       ui->actionUndo->setEnabled(enabledstatus);
+       ui->actionZoom_in->setEnabled(enabledstatus);
+       ui->actionZoom_out->setEnabled(enabledstatus);
 
-    //ui->toolButtonWand->setEnabled(false);
-    //ui->toolButtonStamp->setEnabled(false);
-    //ui->toolButtonSprayCan->setEnabled(false);
-    //ui->toolButtonPaintBrushAdv->setEnabled(false);
-    //ui->toolButtonLine->setEnabled(false);
-    //ui->toolButtonBlur->setEnabled(false);
+       ui->actionDespeckle->setEnabled(enabledstatus);
+       ui->actionImpulse->setEnabled(enabledstatus);
+       ui->actionLaplacian->setEnabled(enabledstatus);
+       ui->actionGaussian->setEnabled(enabledstatus);
+       ui->actionPoisson->setEnabled(enabledstatus);
+
+       ui->actionSepia->setEnabled(enabledstatus);
+       ui->actionEqualize->setEnabled(enabledstatus);
+       ui->actionNormalize->setEnabled(enabledstatus);
+
+       ui->actionOil_Paint->setEnabled(enabledstatus);
+       ui->actionCharcoal_Drawing->setEnabled(enabledstatus);
+       ui->actionSolarize->setEnabled(enabledstatus);
+
+       ui->actionMotion_blur->setEnabled(enabledstatus);
+
+       ui->actionSwirl->setEnabled(enabledstatus);
+       ui->actionWave->setEnabled(enabledstatus);
+       ui->actionImplode->setEnabled(enabledstatus);
+       ui->actionExplode->setEnabled(enabledstatus);
+
+       ui->actionTrim->setEnabled(enabledstatus);
+       ui->actionCrop_To_Center->setEnabled(enabledstatus);
+       ui->actionAdd_Simple_Frame->setEnabled(enabledstatus);
+       ui->action3D_frame->setEnabled(enabledstatus);
+
+       ui->actionEmboss->setEnabled(enabledstatus);
+
+       ui->actionMonoChromatic->setEnabled(enabledstatus);
+
+       ui->toolButtonDropper->setEnabled(enabledstatus);
+       ui->toolButtonWand->setEnabled(enabledstatus);
+       ui->toolButtonStamp->setEnabled(enabledstatus);
+       ui->toolButtonPaintBrushAdv->setEnabled(enabledstatus);
+       ui->toolButtonLine->setEnabled(enabledstatus);
+       ui->toolButtonPaintBucket->setEnabled(enabledstatus);
+       ui->toolButtonSprayCan->setEnabled(enabledstatus);
+       ui->toolButtonPaintBrush->setEnabled(enabledstatus);
+       ui->toolButtonBlur->setEnabled(enabledstatus);
 }

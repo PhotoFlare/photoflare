@@ -16,6 +16,10 @@ prefsDialog::prefsDialog(QWidget *parent) :
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
+
+    QStringList list(QStringList() << "English" << "French" << "German" );
+    ui->comboBoxLanguage->addItems(list);
+    ui->comboBoxLanguage->setItemIcon(0,QIcon(":/pixmaps/pixmaps/en.png"));
 }
 
 prefsDialog::~prefsDialog()

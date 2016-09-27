@@ -16,6 +16,7 @@
         <file>pixmaps/logo-sml.png</file>
         <file>pixmaps/logo.png</file>
         <file>pixmaps/checkers.png</file>
+        <file>pixmaps/en.png</file>
     </qresource>
     <qresource prefix="/icons">
         <file>icons/autobright.png</file>

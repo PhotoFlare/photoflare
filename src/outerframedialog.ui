@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Outside Frame</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
@@ -57,7 +57,7 @@
     <rect>
      <x>130</x>
      <y>20</y>
-     <width>41</width>
+     <width>61</width>
      <height>16</height>
     </rect>
    </property>
