@@ -16,7 +16,6 @@
         <file>pixmaps/logo-sml.png</file>
         <file>pixmaps/logo.png</file>
         <file>pixmaps/checkers.png</file>
-        <file>pixmaps/en.png</file>
     </qresource>
     <qresource prefix="/icons">
         <file>icons/autobright.png</file>
@@ -83,5 +82,10 @@
         <file>lines/type_6.png</file>
         <file>lines/arrow_1.png</file>
         <file>lines/arrow_2.png</file>
+    </qresource>
+    <qresource prefix="/pixmaps/flags">
+        <file>pixmaps/flags/France.png</file>
+        <file>pixmaps/flags/Germany.png</file>
+        <file>pixmaps/flags/United-kingdom.png</file>
     </qresource>
 </RCC>

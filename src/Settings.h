@@ -27,6 +27,8 @@ public:
     QRect customWindowGeometry() const;
     void addRecentFile(const QString &file);
     QList<QVariant> getRecentFiles() const;
+    void setUserLanguage(const QString language);
+    QString getUserLanguage() const;
 
 private:
     explicit Settings(QObject *parent = 0);

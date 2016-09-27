@@ -17,6 +17,7 @@ public:
         geometry = settings.value("CustomWindowGeometry").toRect();
         recentFiles = settings.value("RecentFiles").toList();
         multiWindowMode = settings.value("MultiWindowMode").toBool();
+        userLanguage = settings.value("UserLanguage").toString();
     }
 
     ~SettingsPrivate()
@@ -34,6 +35,7 @@ public:
     bool multiWindowMode;
     QRect geometry;
     QList<QVariant> recentFiles;
+    QString userLanguage;
     QSettings settings;
 };
 
@@ -109,4 +111,15 @@ void Settings::addRecentFile(const QString &file)
 QList<QVariant> Settings::getRecentFiles() const
 {
     return d->recentFiles;
+}
+
+void Settings::setUserLanguage(const QString language)
+{
+    d->userLanguage = language;
+    d->setValue("UserLanguage",language);
+}
+
+QString Settings::getUserLanguage() const
+{
+    return d->userLanguage;
 }

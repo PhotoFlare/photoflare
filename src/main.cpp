@@ -10,6 +10,7 @@
 #include <QFileInfo>
 #include <QTranslator>
 #include <QtSingleApplication>
+#include "Settings.h"
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -19,11 +20,12 @@ int main(int argc, char *argv[])
         if(!app.isRunning())
         {
             app.setApplicationName(QObject::tr("PhotoFiltre LX Studio Demo"));
-            app.setApplicationVersion(QObject::tr("0.9 demo version (Build 75)"));
+            app.setApplicationVersion(QObject::tr("0.9 demo version (Build 76)"));
             app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
             app.setOrganizationName(QObject::tr("photofiltre-lx"));
 
             QTranslator translator;
+            qDebug() << "userLang" << SETTINGS->getUserLanguage();
             if(translator.load("languages/fr.qm", app.applicationDirPath()))
                 qDebug() << "Loaded translation";
             else
