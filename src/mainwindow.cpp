@@ -58,6 +58,7 @@
 
 #include "huedialog.h"
 #include "gradientdialog.h"
+#include "compressiondialog.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
@@ -249,12 +250,12 @@ void MainWindow::on_actionSave_As_triggered()
     QString suffix = QFileInfo(currentFileName).suffix();
 
     QStringList filters;
-    filters << tr(".png (*.png)");
-    filters << tr(".jpg (*.jpg *.jpeg)");
-    filters << tr(".bmp (*.bmp)");
-    filters << tr(".pbm (*.pbm)");
-    filters << tr(".pgm (*.pgm)");
-    filters << tr(".ppm (*.ppm)");
+    filters << tr("png (*.png)");
+    filters << tr("jpg (*.jpg *.jpeg)");
+    filters << tr("bmp (*.bmp)");
+    filters << tr("pbm (*.pbm)");
+    filters << tr("pgm (*.pgm)");
+    filters << tr("ppm (*.ppm)");
     filters << tr("All Files (*)");
 
     QString defaultFilter;
@@ -285,12 +286,25 @@ void MainWindow::on_actionSave_As_triggered()
         } else {
             QStringList list = defaultFilter.split(" (");
             if (list.count() == 2) {
-                fileName += list.at(0);
+                fileNameSuffix = list.at(0);
+                fileName += "." + fileNameSuffix;
             }
         }
     }
 
-    if (saveImage(fileName)) {
+    int quality = -1;;
+    if(fileNameSuffix == "jpg" || fileNameSuffix == "jpeg")
+    {
+        CompressionDialog dlg;
+        dlg.exec();
+        quality = dlg.quality();
+    }
+
+    if (saveImage(fileName,quality)) {
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget) {
+            widget->setImage(QImage(fileName));
+        }
         ui->mdiArea->currentSubWindow()->setWindowModified(false);
         ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
         SETTINGS->addRecentFile(fileName);
@@ -435,12 +449,12 @@ void MainWindow::saveContent()
         on_actionSave_As_triggered();
     } else
     {
-        saveImage(currentFileName.mid(0,currentFileName.length() - 4));
+        saveImage(currentFileName.mid(0,currentFileName.length() - 4),-1);
         ui->mdiArea->currentSubWindow()->setWindowModified(false);
     }
 }
 
-bool MainWindow::saveImage(const QString &fileName)
+bool MainWindow::saveImage(const QString &fileName, int quality)
 {
     if (fileName.isEmpty())
         return false;
@@ -448,7 +462,7 @@ bool MainWindow::saveImage(const QString &fileName)
     PaintWidget *widget;
     widget = getCurrentPaintWidget();
 
-    return widget ? widget->image().save(fileName) : false;
+    return widget ? widget->image().save(fileName,0,quality) : false;
 }
 
 bool MainWindow::handleCloseChildWindow(QMdiSubWindow *subWindow)
@@ -1123,7 +1137,7 @@ void MainWindow::batchProcess_fileProcessFinished(QString file, QImage image)
         widget->setImage(image);
     }
 
-    if(saveImage(file))
+    if(saveImage(file,-1))
     {
         ui->mdiArea->currentSubWindow()->setWindowModified(false);
         ui->mdiArea->currentSubWindow()->setWindowTitle(file);

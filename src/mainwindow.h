@@ -238,7 +238,7 @@ private:
     void addChildWindow(PaintWidget *widget);
     void on_actionAuto_zoom_triggered(PaintWidget *widget);
     void saveContent();
-    bool saveImage(const QString &fileName);
+    bool saveImage(const QString &fileName, int quality);
     bool handleCloseChildWindow(QMdiSubWindow *subWindow);
     bool handleCloseTabs();
     void saveGeometryState();

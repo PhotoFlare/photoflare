@@ -261,7 +261,7 @@ QImage FilterManager::gradient(const QImage &image, QPoint startPoint, QPoint st
 QImage FilterManager::fitImage(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    //magickImage->thumbnail(Magick::Geometry(640,400,0,0,false,false));
+    magickImage->thumbnail(Magick::Geometry(640,400,0,0,false,false));
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
@@ -338,7 +338,7 @@ QImage FilterManager::simpleFrame(const QImage &image)
 QImage FilterManager::cropToCenter(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    //magickImage->extent(Magick::Geometry(640,400,0,0,false,false),Magick::Color(127,127,127),Magick::StaticGravity);
+    magickImage->extent(Magick::Geometry(640,400,0,0,false,false),Magick::Color(127,127,127),Magick::StaticGravity);
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;

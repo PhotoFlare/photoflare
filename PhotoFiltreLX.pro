@@ -77,7 +77,8 @@ SOURCES += src/main.cpp \
     src/huedialog.cpp \
     src/gradientdialog.cpp \
     src/brushtypecombobox.cpp \
-    src/colorboxwidget.cpp
+    src/colorboxwidget.cpp \
+    src/compressiondialog.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -120,7 +121,8 @@ HEADERS += src/mainwindow.h \
     src/huedialog.h \
     src/gradientdialog.h \
     src/brushtypecombobox.h \
-    src/colorboxwidget.h
+    src/colorboxwidget.h \
+    src/compressiondialog.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -144,7 +146,8 @@ FORMS += src/mainwindow.ui \
     src/outerframedialog.ui \
     src/batchpregress.ui \
     src/huedialog.ui \
-    src/gradientdialog.ui
+    src/gradientdialog.ui \
+    src/compressiondialog.ui
 
 RESOURCES += \
     Icons.qrc
