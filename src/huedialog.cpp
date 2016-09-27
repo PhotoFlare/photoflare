@@ -38,6 +38,7 @@ bool HueDialog::eventFilter(QObject *obj, QEvent *event)
             ui->valueLabel->setText(QString::number(value) + "°");
             ui->horizontalSlider->setValue(value);
             m_color = color;
+            m_degrees = value;
             emit huePreviewChanged(m_preview, ui->method1->isChecked(), color, value);
             return true;
         }
@@ -56,6 +57,7 @@ void HueDialog::on_horizontalSlider_valueChanged(int value)
     palette.setColor(ui->colorLabel->backgroundRole(), color);
     ui->colorLabel->setPalette(palette);
     m_color = color;
+    m_degrees = value;
     emit huePreviewChanged(m_preview, ui->method1->isChecked(), color, value);
 }
 
@@ -67,4 +69,9 @@ void HueDialog::setPreviewImage(const QImage& image)
 void HueDialog::on_method1_toggled(bool checked)
 {
     on_horizontalSlider_valueChanged(ui->horizontalSlider->value());
+}
+
+bool HueDialog::isColorizeMethod() const
+{
+    return ui->method1->isChecked();
 }

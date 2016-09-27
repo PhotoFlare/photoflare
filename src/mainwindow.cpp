@@ -1548,7 +1548,11 @@ void MainWindow::on_actionHue_variation_triggered()
         HueDialog dlg(this, widget->image());
         QObject::connect(&dlg, SIGNAL(huePreviewChanged(QImage,bool,QColor,int)), this, SLOT(onHuePreviewChanged(QImage,bool,QColor,int)));
         if (dlg.exec()) {
-            widget->setImage(FilterManager::instance()->colorize(widget->image(), dlg.color()));
+            if(dlg.isColorizeMethod()) {
+                widget->setImage(FilterManager::instance()->colorize(widget->image(), dlg.color()));
+            } else {
+                widget->setImage(FilterManager::instance()->hue(widget->image(), dlg.degrees()));
+            }
         }
     }
 }

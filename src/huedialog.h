@@ -19,6 +19,9 @@ public:
 
     void setPreviewImage(const QImage& image);
     QColor color() {return m_color;}
+    int degrees() {return m_degrees;}
+    bool isColorizeMethod() const;
+
 private slots:
     void on_horizontalSlider_valueChanged(int value);
 
@@ -30,6 +33,7 @@ private:
     Ui::HueDialog *ui;
     QImage m_preview;
     QColor m_color;
+    int m_degrees;
 };
 
 #endif // HUEDIALOG_H
