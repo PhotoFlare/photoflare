@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BatchPregress</class>
- <widget class="QDialog" name="BatchPregress">
+ <class>BatchProgress</class>
+ <widget class="QDialog" name="BatchProgress">
   <property name="geometry">
    <rect>
     <x>0</x>

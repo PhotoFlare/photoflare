@@ -79,6 +79,8 @@ void BatchProcessWorker:: process()
                 image = FilterManager::instance()->wave(image);
             if(filter.contains("Implode"))
                 image = FilterManager::instance()->implode(image);
+            if(filter.contains("Soften"))
+                image = FilterManager::instance()->soften(image);
             if(filter.contains("Blur"))
                 image = FilterManager::instance()->blur(image);
             if(filter.contains("Sharpen"))
@@ -87,6 +89,30 @@ void BatchProcessWorker:: process()
                 image = FilterManager::instance()->reinforce(image);
             if(filter.contains("Grayscale"))
                 image = FilterManager::instance()->grayscale(image);
+            if(filter.contains("Old Photo"))
+                image = FilterManager::instance()->oldPhoto(image);
+            if(filter.contains("Sepia"))
+                image = FilterManager::instance()->sepia(image);
+            if(filter.contains("Implode"))
+                image = FilterManager::instance()->implode(image);
+            if(filter.contains("Explode"))
+                image = FilterManager::instance()->explode(image);
+            if(filter.contains("Simple Frame"))
+                image = FilterManager::instance()->simpleFrame(image);
+            if(filter.contains("3D Frame"))
+                image = FilterManager::instance()->advFrame(image);
+            if(filter.contains("Normalize"))
+                image = FilterManager::instance()->normalize(image);
+            if(filter.contains("Motion Blur"))
+                image = FilterManager::instance()->motionBlur(image);
+            if(filter.contains("Crop to center"))
+                image = FilterManager::instance()->cropToCenter(image);
+            if(filter.contains("Equalize colours"))
+                image = FilterManager::instance()->equalizeColours(image);
+            if(filter.contains("Monochrome edges"))
+                image = FilterManager::instance()->monoChromeEdges(image);
+            if(filter.contains("Gaussian noise"))
+                image = FilterManager::instance()->gaussianNoise(image);
         }
 
         switch (m_params->rotate()) {

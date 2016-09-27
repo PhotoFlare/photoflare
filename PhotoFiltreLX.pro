@@ -73,12 +73,12 @@ SOURCES += src/main.cpp \
     src/imagepositionwidget.cpp \
     src/outerframedialog.cpp \
     src/BatchProcessWorker.cpp \
-    src/batchpregress.cpp \
     src/huedialog.cpp \
     src/gradientdialog.cpp \
     src/brushtypecombobox.cpp \
     src/colorboxwidget.cpp \
-    src/compressiondialog.cpp
+    src/compressiondialog.cpp \
+    src/batchprogress.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -117,12 +117,12 @@ HEADERS += src/mainwindow.h \
     src/imagepositionwidget.h \
     src/outerframedialog.h \
     src/BatchProcessWorker.h \
-    src/batchpregress.h \
     src/huedialog.h \
     src/gradientdialog.h \
     src/brushtypecombobox.h \
     src/colorboxwidget.h \
-    src/compressiondialog.h
+    src/compressiondialog.h \
+    src/batchprogress.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -144,10 +144,10 @@ FORMS += src/mainwindow.ui \
     src/batchdialog.ui \
     src/imagepositionwidget.ui \
     src/outerframedialog.ui \
-    src/batchpregress.ui \
     src/huedialog.ui \
     src/gradientdialog.ui \
-    src/compressiondialog.ui
+    src/compressiondialog.ui \
+    src/batchprogress.ui
 
 RESOURCES += \
     Icons.qrc

@@ -38,10 +38,23 @@ batchDialog::batchDialog(QWidget *parent) :
     filters << tr("Solarize");
     filters << tr("Wave");
     filters << tr("Implode");
+    filters << tr("Soften");
     filters << tr("Blur");
     filters << tr("Sharpen");
     filters << tr("Reinforce");
     filters << tr("Grayscale");
+    filters << tr("Old Photo");
+    filters << tr("Sepia");
+    filters << tr("Implode");
+    filters << tr("Explode");
+    filters << tr("Simple Frame");
+    filters << tr("3D Frame");
+    filters << tr("Normalize");
+    filters << tr("Motion Blur");
+    filters << tr("Crop to center");
+    filters << tr("Equalize colours");
+    filters << tr("Monochrome edges");
+    filters << tr("Gaussian noise");
     ui->listWidget_2->addItems(filters);
 
     for(int i=Qt::white; i <= Qt::yellow; i++)

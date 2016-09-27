@@ -54,7 +54,7 @@
 #include "FilterManager.h"
 
 #include "BatchProcessWorker.h"
-#include "batchpregress.h"
+#include "batchprogress.h"
 
 #include "huedialog.h"
 #include "gradientdialog.h"
@@ -1131,7 +1131,7 @@ void MainWindow::on_actionAutomate_Batch_triggered()
         connect(worker, SIGNAL(fileProcessFinished(QString,QImage)), this, SLOT(batchProcess_fileProcessFinished(QString,QImage)));
         connect(worker, SIGNAL(batchProgress(int,int)), this, SLOT(batchProcess_batchProgress(int,int)));
 
-        BatchPregress *progress = new BatchPregress(this);
+        BatchProgress *progress = new BatchProgress(this);
         connect(worker, SIGNAL(batchProgress(int,int)), progress, SLOT(progress(int,int)));
         progress->show();
 

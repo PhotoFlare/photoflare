@@ -4,22 +4,22 @@
 #include <QDialog>
 
 namespace Ui {
-class BatchPregress;
+class BatchProgress;
 }
 
-class BatchPregress : public QDialog
+class BatchProgress : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit BatchPregress(QWidget *parent = 0);
-    ~BatchPregress();
+    explicit BatchProgress(QWidget *parent = 0);
+    ~BatchProgress();
 
 public slots:
     void progress(int,int);
 
 private:
-    Ui::BatchPregress *ui;
+    Ui::BatchProgress *ui;
 };
 
 #endif // BATCHPREGRESS_H
