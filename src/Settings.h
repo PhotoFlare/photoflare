@@ -35,6 +35,8 @@ public:
     QString getSaveFolder() const;
     void setSaveFormat(const QString format);
     QString getSaveFormat() const;
+    void setSaveFormatEnabled(const QString enabled);
+    bool getSaveFormatEnabled() const;
 
 private:
     explicit Settings(QObject *parent = 0);

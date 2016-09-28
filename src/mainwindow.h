@@ -46,6 +46,7 @@ public slots:
     void handleMessage(const QString& message);
 
 private slots:
+    void refreshTools();
     void on_actionAbout_triggered();
     void on_actionNew_triggered();
     void on_actionOpen_triggered();

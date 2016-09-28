@@ -10,6 +10,7 @@
 #include <QFileInfo>
 #include <QTranslator>
 #include <QtSingleApplication>
+#include <QStandardPaths>
 #include "Settings.h"
 #include <QDebug>
 
@@ -20,13 +21,15 @@ int main(int argc, char *argv[])
         if(!app.isRunning())
         {
             app.setApplicationName(QObject::tr("PhotoFiltre LX Studio"));
-            app.setApplicationVersion(QObject::tr("version 1.0 (Build 89)"));
+            app.setApplicationVersion(QObject::tr("version 1.0 (Build 90)"));
             app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
             app.setOrganizationName(QObject::tr("photofiltre-lx"));
 
             QTranslator translator;
-            qDebug() << "userLang" << SETTINGS->getUserLanguage();
-            if(translator.load("languages/fr.qm", app.applicationDirPath()))
+            QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+
+            //if(translator.load("languages/fr.qm", app.applicationDirPath()))
+            if(translator.load("languages/"+SETTINGS->getUserLanguage()+".qm", paths[4]))
                 qDebug() << "Loaded translation";
             else
                 qDebug() << "Translation not loaded";

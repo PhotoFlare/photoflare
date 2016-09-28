@@ -28,6 +28,8 @@ private slots:
 
     void on_saveFolderButton_clicked();
 
+    void on_horizontalSlider_sliderMoved(int position);
+
 private:
     Ui::prefsDialog *ui;
 };

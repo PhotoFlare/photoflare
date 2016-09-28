@@ -21,6 +21,7 @@ public:
         openFolder = settings.value("OpenFolder").toString();
         saveFolder = settings.value("SaveFolder").toString();
         saveFormat = settings.value("SaveFormat").toString();
+        saveFormatEnabled = settings.value("SaveFormatEnabled").toString();
     }
 
     ~SettingsPrivate()
@@ -42,6 +43,7 @@ public:
     QString openFolder;
     QString saveFolder;
     QString saveFormat;
+    QString saveFormatEnabled;
     QSettings settings;
 };
 
@@ -162,5 +164,22 @@ void Settings::setSaveFormat(const QString format)
 QString Settings::getSaveFormat() const
 {
     return d->saveFormat;
+}
+
+void Settings::setSaveFormatEnabled(const QString enabled)
+{
+    d->saveFormatEnabled = enabled;
+    d->setValue("saveFormatEnabled",enabled);
+}
+
+bool Settings::getSaveFormatEnabled() const
+{
+    bool checkedState = false;
+    if(d->saveFormatEnabled == "true")
+    {
+        checkedState = true;
+    }
+
+    return checkedState;
 }
 

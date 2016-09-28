@@ -18,6 +18,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
     //Folders tab
     ui->openFolderLineEdit->setText(SETTINGS->getOpenFolder());
     ui->saveFolderLineEdit->setText(SETTINGS->getSaveFolder());
+    ui->saveFormatEnabled->setChecked(SETTINGS->getSaveFormatEnabled());
 
     //Saving tab
     QStringList filters;
@@ -59,9 +60,12 @@ prefsDialog::~prefsDialog()
 
 void prefsDialog::on_buttonBox_accepted()
 {
+    QString saveFormatEnabled = ui->saveFormatEnabled->isChecked() ? "true" : "false";
+
     //Folders tab
     SETTINGS->setOpenFolder(ui->openFolderLineEdit->text());
     SETTINGS->setSaveFolder(ui->saveFolderLineEdit->text());
+    SETTINGS->setSaveFormatEnabled(saveFormatEnabled);
 
     //Saving tab
     SETTINGS->setSaveFormat(QString::number(ui->comboBoxSaveFormat->currentIndex()));
@@ -97,4 +101,10 @@ void prefsDialog::on_saveFolderButton_clicked()
                                                  QFileDialog::ShowDirsOnly
                                                  | QFileDialog::DontResolveSymlinks);
     ui->saveFolderLineEdit->setText(dir);
+}
+
+void prefsDialog::on_horizontalSlider_sliderMoved(int position)
+{
+    QString val = QString::number(position);
+    ui->compressionValue->setText(val);
 }

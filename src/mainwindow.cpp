@@ -142,8 +142,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
     connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
 
-    on_toolButtonPointer_clicked();
-
     ui->actionUndo->setEnabled(false);
     ui->actionRedo->setEnabled(false);
 
@@ -200,6 +198,8 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     transparentDialog = 0;
+
+    on_toolButtonPointer_clicked();
 }
 
 MainWindow::~MainWindow()
@@ -213,7 +213,6 @@ void MainWindow::handleMessage(const QString& message)
     if(fileInfo.exists()) {
         openFile(QString(fileInfo.absoluteFilePath()));
     }
-    on_toolButtonPointer_clicked();
 }
 
 void MainWindow::setWindowSize()
@@ -228,6 +227,51 @@ void MainWindow::setWindowSize()
     }
 }
 
+//Make sure the selected tool is re-enabled when we create/open an image
+void MainWindow::refreshTools()
+{
+    if(m_toolSelected == "pointer")
+    {
+        on_toolButtonPointer_clicked();
+    }
+    if(m_toolSelected == "dropper")
+    {
+        on_toolButtonDropper_clicked();
+    }
+    if(m_toolSelected == "wand")
+    {
+        on_toolButtonWand_clicked();
+    }
+    if(m_toolSelected == "line")
+    {
+        on_toolButtonLine_clicked();
+    }
+    if(m_toolSelected == "paintBucket")
+    {
+        on_toolButtonPaintBucket_clicked();
+    }
+    if(m_toolSelected == "sprayCan")
+    {
+        on_toolButtonSprayCan_clicked();
+    }
+    if(m_toolSelected == "paintBrush")
+    {
+        on_toolButtonPaintBrush_clicked();
+    }
+    if(m_toolSelected == "paintBrushAdv")
+    {
+        on_toolButtonPaintBrushAdv_clicked();
+    }
+    if(m_toolSelected == "stamp")
+    {
+        on_toolButtonStamp_clicked();
+    }
+    if(m_toolSelected == "blur")
+    {
+        on_toolButtonBlur_clicked();
+    }
+}
+
 void MainWindow::on_actionAbout_triggered()
 {
     aboutDialog dialog(this);
@@ -239,7 +283,6 @@ void MainWindow::on_actionNew_triggered()
     NewDialog dialog;
     if (dialog.exec()) {
         addPaintWidget(createPaintWidget(dialog.newImageSize()));
-        on_toolButtonPointer_clicked();
     }
 }
 
@@ -248,7 +291,6 @@ void MainWindow::on_actionOpen_triggered()
     const QString& fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     SETTINGS->getOpenFolder(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
     openFile(fileName);
-    on_toolButtonPointer_clicked();
 }
 
 void MainWindow::on_actionSave_triggered()
@@ -282,7 +324,7 @@ void MainWindow::on_actionSave_As_triggered()
             }
         }
     }
-    if (defaultFilter.isEmpty())
+    if (defaultFilter.isEmpty() && SETTINGS->getSaveFormatEnabled())
         defaultFilter = filters.at(SETTINGS->getSaveFormat().toInt());
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
@@ -467,6 +509,7 @@ void MainWindow::addChildWindow(PaintWidget *widget)
         ui->actionUndo->setEnabled(widget->isUndoEnabled());
         ui->actionRedo->setEnabled(widget->isRedoEnabled());
     });
+    refreshTools();
 }
 
 void MainWindow::saveContent()
