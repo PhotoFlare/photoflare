@@ -653,7 +653,7 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
             if((i == magickImage->columns() - 1) && marked)
                 marked = false;
 
-            if(magickImage->pixelColor(i,j) == Magick::ColorRGB(0, 0, 0) && !marked ||
+            if(magickImage->pixelColor(i,j) == Magick::ColorRGB (0, 0, 0) && !marked ||
                magickImage->pixelColor(i,j) != Magick::ColorRGB(0, 0, 0) && marked )
             {
                 polygon<<QPoint(i,j);
@@ -685,6 +685,42 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
         magickImage->opaque(Magick::ColorRGB(0.01f, 0, 0), Magick::ColorRGB(0, 0, 0));
 
     return polygon;//d->toQtImage(magickImage2.data());
+}
+
+QImage FilterManager::floodFillOpacity(const QImage &image, const QPoint &pos, int tolerance)
+{
+    QScopedPointer<Magick::Image> magickImage( d->fromQtImage(image) );
+
+    Magick::Color targetColor = magickImage->pixelColor(pos.x(), pos.y());
+    bool changeStartColor = (targetColor == Magick::ColorRGB(0, 0, 0)) ? true : false;
+    if(targetColor.alpha() == 1.0f)
+        return image;
+
+    magickImage->colorFuzz(tolerance);
+
+    for(int j=0; j<magickImage->rows(); j++)
+    {
+        for(int i=0; i<magickImage->columns(); i++)
+        {
+            Magick::Color color = magickImage->pixelColor(i,j);
+            if(color.alpha() != 1.0f && color == targetColor)
+            {
+                if(changeStartColor)
+                    magickImage->opaque(Magick::ColorRGB(0, 0, 0), Magick::ColorRGB(1, 1, 1));
+
+                magickImage->floodFillColor(i, j, Magick::ColorRGB(1.0f, 0, 0));
+
+                if(changeStartColor)
+                    magickImage->opaque(Magick::ColorRGB(1, 1, 1), Magick::ColorRGB(0, 0, 0));
+
+                magickImage->transparent(Magick::ColorRGB(1.0f, 0, 0));
+            }
+        }
+    }
+
+    //magickImage->floodFillOpacity(pos.x(), pos.y(), 255, Magick::FloodfillMethod);
+
+    return d->toQtImage(magickImage.data());
 }
 
 FilterManager::FilterManager()

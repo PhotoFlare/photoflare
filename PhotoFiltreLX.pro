@@ -80,7 +80,8 @@ SOURCES += src/main.cpp \
     src/colorboxwidget.cpp \
     src/compressiondialog.cpp \
     src/batchprogress.cpp \
-    src/buydialog.cpp
+    src/buydialog.cpp \
+    src/transparentdialog.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -125,7 +126,8 @@ HEADERS += src/mainwindow.h \
     src/colorboxwidget.h \
     src/compressiondialog.h \
     src/batchprogress.h \
-    src/buydialog.h
+    src/buydialog.h \
+    src/transparentdialog.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -151,7 +153,8 @@ FORMS += src/mainwindow.ui \
     src/gradientdialog.ui \
     src/compressiondialog.ui \
     src/batchprogress.ui \
-    src/buydialog.ui
+    src/buydialog.ui \
+    src/transparentdialog.ui
 
 RESOURCES += \
     Icons.qrc

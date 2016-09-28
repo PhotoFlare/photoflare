@@ -220,6 +220,7 @@ private slots:
     void batchProcess_batchProgress(int index,int total);
     void on_actionHue_variation_triggered();
     void onHuePreviewChanged(QImage image, bool colorize, QColor color, int degrees);
+    void onPreviewTransparent(int tolerance);
 
     void on_actionGradient_triggered();
 
@@ -229,6 +230,8 @@ private slots:
     void on_actionPaste_triggered();
 
     void on_actionCopy_triggered();
+
+    void on_actionTransparent_colour_triggered();
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -261,6 +264,7 @@ private:
     BlurSettingsWidget *m_blurSettingsWidget;
     QComboBox *zoomCombo;
     ScanManager *m_scanManager;
+    QImage origImage;
 };
 
 #endif // MAINWINDOW_H

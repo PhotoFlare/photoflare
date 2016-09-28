@@ -60,6 +60,7 @@
 #include "huedialog.h"
 #include "gradientdialog.h"
 #include "compressiondialog.h"
+#include "transparentdialog.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
@@ -1642,6 +1643,31 @@ void MainWindow::on_actionGradient_triggered()
     }
 }
 
+void MainWindow::on_actionTransparent_colour_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        origImage = widget->image();
+        TransparentDialog dlg;
+        QObject::connect(&dlg, SIGNAL(previewTransparent(int)), this, SLOT(onPreviewTransparent(int)));
+        //dlg.setColor(widget->image().pixel(0,0));
+        if(dlg.exec())
+        {
+            widget->setImage(FilterManager::instance()->floodFillOpacity(widget->image(), QPoint(0,0), dlg.tolerance()));
+        } else {
+            widget->setImage(origImage);
+        }
+    }
+}
+
+void MainWindow::onPreviewTransparent(int tolerance)
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->floodFillOpacity(origImage, QPoint(0,0), tolerance));
+    }
+}
+
 void MainWindow::on_actionCrop_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -1745,7 +1771,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionTransform->setEnabled(false);
     ui->actionTransform_2->setEnabled(false);
     ui->actionTransparency_mask->setEnabled(false);
-    ui->actionTransparent_colour->setEnabled(false);
+    ui->actionTransparent_colour->setEnabled(true);
     ui->actionValidate->setEnabled(false);
 }
 
