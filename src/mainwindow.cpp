@@ -95,7 +95,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Center colorBox in tool palette.
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
-    // Disable actions that are not yet implemented. True = hidden
+    // Disable actions that are not yet implemented. True = hidden, False = Disabled
     disableUnimplementedActions(true);
 
     // Create the keyboard shortcut bindings
@@ -1069,6 +1069,7 @@ void MainWindow::onPaste()
             widget = getCurrentPaintWidget();
             if (widget) {
                 widget->setImage(clipboard->image());
+                widget->setPaintTool(MOUSE_POINTER);
             }
         }
     }
