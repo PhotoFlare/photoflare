@@ -7,6 +7,7 @@
 #include "prefsdialog.h"
 #include "ui_prefsdialog.h"
 #include "Settings.h"
+#include <QFileDialog>
 
 prefsDialog::prefsDialog(QWidget *parent) :
     QDialog(parent),
@@ -14,6 +15,24 @@ prefsDialog::prefsDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Folders tab
+    ui->openFolderLineEdit->setText(SETTINGS->getOpenFolder());
+    ui->saveFolderLineEdit->setText(SETTINGS->getSaveFolder());
+
+    //Saving tab
+    QStringList filters;
+    filters << tr("png (*.png)");
+    filters << tr("jpg (*.jpg *.jpeg)");
+    filters << tr("bmp (*.bmp)");
+    filters << tr("pbm (*.pbm)");
+    filters << tr("pgm (*.pgm)");
+    filters << tr("ppm (*.ppm)");
+
+    ui->comboBoxSaveFormat->addItems(filters);
+
+    ui->comboBoxSaveFormat->setCurrentIndex(SETTINGS->getSaveFormat().toInt());
+
+    //Startup tab
     QStringList list(QStringList() << "English" << "French" << "German" );
     ui->comboBoxLanguage->addItems(list);
     ui->comboBoxLanguage->setItemIcon(0,QIcon(":/pixmaps/flags/pixmaps/flags/United-kingdom.png"));
@@ -40,6 +59,14 @@ prefsDialog::~prefsDialog()
 
 void prefsDialog::on_buttonBox_accepted()
 {
+    //Folders tab
+    SETTINGS->setOpenFolder(ui->openFolderLineEdit->text());
+    SETTINGS->setSaveFolder(ui->saveFolderLineEdit->text());
+
+    //Saving tab
+    SETTINGS->setSaveFormat(QString::number(ui->comboBoxSaveFormat->currentIndex()));
+
+    //Startup tab
     if (ui->checkBoxMaximize->isChecked() != SETTINGS->isMaximizeWindow())
         SETTINGS->setMaximizeWindow(ui->checkBoxMaximize->isChecked());
 
@@ -52,4 +79,22 @@ void prefsDialog::on_buttonBox_accepted()
         SETTINGS->setUserLanguage("fr");
     if(ui->comboBoxLanguage->currentIndex() == 2)
         SETTINGS->setUserLanguage("de");
+}
+
+void prefsDialog::on_openFolderButton_clicked()
+{
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+                                                 "/home",
+                                                 QFileDialog::ShowDirsOnly
+                                                 | QFileDialog::DontResolveSymlinks);
+    ui->openFolderLineEdit->setText(dir);
+}
+
+void prefsDialog::on_saveFolderButton_clicked()
+{
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Save Directory"),
+                                                 "/home",
+                                                 QFileDialog::ShowDirsOnly
+                                                 | QFileDialog::DontResolveSymlinks);
+    ui->saveFolderLineEdit->setText(dir);
 }

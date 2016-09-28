@@ -29,6 +29,12 @@ public:
     QList<QVariant> getRecentFiles() const;
     void setUserLanguage(const QString language);
     QString getUserLanguage() const;
+    void setOpenFolder(const QString folderpath);
+    QString getOpenFolder() const;
+    void setSaveFolder(const QString folderpath);
+    QString getSaveFolder() const;
+    void setSaveFormat(const QString format);
+    QString getSaveFormat() const;
 
 private:
     explicit Settings(QObject *parent = 0);

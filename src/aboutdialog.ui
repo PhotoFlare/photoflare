@@ -98,10 +98,10 @@
   <widget class="QLabel" name="appLogo">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>10</y>
-     <width>200</width>
-     <height>199</height>
+     <x>120</x>
+     <y>30</y>
+     <width>150</width>
+     <height>150</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -110,11 +110,23 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>200</height>
+    </size>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
     <pixmap resource="../Icons.qrc">:/pixmaps/pixmaps/logo.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">

@@ -260,13 +260,13 @@ void MainWindow::on_actionSave_As_triggered()
     QString suffix = QFileInfo(currentFileName).suffix();
 
     QStringList filters;
+    //filters << tr("All Files (*)");
     filters << tr("png (*.png)");
     filters << tr("jpg (*.jpg *.jpeg)");
     filters << tr("bmp (*.bmp)");
     filters << tr("pbm (*.pbm)");
     filters << tr("pgm (*.pgm)");
     filters << tr("ppm (*.ppm)");
-    filters << tr("All Files (*)");
 
     QString defaultFilter;
     if (!suffix.isEmpty()) {
@@ -278,10 +278,10 @@ void MainWindow::on_actionSave_As_triggered()
         }
     }
     if (defaultFilter.isEmpty())
-        defaultFilter = filters.last();
+        defaultFilter = filters.at(SETTINGS->getSaveFormat().toInt());
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-                                                    QString(), filters.join(";;"), &defaultFilter);
+                                                    SETTINGS->getSaveFolder(), filters.join(";;"), &defaultFilter);
 
 
     if (fileName.isEmpty())
@@ -291,15 +291,11 @@ void MainWindow::on_actionSave_As_triggered()
     QString fileNameSuffix = QFileInfo(fileName).suffix();
 
     if (fileNameSuffix.isEmpty()) {
-        if (defaultFilter == filters.last()) {
-            fileName += ".png";// NOTE: Default file extension.
-        } else {
             QStringList list = defaultFilter.split(" (");
             if (list.count() == 2) {
                 fileNameSuffix = list.at(0);
                 fileName += "." + fileNameSuffix;
             }
-        }
     }
 
     int quality = -1;;

@@ -24,6 +24,10 @@ public:
 private slots:
     void on_buttonBox_accepted();
 
+    void on_openFolderButton_clicked();
+
+    void on_saveFolderButton_clicked();
+
 private:
     Ui::prefsDialog *ui;
 };

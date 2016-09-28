@@ -32,7 +32,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../Icons.qrc">
-    <normaloff>:/pixmaps/pixmaps/logo-sml.png</normaloff>:/pixmaps/pixmaps/logo-sml.png</iconset>
+    <normaloff>:/pixmaps/pixmaps/logo.png</normaloff>:/pixmaps/pixmaps/logo.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>

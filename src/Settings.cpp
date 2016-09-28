@@ -18,6 +18,9 @@ public:
         recentFiles = settings.value("RecentFiles").toList();
         multiWindowMode = settings.value("MultiWindowMode").toBool();
         userLanguage = settings.value("UserLanguage").toString();
+        openFolder = settings.value("OpenFolder").toString();
+        saveFolder = settings.value("SaveFolder").toString();
+        saveFormat = settings.value("SaveFormat").toString();
     }
 
     ~SettingsPrivate()
@@ -36,6 +39,9 @@ public:
     QRect geometry;
     QList<QVariant> recentFiles;
     QString userLanguage;
+    QString openFolder;
+    QString saveFolder;
+    QString saveFormat;
     QSettings settings;
 };
 
@@ -123,3 +129,38 @@ QString Settings::getUserLanguage() const
 {
     return d->userLanguage;
 }
+
+void Settings::setOpenFolder(const QString folderpath)
+{
+    d->openFolder = folderpath;
+    d->setValue("OpenFolder",folderpath);
+}
+
+QString Settings::getOpenFolder() const
+{
+    return d->openFolder;
+}
+
+void Settings::setSaveFolder(const QString folderpath)
+{
+    d->saveFolder = folderpath;
+    d->setValue("SaveFolder",folderpath);
+}
+
+QString Settings::getSaveFolder() const
+{
+    return d->saveFolder;
+}
+
+
+void Settings::setSaveFormat(const QString format)
+{
+    d->saveFormat = format;
+    d->setValue("SaveFormat",format);
+}
+
+QString Settings::getSaveFormat() const
+{
+    return d->saveFormat;
+}
+

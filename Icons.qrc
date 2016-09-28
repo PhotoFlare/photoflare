@@ -13,7 +13,6 @@
         <file>icons/swap.png</file>
     </qresource>
     <qresource prefix="/pixmaps">
-        <file>pixmaps/logo-sml.png</file>
         <file>pixmaps/logo.png</file>
         <file>pixmaps/checkers.png</file>
     </qresource>
