@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>176</height>
+    <width>398</width>
+    <height>167</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,6 +21,9 @@
      <width>361</width>
      <height>19</height>
     </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
    </property>
    <property name="maximum">
     <number>100</number>
@@ -39,8 +42,8 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>77</y>
-     <width>61</width>
+     <y>70</y>
+     <width>71</width>
      <height>16</height>
     </rect>
    </property>
@@ -51,8 +54,8 @@
   <widget class="QLabel" name="toleranceValue">
    <property name="geometry">
     <rect>
-     <x>75</x>
-     <y>77</y>
+     <x>100</x>
+     <y>70</y>
      <width>31</width>
      <height>16</height>
     </rect>
@@ -94,10 +97,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>134</y>
+     <y>130</y>
      <width>81</width>
      <height>23</height>
     </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
    </property>
    <property name="text">
     <string>Preview</string>
@@ -106,8 +112,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>224</x>
-     <y>134</y>
+     <x>310</x>
+     <y>130</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -119,8 +125,8 @@
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>306</x>
-     <y>134</y>
+     <x>230</x>
+     <y>130</y>
      <width>75</width>
      <height>23</height>
     </rect>
