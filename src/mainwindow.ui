@@ -305,7 +305,6 @@
       <string>Colour</string>
      </property>
      <addaction name="actionGrayScale"/>
-     <addaction name="actionSepia"/>
      <addaction name="actionOldPhoto"/>
      <addaction name="actionEqualize"/>
      <addaction name="actionNormalize"/>
@@ -953,6 +952,7 @@ QToolButton:checked {
    <addaction name="separator"/>
    <addaction name="actionGrayScale"/>
    <addaction name="actionOldPhoto"/>
+   <addaction name="actionSepia"/>
    <addaction name="separator"/>
    <addaction name="actionDustReduction"/>
    <addaction name="actionSoften"/>
@@ -1724,7 +1724,7 @@ QToolButton:checked {
   <action name="actionOldPhoto">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/oldphoto.png</normaloff>:/icons/icons/oldphoto.png</iconset>
+     <normaloff>:/icons/icons/old_photo.png</normaloff>:/icons/icons/old_photo.png</iconset>
    </property>
    <property name="text">
     <string>Old Photo</string>
@@ -1928,7 +1928,7 @@ QToolButton:checked {
   <action name="actionSepia">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/oldphoto.png</normaloff>:/icons/icons/oldphoto.png</iconset>
+     <normaloff>:/icons/icons/sepia.png</normaloff>:/icons/icons/sepia.png</iconset>
    </property>
    <property name="text">
     <string>Sepia</string>

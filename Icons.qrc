@@ -39,7 +39,6 @@
         <file>icons/index.png</file>
         <file>icons/linked.png</file>
         <file>icons/noicon.png</file>
-        <file>icons/oldphoto.png</file>
         <file>icons/pref.png</file>
         <file>icons/reinforce.png</file>
         <file>icons/rgb.png</file>
@@ -59,6 +58,8 @@
         <file>icons/new.png</file>
         <file>icons/redo.png</file>
         <file>icons/print.png</file>
+        <file>icons/old_photo.png</file>
+        <file>icons/sepia.png</file>
     </qresource>
     <qresource prefix="/brushes">
         <file>brushes/circle.png</file>

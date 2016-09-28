@@ -78,7 +78,8 @@ SOURCES += src/main.cpp \
     src/brushtypecombobox.cpp \
     src/colorboxwidget.cpp \
     src/compressiondialog.cpp \
-    src/batchprogress.cpp
+    src/batchprogress.cpp \
+    src/buydialog.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -122,7 +123,8 @@ HEADERS += src/mainwindow.h \
     src/brushtypecombobox.h \
     src/colorboxwidget.h \
     src/compressiondialog.h \
-    src/batchprogress.h
+    src/batchprogress.h \
+    src/buydialog.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -147,7 +149,8 @@ FORMS += src/mainwindow.ui \
     src/huedialog.ui \
     src/gradientdialog.ui \
     src/compressiondialog.ui \
-    src/batchprogress.ui
+    src/batchprogress.ui \
+    src/buydialog.ui
 
 RESOURCES += \
     Icons.qrc
