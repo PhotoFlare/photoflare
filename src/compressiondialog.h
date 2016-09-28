@@ -16,8 +16,13 @@ public:
     ~CompressionDialog();
 
     int quality() const;
+    bool enableSaveImage;
 private slots:
     void on_horizontalSlider_sliderMoved(int position);
+
+    void on_buttonBox_accepted();
+
+    void on_buttonBox_rejected();
 
 private:
     Ui::CompressionDialog *ui;

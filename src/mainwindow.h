@@ -258,7 +258,7 @@ private:
     bool handleCloseTabs();
     void saveGeometryState();
     void createKeyboardShortcuts();
-    void disableUnimplementedActions();
+    void disableUnimplementedActions(bool hide);
     void toggleImplementedActions(bool enabledstatus);
     //void gsettingsSet(const QString &schema, const QString &key, const QString &value);
     Ui::MainWindow *ui;

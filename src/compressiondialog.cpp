@@ -22,3 +22,13 @@ int CompressionDialog::quality() const
 {
     return ui->horizontalSlider->value();
 }
+
+void CompressionDialog::on_buttonBox_accepted()
+{
+    this->enableSaveImage = true;
+}
+
+void CompressionDialog::on_buttonBox_rejected()
+{
+    this->enableSaveImage = false;
+}

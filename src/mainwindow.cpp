@@ -95,8 +95,8 @@ MainWindow::MainWindow(QWidget *parent) :
     // Center colorBox in tool palette.
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
-    // Disable actions that are not yet implemented.
-    disableUnimplementedActions();
+    // Disable actions that are not yet implemented. True = hidden
+    disableUnimplementedActions(true);
 
     // Create the keyboard shortcut bindings
     createKeyboardShortcuts();
@@ -309,19 +309,36 @@ void MainWindow::on_actionSave_As_triggered()
         CompressionDialog dlg;
         dlg.exec();
         quality = dlg.quality();
-    }
-
-    if (saveImage(fileName,quality)) {
-        PaintWidget *widget = getCurrentPaintWidget();
-        if (widget) {
-            widget->setImage(QImage(fileName));
+        if(dlg.enableSaveImage) //If dialog Accepted
+        {
+            if (saveImage(fileName,quality)) {
+                PaintWidget *widget = getCurrentPaintWidget();
+                if (widget) {
+                    widget->setImage(QImage(fileName));
+                }
+                ui->mdiArea->currentSubWindow()->setWindowModified(false);
+                ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
+                SETTINGS->addRecentFile(fileName);
+                updateRecents();
+            } else {
+                showError(tr("Unable to save image."));
+            }
         }
-        ui->mdiArea->currentSubWindow()->setWindowModified(false);
-        ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
-        SETTINGS->addRecentFile(fileName);
-        updateRecents();
-    } else {
-        showError(tr("Unable to save image."));
+    }
+    else //Other file formats
+    {
+        if (saveImage(fileName,quality)) {
+            PaintWidget *widget = getCurrentPaintWidget();
+            if (widget) {
+                widget->setImage(QImage(fileName));
+            }
+            ui->mdiArea->currentSubWindow()->setWindowModified(false);
+            ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
+            SETTINGS->addRecentFile(fileName);
+            updateRecents();
+        } else {
+            showError(tr("Unable to save image."));
+        }
     }
 }
 
@@ -1749,77 +1766,161 @@ void MainWindow::createKeyboardShortcuts() {
 }
 
 // This method disables actions that are not yet implemented.
-void MainWindow::disableUnimplementedActions()
+void MainWindow::disableUnimplementedActions(bool hide)
 {
-    ui->actionAged_effect->setEnabled(false);
-    ui->actionAntialiasing->setEnabled(false);
-    ui->actionAutomatic_Crop->setEnabled(false);
-    ui->actionAutomatic_transparency->setEnabled(false);
-    ui->actionBounding_box->setEnabled(false);
-    ui->actionBright_Contrast->setEnabled(false);
-    ui->actionCanvas_Size->setEnabled(true);
-    ui->actionCenter->setEnabled(false);
-    ui->actionClear->setEnabled(false);
-    ui->actionColour_balance->setEnabled(false);
-    ui->actionContract->setEnabled(false);
-    ui->actionCopy_shape->setEnabled(false);
-    ui->actionCopyright->setEnabled(false);
-    ui->actionCrop->setEnabled(false);
-    ui->actionCut->setEnabled(false);
-    ui->actionDefine_pattern->setEnabled(false);
-    ui->actionDithering->setEnabled(false);
-    ui->actionDuotone->setEnabled(false);
-    ui->actionDuplicate->setEnabled(false);
-    ui->actionExpand->setEnabled(false);
-    ui->actionExport_as_icon->setEnabled(false);
-    ui->actionFade->setEnabled(false);
-    ui->actionFill_with_pattern->setEnabled(false);
-    ui->actionFit_Image->setEnabled(false);
-    ui->actionFit_ratio->setEnabled(false);
-    ui->actionGamma_correct->setEnabled(false);
-    ui->actionHue_Saturation->setEnabled(false);
-    ui->actionAcquire_image->setEnabled(true);
-    ui->actionIndexed_Mode->setEnabled(true);
-    ui->actionInformation->setEnabled(false);
-    ui->actionInvert->setEnabled(false);
-    ui->actionLevels->setEnabled(false);
-    ui->actionLoad_shape->setEnabled(false);
-    ui->actionManual_settings->setEnabled(false);
-    ui->actionMore_highlights->setEnabled(false);
-    ui->actionMore_shadows->setEnabled(false);
-    ui->actionNegative->setEnabled(false);
-    ui->actionOptimized_Clipping->setEnabled(false);
-    ui->actionOther->setEnabled(false);
-    ui->actionOutside_drop_shadow->setEnabled(false);
-    ui->actionOptions->setEnabled(false);
-    ui->actionPaste_and_text_bounding_box->setEnabled(false);
-    ui->actionPaste_as_new_image->setEnabled(false);
-    ui->actionPaste_shape->setEnabled(false);
-    ui->actionPaste_special->setEnabled(false);
-    ui->actionPosterize->setEnabled(false);
-    ui->actionPrint->setEnabled(true);
-    ui->actionPurge->setEnabled(false);
-    ui->actionRGB_Mode->setEnabled(true);
-    ui->actionRelief->setEnabled(false);
-    ui->actionReplace_colour->setEnabled(false);
-    ui->actionReplace_colour_range->setEnabled(false);
-    ui->actionSave_shape->setEnabled(false);
-    ui->actionSelect_all->setEnabled(false);
-    ui->actionSet_shape->setEnabled(false);
-    ui->actionSet_wallpaper->setVisible(false);
-    ui->actionShow_grid->setEnabled(false);
-    ui->actionShow_selection->setEnabled(true);
-    ui->actionSkew->setEnabled(false);
-    ui->actionSnap_to_grid->setEnabled(false);
-    ui->actionStroke_and_fill->setEnabled(false);
-    ui->actionStylize->setEnabled(false);
-    ui->actionSwap_RGB_channel->setEnabled(false);
-    ui->actionTexture->setEnabled(false);
-    ui->actionTransform->setEnabled(false);
-    ui->actionTransform_2->setEnabled(false);
-    ui->actionTransparency_mask->setEnabled(false);
-    ui->actionTransparent_colour->setEnabled(true);
-    ui->actionValidate->setEnabled(false);
+    if(hide == true)
+    {
+        foreach(QAction* action, ui->menuEdit->actions())
+        { if (action->isSeparator()) ui->menuEdit->removeAction(action);}
+
+        foreach(QAction* action, ui->menuSelection->actions())
+        { if (action->isSeparator()) ui->menuSelection->removeAction(action);}
+
+        foreach(QAction* action, ui->menuAdjust->actions())
+        { if (action->isSeparator()) ui->menuAdjust->removeAction(action);}
+
+        ui->actionAged_effect->setVisible(false);
+        ui->actionAntialiasing->setVisible(false);
+        ui->actionAutomatic_Crop->setVisible(false);
+        ui->actionAutomatic_transparency->setVisible(false);
+        ui->actionBounding_box->setVisible(false);
+        ui->actionBright_Contrast->setVisible(false);
+        ui->actionCanvas_Size->setVisible(true);
+        ui->actionCenter->setVisible(false);
+        ui->actionClear->setVisible(false);
+        ui->actionColour_balance->setVisible(false);
+        ui->actionContract->setVisible(false);
+        ui->actionCopy_shape->setVisible(false);
+        ui->actionCopyright->setVisible(false);
+        ui->actionCrop->setVisible(false);
+        ui->actionCut->setVisible(false);
+        ui->actionDefine_pattern->setVisible(false);
+        ui->actionDithering->setVisible(false);
+        ui->actionDuotone->setVisible(false);
+        ui->actionDuplicate->setVisible(false);
+        ui->actionExpand->setVisible(false);
+        ui->actionExport_as_icon->setVisible(false);
+        ui->actionFade->setVisible(false);
+        ui->actionFill_with_pattern->setVisible(false);
+        ui->actionFit_Image->setVisible(false);
+        ui->actionFit_ratio->setVisible(false);
+        ui->actionGamma_correct->setVisible(false);
+        ui->actionHue_Saturation->setVisible(false);
+        ui->actionAcquire_image->setVisible(true);
+        ui->actionIndexed_Mode->setVisible(true);
+        ui->actionInformation->setVisible(false);
+        ui->actionInvert->setVisible(false);
+        ui->actionLevels->setVisible(false);
+        ui->actionLoad_shape->setVisible(false);
+        ui->actionManual_settings->setVisible(false);
+        ui->actionMore_highlights->setVisible(false);
+        ui->actionMore_shadows->setVisible(false);
+        ui->actionNegative->setVisible(false);
+        ui->actionOptimized_Clipping->setVisible(false);
+        ui->actionOther->setVisible(false);
+        ui->actionOutside_drop_shadow->setVisible(false);
+        ui->actionOptions->setVisible(false);
+        ui->actionPaste_and_text_bounding_box->setVisible(false);
+        ui->actionPaste_as_new_image->setVisible(false);
+        ui->actionPaste_shape->setVisible(false);
+        ui->actionPaste_special->setVisible(false);
+        ui->actionPosterize->setVisible(false);
+        ui->actionPrint->setVisible(true);
+        ui->actionPurge->setVisible(false);
+        ui->actionRGB_Mode->setVisible(true);
+        ui->actionRelief->setVisible(false);
+        ui->actionReplace_colour->setVisible(false);
+        ui->actionReplace_colour_range->setVisible(false);
+        ui->actionSave_shape->setVisible(false);
+        ui->actionSelect_all->setVisible(false);
+        ui->actionSet_shape->setVisible(false);
+        ui->actionSet_wallpaper->setVisible(false);
+        ui->actionShow_grid->setVisible(false);
+        ui->actionShow_selection->setVisible(true);
+        ui->actionSkew->setVisible(false);
+        ui->actionSnap_to_grid->setVisible(false);
+        ui->actionStroke_and_fill->setVisible(false);
+        ui->actionStylize->setVisible(false);
+        ui->actionSwap_RGB_channel->setVisible(false);
+        ui->actionTexture->setVisible(false);
+        ui->actionTransform->setVisible(false);
+        ui->actionTransform_2->setVisible(false);
+        ui->actionTransparency_mask->setVisible(false);
+        ui->actionTransparent_colour->setVisible(true);
+        ui->actionValidate->setVisible(false);
+    }
+    else
+    {
+        ui->actionAged_effect->setEnabled(false);
+        ui->actionAntialiasing->setEnabled(false);
+        ui->actionAutomatic_Crop->setEnabled(false);
+        ui->actionAutomatic_transparency->setEnabled(false);
+        ui->actionBounding_box->setEnabled(false);
+        ui->actionBright_Contrast->setEnabled(false);
+        ui->actionCanvas_Size->setEnabled(true);
+        ui->actionCenter->setEnabled(false);
+        ui->actionClear->setEnabled(false);
+        ui->actionColour_balance->setEnabled(false);
+        ui->actionContract->setEnabled(false);
+        ui->actionCopy_shape->setEnabled(false);
+        ui->actionCopyright->setEnabled(false);
+        ui->actionCrop->setEnabled(false);
+        ui->actionCut->setEnabled(false);
+        ui->actionDefine_pattern->setEnabled(false);
+        ui->actionDithering->setEnabled(false);
+        ui->actionDuotone->setEnabled(false);
+        ui->actionDuplicate->setEnabled(false);
+        ui->actionExpand->setEnabled(false);
+        ui->actionExport_as_icon->setEnabled(false);
+        ui->actionFade->setEnabled(false);
+        ui->actionFill_with_pattern->setEnabled(false);
+        ui->actionFit_Image->setEnabled(false);
+        ui->actionFit_ratio->setEnabled(false);
+        ui->actionGamma_correct->setEnabled(false);
+        ui->actionHue_Saturation->setEnabled(false);
+        ui->actionAcquire_image->setEnabled(true);
+        ui->actionIndexed_Mode->setEnabled(true);
+        ui->actionInformation->setEnabled(false);
+        ui->actionInvert->setEnabled(false);
+        ui->actionLevels->setEnabled(false);
+        ui->actionLoad_shape->setEnabled(false);
+        ui->actionManual_settings->setEnabled(false);
+        ui->actionMore_highlights->setEnabled(false);
+        ui->actionMore_shadows->setEnabled(false);
+        ui->actionNegative->setEnabled(false);
+        ui->actionOptimized_Clipping->setEnabled(false);
+        ui->actionOther->setEnabled(false);
+        ui->actionOutside_drop_shadow->setEnabled(false);
+        ui->actionOptions->setEnabled(false);
+        ui->actionPaste_and_text_bounding_box->setEnabled(false);
+        ui->actionPaste_as_new_image->setEnabled(false);
+        ui->actionPaste_shape->setEnabled(false);
+        ui->actionPaste_special->setEnabled(false);
+        ui->actionPosterize->setEnabled(false);
+        ui->actionPrint->setEnabled(true);
+        ui->actionPurge->setEnabled(false);
+        ui->actionRGB_Mode->setEnabled(true);
+        ui->actionRelief->setEnabled(false);
+        ui->actionReplace_colour->setEnabled(false);
+        ui->actionReplace_colour_range->setEnabled(false);
+        ui->actionSave_shape->setEnabled(false);
+        ui->actionSelect_all->setEnabled(false);
+        ui->actionSet_shape->setEnabled(false);
+        ui->actionSet_wallpaper->setVisible(false);
+        ui->actionShow_grid->setEnabled(false);
+        ui->actionShow_selection->setEnabled(true);
+        ui->actionSkew->setEnabled(false);
+        ui->actionSnap_to_grid->setEnabled(false);
+        ui->actionStroke_and_fill->setEnabled(false);
+        ui->actionStylize->setEnabled(false);
+        ui->actionSwap_RGB_channel->setEnabled(false);
+        ui->actionTexture->setEnabled(false);
+        ui->actionTransform->setEnabled(false);
+        ui->actionTransform_2->setEnabled(false);
+        ui->actionTransparency_mask->setEnabled(false);
+        ui->actionTransparent_colour->setEnabled(true);
+        ui->actionValidate->setEnabled(false);
+    }
 }
 
 // This method disables actions that are implemented in the case of not having an image open to work on
