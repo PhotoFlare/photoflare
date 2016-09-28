@@ -1,1898 +1,2190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<TS version="2.1">
+<context>
+    <name>BatchProgress</name>
+    <message>
+        <location filename="../src/batchprogress.ui" line="14"/>
+        <source>Batch progress</source>
+        <translation>Avancement de l'automatisation</translation>
+    </message>
+</context>
 <context>
     <name>BlurSettingsWidget</name>
     <message>
-        <location filename="src/BlurSettingsWidget.ui" line="14"/>
+        <location filename="../src/BlurSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="src/BlurSettingsWidget.ui" line="35"/>
+        <location filename="../src/BlurSettingsWidget.ui" line="35"/>
         <source>Radius</source>
-        <translation type="unfinished"></translation>
+        <translation>Rayon</translation>
     </message>
     <message>
-        <location filename="src/BlurSettingsWidget.ui" line="60"/>
+        <location filename="../src/BlurSettingsWidget.ui" line="60"/>
         <source>Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation>Pression</translation>
     </message>
 </context>
 <context>
     <name>BrushTypeComboBox</name>
     <message>
-        <location filename="src/BrushTypeComboBox.ui" line="14"/>
+        <location filename="../src/BrushTypeComboBox.ui" line="14"/>
         <source>Form</source>
+        <translation>Forme</translation>
+    </message>
+</context>
+<context>
+    <name>ColorBoxWidget</name>
+    <message>
+        <location filename="../src/ColorBoxWidget.ui" line="19354"/>
+        <source>&lt;</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ColorBoxWidget.ui" line="19367"/>
+        <source>&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CompressionDialog</name>
+    <message>
+        <location filename="../src/compressiondialog.ui" line="14"/>
+        <source>JPEG</source>
+        <translation>JPEG</translation>
+    </message>
+    <message>
+        <location filename="../src/compressiondialog.ui" line="42"/>
+        <source>Compression:</source>
+        <translation>Compression :</translation>
+    </message>
+    <message>
+        <location filename="../src/compressiondialog.ui" line="55"/>
+        <source>90</source>
+        <translation>90</translation>
+    </message>
+    <message>
+        <location filename="../src/compressiondialog.ui" line="96"/>
+        <source>Low quality</source>
+        <translation>Qualité inférieure</translation>
+    </message>
+    <message>
+        <location filename="../src/compressiondialog.ui" line="109"/>
+        <source>Best quality</source>
+        <translation>Qualité supérieure</translation>
+    </message>
+    <message>
+        <location filename="../src/compressiondialog.ui" line="122"/>
+        <source>%</source>
+        <translation>%</translation>
+    </message>
+</context>
+<context>
+    <name>GradientDialog</name>
+    <message>
+        <location filename="../src/gradientdialog.ui" line="14"/>
+        <source>Gradient</source>
+        <translation>Inclinaison</translation>
+    </message>
+    <message>
+        <location filename="../src/gradientdialog.ui" line="42"/>
+        <source>Direction</source>
+        <translation>Sens</translation>
+    </message>
+    <message>
+        <location filename="../src/gradientdialog.ui" line="224"/>
+        <source>Duotone</source>
+        <translation>Bichromie</translation>
+    </message>
+    <message>
+        <location filename="../src/gradientdialog.ui" line="240"/>
+        <source>Monochromatic</source>
+        <translation>Monochrome</translation>
+    </message>
+    <message>
+        <location filename="../src/gradientdialog.ui" line="255"/>
+        <source>Color 1</source>
+        <translation>Couleur 1</translation>
+    </message>
+    <message>
+        <location filename="../src/gradientdialog.ui" line="277"/>
+        <location filename="../src/gradientdialog.ui" line="351"/>
+        <source>Opacity:</source>
+        <translation>Opacité :</translation>
+    </message>
+    <message>
+        <location filename="../src/gradientdialog.ui" line="290"/>
+        <location filename="../src/gradientdialog.ui" line="364"/>
+        <source>0%</source>
+        <translation>0%</translation>
+    </message>
+    <message>
+        <location filename="../src/gradientdialog.ui" line="329"/>
+        <source>Color 2</source>
+        <translation>Couleur 2</translation>
+    </message>
+</context>
+<context>
+    <name>HueDialog</name>
+    <message>
+        <location filename="../src/huedialog.ui" line="14"/>
+        <source>Hue variation</source>
+        <translation>Variation de teinte</translation>
+    </message>
+    <message>
+        <location filename="../src/huedialog.ui" line="42"/>
+        <source>0°</source>
+        <translation>0°</translation>
+    </message>
+    <message>
+        <location filename="../src/huedialog.ui" line="58"/>
+        <source>Color:</source>
+        <translation>Couleur :</translation>
+    </message>
+    <message>
+        <location filename="../src/huedialog.ui" line="980"/>
+        <source>Method1 / Colorize</source>
+        <translation>Méthode 1 / Coloriser</translation>
+    </message>
+    <message>
+        <location filename="../src/huedialog.ui" line="996"/>
+        <source>Method2 / Hue</source>
+        <translation>Méthode 2 / Teinter</translation>
     </message>
 </context>
 <context>
     <name>ImagePositionWidget</name>
     <message>
-        <location filename="src/imagepositionwidget.ui" line="14"/>
+        <location filename="../src/imagepositionwidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
 </context>
 <context>
     <name>LineSettingsWidget</name>
     <message>
-        <location filename="src/LineSettingsWidget.ui" line="14"/>
+        <location filename="../src/LineSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="src/LineSettingsWidget.ui" line="35"/>
+        <location filename="../src/LineSettingsWidget.ui" line="35"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Largeur</translation>
     </message>
     <message>
-        <location filename="src/LineSettingsWidget.ui" line="55"/>
+        <location filename="../src/LineSettingsWidget.ui" line="55"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacité</translation>
     </message>
     <message>
-        <location filename="src/LineSettingsWidget.ui" line="83"/>
+        <location filename="../src/LineSettingsWidget.ui" line="83"/>
         <source>Antialias</source>
-        <translation type="unfinished"></translation>
+        <translation>Anticrénelage</translation>
     </message>
     <message>
-        <location filename="src/LineSettingsWidget.ui" line="103"/>
+        <location filename="../src/LineSettingsWidget.ui" line="103"/>
         <source>Arrow</source>
-        <translation type="unfinished"></translation>
+        <translation>Flèche</translation>
     </message>
     <message>
-        <location filename="src/LineSettingsWidget.ui" line="188"/>
+        <location filename="../src/LineSettingsWidget.ui" line="188"/>
         <source>Style:</source>
-        <translation type="unfinished"></translation>
+        <translation>Style :</translation>
     </message>
 </context>
 <context>
     <name>MagicWandSettingsWidget</name>
     <message>
-        <location filename="src/MagicWandSettingsWidget.ui" line="14"/>
+        <location filename="../src/MagicWandSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="src/MagicWandSettingsWidget.ui" line="35"/>
+        <location filename="../src/MagicWandSettingsWidget.ui" line="35"/>
         <source>Tolerance</source>
-        <translation type="unfinished"></translation>
+        <translation>Tolérance</translation>
     </message>
     <message>
-        <location filename="src/MagicWandSettingsWidget.ui" line="72"/>
+        <location filename="../src/MagicWandSettingsWidget.ui" line="72"/>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="src/mainwindow.ui" line="31"/>
+        <location filename="../src/mainwindow.ui" line="31"/>
         <source>PhotoFiltre LX Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>PhotoFiltre LX Studio</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="80"/>
+        <location filename="../src/mainwindow.ui" line="80"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fichier</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="84"/>
-        <location filename="src/mainwindow.ui" line="1016"/>
+        <location filename="../src/mainwindow.ui" line="84"/>
+        <location filename="../src/mainwindow.ui" line="1019"/>
         <source>Recent Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers récents</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="89"/>
+        <location filename="../src/mainwindow.ui" line="89"/>
         <source>Import TWAIN</source>
-        <translation type="unfinished"></translation>
+        <translation>Import TWAIN</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="113"/>
+        <location filename="../src/mainwindow.ui" line="113"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Edition</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="141"/>
+        <location filename="../src/mainwindow.ui" line="141"/>
         <source>&amp;Image</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Image</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="145"/>
+        <location filename="../src/mainwindow.ui" line="145"/>
         <source>&amp;Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mode</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="152"/>
-        <location filename="src/mainwindow.ui" line="1143"/>
-        <location filename="src/mainwindow.ui" line="1322"/>
+        <location filename="../src/mainwindow.ui" line="152"/>
+        <location filename="../src/mainwindow.ui" line="1146"/>
+        <location filename="../src/mainwindow.ui" line="1325"/>
         <source>Transform</source>
-        <translation type="unfinished"></translation>
+        <translation>Transformation</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="185"/>
+        <location filename="../src/mainwindow.ui" line="185"/>
         <source>&amp;Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sélection</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="212"/>
+        <location filename="../src/mainwindow.ui" line="212"/>
         <source>&amp;Adjust</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ajustement</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="239"/>
+        <location filename="../src/mainwindow.ui" line="238"/>
         <source>&amp;Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Filtre</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="243"/>
+        <location filename="../src/mainwindow.ui" line="242"/>
         <source>Deform</source>
-        <translation type="unfinished"></translation>
+        <translation>Déformer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="252"/>
+        <location filename="../src/mainwindow.ui" line="251"/>
         <source>Artistic</source>
-        <translation type="unfinished"></translation>
+        <translation>Artistique</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="260"/>
-        <location filename="src/mainwindow.ui" line="1463"/>
+        <location filename="../src/mainwindow.ui" line="259"/>
+        <location filename="../src/mainwindow.ui" line="1466"/>
         <source>Soften</source>
-        <translation type="unfinished"></translation>
+        <translation>Atténuation</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="267"/>
-        <location filename="src/mainwindow.ui" line="1472"/>
+        <location filename="../src/mainwindow.ui" line="266"/>
+        <location filename="../src/mainwindow.ui" line="1475"/>
         <source>Sharpen</source>
-        <translation type="unfinished"></translation>
+        <translation>Netteté</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="274"/>
+        <location filename="../src/mainwindow.ui" line="273"/>
         <source>Flatten</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplanir</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="280"/>
+        <location filename="../src/mainwindow.ui" line="279"/>
         <source>Edges</source>
-        <translation type="unfinished"></translation>
+        <translation>Contours</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="286"/>
+        <location filename="../src/mainwindow.ui" line="285"/>
         <source>Noise</source>
-        <translation type="unfinished"></translation>
+        <translation>Bruit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="297"/>
+        <location filename="../src/mainwindow.ui" line="296"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Cadre</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="306"/>
+        <location filename="../src/mainwindow.ui" line="305"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="315"/>
+        <location filename="../src/mainwindow.ui" line="314"/>
         <source>Visual Effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Effet visuel</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="339"/>
+        <location filename="../src/mainwindow.ui" line="338"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Affichage</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="355"/>
+        <location filename="../src/mainwindow.ui" line="354"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Outils</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="366"/>
-        <source>&amp;?</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/mainwindow.ui" line="365"/>
+        <source>&amp;Help</source>
+        <translation>A&amp;ide</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="393"/>
+        <location filename="../src/mainwindow.ui" line="392"/>
         <source>Main ToolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>Barre d'outils principale</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="552"/>
-        <location filename="src/mainwindow.ui" line="587"/>
-        <location filename="src/mainwindow.ui" line="622"/>
-        <location filename="src/mainwindow.ui" line="657"/>
-        <location filename="src/mainwindow.ui" line="717"/>
-        <location filename="src/mainwindow.ui" line="752"/>
-        <location filename="src/mainwindow.ui" line="787"/>
-        <location filename="src/mainwindow.ui" line="822"/>
-        <location filename="src/mainwindow.ui" line="857"/>
-        <location filename="src/mainwindow.ui" line="898"/>
+        <location filename="../src/mainwindow.ui" line="551"/>
+        <location filename="../src/mainwindow.ui" line="586"/>
+        <location filename="../src/mainwindow.ui" line="621"/>
+        <location filename="../src/mainwindow.ui" line="656"/>
+        <location filename="../src/mainwindow.ui" line="691"/>
+        <location filename="../src/mainwindow.ui" line="726"/>
+        <location filename="../src/mainwindow.ui" line="767"/>
+        <location filename="../src/mainwindow.ui" line="802"/>
+        <location filename="../src/mainwindow.ui" line="837"/>
+        <location filename="../src/mainwindow.ui" line="872"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="922"/>
+        <location filename="../src/mainwindow.ui" line="924"/>
         <source>Extra ToolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>Barre d'outils avancée</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="988"/>
+        <location filename="../src/mainwindow.ui" line="991"/>
         <source>&amp;New...</source>
-        <translation>Nouveau</translation>
+        <translation>&amp;Nouveau</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1003"/>
+        <location filename="../src/mainwindow.ui" line="1006"/>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ouvrir</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1011"/>
+        <location filename="../src/mainwindow.ui" line="1014"/>
         <source>Revert</source>
-        <translation type="unfinished"></translation>
+        <translation>Rétablir</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1025"/>
+        <location filename="../src/mainwindow.ui" line="1028"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1033"/>
+        <location filename="../src/mainwindow.ui" line="1036"/>
         <source>&amp;Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer &amp;sous</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1038"/>
+        <location filename="../src/mainwindow.ui" line="1041"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1043"/>
+        <location filename="../src/mainwindow.ui" line="1046"/>
         <source>Close &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tout fermer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1052"/>
+        <location filename="../src/mainwindow.ui" line="1055"/>
         <source>Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1060"/>
+        <location filename="../src/mainwindow.ui" line="1063"/>
         <source>Image Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Propriétés de l'image</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1065"/>
+        <location filename="../src/mainwindow.ui" line="1068"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Quitter</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1074"/>
+        <location filename="../src/mainwindow.ui" line="1077"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Défaire</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1083"/>
+        <location filename="../src/mainwindow.ui" line="1086"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Refaire</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1088"/>
+        <location filename="../src/mainwindow.ui" line="1091"/>
         <source>Fade</source>
-        <translation type="unfinished"></translation>
+        <translation>Estomper</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1093"/>
+        <location filename="../src/mainwindow.ui" line="1096"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Couper</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1098"/>
+        <location filename="../src/mainwindow.ui" line="1101"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1103"/>
+        <location filename="../src/mainwindow.ui" line="1106"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Coller</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1108"/>
+        <location filename="../src/mainwindow.ui" line="1111"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Effacer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1113"/>
+        <location filename="../src/mainwindow.ui" line="1116"/>
         <source>Paste As New Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Coller comme nouvelle image</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1118"/>
+        <location filename="../src/mainwindow.ui" line="1121"/>
         <source>Paste Special</source>
-        <translation type="unfinished"></translation>
+        <translation>Collage spécial</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1123"/>
+        <location filename="../src/mainwindow.ui" line="1126"/>
         <source>Stroke and Fill...</source>
-        <translation type="unfinished"></translation>
+        <translation>Contour et remplissage</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1128"/>
+        <location filename="../src/mainwindow.ui" line="1131"/>
         <source>Optimized Clipping...</source>
-        <translation type="unfinished"></translation>
+        <translation>Découpage optimisé</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1133"/>
+        <location filename="../src/mainwindow.ui" line="1136"/>
         <source>Validate</source>
-        <translation type="unfinished"></translation>
+        <translation>Valider</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1138"/>
+        <location filename="../src/mainwindow.ui" line="1141"/>
         <source>Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>Options</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1148"/>
+        <location filename="../src/mainwindow.ui" line="1151"/>
         <source>Define Pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>Définir le motif</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1153"/>
+        <location filename="../src/mainwindow.ui" line="1156"/>
         <source>Fill With Pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser le motif</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1158"/>
+        <location filename="../src/mainwindow.ui" line="1161"/>
         <source>Purge</source>
-        <translation type="unfinished"></translation>
+        <translation>Purger</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1167"/>
+        <location filename="../src/mainwindow.ui" line="1170"/>
         <source>Flip Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Symétrie verticale</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1176"/>
+        <location filename="../src/mainwindow.ui" line="1179"/>
         <source>Flip Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>Symétrie horizontale</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1181"/>
+        <location filename="../src/mainwindow.ui" line="1184"/>
         <source>Skew...</source>
-        <translation type="unfinished"></translation>
+        <translation>Inclinaison</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1190"/>
+        <location filename="../src/mainwindow.ui" line="1193"/>
         <source>Image Size...</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille de l'image</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1199"/>
+        <location filename="../src/mainwindow.ui" line="1202"/>
         <source>Canvas Size...</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille de la zone de travail</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1204"/>
+        <location filename="../src/mainwindow.ui" line="1207"/>
         <source>Fit Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Adapter l'image</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1209"/>
+        <location filename="../src/mainwindow.ui" line="1212"/>
         <source>Duplicate</source>
-        <translation type="unfinished"></translation>
+        <translation>Dupliquer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1214"/>
+        <location filename="../src/mainwindow.ui" line="1217"/>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>Recadrer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1219"/>
+        <location filename="../src/mainwindow.ui" line="1222"/>
         <source>Automatic Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>Recadrage automatique</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1224"/>
+        <location filename="../src/mainwindow.ui" line="1227"/>
         <source>Outside Frame...</source>
-        <translation type="unfinished"></translation>
+        <translation>Encadrement extérieur</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1229"/>
+        <location filename="../src/mainwindow.ui" line="1232"/>
         <source>Outside Drop Shadow...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ombre extérieure</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1238"/>
+        <location filename="../src/mainwindow.ui" line="1241"/>
         <source>Transparent Colour...</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur de transparence</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1243"/>
+        <location filename="../src/mainwindow.ui" line="1246"/>
         <source>Automatic Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparence automatique</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1248"/>
+        <location filename="../src/mainwindow.ui" line="1251"/>
         <source>Transparency Mask...</source>
-        <translation type="unfinished"></translation>
+        <translation>Masque de transparence</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1257"/>
+        <location filename="../src/mainwindow.ui" line="1260"/>
         <source>Text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1262"/>
+        <location filename="../src/mainwindow.ui" line="1265"/>
         <source>Copyright...</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1277"/>
+        <location filename="../src/mainwindow.ui" line="1280"/>
         <source>Show Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la sélection</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1282"/>
+        <location filename="../src/mainwindow.ui" line="1285"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout sélectionner</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1287"/>
+        <location filename="../src/mainwindow.ui" line="1290"/>
         <source>Set Shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Définir la forme</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1292"/>
+        <location filename="../src/mainwindow.ui" line="1295"/>
         <source>Invert</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverser</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1297"/>
+        <location filename="../src/mainwindow.ui" line="1300"/>
         <source>Manual Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramétrage manuel</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1302"/>
+        <location filename="../src/mainwindow.ui" line="1305"/>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1307"/>
+        <location filename="../src/mainwindow.ui" line="1310"/>
         <source>Fit Ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Définir le format</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1312"/>
+        <location filename="../src/mainwindow.ui" line="1315"/>
         <source>Contract...</source>
-        <translation type="unfinished"></translation>
+        <translation>Rétrécir</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1317"/>
+        <location filename="../src/mainwindow.ui" line="1320"/>
         <source>Expand...</source>
-        <translation type="unfinished"></translation>
+        <translation>Etirer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1327"/>
+        <location filename="../src/mainwindow.ui" line="1330"/>
         <source>Antialiasing</source>
-        <translation type="unfinished"></translation>
+        <translation>Anticrénelage</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1332"/>
+        <location filename="../src/mainwindow.ui" line="1335"/>
         <source>Bounding Box</source>
-        <translation type="unfinished"></translation>
+        <translation>Cadre de sélection</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1337"/>
+        <location filename="../src/mainwindow.ui" line="1340"/>
         <source>Paste and Text Bounding Box</source>
-        <translation type="unfinished"></translation>
+        <translation>Coller et modifier le cadre de sélection</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1342"/>
+        <location filename="../src/mainwindow.ui" line="1345"/>
         <source>Copy Shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier la forme</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1347"/>
+        <location filename="../src/mainwindow.ui" line="1350"/>
         <source>Paste Shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Coller la forme</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1352"/>
+        <location filename="../src/mainwindow.ui" line="1355"/>
         <source>Load Shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger la forme</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1357"/>
+        <location filename="../src/mainwindow.ui" line="1360"/>
         <source>Save Shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer la forme</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1362"/>
+        <location filename="../src/mainwindow.ui" line="1365"/>
         <source>Bright/Contrast...</source>
-        <translation type="unfinished"></translation>
+        <translation>Luminosité/Constraste</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1367"/>
+        <location filename="../src/mainwindow.ui" line="1370"/>
         <source>Hue/Saturation...</source>
-        <translation type="unfinished"></translation>
+        <translation>Teinte/Saturation</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1372"/>
+        <location filename="../src/mainwindow.ui" line="1375"/>
         <source>Colour Balance...</source>
-        <translation type="unfinished"></translation>
+        <translation>Balance des couleurs</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1377"/>
+        <location filename="../src/mainwindow.ui" line="1380"/>
         <source>Gamma Correct...</source>
-        <translation type="unfinished"></translation>
+        <translation>Correction Gamma</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1386"/>
+        <location filename="../src/mainwindow.ui" line="1389"/>
         <source>Auto Levels</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveaux automatiques</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1395"/>
+        <location filename="../src/mainwindow.ui" line="1398"/>
         <source>Auto Contrast</source>
-        <translation type="unfinished"></translation>
+        <translation>Contraste automatique</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1400"/>
+        <location filename="../src/mainwindow.ui" line="1403"/>
         <source>More Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus sombre</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1405"/>
+        <location filename="../src/mainwindow.ui" line="1408"/>
         <source>More Highlights</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus clair</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1410"/>
+        <location filename="../src/mainwindow.ui" line="1413"/>
         <source>Levels...</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveaux</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1415"/>
+        <location filename="../src/mainwindow.ui" line="1418"/>
         <source>Swap RGB Channel...</source>
-        <translation type="unfinished"></translation>
+        <translation>Balance des couleurs</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1420"/>
+        <location filename="../src/mainwindow.ui" line="1423"/>
         <source>Replace Colour...</source>
-        <translation type="unfinished"></translation>
+        <translation>Remplacer une couleur</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1425"/>
+        <location filename="../src/mainwindow.ui" line="1428"/>
         <source>Replace Colour Range...</source>
-        <translation type="unfinished"></translation>
+        <translation>Remplacer une gamme de couleur</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1430"/>
+        <location filename="../src/mainwindow.ui" line="1433"/>
         <source>Duotone...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bichromie</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1435"/>
+        <location filename="../src/mainwindow.ui" line="1438"/>
         <source>Dithering</source>
-        <translation type="unfinished"></translation>
+        <translation>Tramage</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1440"/>
+        <location filename="../src/mainwindow.ui" line="1443"/>
         <source>Negative</source>
-        <translation type="unfinished"></translation>
+        <translation>Négatif</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1445"/>
+        <location filename="../src/mainwindow.ui" line="1448"/>
         <source>Posterize...</source>
-        <translation type="unfinished"></translation>
+        <translation>Poster</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1454"/>
+        <location filename="../src/mainwindow.ui" line="1457"/>
         <source>Hue Variation...</source>
-        <translation type="unfinished"></translation>
+        <translation>Variation de teinte</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1477"/>
+        <location filename="../src/mainwindow.ui" line="1480"/>
         <source>Relief</source>
-        <translation type="unfinished"></translation>
+        <translation>Relief</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1482"/>
+        <location filename="../src/mainwindow.ui" line="1485"/>
         <source>Stylize</source>
-        <translation type="unfinished"></translation>
+        <translation>Style</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1487"/>
+        <location filename="../src/mainwindow.ui" line="1490"/>
         <source>Aged Effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Effet vieilli</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1492"/>
+        <location filename="../src/mainwindow.ui" line="1495"/>
         <source>Texture</source>
-        <translation type="unfinished"></translation>
+        <translation>Texture</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1497"/>
+        <location filename="../src/mainwindow.ui" line="1500"/>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Autre</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1502"/>
+        <location filename="../src/mainwindow.ui" line="1505"/>
         <source>Filterbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Barre de filtres</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1507"/>
+        <location filename="../src/mainwindow.ui" line="1510"/>
         <source>Toolpalette</source>
-        <translation type="unfinished"></translation>
+        <translation>Palette d'outils</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1512"/>
+        <location filename="../src/mainwindow.ui" line="1515"/>
         <source>Show Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la grille</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1517"/>
+        <location filename="../src/mainwindow.ui" line="1520"/>
         <source>Snap To Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>Aligner sur la grille</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1522"/>
+        <location filename="../src/mainwindow.ui" line="1525"/>
         <source>Zoom In</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom avant</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1527"/>
+        <location filename="../src/mainwindow.ui" line="1530"/>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom arrière</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1532"/>
+        <location filename="../src/mainwindow.ui" line="1535"/>
         <source>Original Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille originale</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1537"/>
+        <location filename="../src/mainwindow.ui" line="1540"/>
         <source>Auto Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom automatique</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1542"/>
+        <location filename="../src/mainwindow.ui" line="1545"/>
         <source>Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Plein écran</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1551"/>
+        <location filename="../src/mainwindow.ui" line="1554"/>
         <source>Automate/Batch...</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisation</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1556"/>
+        <location filename="../src/mainwindow.ui" line="1559"/>
         <source>Set Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Fond d'écran</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1561"/>
+        <location filename="../src/mainwindow.ui" line="1564"/>
         <source>Export As Icon...</source>
-        <translation type="unfinished"></translation>
+        <translation>Créer une icône</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1570"/>
+        <location filename="../src/mainwindow.ui" line="1573"/>
         <source>&amp;Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Préférences</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1575"/>
+        <location filename="../src/mainwindow.ui" line="1578"/>
         <source>Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informations</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1580"/>
+        <location filename="../src/mainwindow.ui" line="1583"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;A propos</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1589"/>
-        <location filename="src/mainwindow.ui" line="1592"/>
+        <location filename="../src/mainwindow.ui" line="1592"/>
+        <location filename="../src/mainwindow.ui" line="1595"/>
         <source>Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Numériser</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1601"/>
+        <location filename="../src/mainwindow.ui" line="1604"/>
         <source>RGB Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode RVB</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1610"/>
+        <location filename="../src/mainwindow.ui" line="1613"/>
         <source>Indexed Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode indexé</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1619"/>
+        <location filename="../src/mainwindow.ui" line="1622"/>
         <source>brightminus</source>
-        <translation type="unfinished"></translation>
+        <translation>Moins lumineux</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1622"/>
+        <location filename="../src/mainwindow.ui" line="1625"/>
         <source>Brightness (-)</source>
-        <translation type="unfinished"></translation>
+        <translation>Luminosité (-)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1631"/>
+        <location filename="../src/mainwindow.ui" line="1634"/>
         <source>Brightplus</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus lumineux</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1634"/>
+        <location filename="../src/mainwindow.ui" line="1637"/>
         <source>Brightness (+)</source>
-        <translation type="unfinished"></translation>
+        <translation>Luminosité (+)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1643"/>
+        <location filename="../src/mainwindow.ui" line="1646"/>
         <source>contrastminus</source>
-        <translation type="unfinished"></translation>
+        <translation>Moins contrasté</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1646"/>
+        <location filename="../src/mainwindow.ui" line="1649"/>
         <source>Contrast (-)</source>
-        <translation type="unfinished"></translation>
+        <translation>Contraste (-)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1655"/>
+        <location filename="../src/mainwindow.ui" line="1658"/>
         <source>contrastplus</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus contrasté</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1658"/>
+        <location filename="../src/mainwindow.ui" line="1661"/>
         <source>Contrast (+)</source>
-        <translation type="unfinished"></translation>
+        <translation>Constraste (+)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1667"/>
+        <location filename="../src/mainwindow.ui" line="1670"/>
         <source>saturationminus</source>
-        <translation type="unfinished"></translation>
+        <translation>Moins saturé</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1670"/>
+        <location filename="../src/mainwindow.ui" line="1673"/>
         <source>Saturation (-)</source>
-        <translation type="unfinished"></translation>
+        <translation>Saturation (-)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1679"/>
+        <location filename="../src/mainwindow.ui" line="1682"/>
         <source>saturationplus</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus saturé</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1682"/>
+        <location filename="../src/mainwindow.ui" line="1685"/>
         <source>Saturation (+)</source>
-        <translation type="unfinished"></translation>
+        <translation>Saturation (+)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1691"/>
+        <location filename="../src/mainwindow.ui" line="1694"/>
         <source>gammaCorrectminus</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamma plus faible</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1694"/>
+        <location filename="../src/mainwindow.ui" line="1697"/>
         <source>Gamma Correct (-)</source>
-        <translation type="unfinished"></translation>
+        <translation>Correction Gamma (-)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1703"/>
+        <location filename="../src/mainwindow.ui" line="1706"/>
         <source>gammaCorrectplus</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamma plus élevé</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1706"/>
+        <location filename="../src/mainwindow.ui" line="1709"/>
         <source>Gamma Correct (+)</source>
-        <translation type="unfinished"></translation>
+        <translation>Correction Gamma (+)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1715"/>
-        <location filename="src/mainwindow.ui" line="1718"/>
+        <location filename="../src/mainwindow.ui" line="1718"/>
+        <location filename="../src/mainwindow.ui" line="1721"/>
         <source>Gray Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveaux de gris</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1727"/>
+        <location filename="../src/mainwindow.ui" line="1730"/>
         <source>Old Photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Photo ancienne</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1730"/>
+        <location filename="../src/mainwindow.ui" line="1733"/>
         <source>Old Photography</source>
-        <translation type="unfinished"></translation>
+        <translation>Photographie ancienne</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1739"/>
-        <location filename="src/mainwindow.ui" line="1742"/>
+        <location filename="../src/mainwindow.ui" line="1742"/>
+        <location filename="../src/mainwindow.ui" line="1745"/>
         <source>Dust Reduction</source>
-        <translation type="unfinished"></translation>
+        <translation>Anti-poussière</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1751"/>
-        <location filename="src/mainwindow.ui" line="1754"/>
+        <location filename="../src/mainwindow.ui" line="1754"/>
+        <location filename="../src/mainwindow.ui" line="1757"/>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>Flou</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1763"/>
-        <location filename="src/mainwindow.ui" line="1766"/>
+        <location filename="../src/mainwindow.ui" line="1766"/>
+        <location filename="../src/mainwindow.ui" line="1769"/>
         <source>Reinforce</source>
-        <translation type="unfinished"></translation>
+        <translation>Renforcement</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1775"/>
+        <location filename="../src/mainwindow.ui" line="1778"/>
         <source>gradient</source>
-        <translation type="unfinished"></translation>
+        <translation>inclinaison</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1778"/>
+        <location filename="../src/mainwindow.ui" line="1781"/>
         <source>Gradient</source>
-        <translation type="unfinished"></translation>
+        <translation>Inclinaison</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1787"/>
+        <location filename="../src/mainwindow.ui" line="1790"/>
         <source>Rotate CCW</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotation anti-horaire</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1796"/>
+        <location filename="../src/mainwindow.ui" line="1799"/>
         <source>Rotate CW</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotation horaire</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1801"/>
+        <location filename="../src/mainwindow.ui" line="1804"/>
         <source>&amp;Oil Paint</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Peinture à l'huile</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1806"/>
+        <location filename="../src/mainwindow.ui" line="1809"/>
         <source>&amp;Charcoal Drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Crayon noir</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1811"/>
+        <location filename="../src/mainwindow.ui" line="1814"/>
         <source>Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourbillon</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1816"/>
+        <location filename="../src/mainwindow.ui" line="1819"/>
         <source>Register</source>
-        <translation type="unfinished"></translation>
+        <translation>S'enregistrer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1821"/>
+        <location filename="../src/mainwindow.ui" line="1824"/>
         <source>Acquire image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Numériser une image</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1826"/>
+        <location filename="../src/mainwindow.ui" line="1829"/>
         <source>Select source...</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir la source</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1831"/>
+        <location filename="../src/mainwindow.ui" line="1834"/>
         <source>Solarize</source>
-        <translation type="unfinished"></translation>
+        <translation>Solarisation</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1836"/>
+        <location filename="../src/mainwindow.ui" line="1839"/>
         <source>Wave</source>
-        <translation type="unfinished"></translation>
+        <translation>Vagues</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1841"/>
+        <location filename="../src/mainwindow.ui" line="1844"/>
         <source>Implode</source>
-        <translation type="unfinished"></translation>
+        <translation>Implosion</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1846"/>
+        <location filename="../src/mainwindow.ui" line="1849"/>
         <source>Emboss</source>
-        <translation type="unfinished"></translation>
+        <translation>Ciseler</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1851"/>
+        <location filename="../src/mainwindow.ui" line="1854"/>
         <source>Trim</source>
-        <translation type="unfinished"></translation>
+        <translation>Rogner</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1856"/>
+        <location filename="../src/mainwindow.ui" line="1859"/>
         <source>Gaussian</source>
-        <translation type="unfinished"></translation>
+        <translation>Gaussien</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1861"/>
+        <location filename="../src/mainwindow.ui" line="1864"/>
         <source>Impulse</source>
-        <translation type="unfinished"></translation>
+        <translation>Impulsion</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1866"/>
+        <location filename="../src/mainwindow.ui" line="1869"/>
         <source>Laplacian</source>
-        <translation type="unfinished"></translation>
+        <translation>Laplacien</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1871"/>
+        <location filename="../src/mainwindow.ui" line="1874"/>
         <source>Poisson</source>
-        <translation type="unfinished"></translation>
+        <translation>Poisson</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1876"/>
+        <location filename="../src/mainwindow.ui" line="1879"/>
         <source>MonoChromatic</source>
-        <translation type="unfinished"></translation>
+        <translation>Monochrome</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1881"/>
+        <location filename="../src/mainwindow.ui" line="1884"/>
         <source>Equalize</source>
-        <translation type="unfinished"></translation>
+        <translation>Egaliser</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1886"/>
-        <location filename="src/mainwindow.ui" line="1889"/>
+        <location filename="../src/mainwindow.ui" line="1889"/>
+        <location filename="../src/mainwindow.ui" line="1892"/>
         <source>Crop center</source>
-        <translation type="unfinished"></translation>
+        <translation>Recadrage centré</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1894"/>
-        <location filename="src/mainwindow.ui" line="1897"/>
+        <location filename="../src/mainwindow.ui" line="1897"/>
+        <location filename="../src/mainwindow.ui" line="1900"/>
         <source>Simple frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Cadre simple</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1902"/>
+        <location filename="../src/mainwindow.ui" line="1905"/>
         <source>Motion blur</source>
-        <translation type="unfinished"></translation>
+        <translation>Flou de mouvement</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1907"/>
+        <location filename="../src/mainwindow.ui" line="1910"/>
         <source>Normalize</source>
-        <translation type="unfinished"></translation>
+        <translation>Normaliser</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1912"/>
+        <location filename="../src/mainwindow.ui" line="1915"/>
         <source>3D frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Cadre 3D</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1917"/>
+        <location filename="../src/mainwindow.ui" line="1920"/>
         <source>Explode</source>
-        <translation type="unfinished"></translation>
+        <translation>Explosion</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1922"/>
+        <location filename="../src/mainwindow.ui" line="1925"/>
         <source>Despeckle</source>
-        <translation type="unfinished"></translation>
+        <translation>Dépoussiérer</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="218"/>
+        <location filename="../src/mainwindow.ui" line="1934"/>
+        <source>Sepia</source>
+        <translation>Sepia</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="245"/>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir un fichier</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="219"/>
+        <location filename="../src/mainwindow.cpp" line="246"/>
         <source>Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers images (*.png *.jpg *.jpeg *.gif);;Tous les fichiers (*)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="238"/>
-        <source>.png (*.png)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/mainwindow.cpp" line="279"/>
+        <source>png (*.png)</source>
+        <translation>png (*.png)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="239"/>
-        <source>.jpg (*.jpg *.jpeg)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/mainwindow.cpp" line="280"/>
+        <source>jpg (*.jpg *.jpeg)</source>
+        <translation>jpg (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="240"/>
-        <source>.bmp (*.bmp)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/mainwindow.cpp" line="281"/>
+        <source>bmp (*.bmp)</source>
+        <translation>bmp (*.bmp)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="241"/>
-        <source>.pbm (*.pbm)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/mainwindow.cpp" line="282"/>
+        <source>pbm (*.pbm)</source>
+        <translation>pbm (*.pbm)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="242"/>
-        <source>.pgm (*.pgm)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/mainwindow.cpp" line="283"/>
+        <source>pgm (*.pgm)</source>
+        <translation>pgm (*.pgm)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="243"/>
-        <source>.ppm (*.ppm)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/mainwindow.cpp" line="284"/>
+        <source>ppm (*.ppm)</source>
+        <translation>ppm (*.ppm)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="244"/>
-        <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/mainwindow.cpp" line="258"/>
+        <location filename="../src/mainwindow.cpp" line="298"/>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer le fichier</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="285"/>
+        <location filename="../src/mainwindow.cpp" line="334"/>
         <source>Unable to save image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de sauvegarde l'image</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="446"/>
+        <location filename="../src/mainwindow.cpp" line="497"/>
         <source>Unsaved Changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifications non sauvegardées</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="446"/>
+        <location filename="../src/mainwindow.cpp" line="497"/>
         <source>Save changes before leaving?</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer avant de quitter ?</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="869"/>
+        <location filename="../src/mainwindow.cpp" line="920"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur</translation>
     </message>
 </context>
 <context>
     <name>NewDialog</name>
     <message>
-        <location filename="src/NewDialog.ui" line="19"/>
+        <location filename="../src/NewDialog.ui" line="19"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="47"/>
-        <location filename="src/NewDialog.ui" line="241"/>
+        <location filename="../src/NewDialog.ui" line="47"/>
+        <location filename="../src/NewDialog.ui" line="241"/>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Largeur :</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="82"/>
-        <location filename="src/NewDialog.ui" line="254"/>
+        <location filename="../src/NewDialog.ui" line="82"/>
+        <location filename="../src/NewDialog.ui" line="254"/>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauteur :</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="114"/>
+        <location filename="../src/NewDialog.ui" line="114"/>
         <source>Resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>Résolution :</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="137"/>
+        <location filename="../src/NewDialog.ui" line="137"/>
         <source>Preset Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille prédéfinie :</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="154"/>
+        <location filename="../src/NewDialog.ui" line="154"/>
         <source>100 x 100 pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>100 x 100 pixels</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="159"/>
+        <location filename="../src/NewDialog.ui" line="159"/>
         <source>640 x 480 pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>640 x 480 pixels</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="164"/>
+        <location filename="../src/NewDialog.ui" line="164"/>
         <source>800 x 600 pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>800 x 600 pixels</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="182"/>
+        <location filename="../src/NewDialog.ui" line="182"/>
         <source>Pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Pixels</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="187"/>
+        <location filename="../src/NewDialog.ui" line="187"/>
         <source>Cm</source>
-        <translation type="unfinished"></translation>
+        <translation>Cm</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="192"/>
+        <location filename="../src/NewDialog.ui" line="192"/>
         <source>Inches</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouces</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="207"/>
+        <location filename="../src/NewDialog.ui" line="207"/>
         <source>Pixels/cm</source>
-        <translation type="unfinished"></translation>
+        <translation>Pixels/cm</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="212"/>
+        <location filename="../src/NewDialog.ui" line="212"/>
         <source>Pixels/inch</source>
-        <translation type="unfinished"></translation>
+        <translation>Pixels/pouce</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="226"/>
+        <location filename="../src/NewDialog.ui" line="226"/>
         <source>Size in Pixels/Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille en pixels/Mémoire</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="267"/>
+        <location filename="../src/NewDialog.ui" line="267"/>
         <source>Memory:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mémoire :</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="344"/>
+        <location filename="../src/NewDialog.ui" line="344"/>
         <source>New Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvelle taille :</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="408"/>
+        <location filename="../src/NewDialog.ui" line="408"/>
         <source>Position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Position :</translation>
     </message>
     <message>
-        <location filename="src/NewDialog.ui" line="422"/>
+        <location filename="../src/NewDialog.ui" line="422"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
 </context>
 <context>
     <name>OuterFrameDialog</name>
     <message>
-        <location filename="src/outerframedialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/outerframedialog.ui" line="14"/>
+        <source>Outside Frame</source>
+        <translation>Cadre extérieur</translation>
     </message>
     <message>
-        <location filename="src/outerframedialog.ui" line="52"/>
-        <source>Width</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/outerframedialog.ui" line="52"/>
+        <source>Width:</source>
+        <translation>Largeur :</translation>
     </message>
     <message>
-        <location filename="src/outerframedialog.ui" line="65"/>
-        <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/outerframedialog.ui" line="65"/>
+        <source>Colour:</source>
+        <translation>Couleur :</translation>
     </message>
 </context>
 <context>
     <name>PaintBrushAdvSettingsWidget</name>
     <message>
-        <location filename="src/PaintBrushAdvSettingsWidget.ui" line="14"/>
+        <location filename="../src/PaintBrushAdvSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="src/PaintBrushAdvSettingsWidget.ui" line="56"/>
+        <location filename="../src/PaintBrushAdvSettingsWidget.ui" line="56"/>
         <source>Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation>Pression</translation>
     </message>
     <message>
-        <location filename="src/PaintBrushAdvSettingsWidget.ui" line="90"/>
+        <location filename="../src/PaintBrushAdvSettingsWidget.ui" line="90"/>
         <source>Step</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas</translation>
     </message>
     <message>
-        <location filename="src/PaintBrushAdvSettingsWidget.ui" line="123"/>
+        <location filename="../src/PaintBrushAdvSettingsWidget.ui" line="123"/>
         <source>Fade</source>
-        <translation type="unfinished"></translation>
+        <translation>Fondu</translation>
     </message>
 </context>
 <context>
     <name>PaintBrushSettingsWidget</name>
     <message>
-        <location filename="src/PaintBrushSettingsWidget.ui" line="14"/>
+        <location filename="../src/PaintBrushSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="src/PaintBrushSettingsWidget.ui" line="24"/>
-        <location filename="src/PaintBrushSettingsWidget.ui" line="60"/>
+        <location filename="../src/PaintBrushSettingsWidget.ui" line="24"/>
+        <location filename="../src/PaintBrushSettingsWidget.ui" line="60"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
-        <location filename="src/PaintBrushSettingsWidget.ui" line="97"/>
+        <location filename="../src/PaintBrushSettingsWidget.ui" line="97"/>
         <source>&amp;Radius:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rayon</translation>
     </message>
     <message>
-        <location filename="src/PaintBrushSettingsWidget.ui" line="131"/>
+        <location filename="../src/PaintBrushSettingsWidget.ui" line="131"/>
         <source>&amp;Anti-aliasing</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Anticrénelage</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="src/main.cpp" line="16"/>
+        <location filename="../src/main.cpp" line="22"/>
         <source>PhotoFiltre LX Studio Demo</source>
-        <translation type="unfinished"></translation>
+        <translation>Démo PhotoFiltre LX Studio</translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="17"/>
-        <source>0.9 demo version (Build 61)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/main.cpp" line="23"/>
+        <source>1.0 demo version (Build 80)</source>
+        <translation>Version 1.0 (Build 80) de démonstration </translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="18"/>
+        <location filename="../src/main.cpp" line="24"/>
         <source>photofiltre-lx.org</source>
-        <translation type="unfinished"></translation>
+        <translation>photofiltre-lx.org</translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="19"/>
+        <location filename="../src/main.cpp" line="25"/>
         <source>photofiltre-lx</source>
-        <translation type="unfinished"></translation>
+        <translation>photofiltre-lx</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="69"/>
+        <location filename="../src/mainwindow.cpp" line="78"/>
         <source>Untitled</source>
-        <translation type="unfinished"></translation>
+        <translation>Sans-titre</translation>
     </message>
 </context>
 <context>
     <name>ScanDevicesDialog</name>
     <message>
-        <location filename="src/scandevicesdialog.ui" line="14"/>
+        <location filename="../src/scandevicesdialog.ui" line="14"/>
         <source>Select source</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner la source</translation>
     </message>
 </context>
 <context>
     <name>SprayCanSettingsWidget</name>
     <message>
-        <location filename="src/SprayCanSettingsWidget.ui" line="14"/>
+        <location filename="../src/SprayCanSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="src/SprayCanSettingsWidget.ui" line="35"/>
+        <location filename="../src/SprayCanSettingsWidget.ui" line="35"/>
         <source>Radius</source>
-        <translation type="unfinished"></translation>
+        <translation>Rayon</translation>
     </message>
     <message>
-        <location filename="src/SprayCanSettingsWidget.ui" line="60"/>
+        <location filename="../src/SprayCanSettingsWidget.ui" line="60"/>
         <source>Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation>Pression</translation>
     </message>
     <message>
-        <location filename="src/SprayCanSettingsWidget.ui" line="94"/>
+        <location filename="../src/SprayCanSettingsWidget.ui" line="94"/>
         <source>Dispersion</source>
-        <translation type="unfinished"></translation>
+        <translation>Dispersion</translation>
     </message>
     <message>
-        <location filename="src/SprayCanSettingsWidget.ui" line="127"/>
+        <location filename="../src/SprayCanSettingsWidget.ui" line="127"/>
         <source>Rainbow</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc-en-ciel</translation>
     </message>
 </context>
 <context>
     <name>StampSettingsWidget</name>
     <message>
-        <location filename="src/StampSettingsWidget.ui" line="14"/>
+        <location filename="../src/StampSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="src/StampSettingsWidget.ui" line="35"/>
+        <location filename="../src/StampSettingsWidget.ui" line="35"/>
         <source>Radius</source>
-        <translation type="unfinished"></translation>
+        <translation>Rayon</translation>
     </message>
     <message>
-        <location filename="src/StampSettingsWidget.ui" line="60"/>
+        <location filename="../src/StampSettingsWidget.ui" line="60"/>
         <source>Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation>Pression</translation>
     </message>
     <message>
-        <location filename="src/StampSettingsWidget.ui" line="94"/>
+        <location filename="../src/StampSettingsWidget.ui" line="94"/>
         <source>Step</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas</translation>
     </message>
     <message>
-        <location filename="src/StampSettingsWidget.ui" line="127"/>
+        <location filename="../src/StampSettingsWidget.ui" line="127"/>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixe</translation>
     </message>
     <message>
-        <location filename="src/StampSettingsWidget.ui" line="134"/>
+        <location filename="../src/StampSettingsWidget.ui" line="134"/>
         <source>Precise</source>
-        <translation type="unfinished"></translation>
+        <translation>Précision</translation>
     </message>
     <message>
-        <location filename="src/StampSettingsWidget.ui" line="141"/>
+        <location filename="../src/StampSettingsWidget.ui" line="141"/>
         <source>Diffuse</source>
-        <translation type="unfinished"></translation>
+        <translation>Diffusion</translation>
     </message>
 </context>
 <context>
     <name>aboutDialog</name>
     <message>
-        <location filename="src/aboutdialog.ui" line="22"/>
+        <location filename="../src/aboutdialog.ui" line="22"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>A propos</translation>
     </message>
     <message>
-        <location filename="src/aboutdialog.ui" line="34"/>
+        <location filename="../src/aboutdialog.ui" line="34"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
-        <location filename="src/aboutdialog.ui" line="47"/>
+        <location filename="../src/aboutdialog.ui" line="47"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="src/aboutdialog.ui" line="63"/>
-        <location filename="src/aboutdialog.ui" line="76"/>
-        <location filename="src/aboutdialog.ui" line="89"/>
+        <location filename="../src/aboutdialog.ui" line="63"/>
+        <location filename="../src/aboutdialog.ui" line="76"/>
+        <location filename="../src/aboutdialog.ui" line="89"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>Label</translation>
     </message>
     <message>
-        <location filename="src/aboutdialog.ui" line="130"/>
+        <location filename="../src/aboutdialog.ui" line="142"/>
         <source>C&amp;redits</source>
-        <translation type="unfinished"></translation>
+        <translation>C&amp;redits</translation>
     </message>
     <message>
-        <location filename="src/aboutdialog.cpp" line="18"/>
-        <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/aboutdialog.cpp" line="18"/>
+        <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
+        <translation>&lt;b&gt;Développeurs&lt;/b&gt;&lt;br&gt;Commercial &lt;br&gt;Responsable - Dylan Coakley&lt;br&gt;Développeur - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Design&lt;/b&gt;&lt;br&gt;Icône principale - Robert BM&lt;br&gt;Design du site - Raqasa&lt;br&gt;Icônes de l'application - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Supports promotionnels&lt;/b&gt;&lt;br&gt;Concepteur graphique - Catherine Fister&lt;br&gt;Publicité - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributeurs&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Icône du projet&lt;br&gt;&lt;br&gt;&lt;b&gt;Remerciements spéciaux&lt;/b&gt;&lt;br&gt;J'aimerais remercier Samantha d'être une personne aussi merveilleuse. Tu illumines ma vie et je suis fier de t'avoir trouvée.</translation>
     </message>
     <message>
-        <location filename="src/aboutdialog.cpp" line="25"/>
+        <location filename="../src/aboutdialog.cpp" line="43"/>
         <source>A simple but featureful editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un éditeur simple et puissant.</translation>
     </message>
     <message>
-        <location filename="src/aboutdialog.cpp" line="26"/>
+        <location filename="../src/aboutdialog.cpp" line="44"/>
         <source>&lt;a href=&apos;http://www.photofiltre-lx.org&apos;&gt;http://www.photofiltre-lx.org&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&apos;http://www.photofiltre-lx.org&apos;&gt;http://www.photofiltre-lx.org&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
     <name>batchDialog</name>
     <message>
-        <location filename="src/batchdialog.ui" line="14"/>
+        <location filename="../src/batchdialog.ui" line="14"/>
         <source>Automate/Batch</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisation</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="49"/>
+        <location filename="../src/batchdialog.ui" line="49"/>
         <source>Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="77"/>
+        <location filename="../src/batchdialog.ui" line="77"/>
         <source>Source Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Format source</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="100"/>
+        <location filename="../src/batchdialog.ui" line="100"/>
         <source>Output Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Dossier de sortie</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="126"/>
+        <location filename="../src/batchdialog.ui" line="126"/>
         <source>Output Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Format de sortie</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="155"/>
+        <location filename="../src/batchdialog.ui" line="155"/>
         <source>Add Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter des fichiers</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="168"/>
+        <location filename="../src/batchdialog.ui" line="168"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="174"/>
+        <location filename="../src/batchdialog.ui" line="174"/>
         <source>Image Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille de l'image</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="186"/>
+        <location filename="../src/batchdialog.ui" line="186"/>
         <source>Image size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille de l'image</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="202"/>
-        <location filename="src/batchdialog.ui" line="335"/>
+        <location filename="../src/batchdialog.ui" line="202"/>
+        <location filename="../src/batchdialog.ui" line="335"/>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauteur :</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="265"/>
-        <location filename="src/batchdialog.ui" line="319"/>
+        <location filename="../src/batchdialog.ui" line="265"/>
+        <location filename="../src/batchdialog.ui" line="319"/>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Largeur :</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="281"/>
+        <location filename="../src/batchdialog.ui" line="281"/>
         <source>Preserve aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Conserver les proportions</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="348"/>
+        <location filename="../src/batchdialog.ui" line="348"/>
         <source>Canvas size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille de la zone de travail</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="393"/>
+        <location filename="../src/batchdialog.ui" line="393"/>
         <source>Pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Pixels</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="398"/>
+        <location filename="../src/batchdialog.ui" line="398"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="415"/>
+        <location filename="../src/batchdialog.ui" line="415"/>
         <source>Unit:</source>
-        <translation type="unfinished"></translation>
+        <translation>Unité :</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="444"/>
+        <location filename="../src/batchdialog.ui" line="444"/>
         <source>Background:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrière-plan :</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="473"/>
+        <location filename="../src/batchdialog.ui" line="473"/>
         <source>Position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Position :</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="479"/>
+        <location filename="../src/batchdialog.ui" line="479"/>
         <source>Adjust Levels</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveaux</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="601"/>
-        <location filename="src/batchdialog.ui" line="646"/>
-        <location filename="src/batchdialog.ui" line="691"/>
-        <location filename="src/batchdialog.ui" line="736"/>
+        <location filename="../src/batchdialog.ui" line="601"/>
+        <location filename="../src/batchdialog.ui" line="646"/>
+        <location filename="../src/batchdialog.ui" line="691"/>
+        <location filename="../src/batchdialog.ui" line="736"/>
         <source>&lt;Alls&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Tous&amp;gt</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="606"/>
-        <location filename="src/batchdialog.ui" line="651"/>
-        <location filename="src/batchdialog.ui" line="696"/>
-        <location filename="src/batchdialog.ui" line="741"/>
+        <location filename="../src/batchdialog.ui" line="606"/>
+        <location filename="../src/batchdialog.ui" line="651"/>
+        <location filename="../src/batchdialog.ui" line="696"/>
+        <location filename="../src/batchdialog.ui" line="741"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Rouge</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="611"/>
-        <location filename="src/batchdialog.ui" line="656"/>
-        <location filename="src/batchdialog.ui" line="701"/>
-        <location filename="src/batchdialog.ui" line="746"/>
+        <location filename="../src/batchdialog.ui" line="611"/>
+        <location filename="../src/batchdialog.ui" line="656"/>
+        <location filename="../src/batchdialog.ui" line="701"/>
+        <location filename="../src/batchdialog.ui" line="746"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>Vert</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="616"/>
-        <location filename="src/batchdialog.ui" line="661"/>
-        <location filename="src/batchdialog.ui" line="706"/>
-        <location filename="src/batchdialog.ui" line="751"/>
+        <location filename="../src/batchdialog.ui" line="616"/>
+        <location filename="../src/batchdialog.ui" line="661"/>
+        <location filename="../src/batchdialog.ui" line="706"/>
+        <location filename="../src/batchdialog.ui" line="751"/>
         <source>Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Bleu</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="621"/>
-        <location filename="src/batchdialog.ui" line="666"/>
-        <location filename="src/batchdialog.ui" line="711"/>
-        <location filename="src/batchdialog.ui" line="756"/>
+        <location filename="../src/batchdialog.ui" line="621"/>
+        <location filename="../src/batchdialog.ui" line="666"/>
+        <location filename="../src/batchdialog.ui" line="711"/>
+        <location filename="../src/batchdialog.ui" line="756"/>
         <source>Cyan</source>
-        <translation type="unfinished"></translation>
+        <translation>Cyan</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="626"/>
-        <location filename="src/batchdialog.ui" line="671"/>
-        <location filename="src/batchdialog.ui" line="716"/>
-        <location filename="src/batchdialog.ui" line="761"/>
+        <location filename="../src/batchdialog.ui" line="626"/>
+        <location filename="../src/batchdialog.ui" line="671"/>
+        <location filename="../src/batchdialog.ui" line="716"/>
+        <location filename="../src/batchdialog.ui" line="761"/>
         <source>Magenta</source>
-        <translation type="unfinished"></translation>
+        <translation>Magenta</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="631"/>
-        <location filename="src/batchdialog.ui" line="676"/>
-        <location filename="src/batchdialog.ui" line="721"/>
-        <location filename="src/batchdialog.ui" line="766"/>
+        <location filename="../src/batchdialog.ui" line="631"/>
+        <location filename="../src/batchdialog.ui" line="676"/>
+        <location filename="../src/batchdialog.ui" line="721"/>
+        <location filename="../src/batchdialog.ui" line="766"/>
         <source>Yellow</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaune</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="780"/>
+        <location filename="../src/batchdialog.ui" line="780"/>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>Luminosité</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="793"/>
+        <location filename="../src/batchdialog.ui" line="793"/>
         <source>Contrast</source>
-        <translation type="unfinished"></translation>
+        <translation>Contraste</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="806"/>
+        <location filename="../src/batchdialog.ui" line="806"/>
         <source>Saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>Saturation</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="819"/>
+        <location filename="../src/batchdialog.ui" line="819"/>
         <source>Gamma correct</source>
-        <translation type="unfinished"></translation>
+        <translation>Correction Gamma</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="832"/>
+        <location filename="../src/batchdialog.ui" line="832"/>
         <source>Channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Couche</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="845"/>
-        <location filename="src/batchdialog.ui" line="858"/>
-        <location filename="src/batchdialog.ui" line="871"/>
+        <location filename="../src/batchdialog.ui" line="845"/>
+        <location filename="../src/batchdialog.ui" line="858"/>
+        <location filename="../src/batchdialog.ui" line="871"/>
         <source>0%</source>
-        <translation type="unfinished"></translation>
+        <translation>0%</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="884"/>
+        <location filename="../src/batchdialog.ui" line="884"/>
         <source>1.00</source>
-        <translation type="unfinished"></translation>
+        <translation>1.00</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="890"/>
+        <location filename="../src/batchdialog.ui" line="890"/>
         <source>Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtres</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="902"/>
+        <location filename="../src/batchdialog.ui" line="902"/>
         <source>Available</source>
-        <translation type="unfinished"></translation>
+        <translation>Disponibles</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="925"/>
+        <location filename="../src/batchdialog.ui" line="925"/>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Activés</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="941"/>
+        <location filename="../src/batchdialog.ui" line="941"/>
         <source>Transform</source>
-        <translation type="unfinished"></translation>
+        <translation>Transformation</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="968"/>
+        <location filename="../src/batchdialog.ui" line="968"/>
         <source>Rotate 90° CCW</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotation anti-horaire à 90°</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="984"/>
+        <location filename="../src/batchdialog.ui" line="984"/>
         <source>Rotate 180°</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotation à 180°</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="997"/>
+        <location filename="../src/batchdialog.ui" line="997"/>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotation</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="1013"/>
+        <location filename="../src/batchdialog.ui" line="1013"/>
         <source>Rotate 90° CW</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotation horaire à 90°</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="1045"/>
+        <location filename="../src/batchdialog.ui" line="1045"/>
         <source>Flip vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Symétrie verticale</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="1064"/>
+        <location filename="../src/batchdialog.ui" line="1064"/>
         <source>Flip horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>Symétrie horizontale</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="1077"/>
+        <location filename="../src/batchdialog.ui" line="1077"/>
         <source>Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>Symétrie</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.ui" line="1084"/>
+        <location filename="../src/batchdialog.ui" line="1084"/>
         <source>Summary</source>
-        <translation type="unfinished"></translation>
+        <translation>Résumé</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="27"/>
+        <location filename="../src/batchdialog.cpp" line="27"/>
         <source>*.png</source>
-        <translation type="unfinished"></translation>
+        <translation>*.png</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="28"/>
+        <location filename="../src/batchdialog.cpp" line="28"/>
         <source>*.jpg</source>
-        <translation type="unfinished"></translation>
+        <translation>*.jpg</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="29"/>
+        <location filename="../src/batchdialog.cpp" line="29"/>
         <source>*.gif</source>
-        <translation type="unfinished"></translation>
+        <translation>*.gif</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="35"/>
+        <location filename="../src/batchdialog.cpp" line="35"/>
         <source>Oil</source>
-        <translation type="unfinished"></translation>
+        <translation>Huile</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="36"/>
+        <location filename="../src/batchdialog.cpp" line="36"/>
         <source>Charcoal</source>
-        <translation type="unfinished"></translation>
+        <translation>Charbon</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="37"/>
+        <location filename="../src/batchdialog.cpp" line="37"/>
         <source>Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourbillon</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="38"/>
+        <location filename="../src/batchdialog.cpp" line="38"/>
         <source>Solarize</source>
-        <translation type="unfinished"></translation>
+        <translation>Solarisation</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="39"/>
+        <location filename="../src/batchdialog.cpp" line="39"/>
         <source>Wave</source>
-        <translation type="unfinished"></translation>
+        <translation>Vague</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="40"/>
+        <location filename="../src/batchdialog.cpp" line="40"/>
+        <location filename="../src/batchdialog.cpp" line="48"/>
         <source>Implode</source>
-        <translation type="unfinished"></translation>
+        <translation>Implosion</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="41"/>
+        <location filename="../src/batchdialog.cpp" line="41"/>
+        <source>Soften</source>
+        <translation>Atténuation</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="42"/>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>Flou</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="42"/>
+        <location filename="../src/batchdialog.cpp" line="43"/>
         <source>Sharpen</source>
-        <translation type="unfinished"></translation>
+        <translation>Netteté</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="43"/>
+        <location filename="../src/batchdialog.cpp" line="44"/>
         <source>Reinforce</source>
-        <translation type="unfinished"></translation>
+        <translation>Renforcement</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="44"/>
+        <location filename="../src/batchdialog.cpp" line="45"/>
         <source>Grayscale</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveaux de gris</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="312"/>
+        <location filename="../src/batchdialog.cpp" line="46"/>
+        <source>Old Photo</source>
+        <translation>Photo ancienne</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="47"/>
+        <source>Sepia</source>
+        <translation>Sepia</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="49"/>
+        <source>Explode</source>
+        <translation>Explosion</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="50"/>
+        <source>Simple Frame</source>
+        <translation>Cadre simple</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="51"/>
+        <source>3D Frame</source>
+        <translation>Cadre 3D</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="52"/>
+        <source>Normalize</source>
+        <translation>Normaliser</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="53"/>
+        <source>Motion Blur</source>
+        <translation>Flou de mouvement</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="54"/>
+        <source>Crop to center</source>
+        <translation>Recadrage centré</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="55"/>
+        <source>Equalize colours</source>
+        <translation>Egaliser les couleurs</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="56"/>
+        <source>Monochrome edges</source>
+        <translation>Bords monochromes</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="57"/>
+        <source>Gaussian noise</source>
+        <translation>Flou gaussien</translation>
+    </message>
+    <message>
+        <location filename="../src/batchdialog.cpp" line="325"/>
         <source>Select Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner des fichiers</translation>
     </message>
     <message>
-        <location filename="src/batchdialog.cpp" line="313"/>
+        <location filename="../src/batchdialog.cpp" line="326"/>
         <source>Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers images (*.png *.jpg *.jpeg *.gif);;Tous les fichiers (*)</translation>
+    </message>
+</context>
+<context>
+    <name>buyDialog</name>
+    <message>
+        <location filename="../src/buydialog.ui" line="14"/>
+        <source>Register now</source>
+        <translation>S'enregistrer</translation>
+    </message>
+    <message>
+        <location filename="../src/buydialog.ui" line="26"/>
+        <source>Purchase</source>
+        <translation>Acheter</translation>
+    </message>
+    <message>
+        <location filename="../src/buydialog.ui" line="42"/>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
+        <location filename="../src/buydialog.ui" line="61"/>
+        <source>PhotoFiltre LX Studio</source>
+        <translation>PhotoFiltre LX Studio</translation>
+    </message>
+    <message>
+        <location filename="../src/buydialog.ui" line="107"/>
+        <source>Hello! Thanks for trying out PhotoFiltre LX Studio. </source>
+        <translation>Bonjour ! Merci d'essayer PhotoFiltre LX Studio.</translation>
+    </message>
+    <message>
+        <location filename="../src/buydialog.ui" line="126"/>
+        <source>This program is an unlimited trial version but requires a license for continued usage. </source>
+        <translation>Ceci est une version d'essai illimitée mais une licence est requise pour un usage fréquent.</translation>
+    </message>
+    <message>
+        <location filename="../src/buydialog.ui" line="145"/>
+        <source>Please consider supporting the project by purchasing a license.</source>
+        <translation>Merci de soutenir le projet en acquérant une licence.</translation>
     </message>
 </context>
 <context>
     <name>imagePropertiesDialog</name>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="14"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="14"/>
         <source>Image Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Propriétés de l'image</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="42"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="42"/>
         <source>Image name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de l'image :</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="61"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="61"/>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoire :</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="74"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="74"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille :</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="87"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="87"/>
         <source>Color count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de couleurs :</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="100"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="100"/>
         <source>File size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille du fichier :</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="113"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="113"/>
         <source>Date:</source>
-        <translation type="unfinished"></translation>
+        <translation>Date :</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="126"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="126"/>
         <source>Memory size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Occupation mémoire :</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="139"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="139"/>
         <source>Undo Cache Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Détruire le cache</translation>
     </message>
     <message>
-        <location filename="src/imagepropertiesdialog.ui" line="152"/>
-        <location filename="src/imagepropertiesdialog.ui" line="165"/>
-        <location filename="src/imagepropertiesdialog.ui" line="178"/>
-        <location filename="src/imagepropertiesdialog.ui" line="191"/>
-        <location filename="src/imagepropertiesdialog.ui" line="204"/>
-        <location filename="src/imagepropertiesdialog.ui" line="217"/>
-        <location filename="src/imagepropertiesdialog.ui" line="230"/>
-        <location filename="src/imagepropertiesdialog.ui" line="243"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="152"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="165"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="178"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="191"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="204"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="217"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="230"/>
+        <location filename="../src/imagepropertiesdialog.ui" line="243"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>Label</translation>
     </message>
 </context>
 <context>
     <name>prefsDialog</name>
     <message>
-        <location filename="src/prefsdialog.ui" line="14"/>
+        <location filename="../src/prefsdialog.ui" line="14"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Préférences</translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="46"/>
+        <location filename="../src/prefsdialog.ui" line="46"/>
         <source>&amp;Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Répertoires</translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="51"/>
+        <location filename="../src/prefsdialog.ui" line="58"/>
+        <source>Opening folder</source>
+        <translation>Répertoire de lancement</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.ui" line="81"/>
+        <location filename="../src/prefsdialog.ui" line="117"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.ui" line="104"/>
+        <source>Saving folder</source>
+        <translation>Répertoire de sauvegarde</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.ui" line="123"/>
         <source>S&amp;aving</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="56"/>
+        <location filename="../src/prefsdialog.ui" line="135"/>
+        <source>Default file format</source>
+        <translation>Format de fichier par défaut</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.ui" line="151"/>
         <source>&amp;Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Compression</translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="61"/>
+        <location filename="../src/prefsdialog.ui" line="156"/>
         <source>&amp;Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Disposition</translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="73"/>
+        <location filename="../src/prefsdialog.ui" line="168"/>
         <source>Multi-Window Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Multi-fenêtres </translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="79"/>
+        <location filename="../src/prefsdialog.ui" line="174"/>
         <source>&amp;Default Values</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Valeurs par défaut</translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="84"/>
+        <location filename="../src/prefsdialog.ui" line="179"/>
         <source>&amp;History</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Historique</translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="89"/>
+        <location filename="../src/prefsdialog.ui" line="184"/>
         <source>&amp;Startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Dé&amp;marrage</translation>
     </message>
     <message>
-        <location filename="src/prefsdialog.ui" line="101"/>
+        <location filename="../src/prefsdialog.ui" line="196"/>
         <source>Maximize on Startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Agrandir au démarrage</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.ui" line="219"/>
+        <source>Language</source>
+        <translation>Langue</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.cpp" line="24"/>
+        <source>png (*.png)</source>
+        <translation>png (*.png)</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.cpp" line="25"/>
+        <source>jpg (*.jpg *.jpeg)</source>
+        <translation>jpg (*.jpg *.jpeg)</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.cpp" line="26"/>
+        <source>bmp (*.bmp)</source>
+        <translation>bmp (*.bmp)</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.cpp" line="27"/>
+        <source>pbm (*.pbm)</source>
+        <translation>pbm (*.pbm)</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.cpp" line="28"/>
+        <source>pgm (*.pgm)</source>
+        <translation>pgm (*.pgm)</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.cpp" line="29"/>
+        <source>ppm (*.ppm)</source>
+        <translation>ppm (*.ppm)</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.cpp" line="86"/>
+        <source>Open Directory</source>
+        <translation>Répertoire de lancement</translation>
+    </message>
+    <message>
+        <location filename="../src/prefsdialog.cpp" line="95"/>
+        <source>Save Directory</source>
+        <translation>Répertoire de sauvegarde</translation>
     </message>
 </context>
 <context>
     <name>registerDialog</name>
     <message>
-        <location filename="src/registerdialog.ui" line="14"/>
-        <location filename="src/registerdialog.ui" line="68"/>
+        <location filename="../src/registerdialog.ui" line="14"/>
+        <location filename="../src/registerdialog.ui" line="68"/>
         <source>Register</source>
-        <translation type="unfinished"></translation>
+        <translation>S'enregistrer</translation>
     </message>
     <message>
-        <location filename="src/registerdialog.ui" line="36"/>
+        <location filename="../src/registerdialog.ui" line="36"/>
         <source>Enter your registration key below to unlock:</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez saisir votre clef d'activation :</translation>
     </message>
     <message>
-        <location filename="src/registerdialog.ui" line="55"/>
+        <location filename="../src/registerdialog.ui" line="55"/>
         <source>Invalid key entered</source>
-        <translation type="unfinished"></translation>
+        <translation>La clef saisie est invalide</translation>
     </message>
 </context>
 <context>
     <name>textDialog</name>
     <message>
-        <location filename="src/textdialog.ui" line="14"/>
+        <location filename="../src/textdialog.ui" line="14"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="30"/>
+        <location filename="../src/textdialog.ui" line="30"/>
         <source>&amp;Text</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Texte</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="52"/>
+        <location filename="../src/textdialog.ui" line="52"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Police</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="65"/>
+        <location filename="../src/textdialog.ui" line="65"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="91"/>
+        <location filename="../src/textdialog.ui" line="91"/>
         <source>Text Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Saisie de texte</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="114"/>
+        <location filename="../src/textdialog.ui" line="114"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Aperçu</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="142"/>
+        <location filename="../src/textdialog.ui" line="142"/>
         <source>AbYz</source>
-        <translation type="unfinished"></translation>
+        <translation>AbYz</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="159"/>
+        <location filename="../src/textdialog.ui" line="159"/>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Gras</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="172"/>
+        <location filename="../src/textdialog.ui" line="172"/>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Italique</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="185"/>
+        <location filename="../src/textdialog.ui" line="185"/>
         <source>Strike out</source>
-        <translation type="unfinished"></translation>
+        <translation>Barré</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="198"/>
+        <location filename="../src/textdialog.ui" line="198"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Souligné</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="211"/>
+        <location filename="../src/textdialog.ui" line="211"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="240"/>
+        <location filename="../src/textdialog.ui" line="240"/>
         <source>Antialias</source>
-        <translation type="unfinished"></translation>
+        <translation>Anticrénelage</translation>
     </message>
     <message>
-        <location filename="src/textdialog.ui" line="246"/>
+        <location filename="../src/textdialog.ui" line="246"/>
         <source>&amp;Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Effets</translation>
     </message>
 </context>
 </TS>
