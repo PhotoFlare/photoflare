@@ -13,6 +13,7 @@ INCLUDEPATH += ./src
 win32 {
     INCLUDEPATH +=  $$PWD/external/GraphicsMagick-1.3.21/Magick++/lib
     LIBS += -L$$PWD/external/GraphicsMagick-1.3.21/VisualMagick/lib -lCORE_RL_Magick++_
+    RC_ICONS += pixmaps/logo.ico
 }
 
 # Project settings for Linux. Adjust the paths as needed on your system.

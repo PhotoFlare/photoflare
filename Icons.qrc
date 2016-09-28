@@ -15,6 +15,7 @@
     <qresource prefix="/pixmaps">
         <file>pixmaps/logo.png</file>
         <file>pixmaps/checkers.png</file>
+        <file>pixmaps/logo.ico</file>
     </qresource>
     <qresource prefix="/icons">
         <file>icons/autobright.png</file>
@@ -37,7 +38,6 @@
         <file>icons/imgsize.png</file>
         <file>icons/index.png</file>
         <file>icons/linked.png</file>
-        <file>icons/noicon.png</file>
         <file>icons/pref.png</file>
         <file>icons/reinforce.png</file>
         <file>icons/rgb.png</file>
