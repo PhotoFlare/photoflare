@@ -72,7 +72,7 @@ public:
 
     QImage floodFill(const QImage &image, const QPoint &pos, const QColor &color);
     QPolygon selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color);
-    QImage floodFillOpacity(const QImage &image, const QPoint &pos, int opacity);
+    QImage floodFillOpacity(const QImage &image, const QColor &color, int opacity);
 
 private:
     FilterManager();

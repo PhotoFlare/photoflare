@@ -198,6 +198,8 @@ MainWindow::MainWindow(QWidget *parent) :
     else {
         //toggleImplementedActions(false);
     }
+
+    transparentDialog = 0;
 }
 
 MainWindow::~MainWindow()
@@ -970,7 +972,11 @@ void MainWindow::onPickPrimaryColor(const QPoint& pos)
         const QImage& image = widget->image();
         const QColor& color = image.pixel(pos);
 
-        ui->colorBoxWidget->setPrimaryColor(color);
+        if(transparentDialog) {
+            transparentDialog->setColor(color.rgb());
+        } else {
+            ui->colorBoxWidget->setPrimaryColor(color);
+        }
     }
 }
 
@@ -1648,23 +1654,45 @@ void MainWindow::on_actionTransparent_colour_triggered()
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         origImage = widget->image();
-        TransparentDialog dlg;
-        QObject::connect(&dlg, SIGNAL(previewTransparent(int)), this, SLOT(onPreviewTransparent(int)));
-        //dlg.setColor(widget->image().pixel(0,0));
-        if(dlg.exec())
-        {
-            widget->setImage(FilterManager::instance()->floodFillOpacity(widget->image(), QPoint(0,0), dlg.tolerance()));
-        } else {
-            widget->setImage(origImage);
-        }
+        emit ui->toolButtonDropper->clicked();
+        transparentDialog = new TransparentDialog();
+        QObject::connect(transparentDialog, SIGNAL(previewTransparent(QColor,int)), this, SLOT(onPreviewTransparent(QColor,int)));
+        QObject::connect(transparentDialog, SIGNAL(dialogFinished(int)), this, SLOT(onTransparentFinished(int)));
+        QObject::connect(transparentDialog, SIGNAL(dialogAccepted()), this, SLOT(onTransparentAccepted()));
+        QObject::connect(transparentDialog, SIGNAL(dialogRejected()), this, SLOT(onTransparentRejected()));
+        transparentDialog->setColor(widget->image().pixel(0,0));
+        transparentDialog->setWindowFlags(Qt::WindowStaysOnTopHint);
+        transparentDialog->show();
     }
 }
 
-void MainWindow::onPreviewTransparent(int tolerance)
+void MainWindow::onTransparentFinished(int)
+{
+    delete transparentDialog;
+    transparentDialog = 0;
+}
+
+void MainWindow::onTransparentAccepted()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
-        widget->setImage(FilterManager::instance()->floodFillOpacity(origImage, QPoint(0,0), tolerance));
+        widget->setImage(FilterManager::instance()->floodFillOpacity(widget->image(), transparentDialog->color(), transparentDialog->tolerance()));
+    }
+}
+
+void MainWindow::onTransparentRejected()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(origImage);
+    }
+}
+
+void MainWindow::onPreviewTransparent(QColor color, int tolerance)
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->floodFillOpacity(origImage, color, tolerance));
     }
 }
 
@@ -1674,6 +1702,23 @@ void MainWindow::on_actionCrop_triggered()
     if (widget) {
         MOUSE_POINTER->onCrop();
         widget->onSelectionChanged(QRect());
+    }
+}
+
+
+void MainWindow::on_actionIndexed_Mode_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(widget->image().convertToFormat(QImage::Format_Indexed8));
+    }
+}
+
+void MainWindow::on_actionRGB_Mode_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(widget->image().convertToFormat(QImage::Format_ARGB32_Premultiplied));
     }
 }
 
@@ -1732,7 +1777,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionGamma_correct->setEnabled(false);
     ui->actionHue_Saturation->setEnabled(false);
     ui->actionAcquire_image->setEnabled(true);
-    ui->actionIndexed_Mode->setEnabled(false);
+    ui->actionIndexed_Mode->setEnabled(true);
     ui->actionInformation->setEnabled(false);
     ui->actionInvert->setEnabled(false);
     ui->actionLevels->setEnabled(false);
@@ -1752,7 +1797,7 @@ void MainWindow::disableUnimplementedActions()
     ui->actionPosterize->setEnabled(false);
     ui->actionPrint->setEnabled(true);
     ui->actionPurge->setEnabled(false);
-    ui->actionRGB_Mode->setEnabled(false);
+    ui->actionRGB_Mode->setEnabled(true);
     ui->actionRelief->setEnabled(false);
     ui->actionReplace_colour->setEnabled(false);
     ui->actionReplace_colour_range->setEnabled(false);

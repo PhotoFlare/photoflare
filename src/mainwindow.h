@@ -29,6 +29,7 @@ class StampSettingsWidget;
 class BlurSettingsWidget;
 class QComboBox;
 class PaintWidget;
+class TransparentDialog;
 
 class MainWindow : public QMainWindow
 {
@@ -220,7 +221,10 @@ private slots:
     void batchProcess_batchProgress(int index,int total);
     void on_actionHue_variation_triggered();
     void onHuePreviewChanged(QImage image, bool colorize, QColor color, int degrees);
-    void onPreviewTransparent(int tolerance);
+    void onPreviewTransparent(QColor color, int tolerance);
+    void onTransparentFinished(int);
+    void onTransparentAccepted();
+    void onTransparentRejected();
 
     void on_actionGradient_triggered();
 
@@ -232,6 +236,10 @@ private slots:
     void on_actionCopy_triggered();
 
     void on_actionTransparent_colour_triggered();
+
+    void on_actionIndexed_Mode_triggered();
+
+    void on_actionRGB_Mode_triggered();
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -265,6 +273,7 @@ private:
     QComboBox *zoomCombo;
     ScanManager *m_scanManager;
     QImage origImage;
+    TransparentDialog *transparentDialog;
 };
 
 #endif // MAINWINDOW_H
