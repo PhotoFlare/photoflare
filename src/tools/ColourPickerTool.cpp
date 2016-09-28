@@ -49,5 +49,5 @@ void ColourPickerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
 QCursor ColourPickerTool::getCursor()
 {
-    return QCursor(QPixmap (QString(":/cursors/cursors/ColourPicker.png")));
+    return QCursor(QPixmap (QString(":/cursors/cursors/color-picker.png")));
 }
