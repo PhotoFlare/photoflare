@@ -14,7 +14,7 @@ public:
     virtual ~ColourPickerTool();
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
-
+    QCursor getCursor() override;
 signals:
     void pickPrimaryColor(const QPoint&);
     void pickSecondaryColor(const QPoint&);

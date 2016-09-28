@@ -65,6 +65,17 @@ public:
             painter.setPen(pen);
             painter.setBrush(QBrush());
             painter.drawPolygon(selection, Qt::WindingFill);
+            if(selection.size() == 4) {
+                QRect rect(selection.at(0),selection.at(3));
+                if(rect.topLeft() != rect.bottomLeft()) {
+                    painter.setPen(QPen(Qt::gray));
+                    painter.setBrush(QBrush(Qt::gray));
+                    painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), 10, 10));
+                    painter.drawPolygon(QRect(selection.at(1).x()-10,selection.at(1).y(), 10, 10));
+                    painter.drawPolygon(QRect(selection.at(2).x()-10,selection.at(2).y()-10, 10, 10));
+                    painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-10, 10, 10));
+                }
+            }
         }
         painter.end();
         canvas->setPixmap(QPixmap::fromImage(surface));

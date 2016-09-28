@@ -35,6 +35,9 @@ signals:
     void dialogRejected();
     void dialogFinished(int);
 
+protected:
+    void closeEvent (QCloseEvent *event);
+
 private:
     Ui::TransparentDialog *ui;
     QColor m_color;

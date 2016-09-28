@@ -55,3 +55,11 @@ void TransparentDialog::on_pushButton_3_clicked()
     reject();
     emit dialogFinished(0);
 }
+
+void TransparentDialog::closeEvent (QCloseEvent *event)
+{
+    emit dialogRejected();
+    reject();
+    emit dialogFinished(0);
+    QDialog::closeEvent(event);
+}

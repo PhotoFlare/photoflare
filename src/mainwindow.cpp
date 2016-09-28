@@ -213,6 +213,7 @@ void MainWindow::handleMessage(const QString& message)
     if(fileInfo.exists()) {
         openFile(QString(fileInfo.absoluteFilePath()));
     }
+    on_toolButtonPointer_clicked();
 }
 
 void MainWindow::setWindowSize()
