@@ -226,6 +226,10 @@ private slots:
     void on_actionCrop_triggered();
     void onSelectionChanged(bool visible);
 
+    void on_actionPaste_triggered();
+
+    void on_actionCopy_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

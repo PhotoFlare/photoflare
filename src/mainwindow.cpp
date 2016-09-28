@@ -29,6 +29,7 @@
 #include <QShortcut>
 #include <QDateTime>
 #include <QThread>
+#include <QMimeData>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -241,7 +242,7 @@ void MainWindow::on_actionNew_triggered()
 void MainWindow::on_actionOpen_triggered()
 {
     const QString& fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                    QString(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
+                                                    SETTINGS->getOpenFolder(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
     openFile(fileName);
     on_toolButtonPointer_clicked();
 }
@@ -1033,7 +1034,17 @@ void MainWindow::onPaste()
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         QClipboard *clipboard = QApplication::clipboard();
+        widget->setPaintTool(MOUSE_POINTER);
         MOUSE_POINTER->setOverlayImage(clipboard->image());
+    } else {
+        QClipboard *clipboard = QApplication::clipboard();
+        if(clipboard->mimeData()->hasImage()) {
+            addPaintWidget(createPaintWidget(clipboard->image().size()));
+            widget = getCurrentPaintWidget();
+            if (widget) {
+                widget->setImage(clipboard->image());
+            }
+        }
     }
 }
 
@@ -1573,6 +1584,16 @@ void MainWindow::onHuePreviewChanged(QImage image, bool colorize, QColor color, 
     }
 }
 
+void MainWindow::on_actionPaste_triggered()
+{
+    onPaste();
+}
+
+void MainWindow::on_actionCopy_triggered()
+{
+    onCopy();
+}
+
 void MainWindow::on_actionGradient_triggered()
 {
     GradientDialog dlg(this);
@@ -1641,8 +1662,8 @@ void MainWindow::createKeyboardShortcuts() {
     ui->actionQuit->setShortcut(QString("Ctrl+Q"));
     //Edit Menu
     ui->actionCut->setShortcut(QString("Ctrl+X")); //not implemented
-    ui->actionCopy->setShortcut(QString("Ctrl+C")); //broken
-    ui->actionPaste->setShortcut(QString("Ctrl+V")); //broken
+    ui->actionCopy->setShortcut(QString("Ctrl+C"));
+    ui->actionPaste->setShortcut(QString("Ctrl+V"));
     ui->actionUndo->setShortcut(QString("Ctrl+Z"));
     ui->actionRedo->setShortcut(QString("Ctrl+Y"));
     ui->actionImage_properties->setShortcut(QString("Ctrl+J")); //not implemented
