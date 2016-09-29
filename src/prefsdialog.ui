@@ -150,7 +150,7 @@
     <attribute name="title">
      <string>&amp;Compression</string>
     </attribute>
-    <widget class="QRadioButton" name="radioButton">
+    <widget class="QRadioButton" name="compDialogEnabled">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -162,8 +162,14 @@
      <property name="text">
       <string>Always show dialog</string>
      </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_2">
+    <widget class="QRadioButton" name="compEnabledDefault">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -176,7 +182,7 @@
       <string>Set default compression</string>
      </property>
     </widget>
-    <widget class="QSlider" name="horizontalSlider">
+    <widget class="QSlider" name="compressionSlider">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -198,7 +204,7 @@
       <number>10</number>
      </property>
      <property name="value">
-      <number>90</number>
+      <number>0</number>
      </property>
      <property name="tracking">
       <bool>true</bool>

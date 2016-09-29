@@ -20,6 +20,12 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->saveFolderLineEdit->setText(SETTINGS->getSaveFolder());
     ui->saveFormatEnabled->setChecked(SETTINGS->getSaveFormatEnabled());
 
+    //Compression tab
+    ui->compDialogEnabled->setChecked(SETTINGS->getCompressionDialogEnabled());
+    ui->compEnabledDefault->setChecked(SETTINGS->getCompressionDefaultEnabled());
+    ui->compressionValue->setText(SETTINGS->getCompressionDefaultValue());
+    ui->compressionSlider->setValue(SETTINGS->getCompressionDefaultValue().toInt());
+
     //Saving tab
     QStringList filters;
     filters << tr("png (*.png)");
@@ -61,6 +67,8 @@ prefsDialog::~prefsDialog()
 void prefsDialog::on_buttonBox_accepted()
 {
     QString saveFormatEnabled = ui->saveFormatEnabled->isChecked() ? "true" : "false";
+    QString compDefaultEnabled = ui->compEnabledDefault->isChecked() ? "true" : "false";
+    QString compDialogEnabled = ui->compDialogEnabled->isChecked() ? "true" : "false";
 
     //Folders tab
     SETTINGS->setOpenFolder(ui->openFolderLineEdit->text());
@@ -69,6 +77,11 @@ void prefsDialog::on_buttonBox_accepted()
 
     //Saving tab
     SETTINGS->setSaveFormat(QString::number(ui->comboBoxSaveFormat->currentIndex()));
+
+    //Compression tab
+    SETTINGS->setCompressionDialogEnabled(compDialogEnabled);
+    SETTINGS->setCompressionDefaultEnabled(compDefaultEnabled);
+    SETTINGS->setCompressionDefaultValue(ui->compressionValue->text());
 
     //Startup tab
     if (ui->checkBoxMaximize->isChecked() != SETTINGS->isMaximizeWindow())
@@ -103,7 +116,7 @@ void prefsDialog::on_saveFolderButton_clicked()
     ui->saveFolderLineEdit->setText(dir);
 }
 
-void prefsDialog::on_horizontalSlider_sliderMoved(int position)
+void prefsDialog::on_compressionSlider_sliderMoved(int position)
 {
     QString val = QString::number(position);
     ui->compressionValue->setText(val);

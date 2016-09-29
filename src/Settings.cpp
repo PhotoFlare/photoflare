@@ -22,6 +22,8 @@ public:
         saveFolder = settings.value("SaveFolder").toString();
         saveFormat = settings.value("SaveFormat").toString();
         saveFormatEnabled = settings.value("SaveFormatEnabled").toString();
+        compressionDialogEnabled = settings.value("compressionDialogEnabled").toString();
+        compressionDefaultValue = settings.value("compressionDefaultValue").toString();
     }
 
     ~SettingsPrivate()
@@ -44,6 +46,9 @@ public:
     QString saveFolder;
     QString saveFormat;
     QString saveFormatEnabled;
+    QString compressionDialogEnabled;
+    QString compressionDefaultEnabled;
+    QString compressionDefaultValue;
     QSettings settings;
 };
 
@@ -183,3 +188,47 @@ bool Settings::getSaveFormatEnabled() const
     return checkedState;
 }
 
+void Settings::setCompressionDialogEnabled(const QString enabled)
+{
+    d->compressionDialogEnabled = enabled;
+    d->setValue("compressionDialogEnabled",enabled);
+}
+
+bool Settings::getCompressionDialogEnabled() const
+{
+    bool checkedState = false;
+    if(d->compressionDialogEnabled == "true")
+    {
+        checkedState = true;
+    }
+
+    return checkedState;
+}
+
+void Settings::setCompressionDefaultEnabled(const QString enabled)
+{
+    d->compressionDefaultEnabled = enabled;
+    d->setValue("compressionDefaultEnabled",enabled);
+}
+
+bool Settings::getCompressionDefaultEnabled() const
+{
+    bool checkedState = false;
+    if(d->compressionDefaultEnabled == "true")
+    {
+        checkedState = true;
+    }
+
+    return checkedState;
+}
+
+void Settings::setCompressionDefaultValue(const QString val)
+{
+    d->compressionDefaultValue = val;
+    d->setValue("compressionDefaultValue",val);
+}
+
+QString Settings::getCompressionDefaultValue() const
+{
+    return d->compressionDefaultValue;
+}

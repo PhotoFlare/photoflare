@@ -45,7 +45,7 @@ void TextTool::setText(const QString &text, const QFont &font, const QColor &col
     d->antialiasEnabled = antialiasEnabled;
 
     QFontMetrics fontMetrics(font);
-    d->textRect = fontMetrics.boundingRect(d->textRect ,Qt::TextWordWrap, text);
+    d->textRect = fontMetrics.boundingRect(d->textRect ,Qt::TextSingleLine, text);
 
     d->previewMode = true;
     previewText();

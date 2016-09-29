@@ -16,12 +16,12 @@
 
 int main(int argc, char *argv[])
 {
-    QtSingleApplication app("PhotoFiltre LX Studio Demo", argc, argv);
+    QtSingleApplication app("PhotoFiltre LX Studio", argc, argv);
 
         if(!app.isRunning())
         {
             app.setApplicationName(QObject::tr("PhotoFiltre LX Studio"));
-            app.setApplicationVersion(QObject::tr("version 1.0 (Build 90)"));
+            app.setApplicationVersion(QObject::tr("1.0 Beta (Build 91)"));
             app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
             app.setOrganizationName(QObject::tr("photofiltre-lx"));
 

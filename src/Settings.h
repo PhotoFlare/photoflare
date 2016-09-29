@@ -37,6 +37,12 @@ public:
     QString getSaveFormat() const;
     void setSaveFormatEnabled(const QString enabled);
     bool getSaveFormatEnabled() const;
+    void setCompressionDialogEnabled(const QString enabled);
+    bool getCompressionDialogEnabled() const;
+    void setCompressionDefaultEnabled(const QString enabled);
+    bool getCompressionDefaultEnabled() const;
+    void setCompressionDefaultValue(const QString enabled);
+    QString getCompressionDefaultValue() const;
 
 private:
     explicit Settings(QObject *parent = 0);

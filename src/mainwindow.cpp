@@ -346,7 +346,7 @@ void MainWindow::on_actionSave_As_triggered()
     }
 
     int quality = -1;;
-    if(fileNameSuffix == "jpg" || fileNameSuffix == "jpeg")
+    if(SETTINGS->getCompressionDialogEnabled() && fileNameSuffix == "jpg" || fileNameSuffix == "jpeg")
     {
         CompressionDialog dlg;
         dlg.exec();
