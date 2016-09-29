@@ -1,4 +1,3 @@
-#include <QDebug>
 #include <QFileInfo>
 
 #include "BatchProcessWorker.h"

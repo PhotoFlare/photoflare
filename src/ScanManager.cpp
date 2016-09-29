@@ -1,5 +1,5 @@
 #include <QProcess>
-#include <QDebug>
+//#include <QDebug>
 #include <QRegExp>
 #include <QErrorMessage>
 

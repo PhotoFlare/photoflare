@@ -4,7 +4,7 @@
 
 */
 
-#include <cmath>
+//#include <cmath>
 #include "NewDialog.h"
 #include "ui_NewDialog.h"
 #include <QTabWidget>
@@ -15,7 +15,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
-#include <QDebug>
+//#include <QDebug>
 #include <QMouseEvent>
 #include <QColorDialog>
 
@@ -24,7 +24,7 @@
 
 enum {PPM, PPI};
 enum {PX, CM, IN};
-enum {x100y100, x640y480, x800y600};
+enum {x100y100, x640y480, x800y600, x1024y768};
 
 #define CM_IN_INCH 2.54f
 
@@ -34,8 +34,8 @@ NewDialog::NewDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    width_px = 800;
-    height_px = 600;
+    width_px = 1024;
+    height_px = 768;
     imageRatio = (width_px/height_px);
     currentUnit = PX;
     ui->imageResCombo->setCurrentIndex(PPI);
@@ -98,6 +98,10 @@ void NewDialog::on_imagePresetCombo_currentIndexChanged(int index)
     if (index == x800y600) {
         width_px = 800;
         height_px = 600;
+    }
+    if (index == x1024y768) {
+        width_px = 1024;
+        height_px = 768;
     }
     on_imageWHcombo_currentIndexChanged(currentUnit);
 }

@@ -15,6 +15,7 @@
 #include <QPolygon>
 #include <QLinearGradient>
 #include <QPainter>
+#include <QMatrix>
 
 class FilterManagerPrivate
 {
@@ -44,6 +45,30 @@ public:
         Magick::Blob blob(byteArray.data(), byteArray.length());
         return new Magick::Image(blob);
     }
+    /*
+    Magick::Image* fromQtImage(const QImage &qimage) const
+    {
+        Magick::Image newImage = Magick::Image(Magick::Geometry(qimage.width(), qimage.height()), Magick::ColorRGB());
+
+        double scale = 1 / 256.0;
+        newImage.modifyImage();
+        Magick::PixelPacket *pixels;
+        Magick::ColorRGB mgc;
+        for (int y = 0; y < qimage.height(); y++) {
+            pixels = newImage.setPixels(0, y, newImage.columns(), 1);
+            for (int x = 0; x < qimage.width(); x++) {
+                QColor pix = qimage.pixel(x, y);
+                mgc.red(scale *pix.red());
+                mgc.green(scale *pix.green());
+                mgc.blue(scale *pix.blue());
+                *pixels++ = mgc;
+            }
+            newImage.syncPixels();
+        }
+
+        return new Magick::Image(newImage);
+    }
+*/
 
     QImage toQtImage(Magick::Image *image)
     {
@@ -56,6 +81,28 @@ public:
 
         return img;
     }
+
+    /*
+    QImage toQtImage(Magick::Image *image)
+    {
+        int imagecols = image->columns();
+        int imagerows = image->rows();
+
+        QImage newQImage = QImage(imagecols, imagerows, QImage::Format_RGB32);
+        const Magick::PixelPacket *pixels;
+        Magick::ColorRGB rgb;
+        for (int y = 0; y < newQImage.height(); y++) {
+            pixels = image->getConstPixels(0, y, newQImage.width(), 1);
+            for (int x = 0; x < newQImage.width(); x++) {
+                rgb = (*(pixels + x));
+                newQImage.setPixel(x, y, QColor((int) (255 * rgb.red())
+                                                 , (int) (255 * rgb.green())
+                                                 , (int) (255 * rgb.blue())).rgb());
+            }
+        }
+        return newQImage;
+    }
+    */
 };
 
 FilterManager* FilterManager::m_instance = 0;
@@ -448,46 +495,47 @@ QImage FilterManager::dustreduction(const QImage &image)
 
 QImage FilterManager::flipHorz(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
+    /*Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->flop();
 
     QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
+    delete magickImage;*/
 
-    return modifiedImage;
+    return image.mirrored(true,false);
 }
 
 QImage FilterManager::flipVert(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
+    /*Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->flip();
 
     QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
+    delete magickImage;*/
 
-    return modifiedImage;
+    return image.mirrored(false,true);
 }
 
 QImage FilterManager::rotateCCW(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
+    /*Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->rotate(270);
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
 
-    return modifiedImage;
+    return modifiedImage;*/
+    return image.transformed(QMatrix().rotate(270.0));
 }
 
 QImage FilterManager::rotateCW(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->rotate(90);
+    //Magick::Image *magickImage = d->fromQtImage(image);
+    //magickImage->rotate(90);
 
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
+    //QImage modifiedImage = d->toQtImage(magickImage);
+    //delete magickImage;
 
-    return modifiedImage;
+    return image.transformed(QMatrix().rotate(90.0));
 }
 
 static Magick::ChannelType channelById(int channelId)

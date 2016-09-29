@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         if(!app.isRunning())
         {
             app.setApplicationName(QObject::tr("PhotoFiltre LX Studio"));
-            app.setApplicationVersion(QObject::tr("1.0 Beta (Build 91)"));
+            app.setApplicationVersion(QObject::tr("1.0 Beta (Build 92)"));
             app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
             app.setOrganizationName(QObject::tr("photofiltre-lx"));
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
             QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
 
             //if(translator.load("languages/fr.qm", app.applicationDirPath()))
-            if(translator.load("languages/"+SETTINGS->getUserLanguage()+".qm", paths[4]))
+            if(translator.load(SETTINGS->getUserLanguage()+".qm", paths[4]+"/languages/"))
                 qDebug() << "Loaded translation";
             else
                 qDebug() << "Translation not loaded";

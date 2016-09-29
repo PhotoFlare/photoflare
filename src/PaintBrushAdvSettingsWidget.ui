@@ -31,6 +31,12 @@
      </item>
      <item>
       <widget class="BrushTypeComboBox" name="comboBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="minimumSize">
         <size>
          <width>32</width>
@@ -40,6 +46,17 @@
        <property name="maximumSize">
         <size>
          <width>115</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <kerning>false</kerning>
+        </font>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
          <height>32</height>
         </size>
        </property>

@@ -147,7 +147,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>3</number>
    </property>
    <item>
     <property name="text">
@@ -162,6 +162,11 @@
    <item>
     <property name="text">
      <string>800 x 600 pixels</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1024 x 768 pixels</string>
     </property>
    </item>
   </widget>

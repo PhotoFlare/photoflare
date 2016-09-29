@@ -191,7 +191,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Enable/Disable actions implemented depending if we have an image
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
-        toggleImplementedActions(true);
+        //toggleImplementedActions(true);
     }
     else {
         //toggleImplementedActions(false);

@@ -14,13 +14,12 @@ ImagePositionWidget::~ImagePositionWidget()
     delete ui;
 }
 
-#include <QDebug>
 void ImagePositionWidget::resetAllButtons()
 {
     foreach(QObject* obj,this->children())
     {
         QPushButton* pushButton = qobject_cast<QPushButton*>(obj);
-        qDebug()<<pushButton;
+        //qDebug()<<pushButton;
         if(pushButton && pushButton->isChecked())
             pushButton->setChecked(false);
             pushButton->setIcon(QIcon(":/icons/icons/grayscale.png"));
