@@ -609,6 +609,10 @@ bool MainWindow::eventFilter(QObject * obj, QEvent * e)
             subWindow->widget()->deleteLater();
             break;
         }
+        case QEvent::LanguageChange:
+        {
+            ui->retranslateUi(this);
+        }
         default:
             qt_noop();
     }

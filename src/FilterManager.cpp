@@ -16,6 +16,8 @@
 #include <QLinearGradient>
 #include <QPainter>
 #include <QMatrix>
+//#include <QDebug>
+//#include <QElapsedTimer>
 
 class FilterManagerPrivate
 {
@@ -45,44 +47,7 @@ public:
         Magick::Blob blob(byteArray.data(), byteArray.length());
         return new Magick::Image(blob);
     }
-    /*
-    Magick::Image* fromQtImage(const QImage &qimage) const
-    {
-        Magick::Image newImage = Magick::Image(Magick::Geometry(qimage.width(), qimage.height()), Magick::ColorRGB());
 
-        double scale = 1 / 256.0;
-        newImage.modifyImage();
-        Magick::PixelPacket *pixels;
-        Magick::ColorRGB mgc;
-        for (int y = 0; y < qimage.height(); y++) {
-            pixels = newImage.setPixels(0, y, newImage.columns(), 1);
-            for (int x = 0; x < qimage.width(); x++) {
-                QColor pix = qimage.pixel(x, y);
-                mgc.red(scale *pix.red());
-                mgc.green(scale *pix.green());
-                mgc.blue(scale *pix.blue());
-                *pixels++ = mgc;
-            }
-            newImage.syncPixels();
-        }
-
-        return new Magick::Image(newImage);
-    }
-*/
-
-    QImage toQtImage(Magick::Image *image)
-    {
-        Magick::Blob blob;
-        image->write(&blob);
-
-        QByteArray arr((char *)blob.data(), blob.length());
-        QImage img;
-        img.loadFromData(arr);
-
-        return img;
-    }
-
-    /*
     QImage toQtImage(Magick::Image *image)
     {
         int imagecols = image->columns();
@@ -95,14 +60,12 @@ public:
             pixels = image->getConstPixels(0, y, newQImage.width(), 1);
             for (int x = 0; x < newQImage.width(); x++) {
                 rgb = (*(pixels + x));
-                newQImage.setPixel(x, y, QColor((int) (255 * rgb.red())
-                                                 , (int) (255 * rgb.green())
-                                                 , (int) (255 * rgb.blue())).rgb());
+                newQImage.setPixel(x, y, QColor((int)(255 * rgb.red()), (int)(255 * rgb.green()), (int)(255 * rgb.blue())).rgb());
             }
         }
         return newQImage;
     }
-    */
+
 };
 
 FilterManager* FilterManager::m_instance = 0;
@@ -147,7 +110,10 @@ QImage FilterManager::swirl(const QImage &image)
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->swirl(90);
 
+    //QElapsedTimer timer;
+    //timer.start();
     QImage modifiedImage = d->toQtImage(magickImage);
+    //qDebug() << timer.elapsed();
     delete magickImage;
 
     return modifiedImage;
