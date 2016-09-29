@@ -11,6 +11,7 @@
 #include <QTranslator>
 #include <QtSingleApplication>
 #include <QStandardPaths>
+#include <QFileInfo>
 #include "Settings.h"
 #include <QDebug>
 
@@ -21,7 +22,7 @@ int main(int argc, char *argv[])
         if(!app.isRunning())
         {
             app.setApplicationName(QObject::tr("PhotoFiltre LX Studio"));
-            app.setApplicationVersion(QObject::tr("1.0 Beta (Build 93)"));
+            app.setApplicationVersion(QObject::tr("1.0 Beta (Build 94)"));
             app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
             app.setOrganizationName(QObject::tr("photofiltre-lx"));
 
@@ -29,10 +30,18 @@ int main(int argc, char *argv[])
             QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
 
             //if(translator.load("languages/fr.qm", app.applicationDirPath()))
-            if(translator.load(SETTINGS->getUserLanguage()+".qm", paths[4]+"/languages/"))
-                qDebug() << "Loaded translation";
-            else
-                qDebug() << "Translation not loaded";
+
+            for(int i = 0;i < paths.length(); i++)
+            {
+                QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");
+                if(check_file.exists() && check_file.isFile())
+                {
+                    if(translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/"))
+                        qDebug() << "Loaded translation";
+                    else
+                        qDebug() << "Translation not loaded";
+                }
+            }
             app.installTranslator(&translator);
 
 
