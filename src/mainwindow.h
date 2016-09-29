@@ -72,6 +72,7 @@ private slots:
     void on_actionClose_all_triggered();
 
     void setWindowSize();
+    void setDefaultSettings();
     void updateRecents();
     void showError(const QString &message);
     void onPaintBrushSettingsChanged();

@@ -14,7 +14,7 @@
     <message>
         <location filename="../src/BlurSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <location filename="../src/BlurSettingsWidget.ui" line="35"/>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../src/BrushTypeComboBox.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
 </context>
 <context>
@@ -40,12 +40,12 @@
     <message>
         <location filename="../src/ColorBoxWidget.ui" line="19354"/>
         <source>&lt;</source>
-        <translation type="&lt;"></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ColorBoxWidget.ui" line="19367"/>
         <source>&gt;</source>
-        <translation type="&gt;"></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -159,7 +159,7 @@
     <message>
         <location filename="../src/imagepositionwidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
 </context>
 <context>
@@ -167,7 +167,7 @@
     <message>
         <location filename="../src/LineSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <location filename="../src/LineSettingsWidget.ui" line="35"/>
@@ -200,7 +200,7 @@
     <message>
         <location filename="../src/MagicWandSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <location filename="../src/MagicWandSettingsWidget.ui" line="35"/>
@@ -271,7 +271,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="238"/>
         <source>&amp;Filter</source>
-        <translation>F&amp;iltre</translation>
+        <translation>&amp;Filtre</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="242"/>
@@ -1300,7 +1300,7 @@
     <message>
         <location filename="../src/PaintBrushAdvSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <location filename="../src/PaintBrushAdvSettingsWidget.ui" line="56"/>
@@ -1323,7 +1323,7 @@
     <message>
         <location filename="../src/PaintBrushSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <location filename="../src/PaintBrushSettingsWidget.ui" line="24"/>
@@ -1383,7 +1383,7 @@
     <message>
         <location filename="../src/SprayCanSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <location filename="../src/SprayCanSettingsWidget.ui" line="35"/>
@@ -1411,7 +1411,7 @@
     <message>
         <location filename="../src/StampSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Formulaire</translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <location filename="../src/StampSettingsWidget.ui" line="35"/>
@@ -1449,37 +1449,37 @@
     <message>
         <location filename="src/transparentdialog.ui" line="14"/>
         <source>Transparent color</source>
-        <translation>Couleur de transparence</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="51"/>
         <source>Tolerance:</source>
-        <translation>Tolérance :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="64"/>
         <source>0</source>
-        <translation>0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="93"/>
         <source>Color:</source>
-        <translation>Couleur :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="109"/>
         <source>Preview</source>
-        <translation>Aperçu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="122"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="135"/>
         <source>Cancel</source>
-        <translation>Annuler</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

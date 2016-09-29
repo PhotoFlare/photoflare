@@ -167,6 +167,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setWindowSize();
     updateRecents();
+    setDefaultSettings();
 
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
     QObject::connect(COLOUR_PICKER, SIGNAL(pickSecondaryColor(const QPoint&)), this, SLOT(onPickSecondaryColor(const QPoint&)));
@@ -212,6 +213,19 @@ void MainWindow::handleMessage(const QString& message)
     QFileInfo fileInfo(message);
     if(fileInfo.exists()) {
         openFile(QString(fileInfo.absoluteFilePath()));
+    }
+}
+
+void MainWindow::setDefaultSettings()
+{
+    if(SETTINGS->getCompressionDialogEnabled())
+    {
+        //we have a value so do nothing
+    }
+    else
+    {
+        SETTINGS->setCompressionDialogEnabled("true");
+        SETTINGS->setCompressionDefaultValue("90");
     }
 }
 
