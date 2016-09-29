@@ -10,7 +10,6 @@
 #include "prefsdialog.h"
 #include "ScanDevicesDialog.h"
 #include "aboutdialog.h"
-#include "registerdialog.h"
 #include "imagepropertiesdialog.h"
 #include "outerframedialog.h"
 #include "PaintWidget.h"
@@ -1179,12 +1178,6 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
             this->zoomCombo->setCurrentIndex(index);
         }
     }
-}
-
-void MainWindow::on_actionRegister_triggered()
-{
-    registerDialog dialog(this);
-    dialog.exec();
 }
 
 void MainWindow::on_actionImage_properties_triggered()
