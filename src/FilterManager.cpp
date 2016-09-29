@@ -66,6 +66,18 @@ public:
         return newQImage;
     }
 
+    QImage toQtImageTransparent(Magick::Image *image)
+        {
+            Magick::Blob blob;
+            image->write(&blob);
+
+            QByteArray arr((char *)blob.data(), blob.length());
+            QImage img;
+            img.loadFromData(arr);
+
+            return img;
+        }
+
 };
 
 FilterManager* FilterManager::m_instance = 0;
@@ -731,9 +743,8 @@ QImage FilterManager::floodFillOpacity(const QImage &image, const QColor &color,
         }
     }
 
-    //magickImage->floodFillOpacity(pos.x(), pos.y(), 255, Magick::FloodfillMethod);
-
-    return d->toQtImage(magickImage.data());
+    //return d->toQtImage(magickImage.data()); //problem with alpha channel
+    return d->toQtImageTransparent(magickImage.data());
 }
 
 FilterManager::FilterManager()

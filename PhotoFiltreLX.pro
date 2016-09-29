@@ -24,15 +24,15 @@ linux {
 
 # Project settings for Mac OS. Adjust the paths as needed on your system.
 macx {
-  INCLUDEPATH += /usr/local/graphicsmagick/include/GraphicsMagick
-  LIBS += -L$$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/ -lGraphicsMagick++
-  LIBS += -L$$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/ -lGraphicsMagick
-  LIBS += -L$$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/ -lGraphicsMagickWand
-  INCLUDEPATH += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/include
-  DEPENDPATH += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/include
-  PRE_TARGETDEPS += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/libGraphicsMagick++.a
-  PRE_TARGETDEPS += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/libGraphicsMagick.a
-  PRE_TARGETDEPS += $$PWD/../../../../usr/local/graphicsmagick-1.3.20/lib/libGraphicsMagickWand.a
+  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.24/include/GraphicsMagick
+  LIBS += -L$$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/ -lGraphicsMagick++
+  LIBS += -L$$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/ -lGraphicsMagick
+  LIBS += -L$$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/ -lGraphicsMagickWand
+  INCLUDEPATH += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/include/GraphicsMagick
+  DEPENDPATH += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/include/GraphicsMagick
+  PRE_TARGETDEPS += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/libGraphicsMagick++.la
+  PRE_TARGETDEPS += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/libGraphicsMagick.la
+  PRE_TARGETDEPS += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/libGraphicsMagickWand.la
   LIBS += -lbz2 -lxml2 -lz -lm
 }
 

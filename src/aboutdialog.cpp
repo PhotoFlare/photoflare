@@ -33,7 +33,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
                                     "<br>Michael Sheppard - Code"
                                     "<br>Helene Levernieux - Project Icon"
                                     "<br><br><b>Special thanks"
-                                    "</b><br>I would to thank Samantha for being an absolute gem of a person. You light up my life and I'm so glad to have found you."));
+                                    "</b><br>I would like to thank Samantha for being an absolute gem of a person. You light up my life and I'm so glad to have found you."));
 
     ui->appName->setText(qApp->applicationName());
     QFont font;

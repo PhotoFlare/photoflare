@@ -1445,6 +1445,44 @@
     </message>
 </context>
 <context>
+    <name>TransparentDialog</name>
+    <message>
+        <location filename="src/transparentdialog.ui" line="14"/>
+        <source>Transparent color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/transparentdialog.ui" line="51"/>
+        <source>Tolerance:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/transparentdialog.ui" line="64"/>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/transparentdialog.ui" line="93"/>
+        <source>Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/transparentdialog.ui" line="109"/>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/transparentdialog.ui" line="122"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/transparentdialog.ui" line="135"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>aboutDialog</name>
     <message>
         <location filename="../src/aboutdialog.ui" line="22"/>
