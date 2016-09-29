@@ -1252,9 +1252,9 @@ void MainWindow::batchProcess_fileProcessFinished(QString file, QImage image)
 void MainWindow::batchProcess_batchProgress(int index,int total)
 {
     if(index < total) {
-        this->setWindowTitle(QString("PhotoFiltre LX Studio - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
+        this->setWindowTitle(QString("PhotoFiltre LX - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
     } else {
-        this->setWindowTitle(QString("PhotoFiltre LX Studio"));
+        this->setWindowTitle(QString("PhotoFiltre LX"));
     }
 }
 

@@ -53,7 +53,6 @@ SOURCES += src/main.cpp \
     src/tools/PaintBucketTool.cpp \
     src/tools/PointerTool.cpp \
     src/tools/TextTool.cpp \
-    src/registerdialog.cpp \
     src/tools/PaintBrushAdvTool.cpp \
     src/PaintBrushAdvSettingsWidget.cpp \
     src/tools/SprayCanTool.cpp \
@@ -80,7 +79,6 @@ SOURCES += src/main.cpp \
     src/colorboxwidget.cpp \
     src/compressiondialog.cpp \
     src/batchprogress.cpp \
-    src/buydialog.cpp \
     src/transparentdialog.cpp
 
 HEADERS += src/mainwindow.h \
@@ -100,7 +98,6 @@ HEADERS += src/mainwindow.h \
     src/tools/PointerTool.h \
     src/tools/TextTool.h \
     src/tools/MagicWandTool.h \
-    src/registerdialog.h \
     src/tools/PaintBrushAdvTool.h \
     src/PaintBrushAdvSettingsWidget.h \
     src/tools/SprayCanTool.h \
@@ -126,7 +123,6 @@ HEADERS += src/mainwindow.h \
     src/colorboxwidget.h \
     src/compressiondialog.h \
     src/batchprogress.h \
-    src/buydialog.h \
     src/transparentdialog.h
 
 FORMS += src/mainwindow.ui \
@@ -137,7 +133,6 @@ FORMS += src/mainwindow.ui \
     src/PaintBrushSettingsWidget.ui \
     src/PaintBrushAdvSettingsWidget.ui \
     src/ColorBoxWidget.ui \
-    src/registerdialog.ui \
     src/BrushTypeComboBox.ui \
     src/SprayCanSettingsWidget.ui \
     src/LineSettingsWidget.ui \
@@ -153,7 +148,6 @@ FORMS += src/mainwindow.ui \
     src/gradientdialog.ui \
     src/compressiondialog.ui \
     src/batchprogress.ui \
-    src/buydialog.ui \
     src/transparentdialog.ui
 
 RESOURCES += \
