@@ -6,3 +6,6 @@ Simple but powerful Cross Platform image editor originally inspired by the Photo
 * libgraphicsmagick-dev
 * qt5-default
 * G++, MinGW on Windows or Clang on MacOSX
+
+## Building
+Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter.
