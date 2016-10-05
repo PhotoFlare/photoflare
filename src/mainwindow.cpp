@@ -188,15 +188,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
     QObject::connect(m_scanManager, SIGNAL(scanFinished(int,QProcess::ExitStatus)), this, SLOT(onScanFnished(int,QProcess::ExitStatus)));
 
-    // Enable/Disable actions implemented depending if we have an image
-    PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
-        //toggleImplementedActions(true);
-    }
-    else {
-        //toggleImplementedActions(false);
-    }
-
     transparentDialog = 0;
 
     on_toolButtonPointer_clicked();
@@ -247,39 +238,39 @@ void MainWindow::refreshTools()
     {
         on_toolButtonPointer_clicked();
     }
-    if(m_toolSelected == "dropper")
+    else if(m_toolSelected == "dropper")
     {
         on_toolButtonDropper_clicked();
     }
-    if(m_toolSelected == "wand")
+    else if(m_toolSelected == "wand")
     {
         on_toolButtonWand_clicked();
     }
-    if(m_toolSelected == "line")
+    else if(m_toolSelected == "line")
     {
         on_toolButtonLine_clicked();
     }
-    if(m_toolSelected == "paintBucket")
+    else if(m_toolSelected == "paintBucket")
     {
         on_toolButtonPaintBucket_clicked();
     }
-    if(m_toolSelected == "sprayCan")
+    else if(m_toolSelected == "sprayCan")
     {
         on_toolButtonSprayCan_clicked();
     }
-    if(m_toolSelected == "paintBrush")
+    else if(m_toolSelected == "paintBrush")
     {
         on_toolButtonPaintBrush_clicked();
     }
-    if(m_toolSelected == "paintBrushAdv")
+    else if(m_toolSelected == "paintBrushAdv")
     {
         on_toolButtonPaintBrushAdv_clicked();
     }
-    if(m_toolSelected == "stamp")
+    else if(m_toolSelected == "stamp")
     {
         on_toolButtonStamp_clicked();
     }
-    if(m_toolSelected == "blur")
+    else if(m_toolSelected == "blur")
     {
         on_toolButtonBlur_clicked();
     }
@@ -358,13 +349,16 @@ void MainWindow::on_actionSave_As_triggered()
             }
     }
 
-    int quality = -1;;
+    int quality = -1;
+
     if(SETTINGS->getCompressionDialogEnabled() && fileNameSuffix == "jpg" || fileNameSuffix == "jpeg")
     {
         CompressionDialog dlg;
         dlg.exec();
         quality = dlg.quality();
-        if(dlg.enableSaveImage) //If dialog Accepted
+
+        //If dialog Accepted
+        if(dlg.enableSaveImage) 
         {
             if (saveImage(fileName,quality)) {
                 PaintWidget *widget = getCurrentPaintWidget();
@@ -380,7 +374,8 @@ void MainWindow::on_actionSave_As_triggered()
             }
         }
     }
-    else //Other file formats
+    //Other file formats
+    else 
     {
         if (saveImage(fileName,quality)) {
             PaintWidget *widget = getCurrentPaintWidget();
