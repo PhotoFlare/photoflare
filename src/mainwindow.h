@@ -239,6 +239,8 @@ private slots:
 
     void on_actionRGB_Mode_triggered();
 
+    void on_actionDonate_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

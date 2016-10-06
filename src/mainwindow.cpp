@@ -29,6 +29,7 @@
 #include <QDateTime>
 #include <QThread>
 #include <QMimeData>
+#include <QDesktopServices>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -1791,6 +1792,12 @@ void MainWindow::on_actionRGB_Mode_triggered()
     }
 }
 
+void MainWindow::on_actionDonate_triggered()
+{
+    QString link = "http://photofiltre-lx.org/donate/";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
 void MainWindow::createKeyboardShortcuts() {
     //File Menu
     ui->actionNew->setShortcut(QString("Ctrl+N"));
@@ -1972,3 +1979,4 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionValidate->setEnabled(false);
     }
 }
+
