@@ -2,7 +2,7 @@
 
 Simple but powerful Cross Platform image editor originally inspired by the PhotoFiltre image editor on Windows. Created with C++ 11, Qt Framework and the Graphicsmagick library.
 
-<img src="http://photofiltre-lx.org/preview.png">
+<img src="http://photofiltre-lx.org/preview.jpg">
 
 ## Dependencies
 * libgraphicsmagick++-dev
