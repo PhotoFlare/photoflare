@@ -74,7 +74,8 @@
 #define STAMP_TOOL ToolManager::instance()->stampTool()
 #define BLUR_TOOL ToolManager::instance()->blurTool()
 
-namespace {
+namespace 
+{
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
 }
 
@@ -87,7 +88,8 @@ MainWindow::MainWindow(QWidget *parent) :
     if(SETTINGS->isMultiWindowMode())
     {
         ui->mdiArea->setViewMode(QMdiArea::SubWindowView);
-    } else
+    } 
+    else
     {
         ui->mdiArea->setViewMode(QMdiArea::TabbedView);
     }
@@ -202,9 +204,8 @@ MainWindow::~MainWindow()
 void MainWindow::handleMessage(const QString& message)
 {
     QFileInfo fileInfo(message);
-    if(fileInfo.exists()) {
+    if(fileInfo.exists()) 
         openFile(QString(fileInfo.absoluteFilePath()));
-    }
 }
 
 void MainWindow::setDefaultSettings()
@@ -218,14 +219,18 @@ void MainWindow::setDefaultSettings()
         SETTINGS->setCompressionDialogEnabled("true");
         SETTINGS->setCompressionDefaultValue("90");
     }
+
 }
 
 void MainWindow::setWindowSize()
 {
     bool maximize = SETTINGS->isMaximizeWindow();
-    if (maximize) {
+    if (maximize) 
+    {
         this->setWindowState(Qt::WindowMaximized);
-    } else {
+    } 
+    else 
+    {
         QRect geometry = SETTINGS->customWindowGeometry();
         if (geometry.isValid())
             this->setGeometry(geometry);
@@ -286,7 +291,8 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::on_actionNew_triggered()
 {
     NewDialog dialog;
-    if (dialog.exec()) {
+    if (dialog.exec()) 
+    {
         addPaintWidget(createPaintWidget(dialog.newImageSize()));
     }
 }
@@ -321,9 +327,11 @@ void MainWindow::on_actionSave_As_triggered()
     filters << tr("ppm (*.ppm)");
 
     QString defaultFilter;
-    if (!suffix.isEmpty()) {
+    if (!suffix.isEmpty()) 
+    {
         foreach (const QString &filter, filters) {
-            if (filter.contains(suffix, Qt::CaseInsensitive)) {
+            if (filter.contains(suffix, Qt::CaseInsensitive)) 
+            {
                 defaultFilter = filter;
                 break;
             }
@@ -342,9 +350,11 @@ void MainWindow::on_actionSave_As_triggered()
     // WORKAROUND: Add the extension to the file name manually.
     QString fileNameSuffix = QFileInfo(fileName).suffix();
 
-    if (fileNameSuffix.isEmpty()) {
+    if (fileNameSuffix.isEmpty()) 
+    {
             QStringList list = defaultFilter.split(" (");
-            if (list.count() == 2) {
+            if (list.count() == 2) 
+            {
                 fileNameSuffix = list.at(0);
                 fileName += "." + fileNameSuffix;
             }
@@ -361,35 +371,38 @@ void MainWindow::on_actionSave_As_triggered()
         //If dialog Accepted
         if(dlg.enableSaveImage) 
         {
-            if (saveImage(fileName,quality)) {
+            if (saveImage(fileName,quality)) 
+            {
                 PaintWidget *widget = getCurrentPaintWidget();
-                if (widget) {
+                if (widget)
                     widget->setImage(QImage(fileName));
-                }
+                
                 ui->mdiArea->currentSubWindow()->setWindowModified(false);
                 ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
                 SETTINGS->addRecentFile(fileName);
                 updateRecents();
-            } else {
+            } 
+            else 
                 showError(tr("Unable to save image."));
-            }
+            
         }
     }
     //Other file formats
     else 
     {
-        if (saveImage(fileName,quality)) {
+        if (saveImage(fileName,quality)) 
+        {
             PaintWidget *widget = getCurrentPaintWidget();
-            if (widget) {
+            if (widget)
                 widget->setImage(QImage(fileName));
-            }
+            
             ui->mdiArea->currentSubWindow()->setWindowModified(false);
             ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
             SETTINGS->addRecentFile(fileName);
             updateRecents();
-        } else {
+        } 
+        else 
             showError(tr("Unable to save image."));
-        }
     }
 }
 
@@ -401,7 +414,8 @@ void MainWindow::on_actionText_triggered()
         clearToolpalette();
         m_toolSelected = "text";
         PaintWidget *widget = getCurrentPaintWidget();
-        if (widget) {
+        if (widget) 
+        {
             widget->setPaintTool(TEXT_TOOL);
             TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias());
         }
@@ -423,14 +437,14 @@ void MainWindow::on_actionImage_Size_triggered()
     NewDialog dialog;
     dialog.setWindowTitle("Resize Image");
     dialog.setImageSize(widget->image().size());
-    if (dialog.exec()) {
+    if (dialog.exec()) 
         widget->setImage(widget->image().scaled(dialog.newImageSize()));
-    }
 }
 
 void MainWindow::openFile(const QString& fileName)
 {
-    if (!fileName.isEmpty()) {
+    if (!fileName.isEmpty()) 
+    {
         addPaintWidget(createPaintWidget(fileName));
         SETTINGS->addRecentFile(fileName);
         updateRecents();
@@ -443,7 +457,9 @@ void MainWindow::updateRecents()
 
     QList<QVariant> recentFiles = SETTINGS->getRecentFiles();
     QList<QVariant>::iterator i;
-    for(i = recentFiles.begin(); i != recentFiles.end(); i++) {
+    
+    for(i = recentFiles.begin(); i != recentFiles.end(); i++) 
+    {
         const QString& fileName = (*i).toString();
         QAction* action = ui->menuRecent_Files->addAction(fileName);
         connect(action, &QAction::triggered, [this, fileName] () {
@@ -512,9 +528,9 @@ void MainWindow::addChildWindow(PaintWidget *widget)
     mdiSubWindow->show();
 
     connect(widget, &PaintWidget::contentChanged, [widget, mdiSubWindow, title, this] () {
-        if (!mdiSubWindow->isWindowModified()) {
+        if (!mdiSubWindow->isWindowModified()) 
             mdiSubWindow->setWindowModified(true);
-        }
+        
         ui->actionUndo->setEnabled(widget->isUndoEnabled());
         ui->actionRedo->setEnabled(widget->isRedoEnabled());
     });
@@ -528,7 +544,8 @@ void MainWindow::saveContent()
     if(currentFileName.contains(UNTITLED_TAB_NAME + " [*]"))
     {
         on_actionSave_As_triggered();
-    } else
+    } 
+    else
     {
         saveImage(currentFileName.mid(0,currentFileName.length() - 4),-1);
         ui->mdiArea->currentSubWindow()->setWindowModified(false);
@@ -553,13 +570,17 @@ bool MainWindow::handleCloseChildWindow(QMdiSubWindow *subWindow)
 
     ui->mdiArea->setActiveSubWindow(subWindow);
 
-    if (subWindow->isWindowModified()) {
+    if (subWindow->isWindowModified()) 
+    {
         int buttonCode = QMessageBox::question(this, tr("Unsaved Changes"), tr("Save changes before leaving?"),
                                                QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::Cancel);
 
-        if (buttonCode == QMessageBox::Cancel) {
+        if (buttonCode == QMessageBox::Cancel) 
+        {
             return true;
-        } else if (buttonCode == QMessageBox::Yes) {
+        } 
+        else if (buttonCode == QMessageBox::Yes) 
+        {
             saveContent();
         }
     }
@@ -574,18 +595,18 @@ bool MainWindow::handleCloseTabs()
 {
     QList<QMdiSubWindow *> windows = ui->mdiArea->subWindowList();
 
-    for (int i = 0; i < windows.size(); ++i) {
+    for (int i = 0; i < windows.size(); ++i) 
+    {
        QMdiSubWindow *subWindow = windows.at(i);
-       if(subWindow->isWindowModified())
-       {
-           if (handleCloseChildWindow(subWindow)) {
+        if(subWindow->isWindowModified())
+        {
+            if (handleCloseChildWindow(subWindow)) 
                return true;
-           } else {
-
-           }
-       } else {
+        } 
+        else 
+        {
            subWindow->close();
-       }
+        }
     }
 
     return false;
@@ -594,9 +615,12 @@ bool MainWindow::handleCloseTabs()
 void MainWindow::saveGeometryState()
 {
     // Save maximized window state if user maximizes the window manually.
-    if (this->isMaximized() && !SETTINGS->isMaximizeWindow()) {
+    if (this->isMaximized() && !SETTINGS->isMaximizeWindow()) 
+    {
         SETTINGS->setMaximizeWindow(true);
-    } else if (!SETTINGS->isMaximizeWindow()) { // Save custom window geometry.
+    } 
+    else if (!SETTINGS->isMaximizeWindow()) // Save custom window geometry.
+    { 
         SETTINGS->setCustomWindowGeometry(this->geometry());
     }
 }
@@ -751,7 +775,8 @@ void MainWindow::on_toolButtonBlur_clicked()
 
 void MainWindow::on_actionQuit_triggered()
 {
-    if (!handleCloseTabs()) {
+    if (!handleCloseTabs()) 
+    {
         saveGeometryState();
         qApp->quit();
     }
@@ -759,9 +784,12 @@ void MainWindow::on_actionQuit_triggered()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    if (!handleCloseTabs()) {
+    if (!handleCloseTabs()) 
+    {
         saveGeometryState();
-    } else {
+    } 
+    else 
+    {
         event->ignore();
     }
 }
@@ -780,122 +808,107 @@ PaintWidget* MainWindow::getCurrentPaintWidget()
 void MainWindow::on_actionGrayScale_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->grayscale(widget->image()));
-    }
 }
 
 void MainWindow::on_actionFlip_Horizontal_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->flipHorz(widget->image()));
-    }
 }
 
 void MainWindow::on_actionFlip_Vertical_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->flipVert(widget->image()));
-    }
 }
 
 void MainWindow::on_actionRotate_CCW_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->rotateCCW(widget->image()));
-    }
 }
 
 void MainWindow::on_actionRotate_CW_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->rotateCW(widget->image()));
-    }
 }
 
 void MainWindow::on_actionOil_Paint_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->oilPaint(widget->image()));
-    }
 }
 
 void MainWindow::on_actionCharcoal_Drawing_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->charcoal(widget->image()));
-    }
 }
 
 void MainWindow::on_actionSwirl_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->swirl(widget->image()));
-    }
 }
 
 
 void MainWindow::on_actionSolarize_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->solarize(widget->image()));
-    }
 }
 
 void MainWindow::on_actionWave_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->wave(widget->image()));
-    }
 }
 
 void MainWindow::on_actionImplode_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->implode(widget->image()));
-    }
 }
 
 void MainWindow::on_actionSoften_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->soften(widget->image()));
-    }
 }
 
 void MainWindow::on_actionBlur_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->blur(widget->image()));
-    }
 }
 
 void MainWindow::on_actionSharpen_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->sharpen(widget->image()));
-    }
 }
 
 void MainWindow::on_actionReinforce_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->reinforce(widget->image()));
-    }
 }
 
 void MainWindow::on_actionClose_triggered()
@@ -937,7 +950,8 @@ void MainWindow::on_actionZoom_in_triggered()
     }
 
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         widget->setScale(this->zoomCombo->currentText());
     }
 }
@@ -955,7 +969,8 @@ void MainWindow::on_actionZoom_out_triggered()
     }
 
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         widget->setScale(this->zoomCombo->currentText());
     }
 }
@@ -972,7 +987,8 @@ void MainWindow::on_actionAuto_zoom_triggered(PaintWidget *widget)
 void MainWindow::on_actionOriginal_size_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         this->zoomCombo->setItemText(0,"100%");
         this->zoomCombo->setCurrentIndex(0);
         widget->setScale("100%");
@@ -1047,9 +1063,12 @@ void MainWindow::onPickPrimaryColor(const QPoint& pos)
         const QImage& image = widget->image();
         const QColor& color = image.pixel(pos);
 
-        if(transparentDialog) {
+        if(transparentDialog) 
+        {
             transparentDialog->setColor(color.rgb());
-        } else {
+        } 
+        else 
+        {
             ui->colorBoxWidget->setPrimaryColor(color);
         }
     }
@@ -1070,33 +1089,31 @@ void MainWindow::onPickSecondaryColor(const QPoint& pos)
 void MainWindow::onSelectPrimaryColor(const QPoint& pos, int tolerance, bool color)
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         MAGIC_WAND->setSelection(FilterManager::instance()->selectArea(widget->image(), pos, tolerance, color));
-    }
 }
 
 void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
 {
     const QColor& color = ui->colorBoxWidget->primaryColor();
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
-    }
 }
 
 void MainWindow::onFloodFillSecondaryColor(const QPoint& pos)
 {
     const QColor& color = ui->colorBoxWidget->secondaryColor();
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
-    }
 }
 
 void MainWindow::onCrop(const QRect& rect)
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         QRect crop = widget->image().rect().intersected(rect);
         widget->setImage(widget->image().copy(crop));
     }
@@ -1105,7 +1122,8 @@ void MainWindow::onCrop(const QRect& rect)
 void MainWindow::onCopy()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         QClipboard *clipboard = QApplication::clipboard();
         clipboard->setImage(widget->image());
     }
@@ -1114,16 +1132,21 @@ void MainWindow::onCopy()
 void MainWindow::onPaste()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         QClipboard *clipboard = QApplication::clipboard();
         widget->setPaintTool(MOUSE_POINTER);
         MOUSE_POINTER->setOverlayImage(clipboard->image());
-    } else {
+    } 
+    else 
+    {
         QClipboard *clipboard = QApplication::clipboard();
-        if(clipboard->mimeData()->hasImage()) {
+        if(clipboard->mimeData()->hasImage()) 
+        {
             addPaintWidget(createPaintWidget(clipboard->image().size()));
             widget = getCurrentPaintWidget();
-            if (widget) {
+            if (widget) 
+            {
                 widget->setImage(clipboard->image());
                 widget->setPaintTool(MOUSE_POINTER);
             }
@@ -1134,9 +1157,8 @@ void MainWindow::onPaste()
 void MainWindow::onZoomChanged(const QString& scale)
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setScale(scale);
-    }
 }
 
 void MainWindow::onEditText(const QString& text,const QFont& font, const QColor& color)
@@ -1144,9 +1166,7 @@ void MainWindow::onEditText(const QString& text,const QFont& font, const QColor&
     textDialog dialog(this);
     dialog.editText(text, font, color);
     if(dialog.exec())
-    {
         TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias());
-    }
 }
 
 void MainWindow::onMultiWindowModeChanged(bool multiWindowMode)
@@ -1154,7 +1174,8 @@ void MainWindow::onMultiWindowModeChanged(bool multiWindowMode)
     if(multiWindowMode)
     {
         ui->mdiArea->setViewMode(QMdiArea::SubWindowView);
-    } else
+    } 
+    else
     {
         ui->mdiArea->setViewMode(QMdiArea::TabbedView);
     }
@@ -1164,13 +1185,17 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
 {
     Q_UNUSED(window)
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         QString scale = QString::number((int)(widget->getScale()*100)).append("%");
         int index = this->zoomCombo->findText(scale);
-        if(index < 0) {
+        if(index < 0) 
+        {
             this->zoomCombo->setItemText(0, scale);
             this->zoomCombo->setCurrentIndex(0);
-        } else {
+        } 
+        else 
+        {
             this->zoomCombo->setCurrentIndex(index);
         }
     }
@@ -1181,7 +1206,8 @@ void MainWindow::on_actionImage_properties_triggered()
     imagePropertiesDialog dialog(this);
 
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         if(!widget->imagePath().isEmpty())
         {
             QFileInfo fileInfo(widget->imagePath());
@@ -1227,7 +1253,8 @@ void MainWindow::batchProcess_fileProcessFinished(QString file, QImage image)
 {
     addPaintWidget(createPaintWidget(image.size()));
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         widget->setImage(image);
     }
 
@@ -1240,9 +1267,12 @@ void MainWindow::batchProcess_fileProcessFinished(QString file, QImage image)
 
 void MainWindow::batchProcess_batchProgress(int index,int total)
 {
-    if(index < total) {
+    if(index < total) 
+    {
         this->setWindowTitle(QString("PhotoFiltre LX - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
-    } else {
+    } 
+    else 
+    {
         this->setWindowTitle(QString("PhotoFiltre LX"));
     }
 }
@@ -1250,7 +1280,8 @@ void MainWindow::batchProcess_batchProgress(int index,int total)
 void MainWindow::on_actionUndo_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         widget->undo();
     }
 }
@@ -1258,7 +1289,8 @@ void MainWindow::on_actionUndo_triggered()
 void MainWindow::on_actionRedo_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         widget->redo();
     }
 }
@@ -1271,12 +1303,14 @@ void MainWindow::on_actionPrint_triggered()
     if (dialog->exec() == QDialog::Accepted)
     {
         QPainter painter;
-        if (! painter.begin(&printer)) {
+        if (! painter.begin(&printer)) 
+        {
             qWarning("Failed to init printer");
             return;
         }
         PaintWidget *widget = getCurrentPaintWidget();
-        if (widget) {
+        if (widget) 
+        {
             painter.drawImage(0,0,widget->image());
         }
         painter.end();
@@ -1324,7 +1358,8 @@ void MainWindow::onScanFnished(int,QProcess::ExitStatus status)
         QFile file("FROM_SCANNER.bmp");
 
         PaintWidget *widget = getCurrentPaintWidget();
-        if (widget) {
+        if (widget) 
+        {
             widget->showProgressIndicator(false);
             widget->setImage(QImage(file.fileName()));
             widget->autoScale();
@@ -1336,10 +1371,12 @@ void MainWindow::onScanFnished(int,QProcess::ExitStatus status)
 
 void MainWindow::on_actionFull_screen_triggered()
 {
-    if(this->isFullScreen()) {
+    if(this->isFullScreen()) 
+    {
         setWindowSize();
     }
-    else {
+    else 
+    {
         this->showFullScreen();
     }
 }
@@ -1347,7 +1384,8 @@ void MainWindow::on_actionFull_screen_triggered()
 void MainWindow::on_actionShow_selection_triggered(bool checked)
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         widget->setSelectionVisible(checked);
         ui->actionCrop->setEnabled(checked && widget->isSelectionVisible());
     }
@@ -1363,12 +1401,14 @@ void MainWindow::on_actionCanvas_Size_triggered()
     NewDialog dialog;
     dialog.setWindowTitle("Resize Canvas");
     dialog.setMode(NewDialog::ResizeCanvas);
-    if (dialog.exec()) {
+    if (dialog.exec()) 
+    {
         QImage canvas (dialog.newImageSize(), QImage::Format_ARGB32_Premultiplied);
         canvas.fill(dialog.backgroundColor());
         PaintWidget *widget = getCurrentPaintWidget();
         QPoint pos;
-        if (widget) {
+        if (widget) 
+        {
             QPainter painter(&canvas);
             switch(dialog.imagePosition())
             {
@@ -1410,7 +1450,8 @@ void MainWindow::on_actionCanvas_Size_triggered()
 void MainWindow::on_actionRevert_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         widget->revert();
     }
 }
@@ -1466,25 +1507,22 @@ void MainWindow::on_actionGammaCorrectminus_triggered()
 void MainWindow::on_actionOldPhoto_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->oldPhoto(widget->image()));
-    }
 }
 
 void MainWindow::on_actionSepia_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->sepia(widget->image()));
-    }
 }
 
 void MainWindow::on_actionDustReduction_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->dustreduction(widget->image()));
-    }
 }
 
 void MainWindow::on_actionOutside_frame_triggered()
@@ -1493,158 +1531,146 @@ void MainWindow::on_actionOutside_frame_triggered()
 
     if (dialog.exec() == QDialog::Accepted) {
         PaintWidget *widget = getCurrentPaintWidget();
-        if (widget) {
+        if (widget) 
             widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),dialog.width(),dialog.color()));
-        }
+        
     }
 }
 
 void MainWindow::on_actionEmboss_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->emboss(widget->image()));
-    }
 }
 
 void MainWindow::on_actionTrim_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->trim(widget->image()));
-    }
 }
 
 void MainWindow::on_actionGaussian_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->gaussianNoise(widget->image()));
-    }
 }
 
 void MainWindow::on_actionImpulse_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->impulseNoise(widget->image()));
-    }
 }
 
 void MainWindow::on_actionLaplacian_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->laplacianNoise(widget->image()));
-    }
 }
 
 void MainWindow::on_actionPoisson_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->poissonNoise(widget->image()));
-    }
 }
 
 void MainWindow::on_actionMonoChromatic_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->monoChromeEdges(widget->image()));
-    }
 }
 
 void MainWindow::on_actionEqualize_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->equalizeColours(widget->image()));
-    }
 }
 
 void MainWindow::on_actionCrop_To_Center_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget)
         widget->setImage(FilterManager::instance()->cropToCenter(widget->image()));
-    }
 }
 
 void MainWindow::on_actionAdd_Simple_Frame_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->simpleFrame(widget->image()));
-    }
 }
 
 void MainWindow::on_actionMotion_blur_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->motionBlur(widget->image()));
-    }
 }
 
 void MainWindow::on_actionNormalize_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->normalize(widget->image()));
-    }
 }
 
 void MainWindow::on_action3D_frame_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->advFrame(widget->image()));
-    }
 }
 
 void MainWindow::on_actionExplode_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->explode(widget->image()));
-    }
 }
 
 void MainWindow::on_actionDespeckle_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->deSpeckle(widget->image()));
-    }
 }
 
 void MainWindow::on_actionAuto_levels_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->autoLevels(widget->image()));
-    }
 }
 
 void MainWindow::on_actionAuto_contrast_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->autoContrast(widget->image()));
-    }
 }
 
 void MainWindow::on_actionHue_variation_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         HueDialog dlg(this, widget->image());
         QObject::connect(&dlg, SIGNAL(huePreviewChanged(QImage,bool,QColor,int)), this, SLOT(onHuePreviewChanged(QImage,bool,QColor,int)));
-        if (dlg.exec()) {
-            if(dlg.isColorizeMethod()) {
+        if (dlg.exec()) 
+        {
+            if(dlg.isColorizeMethod()) 
+            {
                 widget->setImage(FilterManager::instance()->colorize(widget->image(), dlg.color()));
-            } else {
+            } 
+            else 
+            {
                 widget->setImage(FilterManager::instance()->hue(widget->image(), dlg.degrees()));
             }
         }
@@ -1654,9 +1680,12 @@ void MainWindow::on_actionHue_variation_triggered()
 void MainWindow::onHuePreviewChanged(QImage image, bool colorize, QColor color, int degrees)
 {
     HueDialog *dlg = qobject_cast<HueDialog*>(sender());
-    if(colorize) {
+    if(colorize) 
+    {
         dlg->setPreviewImage(FilterManager::instance()->colorize(image, color));
-    } else {
+    } 
+    else 
+    {
         dlg->setPreviewImage(FilterManager::instance()->hue(image, degrees));
     }
 }
@@ -1674,9 +1703,11 @@ void MainWindow::on_actionCopy_triggered()
 void MainWindow::on_actionGradient_triggered()
 {
     GradientDialog dlg(this);
-    if(dlg.exec()) {
+    if(dlg.exec()) 
+    {
         PaintWidget *widget = getCurrentPaintWidget();
-        if (widget) {
+        if (widget) 
+        {
             QImage image = widget->image();
             QPoint startPoint;
             QPoint stopPoint;
@@ -1722,7 +1753,8 @@ void MainWindow::on_actionGradient_triggered()
 void MainWindow::on_actionTransparent_colour_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         origImage = widget->image();
         emit ui->toolButtonDropper->clicked();
         transparentDialog = new TransparentDialog();
@@ -1745,51 +1777,46 @@ void MainWindow::onTransparentFinished(int)
 void MainWindow::onTransparentAccepted()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->floodFillOpacity(widget->image(), transparentDialog->color(), transparentDialog->tolerance()));
-    }
 }
 
 void MainWindow::onTransparentRejected()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(origImage);
-    }
 }
 
 void MainWindow::onPreviewTransparent(QColor color, int tolerance)
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(FilterManager::instance()->floodFillOpacity(origImage, color, tolerance));
-    }
 }
 
 void MainWindow::on_actionCrop_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
+    {
         MOUSE_POINTER->onCrop();
         widget->onSelectionChanged(QRect());
     }
 }
 
-
 void MainWindow::on_actionIndexed_Mode_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(widget->image().convertToFormat(QImage::Format_Indexed8));
-    }
 }
 
 void MainWindow::on_actionRGB_Mode_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
+    if (widget) 
         widget->setImage(widget->image().convertToFormat(QImage::Format_ARGB32_Premultiplied));
-    }
 }
 
 void MainWindow::on_actionDonate_triggered()

@@ -48,11 +48,13 @@ int main(int argc, char *argv[])
             MainWindow w;
             w.show();
 
-            if(argc > 1) {
-                for (int i = 1; i < argc; ++i) {
-                        w.handleMessage(QString(argv[i]));
-                    }
+            if(argc > 1) 
+            {
+                for (int i = 1; i < argc; ++i) 
+                {
+                    w.handleMessage(QString(argv[i]));
                 }
+            }
 
             app.setActivationWindow(&w, true);
 
@@ -60,14 +62,16 @@ int main(int argc, char *argv[])
 
             return app.exec();
 
-        } else
+        } 
+        else
         {
-            if(argc > 1) {
-                for (int i = 1; i < argc; ++i) {
-                        app.sendMessage(QString(argv[i]));
-                    }
+            if(argc > 1) 
+            {
+                for (int i = 1; i < argc; ++i) 
+                {
+                    app.sendMessage(QString(argv[i]));
                 }
+            }
         }
-
         return 0;
 }

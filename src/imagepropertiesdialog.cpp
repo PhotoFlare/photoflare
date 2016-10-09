@@ -60,7 +60,7 @@ QString sizeToString(qint64 size)
     QString unit("bytes");
 
     while(num >= 1024.0 && i.hasNext())
-     {
+    {
         unit = i.next();
         num /= 1024.0;
     }

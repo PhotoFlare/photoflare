@@ -84,12 +84,12 @@ void LineTool::setArrowStyle(int arrowStyle)
     d->twoWaysArrow = false;
     switch(arrowStyle)
     {
-    case 1:
-        d->oneWayArrow =true;
-        break;
-    case 2:
-        d->twoWaysArrow =true;
-        break;
+        case 1:
+            d->oneWayArrow =true;
+            break;
+        case 2:
+            d->twoWaysArrow =true;
+            break;
     }
 }
 
@@ -132,7 +132,8 @@ void LineTool::drawArrow(QPainter& painter, QPoint pFrom, QPoint pTo, QPoint& pO
     {
         painter.drawLine(aptPoly[0], aptPoly[1]);
         painter.drawLine(aptPoly[0], aptPoly[2]);
-    } else
+    } 
+    else
     {
         painter.drawPolygon(aptPoly, 3);
     }
@@ -206,9 +207,9 @@ void LineTool::onMouseMove(const QPoint &pos)
         QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.fillRect(surface.rect(), Qt::transparent);
+        //painter.fillRect(surface.rect(), Qt::transparent);
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
-        painter.setPen(pen);
+        //painter.setPen(pen);
 
         QBrush brush = QBrush(pen.color(), Qt::SolidPattern);
         painter.setBrush(brush);
@@ -222,7 +223,8 @@ void LineTool::onMouseMove(const QPoint &pos)
         if(d->oneWayArrow)
             drawArrow(painter, d->firstPos, d->secondPos, secondPos);
 
-        if(d->twoWaysArrow) {
+        if(d->twoWaysArrow) 
+        {
             drawArrow(painter, d->firstPos, d->secondPos, secondPos);
             drawArrow(painter, d->secondPos, d->firstPos, firstPos);
         }
@@ -242,10 +244,12 @@ void LineTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
 
-    if (m_paintDevice) {
+    if (m_paintDevice) 
+    {
         QPainter painter(m_paintDevice);
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
-        if (d->antialias) {
+        if (d->antialias) 
+        {
             painter.setRenderHint(QPainter::Antialiasing);
             painter.setRenderHint(QPainter::HighQualityAntialiasing);
         }
@@ -263,7 +267,8 @@ void LineTool::onMouseRelease(const QPoint &pos)
         if(d->oneWayArrow)
             drawArrow(painter, d->firstPos, d->secondPos, secondPos);
 
-        if(d->twoWaysArrow) {
+        if(d->twoWaysArrow) 
+        {
             drawArrow(painter, d->firstPos, d->secondPos, secondPos);
             drawArrow(painter, d->secondPos, d->firstPos, firstPos);
         }

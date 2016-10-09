@@ -51,10 +51,10 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
 
     if(SETTINGS->getUserLanguage() == "en")
-    ui->comboBoxLanguage->setCurrentIndex(0);
+        ui->comboBoxLanguage->setCurrentIndex(0);
 
     if(SETTINGS->getUserLanguage() == "fr")
-    ui->comboBoxLanguage->setCurrentIndex(1);
+        ui->comboBoxLanguage->setCurrentIndex(1);
 
     //if(SETTINGS->getUserLanguage() == "de")
     //ui->comboBoxLanguage->setCurrentIndex(2);

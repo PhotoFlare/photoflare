@@ -21,8 +21,10 @@ void ImagePositionWidget::resetAllButtons()
         QPushButton* pushButton = qobject_cast<QPushButton*>(obj);
         //qDebug()<<pushButton;
         if(pushButton && pushButton->isChecked())
+        {
             pushButton->setChecked(false);
             pushButton->setIcon(QIcon(":/icons/icons/grayscale.png"));
+        }
     }
 }
 

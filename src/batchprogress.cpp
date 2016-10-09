@@ -16,7 +16,6 @@ BatchProgress::~BatchProgress()
 void BatchProgress::progress(int value,int total)
 {
     ui->progressBar->setValue(int(100 * (float)value/(float)total));
-    if(value == total) {
+    if(value == total) 
         hide();
-    }
 }

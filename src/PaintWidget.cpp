@@ -59,15 +59,18 @@ public:
         painter.fillRect(surface.rect(), brush);
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawImage(0, 0, image);
-        if(isSelectionVisible) {
+        if(isSelectionVisible) 
+        {
             QPen pen = QPen(QBrush(), 1, Qt::DashLine);
             pen.setColor(Qt::gray);
             painter.setPen(pen);
             painter.setBrush(QBrush());
             painter.drawPolygon(selection, Qt::WindingFill);
-            if(selection.size() == 4) {
+            if(selection.size() == 4) 
+            {
                 QRect rect(selection.at(0),selection.at(3));
-                if(rect.topLeft() != rect.bottomLeft()) {
+                if(rect.topLeft() != rect.bottomLeft()) 
+                {
                     painter.setPen(QPen(Qt::gray));
                     painter.setBrush(QBrush(Qt::gray));
                     painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), 10, 10));
@@ -119,7 +122,8 @@ public:
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
-        if (currentTool) {
+        if (currentTool) 
+        {
             // Set current image to the tool when we start painting.
             currentTool->setPaintDevice(&image);
             imageChanged = false;
@@ -138,7 +142,8 @@ public:
 
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     {
-        if (currentTool) {
+        if (currentTool) 
+        {
             currentTool->onMouseRelease(QPoint(event->scenePos().x(), event->scenePos().y()));
             if(imageChanged)
             {
@@ -150,16 +155,14 @@ public:
 
     void keyPressEvent(QKeyEvent * keyEvent)
     {
-        if (currentTool) {
+        if (currentTool) 
             currentTool->onKeyPressed(keyEvent);
-        }
     }
 
     void keyReleaseEvent(QKeyEvent * keyEvent)
     {
-        if (currentTool) {
+        if (currentTool) 
             currentTool->onKeyReleased(keyEvent);
-        }
     }
 
     QString imagePath;
@@ -215,23 +218,27 @@ PaintWidget::~PaintWidget()
 
 void PaintWidget::setPaintTool(Tool *tool)
 {
-    if (d->currentTool) {
+    if (d->currentTool) 
+    {
         d->currentTool->disconnect();
         d->disconnectLastTool();
     }
 
     d->currentTool = tool;
 
-    if (d->currentTool) {
+    if (d->currentTool) 
+    {
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
-                if (&d->image == paintDevice) {
+                if (&d->image == paintDevice) 
+                {
                     d->updateImageLabel();
                     this->contentChanged();
                     d->imageChanged = true;
                 }
             });
         d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode) {
-               if (&d->image == paintDevice) {
+                if (&d->image == paintDevice) 
+                {
                     d->updateImageLabelWithOverlay(overlayImage, mode);
                 }
             });
@@ -319,8 +326,11 @@ void PaintWidget::showProgressIndicator(bool visible)
         progressIndicator->startAnimation();
         QGraphicsProxyWidget *progressIndicatorProxy = scene()->addWidget(progressIndicator);
         progressIndicatorProxy->setPos(3*d->image.width()/8, 3*d->image.height()/8);
-    } else {
-        if(progressIndicator) {
+    } 
+    else 
+    {
+        if(progressIndicator) 
+        {
             progressIndicator->stopAnimation();
             progressIndicator->setVisible(false);
         }
@@ -330,10 +340,13 @@ void PaintWidget::showProgressIndicator(bool visible)
 void PaintWidget::wheelEvent(QWheelEvent *event)
 {
     float scaleFactor = 1.1f;
-    if(event->delta() > 0) {
+    if(event->delta() > 0) 
+    {
        d->scale = d->scale / scaleFactor;
        d->scale = (d->scale < 0.1f) ? 0.1f : d->scale;
-    } else {
+    } 
+    else 
+    {
        d->scale = d->scale * scaleFactor;
        d->scale = (d->scale > 8) ? 8 : d->scale;
     }

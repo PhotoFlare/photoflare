@@ -43,8 +43,10 @@ void textDialog::showColorDialog(QWidget *colorLabel)
 
 bool textDialog::eventFilter(QObject *obj, QEvent *event)
 {
-    if (event->type() == QEvent::MouseButtonRelease) {
-        if (obj == ui->textColour) {
+    if (event->type() == QEvent::MouseButtonRelease) 
+    {
+        if (obj == ui->textColour) 
+        {
             showColorDialog(static_cast<QWidget *>(obj));
             return true;
         }

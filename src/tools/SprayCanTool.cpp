@@ -51,7 +51,8 @@ void SprayCanTool::timerEvent(QTimerEvent *event)
     static int x = 0;
     if (m_paintDevice && d->mouseButton != Qt::NoButton)
     {
-        if(d->rainbow) {
+        if(d->rainbow) 
+        {
             x = (x + 1)%100;
             d->rainbowColor = d->rainbowColor.fromHslF(x/100.0, 0.95, 0.5);
         }
@@ -92,12 +93,14 @@ void SprayCanTool::fillPattern()
     QImage pattern(d->radius, d->radius, QImage::Format_ARGB32);
     pattern.fill(Qt::transparent);
     int w = pattern.width();
-    for(int i=0; i<w; i++) {
-        for(int j=0; j<w; j++) {
+    for(int i=0; i<w; i++) 
+    {
+        for(int j=0; j<w; j++) 
+        {
             float rnd = (float)rand()/(float)RAND_MAX;
             float l = qSqrt( qPow(i-w/2, 2) + qPow(j-w/2, 2) );
-            if(rnd > (float)d->dispersion/51 &&
-                l <= w/2 ) {
+            if(rnd > (float)d->dispersion/51 && l <= w/2) 
+            {
                 float a = 1 - l/(w/2);
                 if(d->rainbow)
                     pattern.setPixel(i, j, qRgba(d->rainbowColor.red(), d->rainbowColor.green(), d->rainbowColor.blue(), 255*a));
