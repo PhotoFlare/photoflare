@@ -15,9 +15,10 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
-//#include <QDebug>
 #include <QMouseEvent>
 #include <QColorDialog>
+
+//#include <QDebug>
 
 #include "Settings.h"
 #include "imagepositionwidget.h"
@@ -87,31 +88,38 @@ void NewDialog::on_buttonBox_accepted()
 
 void NewDialog::on_imagePresetCombo_currentIndexChanged(int index)
 {
-    if (index == x100y100) {
+    if (index == x100y100) 
+    {
         width_px = 100;
         height_px = 100;
     }
-    if (index == x640y480) {
+    else if (index == x640y480) 
+    {
         width_px = 640;
         height_px = 480;
     }
-    if (index == x800y600) {
+    else if (index == x800y600) 
+    {
         width_px = 800;
         height_px = 600;
     }
-    if (index == x1024y768) {
+    else if (index == x1024y768) 
+    {
         width_px = 1024;
         height_px = 768;
     }
-    if (index == x1366y768) {
+    else if (index == x1366y768) 
+    {
         width_px = 1366;
         height_px = 768;
     }
-    if (index == x1600y900) {
+    else if (index == x1600y900) 
+    {
         width_px = 1600;
         height_px = 900;
     }
-    if (index == x1920y1080) {
+    else if (index == x1920y1080) 
+    {
         width_px = 1920;
         height_px = 1080;
     }
@@ -120,9 +128,12 @@ void NewDialog::on_imagePresetCombo_currentIndexChanged(int index)
 
 void NewDialog::on_imageResCombo_currentIndexChanged(int index)
 {
-    if(index == PPI) {
+    if(index == PPI) 
+    {
         ui->imageRvalue->setValue(ui->imageRvalue->value() * CM_IN_INCH);
-    } else {
+    } 
+    else 
+    {
         ui->imageRvalue->setValue(ui->imageRvalue->value() / CM_IN_INCH);
     }
 }
@@ -133,19 +144,24 @@ void NewDialog::on_imageWHcombo_currentIndexChanged(int index)
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;
 
-    if(index == PX) {
+    if(index == PX) 
+    {
         currentUnit = index;
         ui->imageWvalue->setValue(width_px);
         ui->imageHvalue->setValue(height_px);
         ui->imageWvalue->setDecimals(0);
         ui->imageHvalue->setDecimals(0);
-    } else if(index == CM) {
+    } 
+    else if(index == CM) 
+    {
         currentUnit = index;
         ui->imageWvalue->setDecimals(2);
         ui->imageHvalue->setDecimals(2);
         ui->imageWvalue->setValue(width_px / resoulution_in * CM_IN_INCH);
         ui->imageHvalue->setValue(height_px / resoulution_in * CM_IN_INCH);
-    } else if(index == IN) {
+    } 
+    else if(index == IN) 
+    {
         currentUnit = index;
         ui->imageWvalue->setDecimals(2);
         ui->imageHvalue->setDecimals(2);
@@ -167,20 +183,29 @@ void NewDialog::on_imageHvalue_valueChanged(double value)
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;
 
-    if(currentUnit == PX) {
+    if(currentUnit == PX) 
+    {
         height_px = ui->imageHvalue->value();
-    } else if(currentUnit == CM) {
+    } 
+    else if(currentUnit == CM) 
+    {
         height_px = ui->imageHvalue->value() * resoulution_in / CM_IN_INCH;
-    } else if(currentUnit == IN) {
+    } 
+    else if(currentUnit == IN) 
+    {
         height_px = ui->imageHvalue->value() * resoulution_in;
     }
+
     ui->pixelHvalue->setValue(height_px);
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
 
-    if(ui->lockedRatioButton->isChecked()) {
+    if(ui->lockedRatioButton->isChecked()) 
+    {
         if(ui->imageHvalue->hasFocus())
             ui->imageWvalue->setValue(ui->imageHvalue->value() * imageRatio); //width = height * imageRatio
-    } else {
+    } 
+    else 
+    {
         imageRatio = (width_px/height_px);
     }
 }
@@ -192,11 +217,16 @@ void NewDialog::on_imageWvalue_valueChanged(double value)
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;
 
-    if(currentUnit == PX) {
+    if(currentUnit == PX) 
+    {
         width_px = ui->imageWvalue->value();
-    } else if(currentUnit == CM) {
+    } 
+    else if(currentUnit == CM) 
+    {
         width_px = ui->imageWvalue->value() * resoulution_in / CM_IN_INCH;
-    } else if(currentUnit == IN) {
+    } 
+    else if(currentUnit == IN) 
+    {
         width_px = ui->imageWvalue->value() * resoulution_in;
     }
     ui->pixelWvalue->setValue(width_px);
@@ -205,7 +235,9 @@ void NewDialog::on_imageWvalue_valueChanged(double value)
     if(ui->lockedRatioButton->isChecked()) {
         if(ui->imageWvalue->hasFocus())
             ui->imageHvalue->setValue(ui->imageWvalue->value() / imageRatio); //height = width / imageRatio
-    } else {
+    } 
+    else 
+    {
         imageRatio = (width_px/height_px);
     }
 }
@@ -225,7 +257,8 @@ void NewDialog::setMode(Mode mode)
         ui->backgroundColorComboBox->setVisible(false);
         ui->positionLabel->setVisible(false);
         ui->positionWidget->setVisible(false);
-   } else
+   } 
+   else
    {
        ui->lockedRatioButton->setVisible(false);
        ui->imageRes->setVisible(false);
@@ -249,16 +282,20 @@ void NewDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
         return;
     }
 
-    if(e->x() < ui->backgroundColorComboBox->width() - 20) {
+    if(e->x() < ui->backgroundColorComboBox->width() - 20) 
+    {
         QColor selectedColor = QColorDialog::getColor(Qt::white, this);
-        if (selectedColor.isValid()) {
+        if (selectedColor.isValid()) 
+        {
             QPixmap pixmap(QSize(ui->backgroundColorComboBox->width(),ui->backgroundColorComboBox->height()));
             pixmap.fill(selectedColor);
             ui->backgroundColorComboBox->insertItem(0, QString(), pixmap);
             ui->backgroundColorComboBox->setCurrentIndex(0);
         }
         e->ignore();
-    } else {
+    } 
+    else 
+    {
         e->accept();
     }
 }

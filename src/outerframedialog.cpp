@@ -26,16 +26,20 @@ OuterFrameDialog::~OuterFrameDialog()
 
 void OuterFrameDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
 {
-    if(e->x() < obj->width() - 20) {
+    if(e->x() < obj->width() - 20) 
+    {
         QColor selectedColor = QColorDialog::getColor(Qt::white, this);
-        if (selectedColor.isValid()) {
+        if (selectedColor.isValid()) 
+        {
             QPixmap pixmap(QSize(obj->width(),obj->height()));
             pixmap.fill(selectedColor);
             obj->insertItem(0, QString(), pixmap);
             obj->setCurrentIndex(0);
         }
         e->ignore();
-    } else {
+    } 
+    else 
+    {
         e->accept();
     }
 }

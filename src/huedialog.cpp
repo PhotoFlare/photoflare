@@ -24,7 +24,8 @@ HueDialog::~HueDialog()
 
 bool HueDialog::eventFilter(QObject *obj, QEvent *event)
 {
-    if(obj == ui->spectrumLabel) {
+    if(obj == ui->spectrumLabel) 
+    {
         QMouseEvent *mevent = (QMouseEvent*)event;
         if(mevent->button() == Qt::LeftButton)
         {

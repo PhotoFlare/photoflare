@@ -111,7 +111,8 @@ QRect Settings::customWindowGeometry() const
 
 void Settings::addRecentFile(const QString &file)
 {
-    if(!d->recentFiles.contains(file)) {
+    if(!d->recentFiles.contains(file)) 
+    {
         d->recentFiles.append(file);
 
         if(d->recentFiles.size() > MAX_RECENTS_COUNT)

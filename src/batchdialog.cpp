@@ -156,11 +156,14 @@ void batchDialog::on_canvasSizeCheckBox_clicked(bool checked)
 
 void batchDialog::on_imageWHcombo_currentIndexChanged(int index)
 {
-    if(index == Pixels) {
+    if(index == Pixels) 
+    {
         d->imageRatio = 800.0f / 600.0f;
         ui->imageWvalue->setValue(800);
         ui->imageHvalue->setValue(600);
-    } else {
+    } 
+    else 
+    {
         d->imageRatio = 1;
         ui->imageWvalue->setValue(100);
         ui->imageHvalue->setValue(100);
@@ -172,7 +175,9 @@ void batchDialog::on_imageWvalue_valueChanged(double value)
     if(ui->aspectRatioCheckBox->isChecked())
     {
         ui->imageHvalue->setValue(value / d->imageRatio);
-    } else {
+    } 
+    else 
+    {
         d->imageRatio = value / ui->imageHvalue->value();
     }
 }
@@ -182,7 +187,9 @@ void batchDialog::on_imageHvalue_valueChanged(double value)
     if(ui->aspectRatioCheckBox->isChecked())
     {
         ui->imageWvalue->setValue(value * d->imageRatio);
-    } else {
+    } 
+    else 
+    {
         d->imageRatio = ui->imageWvalue->value() / value;
     }
 }
@@ -195,16 +202,20 @@ void batchDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
         return;
     }
 
-    if(e->x() < ui->backgroundColorComboBox->width() - 20) {
+    if(e->x() < ui->backgroundColorComboBox->width() - 20) 
+    {
         QColor selectedColor = QColorDialog::getColor(Qt::white, this);
-        if (selectedColor.isValid()) {
+        if (selectedColor.isValid()) 
+        {
             QPixmap pixmap(QSize(ui->backgroundColorComboBox->width(),ui->backgroundColorComboBox->height()));
             pixmap.fill(selectedColor);
             ui->backgroundColorComboBox->insertItem(0, QString(), pixmap);
             ui->backgroundColorComboBox->setCurrentIndex(0);
         }
         e->ignore();
-    } else {
+    } 
+    else 
+    {
         e->accept();
     }
 }

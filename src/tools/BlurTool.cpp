@@ -106,7 +106,8 @@ void BlurTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
 void BlurTool::onMouseMove(const QPoint &pos)
 {
-    if (m_paintDevice) {
+    if (m_paintDevice) 
+    {
         const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
         QPainter painter(m_paintDevice);
 

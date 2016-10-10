@@ -62,34 +62,44 @@ void ColorBoxWidget::setSecondaryColor(const QColor &color)
 
 bool ColorBoxWidget::eventFilter(QObject *obj, QEvent *event)
 {
-    if (event->type() == QEvent::MouseButtonRelease) {
-        if (obj == ui->primaryColorLabel || obj == ui->secondaryColorLabel) {
+    if (event->type() == QEvent::MouseButtonRelease) 
+    {
+        if (obj == ui->primaryColorLabel || obj == ui->secondaryColorLabel) 
+        {
             showColorDialog(static_cast<QWidget *>(obj));
             return true;
         }
 
-        if(obj->parent() == ui->page) {
+        if(obj->parent() == ui->page) 
+        {
             QMouseEvent *mevent = (QMouseEvent*)event;
             QColor color = getColorFromLabel((QLabel*)obj);
-            if(mevent->button() == Qt::LeftButton) {
+            if(mevent->button() == Qt::LeftButton) 
+            {
                 setColor(color, ui->primaryColorLabel);
                 emit primaryColorChanged(color);
-            } else  {
+            } 
+            else  
+            {
                 setColor(color, ui->secondaryColorLabel);
                 emit secondaryColorChanged(color);
             }
             return true;
         }
 
-        if(obj == ui->bwGradientLabel || obj == ui->spectrumLabel) {
+        if(obj == ui->bwGradientLabel || obj == ui->spectrumLabel) 
+        {
             QMouseEvent *mevent = (QMouseEvent*)event;
             QLabel* label = (QLabel*)obj;
             QPixmap pxm = label->grab();
             QColor color = QColor(pxm.toImage().pixel(mevent->x(),mevent->y()));
-            if(mevent->button() == Qt::LeftButton) {
+            if(mevent->button() == Qt::LeftButton) 
+            {
                 setColor(color, ui->primaryColorLabel);
                 emit primaryColorChanged(color);
-            } else  {
+            } 
+            else  
+            {
                 setColor(color, ui->secondaryColorLabel);
                 emit secondaryColorChanged(color);
             }
@@ -103,7 +113,8 @@ bool ColorBoxWidget::eventFilter(QObject *obj, QEvent *event)
 void ColorBoxWidget::showColorDialog(QWidget *colorLabel)
 {
     QColor selectedColor = QColorDialog::getColor(getColorFromLabel(colorLabel), this);
-    if (selectedColor.isValid()) {
+    if (selectedColor.isValid()) 
+    {
         setColor(selectedColor, colorLabel);
 
         if (colorLabel == ui->primaryColorLabel)

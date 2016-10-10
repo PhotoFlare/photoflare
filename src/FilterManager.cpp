@@ -8,6 +8,8 @@
 
 #include "FilterManager.h"
 
+//#include <QDebug>
+
 #include <QApplication>
 #include <Magick++.h>
 #include <QBuffer>
@@ -16,7 +18,6 @@
 #include <QLinearGradient>
 #include <QPainter>
 #include <QMatrix>
-//#include <QDebug>
 //#include <QElapsedTimer>
 
 class FilterManagerPrivate
@@ -56,9 +57,11 @@ public:
         QImage newQImage = QImage(imagecols, imagerows, QImage::Format_RGB32);
         const Magick::PixelPacket *pixels;
         Magick::ColorRGB rgb;
-        for (int y = 0; y < newQImage.height(); y++) {
+        for (int y = 0; y < newQImage.height(); y++) 
+        {
             pixels = image->getConstPixels(0, y, newQImage.width(), 1);
-            for (int x = 0; x < newQImage.width(); x++) {
+            for (int x = 0; x < newQImage.width(); x++) 
+            {
                 rgb = (*(pixels + x));
                 newQImage.setPixel(x, y, QColor((int)(255 * rgb.red()), (int)(255 * rgb.green()), (int)(255 * rgb.blue())).rgb());
             }
@@ -701,7 +704,6 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
                magickImage->pixelColor(i,j) != Magick::ColorRGB(0, 0, 0) && marked )
             {
                 polygon<<QPoint(i,j);
-                //marked = !marked;
                 break;
             }
         }
