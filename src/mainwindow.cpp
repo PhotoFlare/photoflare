@@ -103,6 +103,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Create the keyboard shortcut bindings
     createKeyboardShortcuts();
 
+    // Add zoom ComboBox
     zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
     // FIXME: String below should probably be localized.
@@ -116,6 +117,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(zoomCombo, SIGNAL(activated(const QString&)), this, SLOT(onZoomChanged(const QString&)));
     connect(ui->mdiArea, &QMdiArea::subWindowActivated, this, &MainWindow::onSubWindowActivated);
 
+    // Add Settings Widgets to the Dock
     m_pbSettingsWidget = new PaintBrushSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_pbSettingsWidget);
     connect(m_pbSettingsWidget, &PaintBrushSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushSettingsChanged);
@@ -144,9 +146,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
     connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
 
+    // Disable undo/redo buttons on startup
     ui->actionUndo->setEnabled(false);
     ui->actionRedo->setEnabled(false);
 
+    // Setup Tool Initial Colours and link signals to the colorChanged functions
     PAINT_BRUSH->setPrimaryColor(ui->colorBoxWidget->primaryColor());
     PAINT_BRUSH->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, PAINT_BRUSH, &PaintBrushTool::setPrimaryColor);
@@ -167,10 +171,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, LINE_TOOL, &LineTool::setPrimaryColor);
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, LINE_TOOL, &LineTool::setSecondaryColor);
 
-    setWindowSize();
-    updateRecents();
-    setDefaultSettings();
-
+    // Setup signals for more Tools
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
     QObject::connect(COLOUR_PICKER, SIGNAL(pickSecondaryColor(const QPoint&)), this, SLOT(onPickSecondaryColor(const QPoint&)));
 
@@ -182,11 +183,15 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(onPaste()));
 
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));
-
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
-
     QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&,int,bool)), this, SLOT(onSelectPrimaryColor(const QPoint&,int,bool)));
 
+    // Setup some other defaults on startup
+    setWindowSize();
+    updateRecents();
+    setDefaultSettings();
+
+    // Initialize ScanManager for scanning images
     m_scanManager = new ScanManager();
     QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
     QObject::connect(m_scanManager, SIGNAL(scanFinished(int,QProcess::ExitStatus)), this, SLOT(onScanFnished(int,QProcess::ExitStatus)));
@@ -369,7 +374,7 @@ void MainWindow::on_actionSave_As_triggered()
         quality = dlg.quality();
 
         //If dialog Accepted
-        if(dlg.enableSaveImage) 
+        if(dlg.enableSaveImage)
         {
             if (saveImage(fileName,quality)) 
             {
@@ -388,7 +393,7 @@ void MainWindow::on_actionSave_As_triggered()
         }
     }
     //Other file formats
-    else 
+    else
     {
         if (saveImage(fileName,quality)) 
         {
