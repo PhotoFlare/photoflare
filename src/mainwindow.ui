@@ -305,6 +305,7 @@
      </property>
      <addaction name="actionGrayScale"/>
      <addaction name="actionOldPhoto"/>
+     <addaction name="actionSepia"/>
      <addaction name="actionEqualize"/>
      <addaction name="actionNormalize"/>
     </widget>
