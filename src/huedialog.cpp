@@ -2,6 +2,7 @@
 #include "ui_huedialog.h"
 
 #include <QMouseEvent>
+#include <QColorDialog>
 
 HueDialog::HueDialog(QWidget *parent, QImage preview) :
     QDialog(parent),
@@ -13,6 +14,8 @@ HueDialog::HueDialog(QWidget *parent, QImage preview) :
     ui->spectrumLabel->setStyleSheet("background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 red, stop: 0.16 yellow, stop: 0.32 green, \
                                        stop: 0.48 cyan, stop: 0.64 blue, stop: 0.8 magenta, stop: 1 red);");
 
+    ui->colorLabel->installEventFilter(this);
+
     m_preview = preview.scaled(240,180);
     setPreviewImage(m_preview);
 }
@@ -22,10 +25,33 @@ HueDialog::~HueDialog()
     delete ui;
 }
 
+void HueDialog::setColor(const QColor &color, QWidget *colorLabel)
+{
+    QPalette palette = colorLabel->palette();
+    palette.setColor(colorLabel->backgroundRole(), color);
+    colorLabel->setPalette(palette);
+
+    m_color = color;
+
+    emit huePreviewChanged(m_preview, ui->method1->isChecked(), color, 0);
+}
+
+QColor HueDialog::getColorFromLabel(QWidget *colorLabel) const
+{
+    return colorLabel->palette().color(colorLabel->backgroundRole());
+}
+
+void HueDialog::showColorDialog(QWidget *colorLabel)
+{
+    QColor selectedColor = QColorDialog::getColor(getColorFromLabel(colorLabel), this);
+    if (selectedColor.isValid()) {
+        setColor(selectedColor, colorLabel);
+    }
+}
+
 bool HueDialog::eventFilter(QObject *obj, QEvent *event)
 {
-    if(obj == ui->spectrumLabel) 
-    {
+    if(obj == ui->spectrumLabel) {
         QMouseEvent *mevent = (QMouseEvent*)event;
         if(mevent->button() == Qt::LeftButton)
         {
@@ -41,6 +67,13 @@ bool HueDialog::eventFilter(QObject *obj, QEvent *event)
             m_color = color;
             m_degrees = value;
             emit huePreviewChanged(m_preview, ui->method1->isChecked(), color, value);
+            return true;
+        }
+    }
+
+    if(obj == ui->colorLabel) {
+        if (event->type() == QEvent::MouseButtonRelease) {
+            showColorDialog(static_cast<QWidget *>(obj));
             return true;
         }
     }

@@ -26,6 +26,9 @@ private slots:
     void on_horizontalSlider_valueChanged(int value);
 
     void on_method1_toggled(bool checked);
+    void setColor(const QColor &color, QWidget *colorLabel);
+    void showColorDialog(QWidget *colorLabel);
+    QColor getColorFromLabel(QWidget *colorLabel) const;
 
 signals:
     void huePreviewChanged(QImage image, bool colorize, QColor color, int degrees);
