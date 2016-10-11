@@ -295,7 +295,6 @@
      <property name="title">
       <string>Frame</string>
      </property>
-     <addaction name="actionTrim"/>
      <addaction name="actionCrop_To_Center"/>
      <addaction name="actionAdd_Simple_Frame"/>
      <addaction name="action3D_frame"/>

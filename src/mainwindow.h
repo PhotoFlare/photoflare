@@ -181,8 +181,6 @@ private slots:
 
     void on_actionEmboss_triggered();
 
-    void on_actionTrim_triggered();
-
     void on_actionGaussian_triggered();
 
     void on_actionImpulse_triggered();
@@ -240,6 +238,8 @@ private slots:
     void on_actionRGB_Mode_triggered();
 
     void on_actionDonate_triggered();
+
+    void on_actionAutomatic_Crop_triggered();
 
 protected:
     void closeEvent(QCloseEvent *event);

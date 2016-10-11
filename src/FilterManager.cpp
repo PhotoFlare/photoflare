@@ -454,7 +454,7 @@ QImage FilterManager::emboss(const QImage &image)
 QImage FilterManager::trim(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->chop(Magick::Geometry(15,15,0,0,false,false));
+    magickImage->trim();
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;

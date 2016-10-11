@@ -699,6 +699,14 @@ void MainWindow::on_actionCanvas_Size_triggered()
     }
 }
 
+void MainWindow::on_actionAutomatic_Crop_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        widget->setImage(FilterManager::instance()->trim(widget->image()));
+    }
+}
+
 void MainWindow::on_actionOutside_frame_triggered()
 {
     OuterFrameDialog dialog(this);
@@ -1020,13 +1028,6 @@ void MainWindow::on_actionExplode_triggered()
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setImage(FilterManager::instance()->explode(widget->image()));
-}
-
-void MainWindow::on_actionTrim_triggered()
-{
-    PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-        widget->setImage(FilterManager::instance()->trim(widget->image()));
 }
 
 void MainWindow::on_actionCrop_To_Center_triggered()
@@ -1959,7 +1960,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
 
         ui->actionAged_effect->setVisible(false);
         ui->actionAntialiasing->setVisible(false);
-        ui->actionAutomatic_Crop->setVisible(false);
+        ui->actionAutomatic_Crop->setVisible(true);
         ui->actionAutomatic_transparency->setVisible(false);
         ui->actionBounding_box->setVisible(false);
         ui->actionBright_Contrast->setVisible(false);
@@ -2100,4 +2101,3 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionValidate->setEnabled(false);
     }
 }
-
