@@ -22,14 +22,12 @@ int main(int argc, char *argv[])
         if(!app.isRunning())
         {
             app.setApplicationName(QObject::tr("PhotoFiltre LX"));
-            app.setApplicationVersion(QObject::tr("1.0"));
+            app.setApplicationVersion(QObject::tr("1.0.1"));
             app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
             app.setOrganizationName(QObject::tr("photofiltre-lx"));
 
             QTranslator translator;
             QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
-
-            //if(translator.load("languages/fr.qm", app.applicationDirPath()))
 
             for(int i = 0;i < paths.length(); i++)
             {
@@ -48,9 +46,9 @@ int main(int argc, char *argv[])
             MainWindow w;
             w.show();
 
-            if(argc > 1) 
+            if(argc > 1)
             {
-                for (int i = 1; i < argc; ++i) 
+                for (int i = 1; i < argc; ++i)
                 {
                     w.handleMessage(QString(argv[i]));
                 }
@@ -62,12 +60,12 @@ int main(int argc, char *argv[])
 
             return app.exec();
 
-        } 
+        }
         else
         {
-            if(argc > 1) 
+            if(argc > 1)
             {
-                for (int i = 1; i < argc; ++i) 
+                for (int i = 1; i < argc; ++i)
                 {
                     app.sendMessage(QString(argv[i]));
                 }
