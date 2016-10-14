@@ -224,7 +224,11 @@ void MainWindow::on_actionNew_triggered()
 void MainWindow::on_actionOpen_triggered()
 {
     const QString& fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                    SETTINGS->getOpenFolder(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
+    SETTINGS->getOpenFolder(), tr("All Files (*);;"
+                                "Image Files (*.png *.jpg *.jpeg *.gif);;"
+                                "PNG(*.png);;"
+                                "JPEG(*.jpg *.jpeg);;"
+                                "GIF(*.gif)"));
     openFile(fileName);
 }
 
