@@ -46,8 +46,6 @@ public slots:
     void handleMessage(const QString& message);
 
 private slots:
-    void refreshTools();
-    void on_actionAbout_triggered();
     void on_actionNew_triggered();
     void on_actionOpen_triggered();
     void on_actionSave_triggered();
@@ -70,7 +68,8 @@ private slots:
     void on_actionCharcoal_Drawing_triggered();
     void on_actionClose_triggered();
     void on_actionClose_all_triggered();
-
+    void refreshTools();
+    void on_actionAbout_triggered();
     void setWindowSize();
     void setDefaultSettings();
     void updateRecents();
@@ -94,125 +93,67 @@ private slots:
     void onSubWindowActivated(QMdiSubWindow*);
     void onEditText(const QString&,const QFont&, const QColor&);
     void onMultiWindowModeChanged(bool);
-
     void on_actionSwirl_triggered();
-
     void on_actionGrayScale_triggered();
-
     void on_actionFlip_Vertical_triggered();
-
     void on_actionFlip_Horizontal_triggered();
-
     void on_actionRotate_CCW_triggered();
-
     void on_actionRotate_CW_triggered();
-
     void on_actionImage_Size_triggered();
-
     void on_actionFilterbar_triggered();
-
     void on_actionToolpalette_triggered();
-
     void on_actionZoom_in_triggered();
-
     void on_actionZoom_out_triggered();
-
     void on_actionUndo_triggered();
-
     void on_actionRedo_triggered();
     void on_actionPrint_triggered();
-
     void on_actionAcquire_image_triggered();
     void onScanFnished(int,QProcess::ExitStatus);
     void onListFnished(int,QProcess::ExitStatus);
     void on_actionSelect_device_triggered();
-
     void on_actionScan_triggered();
-
     void on_actionFull_screen_triggered();
-
     void on_actionOriginal_size_triggered();
-
     void on_actionSolarize_triggered();
-
     void on_actionWave_triggered();
-
     void on_actionImplode_triggered();
-
     void on_actionSoften_triggered();
-
     void on_actionBlur_triggered();
-
     void on_actionSharpen_triggered();
-
     void on_actionReinforce_triggered();
-
     void on_actionImage_properties_triggered();
-
     void on_actionAutomate_Batch_triggered();
-
     void on_actionShow_selection_triggered(bool checked);
-
     void on_actionCanvas_Size_triggered();
-
     void on_actionRevert_triggered();
-
     void on_actionBrightplus_triggered();
-
     void on_actionBrightminus_triggered();
-
     void on_actionContrastplus_triggered();
-
     void on_actionContrastminus_triggered();
-
     void on_actionGammaCorrectplus_triggered();
-
     void on_actionGammaCorrectminus_triggered();
-
     void on_actionSaturationplus_triggered();
-
     void on_actionSaturationminus_triggered();
-
     void on_actionOldPhoto_triggered();
-
     void on_actionDustReduction_triggered();
-
     void on_actionOutside_frame_triggered();
-
     void on_actionEmboss_triggered();
-
     void on_actionGaussian_triggered();
-
     void on_actionImpulse_triggered();
-
     void on_actionLaplacian_triggered();
-
     void on_actionPoisson_triggered();
-
     void on_actionMonoChromatic_triggered();
-
     void on_actionEqualize_triggered();
-
     void on_actionCrop_To_Center_triggered();
-
     void on_actionAdd_Simple_Frame_triggered();
-
     void on_actionMotion_blur_triggered();
-
     void on_actionNormalize_triggered();
-
     void on_action3D_frame_triggered();
-
     void on_actionExplode_triggered();
-
     void on_actionDespeckle_triggered();
-
     void on_actionSepia_triggered();
-
     void on_actionAuto_levels_triggered();
-
     void on_actionAuto_contrast_triggered();
-
     void batchProcess_fileProcessFinished(QString file, QImage image);
     void batchProcess_batchProgress(int index,int total);
     void on_actionHue_variation_triggered();
@@ -221,24 +162,15 @@ private slots:
     void onTransparentFinished(int);
     void onTransparentAccepted();
     void onTransparentRejected();
-
     void on_actionGradient_triggered();
-
     void on_actionCrop_triggered();
     void onSelectionChanged(bool visible);
-
     void on_actionPaste_triggered();
-
     void on_actionCopy_triggered();
-
     void on_actionTransparent_colour_triggered();
-
     void on_actionIndexed_Mode_triggered();
-
     void on_actionRGB_Mode_triggered();
-
     void on_actionDonate_triggered();
-
     void on_actionAutomatic_Crop_triggered();
 
 protected:
@@ -260,7 +192,6 @@ private:
     void createKeyboardShortcuts();
     void disableUnimplementedActions(bool hide);
 
-    //void gsettingsSet(const QString &schema, const QString &key, const QString &value);
     Ui::MainWindow *ui;
     QString m_toolSelected;
     PaintBrushSettingsWidget *m_pbSettingsWidget;
