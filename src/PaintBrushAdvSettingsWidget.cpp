@@ -1,6 +1,6 @@
 /*
 
-  Widget for paintbrushadv settings.
+  Widget for AdvancedPaintbrushTool settings.
 
 */
 

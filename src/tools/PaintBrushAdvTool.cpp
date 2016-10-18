@@ -1,3 +1,9 @@
+/*
+
+  PaintBrushAdvTool - Paint with different brush styles.
+
+*/
+
 #include "PaintBrushAdvTool.h"
 
 #include <QPainter>
@@ -134,14 +140,14 @@ void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
 
         {
             QPainter painter(m_paintDevice);
-            if(x1 > x2) 
+            if(x1 > x2)
             {
                 int temp = x1; x1 = x2; x2 = temp;
                 temp = y1; y1 = y2; y2 = temp;
             }
 
             int w = d->primaryPen.width();
-            for(int y, x = x1; x < x2; x += 1) 
+            for(int y, x = x1; x < x2; x += 1)
             {
                 y = (x - x1)*(y2 - y1)/(x2 - x1) + y1;
                 if(qSqrt(qPow(x - d->lastStep.x(), 2) + qPow(y - d->lastStep.y(), 2)) >= d->step )
@@ -152,13 +158,13 @@ void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
                 }
             }
 
-            if(y1 > y2) 
+            if(y1 > y2)
             {
                 int temp = x1; x1 = x2; x2 = temp;
                 temp = y1; y1 = y2; y2 = temp;
             }
 
-            for(int x, y = y1; y < y2; y += 1) 
+            for(int x, y = y1; y < y2; y += 1)
             {
                 x = (y - y1)*(x2 - x1)/(y2 - y1) + x1;
                 if(qSqrt(qPow(x - d->lastStep.x(), 2) + qPow(y - d->lastStep.y(), 2)) >= d->step )
@@ -172,7 +178,7 @@ void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
 
         if(d->fade)
             d->opacity = d->opacity - 0.01f;
-        
+
 
         d->lastPos = pos;
         emit painted(m_paintDevice);

@@ -1,3 +1,9 @@
+/*
+
+  Image position widget for the PhotoFiltre LX application.
+
+*/
+
 #include "imagepositionwidget.h"
 #include "ui_imagepositionwidget.h"
 

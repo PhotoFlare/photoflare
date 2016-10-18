@@ -1,3 +1,9 @@
+/*
+
+  Generic Tool class. All Tools will extend this class.
+
+*/
+
 #include "Tool.h"
 
 #include <QPainter>

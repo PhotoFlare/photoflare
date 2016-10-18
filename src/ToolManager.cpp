@@ -4,7 +4,6 @@
 
 */
 
-
 #include "ToolManager.h"
 #include "./tools/ColourPickerTool.h"
 #include "./tools/PaintBrushTool.h"

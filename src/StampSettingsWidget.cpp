@@ -1,6 +1,6 @@
 /*
 
-  Widget for paintbrush settings.
+  Widget for StampTool settings.
 
 */
 

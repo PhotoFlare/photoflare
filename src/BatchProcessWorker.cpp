@@ -1,3 +1,9 @@
+/*
+
+  Worker class for the BatchDialog to process the files.
+
+*/
+
 #include <QFileInfo>
 
 #include "BatchProcessWorker.h"
@@ -6,7 +12,7 @@
 
 BatchProcessWorker::BatchProcessWorker(QObject *parent) : QObject(parent)
 {
-    //m_parent = (MainWindow*)parent;
+
 }
 
 void BatchProcessWorker:: process()
@@ -14,9 +20,9 @@ void BatchProcessWorker:: process()
     int i = 0;
     foreach (QString file, m_params->fileList()) {
         QImage image(file);
-        if(m_params->changeImageSize()) 
+        if(m_params->changeImageSize())
         {
-            if(!m_params->imageSizeUnits()) 
+            if(!m_params->imageSizeUnits())
             {
                 image = image.scaled(m_params->imageSize());
             } else {

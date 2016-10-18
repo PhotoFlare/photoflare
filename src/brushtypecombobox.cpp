@@ -1,3 +1,9 @@
+/*
+
+  Special combo to hold Brush Types.
+
+*/
+
 #include <QPainter>
 #include <QStyledItemDelegate>
 #include <QStyleOptionViewItem>

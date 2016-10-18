@@ -1,3 +1,9 @@
+/*
+
+  Compression dialog to give user option to set compression on save.
+
+*/
+
 #include "compressiondialog.h"
 #include "ui_compressiondialog.h"
 

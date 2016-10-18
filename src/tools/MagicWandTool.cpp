@@ -1,3 +1,9 @@
+/*
+
+  MagicWandTool - Select areas on the image.
+
+*/
+
 #include "MagicWandTool.h"
 #include "../mainwindow.h"
 #include "../PaintWidget.h"

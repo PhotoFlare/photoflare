@@ -1,3 +1,9 @@
+/*
+
+  ImageProperties dialog class for the PhotoFiltre LX application.
+
+*/
+
 #include "imagepropertiesdialog.h"
 #include "ui_imagepropertiesdialog.h"
 

@@ -1,3 +1,9 @@
+/*
+
+  PaintBucketTool - Flood fill areas.
+
+*/
+
 #include "PaintBucketTool.h"
 #include "../mainwindow.h"
 #include "../PaintWidget.h"

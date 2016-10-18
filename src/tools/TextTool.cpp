@@ -1,3 +1,9 @@
+/*
+
+  TextTool - Put text on the image. Tool not present in the Toolpalette but launched from the TextDialog.
+
+*/
+
 #include "TextTool.h"
 
 #include <QPainter>
@@ -108,7 +114,7 @@ void TextTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
         case Qt::LeftButton:
             d->firstPos = pos;
             d->secondPos = pos;
-            if(!d->textRect.contains(pos)) 
+            if(!d->textRect.contains(pos))
                 disconnect();
             break;
         case Qt::RightButton:

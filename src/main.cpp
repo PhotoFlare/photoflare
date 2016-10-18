@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         if(!app.isRunning())
         {
             app.setApplicationName(QObject::tr("PhotoFiltre LX"));
-            app.setApplicationVersion(QObject::tr("1.0.1"));
+            app.setApplicationVersion(QObject::tr("1.0.2"));
             app.setOrganizationDomain(QObject::tr("photofiltre-lx.org"));
             app.setOrganizationName(QObject::tr("photofiltre-lx"));
 

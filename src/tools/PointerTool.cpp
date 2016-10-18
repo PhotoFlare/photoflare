@@ -1,3 +1,9 @@
+/*
+
+  PointerTool - Selection and cropping.
+
+*/
+
 #include "PointerTool.h"
 
 #include <QApplication>
@@ -52,38 +58,38 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             d->firstPos = pos;
             d->secondPos = pos;
 
-            if(d->topLeftCorner.contains(pos)) 
+            if(d->topLeftCorner.contains(pos))
             {
                 d->corner = TOP_LEFT;
                 d->selectionMode = RESIZE;
-            } 
-            else if(d->topRightCorner.contains(pos)) 
+            }
+            else if(d->topRightCorner.contains(pos))
             {
                 d->corner = TOP_RIGHT;
                 d->selectionMode = RESIZE;
-            } 
-            else if(d->bottomLeftCorner.contains(pos)) 
+            }
+            else if(d->bottomLeftCorner.contains(pos))
             {
                 d->corner = BOTTOM_LEFT;
                 d->selectionMode = RESIZE;
-            } 
-            else if(d->bottomRightCorner.contains(pos)) 
+            }
+            else if(d->bottomRightCorner.contains(pos))
             {
                 d->corner = BOTTOM_RIGHT;
                 d->selectionMode = RESIZE;
             }
 
-            if(d->selectionMode == SELECT) 
+            if(d->selectionMode == SELECT)
             {
                 emit painted(m_paintDevice);
-            } 
+            }
             else if(d->selectionMode == HAND)
             {
                 QRect rect = QRect(d->imagePos.x(), d->imagePos.y(), d->image.width(), d->image.height());
-                if(!rect.contains(pos)) 
+                if(!rect.contains(pos))
                 {
                     d->selectionMode = SELECT;
-                    if (m_paintDevice) 
+                    if (m_paintDevice)
                     {
                         QPainter painter(m_paintDevice);
                         painter.drawImage(d->imagePos.x(), d->imagePos.y(), d->image);
@@ -102,7 +108,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                 connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
                 contextMenu.addAction(&crop);
                 contextMenu.exec(QCursor::pos());
-            } 
+            }
             else
             {
                 QMenu contextMenu("copy");
@@ -157,7 +163,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
 {
     d->secondPos = pos;
 
-    if (m_paintDevice) 
+    if (m_paintDevice)
     {
 
         if(d->selectionMode == HAND)
@@ -178,40 +184,40 @@ void PointerTool::onMouseMove(const QPoint &pos)
             painter.end();
 
             emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
-        } 
+        }
         else if(d->selectionMode == SELECT)
         {
             QPoint topLeft(d->firstPos);
             QPoint bottomRight(d->secondPos);
             int temp;
-            if(topLeft.x() > bottomRight.x()) 
+            if(topLeft.x() > bottomRight.x())
                 temp = topLeft.x();topLeft.setX(bottomRight.x());bottomRight.setX(temp);
-            if(topLeft.y() > bottomRight.y()) 
+            if(topLeft.y() > bottomRight.y())
                 temp = topLeft.y();topLeft.setY(bottomRight.y());bottomRight.setY(temp);
 
             emit selectionChanged(QRect(topLeft,bottomRight));
             emit painted(m_paintDevice);
-        } 
-        else if(d->selectionMode == RESIZE) 
+        }
+        else if(d->selectionMode == RESIZE)
         {
-            if(d->corner == TOP_LEFT) 
+            if(d->corner == TOP_LEFT)
             {
                 d->topLeftCorner.moveTo(d->secondPos);
                 d->topRightCorner.moveTo(QPoint(d->topRightCorner.x(), d->topLeftCorner.y()));
                 d->bottomLeftCorner.moveTo(QPoint(d->topLeftCorner.x(), d->bottomLeftCorner.y()));
-            } 
+            }
             else if(d->corner == TOP_RIGHT)
             {
                 d->topRightCorner.moveTo(d->secondPos);
                 d->topLeftCorner.moveTo(QPoint(d->topLeftCorner.x(), d->topRightCorner.y()));
                 d->bottomRightCorner.moveTo(QPoint(d->topRightCorner.x(), d->bottomRightCorner.y()));
-            }  
+            }
             else if(d->corner == BOTTOM_RIGHT)
             {
                 d->bottomRightCorner.moveTo(d->secondPos);
                 d->topRightCorner.moveTo(QPoint(d->bottomRightCorner.x(), d->topRightCorner.y()));
                 d->bottomLeftCorner.moveTo(QPoint(d->bottomLeftCorner.x(), d->bottomRightCorner.y()));
-            } 
+            }
             else if(d->corner == BOTTOM_LEFT)
             {
                 d->bottomLeftCorner.moveTo(d->secondPos);
@@ -232,14 +238,14 @@ void PointerTool::onMouseRelease(const QPoint &pos)
     {
         d->imagePos = QPoint(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y());
         d->firstPos = d->secondPos;
-    } 
+    }
     else if(d->selectionMode == SELECT)
     {
-        if(d->firstPos == d->secondPos) 
+        if(d->firstPos == d->secondPos)
         {
             emit selectionChanged(QRect());
-        } 
-        else 
+        }
+        else
         {
             QPoint topLeft(d->firstPos);
             QPoint bottomRight(d->secondPos);
@@ -255,8 +261,8 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-10, 10, 10);
         }
         emit painted(m_paintDevice);
-    } 
-    else if(d->selectionMode == RESIZE) 
+    }
+    else if(d->selectionMode == RESIZE)
     {
         d->firstPos = d->topLeftCorner.topLeft();
         d->secondPos = d->bottomRightCorner.bottomRight();

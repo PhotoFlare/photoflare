@@ -1,3 +1,9 @@
+/*
+
+  Gradient dialog class for the PhotoFiltre LX application.
+
+*/
+
 #include "gradientdialog.h"
 #include "ui_gradientdialog.h"
 
@@ -38,32 +44,32 @@ void GradientDialog::applyDirection()
     if(ui->directionN->isChecked())
     {
         m_direction = N;
-    } 
-    else if(ui->directionNE->isChecked()) 
+    }
+    else if(ui->directionNE->isChecked())
     {
         m_direction = NE;
-    } 
-    else if(ui->directionE->isChecked()) 
+    }
+    else if(ui->directionE->isChecked())
     {
         m_direction = E;
     }
-    else if(ui->directionSE->isChecked()) 
+    else if(ui->directionSE->isChecked())
     {
         m_direction = SE;
     }
-    else if(ui->directionS->isChecked()) 
+    else if(ui->directionS->isChecked())
     {
         m_direction = S;
     }
-    else if(ui->directionSW->isChecked()) 
+    else if(ui->directionSW->isChecked())
     {
         m_direction = SW;
     }
-    else if(ui->directionW->isChecked()) 
+    else if(ui->directionW->isChecked())
     {
         m_direction = W;
-    }  
-    else if(ui->directionNW->isChecked()) 
+    }
+    else if(ui->directionNW->isChecked())
     {
         m_direction = NW;
     }
@@ -86,10 +92,10 @@ void GradientDialog::on_stopOpacity_valueChanged(int value)
 
 void GradientDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
 {
-    if(e->x() < obj->width() - 20) 
+    if(e->x() < obj->width() - 20)
     {
         QColor selectedColor = QColorDialog::getColor(Qt::white, this);
-        if (selectedColor.isValid()) 
+        if (selectedColor.isValid())
         {
             QPixmap pixmap(QSize(obj->width(),obj->height()));
             pixmap.fill(selectedColor);
@@ -97,8 +103,8 @@ void GradientDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
             obj->setCurrentIndex(0);
         }
         e->ignore();
-    } 
-    else 
+    }
+    else
     {
         e->accept();
     }
@@ -113,13 +119,13 @@ QColor GradientDialog::startColor()
 
 QColor GradientDialog::stopColor()
 {
-    if(ui->duatone->isChecked()) 
+    if(ui->duatone->isChecked())
     {
         QImage img = (QImage)ui->stopColorComboBox->currentData().value<QImage>();
         QColor color = img.pixel(0,0);
         return QColor(color.red(), color.green(), color.blue(), ui->stopOpacity->value()*255.0/100.0);
-    } 
-    else 
+    }
+    else
     {
         QImage img = (QImage)ui->startColorComboBox->currentData().value<QImage>();
         QColor color = img.pixel(0,0);

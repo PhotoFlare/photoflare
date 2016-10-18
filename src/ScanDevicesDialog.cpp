@@ -1,6 +1,6 @@
 /*
 
-  Preferences dialog class.
+  ScanDevices dialog class.
 
 */
 

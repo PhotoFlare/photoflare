@@ -1,3 +1,9 @@
+/*
+
+  Hue dialog class for the PhotoFiltre LX application.
+
+*/
+
 #include "huedialog.h"
 #include "ui_huedialog.h"
 

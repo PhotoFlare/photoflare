@@ -1,3 +1,9 @@
+/*
+
+  PaintBrushTool - Paint using basic styles.
+
+*/
+
 #include "PaintBrushTool.h"
 
 #include <QPainter>

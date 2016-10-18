@@ -1,3 +1,9 @@
+/*
+
+  ScanManager class to process scanning functionality.
+
+*/
+
 #include <QProcess>
 //#include <QDebug>
 #include <QRegExp>

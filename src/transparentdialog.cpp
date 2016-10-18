@@ -1,3 +1,9 @@
+/*
+
+  Transparent dialog class.
+
+*/
+
 #include "transparentdialog.h"
 #include "ui_transparentdialog.h"
 

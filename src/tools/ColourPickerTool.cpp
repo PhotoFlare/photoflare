@@ -1,3 +1,9 @@
+/*
+
+  ColourPickerTool - Select colours from the image for the ColourBoxWidget.
+
+*/
+
 #include "ColourPickerTool.h"
 #include "../mainwindow.h"
 #include "../PaintWidget.h"

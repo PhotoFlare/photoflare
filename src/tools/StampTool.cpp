@@ -1,3 +1,9 @@
+/*
+
+  StampTool - Clone an area of an image and paint it over the image.
+
+*/
+
 #include "StampTool.h"
 #include "../PaintWidget.h"
 
@@ -151,14 +157,14 @@ void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
         if(d->selectMode)
         {
             d->selectPos = pos;
-        } 
+        }
         else
         {
             if(d->selectPos.x() >= 0 || d->fixed)
                 d->offset = pos - d->selectPos;
             else
                 d->selectPos = pos - d->offset;
-            
+
 
             if (m_paintDevice) {
                 const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
@@ -172,7 +178,7 @@ void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
 void StampTool::onMouseMove(const QPoint &pos)
 {
-    if (m_paintDevice) 
+    if (m_paintDevice)
     {
         const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
         QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
@@ -193,7 +199,7 @@ void StampTool::onMouseMove(const QPoint &pos)
             if(len >= d->step || len == 0)
             {
                 d->lastPos = pos;
-            } 
+            }
             else
             {
                 return;
@@ -213,7 +219,7 @@ void StampTool::onMouseMove(const QPoint &pos)
         if(d->fixed)
         {
             base = d->selectPos;
-        } 
+        }
         else
         {
             base = pos - d->offset;
@@ -237,13 +243,13 @@ void StampTool::onMouseMove(const QPoint &pos)
                 pen.setColor(d->origin.pixel(base.x() + i,base.y() + j));
                 painterPix.setPen(pen);
 
-                if(!d->precise) 
+                if(!d->precise)
                 {
-                    if(i*i + j*j > d->radius*d->radius/16) 
+                    if(i*i + j*j > d->radius*d->radius/16)
                     {
                         painterPix.setOpacity(((float)1 - ((float)(i*i + j*j) / (float)(d->radius*d->radius/4)))/10.0f);
-                    } 
-                    else 
+                    }
+                    else
                     {
                         painterPix.setOpacity(1.f);
                     }
@@ -267,7 +273,7 @@ void StampTool::onMouseRelease(const QPoint &pos)
     d->mouseButton = Qt::NoButton;
     if(!d->selectMode && !d->fixed)
         d->selectPos.setX(-1);
-    
+
     emit painted(m_paintDevice);
 }
 
