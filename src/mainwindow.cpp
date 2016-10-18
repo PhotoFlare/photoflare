@@ -4,16 +4,7 @@
 
 */
 //#include <QDebug>
-#include "mainwindow.h"
-#include "NewDialog.h"
-#include "textdialog.h"
-#include "prefsdialog.h"
-#include "ScanDevicesDialog.h"
-#include "aboutdialog.h"
-#include "imagepropertiesdialog.h"
-#include "outerframedialog.h"
-#include "PaintWidget.h"
-#include "ui_mainwindow.h"
+
 #include <QApplication>
 #include <QClipboard>
 #include <QComboBox>
@@ -57,6 +48,16 @@
 #include "BatchProcessWorker.h"
 #include "batchprogress.h"
 
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "PaintWidget.h"
+#include "NewDialog.h"
+#include "textdialog.h"
+#include "prefsdialog.h"
+#include "ScanDevicesDialog.h"
+#include "aboutdialog.h"
+#include "imagepropertiesdialog.h"
+#include "outerframedialog.h"
 #include "huedialog.h"
 #include "gradientdialog.h"
 #include "compressiondialog.h"
