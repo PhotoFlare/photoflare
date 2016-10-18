@@ -1,5 +1,3 @@
-language: cpp
-
 branches:
   only:
    - master
@@ -21,9 +19,9 @@ install:
 	- if [ "$QT_BASE" = "56" ]; then sudo apt-get install -qq qt56base; source /opt/qt56/bin/qt56-env.sh; fi
 
 script:
-  - qmake -r
-  - make
-  - make check
+  "qmake -project",
+  "qmake PhotoFiltreLX.pro",
+  "make"
 
 notifications:
   email: false
