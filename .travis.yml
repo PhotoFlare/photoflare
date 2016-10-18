@@ -1,0 +1,25 @@
+language: cpp
+
+compiler:
+	- gcc
+
+sudo: required
+dist: trusty
+
+env:
+	- QT_BASE=56
+
+before_install:
+	- if [ "$QT_BASE" = "56" ]; then sudo add-apt-repository ppa:beineri/opt-qt561-trusty -y; fi
+
+install:
+  - sudo apt-get install graphicsmagick
+	- if [ "$QT_BASE" = "56" ]; then sudo apt-get install -qq qt56base; source /opt/qt56/bin/qt56-env.sh; fi
+
+script:
+  - qmake -r
+  - make
+  - make check
+
+notifications:
+  email: false
