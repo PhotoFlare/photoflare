@@ -1,28 +1,12 @@
+sudo: false
 language: cpp
-
-branches:
-  only:
-   - master
-
-compiler: gcc
-
-sudo: required
-dist: trusty
-
+compiler:
+- g++
 env:
-	- QT_BASE=56
-
+- QT_BASE=56
 before_install:
-	- if [ "$QT_BASE" = "56" ]; then sudo add-apt-repository ppa:beineri/opt-qt561-trusty -y; fi
-
+- if [ "$QT_BASE" = "56" ]; then sudo add-apt-repository ppa:beineri/opt-qt561-trusty -y; fi
 install:
-  - sudo apt-get install graphicsmagick
-	- if [ "$QT_BASE" = "56" ]; then sudo apt-get install -qq qt56base; source /opt/qt56/bin/qt56-env.sh; fi
-
-script:
-  "qmake -project",
-  "qmake PhotoFiltreLX.pro",
-  "make"
-
-notifications:
-  email: false
+- sudo apt-get install graphicsmagick
+- if [ "$QT_BASE" = "56" ]; then sudo apt-get install -qq qt56base; source /opt/qt56/bin/qt56-env.sh; fi
+script: "bash -c ./build.sh"
