@@ -4,8 +4,7 @@ branches:
   only:
    - master
 
-compiler:
-	- gcc
+compiler: gcc
 
 sudo: required
 dist: trusty
