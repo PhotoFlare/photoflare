@@ -339,13 +339,15 @@ void PaintWidget::showProgressIndicator(bool visible)
 
 void PaintWidget::wheelEvent(QWheelEvent *event)
 {
+    const QPointF p0scene = mapToScene(event->pos());
     float scaleFactor = 1.1f;
-    if(event->delta() > 0) 
+
+    if(event->delta() > 0)
     {
        d->scale = d->scale / scaleFactor;
        d->scale = (d->scale < 0.1f) ? 0.1f : d->scale;
-    } 
-    else 
+    }
+    else
     {
        d->scale = d->scale * scaleFactor;
        d->scale = (d->scale > 8) ? 8 : d->scale;
@@ -357,6 +359,11 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
 
     if(d->currentTool)
         d->currentTool->setScale(d->scale);
+
+    const QPointF p1mouse = mapFromScene(p0scene);
+    const QPointF move = p1mouse - event->pos();
+    horizontalScrollBar()->setValue(move.x() + horizontalScrollBar()->value());
+    verticalScrollBar()->setValue(move.y() + verticalScrollBar()->value());
 }
 
 void PaintWidget::onContentChanged()
