@@ -4,10 +4,11 @@
 
 */
 
+#include <QFileDialog>
+
 #include "prefsdialog.h"
 #include "ui_prefsdialog.h"
 #include "Settings.h"
-#include <QFileDialog>
 
 prefsDialog::prefsDialog(QWidget *parent) :
     QDialog(parent),

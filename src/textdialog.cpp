@@ -4,10 +4,10 @@
 
 */
 
+#include <QColorDialog>
 
 #include "textdialog.h"
 #include "ui_textdialog.h"
-#include <QColorDialog>
 
 textDialog::textDialog(QWidget *parent) :
     QDialog(parent),
@@ -43,9 +43,9 @@ void textDialog::showColorDialog(QWidget *colorLabel)
 
 bool textDialog::eventFilter(QObject *obj, QEvent *event)
 {
-    if (event->type() == QEvent::MouseButtonRelease) 
+    if (event->type() == QEvent::MouseButtonRelease)
     {
-        if (obj == ui->textColour) 
+        if (obj == ui->textColour)
         {
             showColorDialog(static_cast<QWidget *>(obj));
             return true;

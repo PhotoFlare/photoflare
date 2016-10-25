@@ -4,9 +4,9 @@
 
 */
 
-#include "QProgressIndicator.h"
-
 #include <QPainter>
+
+#include "QProgressIndicator.h"
 
 QProgressIndicator::QProgressIndicator(QWidget* parent)
     : QWidget(parent),

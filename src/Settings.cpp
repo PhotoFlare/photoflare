@@ -4,9 +4,10 @@
 
 */
 
-#include "Settings.h"
 #include <QSettings>
 #include <QRect>
+
+#include "Settings.h"
 
 class SettingsPrivate
 {
@@ -111,7 +112,7 @@ QRect Settings::customWindowGeometry() const
 
 void Settings::addRecentFile(const QString &file)
 {
-    if(!d->recentFiles.contains(file)) 
+    if(!d->recentFiles.contains(file))
     {
         d->recentFiles.append(file);
 

@@ -4,8 +4,6 @@
 
 */
 
-#include "PaintWidget.h"
-
 #include <QLabel>
 #include <QPainter>
 #include <QScrollBar>
@@ -16,6 +14,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsProxyWidget>
 
+#include "PaintWidget.h"
 #include "./tools/Tool.h"
 
 #include "QProgressIndicator.h"
@@ -59,17 +58,17 @@ public:
         painter.fillRect(surface.rect(), brush);
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawImage(0, 0, image);
-        if(isSelectionVisible) 
+        if(isSelectionVisible)
         {
             QPen pen = QPen(QBrush(), 1, Qt::DashLine);
             pen.setColor(Qt::gray);
             painter.setPen(pen);
             painter.setBrush(QBrush());
             painter.drawPolygon(selection, Qt::WindingFill);
-            if(selection.size() == 4) 
+            if(selection.size() == 4)
             {
                 QRect rect(selection.at(0),selection.at(3));
-                if(rect.topLeft() != rect.bottomLeft()) 
+                if(rect.topLeft() != rect.bottomLeft())
                 {
                     painter.setPen(QPen(Qt::gray));
                     painter.setBrush(QBrush(Qt::gray));
@@ -122,7 +121,7 @@ public:
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
-        if (currentTool) 
+        if (currentTool)
         {
             // Set current image to the tool when we start painting.
             currentTool->setPaintDevice(&image);
@@ -142,7 +141,7 @@ public:
 
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     {
-        if (currentTool) 
+        if (currentTool)
         {
             currentTool->onMouseRelease(QPoint(event->scenePos().x(), event->scenePos().y()));
             if(imageChanged)
@@ -155,13 +154,13 @@ public:
 
     void keyPressEvent(QKeyEvent * keyEvent)
     {
-        if (currentTool) 
+        if (currentTool)
             currentTool->onKeyPressed(keyEvent);
     }
 
     void keyReleaseEvent(QKeyEvent * keyEvent)
     {
-        if (currentTool) 
+        if (currentTool)
             currentTool->onKeyReleased(keyEvent);
     }
 
@@ -218,7 +217,7 @@ PaintWidget::~PaintWidget()
 
 void PaintWidget::setPaintTool(Tool *tool)
 {
-    if (d->currentTool) 
+    if (d->currentTool)
     {
         d->currentTool->disconnect();
         d->disconnectLastTool();
@@ -226,10 +225,10 @@ void PaintWidget::setPaintTool(Tool *tool)
 
     d->currentTool = tool;
 
-    if (d->currentTool) 
+    if (d->currentTool)
     {
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
-                if (&d->image == paintDevice) 
+                if (&d->image == paintDevice)
                 {
                     d->updateImageLabel();
                     this->contentChanged();
@@ -237,7 +236,7 @@ void PaintWidget::setPaintTool(Tool *tool)
                 }
             });
         d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode) {
-                if (&d->image == paintDevice) 
+                if (&d->image == paintDevice)
                 {
                     d->updateImageLabelWithOverlay(overlayImage, mode);
                 }
@@ -326,10 +325,10 @@ void PaintWidget::showProgressIndicator(bool visible)
         progressIndicator->startAnimation();
         QGraphicsProxyWidget *progressIndicatorProxy = scene()->addWidget(progressIndicator);
         progressIndicatorProxy->setPos(3*d->image.width()/8, 3*d->image.height()/8);
-    } 
-    else 
+    }
+    else
     {
-        if(progressIndicator) 
+        if(progressIndicator)
         {
             progressIndicator->stopAnimation();
             progressIndicator->setVisible(false);

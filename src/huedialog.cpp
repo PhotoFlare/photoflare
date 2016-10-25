@@ -3,12 +3,11 @@
   Hue dialog class for the PhotoFiltre LX application.
 
 */
+#include <QMouseEvent>
+#include <QColorDialog>
 
 #include "huedialog.h"
 #include "ui_huedialog.h"
-
-#include <QMouseEvent>
-#include <QColorDialog>
 
 HueDialog::HueDialog(QWidget *parent, QImage preview) :
     QDialog(parent),

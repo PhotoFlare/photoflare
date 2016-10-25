@@ -4,10 +4,10 @@
 
 */
 
+#include <QColorDialog>
+
 #include "outerframedialog.h"
 #include "ui_outerframedialog.h"
-
-#include <QColorDialog>
 
 OuterFrameDialog::OuterFrameDialog(QWidget *parent) :
     QDialog(parent),

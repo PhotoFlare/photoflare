@@ -4,7 +4,6 @@
 
 */
 
-
 #include "BlurSettingsWidget.h"
 #include "ui_BlurSettingsWidget.h"
 

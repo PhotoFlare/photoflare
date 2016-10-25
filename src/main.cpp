@@ -4,16 +4,18 @@
 
 */
 
+#include <QDebug>
 
-#include "mainwindow.h"
 #include <QApplication>
 #include <QFileInfo>
 #include <QTranslator>
 #include <QtSingleApplication>
 #include <QStandardPaths>
 #include <QFileInfo>
+
+#include "mainwindow.h"
 #include "Settings.h"
-#include <QDebug>
+
 
 int main(int argc, char *argv[])
 {

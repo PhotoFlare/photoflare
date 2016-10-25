@@ -4,11 +4,11 @@
 
 */
 
-#include "gradientdialog.h"
-#include "ui_gradientdialog.h"
-
 #include <QMouseEvent>
 #include <QColorDialog>
+
+#include "gradientdialog.h"
+#include "ui_gradientdialog.h"
 
 GradientDialog::GradientDialog(QWidget *parent) :
     QDialog(parent),

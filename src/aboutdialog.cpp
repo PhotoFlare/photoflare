@@ -4,10 +4,11 @@
 
 */
 
-#include "aboutdialog.h"
-#include "ui_aboutdialog.h"
 #include <QApplication>
 #include <QTextEdit>
+
+#include "aboutdialog.h"
+#include "ui_aboutdialog.h"
 
 aboutDialog::aboutDialog(QWidget *parent) :
     QDialog(parent),
@@ -60,12 +61,12 @@ void aboutDialog::on_pushButton_clicked()
 
 void aboutDialog::on_pushButton_2_clicked()
 {
-    if (ui->creditsTextArea->isVisible()==false) 
+    if (ui->creditsTextArea->isVisible()==false)
     {
         ui->creditsTextArea->setVisible(true);
         creditsVisible=true;
     }
-    else if (ui->creditsTextArea->isVisible()==true) 
+    else if (ui->creditsTextArea->isVisible()==true)
     {
         ui->creditsTextArea->setVisible(false);
         creditsVisible=false;

@@ -4,12 +4,12 @@
 
 */
 
+#include <QFileDialog>
+#include <QColorDialog>
+
 #include "batchdialog.h"
 #include "ui_batchdialog.h"
 #include "NewDialog.h"
-
-#include <QFileDialog>
-#include <QColorDialog>
 
 enum {Pixels, Percent};
 

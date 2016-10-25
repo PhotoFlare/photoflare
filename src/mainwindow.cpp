@@ -45,11 +45,9 @@
 #include "Settings.h"
 #include "FilterManager.h"
 
-#include "BatchProcessWorker.h"
-#include "batchprogress.h"
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include "PaintWidget.h"
 #include "NewDialog.h"
 #include "textdialog.h"
@@ -62,6 +60,8 @@
 #include "gradientdialog.h"
 #include "compressiondialog.h"
 #include "transparentdialog.h"
+#include "BatchProcessWorker.h"
+#include "batchprogress.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()

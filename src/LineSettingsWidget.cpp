@@ -4,9 +4,10 @@
 
 */
 
+#include <QGraphicsPixmapItem>
+
 #include "LineSettingsWidget.h"
 #include "ui_LineSettingsWidget.h"
-#include <QGraphicsPixmapItem>
 
 LineSettingsWidget::LineSettingsWidget(QWidget *parent) :
     QWidget(parent),
