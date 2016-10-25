@@ -229,7 +229,8 @@ void MainWindow::on_actionOpen_triggered()
                                 "Image Files (*.png *.jpg *.jpeg *.gif);;"
                                 "PNG(*.png);;"
                                 "JPEG(*.jpg *.jpeg);;"
-                                "GIF(*.gif)"));
+                                "GIF(*.gif);;"
+                                "TIFF(*.tif *.tiff)"));
     openFile(fileName);
 }
 
