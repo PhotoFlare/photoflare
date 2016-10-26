@@ -1,12 +1,18 @@
-sudo: false
+sudo: required
+
 language: cpp
+
 compiler:
 - g++
-env:
-- QT_BASE=56
+
+services:
+- docker
+
 before_install:
-- if [ "$QT_BASE" = "56" ]; then sudo add-apt-repository ppa:beineri/opt-qt561-trusty -y; fi
+- docker pull ubuntu:16.04
+
 install:
 - sudo apt-get install graphicsmagick
-- if [ "$QT_BASE" = "56" ]; then sudo apt-get install -qq qt56base; source /opt/qt56/bin/qt56-env.sh; fi
+- sudo apt-get install qt5-default
+
 script: "bash -c ./build.sh"
