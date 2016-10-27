@@ -74,6 +74,8 @@ public:
     QPolygon selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color);
     QImage floodFillOpacity(const QImage &image, const QColor &color, int opacity);
 
+    QImage negative(const QImage &image);
+
 private:
     FilterManager();
     FilterManager(const FilterManager &);

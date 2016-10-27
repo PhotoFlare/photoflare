@@ -610,6 +610,17 @@ QImage FilterManager::deSpeckle(const QImage &image)
     return modifiedImage;
 }
 
+QImage FilterManager::negative(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->negate(false);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
 QImage FilterManager::autoLevels(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);

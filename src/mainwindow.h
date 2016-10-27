@@ -173,6 +173,8 @@ private slots:
     void on_actionDonate_triggered();
     void on_actionAutomatic_Crop_triggered();
 
+    void on_actionNegative_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

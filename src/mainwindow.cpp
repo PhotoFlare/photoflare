@@ -870,6 +870,13 @@ void MainWindow::on_actionAuto_contrast_triggered()
         widget->setImage(FilterManager::instance()->autoContrast(widget->image()));
 }
 
+void MainWindow::on_actionNegative_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->setImage(FilterManager::instance()->negative(widget->image()));
+}
+
 /*
 
     | FILTER MENU |
@@ -2001,7 +2008,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionManual_settings->setVisible(false);
         ui->actionMore_highlights->setVisible(false);
         ui->actionMore_shadows->setVisible(false);
-        ui->actionNegative->setVisible(false);
+        ui->actionNegative->setVisible(true);
         ui->actionOptimized_Clipping->setVisible(false);
         ui->actionOther->setVisible(false);
         ui->actionOutside_drop_shadow->setVisible(false);
@@ -2073,7 +2080,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionManual_settings->setEnabled(false);
         ui->actionMore_highlights->setEnabled(false);
         ui->actionMore_shadows->setEnabled(false);
-        ui->actionNegative->setEnabled(false);
+        ui->actionNegative->setEnabled(true);
         ui->actionOptimized_Clipping->setEnabled(false);
         ui->actionOther->setEnabled(false);
         ui->actionOutside_drop_shadow->setEnabled(false);
