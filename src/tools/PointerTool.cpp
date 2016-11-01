@@ -189,11 +189,6 @@ void PointerTool::onMouseMove(const QPoint &pos)
         {
             QPoint topLeft(d->firstPos);
             QPoint bottomRight(d->secondPos);
-            int temp;
-            if(topLeft.x() > bottomRight.x())
-                temp = topLeft.x();topLeft.setX(bottomRight.x());bottomRight.setX(temp);
-            if(topLeft.y() > bottomRight.y())
-                temp = topLeft.y();topLeft.setY(bottomRight.y());bottomRight.setY(temp);
 
             emit selectionChanged(QRect(topLeft,bottomRight));
             emit painted(m_paintDevice);
