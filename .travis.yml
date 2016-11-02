@@ -10,6 +10,7 @@ services:
 
 before_install:
 - docker pull ubuntu:16.04
+- docker run -d
 
 install:
 - sudo apt-get install graphicsmagick
