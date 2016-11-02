@@ -98,6 +98,10 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                         emit painted(m_paintDevice);
                     }
                 }
+                else
+                {
+                    emit cursorChanged(Qt::OpenHandCursor);
+                }
             }
             break;
         case Qt::RightButton: {
@@ -233,6 +237,8 @@ void PointerTool::onMouseRelease(const QPoint &pos)
     {
         d->imagePos = QPoint(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y());
         d->firstPos = d->secondPos;
+
+        emit cursorChanged(Qt::ArrowCursor);
     }
     else if(d->selectionMode == SELECT)
     {
