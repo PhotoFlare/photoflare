@@ -1,11 +1,11 @@
-unix { 
+unix {
     TEMPLATE = app
     VERSION = 1.0
     DEFINES += UNIX \
         kTWAIN_DS_DIR=\"/usr/local/lib/twain\"
     LIBS += -ldl
 }
-TARGET = ScanImage
+TARGET = PhotoFiltreLX_scan
 
 win32 {
     LIBS += -luser32
@@ -15,7 +15,7 @@ win32 {
 DEFINES -= UNICODE
 
 INCLUDEPATH = /usr/local/include \
-        ../ScanImage
+        ../PhotoFiltreLX_scan
 
 SOURCES += CommonTWAIN.cpp \
     DSMInterface.cpp \
@@ -36,5 +36,5 @@ HEADERS += Common.h \
 CONFIG += warn_off
 
 # this project doesn't need any QT libs.
-QMAKE_LIBS_QT = 
-QMAKE_LIBS_QT_THREAD = 
+QMAKE_LIBS_QT =
+QMAKE_LIBS_QT_THREAD =
