@@ -1,6 +1,12 @@
 #ifndef IMAGEPROPERTIESDIALOG_H
 #define IMAGEPROPERTIESDIALOG_H
 
+/*
+
+  ImageProperties dialog class for the PhotoFiltre LX application.
+
+*/
+
 #include <QDialog>
 
 class ImagePropertiesPrivate;

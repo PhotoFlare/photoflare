@@ -1,6 +1,12 @@
 #ifndef BRUSHTYPECOMBOBOX_H
 #define BRUSHTYPECOMBOBOX_H
 
+/*
+
+  Special combo to hold Brush Types.
+
+*/
+
 #include <QComboBox>
 
 class QComboBoxEventsInterface

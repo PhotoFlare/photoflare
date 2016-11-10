@@ -1,6 +1,12 @@
 #ifndef GRADIENTDIALOG_H
 #define GRADIENTDIALOG_H
 
+/*
+
+  Gradient dialog class for the PhotoFiltre LX application.
+
+*/
+
 #include <QDialog>
 #include <brushtypecombobox.h>
 

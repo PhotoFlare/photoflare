@@ -3,7 +3,7 @@
 
 /*
 
-  Widget for paintbrush settings.
+  Widget for AdvancedPaintbrushTool settings.
 
 */
 

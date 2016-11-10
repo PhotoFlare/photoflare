@@ -22,4 +22,4 @@ private:
     Ui::BatchProgress *ui;
 };
 
-#endif // BATCHPREGRESS_H
+#endif // BATCHPROGRESS_H

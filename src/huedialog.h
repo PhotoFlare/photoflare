@@ -1,6 +1,12 @@
 #ifndef HUEDIALOG_H
 #define HUEDIALOG_H
 
+/*
+
+  Hue dialog class for the PhotoFiltre LX application.
+
+*/
+
 #include <QDialog>
 
 namespace Ui {

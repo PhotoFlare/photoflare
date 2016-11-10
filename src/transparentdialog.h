@@ -1,6 +1,12 @@
 #ifndef TRANSPARENTDIALOG_H
 #define TRANSPARENTDIALOG_H
 
+/*
+
+  Transparent dialog class.
+
+*/
+
 #include <QDialog>
 
 namespace Ui {

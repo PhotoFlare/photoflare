@@ -1,6 +1,12 @@
 #ifndef IMAGEPOSITIONWIDGET_H
 #define IMAGEPOSITIONWIDGET_H
 
+/*
+
+  Image position widget for the PhotoFiltre LX application.
+
+*/
+
 #include <QWidget>
 
 namespace Ui {

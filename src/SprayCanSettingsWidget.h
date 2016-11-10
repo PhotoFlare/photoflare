@@ -3,7 +3,7 @@
 
 /*
 
-  Widget for spray can settings.
+  Widget for SprayCanTool settings.
 
 */
 

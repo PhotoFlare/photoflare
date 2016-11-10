@@ -1,11 +1,11 @@
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
 /*
 
   Main window class for the PhotoFiltre LX application.
 
 */
-
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
 
 #include <QMainWindow>
 #include <QSignalMapper>

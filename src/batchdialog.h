@@ -1,6 +1,12 @@
 #ifndef BATCHDIALOG_H
 #define BATCHDIALOG_H
 
+/*
+
+  Batch dialog class for the PhotoFiltre LX application.
+
+*/
+
 #include <QDialog>
 #include <brushtypecombobox.h>
 

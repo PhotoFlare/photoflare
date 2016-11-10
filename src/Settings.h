@@ -1,11 +1,11 @@
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
 /*
 
   Settings class for the PhotoFiltre LX application.
 
 */
-
-#ifndef SETTINGS_H
-#define SETTINGS_H
 
 #include <QObject>
 

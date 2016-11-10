@@ -1,6 +1,12 @@
 #ifndef COMPRESSIONDIALOG_H
 #define COMPRESSIONDIALOG_H
 
+/*
+
+  Compression dialog to give user option to set compression on save.
+
+*/
+
 #include <QDialog>
 
 namespace Ui {

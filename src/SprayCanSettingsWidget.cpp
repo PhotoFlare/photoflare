@@ -4,7 +4,6 @@
 
 */
 
-
 #include "SprayCanSettingsWidget.h"
 #include "ui_SprayCanSettingsWidget.h"
 

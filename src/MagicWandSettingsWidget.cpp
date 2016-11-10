@@ -4,7 +4,6 @@
 
 */
 
-
 #include "MagicWandSettingsWidget.h"
 #include "ui_MagicWandSettingsWidget.h"
 

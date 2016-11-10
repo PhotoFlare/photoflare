@@ -1,6 +1,12 @@
 #ifndef SCANMANAGER_H
 #define SCANMANAGER_H
 
+/*
+
+  ScanManager class to process scanning functionality.
+
+*/
+
 #include <QObject>
 #include <QProcess>
 

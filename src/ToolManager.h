@@ -1,6 +1,6 @@
 /*
 
-  Tool manager class. Handles the different drawing tools.
+  Tools manager class. Handles the different drawing tools.
 
 */
 

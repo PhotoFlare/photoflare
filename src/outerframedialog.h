@@ -1,6 +1,12 @@
 #ifndef OUTERFRAMEDIALOG_H
 #define OUTERFRAMEDIALOG_H
 
+/*
+
+  Outerframe dialog class for the PhotoFiltre LX application.
+
+*/
+
 #include <QDialog>
 #include <QComboBox>
 #include <brushtypecombobox.h>
