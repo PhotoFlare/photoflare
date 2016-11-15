@@ -79,7 +79,8 @@ SOURCES += src/main.cpp \
     src/colorboxwidget.cpp \
     src/compressiondialog.cpp \
     src/batchprogress.cpp \
-    src/transparentdialog.cpp
+    src/transparentdialog.cpp \
+    src/pointersettingswidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -123,7 +124,8 @@ HEADERS += src/mainwindow.h \
     src/colorboxwidget.h \
     src/compressiondialog.h \
     src/batchprogress.h \
-    src/transparentdialog.h
+    src/transparentdialog.h \
+    src/pointersettingswidget.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
@@ -148,7 +150,8 @@ FORMS += src/mainwindow.ui \
     src/gradientdialog.ui \
     src/compressiondialog.ui \
     src/batchprogress.ui \
-    src/transparentdialog.ui
+    src/transparentdialog.ui \
+    src/pointersettingswidget.ui
 
 RESOURCES += \
     Icons.qrc

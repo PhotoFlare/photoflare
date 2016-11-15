@@ -34,6 +34,7 @@
 #include "./tools/StampTool.h"
 #include "./tools/BlurTool.h"
 
+#include "pointersettingswidget.h"
 #include "PaintBrushSettingsWidget.h"
 #include "PaintBrushAdvSettingsWidget.h"
 #include "SprayCanSettingsWidget.h"
@@ -119,6 +120,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->mdiArea, &QMdiArea::subWindowActivated, this, &MainWindow::onSubWindowActivated);
 
     // Add Settings Widgets to the Dock
+    m_ptSettingsWidget = new PointerSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_ptSettingsWidget);
+    connect(m_ptSettingsWidget, &PointerSettingsWidget::settingsChanged, this, &MainWindow::onPointerToolSettingsChanged);
+
     m_pbSettingsWidget = new PaintBrushSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_pbSettingsWidget);
     connect(m_pbSettingsWidget, &PaintBrushSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushSettingsChanged);
@@ -1271,6 +1276,7 @@ void MainWindow::clearToolpalette()
     ui->toolButtonStamp->setChecked(false);
     ui->toolButtonBlur->setChecked(false);
 
+    m_ptSettingsWidget->setVisible(false);
     m_pbSettingsWidget->setVisible(false);
     m_pbAdvSettingsWidget->setVisible(false);
     m_scSettingsWidget->setVisible(false);
@@ -1330,6 +1336,7 @@ void MainWindow::on_toolButtonPointer_clicked()
     clearToolpalette();
     m_toolSelected = "pointer";
     ui->toolButtonPointer->setChecked(true);
+    m_ptSettingsWidget->setVisible(true);
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setPaintTool(MOUSE_POINTER);
@@ -1524,6 +1531,12 @@ void MainWindow::on_toolButtonBlur_clicked()
     | TOOLPALETTE SETTINGS CHANGED |
 
 */
+
+void MainWindow::onPointerToolSettingsChanged()
+{
+    MOUSE_POINTER->setStroke(m_ptSettingsWidget->stroke());
+    MOUSE_POINTER->setFill(m_ptSettingsWidget->fill());
+}
 
 void MainWindow::onPaintBrushSettingsChanged()
 {

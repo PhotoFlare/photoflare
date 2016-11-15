@@ -17,6 +17,8 @@ public:
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
+    void setStroke(bool enabled);
+    void setFill(bool enabled);
 
 public slots:
     void onCrop();

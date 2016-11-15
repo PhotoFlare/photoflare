@@ -20,6 +20,7 @@ class MainWindow;
 }
 
 class PaintWidget;
+class PointerSettingsWidget;
 class PaintBrushSettingsWidget;
 class PaintBrushAdvSettingsWidget;
 class SprayCanSettingsWidget;
@@ -74,6 +75,7 @@ private slots:
     void setDefaultSettings();
     void updateRecents();
     void showError(const QString &message);
+    void onPointerToolSettingsChanged();
     void onPaintBrushSettingsChanged();
     void onPaintBrushAdvSettingsChanged();
     void onSprayCanSettingsChanged();
@@ -196,6 +198,7 @@ private:
 
     Ui::MainWindow *ui;
     QString m_toolSelected;
+    PointerSettingsWidget *m_ptSettingsWidget;
     PaintBrushSettingsWidget *m_pbSettingsWidget;
     PaintBrushAdvSettingsWidget *m_pbAdvSettingsWidget;
     SprayCanSettingsWidget *m_scSettingsWidget;

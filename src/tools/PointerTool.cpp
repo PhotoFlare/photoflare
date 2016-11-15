@@ -11,7 +11,9 @@
 #include <QPainter>
 #include <QMenu>
 
-enum SelectionMode {SELECT, HAND, RESIZE};
+//#include <QDebug>
+
+enum SelectionMode {SELECT, HAND, RESIZE, STROKE, FILL};
 enum Corner {TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT};
 
 class PointerToolPrivate
@@ -169,7 +171,6 @@ void PointerTool::onMouseMove(const QPoint &pos)
 
     if (m_paintDevice)
     {
-
         if(d->selectionMode == HAND)
         {
             const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
@@ -227,6 +228,13 @@ void PointerTool::onMouseMove(const QPoint &pos)
             emit selectionChanged(QRect(d->topLeftCorner.topLeft(),d->bottomRightCorner.bottomRight()));
             emit painted(m_paintDevice);
         }
+        else if(d->selectionMode == STROKE)
+        {
+           // paint using PaintWidget
+            QPoint topLeft(d->firstPos);
+            QPoint bottomRight(d->secondPos);
+            emit selectionChanged(QRect(topLeft,bottomRight));
+        }
     }
 }
 
@@ -271,5 +279,20 @@ void PointerTool::onMouseRelease(const QPoint &pos)
     }
 }
 
+void PointerTool::setStroke(bool enabled)
+{
+    if(enabled)
+    {
+        d->selectionMode = STROKE;
+    }
+}
+
+void PointerTool::setFill(bool enabled)
+{
+    if(enabled)
+    {
+        d->selectionMode = FILL;
+    }
+}
 
 
