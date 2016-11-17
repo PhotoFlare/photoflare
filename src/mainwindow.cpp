@@ -279,7 +279,6 @@ void MainWindow::updateRecents()
         QAction* action = ui->menuRecent_Files->addAction(fileName);
         connect(action, &QAction::triggered, [this, fileName] () {
             addPaintWidget(createPaintWidget(fileName));
-            on_toolButtonPointer_clicked();
         });
     }
 }
