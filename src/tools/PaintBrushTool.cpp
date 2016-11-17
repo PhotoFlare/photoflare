@@ -88,6 +88,8 @@ void PaintBrushTool::setCapStyle(Qt::PenCapStyle capStyle)
 {
     d->primaryPen.setCapStyle(capStyle);
     d->secondaryPen.setCapStyle(capStyle);
+
+    emit cursorChanged(getCursor());
 }
 
 QCursor PaintBrushTool::getCursor()
@@ -98,11 +100,20 @@ QCursor PaintBrushTool::getCursor()
     QPixmap pixmap(QSize(width,width));
     pixmap.fill(Qt::transparent);
     QPainter painter(&pixmap);
-    QPen pen = QPen(QBrush(), 1, Qt::DashLine);
-    pen.setColor(Qt::gray);
-    painter.setPen(pen);
-
-    painter.drawEllipse(pixmap.rect());
+    if(d->primaryPen.capStyle() == Qt::SquareCap)
+    {
+        QPen pen = QPen(QBrush(), 2, Qt::DashLine);
+        pen.setColor(Qt::gray);
+        painter.setPen(pen);
+        painter.drawRect(pixmap.rect());
+    }
+    else
+    {
+        QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+        pen.setColor(Qt::gray);
+        painter.setPen(pen);
+        painter.drawEllipse(pixmap.rect());
+    }
     return QCursor(pixmap);
 }
 
