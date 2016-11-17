@@ -59,6 +59,7 @@
         <file>icons/print.png</file>
         <file>icons/old_photo.png</file>
         <file>icons/sepia.png</file>
+        <file>icons/sel_square_mode.png</file>
     </qresource>
     <qresource prefix="/brushes">
         <file>brushes/circle.png</file>
