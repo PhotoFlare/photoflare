@@ -98,6 +98,17 @@ FilterManager *FilterManager::instance()
     return m_instance;
 }
 
+QImage FilterManager::blackwhite(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->type(Magick::BilevelType);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
 QImage FilterManager::oilPaint(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);

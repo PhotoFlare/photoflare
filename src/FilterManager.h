@@ -21,6 +21,7 @@ public:
 
     static FilterManager* instance();
 
+    QImage blackwhite(const QImage &image);
     QImage oilPaint(const QImage &image);
     QImage charcoal(const QImage &image);
     QImage swirl(const QImage &image);

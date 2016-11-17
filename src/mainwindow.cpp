@@ -993,6 +993,13 @@ void MainWindow::on_actionNormalize_triggered()
         widget->setImage(FilterManager::instance()->normalize(widget->image()));
 }
 
+void MainWindow::on_actionBlack_and_white_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->setImage(FilterManager::instance()->blackwhite(widget->image()));
+}
+
 void MainWindow::on_actionOil_Paint_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -2128,3 +2135,5 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionValidate->setEnabled(false);
     }
 }
+
+

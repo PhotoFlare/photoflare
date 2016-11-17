@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -308,6 +308,7 @@
      <addaction name="actionSepia"/>
      <addaction name="actionEqualize"/>
      <addaction name="actionNormalize"/>
+     <addaction name="actionBlack_and_white"/>
     </widget>
     <widget class="QMenu" name="menuVisual_Effect">
      <property name="title">
@@ -1932,6 +1933,11 @@ QToolButton:checked {
    </property>
    <property name="text">
     <string>Sepia</string>
+   </property>
+  </action>
+  <action name="actionBlack_and_white">
+   <property name="text">
+    <string>Black and white</string>
    </property>
   </action>
  </widget>
