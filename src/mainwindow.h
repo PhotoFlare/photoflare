@@ -176,8 +176,8 @@ private slots:
     void on_actionAutomatic_Crop_triggered();
 
     void on_actionNegative_triggered();
-
     void on_actionBlack_and_white_triggered();
+    bool fileExists(QString path);
 
 protected:
     void closeEvent(QCloseEvent *event);

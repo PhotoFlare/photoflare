@@ -266,6 +266,12 @@ void MainWindow::on_actionRevert_triggered()
     }
 }
 
+bool MainWindow::fileExists(QString path) {
+    QFileInfo check_file(path);
+
+    return (check_file.exists() && check_file.isFile());
+}
+
 void MainWindow::updateRecents()
 {
     ui->menuRecent_Files->clear();
@@ -276,10 +282,13 @@ void MainWindow::updateRecents()
     for(i = recentFiles.begin(); i != recentFiles.end(); i++)
     {
         const QString& fileName = (*i).toString();
-        QAction* action = ui->menuRecent_Files->addAction(fileName);
-        connect(action, &QAction::triggered, [this, fileName] () {
-            addPaintWidget(createPaintWidget(fileName));
-        });
+        if(fileExists(fileName))
+        {
+            QAction* action = ui->menuRecent_Files->addAction(fileName);
+            connect(action, &QAction::triggered, [this, fileName] () {
+                addPaintWidget(createPaintWidget(fileName));
+            });
+        }
     }
 }
 
