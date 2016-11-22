@@ -9,6 +9,10 @@ PointerSettingsWidget::PointerSettingsWidget(QWidget *parent) :
 
     connect(ui->checkBoxStroke, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
     connect(ui->checkBoxFill, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
+
+    ui->checkBoxStroke->setDisabled(true);
+    ui->checkBoxFill->setDisabled(true);
+    ui->toolButton->setDisabled(true);
 }
 
 PointerSettingsWidget::~PointerSettingsWidget()
