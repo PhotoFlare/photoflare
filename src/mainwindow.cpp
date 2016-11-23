@@ -205,6 +205,9 @@ MainWindow::MainWindow(QWidget *parent) :
     transparentDialog = 0;
 
     on_toolButtonPointer_clicked();
+
+    // Remove Qt contextmenu from the toolbars
+    setContextMenuPolicy(Qt::NoContextMenu);
 }
 
 MainWindow::~MainWindow()
