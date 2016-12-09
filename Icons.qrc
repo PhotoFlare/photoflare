@@ -88,6 +88,7 @@
         <file>pixmaps/flags/France.png</file>
         <file>pixmaps/flags/Germany.png</file>
         <file>pixmaps/flags/United-kingdom.png</file>
+        <file>pixmaps/flags/Netherlands.png</file>
     </qresource>
     <qresource prefix="/cursors">
         <file>cursors/color-picker.png</file>
