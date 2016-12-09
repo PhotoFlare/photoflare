@@ -242,7 +242,7 @@ void LineTool::onMouseMove(const QPoint &pos)
 
         painter.end();
 
-        emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
+        //emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
     }
 }
 
