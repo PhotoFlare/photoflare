@@ -239,7 +239,8 @@ void MainWindow::on_actionOpen_triggered()
                                 "JPEG(*.jpg *.jpeg);;"
                                 "GIF(*.gif);;"
                                 "TIFF(*.tif *.tiff);;"
-                                "BMP(*.bmp)"));
+                                "BMP(*.bmp);;"
+                                "ICO(*.ico)"));
     openFile(fileName);
 }
 
@@ -316,6 +317,7 @@ void MainWindow::on_actionSave_As_triggered()
     filters << tr("pbm (*.pbm)");
     filters << tr("pgm (*.pgm)");
     filters << tr("ppm (*.ppm)");
+    filters << tr("ico (*.ico)");
 
     QString defaultFilter;
     if (!suffix.isEmpty())

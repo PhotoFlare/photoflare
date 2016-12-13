@@ -151,6 +151,11 @@
    </property>
    <item>
     <property name="text">
+     <string>(none)</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>100 x 100 pixels</string>
     </property>
    </item>
