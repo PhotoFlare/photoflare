@@ -127,7 +127,7 @@ void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
 
     QPainter painter(m_paintDevice);
-    painter.setPen(QPen(pen.color()));
+    painter.setPen(pen);
     painter.drawPoint(pos.x(), pos.y());
     painter.end();
     emit painted(m_paintDevice);
@@ -154,6 +154,7 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
             int x2 = pos.x();
             int y1 = d->lastPos.y();
             int y2 = pos.y();
+
             if(x1 > x2) {
                 int temp = x1; x1 = x2; x2 = temp;
                 temp = y1; y1 = y2; y2 = temp;
