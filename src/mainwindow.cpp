@@ -3,7 +3,8 @@
   Main window class for the PhotoFiltre LX application.
 
 */
-//#include <QDebug>
+
+#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>
@@ -18,6 +19,7 @@
 #include <QThread>
 #include <QMimeData>
 #include <QDesktopServices>
+
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -205,6 +207,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Remove Qt contextmenu from the toolbars
     setContextMenuPolicy(Qt::NoContextMenu);
+
+    batchLbl = new QLabel(tr("Ready"));
+    batchLbl->setStyleSheet("margin:0 100 0 0");
+    ui->statusBar->addWidget(batchLbl);
 }
 
 MainWindow::~MainWindow()
@@ -668,6 +674,8 @@ void MainWindow::on_actionImage_Size_triggered()
     dialog.setImageSize(widget->image().size());
     if (dialog.exec())
         widget->setImage(widget->image().scaled(dialog.newImageSize()));
+
+    updateStatusArea(dialog.newImageSize().width(),dialog.newImageSize().height());
 }
 
 void MainWindow::on_actionCanvas_Size_triggered()
@@ -1616,6 +1624,13 @@ void MainWindow::onBlurSettingsChanged()
 
 */
 
+void MainWindow::updateStatusArea(int width, int height)
+{
+    ui->statusBar->removeWidget(imagesizeLbl);
+    imagesizeLbl = new QLabel(QString::number(width)+" x "+QString::number(height));
+    ui->statusBar->addWidget(imagesizeLbl);
+}
+
 void MainWindow::onMultiWindowModeChanged(bool multiWindowMode)
 {
     if(multiWindowMode)
@@ -1645,6 +1660,7 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
         {
             this->zoomCombo->setCurrentIndex(index);
         }
+        updateStatusArea(widget->image().width(),widget->image().height());
     }
 }
 

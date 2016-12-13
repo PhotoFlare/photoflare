@@ -11,6 +11,7 @@
 #include <QSignalMapper>
 #include <QMdiArea>
 #include <QProcess>
+#include <QLabel>
 
 #include "ScanManager.h"
 #include "batchdialog.h"
@@ -197,6 +198,7 @@ private:
     void saveGeometryState();
     void createKeyboardShortcuts();
     void disableUnimplementedActions(bool hide);
+    void updateStatusArea(int width, int height);
 
     Ui::MainWindow *ui;
     QString m_toolSelected;
@@ -212,6 +214,8 @@ private:
     ScanManager *m_scanManager;
     QImage origImage;
     TransparentDialog *transparentDialog;
+    QLabel *batchLbl;
+    QLabel *imagesizeLbl;
 };
 
 #endif // MAINWINDOW_H
