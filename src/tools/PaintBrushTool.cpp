@@ -102,7 +102,7 @@ QCursor PaintBrushTool::getCursor()
     QPainter painter(&pixmap);
     if(d->primaryPen.capStyle() == Qt::SquareCap)
     {
-        QPen pen = QPen(QBrush(), 2, Qt::DashLine);
+        QPen pen = QPen(QBrush(), 1.5, Qt::DashLine);
         pen.setColor(Qt::gray);
         painter.setPen(pen);
         painter.drawRect(pixmap.rect());
@@ -123,6 +123,14 @@ void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     d->lastPos = pos;
     d->mouseButton = button;
+
+    QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+
+    QPainter painter(m_paintDevice);
+    painter.setPen(QPen(pen.color()));
+    painter.drawPoint(pos.x(), pos.y());
+    painter.end();
+    emit painted(m_paintDevice);
 }
 
 void PaintBrushTool::onMouseMove(const QPoint &pos)
