@@ -35,6 +35,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
     filters << tr("pbm (*.pbm)");
     filters << tr("pgm (*.pgm)");
     filters << tr("ppm (*.ppm)");
+    filters << tr("ico (*.ico)");
 
     ui->comboBoxSaveFormat->addItems(filters);
 

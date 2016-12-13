@@ -5,12 +5,9 @@
 */
 //#include <QDebug>
 
-#include <QApplication>
 #include <QClipboard>
-#include <QComboBox>
 #include <QSettings>
 #include <QFileDialog>
-#include <QPixmap>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QMdiSubWindow>
