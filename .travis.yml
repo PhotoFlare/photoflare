@@ -10,9 +10,12 @@ services:
 
 before_install:
 - docker pull ubuntu:16.04
-- docker run -t -i ubuntu /bin/bash
+- docker run -it ubuntu bash
+- docker ps -a
+- docker info
 
 install:
+- sudo apt-get update
 - sudo apt-get install graphicsmagick
 - sudo apt-get install qt5-default
 
