@@ -17,5 +17,4 @@ install:
   - apt-get install graphicsmagick
   - apt-get install qt5-default
 
-
 script: "bash -c ./build.sh"
