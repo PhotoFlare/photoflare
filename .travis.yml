@@ -1,19 +1,21 @@
-sudo: required
+sudo: true
 
 language: cpp
 
 compiler:
-- g++
+  - g++
 
 services:
-- docker
+  - docker
 
 before_install:
-- docker pull ubuntu:16.04
-- docker run -t -i ubuntu /bin/bash
+  - docker pull ubuntu:16.04
+  - docker run -it ubuntu bash
 
 install:
-- sudo apt-get install graphicsmagick
-- sudo apt-get install qt5-default
+  - apt-get update
+  - apt-get install graphicsmagick
+  - apt-get install qt5-default
+
 
 script: "bash -c ./build.sh"
