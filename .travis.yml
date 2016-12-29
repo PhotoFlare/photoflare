@@ -10,9 +10,10 @@ services:
 
 before_install:
   - docker run -it ubuntu bash
+  - apt-get install graphicsmagick
 
 install:
-  - apt-get install graphicsmagick
+  
   - apt-get install qt5-default
   - exit
 
