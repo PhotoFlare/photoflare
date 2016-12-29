@@ -1,4 +1,4 @@
-sudo: required
+sudo: true
 
 language: cpp
 
@@ -13,9 +13,9 @@ before_install:
   - docker run -it ubuntu bash
 
 install:
-  - sudo apt-get update
-  - sudo apt-get install graphicsmagick
-  - sudo apt-get install qt5-default
+  - apt-get update
+  - apt-get install graphicsmagick
+  - apt-get install qt5-default
 
 
 script: "bash -c ./build.sh"
