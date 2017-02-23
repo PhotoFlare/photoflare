@@ -16,6 +16,9 @@
 #include <QLinearGradient>
 #include <QPainter>
 #include <QMatrix>
+#include <QGraphicsEffect>
+#include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
 //#include <QElapsedTimer>
 
 #include "FilterManager.h"
@@ -96,6 +99,62 @@ FilterManager *FilterManager::instance()
         m_instance = new FilterManager;
 
     return m_instance;
+}
+
+QImage FilterManager::applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent)
+{
+    if(src.isNull()) return QImage();   //No need to do anything else!
+    if(!effect) return src;             //No need to do anything else!
+    QGraphicsScene scene;
+    QGraphicsPixmapItem item;
+    item.setPixmap(QPixmap::fromImage(src));
+    item.setGraphicsEffect(effect);
+    scene.addItem(&item);
+    QImage res(src.size()+QSize(extent*2, extent*2), QImage::Format_ARGB32);
+    res.fill(Qt::transparent);
+    QPainter ptr(&res);
+    scene.render(&ptr, QRectF(), QRectF( -extent, -extent, src.width()+extent*2, src.height()+extent*2 ) );
+    return res;
+}
+
+QImage FilterManager::colorize(const QImage &image, QColor color, double str)
+{
+    QGraphicsColorizeEffect *e = new QGraphicsColorizeEffect;
+    e->setColor(color);
+    e->setStrength(str);
+    QImage modifiedImage = applyEffectToImage(image, e);
+
+    return modifiedImage;
+}
+
+QImage FilterManager::blurImage(const QImage &image, int radius)
+{
+    QGraphicsBlurEffect *e = new QGraphicsBlurEffect;
+    blur->setBlurRadius(radius);
+    QImage modifiedImage = applyEffectToImage(image, e);
+
+    return modifiedImage;
+}
+
+QImage FilterManager::setOpacity(const QImage &image)
+{
+    QGraphicsOpacityEffect *e = new QGraphicsOpacityEffect;
+    e->setOpacity(0.5);
+    QImage modifiedImage = applyEffectToImage(image, e);
+
+    return modifiedImage;
+}
+
+QImage FilterManager::dropShadow(const QImage &image)
+{
+    QGraphicsDropShadowEffect *e = new QGraphicsDropShadowEffect;
+    e->setColor(QColor(40,40,40,245));
+    e->setOffset(0,10);
+    e->setBlurRadius(50);
+
+    QImage modifiedImage = applyEffectToImage(image, e, 40);
+
+    return modifiedImage;
 }
 
 QImage FilterManager::blackwhite(const QImage &image)

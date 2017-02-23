@@ -21,6 +21,7 @@ public:
 
     static FilterManager* instance();
 
+    QImage applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent = 0);
     QImage blackwhite(const QImage &image);
     QImage oilPaint(const QImage &image);
     QImage charcoal(const QImage &image);
@@ -76,6 +77,12 @@ public:
     QImage floodFillOpacity(const QImage &image, const QColor &color, int opacity);
 
     QImage negative(const QImage &image);
+
+    // Qt GraphicsEffect methods
+    QImage dropShadow(const QImage &image);
+    QImage setOpacity(const QImage &image);
+    QImage blurImage(const QImage &image, int radius);
+    QImage colorize(const QImage &image, QColor color, double str);
 
 private:
     FilterManager();
