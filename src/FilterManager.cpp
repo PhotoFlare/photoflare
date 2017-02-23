@@ -130,7 +130,7 @@ QImage FilterManager::colorize(const QImage &image, QColor color, double str)
 QImage FilterManager::blurImage(const QImage &image, int radius)
 {
     QGraphicsBlurEffect *e = new QGraphicsBlurEffect;
-    blur->setBlurRadius(radius);
+    e->setBlurRadius(radius);
     QImage modifiedImage = applyEffectToImage(image, e);
 
     return modifiedImage;
