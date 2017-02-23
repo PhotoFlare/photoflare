@@ -21,6 +21,7 @@ public:
 
     static FilterManager* instance();
 
+    int changeBrightness(int value,int brightness);
     QImage applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent = 0);
     QImage blackwhite(const QImage &image);
     QImage oilPaint(const QImage &image);

@@ -101,6 +101,10 @@ FilterManager *FilterManager::instance()
     return m_instance;
 }
 
+int FilterManager::changeBrightness( int value, int brightness) {
+    return qBound<int>(0, value + brightness * 255 / 100, 255);
+}
+
 QImage FilterManager::applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent)
 {
     if(src.isNull()) return QImage();   //No need to do anything else!
@@ -614,11 +618,17 @@ static Magick::ChannelType channelById(int channelId)
 
 QImage FilterManager::setBrightness(const QImage &image, int brightness, int channelId)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->modulate(brightness + 100.0f, 100.0f, 100.0f);
+    QImage modifiedImage = image;
 
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
+    for(int i=0; i<modifiedImage.width(); i++)
+    {
+        for(int j=0; j<modifiedImage.height(); j++)
+        {
+            QColor color = modifiedImage.pixelColor(i,j);
+            color.setHsv(color.hue(), color.saturation(), changeBrightness(color.value(),brightness), color.alpha());
+            modifiedImage.setPixelColor(i, j, color);
+        }
+    }
 
     return modifiedImage;
 }
