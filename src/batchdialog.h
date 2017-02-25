@@ -95,6 +95,8 @@ private slots:
 
     void on_gammaSlider_valueChanged(int value);
 
+    void done(int r);
+
 private:
     Ui::batchDialog *ui;
     BatchDialogPrivate *d;

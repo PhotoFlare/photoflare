@@ -61,6 +61,8 @@ batchDialog::batchDialog(QWidget *parent) :
     filters << tr("Equalize colours");
     filters << tr("Monochrome edges");
     filters << tr("Gaussian noise");
+    filters << tr("Drop shadow");
+    filters << tr("Opacity");
     ui->listWidget_2->addItems(filters);
 
     for(int i=Qt::white; i <= Qt::yellow; i++)
@@ -76,6 +78,30 @@ batchDialog::batchDialog(QWidget *parent) :
 batchDialog::~batchDialog()
 {
     delete ui;
+}
+
+void batchDialog::done(int r)
+{
+    if(QDialog::Accepted == r)
+    {
+        if(ui->listWidget->count() > 0 && ui->lineEdit_3->text().size() > 0)
+        {
+            QDialog::done(r);
+            return;
+        }
+        else
+        {
+            QMessageBox msgBox;
+            msgBox.setText(tr("Please add files to the batch file list and set output folder."));
+            msgBox.exec();
+            return;
+        }
+    }
+    else
+    {
+        QDialog::done(r);
+        return;
+    }
 }
 
 void batchDialog::on_listWidget_2_doubleClicked(const QModelIndex &index)
@@ -342,7 +368,6 @@ void batchDialog::on_addFilesButton_clicked()
         d->fileList = QFileDialog::getOpenFileNames(this, tr("Select Files"),
                                                         QString(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
         ui->listWidget->clear();
-        //ui->listWidget->addItems(d->fileList);
 
         for(QString file : d->fileList)
         {

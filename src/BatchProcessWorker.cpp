@@ -120,6 +120,10 @@ void BatchProcessWorker:: process()
                 image = FilterManager::instance()->monoChromeEdges(image);
             if(filter.contains("Gaussian noise"))
                 image = FilterManager::instance()->gaussianNoise(image);
+            if(filter.contains("Drop shadow"))
+                image = FilterManager::instance()->dropShadow(image);
+            if(filter.contains("Opacity"))
+                image = FilterManager::instance()->setOpacity(image);
         }
 
         switch (m_params->rotate()) {
