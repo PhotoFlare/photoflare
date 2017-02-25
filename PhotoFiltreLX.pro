@@ -80,7 +80,8 @@ SOURCES += src/main.cpp \
     src/compressiondialog.cpp \
     src/batchprogress.cpp \
     src/transparentdialog.cpp \
-    src/pointersettingswidget.cpp
+    src/pointersettingswidget.cpp \
+    src/filterworker.cpp
 
 HEADERS += src/mainwindow.h \
     src/aboutdialog.h \
@@ -125,7 +126,8 @@ HEADERS += src/mainwindow.h \
     src/compressiondialog.h \
     src/batchprogress.h \
     src/transparentdialog.h \
-    src/pointersettingswidget.h
+    src/pointersettingswidget.h \
+    src/filterworker.h
 
 FORMS += src/mainwindow.ui \
     src/aboutdialog.ui \
