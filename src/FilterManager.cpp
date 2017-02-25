@@ -243,24 +243,12 @@ QImage FilterManager::implode(const QImage &image)
 
 QImage FilterManager::soften(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->blur(0.1,1.0);
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
-
-    return modifiedImage;
+    return blurImage(image,2);
 }
 
 QImage FilterManager::blur(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->blur(0.5,1.0);
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
-
-    return modifiedImage;
+    return blurImage(image,6);
 }
 
 QImage FilterManager::sharpen(const QImage &image)
@@ -287,60 +275,54 @@ QImage FilterManager::reinforce(const QImage &image)
 
 QImage FilterManager::grayscale(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->type(Magick::GrayscaleType);
+    QImage modifiedImage = image.convertToFormat(image.hasAlphaChannel() ?
+    QImage::Format_ARGB32 : QImage::Format_RGB32);
 
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
+     unsigned int *data = (unsigned int*)modifiedImage.bits();
+     int pixelCount = modifiedImage.width() * modifiedImage.height();
 
-    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+     // Convert each pixel to grayscale
+     for(int i = 0; i < pixelCount; ++i) {
+        int val = qGray(*data);
+        *data = qRgba(val, val, val, qAlpha(*data));
+        ++data;
+     }
+
+     return modifiedImage;
 }
 
 QImage FilterManager::oldPhoto(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->modulate(100.0f, 0.0f, 100.0f);
-    magickImage->colorize(15, 21, 40, Magick::Color(0,0,0));
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
-
-    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    return colorize(image,QColor(15, 21, 40),1.0);
 }
 
 QImage FilterManager::sepia(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->modulate(115.0f, 0.0f, 100.0f);
-    magickImage->colorize(7, 21, 50, Magick::Color(0,0,0));
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
-
-    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    return colorize(image,QColor(50, 21, 7),1.0);
 }
 
 QImage FilterManager::colorize(const QImage &image, QColor color)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->modulate(100.0f, 0.0f, 1.0f);
-    magickImage->colorize(20, Magick::ColorRGB(color.redF(), color.greenF(), color.blueF()));
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
-
-    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    return colorize(image,color,0.6);
 }
 
 QImage FilterManager::hue(const QImage &image, int degrees)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->modulate(100.0f, 100.0f, degrees*(float)200/(float)360 + 70);
+    QImage modifiedImage = image;
 
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
+    for(int i=0; i<modifiedImage.width(); i++)
+    {
+        for(int j=0; j<modifiedImage.height(); j++)
+        {
+            QColor color = modifiedImage.pixelColor(i,j);
 
-    return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+            // modify hue as you’d like and write back to the image
+            color.setHsv(degrees, color.saturation(), color.value(), color.alpha());
+            modifiedImage.setPixelColor(i, j, color);
+        }
+    }
+
+    return modifiedImage;
 }
 
 QImage FilterManager::gradient(const QImage &image, QPoint startPoint, QPoint stopPoint, QColor startColor, QColor stopColor)
