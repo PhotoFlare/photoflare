@@ -6,6 +6,7 @@
 
 #include <QFileDialog>
 #include <QColorDialog>
+#include <QMessageBox>
 
 #include "batchdialog.h"
 #include "ui_batchdialog.h"
