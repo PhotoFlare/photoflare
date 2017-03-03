@@ -8,6 +8,11 @@ FilterWorker::FilterWorker(QObject *parent) : QObject(parent)
 
 }
 
+void FilterWorker::setFilter(QString filter)
+{
+	currentFilter = filter;
+}
+
 void FilterWorker::setImage(QImage image)
 {
     currentImage = image;
@@ -17,7 +22,11 @@ void FilterWorker::process()
 {
     qDebug() << "test";
      QImage newImage;
-    //newImage = FilterManager::instance()->wave(currentImage);
+
+     if(currentFilter == "wave")
+     {
+    	newImage = FilterManager::instance()->wave(currentImage);
+     }
 
     emit fileProcessFinished(newImage);
 }
