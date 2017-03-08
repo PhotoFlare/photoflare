@@ -558,6 +558,7 @@ void MainWindow::on_actionUndo_triggered()
     if (widget)
     {
         widget->undo();
+        updateStatusArea(widget->image().width(),widget->image().height());
     }
 }
 
@@ -567,6 +568,7 @@ void MainWindow::on_actionRedo_triggered()
     if (widget)
     {
         widget->redo();
+        updateStatusArea(widget->image().width(),widget->image().height());
     }
 }
 
@@ -1374,6 +1376,7 @@ void MainWindow::on_actionCrop_triggered()
     {
         MOUSE_POINTER->onCrop();
         widget->onSelectionChanged(QRect());
+        updateStatusArea(widget->image().width(),widget->image().height());
     }
 }
 
