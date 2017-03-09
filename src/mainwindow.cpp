@@ -220,6 +220,38 @@ MainWindow::~MainWindow()
 
 /*
 
+    | FILTER WORKER |
+    
+*/
+
+void MainWindow::on_image_filtered(QImage image)
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->setImage(image);
+}
+
+void MainWindow::applyThreadedFilter(QString filterName)
+{
+    QThread *thread = new QThread();
+    FilterWorker *worker = new FilterWorker();
+    worker->setFilter(filterName);
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if(widget)
+    worker->setImage(widget->image());
+
+    worker->setParent(this);
+    worker->moveToThread(thread);
+
+    connect(thread, SIGNAL(started()), worker, SLOT(process()));
+    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(on_image_filtered(QImage)));
+
+    thread->start();
+}
+
+/*
+
     | FILE MENU |
 
 */
