@@ -221,7 +221,7 @@ MainWindow::~MainWindow()
 /*
 
     | FILTER WORKER |
-    
+
 */
 
 void MainWindow::on_image_filtered(QImage image)
@@ -1408,7 +1408,6 @@ void MainWindow::on_actionCrop_triggered()
     {
         MOUSE_POINTER->onCrop();
         widget->onSelectionChanged(QRect());
-        updateStatusArea(widget->image().width(),widget->image().height());
     }
 }
 
@@ -1419,6 +1418,7 @@ void MainWindow::onCrop(const QRect& rect)
     {
         QRect crop = widget->image().rect().intersected(rect);
         widget->setImage(widget->image().copy(crop));
+        updateStatusArea(widget->image().width(),widget->image().height());
     }
 }
 
