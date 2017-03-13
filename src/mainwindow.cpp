@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>
@@ -62,6 +62,7 @@
 #include "transparentdialog.h"
 #include "BatchProcessWorker.h"
 #include "batchprogress.h"
+#include "filterworker.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()

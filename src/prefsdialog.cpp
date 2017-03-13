@@ -56,10 +56,10 @@ prefsDialog::prefsDialog(QWidget *parent) :
     if(SETTINGS->getUserLanguage() == "en")
         ui->comboBoxLanguage->setCurrentIndex(0);
 
-    if(SETTINGS->getUserLanguage() == "fr")
+    else if(SETTINGS->getUserLanguage() == "fr")
         ui->comboBoxLanguage->setCurrentIndex(1);
 
-    if(SETTINGS->getUserLanguage() == "nl")
+    else if(SETTINGS->getUserLanguage() == "nl")
     ui->comboBoxLanguage->setCurrentIndex(2);
 
     //if(SETTINGS->getUserLanguage() == "de")
@@ -99,9 +99,9 @@ void prefsDialog::on_buttonBox_accepted()
 
     if(ui->comboBoxLanguage->currentIndex() == 0)
         SETTINGS->setUserLanguage("en");
-    if(ui->comboBoxLanguage->currentIndex() == 1)
+    else if(ui->comboBoxLanguage->currentIndex() == 1)
         SETTINGS->setUserLanguage("fr");
-    if(ui->comboBoxLanguage->currentIndex() == 2)
+    else if(ui->comboBoxLanguage->currentIndex() == 2)
         SETTINGS->setUserLanguage("nl");
     /*
       if(ui->comboBoxLanguage->currentIndex() == 3)

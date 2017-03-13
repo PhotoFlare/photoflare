@@ -202,6 +202,8 @@ private:
     void disableUnimplementedActions(bool hide);
     void updateStatusArea(int width, int height);
 
+    void applyThreadedFilter(QString filterName);
+
     Ui::MainWindow *ui;
     QString m_toolSelected;
     PointerSettingsWidget *m_ptSettingsWidget;

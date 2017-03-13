@@ -83,7 +83,7 @@ public:
     QImage dropShadow(const QImage &image);
     QImage setOpacity(const QImage &image);
     QImage blurImage(const QImage &image, int radius);
-    QImage colorize(const QImage &image, QColor color, double str);
+    QImage colorize(const QImage &image, QColor color, double str,bool useContrast);
 
 private:
     FilterManager();

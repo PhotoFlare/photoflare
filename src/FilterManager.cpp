@@ -121,14 +121,23 @@ QImage FilterManager::applyEffectToImage(QImage src, QGraphicsEffect *effect, in
     return res;
 }
 
-QImage FilterManager::colorize(const QImage &image, QColor color, double str)
+QImage FilterManager::colorize(const QImage &image, QColor color, double str, bool useContrast)
 {
     QGraphicsColorizeEffect *e = new QGraphicsColorizeEffect;
     e->setColor(color);
     e->setStrength(str);
-    QImage modifiedImage = applyEffectToImage(image, e);
 
-    return modifiedImage;
+    if(useContrast)
+    {
+        QImage modifiedImage = applyEffectToImage(image, e);
+        QImage newImage = setContrast(modifiedImage,5,0);
+        return newImage;
+    }
+    else
+    {
+        QImage modifiedImage = applyEffectToImage(image, e);
+        return modifiedImage;
+    }
 }
 
 QImage FilterManager::blurImage(const QImage &image, int radius)
@@ -293,17 +302,21 @@ QImage FilterManager::grayscale(const QImage &image)
 
 QImage FilterManager::oldPhoto(const QImage &image)
 {
-    return colorize(image,QColor(15, 21, 40),1.0);
+    QImage modifiedImage = grayscale(image);
+
+    return colorize(modifiedImage,QColor(234, 227, 10),0.3, true);
 }
 
 QImage FilterManager::sepia(const QImage &image)
 {
-    return colorize(image,QColor(50, 21, 7),1.0);
+    QImage modifiedImage = grayscale(image);
+
+    return colorize(modifiedImage,QColor(255, 170, 0),0.3, true);
 }
 
 QImage FilterManager::colorize(const QImage &image, QColor color)
 {
-    return colorize(image,color,0.6);
+    return colorize(image,color,0.5,false);
 }
 
 QImage FilterManager::hue(const QImage &image, int degrees)
@@ -532,46 +545,21 @@ QImage FilterManager::dustreduction(const QImage &image)
 
 QImage FilterManager::flipHorz(const QImage &image)
 {
-    /*Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->flop();
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;*/
-
     return image.mirrored(true,false);
 }
 
 QImage FilterManager::flipVert(const QImage &image)
 {
-    /*Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->flip();
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;*/
-
     return image.mirrored(false,true);
 }
 
 QImage FilterManager::rotateCCW(const QImage &image)
 {
-    /*Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->rotate(270);
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
-
-    return modifiedImage;*/
     return image.transformed(QMatrix().rotate(270.0));
 }
 
 QImage FilterManager::rotateCW(const QImage &image)
 {
-    //Magick::Image *magickImage = d->fromQtImage(image);
-    //magickImage->rotate(90);
-
-    //QImage modifiedImage = d->toQtImage(magickImage);
-    //delete magickImage;
-
     return image.transformed(QMatrix().rotate(90.0));
 }
 
