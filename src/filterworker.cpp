@@ -1,6 +1,7 @@
 #include "filterworker.h"
 #include "FilterManager.h"
 #include "PaintWidget.h"
+
 //#include <QDebug>
 
 FilterWorker::FilterWorker(QObject *parent) : QObject(parent)
@@ -22,13 +23,89 @@ void FilterWorker::process()
 {
     QImage newImage;
 
-    if(currentFilter == "wave")
+    if(currentFilter == "gammacorrectminus")
     {
-        newImage = FilterManager::instance()->wave(currentImage);
+        newImage = FilterManager::instance()->setGamma(currentImage, -0.1, 0);
     }
-    else if(currentFilter == "swirl")
+    else if(currentFilter == "gammacorrectplus")
     {
-        newImage = FilterManager::instance()->swirl(currentImage);
+        newImage = FilterManager::instance()->setGamma(currentImage, +0.1, 0);
+    }
+    else if(currentFilter == "saturationminus")
+    {
+        newImage = FilterManager::instance()->setSaturation(currentImage, -15, 0);
+    }
+    else if(currentFilter == "saturationplus")
+    {
+        newImage = FilterManager::instance()->setSaturation(currentImage, +15, 0);
+    }
+    else if(currentFilter == "contrastminus")
+    {
+        newImage = FilterManager::instance()->setContrast(currentImage, -5, 0);
+    }
+    else if(currentFilter == "contrastplus")
+    {
+        newImage = FilterManager::instance()->setContrast(currentImage, 5, 0);
+    }
+    else if(currentFilter == "brightminus")
+    {
+        newImage = FilterManager::instance()->setBrightness(currentImage, -5, 0);
+    }
+    else if(currentFilter == "brightplus")
+    {
+        newImage = FilterManager::instance()->setBrightness(currentImage, 5, 0);
+    }
+    else if(currentFilter == "flipHorz")
+    {
+        newImage = FilterManager::instance()->flipHorz(currentImage);
+    }
+    else if(currentFilter == "flipVert")
+    {
+        newImage = FilterManager::instance()->flipVert(currentImage);
+    }
+    else if(currentFilter == "rotateCCW")
+    {
+        newImage = FilterManager::instance()->rotateCCW(currentImage);
+    }
+    else if(currentFilter == "rotateCW")
+    {
+        newImage = FilterManager::instance()->rotateCW(currentImage);
+    }
+    else if(currentFilter == "trim")
+    {
+        newImage = FilterManager::instance()->trim(currentImage);
+    }
+    else if(currentFilter == "dropShadow")
+    {
+        newImage = FilterManager::instance()->dropShadow(currentImage);
+    }
+    else if(currentFilter == "autoLevels")
+    {
+        newImage = FilterManager::instance()->autoLevels(currentImage);
+    }
+    else if(currentFilter == "autoContrast")
+    {
+        newImage = FilterManager::instance()->autoContrast(currentImage);
+    }
+    else if(currentFilter == "negative")
+    {
+        newImage = FilterManager::instance()->negative(currentImage);
+    }
+    else if(currentFilter == "setOpacity")
+    {
+        newImage = FilterManager::instance()->setOpacity(currentImage);
+    }
+    else if(currentFilter == "soften")
+    {
+        newImage = FilterManager::instance()->soften(currentImage);
+    }
+    else if(currentFilter == "blur")
+    {
+        newImage = FilterManager::instance()->blur(currentImage);
+    }
+    else if(currentFilter == "sharpen")
+    {
+        newImage = FilterManager::instance()->sharpen(currentImage);
     }
     else if(currentFilter == "reinforce")
     {
@@ -97,6 +174,14 @@ void FilterWorker::process()
     else if(currentFilter == "motionBlur")
     {
         newImage = FilterManager::instance()->motionBlur(currentImage);
+    }
+    else if(currentFilter == "swirl")
+    {
+        newImage = FilterManager::instance()->swirl(currentImage);
+    }
+    else if(currentFilter == "wave")
+    {
+        newImage = FilterManager::instance()->wave(currentImage);
     }
     else if(currentFilter == "implode")
     {
