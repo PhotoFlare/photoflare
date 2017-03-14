@@ -94,7 +94,7 @@ void TextTool::drawText()
         painter.end();
 
         emit painted(m_paintDevice);
-        emit editTextFinished();
+
     }
 }
 
@@ -105,6 +105,7 @@ void TextTool::disconnect()
         drawText();
         d->previewMode = false;
         d->textRect = QRect(0,0,0,0);
+        emit editTextFinished();
     }
 }
 
