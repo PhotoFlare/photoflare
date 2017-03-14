@@ -49,7 +49,6 @@ public slots:
     void on_image_filtered(QImage image);
 
 private slots:
-    void applyThreadedFilter(QString filterName);
     void on_actionNew_triggered();
     void on_actionOpen_triggered();
     void on_actionSave_triggered();

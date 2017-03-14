@@ -188,7 +188,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MOUSE_POINTER, SIGNAL(copy()), this, SLOT(onCopy()));
     QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(onPaste()));
 
-    QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished(), this, SLOT(on_TextTool_finished());
+    QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished()), this, SLOT(on_TextTool_finished()));
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));
 
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
