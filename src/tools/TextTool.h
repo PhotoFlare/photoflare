@@ -23,6 +23,8 @@ public slots:
 
 signals:
     void editText(const QString&, const QFont&, const QColor&);
+    void editTextFinished();
+
 private:
     void previewText();
     void drawText();

@@ -188,8 +188,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MOUSE_POINTER, SIGNAL(copy()), this, SLOT(onCopy()));
     QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(onPaste()));
 
+    QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished(), this, SLOT(on_TextTool_finished());
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));
+
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
+
     QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&,int,bool)), this, SLOT(onSelectPrimaryColor(const QPoint&,int,bool)));
 
     // Setup some other defaults on startup
@@ -829,11 +832,20 @@ void MainWindow::onPreviewTransparent(QColor color, int tolerance)
         widget->setImage(FilterManager::instance()->floodFillOpacity(origImage, color, tolerance));
 }
 
+void MainWindow::on_TextTool_finished()
+{
+    m_toolSelected = m_previousToolSelected;
+    refreshTools();
+}
+
 void MainWindow::on_actionText_triggered()
 {
     textDialog dialog(this);
     if(dialog.exec())
     {
+        // Set the previous tool so we can revert back to it after text placement
+        m_previousToolSelected = m_toolSelected;
+
         clearToolpalette();
         m_toolSelected = "text";
         PaintWidget *widget = getCurrentPaintWidget();

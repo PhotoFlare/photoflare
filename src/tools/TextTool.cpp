@@ -94,6 +94,7 @@ void TextTool::drawText()
         painter.end();
 
         emit painted(m_paintDevice);
+        emit editTextFinished();
     }
 }
 

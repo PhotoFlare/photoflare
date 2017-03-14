@@ -97,6 +97,7 @@ private slots:
     void onZoomChanged(const QString&);
     void onSubWindowActivated(QMdiSubWindow*);
     void onEditText(const QString&,const QFont&, const QColor&);
+    void on_TextTool_finished();
     void onMultiWindowModeChanged(bool);
     void on_actionSwirl_triggered();
     void on_actionGrayScale_triggered();
@@ -206,6 +207,7 @@ private:
 
     Ui::MainWindow *ui;
     QString m_toolSelected;
+    QString m_previousToolSelected;
     PointerSettingsWidget *m_ptSettingsWidget;
     PaintBrushSettingsWidget *m_pbSettingsWidget;
     PaintBrushAdvSettingsWidget *m_pbAdvSettingsWidget;
