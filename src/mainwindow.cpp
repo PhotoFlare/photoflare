@@ -19,7 +19,7 @@
 #include <QThread>
 #include <QMimeData>
 #include <QDesktopServices>
-
+#include <QTimer>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -835,7 +835,7 @@ void MainWindow::onPreviewTransparent(QColor color, int tolerance)
 void MainWindow::on_TextTool_finished()
 {
     m_toolSelected = m_previousToolSelected;
-    refreshTools();
+    QTimer::singleShot(1000, this, SLOT(refreshTools()));
 }
 
 void MainWindow::on_actionText_triggered()
