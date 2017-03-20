@@ -1,0 +1,11 @@
+Package: photofiltre-lx
+Version: 1.0.5~xenial1
+Architecture: amd64
+Maintainer: Dylan Coakley <info@photofiltre-lx.org>
+Installed-Size: 5000
+Depends:  libc6,libgraphicsmagick++-q16-12,libqt5gui5,libqt5core5a,libqt5widgets5, libqt5printsupport5
+Section: graphics
+Priority: optional
+Homepage: http://www.photofiltre-lx.org/
+Description: PhotoFiltre LX
+ Simple but featureful editor. Built for casual graphic editing and performance.
