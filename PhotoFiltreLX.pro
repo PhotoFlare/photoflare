@@ -42,32 +42,33 @@ SOURCES += src/main.cpp \
     src/textdialog.cpp \
     src/prefsdialog.cpp \
     src/PaintWidget.cpp \
-    src/tools/Tool.cpp \
-    src/tools/PaintBrushTool.cpp \
     src/NewDialog.cpp \
     src/Settings.cpp \
     src/FilterManager.cpp \
     src/ToolManager.cpp \
-    src/PaintBrushSettingsWidget.cpp \
+    src/tools/Tool.cpp \
+    src/tools/PaintBrushTool.cpp \
     src/tools/ColourPickerTool.cpp \
     src/tools/PaintBucketTool.cpp \
     src/tools/PointerTool.cpp \
     src/tools/TextTool.cpp \
     src/tools/PaintBrushAdvTool.cpp \
-    src/PaintBrushAdvSettingsWidget.cpp \
     src/tools/SprayCanTool.cpp \
     src/tools/LineTool.cpp \
     src/tools/MagicWandTool.cpp \
-    src/SprayCanSettingsWidget.cpp \
-    src/LineSettingsWidget.cpp \
+    src/tools/StampTool.cpp \
+    src/tools/BlurTool.cpp \
+    src/toolSettings/pointersettingswidget.cpp \
+    src/toolSettings/PaintBrushSettingsWidget.cpp \
+    src/toolSettings/PaintBrushAdvSettingsWidget.cpp \
+    src/toolSettings/SprayCanSettingsWidget.cpp \
+    src/toolSettings/LineSettingsWidget.cpp \
+    src/toolSettings/MagicWandSettingsWidget.cpp \
+    src/toolSettings/StampSettingsWidget.cpp \
+    src/toolSettings/BlurSettingsWidget.cpp \
     src/ScanManager.cpp \
     src/ScanDevicesDialog.cpp \
     src/QProgressIndicator.cpp \
-    src/MagicWandSettingsWidget.cpp \
-    src/tools/StampTool.cpp \
-    src/StampSettingsWidget.cpp \
-    src/tools/BlurTool.cpp \
-    src/BlurSettingsWidget.cpp \
     src/imagepropertiesdialog.cpp \
     src/batchdialog.cpp \
     src/imagepositionwidget.cpp \
@@ -80,7 +81,6 @@ SOURCES += src/main.cpp \
     src/compressiondialog.cpp \
     src/batchprogress.cpp \
     src/transparentdialog.cpp \
-    src/pointersettingswidget.cpp \
     src/filterworker.cpp
 
 HEADERS += src/mainwindow.h \
@@ -88,32 +88,33 @@ HEADERS += src/mainwindow.h \
     src/textdialog.h \
     src/prefsdialog.h \
     src/PaintWidget.h \
-    src/tools/Tool.h \
-    src/tools/PaintBrushTool.h \
     src/NewDialog.h \
     src/Settings.h \
     src/FilterManager.h \
     src/ToolManager.h \
-    src/PaintBrushSettingsWidget.h \
+    src/tools/Tool.h \
+    src/tools/PaintBrushTool.h \
     src/tools/ColourPickerTool.h \
     src/tools/PaintBucketTool.h \
     src/tools/PointerTool.h \
     src/tools/TextTool.h \
     src/tools/MagicWandTool.h \
     src/tools/PaintBrushAdvTool.h \
-    src/PaintBrushAdvSettingsWidget.h \
     src/tools/SprayCanTool.h \
     src/tools/LineTool.h \
-    src/SprayCanSettingsWidget.h \
-    src/LineSettingsWidget.h \
+    src/tools/StampTool.h \
+    src/tools/BlurTool.h \
     src/ScanManager.h \
     src/ScanDevicesDialog.h \
     src/QProgressIndicator.h \
-    src/MagicWandSettingsWidget.h \
-    src/tools/StampTool.h \
-    src/StampSettingsWidget.h \
-    src/tools/BlurTool.h \
-    src/BlurSettingsWidget.h \
+    src/toolSettings/pointersettingswidget.h \
+    src/toolSettings/PaintBrushSettingsWidget.h \
+    src/toolSettings/PaintBrushAdvSettingsWidget.h \
+    src/toolSettings/SprayCanSettingsWidget.h \
+    src/toolSettings/LineSettingsWidget.h \
+    src/toolSettings/MagicWandSettingsWidget.h \
+    src/toolSettings/StampSettingsWidget.h \
+    src/toolSettings/BlurSettingsWidget.h \
     src/imagepropertiesdialog.h \
     src/batchdialog.h \
     src/imagepositionwidget.h \
@@ -126,7 +127,6 @@ HEADERS += src/mainwindow.h \
     src/compressiondialog.h \
     src/batchprogress.h \
     src/transparentdialog.h \
-    src/pointersettingswidget.h \
     src/filterworker.h
 
 FORMS += src/mainwindow.ui \
@@ -134,16 +134,9 @@ FORMS += src/mainwindow.ui \
     src/textdialog.ui \
     src/prefsdialog.ui \
     src/NewDialog.ui \
-    src/PaintBrushSettingsWidget.ui \
-    src/PaintBrushAdvSettingsWidget.ui \
     src/ColorBoxWidget.ui \
     src/BrushTypeComboBox.ui \
-    src/SprayCanSettingsWidget.ui \
-    src/LineSettingsWidget.ui \
     src/scandevicesdialog.ui \
-    src/MagicWandSettingsWidget.ui \
-    src/StampSettingsWidget.ui \
-    src/BlurSettingsWidget.ui \
     src/imagepropertiesdialog.ui \
     src/batchdialog.ui \
     src/imagepositionwidget.ui \
@@ -153,7 +146,14 @@ FORMS += src/mainwindow.ui \
     src/compressiondialog.ui \
     src/batchprogress.ui \
     src/transparentdialog.ui \
-    src/pointersettingswidget.ui
+    src/toolSettings/pointersettingswidget.ui \
+    src/toolSettings/PaintBrushSettingsWidget.ui \
+    src/toolSettings/PaintBrushAdvSettingsWidget.ui \
+    src/toolSettings/SprayCanSettingsWidget.ui \
+    src/toolSettings/LineSettingsWidget.ui \
+    src/toolSettings/MagicWandSettingsWidget.ui \
+    src/toolSettings/StampSettingsWidget.ui \
+    src/toolSettings/BlurSettingsWidget.ui 
 
 RESOURCES += \
     Icons.qrc
