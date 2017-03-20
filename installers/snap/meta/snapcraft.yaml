@@ -1,0 +1,24 @@
+apps: 
+  photofiltre-lx:
+    command: desktop-launch usr/bin/photofiltre-lx
+name: photofiltre-lx
+summary: PhotoFiltre LX
+confinement: devmode
+version: 1.0
+description: Simple but powerful Cross Platform image editor.
+parts:
+  photofiltrelx:
+    source: photofiltrelx
+    plugin: qmake
+    qt-version: qt5
+    build-packages:
+      - g++
+      - qtbase5-dev
+      - dpkg-dev
+    after: [desktop/qt5]
+    stage-packages:
+      - libc6
+      - libgraphicsmagick++-q16-12
+      - libqt5gui5
+      - libqt5core5a
+      - libqt5widgets5
