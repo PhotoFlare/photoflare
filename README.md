@@ -1,6 +1,6 @@
 # PhotoFiltre LX
 
-[![GitHub release](https://img.shields.io/badge/Release-1.2.0-green.svg)](https://github.com/PhotoFiltre-LX/photofiltrelx/releases)
+[![GitHub release](https://img.shields.io/badge/Release-1.0.4-green.svg)](https://github.com/PhotoFiltre-LX/photofiltrelx/releases)
 [![License: GPL v3+](https://img.shields.io/badge/License-GPL-yellowgreen.svg)](http://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://img.shields.io/badge/Build-unknown-orange.svg)](https://travis-ci.org/PhotoFiltre-LX/photofiltrelx)
 
