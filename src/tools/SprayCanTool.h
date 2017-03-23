@@ -25,6 +25,7 @@ public:
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
+    QCursor getCursor();
 
 public slots:
     void setPrimaryColor(const QColor &color);

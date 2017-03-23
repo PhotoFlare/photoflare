@@ -116,6 +116,7 @@ void SprayCanTool::fillPattern()
 void SprayCanTool::setRadius(int radius)
 {
     d->radius = radius;
+    emit cursorChanged(getCursor());
 }
 
 void SprayCanTool::setPressure(int pressure)
@@ -164,6 +165,22 @@ void SprayCanTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
     d->mouseButton = Qt::NoButton;
+}
+
+QCursor SprayCanTool::getCursor()
+{
+    QImage pattern(d->radius, d->radius, QImage::Format_ARGB32);
+    pattern.fill(Qt::transparent);
+    int w = pattern.width();
+    QPixmap pixmap(QSize(w/1.5,w/1.5));
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+    pen.setColor(Qt::gray);
+    painter.setPen(pen);
+    painter.drawEllipse(pixmap.rect());
+
+    return QCursor(pixmap);
 }
 
 

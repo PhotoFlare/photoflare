@@ -21,6 +21,8 @@ textDialog::textDialog(QWidget *parent) :
     ui->textColour->installEventFilter(this);
     antialiasEnabled = false;
     updateFont();
+
+    ui->plainTextEdit->setFocus();
 }
 
 textDialog::~textDialog()
