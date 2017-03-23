@@ -31,6 +31,8 @@ public:
     QString getUserLanguage() const;
     void setOpenFolder(const QString folderpath);
     QString getOpenFolder() const;
+    void setPreviouslyOpened(bool enabled);
+    bool getPreviouslyOpened() const;
     void setSaveFolder(const QString folderpath);
     QString getSaveFolder() const;
     void setSaveFormat(const QString format);

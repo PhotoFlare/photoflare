@@ -282,6 +282,12 @@ void MainWindow::on_actionOpen_triggered()
                                 "BMP(*.bmp);;"
                                 "ICO(*.ico)"));
     openFile(fileName);
+
+    if(SETTINGS->getPreviouslyOpened() == true)
+    {
+        QDir d = QFileInfo(fileName).absoluteDir();
+        SETTINGS->setOpenFolder(d.absolutePath());
+    }
 }
 
 void MainWindow::openFile(const QString& fileName)
@@ -2008,6 +2014,13 @@ void MainWindow::on_actionGradient_triggered()
 
 void MainWindow::setDefaultSettings()
 {
+    qDebug() << SETTINGS->getOpenFolder();
+
+    if(SETTINGS->getOpenFolder() == "" && SETTINGS->getPreviouslyOpened() == false)
+    {
+        SETTINGS->setPreviouslyOpened(true);
+    }
+
     if(SETTINGS->getCompressionDialogEnabled())
     {
         //we have a value so do nothing

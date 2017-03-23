@@ -44,6 +44,7 @@ public:
     QList<QVariant> recentFiles;
     QString userLanguage;
     QString openFolder;
+    bool prevOpened;
     QString saveFolder;
     QString saveFormat;
     QString saveFormatEnabled;
@@ -148,6 +149,17 @@ void Settings::setOpenFolder(const QString folderpath)
 QString Settings::getOpenFolder() const
 {
     return d->openFolder;
+}
+
+void Settings::setPreviouslyOpened(bool enabled)
+{
+    d->prevOpened = enabled;
+    d->setValue("prevOpened",enabled);
+}
+
+bool Settings::getPreviouslyOpened() const
+{
+    return d->prevOpened;
 }
 
 void Settings::setSaveFolder(const QString folderpath)

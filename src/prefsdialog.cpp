@@ -20,6 +20,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->openFolderLineEdit->setText(SETTINGS->getOpenFolder());
     ui->saveFolderLineEdit->setText(SETTINGS->getSaveFolder());
     ui->saveFormatEnabled->setChecked(SETTINGS->getSaveFormatEnabled());
+    ui->previousOpenedEnabled->setChecked(SETTINGS->getPreviouslyOpened());
 
     //Compression tab
     ui->compDialogEnabled->setChecked(SETTINGS->getCompressionDialogEnabled());
@@ -81,6 +82,7 @@ void prefsDialog::on_buttonBox_accepted()
     SETTINGS->setOpenFolder(ui->openFolderLineEdit->text());
     SETTINGS->setSaveFolder(ui->saveFolderLineEdit->text());
     SETTINGS->setSaveFormatEnabled(saveFormatEnabled);
+    SETTINGS->setPreviouslyOpened(ui->previousOpenedEnabled->isChecked());
 
     //Saving tab
     SETTINGS->setSaveFormat(QString::number(ui->comboBoxSaveFormat->currentIndex()));
