@@ -234,6 +234,8 @@ void MainWindow::on_image_filtered(QImage image)
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
         widget->setImage(image);
+
+    batchLbl->setText(tr("Ready"));
 }
 
 void MainWindow::applyThreadedFilter(QString filterName)
@@ -253,6 +255,8 @@ void MainWindow::applyThreadedFilter(QString filterName)
     connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(on_image_filtered(QImage)));
 
     thread->start();
+
+    batchLbl->setText(tr("Working..."));
 }
 
 /*
