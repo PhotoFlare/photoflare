@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -63,7 +63,7 @@
       <rect>
        <x>20</x>
        <y>40</y>
-       <width>231</width>
+       <width>321</width>
        <height>27</height>
       </rect>
      </property>
@@ -71,7 +71,7 @@
     <widget class="QPushButton" name="openFolderButton">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>350</x>
        <y>40</y>
        <width>41</width>
        <height>27</height>
@@ -85,8 +85,8 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
-       <width>231</width>
+       <y>120</y>
+       <width>321</width>
        <height>27</height>
       </rect>
      </property>
@@ -95,7 +95,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>80</y>
+       <y>100</y>
        <width>101</width>
        <height>17</height>
       </rect>
@@ -107,8 +107,8 @@
     <widget class="QPushButton" name="saveFolderButton">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>100</y>
+       <x>350</x>
+       <y>120</y>
        <width>41</width>
        <height>27</height>
       </rect>
@@ -314,6 +314,57 @@
     <attribute name="title">
      <string>&amp;History</string>
     </attribute>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>141</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Image History Size</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>391</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::TicksBelow</enum>
+     </property>
+     <property name="tickInterval">
+      <number>10</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="history_value">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>20</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>24</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_7">
     <attribute name="title">

@@ -688,28 +688,28 @@ void MainWindow::on_actionFlip_Horizontal_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->flipHorz(widget->image()));
+    applyThreadedFilter("flipHorz");
 }
 
 void MainWindow::on_actionFlip_Vertical_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->flipVert(widget->image()));
+    applyThreadedFilter("flipVert");
 }
 
 void MainWindow::on_actionRotate_CCW_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->rotateCCW(widget->image()));
+    applyThreadedFilter("rotateCCW");
 }
 
 void MainWindow::on_actionRotate_CW_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->rotateCW(widget->image()));
+    applyThreadedFilter("rotateCW");
 }
 
 void MainWindow::on_actionImage_Size_triggered()
@@ -781,9 +781,8 @@ void MainWindow::on_actionCanvas_Size_triggered()
 void MainWindow::on_actionAutomatic_Crop_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
-        widget->setImage(FilterManager::instance()->trim(widget->image()));
-    }
+    if (widget)
+    applyThreadedFilter("trim");
 }
 
 void MainWindow::on_actionOutside_frame_triggered()
@@ -941,21 +940,21 @@ void MainWindow::on_actionAuto_levels_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->autoLevels(widget->image()));
+    applyThreadedFilter("autoLevels");
 }
 
 void MainWindow::on_actionAuto_contrast_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->autoContrast(widget->image()));
+    applyThreadedFilter("autoContrast");
 }
 
 void MainWindow::on_actionNegative_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->negative(widget->image()));
+        applyThreadedFilter("negative");
 }
 
 /*
@@ -968,203 +967,203 @@ void MainWindow::on_actionSoften_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->soften(widget->image()));
+    applyThreadedFilter("soften");
 }
 
 void MainWindow::on_actionBlur_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->blur(widget->image()));
+    applyThreadedFilter("blur");
 }
 
 void MainWindow::on_actionSharpen_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->sharpen(widget->image()));
+    applyThreadedFilter("sharpen");
 }
 
 void MainWindow::on_actionReinforce_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->reinforce(widget->image()));
+    applyThreadedFilter("reinforce");
 }
 
 void MainWindow::on_actionDustReduction_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->dustreduction(widget->image()));
+    applyThreadedFilter("dustreduction");
 }
 
 void MainWindow::on_actionDespeckle_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->deSpeckle(widget->image()));
+    applyThreadedFilter("deSpeckle");
 }
 
 void MainWindow::on_actionGaussian_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->gaussianNoise(widget->image()));
+    applyThreadedFilter("gaussianNoise");
 }
 
 void MainWindow::on_actionImpulse_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->impulseNoise(widget->image()));
+    applyThreadedFilter("impulseNoise");
 }
 
 void MainWindow::on_actionLaplacian_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->laplacianNoise(widget->image()));
+    applyThreadedFilter("laplacianNoise");
 }
 
 void MainWindow::on_actionPoisson_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->poissonNoise(widget->image()));
+    applyThreadedFilter("poissonNoise");
 }
 
 void MainWindow::on_actionGrayScale_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->grayscale(widget->image()));
+    applyThreadedFilter("grayscale");
 }
 
 void MainWindow::on_actionOldPhoto_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->oldPhoto(widget->image()));
+    applyThreadedFilter("oldPhoto");
 }
 
 void MainWindow::on_actionSepia_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->sepia(widget->image()));
+    applyThreadedFilter("sepia");
 }
 
 void MainWindow::on_actionEqualize_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->equalizeColours(widget->image()));
+    applyThreadedFilter("equalizeColours");
 }
 
 void MainWindow::on_actionNormalize_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->normalize(widget->image()));
+    applyThreadedFilter("normalize");
 }
 
 void MainWindow::on_actionBlack_and_white_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->blackwhite(widget->image()));
+    applyThreadedFilter("blackwhite");
 }
 
 void MainWindow::on_actionOil_Paint_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->oilPaint(widget->image()));
+    applyThreadedFilter("oil");
 }
 
 void MainWindow::on_actionCharcoal_Drawing_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->charcoal(widget->image()));
+    applyThreadedFilter("charcoal");
 }
 
 void MainWindow::on_actionSolarize_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->solarize(widget->image()));
+    applyThreadedFilter("solarize");
 }
 
 void MainWindow::on_actionMotion_blur_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->motionBlur(widget->image()));
+    applyThreadedFilter("motionBlur");
 }
 
 void MainWindow::on_actionSwirl_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->swirl(widget->image()));
+   applyThreadedFilter("swirl");
 }
 
 void MainWindow::on_actionWave_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->wave(widget->image()));
+    applyThreadedFilter("wave");
 }
 
 void MainWindow::on_actionImplode_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->implode(widget->image()));
+    applyThreadedFilter("implode");
 }
 
 void MainWindow::on_actionExplode_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->explode(widget->image()));
+    applyThreadedFilter("explode");
 }
 
 void MainWindow::on_actionCrop_To_Center_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->cropToCenter(widget->image()));
+    applyThreadedFilter("cropToCenter");
 }
 
 void MainWindow::on_actionAdd_Simple_Frame_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->simpleFrame(widget->image()));
+    applyThreadedFilter("simpleFrame");
 }
 
 void MainWindow::on_action3D_frame_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->advFrame(widget->image()));
+    applyThreadedFilter("advFrame");
 }
 
 void MainWindow::on_actionEmboss_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->emboss(widget->image()));
+    applyThreadedFilter("emboss");
 }
 
 void MainWindow::on_actionMonoChromatic_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->monoChromeEdges(widget->image()));
+    applyThreadedFilter("monoChromeEdges");
 }
 
 /*
@@ -1915,49 +1914,57 @@ void MainWindow::onZoomChanged(const QString& scale)
 void MainWindow::on_actionBrightplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImage(FilterManager::instance()->setBrightness(widget->image(), 5, 0));
+    if (widget)
+    applyThreadedFilter("brightplus");
 }
 
 void MainWindow::on_actionBrightminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImage(FilterManager::instance()->setBrightness(widget->image(), -5, 0));
+    if (widget)
+    applyThreadedFilter("brightminus");
 }
 
 void MainWindow::on_actionContrastplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImage(FilterManager::instance()->setContrast(widget->image(), 5, 0));
+    if (widget)
+    applyThreadedFilter("contrastplus");
 }
 
 void MainWindow::on_actionContrastminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImage(FilterManager::instance()->setContrast(widget->image(), -5, 0));
+    if (widget)
+    applyThreadedFilter("contrastminus");
 }
 
 void MainWindow::on_actionSaturationplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImage(FilterManager::instance()->setSaturation(widget->image(), +15, 0));
+    if (widget)
+    applyThreadedFilter("saturationplus");
 }
 
 void MainWindow::on_actionSaturationminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImage(FilterManager::instance()->setSaturation(widget->image(), -15, 0));
+    if (widget)
+    applyThreadedFilter("saturationminus");
 }
 
 void MainWindow::on_actionGammaCorrectplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImage(FilterManager::instance()->setGamma(widget->image(), +0.1, 0));
+    if (widget)
+    applyThreadedFilter("gammacorrectplus");
 }
 
 void MainWindow::on_actionGammaCorrectminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImage(FilterManager::instance()->setGamma(widget->image(), -0.1, 0));
+    if (widget)
+    applyThreadedFilter("gammacorrectminus");
 }
 
 void MainWindow::on_actionGradient_triggered()

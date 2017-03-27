@@ -134,3 +134,9 @@ void prefsDialog::on_compressionSlider_sliderMoved(int position)
     QString val = QString::number(position);
     ui->compressionValue->setText(val);
 }
+
+void prefsDialog::on_horizontalSlider_sliderMoved(int position)
+{
+    QString val = QString::number(position);
+    ui->history_value->setText(val);
+}
