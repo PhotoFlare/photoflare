@@ -797,6 +797,13 @@ void MainWindow::on_actionOutside_frame_triggered()
     }
 }
 
+void MainWindow::on_actionOutside_drop_shadow_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    applyThreadedFilter("dropShadow");
+}
+
 void MainWindow::on_actionTransparent_colour_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -954,7 +961,14 @@ void MainWindow::on_actionNegative_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        applyThreadedFilter("negative");
+    applyThreadedFilter("negative");
+}
+
+void MainWindow::on_actionOpacity_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    applyThreadedFilter("setOpacity");
 }
 
 /*
@@ -2025,7 +2039,7 @@ void MainWindow::on_actionGradient_triggered()
 
 void MainWindow::setDefaultSettings()
 {
-    qDebug() << SETTINGS->getOpenFolder();
+    //qDebug() << SETTINGS->getOpenFolder();
 
     if(SETTINGS->getOpenFolder() == "" && SETTINGS->getPreviouslyOpened() == false)
     {
@@ -2130,7 +2144,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionNegative->setVisible(true);
         ui->actionOptimized_Clipping->setVisible(false);
         ui->actionOther->setVisible(false);
-        ui->actionOutside_drop_shadow->setVisible(false);
+        ui->actionOutside_drop_shadow->setVisible(true);
         ui->actionOptions->setVisible(false);
         ui->actionPaste_and_text_bounding_box->setVisible(false);
         ui->actionPaste_as_new_image->setVisible(false);
@@ -2202,7 +2216,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionNegative->setEnabled(true);
         ui->actionOptimized_Clipping->setEnabled(false);
         ui->actionOther->setEnabled(false);
-        ui->actionOutside_drop_shadow->setEnabled(false);
+        ui->actionOutside_drop_shadow->setEnabled(true);
         ui->actionOptions->setEnabled(false);
         ui->actionPaste_and_text_bounding_box->setEnabled(false);
         ui->actionPaste_as_new_image->setEnabled(false);

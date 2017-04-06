@@ -182,6 +182,10 @@ private slots:
     void on_actionBlack_and_white_triggered();
     bool fileExists(QString path);
 
+    void on_actionOutside_drop_shadow_triggered();
+
+    void on_actionOpacity_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
