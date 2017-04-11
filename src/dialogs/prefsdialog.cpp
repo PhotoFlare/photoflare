@@ -8,7 +8,7 @@
 
 #include "prefsdialog.h"
 #include "ui_prefsdialog.h"
-#include "Settings.h"
+#include "../Settings.h"
 
 prefsDialog::prefsDialog(QWidget *parent) :
     QDialog(parent),

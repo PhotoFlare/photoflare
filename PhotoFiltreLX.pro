@@ -38,11 +38,13 @@ macx {
 
 SOURCES += src/main.cpp \
     src/mainwindow.cpp \
-    src/aboutdialog.cpp \
-    src/textdialog.cpp \
-    src/prefsdialog.cpp \
+    src/dialogs/aboutdialog.cpp \
+    src/dialogs/NewDialog.cpp \
+    src/dialogs/textdialog.cpp \
+    src/dialogs/prefsdialog.cpp \
+    src/dialogs/batchdialog.cpp \
+    src/dialogs/gradientdialog.cpp \
     src/PaintWidget.cpp \
-    src/NewDialog.cpp \
     src/Settings.cpp \
     src/FilterManager.cpp \
     src/ToolManager.cpp \
@@ -70,12 +72,10 @@ SOURCES += src/main.cpp \
     src/ScanDevicesDialog.cpp \
     src/QProgressIndicator.cpp \
     src/imagepropertiesdialog.cpp \
-    src/batchdialog.cpp \
     src/imagepositionwidget.cpp \
     src/outerframedialog.cpp \
     src/BatchProcessWorker.cpp \
     src/huedialog.cpp \
-    src/gradientdialog.cpp \
     src/brushtypecombobox.cpp \
     src/colorboxwidget.cpp \
     src/compressiondialog.cpp \
@@ -84,11 +84,13 @@ SOURCES += src/main.cpp \
     src/filterworker.cpp
 
 HEADERS += src/mainwindow.h \
-    src/aboutdialog.h \
-    src/textdialog.h \
-    src/prefsdialog.h \
+    src/dialogs/aboutdialog.h \
+    src/dialogs/NewDialog.h \
+    src/dialogs/textdialog.h \
+    src/dialogs/prefsdialog.h \
+    src/dialogs/batchdialog.h \
+    src/dialogs/gradientdialog.h \
     src/PaintWidget.h \
-    src/NewDialog.h \
     src/Settings.h \
     src/FilterManager.h \
     src/ToolManager.h \
@@ -116,12 +118,10 @@ HEADERS += src/mainwindow.h \
     src/toolSettings/StampSettingsWidget.h \
     src/toolSettings/BlurSettingsWidget.h \
     src/imagepropertiesdialog.h \
-    src/batchdialog.h \
     src/imagepositionwidget.h \
     src/outerframedialog.h \
     src/BatchProcessWorker.h \
     src/huedialog.h \
-    src/gradientdialog.h \
     src/brushtypecombobox.h \
     src/colorboxwidget.h \
     src/compressiondialog.h \
@@ -130,19 +130,19 @@ HEADERS += src/mainwindow.h \
     src/filterworker.h
 
 FORMS += src/mainwindow.ui \
-    src/aboutdialog.ui \
-    src/textdialog.ui \
-    src/prefsdialog.ui \
-    src/NewDialog.ui \
+    src/dialogs/aboutdialog.ui \
+    src/dialogs/NewDialog.ui \
+    src/dialogs/textdialog.ui \
+    src/dialogs/prefsdialog.ui \
+    src/dialogs/batchdialog.ui \
+    src/dialogs/gradientdialog.ui \
     src/ColorBoxWidget.ui \
     src/BrushTypeComboBox.ui \
     src/scandevicesdialog.ui \
     src/imagepropertiesdialog.ui \
-    src/batchdialog.ui \
     src/imagepositionwidget.ui \
     src/outerframedialog.ui \
     src/huedialog.ui \
-    src/gradientdialog.ui \
     src/compressiondialog.ui \
     src/batchprogress.ui \
     src/transparentdialog.ui \
