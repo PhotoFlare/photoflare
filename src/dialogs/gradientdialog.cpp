@@ -32,6 +32,9 @@ GradientDialog::GradientDialog(QWidget *parent) :
 
     ui->startColorComboBox->setOnClickHandler(this);
     ui->stopColorComboBox->setOnClickHandler(this);
+
+    ui->opacityValue->setText("50%");
+    ui->opacityValue_2->setText("50%");
 }
 
 GradientDialog::~GradientDialog()
