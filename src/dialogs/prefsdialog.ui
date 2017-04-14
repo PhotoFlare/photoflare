@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -287,6 +287,29 @@
      </property>
      <property name="text">
       <string>Multi-Window Mode</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>211</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Default Toolpalette Location</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="toolPaletteLocation">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>191</width>
+       <height>25</height>
+      </rect>
      </property>
     </widget>
    </widget>

@@ -243,22 +243,29 @@
       <string>Antialias</string>
      </property>
     </widget>
-    <zorder>fontComboBox</zorder>
-    <zorder>label</zorder>
-    <zorder>label_2</zorder>
-    <zorder>fontSizeSpinner</zorder>
-    <zorder>label_3</zorder>
-    <zorder>plainTextEdit</zorder>
-    <zorder>label_4</zorder>
-    <zorder>frame</zorder>
-    <zorder>checkBoxBold</zorder>
-    <zorder>checkBoxItalic</zorder>
-    <zorder>checkBoxStrike</zorder>
-    <zorder>checkBoxUnderline</zorder>
-    <zorder>label_5</zorder>
-    <zorder>textColour</zorder>
-    <zorder>checkBoxAntialias</zorder>
-    <zorder>textPreview</zorder>
+    <widget class="QLabel" name="emptyWarning">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>320</y>
+       <width>201</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+       <underline>false</underline>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="text">
+      <string>Enter some text to continue</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QDialogButtonBox" name="buttonBoxtextDialog">

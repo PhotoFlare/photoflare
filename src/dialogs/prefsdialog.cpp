@@ -29,6 +29,10 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->compressionValue->setText(SETTINGS->getCompressionDefaultValue());
     ui->compressionSlider->setValue(SETTINGS->getCompressionDefaultValue().toInt());
 
+    //Layout tab
+    QStringList toolList(QStringList() << "Right" << "Left");
+    ui->toolPaletteLocation->addItems(toolList);
+
     //Saving tab
     QStringList filters;
     filters << tr("png (*.png)");
