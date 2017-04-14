@@ -18,6 +18,7 @@
 #include "./tools/Tool.h"
 
 #include "QProgressIndicator.h"
+#include "Settings.h"
 
 class PaintWidgetPrivate : public QGraphicsScene
 {
@@ -367,6 +368,7 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
 
 void PaintWidget::onContentChanged()
 {
+
     for(int i=historyList.size() - 1; i > historyIndex; i--)
     {
         historyList.removeAt(i);
@@ -374,6 +376,11 @@ void PaintWidget::onContentChanged()
 
     historyList.append(d->image);
     historyIndex++;
+
+    if(historyIndex > SETTINGS->getHistoryLimit().toInt())
+    {
+        historyList.removeAt(0);
+    }
 }
 
 void PaintWidget::revert()
