@@ -33,6 +33,8 @@ public:
     QString getOpenFolder() const;
     void setPreviouslyOpened(bool enabled);
     bool getPreviouslyOpened() const;
+    void setPreviouslyOpenedSave(bool enabled);
+    bool getPreviouslyOpenedSave() const;
     void setSaveFolder(const QString folderpath);
     QString getSaveFolder() const;
     void setSaveFormat(const QString format);

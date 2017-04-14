@@ -127,7 +127,20 @@
       </rect>
      </property>
      <property name="text">
-      <string>Always open previously used folder</string>
+      <string>Remember previous opened folder</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="previousOpenedSaveEnabled">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>271</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Remember previous save folder</string>
      </property>
     </widget>
    </widget>

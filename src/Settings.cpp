@@ -45,6 +45,7 @@ public:
     QString userLanguage;
     QString openFolder;
     bool prevOpened;
+    bool prevOpenedSave;
     QString saveFolder;
     QString saveFormat;
     QString saveFormatEnabled;
@@ -160,6 +161,17 @@ void Settings::setPreviouslyOpened(bool enabled)
 bool Settings::getPreviouslyOpened() const
 {
     return d->prevOpened;
+}
+
+void Settings::setPreviouslyOpenedSave(bool enabled)
+{
+    d->prevOpened = enabled;
+    d->setValue("prevOpenedSave",enabled);
+}
+
+bool Settings::getPreviouslyOpenedSave() const
+{
+    return d->prevOpenedSave;
 }
 
 void Settings::setSaveFolder(const QString folderpath)

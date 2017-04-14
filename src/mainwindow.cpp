@@ -386,6 +386,12 @@ void MainWindow::on_actionSave_As_triggered()
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
                                                     SETTINGS->getSaveFolder(), filters.join(";;"), &defaultFilter);
 
+    if(SETTINGS->getPreviouslyOpenedSave() == true)
+    {
+        QDir d = QFileInfo(fileName).absoluteDir();
+        SETTINGS->setSaveFolder(d.absolutePath());
+    }
+
 
     if (fileName.isEmpty())
         return;
@@ -2044,6 +2050,11 @@ void MainWindow::setDefaultSettings()
     if(SETTINGS->getOpenFolder() == "" && SETTINGS->getPreviouslyOpened() == false)
     {
         SETTINGS->setPreviouslyOpened(true);
+    }
+
+    else if(SETTINGS->getSaveFolder() == "" && SETTINGS->getPreviouslyOpenedSave() == false)
+    {
+        SETTINGS->setPreviouslyOpenedSave(true);
     }
 
     if(SETTINGS->getCompressionDialogEnabled())
