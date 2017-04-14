@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#include "batchdialog.h"
+#include "dialogs/batchdialog.h"
 #include "mainwindow.h"
 
 class BatchProcessWorker : public QObject

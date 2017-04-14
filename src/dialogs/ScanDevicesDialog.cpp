@@ -6,7 +6,7 @@
 
 #include "ScanDevicesDialog.h"
 #include "ui_scandevicesdialog.h"
-#include "Settings.h"
+#include "../Settings.h"
 
 ScanDevicesDialog::ScanDevicesDialog(QWidget *parent) :
     QDialog(parent),

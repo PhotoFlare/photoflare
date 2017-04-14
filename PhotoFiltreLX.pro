@@ -40,10 +40,16 @@ SOURCES += src/main.cpp \
     src/mainwindow.cpp \
     src/dialogs/aboutdialog.cpp \
     src/dialogs/NewDialog.cpp \
+    src/dialogs/ScanDevicesDialog.cpp \
     src/dialogs/textdialog.cpp \
     src/dialogs/prefsdialog.cpp \
     src/dialogs/batchdialog.cpp \
     src/dialogs/gradientdialog.cpp \
+    src/dialogs/transparentdialog.cpp \
+    src/dialogs/imagepropertiesdialog.cpp \
+    src/dialogs/huedialog.cpp \
+    src/dialogs/outerframedialog.cpp \
+    src/dialogs/compressiondialog.cpp \
     src/PaintWidget.cpp \
     src/Settings.cpp \
     src/FilterManager.cpp \
@@ -69,27 +75,27 @@ SOURCES += src/main.cpp \
     src/toolSettings/StampSettingsWidget.cpp \
     src/toolSettings/BlurSettingsWidget.cpp \
     src/ScanManager.cpp \
-    src/ScanDevicesDialog.cpp \
     src/QProgressIndicator.cpp \
-    src/imagepropertiesdialog.cpp \
     src/imagepositionwidget.cpp \
-    src/outerframedialog.cpp \
     src/BatchProcessWorker.cpp \
-    src/huedialog.cpp \
     src/brushtypecombobox.cpp \
     src/colorboxwidget.cpp \
-    src/compressiondialog.cpp \
     src/batchprogress.cpp \
-    src/transparentdialog.cpp \
     src/filterworker.cpp
 
 HEADERS += src/mainwindow.h \
     src/dialogs/aboutdialog.h \
     src/dialogs/NewDialog.h \
+    src/dialogs/ScanDevicesDialog.h \
     src/dialogs/textdialog.h \
     src/dialogs/prefsdialog.h \
     src/dialogs/batchdialog.h \
     src/dialogs/gradientdialog.h \
+    src/dialogs/transparentdialog.h \
+    src/dialogs/imagepropertiesdialog.h \
+    src/dialogs/huedialog.h \
+    src/dialogs/outerframedialog.h \
+    src/dialogs/compressiondialog.h \
     src/PaintWidget.h \
     src/Settings.h \
     src/FilterManager.h \
@@ -107,7 +113,6 @@ HEADERS += src/mainwindow.h \
     src/tools/StampTool.h \
     src/tools/BlurTool.h \
     src/ScanManager.h \
-    src/ScanDevicesDialog.h \
     src/QProgressIndicator.h \
     src/toolSettings/pointersettingswidget.h \
     src/toolSettings/PaintBrushSettingsWidget.h \
@@ -117,35 +122,30 @@ HEADERS += src/mainwindow.h \
     src/toolSettings/MagicWandSettingsWidget.h \
     src/toolSettings/StampSettingsWidget.h \
     src/toolSettings/BlurSettingsWidget.h \
-    src/imagepropertiesdialog.h \
     src/imagepositionwidget.h \
-    src/outerframedialog.h \
     src/BatchProcessWorker.h \
-    src/huedialog.h \
     src/brushtypecombobox.h \
     src/colorboxwidget.h \
-    src/compressiondialog.h \
     src/batchprogress.h \
-    src/transparentdialog.h \
     src/filterworker.h
 
 FORMS += src/mainwindow.ui \
     src/dialogs/aboutdialog.ui \
     src/dialogs/NewDialog.ui \
+    src/dialogs/scandevicesdialog.ui \
     src/dialogs/textdialog.ui \
     src/dialogs/prefsdialog.ui \
     src/dialogs/batchdialog.ui \
     src/dialogs/gradientdialog.ui \
+    src/dialogs/transparentdialog.ui \
+    src/dialogs/imagepropertiesdialog.ui \
+    src/dialogs/huedialog.ui \
+    src/dialogs/outerframedialog.ui \
+    src/dialogs/compressiondialog.ui \
     src/ColorBoxWidget.ui \
     src/BrushTypeComboBox.ui \
-    src/scandevicesdialog.ui \
-    src/imagepropertiesdialog.ui \
     src/imagepositionwidget.ui \
-    src/outerframedialog.ui \
-    src/huedialog.ui \
-    src/compressiondialog.ui \
     src/batchprogress.ui \
-    src/transparentdialog.ui \
     src/toolSettings/pointersettingswidget.ui \
     src/toolSettings/PaintBrushSettingsWidget.ui \
     src/toolSettings/PaintBrushAdvSettingsWidget.ui \

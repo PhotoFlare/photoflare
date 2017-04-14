@@ -14,7 +14,7 @@
 #include <QLabel>
 
 #include "ScanManager.h"
-#include "batchdialog.h"
+#include "dialogs/batchdialog.h"
 
 namespace Ui {
 class MainWindow;
