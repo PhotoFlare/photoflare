@@ -23,6 +23,7 @@ textDialog::textDialog(QWidget *parent) :
     updateFont();
 
     ui->plainTextEdit->setFocus();
+    ui->emptyWarning->hide();
 }
 
 textDialog::~textDialog()
@@ -140,7 +141,14 @@ void textDialog::on_checkBoxAntialias_toggled(bool checked)
 void textDialog::on_buttonBoxtextDialog_accepted()
 {
     currentText = ui->plainTextEdit->toPlainText();
-    accept();
+    if(currentText.length() > 0)
+    {
+        accept();
+    }
+    else
+    {
+        ui->emptyWarning->show();
+    }
 }
 
 void textDialog::on_buttonBoxtextDialog_rejected()
