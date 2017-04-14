@@ -47,6 +47,8 @@ public:
     bool getCompressionDefaultEnabled() const;
     void setCompressionDefaultValue(const QString enabled);
     QString getCompressionDefaultValue() const;
+    void setHistoryLimit(const QString val);
+    QString getHistoryLimit() const;
 
 private:
     explicit Settings(QObject *parent = 0);

@@ -30,7 +30,7 @@ private slots:
 
     void on_compressionSlider_sliderMoved(int position);
 
-    void on_horizontalSlider_sliderMoved(int position);
+    void on_historySlider_sliderMoved(int position);
 
 private:
     Ui::prefsDialog *ui;

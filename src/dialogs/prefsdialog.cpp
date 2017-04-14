@@ -40,8 +40,11 @@ prefsDialog::prefsDialog(QWidget *parent) :
     filters << tr("ico (*.ico)");
 
     ui->comboBoxSaveFormat->addItems(filters);
-
     ui->comboBoxSaveFormat->setCurrentIndex(SETTINGS->getSaveFormat().toInt());
+
+    //History tab
+    ui->history_value->setText(SETTINGS->getHistoryLimit());
+    ui->historySlider->setValue(SETTINGS->getHistoryLimit().toInt());
 
     //Startup tab
     //QStringList list(QStringList() << "English" << "French" << "German" );
@@ -88,6 +91,9 @@ void prefsDialog::on_buttonBox_accepted()
 
     //Saving tab
     SETTINGS->setSaveFormat(QString::number(ui->comboBoxSaveFormat->currentIndex()));
+
+    //History tab
+    SETTINGS->setHistoryLimit(ui->history_value->text());
 
     //Compression tab
     SETTINGS->setCompressionDialogEnabled(compDialogEnabled);
@@ -137,7 +143,7 @@ void prefsDialog::on_compressionSlider_sliderMoved(int position)
     ui->compressionValue->setText(val);
 }
 
-void prefsDialog::on_horizontalSlider_sliderMoved(int position)
+void prefsDialog::on_historySlider_sliderMoved(int position)
 {
     QString val = QString::number(position);
     ui->history_value->setText(val);

@@ -25,6 +25,7 @@ public:
         saveFormatEnabled = settings.value("SaveFormatEnabled").toString();
         compressionDialogEnabled = settings.value("compressionDialogEnabled").toString();
         compressionDefaultValue = settings.value("compressionDefaultValue").toString();
+        historyLimit = settings.value("historyLimit").toString();
     }
 
     ~SettingsPrivate()
@@ -52,6 +53,7 @@ public:
     QString compressionDialogEnabled;
     QString compressionDefaultEnabled;
     QString compressionDefaultValue;
+    QString historyLimit;
     QSettings settings;
 };
 
@@ -257,4 +259,15 @@ void Settings::setCompressionDefaultValue(const QString val)
 QString Settings::getCompressionDefaultValue() const
 {
     return d->compressionDefaultValue;
+}
+
+void Settings::setHistoryLimit(const QString val)
+{
+    d->historyLimit = val;
+    d->setValue("historyLimit",val);
+}
+
+QString Settings::getHistoryLimit() const
+{
+    return d->historyLimit;
 }
