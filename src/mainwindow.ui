@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -440,7 +440,7 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>150</width>
+     <width>100</width>
      <height>400</height>
     </size>
    </property>
@@ -980,10 +980,16 @@ QToolButton:checked {
    <addaction name="actionRotate_CW"/>
   </widget>
   <widget class="QDockWidget" name="dockWidgetSettings">
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>400</height>
+    </size>
+   </property>
    <property name="maximumSize">
     <size>
-     <width>140</width>
-     <height>300</height>
+     <width>150</width>
+     <height>400</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -1948,7 +1954,7 @@ QToolButton:checked {
     <string>Black and white</string>
    </property>
   </action>
-<action name="actionOpacity">
+  <action name="actionOpacity">
    <property name="text">
     <string>Opacity</string>
    </property>

@@ -49,6 +49,8 @@ public:
     QString getCompressionDefaultValue() const;
     void setHistoryLimit(const QString val);
     QString getHistoryLimit() const;
+    void setDockLayout(const QString val);
+    QString getDockLayout() const;
 
 private:
     explicit Settings(QObject *parent = 0);

@@ -97,6 +97,12 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->mdiArea->setViewMode(QMdiArea::TabbedView);
     }
 
+    if(SETTINGS->getDockLayout() == "Left")
+    {
+        addDockWidget(Qt::LeftDockWidgetArea, ui->dockWidget_palette);
+        addDockWidget(Qt::LeftDockWidgetArea, ui->dockWidgetSettings);
+    }
+
     // Center colorBox in tool palette.
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 

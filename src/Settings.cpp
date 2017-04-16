@@ -26,6 +26,7 @@ public:
         compressionDialogEnabled = settings.value("compressionDialogEnabled").toString();
         compressionDefaultValue = settings.value("compressionDefaultValue").toString();
         historyLimit = settings.value("historyLimit").toString();
+        dockLayout = settings.value("dockLayout").toString();
     }
 
     ~SettingsPrivate()
@@ -54,6 +55,7 @@ public:
     QString compressionDefaultEnabled;
     QString compressionDefaultValue;
     QString historyLimit;
+    QString dockLayout;
     QSettings settings;
 };
 
@@ -270,4 +272,15 @@ void Settings::setHistoryLimit(const QString val)
 QString Settings::getHistoryLimit() const
 {
     return d->historyLimit;
+}
+
+void Settings::setDockLayout(const QString val)
+{
+    d->dockLayout = val;
+    d->setValue("dockLayout",val);
+}
+
+QString Settings::getDockLayout() const
+{
+    return d->dockLayout;
 }

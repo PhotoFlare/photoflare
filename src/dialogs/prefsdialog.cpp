@@ -33,6 +33,11 @@ prefsDialog::prefsDialog(QWidget *parent) :
     QStringList toolList(QStringList() << "Right" << "Left");
     ui->toolPaletteLocation->addItems(toolList);
 
+    if(SETTINGS->getDockLayout() == "Left")
+    {
+        ui->toolPaletteLocation->setCurrentIndex(1);
+    }
+
     //Saving tab
     QStringList filters;
     filters << tr("png (*.png)");
@@ -92,6 +97,16 @@ void prefsDialog::on_buttonBox_accepted()
     SETTINGS->setSaveFormatEnabled(saveFormatEnabled);
     SETTINGS->setPreviouslyOpened(ui->previousOpenedEnabled->isChecked());
     SETTINGS->setPreviouslyOpenedSave(ui->previousOpenedSaveEnabled->isChecked());
+
+    //Layout tab
+    if(ui->toolPaletteLocation->currentIndex() == 0)
+    {
+        SETTINGS->setDockLayout("Right");
+    }
+    else
+    {
+        SETTINGS->setDockLayout("Left");
+    }
 
     //Saving tab
     SETTINGS->setSaveFormat(QString::number(ui->comboBoxSaveFormat->currentIndex()));
