@@ -1,8 +1,8 @@
 # PhotoFiltre LX
 
-[![GitHub release](https://img.shields.io/badge/Release-1.0.5-green.svg)](https://github.com/PhotoFiltre-LX/photofiltrelx/releases)
+[![GitHub release](https://img.shields.io/badge/Release-1.0.6-green.svg)](https://github.com/PhotoFiltre-LX/photofiltrelx/releases)
 [![License: GPL v3+](https://img.shields.io/badge/License-GPL-yellowgreen.svg)](http://www.gnu.org/licenses/gpl-3.0)
-[![Build Status](https://img.shields.io/badge/Build-unknown-orange.svg)](https://travis-ci.org/PhotoFiltre-LX/photofiltrelx)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://travis-ci.org/PhotoFiltre-LX/photofiltrelx)
 
 Simple but powerful Cross Platform image editor originally inspired by the PhotoFiltre image editor on Windows. Created with C++ 11, Qt Framework and the Graphicsmagick library.
 
