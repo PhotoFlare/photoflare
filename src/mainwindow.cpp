@@ -32,6 +32,7 @@
 #include "./tools/MagicWandTool.h"
 #include "./tools/StampTool.h"
 #include "./tools/BlurTool.h"
+#include "./tools/EraserTool.h"
 
 #include "./toolSettings/pointersettingswidget.h"
 #include "./toolSettings/PaintBrushSettingsWidget.h"
@@ -76,6 +77,7 @@
 #define MAGIC_WAND ToolManager::instance()->magicWandTool()
 #define STAMP_TOOL ToolManager::instance()->stampTool()
 #define BLUR_TOOL ToolManager::instance()->blurTool()
+#define ERASER_TOOL ToolManager::instance()->eraserTool()
 
 namespace
 {
@@ -1437,6 +1439,10 @@ void MainWindow::refreshTools()
     {
         on_toolButtonBlur_clicked();
     }
+    else if(m_toolSelected == "eraser")
+    {
+        on_toolButtonEraser_clicked();
+    }
 }
 
 void MainWindow::on_toolButtonPointer_clicked()
@@ -1633,6 +1639,18 @@ void MainWindow::on_toolButtonBlur_clicked()
     if (widget)
         widget->setPaintTool(BLUR_TOOL);
 
+}
+
+void MainWindow::on_toolButtonEraser_clicked()
+{
+    clearToolpalette();
+    m_toolSelected = "eraser";
+    ui->toolButtonEraser->setChecked(true);
+    //enable settings panel
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->setPaintTool(ERASER_TOOL);
 }
 
 /*
@@ -2265,5 +2283,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionValidate->setEnabled(false);
     }
 }
+
+
 
 

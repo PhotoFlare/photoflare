@@ -81,7 +81,8 @@ SOURCES += src/main.cpp \
     src/brushtypecombobox.cpp \
     src/colorboxwidget.cpp \
     src/batchprogress.cpp \
-    src/filterworker.cpp
+    src/filterworker.cpp \
+    src/tools/EraserTool.cpp
 
 HEADERS += src/mainwindow.h \
     src/dialogs/aboutdialog.h \
@@ -127,7 +128,8 @@ HEADERS += src/mainwindow.h \
     src/brushtypecombobox.h \
     src/colorboxwidget.h \
     src/batchprogress.h \
-    src/filterworker.h
+    src/filterworker.h \
+    src/tools/EraserTool.h
 
 FORMS += src/mainwindow.ui \
     src/dialogs/aboutdialog.ui \

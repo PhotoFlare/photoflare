@@ -65,6 +65,7 @@ private slots:
     void on_toolButtonPaintBrushAdv_clicked();
     void on_toolButtonStamp_clicked();
     void on_toolButtonBlur_clicked();
+    void on_toolButtonEraser_clicked();
     void clearToolpalette();
     void on_actionQuit_triggered();
     void on_actionOil_Paint_triggered();
@@ -185,6 +186,7 @@ private slots:
     void on_actionOutside_drop_shadow_triggered();
 
     void on_actionOpacity_triggered();
+
 
 protected:
     void closeEvent(QCloseEvent *event);

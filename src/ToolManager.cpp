@@ -16,6 +16,7 @@
 #include "./tools/MagicWandTool.h"
 #include "./tools/StampTool.h"
 #include "./tools/BlurTool.h"
+#include "./tools/EraserTool.h"
 
 ToolManager * ToolManager::m_instance = 0;
 
@@ -35,6 +36,7 @@ public:
         magicWandTool = new MagicWandTool;
         stampTool = new StampTool;
         blurTool = new BlurTool;
+        eraserTool = new EraserTool;
     }
 
     ~ToolManagerPrivate()
@@ -49,7 +51,7 @@ public:
         delete lineTool;
         delete magicWandTool;
         delete stampTool;
-
+        delete eraserTool;
     }
 
     ColourPickerTool *colourPicker;
@@ -63,6 +65,7 @@ public:
     MagicWandTool *magicWandTool;
     StampTool *stampTool;
     BlurTool *blurTool;
+    EraserTool *eraserTool;
 };
 
 ToolManager::ToolManager(QObject *parent)
@@ -131,6 +134,11 @@ StampTool *ToolManager::stampTool() const
 BlurTool *ToolManager::blurTool() const
 {
     return d->blurTool;
+}
+
+EraserTool *ToolManager::eraserTool() const
+{
+    return d->eraserTool;
 }
 
 ToolManager *ToolManager::instance()
