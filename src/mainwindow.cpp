@@ -162,7 +162,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
     connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
 
-
+    m_eraserSettingsWidget = new EraserSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_eraserSettingsWidget);
+    //connect(m_eraserSettingsWidget, &EraserSettingsWidget::settingsChanged, this, &MainWindow::onEraserSettingsChanged);
 
     // Disable undo/redo buttons on startup
     ui->actionUndo->setEnabled(false);
@@ -1398,6 +1400,7 @@ void MainWindow::clearToolpalette()
     m_magicWandSettingsWidget->setVisible(false);
     m_stampSettingsWidget->setVisible(false);
     m_blurSettingsWidget->setVisible(false);
+    m_eraserSettingsWidget->setVisible(false);
 }
 
 //Make sure the selected tool is re-enabled when we create/open an image
@@ -1650,7 +1653,8 @@ void MainWindow::on_toolButtonEraser_clicked()
     clearToolpalette();
     m_toolSelected = "eraser";
     ui->toolButtonEraser->setChecked(true);
-    //enable settings panel
+    m_eraserSettingsWidget->setVisible(true);
+    //onEraserSettingsChanged();
 
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)

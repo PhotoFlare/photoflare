@@ -24,7 +24,7 @@
           <string>...</string>
          </property>
          <property name="icon">
-          <iconset resource="../Icons.qrc">
+          <iconset resource="../../Icons.qrc">
            <normaloff>:/brushes/brushes/circle.png</normaloff>:/brushes/brushes/circle.png</iconset>
          </property>
          <property name="iconSize">
@@ -60,7 +60,7 @@
           <string>...</string>
          </property>
          <property name="icon">
-          <iconset resource="../Icons.qrc">
+          <iconset resource="../../Icons.qrc">
            <normaloff>:/brushes/brushes/square.png</normaloff>:/brushes/brushes/square.png</iconset>
          </property>
          <property name="iconSize">
@@ -135,7 +135,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../Icons.qrc"/>
+  <include location="../../Icons.qrc"/>
  </resources>
  <connections/>
 </ui>

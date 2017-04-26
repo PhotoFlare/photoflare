@@ -29,6 +29,7 @@ class LineSettingsWidget;
 class MagicWandSettingsWidget;
 class StampSettingsWidget;
 class BlurSettingsWidget;
+class EraserSettingsWidget;
 class QComboBox;
 class PaintWidget;
 class TransparentDialog;
@@ -221,6 +222,7 @@ private:
     MagicWandSettingsWidget *m_magicWandSettingsWidget;
     StampSettingsWidget *m_stampSettingsWidget;
     BlurSettingsWidget *m_blurSettingsWidget;
+    EraserSettingsWidget *m_eraserSettingsWidget;
     QComboBox *zoomCombo;
     ScanManager *m_scanManager;
     QImage origImage;
