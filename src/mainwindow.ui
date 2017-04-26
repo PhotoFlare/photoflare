@@ -934,6 +934,13 @@ QToolButton:checked {
          <property name="text">
           <string>...</string>
          </property>
+         <property name="icon">
+          <iconset resource="../Icons.qrc">
+           <normaloff>:/icons/icons/eraser.png</normaloff>:/icons/icons/eraser.png</iconset>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
       </layout>

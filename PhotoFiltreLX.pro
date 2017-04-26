@@ -82,7 +82,8 @@ SOURCES += src/main.cpp \
     src/colorboxwidget.cpp \
     src/batchprogress.cpp \
     src/filterworker.cpp \
-    src/tools/EraserTool.cpp
+    src/tools/EraserTool.cpp \
+    src/toolSettings/erasersettingswidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/dialogs/aboutdialog.h \
@@ -129,7 +130,8 @@ HEADERS += src/mainwindow.h \
     src/colorboxwidget.h \
     src/batchprogress.h \
     src/filterworker.h \
-    src/tools/EraserTool.h
+    src/tools/EraserTool.h \
+    src/toolSettings/erasersettingswidget.h
 
 FORMS += src/mainwindow.ui \
     src/dialogs/aboutdialog.ui \
@@ -155,7 +157,8 @@ FORMS += src/mainwindow.ui \
     src/toolSettings/LineSettingsWidget.ui \
     src/toolSettings/MagicWandSettingsWidget.ui \
     src/toolSettings/StampSettingsWidget.ui \
-    src/toolSettings/BlurSettingsWidget.ui 
+    src/toolSettings/BlurSettingsWidget.ui \ 
+    src/toolSettings/erasersettingswidget.ui
 
 RESOURCES += \
     Icons.qrc

@@ -60,6 +60,7 @@
         <file>icons/old_photo.png</file>
         <file>icons/sepia.png</file>
         <file>icons/sel_square_mode.png</file>
+        <file>icons/eraser.png</file>
     </qresource>
     <qresource prefix="/brushes">
         <file>brushes/circle.png</file>

@@ -42,6 +42,7 @@
 #include "./toolSettings/MagicWandSettingsWidget.h"
 #include "./toolSettings/StampSettingsWidget.h"
 #include "./toolSettings/BlurSettingsWidget.h"
+#include "./toolSettings/erasersettingswidget.h"
 
 #include "ToolManager.h"
 #include "Settings.h"
@@ -160,6 +161,8 @@ MainWindow::MainWindow(QWidget *parent) :
     m_blurSettingsWidget = new BlurSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
     connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
+
+
 
     // Disable undo/redo buttons on startup
     ui->actionUndo->setEnabled(false);
@@ -1385,6 +1388,7 @@ void MainWindow::clearToolpalette()
     ui->toolButtonPaintBrushAdv->setChecked(false);
     ui->toolButtonStamp->setChecked(false);
     ui->toolButtonBlur->setChecked(false);
+    ui->toolButtonEraser->setChecked(false);
 
     m_ptSettingsWidget->setVisible(false);
     m_pbSettingsWidget->setVisible(false);
