@@ -15,6 +15,8 @@ public:
     explicit EraserSettingsWidget(QWidget *parent = 0);
     ~EraserSettingsWidget();
 
+    int brushWidth() const;
+
 private:
     Ui::EraserSettingsWidget *ui;
 };

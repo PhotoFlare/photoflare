@@ -12,3 +12,8 @@ EraserSettingsWidget::~EraserSettingsWidget()
 {
     delete ui;
 }
+
+int EraserSettingsWidget::brushWidth() const
+{
+    return ui->horizontalSlider->value();
+}
