@@ -6,8 +6,7 @@ class EraserToolPrivate
 public:
     EraserToolPrivate()
     {
-       // primaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
-       // secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
+
     }
     ~EraserToolPrivate()
     {
@@ -16,8 +15,6 @@ public:
 
     QPoint lastPos;
     QPen primaryPen;
-    //QPen secondaryPen;
-    //bool antialiasing;
     Qt::MouseButton mouseButton;
 };
 
@@ -33,6 +30,31 @@ EraserTool::~EraserTool()
     delete d;
 }
 
+QCursor EraserTool::getCursor()
+{
+    int width = d->primaryPen.width()*m_scale;
+    if(width < 5)
+        width = 5;
+    QPixmap pixmap(QSize(width,width));
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    if(d->primaryPen.capStyle() == Qt::SquareCap)
+    {
+        QPen pen = QPen(QBrush(), 1.5, Qt::DashLine);
+        pen.setColor(Qt::gray);
+        painter.setPen(pen);
+        painter.drawRect(pixmap.rect());
+    }
+    else
+    {
+        QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+        pen.setColor(Qt::gray);
+        painter.setPen(pen);
+        painter.drawEllipse(pixmap.rect());
+    }
+    return QCursor(pixmap);
+}
+
 int EraserTool::width() const
 {
     return d->primaryPen.width();
@@ -42,7 +64,7 @@ void EraserTool::setWidth(int width)
 {
     d->primaryPen.setWidth(width);
 
-    //emit cursorChanged(getCursor());
+    emit cursorChanged(getCursor());
 }
 
 void EraserTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
