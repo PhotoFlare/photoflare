@@ -1,3 +1,9 @@
+/*
+
+  EraserTool - Erase pixels while dragging the mouse.
+
+*/
+
 #include "EraserTool.h"
 #include "../PaintWidget.h"
 

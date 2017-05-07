@@ -83,7 +83,8 @@ SOURCES += src/main.cpp \
     src/batchprogress.cpp \
     src/filterworker.cpp \
     src/tools/EraserTool.cpp \
-    src/toolSettings/erasersettingswidget.cpp
+    src/toolSettings/erasersettingswidget.cpp \
+    src/tools/SmudgeTool.cpp
 
 HEADERS += src/mainwindow.h \
     src/dialogs/aboutdialog.h \
@@ -131,7 +132,8 @@ HEADERS += src/mainwindow.h \
     src/batchprogress.h \
     src/filterworker.h \
     src/tools/EraserTool.h \
-    src/toolSettings/erasersettingswidget.h
+    src/toolSettings/erasersettingswidget.h \
+    src/tools/SmudgeTool.h
 
 FORMS += src/mainwindow.ui \
     src/dialogs/aboutdialog.ui \
