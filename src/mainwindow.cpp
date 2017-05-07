@@ -164,7 +164,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     m_eraserSettingsWidget = new EraserSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_eraserSettingsWidget);
-    //connect(m_eraserSettingsWidget, &EraserSettingsWidget::settingsChanged, this, &MainWindow::onEraserSettingsChanged);
+    connect(m_eraserSettingsWidget, &EraserSettingsWidget::settingsChanged, this, &MainWindow::onEraserSettingsChanged);
 
     // Disable undo/redo buttons on startup
     ui->actionUndo->setEnabled(false);
@@ -1654,7 +1654,7 @@ void MainWindow::on_toolButtonEraser_clicked()
     m_toolSelected = "eraser";
     ui->toolButtonEraser->setChecked(true);
     m_eraserSettingsWidget->setVisible(true);
-    //onEraserSettingsChanged();
+    onEraserSettingsChanged();
 
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
@@ -1726,6 +1726,11 @@ void MainWindow::onBlurSettingsChanged()
 {
     BLUR_TOOL->setRadius(m_blurSettingsWidget->radius());
     BLUR_TOOL->setPressure(m_blurSettingsWidget->pressure());
+}
+
+void MainWindow::onEraserSettingsChanged()
+{
+    ERASER_TOOL->setWidth(m_eraserSettingsWidget->radius());
 }
 
 /*

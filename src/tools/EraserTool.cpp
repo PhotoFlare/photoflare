@@ -33,6 +33,18 @@ EraserTool::~EraserTool()
     delete d;
 }
 
+int EraserTool::width() const
+{
+    return d->primaryPen.width();
+}
+
+void EraserTool::setWidth(int width)
+{
+    d->primaryPen.setWidth(width);
+
+    //emit cursorChanged(getCursor());
+}
+
 void EraserTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     Q_UNUSED(button);
@@ -57,7 +69,7 @@ void EraserTool::onMouseMove(const QPoint &pos)
 
         QPen pen;
         pen.setColor(Qt::white);
-        pen.setWidth(15);
+        pen.setWidth(d->primaryPen.width());
 
         int w = pen.width();
         if(pen.capStyle() == Qt::SquareCap && w > 1)

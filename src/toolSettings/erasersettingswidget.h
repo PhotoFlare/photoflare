@@ -15,7 +15,13 @@ public:
     explicit EraserSettingsWidget(QWidget *parent = 0);
     ~EraserSettingsWidget();
 
-    int brushWidth() const;
+    int radius() const;
+
+signals:
+    void settingsChanged();
+
+private slots:
+    void on_radiusSlider_valueChanged(int value);
 
 private:
     Ui::EraserSettingsWidget *ui;

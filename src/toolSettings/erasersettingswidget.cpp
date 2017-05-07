@@ -6,6 +6,8 @@ EraserSettingsWidget::EraserSettingsWidget(QWidget *parent) :
     ui(new Ui::EraserSettingsWidget)
 {
     ui->setupUi(this);
+
+    connect(ui->radiusSlider, &QSlider::valueChanged, this, &EraserSettingsWidget::settingsChanged);
 }
 
 EraserSettingsWidget::~EraserSettingsWidget()
@@ -13,7 +15,12 @@ EraserSettingsWidget::~EraserSettingsWidget()
     delete ui;
 }
 
-int EraserSettingsWidget::brushWidth() const
+int EraserSettingsWidget::radius() const
 {
-    return ui->horizontalSlider->value();
+    return ui->radiusSlider->value();
+}
+
+void EraserSettingsWidget::on_radiusSlider_valueChanged(int value)
+{
+    ui->radiusValueLabel->setText(QString::number(value));
 }

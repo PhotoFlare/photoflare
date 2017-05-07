@@ -23,37 +23,14 @@
     </rect>
    </property>
    <property name="text">
-    <string>Radius</string>
+    <string>Radius:</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox">
+  <widget class="QSlider" name="radiusSlider">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>60</y>
-     <width>101</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>100</y>
-     <width>67</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Pressure</string>
-   </property>
-  </widget>
-  <widget class="QSlider" name="horizontalSlider">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>120</y>
      <width>121</width>
      <height>21</height>
     </rect>
@@ -81,6 +58,19 @@
    </property>
    <property name="tickInterval">
     <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="radiusValueLabel">
+   <property name="geometry">
+    <rect>
+     <x>66</x>
+     <y>40</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
    </property>
   </widget>
  </widget>

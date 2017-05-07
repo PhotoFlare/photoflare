@@ -87,6 +87,7 @@ private slots:
     void onMagicWandSettingsChanged();
     void onStampSettingsChanged();
     void onBlurSettingsChanged();
+    void onEraserSettingsChanged();
     void onPickPrimaryColor(const QPoint&);
     void onPickSecondaryColor(const QPoint&);
     void onFloodFillPrimaryColor(const QPoint&);
