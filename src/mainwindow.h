@@ -30,6 +30,8 @@ class MagicWandSettingsWidget;
 class StampSettingsWidget;
 class BlurSettingsWidget;
 class EraserSettingsWidget;
+class SmudgeSettingsWidget;
+
 class QComboBox;
 class PaintWidget;
 class TransparentDialog;
@@ -56,6 +58,7 @@ private slots:
     void on_actionSave_As_triggered();
     void on_actionText_triggered();
     void on_actionPreferences_triggered();
+
     void on_toolButtonPointer_clicked();
     void on_toolButtonDropper_clicked();
     void on_toolButtonWand_clicked();
@@ -67,6 +70,8 @@ private slots:
     void on_toolButtonStamp_clicked();
     void on_toolButtonBlur_clicked();
     void on_toolButtonEraser_clicked();
+    void on_toolButtonSmudge_clicked();
+
     void clearToolpalette();
     void on_actionQuit_triggered();
     void on_actionOil_Paint_triggered();
@@ -79,6 +84,7 @@ private slots:
     void setDefaultSettings();
     void updateRecents();
     void showError(const QString &message);
+
     void onPointerToolSettingsChanged();
     void onPaintBrushSettingsChanged();
     void onPaintBrushAdvSettingsChanged();
@@ -88,6 +94,8 @@ private slots:
     void onStampSettingsChanged();
     void onBlurSettingsChanged();
     void onEraserSettingsChanged();
+    void onSmudgeSettingsChanged();
+
     void onPickPrimaryColor(const QPoint&);
     void onPickSecondaryColor(const QPoint&);
     void onFloodFillPrimaryColor(const QPoint&);
@@ -224,6 +232,7 @@ private:
     StampSettingsWidget *m_stampSettingsWidget;
     BlurSettingsWidget *m_blurSettingsWidget;
     EraserSettingsWidget *m_eraserSettingsWidget;
+    SmudgeSettingsWidget *m_smudgeSettingsWidget;
     QComboBox *zoomCombo;
     ScanManager *m_scanManager;
     QImage origImage;

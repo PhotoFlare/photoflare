@@ -23,6 +23,7 @@ class LineTool;
 class StampTool;
 class BlurTool;
 class EraserTool;
+class SmudgeTool;
 
 class ToolManager : public QObject
 {
@@ -43,6 +44,7 @@ public:
     StampTool* stampTool() const;
     BlurTool* blurTool() const;
     EraserTool* eraserTool() const;
+    SmudgeTool* smudgeTool() const;
 
 private:
     explicit ToolManager(QObject *parent = 0);

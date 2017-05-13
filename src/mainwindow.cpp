@@ -33,6 +33,7 @@
 #include "./tools/StampTool.h"
 #include "./tools/BlurTool.h"
 #include "./tools/EraserTool.h"
+#include "./tools/SmudgeTool.h"
 
 #include "./toolSettings/pointersettingswidget.h"
 #include "./toolSettings/PaintBrushSettingsWidget.h"
@@ -43,6 +44,7 @@
 #include "./toolSettings/StampSettingsWidget.h"
 #include "./toolSettings/BlurSettingsWidget.h"
 #include "./toolSettings/erasersettingswidget.h"
+#include "./toolSettings/SmudgeSettingsWidget.h"
 
 #include "ToolManager.h"
 #include "Settings.h"
@@ -79,6 +81,7 @@
 #define STAMP_TOOL ToolManager::instance()->stampTool()
 #define BLUR_TOOL ToolManager::instance()->blurTool()
 #define ERASER_TOOL ToolManager::instance()->eraserTool()
+#define SMUDGE_TOOL ToolManager::instance()->smudgeTool()
 
 namespace
 {
@@ -165,6 +168,10 @@ MainWindow::MainWindow(QWidget *parent) :
     m_eraserSettingsWidget = new EraserSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_eraserSettingsWidget);
     connect(m_eraserSettingsWidget, &EraserSettingsWidget::settingsChanged, this, &MainWindow::onEraserSettingsChanged);
+
+    m_smudgeSettingsWidget = new SmudgeSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_smudgeSettingsWidget);
+    //connect(m_smudgeSettingsWidget, &SmudgeSettingsWidget::settingsChanged, this, &MainWindow::onSmudgeSettingsChanged);
 
     // Disable undo/redo buttons on startup
     ui->actionUndo->setEnabled(false);
@@ -1391,6 +1398,7 @@ void MainWindow::clearToolpalette()
     ui->toolButtonStamp->setChecked(false);
     ui->toolButtonBlur->setChecked(false);
     ui->toolButtonEraser->setChecked(false);
+    ui->toolButtonSmudge->setChecked(false);
 
     m_ptSettingsWidget->setVisible(false);
     m_pbSettingsWidget->setVisible(false);
@@ -1401,6 +1409,7 @@ void MainWindow::clearToolpalette()
     m_stampSettingsWidget->setVisible(false);
     m_blurSettingsWidget->setVisible(false);
     m_eraserSettingsWidget->setVisible(false);
+    m_smudgeSettingsWidget->setVisible(false);
 }
 
 //Make sure the selected tool is re-enabled when we create/open an image
@@ -1449,6 +1458,10 @@ void MainWindow::refreshTools()
     else if(m_toolSelected == "eraser")
     {
         on_toolButtonEraser_clicked();
+    }
+    else if(m_toolSelected == "smudge")
+    {
+        on_toolButtonSmudge_clicked();
     }
 }
 
@@ -1661,6 +1674,19 @@ void MainWindow::on_toolButtonEraser_clicked()
         widget->setPaintTool(ERASER_TOOL);
 }
 
+void MainWindow::on_toolButtonSmudge_clicked()
+{
+    clearToolpalette();
+    m_toolSelected = "smudge";
+    ui->toolButtonSmudge->setChecked(true);
+    m_smudgeSettingsWidget->setVisible(true);
+    //onSmudgeSettingsChanged();
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->setPaintTool(SMUDGE_TOOL);
+}
+
 /*
 
     | TOOLPALETTE SETTINGS CHANGED |
@@ -1731,6 +1757,11 @@ void MainWindow::onBlurSettingsChanged()
 void MainWindow::onEraserSettingsChanged()
 {
     ERASER_TOOL->setWidth(m_eraserSettingsWidget->radius());
+}
+
+void MainWindow::onSmudgeSettingsChanged()
+{
+    //SMUDGE_TOOL
 }
 
 /*

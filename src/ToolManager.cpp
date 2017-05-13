@@ -17,6 +17,7 @@
 #include "./tools/StampTool.h"
 #include "./tools/BlurTool.h"
 #include "./tools/EraserTool.h"
+#include "./tools/SmudgeTool.h"
 
 ToolManager * ToolManager::m_instance = 0;
 
@@ -37,6 +38,7 @@ public:
         stampTool = new StampTool;
         blurTool = new BlurTool;
         eraserTool = new EraserTool;
+        smudgeTool = new SmudgeTool;
     }
 
     ~ToolManagerPrivate()
@@ -52,6 +54,7 @@ public:
         delete magicWandTool;
         delete stampTool;
         delete eraserTool;
+        delete smudgeTool;
     }
 
     ColourPickerTool *colourPicker;
@@ -66,6 +69,7 @@ public:
     StampTool *stampTool;
     BlurTool *blurTool;
     EraserTool *eraserTool;
+    SmudgeTool *smudgeTool;
 };
 
 ToolManager::ToolManager(QObject *parent)
@@ -139,6 +143,11 @@ BlurTool *ToolManager::blurTool() const
 EraserTool *ToolManager::eraserTool() const
 {
     return d->eraserTool;
+}
+
+SmudgeTool *ToolManager::smudgeTool() const
+{
+    return d->smudgeTool;
 }
 
 ToolManager *ToolManager::instance()
