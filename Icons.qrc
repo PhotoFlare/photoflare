@@ -12,6 +12,7 @@
         <file>toolpalette_icons/Wand.png</file>
         <file>icons/swap.png</file>
         <file>toolpalette_icons/Eraser.png</file>
+        <file>toolpalette_icons/Smudge.png</file>
     </qresource>
     <qresource prefix="/pixmaps">
         <file>pixmaps/logo.png</file>

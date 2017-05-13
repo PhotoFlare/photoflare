@@ -84,7 +84,8 @@ SOURCES += src/main.cpp \
     src/filterworker.cpp \
     src/tools/EraserTool.cpp \
     src/toolSettings/erasersettingswidget.cpp \
-    src/tools/SmudgeTool.cpp
+    src/tools/SmudgeTool.cpp \
+    src/toolSettings/SmudgeSettingsWidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/dialogs/aboutdialog.h \
@@ -133,7 +134,8 @@ HEADERS += src/mainwindow.h \
     src/filterworker.h \
     src/tools/EraserTool.h \
     src/toolSettings/erasersettingswidget.h \
-    src/tools/SmudgeTool.h
+    src/tools/SmudgeTool.h \
+    src/toolSettings/SmudgeSettingsWidget.h
 
 FORMS += src/mainwindow.ui \
     src/dialogs/aboutdialog.ui \
@@ -160,7 +162,8 @@ FORMS += src/mainwindow.ui \
     src/toolSettings/MagicWandSettingsWidget.ui \
     src/toolSettings/StampSettingsWidget.ui \
     src/toolSettings/BlurSettingsWidget.ui \ 
-    src/toolSettings/erasersettingswidget.ui
+    src/toolSettings/erasersettingswidget.ui \
+    src/toolSettings/smudgesettingswidget.ui
 
 RESOURCES += \
     Icons.qrc
