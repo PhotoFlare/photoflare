@@ -12,3 +12,8 @@ SmudgeSettingsWidget::~SmudgeSettingsWidget()
 {
     delete ui;
 }
+
+int SmudgeSettingsWidget::radius() const
+{
+    return ui->radiusSpinBox->value();
+}

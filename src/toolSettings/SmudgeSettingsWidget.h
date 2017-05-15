@@ -15,6 +15,11 @@ public:
     explicit SmudgeSettingsWidget(QWidget *parent = 0);
     ~SmudgeSettingsWidget();
 
+    int radius() const;
+
+signals:
+    void settingsChanged();
+
 private:
     Ui::SmudgeSettingsWidget *ui;
 };

@@ -11,6 +11,9 @@ public:
     SmudgeTool(QObject *parent = 0);
     ~SmudgeTool();
 
+    QCursor getCursor();
+    void setRadius(int radius);
+
 private:
     SmudgeToolPrivate *d;
 };

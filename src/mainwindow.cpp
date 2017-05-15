@@ -171,7 +171,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     m_smudgeSettingsWidget = new SmudgeSettingsWidget;
     ui->dockWidgetSettings->layout()->addWidget(m_smudgeSettingsWidget);
-    //connect(m_smudgeSettingsWidget, &SmudgeSettingsWidget::settingsChanged, this, &MainWindow::onSmudgeSettingsChanged);
+    connect(m_smudgeSettingsWidget, &SmudgeSettingsWidget::settingsChanged, this, &MainWindow::onSmudgeSettingsChanged);
 
     // Disable undo/redo buttons on startup
     ui->actionUndo->setEnabled(false);
@@ -1680,7 +1680,7 @@ void MainWindow::on_toolButtonSmudge_clicked()
     m_toolSelected = "smudge";
     ui->toolButtonSmudge->setChecked(true);
     m_smudgeSettingsWidget->setVisible(true);
-    //onSmudgeSettingsChanged();
+    onSmudgeSettingsChanged();
 
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
@@ -1761,7 +1761,7 @@ void MainWindow::onEraserSettingsChanged()
 
 void MainWindow::onSmudgeSettingsChanged()
 {
-    //SMUDGE_TOOL
+    SMUDGE_TOOL->setRadius(m_smudgeSettingsWidget->radius());
 }
 
 /*

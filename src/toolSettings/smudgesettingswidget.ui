@@ -44,20 +44,23 @@
     <rect>
      <x>10</x>
      <y>100</y>
-     <width>131</width>
+     <width>111</width>
      <height>20</height>
     </rect>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
+   <property name="tickPosition">
+    <enum>QSlider::TicksBelow</enum>
+   </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox">
+  <widget class="QSpinBox" name="radiusSpinBox">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>30</y>
-     <width>131</width>
+     <width>121</width>
      <height>26</height>
     </rect>
    </property>
