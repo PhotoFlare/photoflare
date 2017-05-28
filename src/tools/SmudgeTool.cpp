@@ -55,3 +55,13 @@ void SmudgeTool::setRadius(int radius)
     d->radius = radius;
     emit cursorChanged(getCursor());
 }
+
+void SmudgeTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
+{
+    Q_UNUSED(button);
+}
+
+void SmudgeTool::onMouseMove(const QPoint &pos)
+{
+
+}
