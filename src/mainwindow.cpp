@@ -1704,6 +1704,7 @@ void MainWindow::onPaintBrushSettingsChanged()
     PAINT_BRUSH->setWidth(m_pbSettingsWidget->brushWidth());
     PAINT_BRUSH->setAntialiasing(m_pbSettingsWidget->antialiasing());
     PAINT_BRUSH->setCapStyle(m_pbSettingsWidget->brushCapStyle());
+    PAINT_BRUSH->setPressure(m_pbSettingsWidget->brushPressure());
 }
 
 void MainWindow::onPaintBrushAdvSettingsChanged()

@@ -18,6 +18,7 @@ PaintBrushSettingsWidget::PaintBrushSettingsWidget(QWidget *parent) :
 
     connect(ui->sliderRadius, &QSlider::valueChanged, this, &PaintBrushSettingsWidget::setLabelRadiusValue);
     connect(ui->sliderRadius, &QSlider::valueChanged, this, &PaintBrushSettingsWidget::settingsChanged);
+    connect(ui->pressureSlider, &QSlider::valueChanged, this, &PaintBrushSettingsWidget::settingsChanged);
     connect(ui->cbAntialias, &QCheckBox::clicked, this, &PaintBrushSettingsWidget::settingsChanged);
     setLabelRadiusValue(ui->sliderRadius->value());
 }
@@ -70,4 +71,14 @@ void PaintBrushSettingsWidget::on_buttonSquareCap_clicked()
 {
     ui->buttonRoundCap->setChecked(false);
     ui->buttonSquareCap->setChecked(true);
+}
+
+void PaintBrushSettingsWidget::on_pressureSlider_valueChanged(int value)
+{
+    ui->labelPressureValue->setText(QString::number(value));
+}
+
+int PaintBrushSettingsWidget::brushPressure() const
+{
+    return ui->pressureSlider->value();
 }

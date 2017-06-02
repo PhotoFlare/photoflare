@@ -27,6 +27,8 @@ public:
     void setBrushWidth(int width);
     int brushWidth() const;
 
+    int brushPressure() const;
+
     Qt::PenCapStyle brushCapStyle();
 
 signals:
@@ -36,6 +38,8 @@ private slots:
     void on_buttonRoundCap_clicked();
 
     void on_buttonSquareCap_clicked();
+
+    void on_pressureSlider_valueChanged(int value);
 
 private:
     void setLabelRadiusValue(int value);
