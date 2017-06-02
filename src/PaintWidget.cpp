@@ -379,7 +379,8 @@ void PaintWidget::onContentChanged()
 
     if(historyIndex > SETTINGS->getHistoryLimit().toInt())
     {
-        historyList.removeAt(0);
+        historyList.removeFirst();
+        historyIndex--;
     }
 }
 

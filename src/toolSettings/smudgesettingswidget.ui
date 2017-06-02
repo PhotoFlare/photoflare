@@ -39,7 +39,7 @@
     <string>Pressure</string>
    </property>
   </widget>
-  <widget class="QSlider" name="horizontalSlider">
+  <widget class="QSlider" name="pressureSlider">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -47,6 +47,18 @@
      <width>111</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
+   <property name="maximum">
+    <number>10</number>
+   </property>
+   <property name="pageStep">
+    <number>1</number>
+   </property>
+   <property name="sliderPosition">
+    <number>6</number>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -63,6 +75,9 @@
      <width>121</width>
      <height>26</height>
     </rect>
+   </property>
+   <property name="value">
+    <number>32</number>
    </property>
   </widget>
  </widget>

@@ -1,6 +1,12 @@
 #ifndef SMUDGESETTINGSWIDGET_H
 #define SMUDGESETTINGSWIDGET_H
 
+/*
+
+  Widget for SmudgeTool settings.
+
+*/
+
 #include <QWidget>
 
 namespace Ui {
@@ -16,9 +22,12 @@ public:
     ~SmudgeSettingsWidget();
 
     int radius() const;
+    int pressure() const;
 
 signals:
     void settingsChanged();
+
+private slots:
 
 private:
     Ui::SmudgeSettingsWidget *ui;

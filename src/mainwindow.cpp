@@ -1762,6 +1762,7 @@ void MainWindow::onEraserSettingsChanged()
 void MainWindow::onSmudgeSettingsChanged()
 {
     SMUDGE_TOOL->setRadius(m_smudgeSettingsWidget->radius());
+    SMUDGE_TOOL->setPressure(m_smudgeSettingsWidget->pressure());
 }
 
 /*
