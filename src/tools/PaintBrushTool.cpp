@@ -27,6 +27,7 @@ public:
     QPen secondaryPen;
     bool antialiasing;
     Qt::MouseButton mouseButton;
+    int pressure;
 };
 
 PaintBrushTool::PaintBrushTool(QObject *parent)
@@ -84,6 +85,16 @@ bool PaintBrushTool::antialiasing() const
     return d->antialiasing;
 }
 
+void PaintBrushTool::setPressure(int value) const
+{
+    d->pressure = value;
+}
+
+int PaintBrushTool::pressure() const
+{
+    return d->pressure;
+}
+
 void PaintBrushTool::setCapStyle(Qt::PenCapStyle capStyle)
 {
     d->primaryPen.setCapStyle(capStyle);
@@ -128,6 +139,8 @@ void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     QPainter painter(m_paintDevice);
     painter.setPen(pen);
+    double realVal = double(d->pressure / double(100.0));
+    painter.setOpacity(realVal);
     painter.drawPoint(pos.x(), pos.y());
     painter.end();
     emit painted(m_paintDevice);
@@ -140,6 +153,9 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
 
         if (d->antialiasing)
             painter.setRenderHint(QPainter::Antialiasing);
+
+        double realVal = double(d->pressure / double(100.0));
+        painter.setOpacity(realVal);
 
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
 

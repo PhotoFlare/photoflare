@@ -23,6 +23,9 @@ public:
     void setAntialiasing(bool value);
     bool antialiasing() const;
 
+    void setPressure(int value) const;
+    int pressure() const;
+
     QCursor getCursor();
 
     void setCapStyle(Qt::PenCapStyle capStyle);
