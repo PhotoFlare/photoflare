@@ -837,7 +837,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1584"/>
         <source>&amp;About</source>
-        <translation>&amp;Over</translation>
+        <translation>&amp;Met dank aan</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1593"/>
