@@ -1,6 +1,6 @@
 /*
 
-  Text dialog class for the PhotoFiltre LX application.
+  Text dialog class for the PhotoFlare application.
 
 */
 

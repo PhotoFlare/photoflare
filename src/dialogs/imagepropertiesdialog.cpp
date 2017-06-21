@@ -1,6 +1,6 @@
 /*
 
-  ImageProperties dialog class for the PhotoFiltre LX application.
+  ImageProperties dialog class for the PhotoFlare application.
 
 */
 

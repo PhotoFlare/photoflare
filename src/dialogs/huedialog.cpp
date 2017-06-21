@@ -1,6 +1,6 @@
 /*
 
-  Hue dialog class for the PhotoFiltre LX application.
+  Hue dialog class for the PhotoFlare application.
 
 */
 #include <QMouseEvent>

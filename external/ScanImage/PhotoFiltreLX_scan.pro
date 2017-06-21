@@ -5,7 +5,7 @@ unix {
         kTWAIN_DS_DIR=\"/usr/local/lib/twain\"
     LIBS += -ldl
 }
-TARGET = PhotoFiltreLX_scan
+TARGET = PhotoFlare_scan
 
 win32 {
     LIBS += -luser32
@@ -15,7 +15,7 @@ win32 {
 DEFINES -= UNICODE
 
 INCLUDEPATH = /usr/local/include \
-        ../PhotoFiltreLX_scan
+        ../PhotoFlare_scan
 
 SOURCES += CommonTWAIN.cpp \
     DSMInterface.cpp \

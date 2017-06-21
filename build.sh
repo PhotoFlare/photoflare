@@ -2,5 +2,5 @@
 
 #Simple script to build the project on Travis-CI
 
-qmake PhotoFiltreLX.pro
+qmake PhotoFlare.pro
 make

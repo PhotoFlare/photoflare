@@ -1,14 +1,14 @@
 apps: 
-  photofiltre-lx:
-    command: desktop-launch usr/bin/photofiltre-lx
-name: photofiltre-lx
-summary: PhotoFiltre LX
+  photoflare:
+    command: desktop-launch usr/bin/photoflare
+name: photoflare
+summary: PhotoFlare
 confinement: devmode
 version: 1.0
 description: Simple but powerful Cross Platform image editor.
 parts:
-  photofiltrelx:
-    source: photofiltrelx
+  photoflare:
+    source: photoflare
     plugin: qmake
     qt-version: qt5
     build-packages:

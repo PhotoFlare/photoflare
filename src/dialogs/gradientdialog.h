@@ -3,7 +3,7 @@
 
 /*
 
-  Gradient dialog class for the PhotoFiltre LX application.
+  Gradient dialog class for the PhotoFlare application.
 
 */
 

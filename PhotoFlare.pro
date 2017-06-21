@@ -2,7 +2,7 @@ lessThan(QT_VERSION, 5.6.0): error(This project requires Qt 5.6.0 or later)
 
 QT += core gui widgets printsupport
 
-TARGET = PhotoFiltreLX
+TARGET = PhotoFlare
 TEMPLATE = app
 CONFIG += c++11
 

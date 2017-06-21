@@ -3,7 +3,7 @@
 
 /*
 
-  Image position widget for the PhotoFiltre LX application.
+  Image position widget for the PhotoFlare application.
 
 */
 

@@ -3,7 +3,7 @@
 
 /*
 
-  Settings class for the PhotoFiltre LX application.
+  Settings class for the PhotoFlare application.
 
 */
 

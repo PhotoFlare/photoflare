@@ -1,4 +1,4 @@
-PhotoFiltre LX Studio Release Notes:
+PhotoFlare Studio Release Notes:
 
 Known Issues:
 

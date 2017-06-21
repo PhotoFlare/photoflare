@@ -217,8 +217,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="31"/>
-        <source>PhotoFiltre LX Studio</source>
-        <translation>PhotoFiltre LX Studio</translation>
+        <source>PhotoFlare Studio</source>
+        <translation>PhotoFlare Studio</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="80"/>
@@ -1346,8 +1346,8 @@
     <name>QObject</name>
     <message>
         <location filename="../src/main.cpp" line="22"/>
-        <source>PhotoFiltre LX Studio Demo</source>
-        <translation>Démo PhotoFiltre LX Studio</translation>
+        <source>PhotoFlare Studio Demo</source>
+        <translation>Démo PhotoFlare Studio</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="23"/>
@@ -1356,13 +1356,13 @@
     </message>
     <message>
         <location filename="../src/main.cpp" line="24"/>
-        <source>photofiltre-lx.org</source>
-        <translation>photofiltre-lx.org</translation>
+        <source>photoflare.io</source>
+        <translation>photoflare.io</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="25"/>
-        <source>photofiltre-lx</source>
-        <translation>photofiltre-lx</translation>
+        <source>photoflare</source>
+        <translation>photoflare</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="78"/>
@@ -1523,8 +1523,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="44"/>
-        <source>&lt;a href=&apos;http://www.photofiltre-lx.org&apos;&gt;http://www.photofiltre-lx.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&apos;http://www.photofiltre-lx.org&apos;&gt;http://www.photofiltre-lx.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&apos;http://www.photoflare.io&apos;&gt;http://www.photoflare.io&lt;/a&gt;</source>
+        <translation>&lt;a href=&apos;http://www.photoflare.io&apos;&gt;http://www.photoflare.io&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -1935,13 +1935,13 @@
     </message>
     <message>
         <location filename="../src/buydialog.ui" line="61"/>
-        <source>PhotoFiltre LX Studio</source>
-        <translation>PhotoFiltre LX Studio</translation>
+        <source>PhotoFlare Studio</source>
+        <translation>PhotoFlare Studio</translation>
     </message>
     <message>
         <location filename="../src/buydialog.ui" line="107"/>
-        <source>Hello! Thanks for trying out PhotoFiltre LX Studio. </source>
-        <translation>Bonjour ! Merci d'essayer PhotoFiltre LX Studio.</translation>
+        <source>Hello! Thanks for trying out PhotoFlare Studio. </source>
+        <translation>Bonjour ! Merci d'essayer PhotoFlare Studio.</translation>
     </message>
     <message>
         <location filename="../src/buydialog.ui" line="126"/>

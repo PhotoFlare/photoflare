@@ -1,6 +1,6 @@
 /*
 
-  Batch dialog class for the PhotoFiltre LX application.
+  Batch dialog class for the PhotoFlare application.
 
 */
 

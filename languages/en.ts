@@ -217,7 +217,7 @@
     <name>MainWindow</name>
     <message>
         <location filename="src/mainwindow.ui" line="31"/>
-        <source>PhotoFiltre LX Studio</source>
+        <source>PhotoFlare Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1408,7 +1408,7 @@
     <name>QObject</name>
     <message>
         <location filename="src/main.cpp" line="24"/>
-        <source>PhotoFiltre LX Studio</source>
+        <source>PhotoFlare Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1418,12 +1418,12 @@
     </message>
     <message>
         <location filename="src/main.cpp" line="26"/>
-        <source>photofiltre-lx.org</source>
+        <source>photoflare.io</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="27"/>
-        <source>photofiltre-lx</source>
+        <source>photoflare</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1585,7 +1585,7 @@
     </message>
     <message>
         <location filename="src/aboutdialog.cpp" line="44"/>
-        <source>&lt;a href=&apos;http://www.photofiltre-lx.org&apos;&gt;http://www.photofiltre-lx.org&lt;/a&gt;</source>
+        <source>&lt;a href=&apos;http://www.photoflare.io&apos;&gt;http://www.photoflare.io&lt;/a&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1997,12 +1997,12 @@
     </message>
     <message>
         <location filename="src/buydialog.ui" line="61"/>
-        <source>PhotoFiltre LX Studio</source>
+        <source>PhotoFlare Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/buydialog.ui" line="107"/>
-        <source>Hello! Thanks for trying out PhotoFiltre LX Studio. </source>
+        <source>Hello! Thanks for trying out PhotoFlare Studio. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

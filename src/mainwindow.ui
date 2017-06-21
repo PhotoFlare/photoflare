@@ -28,7 +28,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>PhotoFiltre LX</string>
+   <string>PhotoFlare</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../Icons.qrc">

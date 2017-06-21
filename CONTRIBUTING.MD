@@ -1,7 +1,7 @@
-# Contributing to PhotoFiltreLX
+# Contributing to PhotoFlare
 
 
-The following is a set of guidelines for contributing to PhotoFiltreLX.
+The following is a set of guidelines for contributing to PhotoFlare.
 These are just guidelines, not rules. Pull requests that break these guidelines will still be considered to be merged.
 
 ## How Can I Contribute?
@@ -24,6 +24,6 @@ These are just guidelines, not rules. Pull requests that break these guidelines 
 * Expected behaviour
 * Observer behaviour
 * Screenshots (where applicable)
-* Version of PhotoFiltreLX
+* Version of PhotoFlare
 * What Operating System you were using
 

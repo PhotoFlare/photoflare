@@ -3,7 +3,7 @@
 
 /*
 
-  Main window class for the PhotoFiltre LX application.
+  Main window class for the PhotoFlare application.
 
 */
 

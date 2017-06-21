@@ -1,6 +1,6 @@
 ﻿/*
 
-  Main window class for the PhotoFiltre LX application.
+  Main window class for the PhotoFlare application.
 
 */
 
@@ -1347,11 +1347,11 @@ void MainWindow::batchProcess_batchProgress(int index,int total)
 {
     if(index < total)
     {
-        this->setWindowTitle(QString("PhotoFiltre LX - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
+        this->setWindowTitle(QString("PhotoFlare - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
     }
     else
     {
-        this->setWindowTitle(QString("PhotoFiltre LX"));
+        this->setWindowTitle(QString("PhotoFlare"));
     }
 }
 
@@ -1369,7 +1369,7 @@ void MainWindow::on_actionPreferences_triggered()
 
 void MainWindow::on_actionDonate_triggered()
 {
-    QString link = "http://photofiltre-lx.org/donate/";
+    QString link = "http://photoflare.io/donate/";
     QDesktopServices::openUrl(QUrl(link));
 }
 

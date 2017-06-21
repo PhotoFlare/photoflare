@@ -37,9 +37,9 @@ void ScanManager::list()
     arguments << "cdsm" << "lds" << "q";
 
 #ifdef WIN32
-    mProc->start("PhotoFiltreLX_scan.exe", arguments);
+    mProc->start("PhotoFlare_scan.exe", arguments);
 #else
-    mProc->start("./PhotoFiltreLX_scan", arguments);
+    mProc->start("./PhotoFlare_scan", arguments);
 #endif
 }
 
@@ -58,9 +58,9 @@ void ScanManager::scan()
     arguments << "cdsm" << QString("cds%1").arg(mCurrentSourceId) << "scan" << "q";
 
 #ifdef WIN32
-    mProc->start("PhotoFiltreLX_scan.exe", arguments);
+    mProc->start("PhotoFlare_scan.exe", arguments);
 #else
-    mProc->start("./PhotoFiltreLX_scan", arguments);
+    mProc->start("./PhotoFlare_scan", arguments);
 #endif
 }
 

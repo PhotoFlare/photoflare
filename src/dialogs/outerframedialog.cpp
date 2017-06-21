@@ -1,6 +1,6 @@
 /*
 
-  Outerframe dialog class for the PhotoFiltre LX application.
+  Outerframe dialog class for the PhotoFlare application.
 
 */
 
