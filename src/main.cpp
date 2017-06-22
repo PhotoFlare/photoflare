@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
         if(!app.isRunning())
         {
             app.setApplicationName(QObject::tr("PhotoFlare"));
-            app.setApplicationVersion(QObject::tr("1.0.7"));
+            app.setApplicationVersion(QObject::tr("1.4.0"));
             app.setOrganizationDomain(QObject::tr("photoflare.io"));
             app.setOrganizationName(QObject::tr("photoflare"));
 
