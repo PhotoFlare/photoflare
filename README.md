@@ -2,11 +2,11 @@
 
 [![GitHub release](https://img.shields.io/badge/Release-1.0.6-green.svg)](https://github.com/PhotoFlare/photoflare/releases)
 [![License: GPL v3+](https://img.shields.io/badge/License-GPL-yellowgreen.svg)](http://www.gnu.org/licenses/gpl-3.0)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://travis-ci.org/PhotoFiltre-LX/photofiltrelx)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://travis-ci.org/PhotoFlare.io/photoflare)
 
 Simple but powerful Cross Platform image editor originally inspired by the PhotoFiltre image editor on Windows. Created with C++ 11, Qt Framework and the Graphicsmagick library.
 
-<img src="http://photofiltre-lx.org/preview.png">
+<img src="http://photoflare.io/preview.png">
 
 ## Dependencies
 * libgraphicsmagick++-dev
