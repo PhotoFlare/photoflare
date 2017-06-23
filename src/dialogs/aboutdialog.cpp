@@ -40,7 +40,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
     QFont font;
     font.setPointSize(14);
     ui->appName->setFont(font);
-    ui->appVersion->setText(qApp->applicationVersion());
+    ui->appVersion->setText(qApp->applicationVersion()+tr(" Community Edition"));
     ui->appDescription->setText(tr("A simple but featureful editor."));
     ui->appUrl->setText(tr("<a href='http://www.photoflare.io'>http://www.photoflare.io</a>"));
     ui->appName->setAlignment(Qt::AlignCenter);
