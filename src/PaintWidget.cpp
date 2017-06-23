@@ -13,6 +13,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsProxyWidget>
+#include <QImageReader>
 
 #include "PaintWidget.h"
 #include "./tools/Tool.h"
@@ -187,7 +188,35 @@ PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
     , d(new PaintWidgetPrivate(this))
     , progressIndicator(nullptr)
 {
-    d->initialize(QImage(imagePath));
+    QStringList list = imagePath.split(".");
+    QString fileNameNoExt = list[1];
+
+     QString rawExtensions[] = {
+         "ARW",
+         "BAY",
+         "CR2",
+         "DCS",
+         "MOS",
+         "NEF",
+         "RAW"
+    };
+    bool exists = std::find(std::begin(rawExtensions), std::end(rawExtensions), fileNameNoExt.toUpper()) != std::end(rawExtensions);
+
+    if(exists)
+    {
+        QImageReader reader(imagePath);
+        QSize size = reader.size();
+        int w = size.width() -1;
+        int h = size.height() -1;
+        QSize newSize = QSize(w,h);
+        reader.setScaledSize(newSize);
+        QImage raw = reader.read();
+        d->initialize(raw);
+    }
+    else
+    {
+        d->initialize(QImage(imagePath));
+    }
     d->imagePath = imagePath;
     this->init();
 }
