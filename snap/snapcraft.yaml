@@ -15,11 +15,10 @@ parts:
       - g++
       - qtbase5-dev
       - dpkg-dev
+    stage-packages:
+      - libc6
+      - libgraphicsmagick++-q16-12
+      - libqt5gui5
+      - libqt5core5a
+      - libqt5widgets5
     after: [desktop-qt5]
-    desktop-qt5:
-      stage-packages:
-        - libc6
-        - libgraphicsmagick++-q16-12
-        - libqt5gui5
-        - libqt5core5a
-        - libqt5widgets5
