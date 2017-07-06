@@ -8,7 +8,7 @@ version: 1.4
 description: Simple but powerful Cross Platform image editor.
 parts:
   photoflare:
-    source: photoflare
+    source: src/
     plugin: qmake
     qt-version: qt5
     build-packages:
