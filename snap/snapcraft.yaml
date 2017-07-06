@@ -1,0 +1,24 @@
+apps: 
+  photoflare:
+    command: desktop-launch usr/bin/photoflare
+name: photoflare
+summary: PhotoFlare
+confinement: devmode
+version: 1.4
+description: Simple but powerful Cross Platform image editor.
+parts:
+  photoflare:
+    source: photoflare
+    plugin: qmake
+    qt-version: qt5
+    build-packages:
+      - g++
+      - qtbase5-dev
+      - dpkg-dev
+    after: [desktop/qt5]
+    stage-packages:
+      - libc6
+      - libgraphicsmagick++-q16-12
+      - libqt5gui5
+      - libqt5core5a
+      - libqt5widgets5
