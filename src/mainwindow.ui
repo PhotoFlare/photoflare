@@ -361,6 +361,7 @@
     <addaction name="actionExport_as_icon"/>
     <addaction name="separator"/>
     <addaction name="actionPreferences"/>
+    <addaction name="actionPlugins"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -2009,6 +2010,11 @@ QToolButton:checked {
   <action name="actionOpacity">
    <property name="text">
     <string>Opacity</string>
+   </property>
+  </action>
+  <action name="actionPlugins">
+   <property name="text">
+    <string>Plugins</string>
    </property>
   </action>
  </widget>

@@ -65,6 +65,8 @@
 #include "dialogs/huedialog.h"
 #include "dialogs/compressiondialog.h"
 #include "dialogs/transparentdialog.h"
+#include "dialogs/plugindialog.h"
+
 #include "BatchProcessWorker.h"
 #include "batchprogress.h"
 #include "filterworker.h"
@@ -1369,6 +1371,12 @@ void MainWindow::on_actionPreferences_triggered()
     dialog.exec();
 }
 
+void MainWindow::on_actionPlugins_triggered()
+{
+    PluginDialog dialog(this);
+    dialog.exec();
+}
+
 /*
 
     | HELP MENU |
@@ -2337,6 +2345,8 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionValidate->setEnabled(false);
     }
 }
+
+
 
 
 

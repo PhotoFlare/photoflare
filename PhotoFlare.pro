@@ -50,6 +50,7 @@ SOURCES += src/main.cpp \
     src/dialogs/huedialog.cpp \
     src/dialogs/outerframedialog.cpp \
     src/dialogs/compressiondialog.cpp \
+    src/dialogs/plugindialog.cpp \
     src/PaintWidget.cpp \
     src/Settings.cpp \
     src/FilterManager.cpp \
@@ -100,6 +101,7 @@ HEADERS += src/mainwindow.h \
     src/dialogs/huedialog.h \
     src/dialogs/outerframedialog.h \
     src/dialogs/compressiondialog.h \
+    src/dialogs/plugindialog.h \
     src/PaintWidget.h \
     src/Settings.h \
     src/FilterManager.h \
@@ -150,6 +152,7 @@ FORMS += src/mainwindow.ui \
     src/dialogs/huedialog.ui \
     src/dialogs/outerframedialog.ui \
     src/dialogs/compressiondialog.ui \
+    src/dialogs/plugindialog.ui \
     src/ColorBoxWidget.ui \
     src/BrushTypeComboBox.ui \
     src/imagepositionwidget.ui \
