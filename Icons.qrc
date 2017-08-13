@@ -18,6 +18,7 @@
         <file>pixmaps/logo.png</file>
         <file>pixmaps/checkers.png</file>
         <file>pixmaps/logo.ico</file>
+        <file>plugins/default.ico</file>
     </qresource>
     <qresource prefix="/icons">
         <file>icons/autobright.png</file>
