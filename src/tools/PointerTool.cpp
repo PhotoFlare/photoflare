@@ -178,7 +178,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
             QPainter painter(&surface);
             painter.setCompositionMode(QPainter::CompositionMode_Source);
             painter.fillRect(surface.rect(), Qt::transparent);
-            QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+            QPen pen = QPen(QBrush(), (5*m_scale), Qt::DashLine);
             pen.setColor(Qt::red);
             painter.setPen(pen);
 
