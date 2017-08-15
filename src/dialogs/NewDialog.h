@@ -62,7 +62,6 @@ private:
     Ui::NewDialog *ui;
 
     QSize m_chosenSize;
-    QColor m_chosenColor = Qt::white;
 
     double imageRatio;
     float width_px;

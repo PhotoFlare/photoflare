@@ -71,7 +71,8 @@ QSize NewDialog::newImageSize() const
 
 QColor NewDialog::newImageBackgroundColor() const
 {
-    return m_chosenColor;
+    QImage img = (QImage)ui->backgroundColorComboBox_NewFile->currentData().value<QImage>();
+    return img.pixel(0,0);
 }
 
 void NewDialog::setImageSize(QSize size)
@@ -271,7 +272,7 @@ void NewDialog::setMode(Mode mode)
         ui->imageResCombo->setVisible(true);
         ui->backgroundLabel->setVisible(false);
         ui->backgroundColorComboBox->setVisible(false);
-        ui->backgroundColorComboBox_NewFile->setVisible(false);
+        ui->backgroundColorComboBox_NewFile->setVisible(true);
         ui->positionLabel->setVisible(false);
         ui->positionWidget->setVisible(false);
    }
