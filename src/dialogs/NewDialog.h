@@ -32,6 +32,8 @@ public:
     QSize newImageSize() const;
     void setImageSize(QSize size);
 
+    QColor newImageBackgroundColor() const;
+
     QColor backgroundColor() const;
 
     enum Mode {ResizeImage, ResizeCanvas};
@@ -60,6 +62,7 @@ private:
     Ui::NewDialog *ui;
 
     QSize m_chosenSize;
+    QColor m_chosenColor;
 
     double imageRatio;
     float width_px;

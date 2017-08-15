@@ -68,6 +68,11 @@ QSize NewDialog::newImageSize() const
     return m_chosenSize;
 }
 
+QColor NewDialog::newImageBackgroundColor() const
+{
+    return m_chosenColor;
+}
+
 void NewDialog::setImageSize(QSize size)
 {
     ui->imageWvalue->setValue(size.width());
