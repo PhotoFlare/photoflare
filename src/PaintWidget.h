@@ -25,7 +25,7 @@ public:
     /*!
      * Constructs the widget that contains an empty image with passed size
      */
-    PaintWidget(const QSize &imageSize, QWidget *parent = 0);
+    PaintWidget(const QSize &imageSize, const QColor &bgcolor, QWidget *parent = 0);
     ~PaintWidget();
 
     void setPaintTool(Tool *tool);

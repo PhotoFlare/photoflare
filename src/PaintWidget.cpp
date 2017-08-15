@@ -221,13 +221,20 @@ PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
     this->init();
 }
 
-PaintWidget::PaintWidget(const QSize &imageSize, QWidget *parent)
+PaintWidget::PaintWidget(const QSize &imageSize, const QColor &bgcolor, QWidget *parent)
     : QGraphicsView(parent)
     , d(new PaintWidgetPrivate(this))
     , progressIndicator(nullptr)
 {
     QImage image(imageSize, QImage::Format_ARGB32_Premultiplied);
-    image.fill(Qt::white);
+    if(bgcolor) 
+    {
+        image.fill(bgcolor);
+    }
+    else
+    {
+        image.fill(Qt::white);
+    }
     d->initialize(image);
     this->init();
 }
