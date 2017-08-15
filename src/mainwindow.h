@@ -206,7 +206,7 @@ protected:
 
 private:
     PaintWidget* createPaintWidget(const QString &imagePath) const;
-    PaintWidget* createPaintWidget(const QSize &imageSize) const;
+    PaintWidget* createPaintWidget(const QSize &imageSize, const QColor &color) const;
     void addPaintWidget(PaintWidget *widget);
     void addTab(PaintWidget *widget);
     void addChildWindow(PaintWidget *widget);

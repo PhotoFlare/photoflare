@@ -227,14 +227,9 @@ PaintWidget::PaintWidget(const QSize &imageSize, const QColor &bgcolor, QWidget 
     , progressIndicator(nullptr)
 {
     QImage image(imageSize, QImage::Format_ARGB32_Premultiplied);
-    if(bgcolor) 
-    {
-        image.fill(bgcolor);
-    }
-    else
-    {
-        image.fill(Qt::white);
-    }
+    image.fill(bgcolor);
+
+
     d->initialize(image);
     this->init();
 }

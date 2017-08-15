@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>353</width>
-    <height>463</height>
+    <height>484</height>
    </rect>
   </property>
   <property name="font">
@@ -21,8 +21,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>420</y>
+     <x>20</x>
+     <y>440</y>
      <width>321</width>
      <height>32</height>
     </rect>
@@ -123,72 +123,6 @@
      <height>27</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QLabel" name="imagePreset">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>320</y>
-     <width>81</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Preset Size:</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="imagePresetCombo">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>350</y>
-     <width>200</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="currentIndex">
-    <number>0</number>
-   </property>
-   <item>
-    <property name="text">
-     <string>(none)</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>100 x 100 pixels</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>640 x 480 pixels</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>800 x 600 pixels</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1024 x 768 pixels</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1366 x 768 pixels</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1600 x 900 pixels</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1920 x 1080 pixels</string>
-    </property>
-   </item>
   </widget>
   <widget class="QComboBox" name="imageWHcombo">
    <property name="geometry">
@@ -359,7 +293,7 @@
      <x>10</x>
      <y>100</y>
      <width>331</width>
-     <height>311</height>
+     <height>331</height>
     </rect>
    </property>
    <property name="focusPolicy">
@@ -387,7 +321,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="../Icons.qrc">
+     <iconset resource="../../Icons.qrc">
       <normaloff>:/icons/icons/linked.png</normaloff>:/icons/icons/linked.png</iconset>
     </property>
     <property name="iconSize">
@@ -433,6 +367,100 @@
      <string>Position:</string>
     </property>
    </widget>
+   <widget class="BrushTypeComboBox" name="backgroundColorComboBox_NewFile" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>150</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="imagePresetCombo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>300</y>
+      <width>200</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>(none)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>100 x 100 pixels</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>640 x 480 pixels</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>800 x 600 pixels</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1024 x 768 pixels</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1366 x 768 pixels</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1600 x 900 pixels</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1920 x 1080 pixels</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3840 x 2160 pixels</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="imagePreset">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>280</y>
+      <width>81</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Preset Size:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>131</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Background colour:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="backgroundLabel">
    <property name="geometry">
@@ -455,8 +483,6 @@
   <zorder>imageHvalue</zorder>
   <zorder>imageRes</zorder>
   <zorder>imageRvalue</zorder>
-  <zorder>imagePreset</zorder>
-  <zorder>imagePresetCombo</zorder>
   <zorder>imageWHcombo</zorder>
   <zorder>imageResCombo</zorder>
   <zorder>groupBox</zorder>
@@ -477,7 +503,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Icons.qrc"/>
+  <include location="../../Icons.qrc"/>
  </resources>
  <connections>
   <connection>

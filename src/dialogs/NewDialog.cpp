@@ -51,6 +51,7 @@ NewDialog::NewDialog(QWidget *parent) :
         QPixmap pixmap(QSize(ui->backgroundColorComboBox->width(),ui->backgroundColorComboBox->height()));
         pixmap.fill(static_cast<Qt::GlobalColor>(i));
         ui->backgroundColorComboBox->addItem(QString(), pixmap);
+        ui->backgroundColorComboBox_NewFile->addItem(QString(), pixmap);
     }
 
     ui->backgroundColorComboBox->setOnClickHandler(this);
@@ -270,6 +271,7 @@ void NewDialog::setMode(Mode mode)
         ui->imageResCombo->setVisible(true);
         ui->backgroundLabel->setVisible(false);
         ui->backgroundColorComboBox->setVisible(false);
+        ui->backgroundColorComboBox_NewFile->setVisible(false);
         ui->positionLabel->setVisible(false);
         ui->positionWidget->setVisible(false);
    }

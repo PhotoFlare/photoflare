@@ -292,7 +292,7 @@ void MainWindow::on_actionNew_triggered()
     NewDialog dialog;
     if (dialog.exec())
     {
-        addPaintWidget(createPaintWidget(dialog.newImageSize()));
+        addPaintWidget(createPaintWidget(dialog.newImageSize(),dialog.newImageBackgroundColor()));
     }
 }
 
@@ -546,7 +546,7 @@ void MainWindow::on_actionPrint_triggered()
 
 void MainWindow::on_actionAcquire_image_triggered()
 {
-    addPaintWidget(createPaintWidget(QSize(480,640)));
+    addPaintWidget(createPaintWidget(QSize(480,640),Qt::white));
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget) {
         widget->showProgressIndicator(true);
@@ -679,7 +679,7 @@ void MainWindow::onPaste()
         QClipboard *clipboard = QApplication::clipboard();
         if(clipboard->mimeData()->hasImage())
         {
-            addPaintWidget(createPaintWidget(clipboard->image().size()));
+            addPaintWidget(createPaintWidget(clipboard->image().size(),Qt::white));
             widget = getCurrentPaintWidget();
             if (widget)
             {
@@ -1339,7 +1339,7 @@ void MainWindow::on_actionAutomate_Batch_triggered()
 
 void MainWindow::batchProcess_fileProcessFinished(QString file, QImage image)
 {
-    addPaintWidget(createPaintWidget(image.size()));
+    addPaintWidget(createPaintWidget(image.size(),Qt::white));
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
@@ -1974,9 +1974,10 @@ PaintWidget *MainWindow::createPaintWidget(const QString &imagePath) const
     return new PaintWidget(imagePath);
 }
 
-PaintWidget *MainWindow::createPaintWidget(const QSize &imageSize) const
+PaintWidget *MainWindow::createPaintWidget(const QSize &imageSize, const QColor &color) const
 {
-    return new PaintWidget(imageSize);
+    //QColor color = Qt::white;
+    return new PaintWidget(imageSize,color);
 }
 
 void MainWindow::addPaintWidget(PaintWidget *widget)
