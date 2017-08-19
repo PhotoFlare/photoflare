@@ -6,13 +6,14 @@
 
 #include "imagepositionwidget.h"
 #include "ui_imagepositionwidget.h"
+//#include <QDebug>
 
 ImagePositionWidget::ImagePositionWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ImagePositionWidget)
 {
     ui->setupUi(this);
-    position = CenterCenter;
+    on_pushButton_5_clicked();
 }
 
 ImagePositionWidget::~ImagePositionWidget()
@@ -25,7 +26,7 @@ void ImagePositionWidget::resetAllButtons()
     foreach(QObject* obj,this->children())
     {
         QPushButton* pushButton = qobject_cast<QPushButton*>(obj);
-        //qDebug()<<pushButton;
+
         if(pushButton && pushButton->isChecked())
         {
             pushButton->setChecked(false);

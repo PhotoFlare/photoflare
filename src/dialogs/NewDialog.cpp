@@ -287,6 +287,8 @@ void NewDialog::setMode(Mode mode)
        ui->imageResCombo->setVisible(false);
        ui->backgroundLabel->setVisible(true);
        ui->backgroundColorComboBox->setVisible(true);
+       ui->backgroundColorNewLabel->setVisible(false);
+       ui->backgroundColorComboBox_NewFile->setVisible(false);
        ui->positionLabel->setVisible(true);
        ui->positionWidget->setVisible(true);
    }

@@ -448,7 +448,7 @@
      <string>Preset Size:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="backgroundColorNewLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
