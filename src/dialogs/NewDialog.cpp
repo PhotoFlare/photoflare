@@ -55,6 +55,7 @@ NewDialog::NewDialog(QWidget *parent) :
     }
 
     ui->backgroundColorComboBox->setOnClickHandler(this);
+    ui->backgroundColorComboBox_NewFile->setOnClickHandler(this);
 
     setMode(ResizeImage);
 }
@@ -296,27 +297,55 @@ void NewDialog::setMode(Mode mode)
 
 void NewDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
 {
-    if(!ui->backgroundColorComboBox->isVisible())
+    if(obj == ui->backgroundColorComboBox)
     {
-        e->accept();
-        return;
-    }
-
-    if(e->x() < ui->backgroundColorComboBox->width() - 20)
-    {
-        QColor selectedColor = QColorDialog::getColor(Qt::white, this);
-        if (selectedColor.isValid())
+        if(!ui->backgroundColorComboBox->isVisible())
         {
-            QPixmap pixmap(QSize(ui->backgroundColorComboBox->width(),ui->backgroundColorComboBox->height()));
-            pixmap.fill(selectedColor);
-            ui->backgroundColorComboBox->insertItem(0, QString(), pixmap);
-            ui->backgroundColorComboBox->setCurrentIndex(0);
+            e->accept();
+            return;
         }
-        e->ignore();
+
+        if(e->x() < ui->backgroundColorComboBox->width() - 20)
+        {
+            QColor selectedColor = QColorDialog::getColor(Qt::white, this);
+            if (selectedColor.isValid())
+            {
+                QPixmap pixmap(QSize(ui->backgroundColorComboBox->width(),ui->backgroundColorComboBox->height()));
+                pixmap.fill(selectedColor);
+                ui->backgroundColorComboBox->insertItem(0, QString(), pixmap);
+                ui->backgroundColorComboBox->setCurrentIndex(0);
+            }
+            e->ignore();
+        }
+        else
+        {
+            e->accept();
+        }
     }
-    else
+    else if(obj == ui->backgroundColorComboBox_NewFile)
     {
-        e->accept();
+        if(!ui->backgroundColorComboBox_NewFile->isVisible())
+        {
+            e->accept();
+            return;
+        }
+
+        if(e->x() < ui->backgroundColorComboBox_NewFile->width() - 20)
+        {
+            QColor selectedColor = QColorDialog::getColor(Qt::white, this);
+            if (selectedColor.isValid())
+            {
+                QPixmap pixmap(QSize(ui->backgroundColorComboBox_NewFile->width(),ui->backgroundColorComboBox_NewFile->height()));
+                pixmap.fill(selectedColor);
+                ui->backgroundColorComboBox_NewFile->insertItem(0, QString(), pixmap);
+                ui->backgroundColorComboBox_NewFile->setCurrentIndex(0);
+            }
+            e->ignore();
+        }
+        else
+        {
+            e->accept();
+        }
     }
 }
 
