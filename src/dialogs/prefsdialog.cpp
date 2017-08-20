@@ -56,13 +56,12 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->historySlider->setValue(SETTINGS->getHistoryLimit().toInt());
 
     //Startup tab
-    //QStringList list(QStringList() << "English" << "French" << "German" );
-    QStringList list(QStringList() << "English" << "French" << "Dutch");
+    QStringList list(QStringList() << "English" << "French" << "Dutch" << "German");
     ui->comboBoxLanguage->addItems(list);
     ui->comboBoxLanguage->setItemIcon(0,QIcon(":/pixmaps/flags/pixmaps/flags/United-kingdom.png"));
     ui->comboBoxLanguage->setItemIcon(1,QIcon(":/pixmaps/flags/pixmaps/flags/France.png"));
     ui->comboBoxLanguage->setItemIcon(2,QIcon(":/pixmaps/flags/pixmaps/flags/Netherlands.png"));
-    //ui->comboBoxLanguage->setItemIcon(3,QIcon(":/pixmaps/flags/pixmaps/flags/Germany.png"));
+    ui->comboBoxLanguage->setItemIcon(3,QIcon(":/pixmaps/flags/pixmaps/flags/Germany.png"));
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
@@ -74,10 +73,10 @@ prefsDialog::prefsDialog(QWidget *parent) :
         ui->comboBoxLanguage->setCurrentIndex(1);
 
     else if(SETTINGS->getUserLanguage() == "nl")
-    ui->comboBoxLanguage->setCurrentIndex(2);
+        ui->comboBoxLanguage->setCurrentIndex(2);
 
-    //if(SETTINGS->getUserLanguage() == "de")
-    //ui->comboBoxLanguage->setCurrentIndex(3);
+    else if(SETTINGS->getUserLanguage() == "de")
+        ui->comboBoxLanguage->setCurrentIndex(3);
 }
 
 prefsDialog::~prefsDialog()
@@ -132,10 +131,8 @@ void prefsDialog::on_buttonBox_accepted()
         SETTINGS->setUserLanguage("fr");
     else if(ui->comboBoxLanguage->currentIndex() == 2)
         SETTINGS->setUserLanguage("nl");
-    /*
-      if(ui->comboBoxLanguage->currentIndex() == 3)
+    else if(ui->comboBoxLanguage->currentIndex() == 3)
         SETTINGS->setUserLanguage("de");
-    */
 }
 
 void prefsDialog::on_openFolderButton_clicked()
