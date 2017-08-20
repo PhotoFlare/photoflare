@@ -5,9 +5,11 @@
 */
 
 #include <QColorDialog>
+#include <QSettings>
 
 #include "textdialog.h"
 #include "ui_textdialog.h"
+//#include "../Settings.h"
 
 textDialog::textDialog(QWidget *parent) :
     QDialog(parent),
@@ -20,10 +22,13 @@ textDialog::textDialog(QWidget *parent) :
     ui->textColour->setPalette(palette);
     ui->textColour->installEventFilter(this);
     antialiasEnabled = false;
-    updateFont();
-
     ui->plainTextEdit->setFocus();
     ui->emptyWarning->hide();
+
+    //Read Dialog settings
+    readSettings(this);
+
+    updateFont();
 }
 
 textDialog::~textDialog()
@@ -138,11 +143,53 @@ void textDialog::on_checkBoxAntialias_toggled(bool checked)
     antialiasEnabled = true;
 }
 
+
+void textDialog::readSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    QVariant value = settings.value("pos");
+    if (!value.isNull())
+    {
+        window->move(settings.value("pos").toPoint());
+        window->resize(settings.value("size").toSize());
+        ui->checkBoxBold->setChecked(settings.value("bold").toBool());
+        ui->checkBoxItalic->setChecked(settings.value("italic").toBool());
+        ui->checkBoxUnderline->setChecked(settings.value("underline").toBool());
+        ui->checkBoxStrike->setChecked(settings.value("strikeout").toBool());
+        ui->checkBoxAntialias->setChecked(settings.value("antialias").toBool());
+        ui->fontSizeSpinner->setValue(settings.value("fontsize").toInt());
+        ui->fontComboBox->setCurrentIndex(settings.value("fontselected").toInt());
+        //ui->textColour->setPalette(settings.value("fontcolour").value<QColor>());
+    }
+    settings.endGroup();
+}
+
+void textDialog::writeSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    settings.setValue("pos", window->pos());
+    settings.setValue("size", window->size());
+    settings.setValue("bold", ui->checkBoxBold->isChecked() ? "true" : "false");
+    settings.setValue("italic", ui->checkBoxItalic->isChecked() ? "true" : "false");
+    settings.setValue("underline", ui->checkBoxUnderline->isChecked() ? "true" : "false");
+    settings.setValue("strikeout", ui->checkBoxStrike->isChecked() ? "true" : "false");
+    settings.setValue("antialias", ui->checkBoxAntialias->isChecked() ? "true" : "false");
+    settings.setValue("fontsize", ui->fontSizeSpinner->value());
+    settings.setValue("fontselected", ui->fontComboBox->currentIndex());
+    //settings.setValue("fontcolour",  ui->textColour->palette());
+    settings.endGroup();
+}
+
 void textDialog::on_buttonBoxtextDialog_accepted()
 {
     currentText = ui->plainTextEdit->toPlainText();
     if(currentText.length() > 0)
     {
+        writeSettings(this);
         accept();
     }
     else

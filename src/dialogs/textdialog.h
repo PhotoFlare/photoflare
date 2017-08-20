@@ -42,6 +42,8 @@ private slots:
     bool eventFilter(QObject *obj, QEvent *event) override;
     void showColorDialog(QWidget *colorLabel);
     QColor getColorFromLabel(QWidget *colorLabel) const;
+    void readSettings(QWidget* window);
+    void writeSettings(QWidget* window);
 
 signals:
     void textAdded(const QString&, const QFont&);
