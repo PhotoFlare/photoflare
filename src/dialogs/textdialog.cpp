@@ -161,7 +161,7 @@ void textDialog::readSettings(QWidget* window)
         ui->checkBoxAntialias->setChecked(settings.value("antialias").toBool());
         ui->fontSizeSpinner->setValue(settings.value("fontsize").toInt());
         ui->fontComboBox->setCurrentIndex(settings.value("fontselected").toInt());
-        //ui->textColour->setPalette(settings.value("fontcolour").value<QColor>());
+        ui->textColour->setPalette(settings.value("fontcolour").value<QColor>());
     }
     settings.endGroup();
 }
@@ -180,7 +180,7 @@ void textDialog::writeSettings(QWidget* window)
     settings.setValue("antialias", ui->checkBoxAntialias->isChecked() ? "true" : "false");
     settings.setValue("fontsize", ui->fontSizeSpinner->value());
     settings.setValue("fontselected", ui->fontComboBox->currentIndex());
-    //settings.setValue("fontcolour",  ui->textColour->palette());
+    settings.setValue("fontcolour", ui->textColour->palette().color(QPalette::Window).name());
     settings.endGroup();
 }
 
