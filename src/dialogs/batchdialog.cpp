@@ -29,6 +29,7 @@ batchDialog::batchDialog(QWidget *parent) :
     d(new BatchDialogPrivate)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     QStringList formats;
     formats << tr("*.png");

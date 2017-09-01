@@ -15,6 +15,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui(new Ui::prefsDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     //Folders tab
     ui->openFolderLineEdit->setText(SETTINGS->getOpenFolder());

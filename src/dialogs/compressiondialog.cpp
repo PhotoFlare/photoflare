@@ -12,6 +12,7 @@ CompressionDialog::CompressionDialog(QWidget *parent) :
     ui(new Ui::CompressionDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 }
 
 CompressionDialog::~CompressionDialog()

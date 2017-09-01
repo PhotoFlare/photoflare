@@ -14,6 +14,7 @@ HueDialog::HueDialog(QWidget *parent, QImage preview) :
     ui(new Ui::HueDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     ui->spectrumLabel->installEventFilter(this);
     ui->spectrumLabel->setStyleSheet("background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 red, stop: 0.16 yellow, stop: 0.32 green, \

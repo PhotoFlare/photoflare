@@ -16,6 +16,7 @@ textDialog::textDialog(QWidget *parent) :
     ui(new Ui::textDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
     ui->textColour->setAutoFillBackground(true);
     QPalette palette = ui->textColour->palette();
     palette.setColor(ui->textColour->backgroundRole(),Qt::black);

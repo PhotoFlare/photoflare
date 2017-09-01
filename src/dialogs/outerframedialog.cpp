@@ -14,6 +14,7 @@ OuterFrameDialog::OuterFrameDialog(QWidget *parent) :
     ui(new Ui::OuterFrameDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     for(int i=Qt::white; i <= Qt::yellow; i++)
     {

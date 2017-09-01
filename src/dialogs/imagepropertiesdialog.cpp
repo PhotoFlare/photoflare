@@ -12,6 +12,7 @@ imagePropertiesDialog::imagePropertiesDialog(QWidget *parent) :
   , ui(new Ui::imagePropertiesDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     ui->imageNameLabel->setText("Untitled");
     ui->folderLabel->setText("<Not saved>");

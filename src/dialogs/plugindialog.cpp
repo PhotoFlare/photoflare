@@ -9,6 +9,7 @@ PluginDialog::PluginDialog(QWidget *parent) :
     ui(new Ui::PluginDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     QDir dir("plugins");
     if (!dir.exists())

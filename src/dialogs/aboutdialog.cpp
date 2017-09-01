@@ -15,6 +15,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
     ui(new Ui::aboutDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
     ui->creditsTextArea->setVisible(false);
     ui->creditsTextArea->setText(tr("<b>Developers</b>"
                                     "<br>Commercial - ICS<br>Lead - Dylan Coakley"

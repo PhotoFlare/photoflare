@@ -12,6 +12,7 @@ TransparentDialog::TransparentDialog(QWidget *parent) :
     ui(new Ui::TransparentDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     setColor(Qt::white);
 }

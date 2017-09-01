@@ -14,6 +14,7 @@ ScanDevicesDialog::ScanDevicesDialog(QWidget *parent) :
     mCurrentSourceId(1)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 }
 
 ScanDevicesDialog::~ScanDevicesDialog()
