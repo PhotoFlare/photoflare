@@ -39,6 +39,9 @@ prefsDialog::prefsDialog(QWidget *parent) :
         ui->toolPaletteLocation->setCurrentIndex(1);
     }
 
+    //Default values tab
+    ui->memorizeParams->setChecked(SETTINGS->getMemParamsEnabled());
+
     //Saving tab
     QStringList filters;
     filters << tr("png (*.png)");
@@ -107,6 +110,9 @@ void prefsDialog::on_buttonBox_accepted()
     {
         SETTINGS->setDockLayout("Left");
     }
+
+    //Default values tab
+    SETTINGS->setMemParamsEnabled(ui->memorizeParams->isChecked());
 
     //Saving tab
     SETTINGS->setSaveFormat(QString::number(ui->comboBoxSaveFormat->currentIndex()));

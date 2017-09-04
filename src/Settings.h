@@ -51,6 +51,8 @@ public:
     QString getHistoryLimit() const;
     void setDockLayout(const QString val);
     QString getDockLayout() const;
+    void setMemParamsEnabled(bool enabled);
+    bool getMemParamsEnabled() const;
 
 private:
     explicit Settings(QObject *parent = 0);

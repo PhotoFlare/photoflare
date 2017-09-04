@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -344,6 +344,19 @@
        <string>Pixels</string>
       </property>
      </item>
+    </widget>
+    <widget class="QCheckBox" name="memorizeParams">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>181</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Memorize parameters</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_6">
