@@ -22,9 +22,9 @@ public:
         openFolder = settings.value("OpenFolder").toString();
         saveFolder = settings.value("SaveFolder").toString();
         saveFormat = settings.value("SaveFormat").toString();
-        saveFormatEnabled = settings.value("SaveFormatEnabled").toString();
-        compressionDialogEnabled = settings.value("compressionDialogEnabled").toString();
-        compressionDefaultValue = settings.value("compressionDefaultValue").toString();
+        saveFormatEnabled = settings.value("SaveFormatEnabled").toBool();
+        compressionDialogEnabled = settings.value("compressionDialogEnabled").toBool();
+        compressionDefaultValue = settings.value("compressionDefaultValue").toBool();
         historyLimit = settings.value("historyLimit").toString();
         dockLayout = settings.value("dockLayout").toString();
         memDialogParams = settings.value("memorizeParamsEnabled").toBool();
@@ -51,9 +51,9 @@ public:
     bool prevOpenedSave;
     QString saveFolder;
     QString saveFormat;
-    QString saveFormatEnabled;
-    QString compressionDialogEnabled;
-    QString compressionDefaultEnabled;
+    bool saveFormatEnabled;
+    bool compressionDialogEnabled;
+    bool compressionDefaultEnabled;
     QString compressionDefaultValue;
     QString historyLimit;
     QString dockLayout;
@@ -203,7 +203,7 @@ QString Settings::getSaveFormat() const
     return d->saveFormat;
 }
 
-void Settings::setSaveFormatEnabled(const QString enabled)
+void Settings::setSaveFormatEnabled(bool enabled)
 {
     d->saveFormatEnabled = enabled;
     d->setValue("saveFormatEnabled",enabled);
@@ -211,16 +211,10 @@ void Settings::setSaveFormatEnabled(const QString enabled)
 
 bool Settings::getSaveFormatEnabled() const
 {
-    bool checkedState = false;
-    if(d->saveFormatEnabled == "true")
-    {
-        checkedState = true;
-    }
-
-    return checkedState;
+    return d->saveFormatEnabled;
 }
 
-void Settings::setCompressionDialogEnabled(const QString enabled)
+void Settings::setCompressionDialogEnabled(bool enabled)
 {
     d->compressionDialogEnabled = enabled;
     d->setValue("compressionDialogEnabled",enabled);
@@ -228,16 +222,10 @@ void Settings::setCompressionDialogEnabled(const QString enabled)
 
 bool Settings::getCompressionDialogEnabled() const
 {
-    bool checkedState = false;
-    if(d->compressionDialogEnabled == "true")
-    {
-        checkedState = true;
-    }
-
-    return checkedState;
+    return d->compressionDialogEnabled;
 }
 
-void Settings::setCompressionDefaultEnabled(const QString enabled)
+void Settings::setCompressionDefaultEnabled(bool enabled)
 {
     d->compressionDefaultEnabled = enabled;
     d->setValue("compressionDefaultEnabled",enabled);
@@ -245,13 +233,7 @@ void Settings::setCompressionDefaultEnabled(const QString enabled)
 
 bool Settings::getCompressionDefaultEnabled() const
 {
-    bool checkedState = false;
-    if(d->compressionDefaultEnabled == "true")
-    {
-        checkedState = true;
-    }
-
-    return checkedState;
+    return d->compressionDefaultEnabled;
 }
 
 void Settings::setCompressionDefaultValue(const QString val)

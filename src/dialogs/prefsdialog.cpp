@@ -90,14 +90,10 @@ prefsDialog::~prefsDialog()
 
 void prefsDialog::on_buttonBox_accepted()
 {
-    QString saveFormatEnabled = ui->saveFormatEnabled->isChecked() ? "true" : "false";
-    QString compDefaultEnabled = ui->compEnabledDefault->isChecked() ? "true" : "false";
-    QString compDialogEnabled = ui->compDialogEnabled->isChecked() ? "true" : "false";
-
     //Folders tab
     SETTINGS->setOpenFolder(ui->openFolderLineEdit->text());
     SETTINGS->setSaveFolder(ui->saveFolderLineEdit->text());
-    SETTINGS->setSaveFormatEnabled(saveFormatEnabled);
+    SETTINGS->setSaveFormatEnabled(ui->saveFormatEnabled->isChecked());
     SETTINGS->setPreviouslyOpened(ui->previousOpenedEnabled->isChecked());
     SETTINGS->setPreviouslyOpenedSave(ui->previousOpenedSaveEnabled->isChecked());
 
@@ -121,8 +117,8 @@ void prefsDialog::on_buttonBox_accepted()
     SETTINGS->setHistoryLimit(ui->history_value->text());
 
     //Compression tab
-    SETTINGS->setCompressionDialogEnabled(compDialogEnabled);
-    SETTINGS->setCompressionDefaultEnabled(compDefaultEnabled);
+    SETTINGS->setCompressionDialogEnabled(ui->compDialogEnabled->isChecked());
+    SETTINGS->setCompressionDefaultEnabled(ui->compEnabledDefault->isChecked());
     SETTINGS->setCompressionDefaultValue(ui->compressionValue->text());
 
     //Startup tab

@@ -39,11 +39,11 @@ public:
     QString getSaveFolder() const;
     void setSaveFormat(const QString format);
     QString getSaveFormat() const;
-    void setSaveFormatEnabled(const QString enabled);
+    void setSaveFormatEnabled(bool enabled);
     bool getSaveFormatEnabled() const;
-    void setCompressionDialogEnabled(const QString enabled);
+    void setCompressionDialogEnabled(bool enabled);
     bool getCompressionDialogEnabled() const;
-    void setCompressionDefaultEnabled(const QString enabled);
+    void setCompressionDefaultEnabled(bool enabled);
     bool getCompressionDefaultEnabled() const;
     void setCompressionDefaultValue(const QString enabled);
     QString getCompressionDefaultValue() const;
