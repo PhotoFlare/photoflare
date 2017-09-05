@@ -176,5 +176,6 @@ include (external/qt-solutions/qtsingleapplication/qtsingleapplication.pri)
 INCLUDEPATH += external/qt-solutions/qtsingleapplication
 
 TRANSLATIONS = languages/en.ts\
-                languages/fr.ts\
-                languages/nl.ts
+               languages/fr.ts\
+               languages/nl.ts\
+               languages/de.ts
