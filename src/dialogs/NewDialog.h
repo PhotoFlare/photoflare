@@ -58,6 +58,9 @@ private slots:
 
     void on_imageWvalue_valueChanged(double arg1);
 
+    void writeSettings(QWidget* window);
+    void readSettings(QWidget* window);
+
 private:
     Ui::NewDialog *ui;
 

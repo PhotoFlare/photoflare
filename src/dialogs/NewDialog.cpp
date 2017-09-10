@@ -16,11 +16,12 @@
 #include <QGraphicsPixmapItem>
 #include <QMouseEvent>
 #include <QColorDialog>
+#include <QSettings>
 
 #include "NewDialog.h"
 #include "ui_NewDialog.h"
 
-#include "Settings.h"
+#include "../Settings.h"
 #include "imagepositionwidget.h"
 
 enum {PPM, PPI};
@@ -58,6 +59,12 @@ NewDialog::NewDialog(QWidget *parent) :
     ui->backgroundColorComboBox_NewFile->setOnClickHandler(this);
 
     setMode(ResizeImage);
+
+    if(SETTINGS->getMemParamsEnabled() && ResizeImage != 1)
+    {
+        //Read Dialog settings
+        readSettings(this);
+    }
 }
 
 NewDialog::~NewDialog()
@@ -92,6 +99,12 @@ void NewDialog::on_buttonBox_accepted()
 {
     m_chosenSize.setWidth(width_px);
     m_chosenSize.setHeight(height_px);
+
+    if(SETTINGS->getMemParamsEnabled() && ResizeImage != 1)
+    {
+        //Read Dialog settings
+        writeSettings(this);
+    }
 }
 
 void NewDialog::on_imagePresetCombo_currentIndexChanged(int index)
@@ -352,4 +365,33 @@ void NewDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
 ImagePosition NewDialog::imagePosition()
 {
     return ui->positionWidget->imagePosition();
+}
+
+void NewDialog::writeSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    settings.setValue("pos", window->pos());
+    settings.setValue("size", window->size());
+    settings.setValue("width", width_px);
+    settings.setValue("height", height_px);
+    settings.endGroup();
+}
+
+void NewDialog::readSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    QVariant value = settings.value("pos");
+    if (!value.isNull())
+    {
+        window->move(settings.value("pos").toPoint());
+        window->resize(settings.value("size").toSize());
+        ui->imageWvalue->setValue(settings.value("width").toFloat());
+        ui->imageHvalue->setValue(height_px = settings.value("height").toFloat());
+
+    }
+    settings.endGroup();
 }
