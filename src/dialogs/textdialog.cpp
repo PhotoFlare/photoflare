@@ -9,7 +9,7 @@
 
 #include "textdialog.h"
 #include "ui_textdialog.h"
-//#include "../Settings.h"
+#include "../Settings.h"
 
 textDialog::textDialog(QWidget *parent) :
     QDialog(parent),
@@ -26,8 +26,11 @@ textDialog::textDialog(QWidget *parent) :
     ui->plainTextEdit->setFocus();
     ui->emptyWarning->hide();
 
-    //Read Dialog settings
-    readSettings(this);
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        //Read Dialog settings
+        readSettings(this);
+    }
 
     updateFont();
 }
@@ -190,7 +193,10 @@ void textDialog::on_buttonBoxtextDialog_accepted()
     currentText = ui->plainTextEdit->toPlainText();
     if(currentText.length() > 0)
     {
-        writeSettings(this);
+        if(SETTINGS->getMemParamsEnabled())
+        {
+            writeSettings(this);
+        }
         accept();
     }
     else
