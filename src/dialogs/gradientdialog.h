@@ -41,6 +41,10 @@ private slots:
 
     void on_radioButton_2_toggled(bool checked);
 
+    void writeSettings(QWidget* window);
+
+    void readSettings(QWidget* window);
+
 private:
     Ui::GradientDialog *ui;
     Direction m_direction;

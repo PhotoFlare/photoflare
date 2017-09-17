@@ -6,6 +6,7 @@
 
 #include <QMouseEvent>
 #include <QColorDialog>
+#include <QSettings>
 
 #include "gradientdialog.h"
 #include "ui_gradientdialog.h"
@@ -36,6 +37,8 @@ GradientDialog::GradientDialog(QWidget *parent) :
 
     ui->opacityValue->setText("50%");
     ui->opacityValue_2->setText("50%");
+
+    readSettings(this);
 }
 
 GradientDialog::~GradientDialog()
@@ -82,6 +85,7 @@ void GradientDialog::applyDirection()
 void GradientDialog::on_buttonBox_accepted()
 {
     applyDirection();
+    writeSettings(this);
 }
 
 void GradientDialog::on_startOpacity_valueChanged(int value)
@@ -140,4 +144,34 @@ QColor GradientDialog::stopColor()
 void GradientDialog::on_radioButton_2_toggled(bool checked)
 {
     ui->stopColorGroupBox->setEnabled(!checked);
+}
+
+void GradientDialog::writeSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    settings.setValue("pos", window->pos());
+    settings.setValue("size", window->size());
+    settings.setValue("startcolor", ui->startColorComboBox->palette().color(QPalette::Window).name());
+    settings.setValue("stopcolor", ui->stopColorComboBox->palette().color(QPalette::Window).name());
+    settings.setValue("direction", m_direction);
+    settings.endGroup();
+}
+
+void GradientDialog::readSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    QVariant value = settings.value("pos");
+    if (!value.isNull())
+    {
+        window->move(settings.value("pos").toPoint());
+        window->resize(settings.value("size").toSize());
+        settings.setValue("startcolor", ui->startColorComboBox->palette().color(QPalette::Window).name());
+        settings.setValue("stopcolor", ui->stopColorComboBox->palette().color(QPalette::Window).name());
+
+    }
+    settings.endGroup();
 }
