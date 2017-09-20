@@ -141,6 +141,20 @@ QColor GradientDialog::stopColor()
     }
 }
 
+QColor GradientDialog::startColorName()
+{
+    QImage img = (QImage)ui->startColorComboBox->currentData().value<QImage>();
+    QColor color = img.pixel(0,0);
+    return color.name();
+}
+
+QColor GradientDialog::stopColorName()
+{
+    QImage img = (QImage)ui->stopColorComboBox->currentData().value<QImage>();
+    QColor color = img.pixel(0,0);
+    return color.name();
+}
+
 void GradientDialog::on_radioButton_2_toggled(bool checked)
 {
     ui->stopColorGroupBox->setEnabled(!checked);
@@ -153,9 +167,11 @@ void GradientDialog::writeSettings(QWidget* window)
     settings.beginGroup(window->objectName());
     settings.setValue("pos", window->pos());
     settings.setValue("size", window->size());
-    settings.setValue("startcolor", ui->startColorComboBox->palette().color(QPalette::Window).name());
-    settings.setValue("stopcolor", ui->stopColorComboBox->palette().color(QPalette::Window).name());
+    settings.setValue("startcolor", startColorName());
+    settings.setValue("stopcolor", stopColorName());
     settings.setValue("direction", m_direction);
+    settings.setValue("startopacity", ui->startOpacity->value());
+    settings.setValue("stopopacity", ui->stopOpacity->value());
     settings.endGroup();
 }
 
@@ -169,8 +185,18 @@ void GradientDialog::readSettings(QWidget* window)
     {
         window->move(settings.value("pos").toPoint());
         window->resize(settings.value("size").toSize());
-        settings.setValue("startcolor", ui->startColorComboBox->palette().color(QPalette::Window).name());
-        settings.setValue("stopcolor", ui->stopColorComboBox->palette().color(QPalette::Window).name());
+
+        QPixmap pixmap(QSize(ui->startColorComboBox->width(),ui->startColorComboBox->height()));
+        pixmap.fill(settings.value("startcolor").value<QColor>());
+        ui->startColorComboBox->insertItem(0, QString(), pixmap);
+        ui->startColorComboBox->setCurrentIndex(0);
+        ui->startOpacity->setValue(settings.value("startopacity").toInt());
+
+        QPixmap pixmap2(QSize(ui->stopColorComboBox->width(),ui->stopColorComboBox->height()));
+        pixmap2.fill(settings.value("stopcolor").value<QColor>());
+        ui->stopColorComboBox->insertItem(0, QString(), pixmap2);
+        ui->stopColorComboBox->setCurrentIndex(0);
+        ui->stopOpacity->setValue(settings.value("stopopacity").toInt());
 
     }
     settings.endGroup();

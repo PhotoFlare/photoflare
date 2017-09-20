@@ -41,6 +41,10 @@ private slots:
 
     void on_radioButton_2_toggled(bool checked);
 
+    QColor startColorName();
+
+    QColor stopColorName();
+
     void writeSettings(QWidget* window);
 
     void readSettings(QWidget* window);
