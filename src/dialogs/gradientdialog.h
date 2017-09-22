@@ -45,6 +45,8 @@ private slots:
 
     QColor stopColorName();
 
+    void setDirection(int direction);
+
     void writeSettings(QWidget* window);
 
     void readSettings(QWidget* window);

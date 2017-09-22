@@ -46,6 +46,42 @@ GradientDialog::~GradientDialog()
     delete ui;
 }
 
+void GradientDialog::setDirection(int direction)
+{
+    if(direction == 0)
+    {
+        ui->directionN->setChecked(true);
+    }
+    else if(direction == 1)
+    {
+        ui->directionNE->setChecked(true);
+    }
+    else if(direction == 2)
+    {
+        ui->directionE->setChecked(true);
+    }
+    else if(direction == 3)
+    {
+        ui->directionSE->setChecked(true);
+    }
+    else if(direction == 4)
+    {
+        ui->directionS->setChecked(true);
+    }
+    else if(direction == 5)
+    {
+        ui->directionSW->setChecked(true);
+    }
+    else if(direction == 6)
+    {
+        ui->directionW->setChecked(true);
+    }
+    else if(direction == 7)
+    {
+        ui->directionNW->setChecked(true);
+    }
+}
+
 void GradientDialog::applyDirection()
 {
     if(ui->directionN->isChecked())
@@ -197,6 +233,8 @@ void GradientDialog::readSettings(QWidget* window)
         ui->stopColorComboBox->insertItem(0, QString(), pixmap2);
         ui->stopColorComboBox->setCurrentIndex(0);
         ui->stopOpacity->setValue(settings.value("stopopacity").toInt());
+
+        setDirection(settings.value("direction").toInt());
 
     }
     settings.endGroup();
