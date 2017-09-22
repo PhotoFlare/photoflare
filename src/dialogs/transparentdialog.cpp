@@ -17,6 +17,7 @@ TransparentDialog::TransparentDialog(QWidget *parent) :
     setFixedSize(size());
 
     setColor(Qt::white);
+    readSettings(this);
 }
 
 TransparentDialog::~TransparentDialog()
@@ -84,6 +85,7 @@ void TransparentDialog::readSettings(QWidget* window)
     {
         window->move(settings.value("pos").toPoint());
         window->resize(settings.value("size").toSize());
+        ui->horizontalSlider->setValue(settings.value("tolerance").toInt());
     }
     settings.endGroup();
 }
@@ -95,5 +97,6 @@ void TransparentDialog::writeSettings(QWidget* window)
     settings.beginGroup(window->objectName());
     settings.setValue("pos", window->pos());
     settings.setValue("size", window->size());
+    settings.setValue("tolerance", tolerance());
     settings.endGroup();
 }
