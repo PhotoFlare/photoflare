@@ -5,6 +5,7 @@
 */
 #include <QMouseEvent>
 #include <QColorDialog>
+#include <QSettings>
 
 #include "huedialog.h"
 #include "ui_huedialog.h"

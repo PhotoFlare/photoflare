@@ -41,6 +41,8 @@ private slots:
 
     void on_monochromatic_toggled(bool checked);
 
+    void setComboColor(QComboBox *obj, QColor c);
+
     QColor startColorName();
 
     QColor stopColorName();

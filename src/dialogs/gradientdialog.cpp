@@ -46,6 +46,7 @@ GradientDialog::~GradientDialog()
     delete ui;
 }
 
+// For reading the direction from settings
 void GradientDialog::setDirection(int direction)
 {
     if(direction == 0)
@@ -141,10 +142,7 @@ void GradientDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
         QColor selectedColor = QColorDialog::getColor(Qt::white, this);
         if (selectedColor.isValid())
         {
-            QPixmap pixmap(QSize(obj->width(),obj->height()));
-            pixmap.fill(selectedColor);
-            obj->insertItem(0, QString(), pixmap);
-            obj->setCurrentIndex(0);
+            setComboColor(obj, selectedColor);
         }
         e->ignore();
     }
@@ -152,6 +150,14 @@ void GradientDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
     {
         e->accept();
     }
+}
+
+void GradientDialog::setComboColor(QComboBox *obj, QColor c)
+{
+    QPixmap pixmap(QSize(obj->width(),obj->height()));
+    pixmap.fill(c);
+    obj->insertItem(0, QString(), pixmap);
+    obj->setCurrentIndex(0);
 }
 
 QColor GradientDialog::startColor()
@@ -222,22 +228,12 @@ void GradientDialog::readSettings(QWidget* window)
     {
         window->move(settings.value("pos").toPoint());
         window->resize(settings.value("size").toSize());
-
-        QPixmap pixmap(QSize(ui->startColorComboBox->width(),ui->startColorComboBox->height()));
-        pixmap.fill(settings.value("startcolor").value<QColor>());
-        ui->startColorComboBox->insertItem(0, QString(), pixmap);
-        ui->startColorComboBox->setCurrentIndex(0);
+        setComboColor(ui->startColorComboBox, settings.value("startcolor").value<QColor>());
         ui->startOpacity->setValue(settings.value("startopacity").toInt());
-
-        QPixmap pixmap2(QSize(ui->stopColorComboBox->width(),ui->stopColorComboBox->height()));
-        pixmap2.fill(settings.value("stopcolor").value<QColor>());
-        ui->stopColorComboBox->insertItem(0, QString(), pixmap2);
-        ui->stopColorComboBox->setCurrentIndex(0);
+        setComboColor(ui->stopColorComboBox, settings.value("stopcolor").value<QColor>());
         ui->stopOpacity->setValue(settings.value("stopopacity").toInt());
-
         setDirection(settings.value("direction").toInt());
         ui->monochromatic->setChecked(settings.value("mono").toBool());
-
     }
     settings.endGroup();
 }
