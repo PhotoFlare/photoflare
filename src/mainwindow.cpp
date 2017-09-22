@@ -2076,50 +2076,54 @@ void MainWindow::on_actionGammaCorrectminus_triggered()
 
 void MainWindow::on_actionGradient_triggered()
 {
-    GradientDialog dlg(this);
-    if(dlg.exec())
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
     {
-        PaintWidget *widget = getCurrentPaintWidget();
-        if (widget)
+        GradientDialog dlg(this);
+        if(dlg.exec())
         {
-            QImage image = widget->image();
-            QPoint startPoint;
-            QPoint stopPoint;
-            switch (dlg.direction()) {
-            case N:
-                startPoint.setX(image.width()/2);startPoint.setY(0);
-                stopPoint.setX(image.width()/2);stopPoint.setY(image.height());
-                break;
-            case NE:
-                startPoint.setX(image.width());startPoint.setY(0);
-                stopPoint.setX(0);stopPoint.setY(image.height());
-                break;
-            case E:
-                startPoint.setX(image.width());startPoint.setY(image.height()/2);
-                stopPoint.setX(0);stopPoint.setY(image.height()/2);
-                break;
-            case SE:
-                startPoint.setX(image.width());startPoint.setY(image.height());
-                stopPoint.setX(0);stopPoint.setY(0);
-                break;
-            case S:
-                startPoint.setX(image.width()/2);startPoint.setY(image.height());
-                stopPoint.setX(image.width()/2);stopPoint.setY(0);
-                break;
-            case SW:
-                startPoint.setX(0);startPoint.setY(image.height());
-                stopPoint.setX(image.width());stopPoint.setY(0);
-                break;
-            case W:
-                startPoint.setX(0);startPoint.setY(image.height()/2);
-                stopPoint.setX(image.width());stopPoint.setY(image.height()/2);
-                break;
-            case NW:
-                startPoint.setX(0);startPoint.setY(0);
-                stopPoint.setX(image.width());stopPoint.setY(image.height());
-                break;
+            PaintWidget *widget = getCurrentPaintWidget();
+            if (widget)
+            {
+                QImage image = widget->image();
+                QPoint startPoint;
+                QPoint stopPoint;
+                switch (dlg.direction()) {
+                case N:
+                    startPoint.setX(image.width()/2);startPoint.setY(0);
+                    stopPoint.setX(image.width()/2);stopPoint.setY(image.height());
+                    break;
+                case NE:
+                    startPoint.setX(image.width());startPoint.setY(0);
+                    stopPoint.setX(0);stopPoint.setY(image.height());
+                    break;
+                case E:
+                    startPoint.setX(image.width());startPoint.setY(image.height()/2);
+                    stopPoint.setX(0);stopPoint.setY(image.height()/2);
+                    break;
+                case SE:
+                    startPoint.setX(image.width());startPoint.setY(image.height());
+                    stopPoint.setX(0);stopPoint.setY(0);
+                    break;
+                case S:
+                    startPoint.setX(image.width()/2);startPoint.setY(image.height());
+                    stopPoint.setX(image.width()/2);stopPoint.setY(0);
+                    break;
+                case SW:
+                    startPoint.setX(0);startPoint.setY(image.height());
+                    stopPoint.setX(image.width());stopPoint.setY(0);
+                    break;
+                case W:
+                    startPoint.setX(0);startPoint.setY(image.height()/2);
+                    stopPoint.setX(image.width());stopPoint.setY(image.height()/2);
+                    break;
+                case NW:
+                    startPoint.setX(0);startPoint.setY(0);
+                    stopPoint.setX(image.width());stopPoint.setY(image.height());
+                    break;
+                }
+                widget->setImage(FilterManager::instance()->gradient(image,startPoint,stopPoint,dlg.startColor(),dlg.stopColor()));
             }
-            widget->setImage(FilterManager::instance()->gradient(image,startPoint,stopPoint,dlg.startColor(),dlg.stopColor()));
         }
     }
 }

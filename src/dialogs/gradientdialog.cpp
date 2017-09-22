@@ -208,7 +208,7 @@ void GradientDialog::writeSettings(QWidget* window)
     settings.setValue("direction", m_direction);
     settings.setValue("startopacity", ui->startOpacity->value());
     settings.setValue("stopopacity", ui->stopOpacity->value());
-    settings.setValue("mode", ui->monochromatic->isChecked());
+    settings.setValue("mono", ui->monochromatic->isChecked());
     settings.endGroup();
 }
 
@@ -236,7 +236,7 @@ void GradientDialog::readSettings(QWidget* window)
         ui->stopOpacity->setValue(settings.value("stopopacity").toInt());
 
         setDirection(settings.value("direction").toInt());
-        ui->monochromatic->setChecked(settings.value("mode").toBool());
+        ui->monochromatic->setChecked(settings.value("mono").toBool());
 
     }
     settings.endGroup();
