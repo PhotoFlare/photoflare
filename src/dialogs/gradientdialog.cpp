@@ -191,7 +191,7 @@ QColor GradientDialog::stopColorName()
     return color.name();
 }
 
-void GradientDialog::on_radioButton_2_toggled(bool checked)
+void GradientDialog::on_monochromatic_toggled(bool checked)
 {
     ui->stopColorGroupBox->setEnabled(!checked);
 }
@@ -208,6 +208,7 @@ void GradientDialog::writeSettings(QWidget* window)
     settings.setValue("direction", m_direction);
     settings.setValue("startopacity", ui->startOpacity->value());
     settings.setValue("stopopacity", ui->stopOpacity->value());
+    settings.setValue("mode", ui->monochromatic->isChecked());
     settings.endGroup();
 }
 
@@ -235,6 +236,7 @@ void GradientDialog::readSettings(QWidget* window)
         ui->stopOpacity->setValue(settings.value("stopopacity").toInt());
 
         setDirection(settings.value("direction").toInt());
+        ui->monochromatic->setChecked(settings.value("mode").toBool());
 
     }
     settings.endGroup();

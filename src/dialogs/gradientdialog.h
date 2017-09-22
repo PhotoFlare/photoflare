@@ -39,7 +39,7 @@ private slots:
 
     void on_stopOpacity_valueChanged(int value);
 
-    void on_radioButton_2_toggled(bool checked);
+    void on_monochromatic_toggled(bool checked);
 
     QColor startColorName();
 

@@ -227,7 +227,7 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_2">
+    <widget class="QRadioButton" name="monochromatic">
      <property name="geometry">
       <rect>
        <x>10</x>
