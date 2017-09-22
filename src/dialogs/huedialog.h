@@ -35,6 +35,8 @@ private slots:
     void setColor(const QColor &color, QWidget *colorLabel);
     void showColorDialog(QWidget *colorLabel);
     QColor getColorFromLabel(QWidget *colorLabel) const;
+    void writeSettings(QWidget* window);
+    void readSettings(QWidget* window);
 
 signals:
     void huePreviewChanged(QImage image, bool colorize, QColor color, int degrees);

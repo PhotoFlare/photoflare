@@ -147,6 +147,27 @@ void textDialog::on_checkBoxAntialias_toggled(bool checked)
     antialiasEnabled = true;
 }
 
+void textDialog::on_buttonBoxtextDialog_accepted()
+{
+    currentText = ui->plainTextEdit->toPlainText();
+    if(currentText.length() > 0)
+    {
+        if(SETTINGS->getMemParamsEnabled())
+        {
+            writeSettings(this);
+        }
+        accept();
+    }
+    else
+    {
+        ui->emptyWarning->show();
+    }
+}
+
+void textDialog::on_buttonBoxtextDialog_rejected()
+{
+    close();
+}
 
 void textDialog::readSettings(QWidget* window)
 {
@@ -186,26 +207,4 @@ void textDialog::writeSettings(QWidget* window)
     settings.setValue("fontselected", ui->fontComboBox->currentIndex());
     settings.setValue("fontcolour", ui->textColour->palette().color(QPalette::Window).name());
     settings.endGroup();
-}
-
-void textDialog::on_buttonBoxtextDialog_accepted()
-{
-    currentText = ui->plainTextEdit->toPlainText();
-    if(currentText.length() > 0)
-    {
-        if(SETTINGS->getMemParamsEnabled())
-        {
-            writeSettings(this);
-        }
-        accept();
-    }
-    else
-    {
-        ui->emptyWarning->show();
-    }
-}
-
-void textDialog::on_buttonBoxtextDialog_rejected()
-{
-    close();
 }

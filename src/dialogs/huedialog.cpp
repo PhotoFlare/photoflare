@@ -23,6 +23,8 @@ HueDialog::HueDialog(QWidget *parent, QImage preview) :
 
     ui->colorLabel->installEventFilter(this);
 
+    readSettings(this);
+
     m_preview = preview.scaled(240,180);
     setPreviewImage(m_preview);
 }
@@ -105,6 +107,7 @@ void HueDialog::on_horizontalSlider_valueChanged(int value)
 void HueDialog::setPreviewImage(const QImage& image)
 {
     ui->previewLabel->setPixmap(QPixmap::fromImage(image));
+    writeSettings(this);
 }
 
 void HueDialog::on_method1_toggled(bool checked)
@@ -115,4 +118,35 @@ void HueDialog::on_method1_toggled(bool checked)
 bool HueDialog::isColorizeMethod() const
 {
     return ui->method1->isChecked();
+}
+
+void HueDialog::writeSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    settings.setValue("pos", window->pos());
+    settings.setValue("size", window->size());
+    settings.setValue("color", m_color.name());
+    settings.setValue("degrees", m_degrees);
+    settings.endGroup();
+}
+
+void HueDialog::readSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    QVariant value = settings.value("pos");
+    if (!value.isNull())
+    {
+        window->move(settings.value("pos").toPoint());
+        window->resize(settings.value("size").toSize());
+        setColor(settings.value("color").value<QColor>(), ui->colorLabel);
+
+        int value = settings.value("degrees").toInt();
+        ui->valueLabel->setText(QString::number(value) + "°");
+        ui->horizontalSlider->setValue(value);
+    }
+    settings.endGroup();
 }

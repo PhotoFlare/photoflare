@@ -407,12 +407,13 @@ void PaintWidget::onContentChanged()
 
     historyList.append(d->image);
     historyIndex++;
-
+/*
     if(historyIndex > SETTINGS->getHistoryLimit().toInt())
     {
         historyList.removeFirst();
         historyIndex--;
     }
+*/
 }
 
 void PaintWidget::revert()
