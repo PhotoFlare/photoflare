@@ -35,6 +35,10 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void readSettings(QWidget* window);
+
+    void writeSettings(QWidget* window);
+
 signals:
     void previewTransparent(QColor,int);
     void dialogAccepted();

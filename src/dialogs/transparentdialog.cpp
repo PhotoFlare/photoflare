@@ -4,6 +4,8 @@
 
 */
 
+#include <QSettings>
+
 #include "transparentdialog.h"
 #include "ui_transparentdialog.h"
 
@@ -51,6 +53,7 @@ void TransparentDialog::on_pushButton_clicked()
 
 void TransparentDialog::on_pushButton_2_clicked()
 {
+    writeSettings(this);
     emit dialogAccepted();
     accept();
     emit dialogFinished(0);
@@ -69,4 +72,28 @@ void TransparentDialog::closeEvent (QCloseEvent *event)
     reject();
     emit dialogFinished(0);
     QDialog::closeEvent(event);
+}
+
+void TransparentDialog::readSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    QVariant value = settings.value("pos");
+    if (!value.isNull())
+    {
+        window->move(settings.value("pos").toPoint());
+        window->resize(settings.value("size").toSize());
+    }
+    settings.endGroup();
+}
+
+void TransparentDialog::writeSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    settings.setValue("pos", window->pos());
+    settings.setValue("size", window->size());
+    settings.endGroup();
 }
