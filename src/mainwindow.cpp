@@ -2082,9 +2082,6 @@ void MainWindow::on_actionGradient_triggered()
         GradientDialog dlg(this);
         if(dlg.exec())
         {
-            PaintWidget *widget = getCurrentPaintWidget();
-            if (widget)
-            {
                 QImage image = widget->image();
                 QPoint startPoint;
                 QPoint stopPoint;
@@ -2123,7 +2120,6 @@ void MainWindow::on_actionGradient_triggered()
                     break;
                 }
                 widget->setImage(FilterManager::instance()->gradient(image,startPoint,stopPoint,dlg.startColor(),dlg.stopColor()));
-            }
         }
     }
 }

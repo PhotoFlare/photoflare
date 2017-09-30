@@ -10,6 +10,7 @@
 
 #include "gradientdialog.h"
 #include "ui_gradientdialog.h"
+#include "../Settings.h"
 
 GradientDialog::GradientDialog(QWidget *parent) :
     QDialog(parent),
@@ -38,7 +39,10 @@ GradientDialog::GradientDialog(QWidget *parent) :
     ui->opacityValue->setText("50%");
     ui->opacityValue_2->setText("50%");
 
-    readSettings(this);
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        readSettings(this);
+    }
 }
 
 GradientDialog::~GradientDialog()
@@ -122,7 +126,10 @@ void GradientDialog::applyDirection()
 void GradientDialog::on_buttonBox_accepted()
 {
     applyDirection();
-    writeSettings(this);
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        writeSettings(this);
+    }
 }
 
 void GradientDialog::on_startOpacity_valueChanged(int value)
