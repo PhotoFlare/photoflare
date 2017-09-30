@@ -8,6 +8,7 @@
 
 #include "transparentdialog.h"
 #include "ui_transparentdialog.h"
+#include "../Settings.h"
 
 TransparentDialog::TransparentDialog(QWidget *parent) :
     QDialog(parent),
@@ -17,7 +18,11 @@ TransparentDialog::TransparentDialog(QWidget *parent) :
     setFixedSize(size());
 
     setColor(Qt::white);
-    readSettings(this);
+
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        readSettings(this);
+    }
 }
 
 TransparentDialog::~TransparentDialog()
@@ -54,7 +59,10 @@ void TransparentDialog::on_pushButton_clicked()
 
 void TransparentDialog::on_pushButton_2_clicked()
 {
-    writeSettings(this);
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        writeSettings(this);
+    }
     emit dialogAccepted();
     accept();
     emit dialogFinished(0);

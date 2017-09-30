@@ -9,6 +9,7 @@
 
 #include "huedialog.h"
 #include "ui_huedialog.h"
+#include "../Settings.h"
 
 HueDialog::HueDialog(QWidget *parent, QImage preview) :
     QDialog(parent),
@@ -23,7 +24,10 @@ HueDialog::HueDialog(QWidget *parent, QImage preview) :
 
     ui->colorLabel->installEventFilter(this);
 
-    readSettings(this);
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        readSettings(this);
+    }
 
     m_preview = preview.scaled(240,180);
     setPreviewImage(m_preview);
@@ -107,7 +111,10 @@ void HueDialog::on_horizontalSlider_valueChanged(int value)
 void HueDialog::setPreviewImage(const QImage& image)
 {
     ui->previewLabel->setPixmap(QPixmap::fromImage(image));
-    writeSettings(this);
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        writeSettings(this);
+    }
 }
 
 void HueDialog::on_method1_toggled(bool checked)
