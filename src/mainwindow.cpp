@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>
@@ -20,6 +20,7 @@
 #include <QMimeData>
 #include <QDesktopServices>
 #include <QTimer>
+#include <QStandardPaths>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -2132,28 +2133,17 @@ void MainWindow::on_actionGradient_triggered()
 
 void MainWindow::setDefaultSettings()
 {
-    //qDebug() << SETTINGS->getOpenFolder();
+    QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare";
+    //qDebug() << loc;
 
-    if(SETTINGS->getOpenFolder() == "" && SETTINGS->getPreviouslyOpened() == false)
+    if(QDir(loc).exists())
     {
-        SETTINGS->setPreviouslyOpened(true);
-    }
-
-    else if(SETTINGS->getSaveFolder() == "" && SETTINGS->getPreviouslyOpenedSave() == false)
-    {
-        SETTINGS->setPreviouslyOpenedSave(true);
-    }
-
-    if(SETTINGS->getCompressionDialogEnabled())
-    {
-        //we have a value so do nothing
+        //qDebug() << "Exists";
     }
     else
     {
-        SETTINGS->setCompressionDialogEnabled("true");
-        SETTINGS->setCompressionDefaultValue("90");
+        SETTINGS->setDefaultSettings();
     }
-
 }
 
 bool MainWindow::eventFilter(QObject * obj, QEvent * e)

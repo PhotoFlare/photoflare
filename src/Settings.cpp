@@ -84,6 +84,25 @@ Settings *Settings::instance()
     return m_instance;
 }
 
+void Settings::setDefaultSettings()
+{
+    d->setValue("MaximizeOnStartup", false);
+    d->setValue("OpenFolder", "");
+    d->setValue("RecentFiles", "");
+    d->setValue("SaveFolder", "");
+    d->setValue("SaveFormat", "");
+    d->setValue("UserLanguage", "en");
+    d->setValue("compressionDefaultEnabled", false);
+    d->setValue("compressionDefaultValue", 90);
+    d->setValue("compressionDialogEnabled", true);
+    d->setValue("dockLayout", "Right");
+    d->setValue("historyLimit", 24);
+    d->setValue("memorizeParamsEnabled", true);
+    d->setValue("prevOpened", false);
+    d->setValue("prevOpenedSave", false);
+    d->setValue("saveFormatEnabled", false);
+}
+
 void Settings::setMaximizeWindow(bool maximize)
 {
     d->maximizeWindow = maximize;

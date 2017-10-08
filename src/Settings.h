@@ -19,6 +19,7 @@ class Settings : public QObject
 public:
     ~Settings();
     static Settings* instance();
+    void setDefaultSettings();
     void setMaximizeWindow(bool maximize);
     bool isMaximizeWindow() const;
     void setMultiWindowMode(bool multiWindowMode);
