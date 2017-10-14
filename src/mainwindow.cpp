@@ -97,6 +97,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Setup default settings
+    setDefaultSettings();
+
     if(SETTINGS->isMultiWindowMode())
     {
         ui->mdiArea->setViewMode(QMdiArea::SubWindowView);
@@ -222,7 +225,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // Setup some other defaults on startup
     setWindowSize();
     updateRecents();
-    setDefaultSettings();
 
     // Initialize ScanManager for scanning images
     m_scanManager = new ScanManager();

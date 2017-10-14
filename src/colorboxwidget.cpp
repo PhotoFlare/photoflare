@@ -10,6 +10,8 @@
 #include "colorboxwidget.h"
 #include "ui_ColorBoxWidget.h"
 
+#include "dialogs/colourmanagerdialog.h"
+
 ColorBoxWidget::ColorBoxWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ColorBoxWidget)
@@ -157,4 +159,10 @@ void ColorBoxWidget::on_prevPage_clicked()
 void ColorBoxWidget::on_nextPage_clicked()
 {
     ui->stackedWidget->setCurrentIndex((ui->stackedWidget->currentIndex() + 1) % 3);
+}
+
+void ColorBoxWidget::on_colourManageButton_clicked()
+{
+    colourManagerDialog cmd;
+    cmd.exec();
 }

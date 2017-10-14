@@ -40,6 +40,8 @@ private slots:
 
     void on_nextPage_clicked();
 
+    void on_colourManageButton_clicked();
+
 private:
     void showColorDialog(QWidget *colorLabel);
     void setColor(const QColor &color, QWidget *colorLabel);
