@@ -18,9 +18,7 @@ checkupdateDialog::checkupdateDialog(QWidget *parent) :
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(replyFinished(QNetworkReply*)));
 
-    QString data = "";
-
-    manager->get(QNetworkRequest(QUrl("http://photoflare.io/version/stable.json")));
+    manager->get(QNetworkRequest(QUrl("https://raw.githubusercontent.com/PhotoFlare/photoflare/master/versions/dev.json")));
 }
 
 checkupdateDialog::~checkupdateDialog()
@@ -33,6 +31,7 @@ checkupdateDialog::~checkupdateDialog()
 void checkupdateDialog::replyFinished(QNetworkReply* reply)
 {
     qDebug() << reply->readAll();
+    qDebug() << qApp->applicationVersion();
 
     emit finished();
 }
