@@ -2,6 +2,7 @@
 #define CHECKUPDATEDIALOG_H
 
 #include <QDialog>
+#include <QNetworkReply>
 
 namespace Ui {
 class checkupdateDialog;
@@ -14,6 +15,12 @@ class checkupdateDialog : public QDialog
 public:
     explicit checkupdateDialog(QWidget *parent = 0);
     ~checkupdateDialog();
+
+public slots:
+    void replyFinished(QNetworkReply *reply);
+
+signals:
+    void finished();
 
 private:
     Ui::checkupdateDialog *ui;
