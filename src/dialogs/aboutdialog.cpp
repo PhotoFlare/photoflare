@@ -34,6 +34,10 @@ aboutDialog::aboutDialog(QWidget *parent) :
                                     "<br>Alexandre Kharlamov - Code"
                                     "<br>Michael Sheppard - Code"
                                     "<br>Helene Levernieux - Project Icon"
+                                    "<br><br><b>Translators</b>"
+                                    "<br>FR - Ludovic"
+                                    "<br>NL - Freek"
+                                    "<br>DE - Freacore"
                                     "<br><br><b>Special thanks"
                                     "</b><br>I would like to thank Samantha for being an absolute gem of a person. You light up my life and I'm so glad to have found you."));
 
