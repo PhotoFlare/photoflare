@@ -22,6 +22,9 @@ public slots:
 signals:
     void finished();
 
+private slots:
+    void on_closeButton_clicked();
+
 private:
     Ui::checkupdateDialog *ui;
 };

@@ -26,12 +26,15 @@ checkupdateDialog::~checkupdateDialog()
     delete ui;
 }
 
-
-
 void checkupdateDialog::replyFinished(QNetworkReply* reply)
 {
     qDebug() << reply->readAll();
     qDebug() << qApp->applicationVersion();
 
     emit finished();
+}
+
+void checkupdateDialog::on_closeButton_clicked()
+{
+    close();
 }
