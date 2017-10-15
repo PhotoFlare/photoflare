@@ -368,6 +368,7 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="separator"/>
+    <addaction name="actionCheck_for_updates"/>
     <addaction name="actionDonate"/>
     <addaction name="actionAbout"/>
    </widget>
@@ -2015,6 +2016,11 @@ QToolButton:checked {
   <action name="actionPlugins">
    <property name="text">
     <string>Plugins</string>
+   </property>
+  </action>
+  <action name="actionCheck_for_updates">
+   <property name="text">
+    <string>Check for updates...</string>
    </property>
   </action>
  </widget>

@@ -12,3 +12,13 @@ colourManagerDialog::~colourManagerDialog()
 {
     delete ui;
 }
+
+void colourManagerDialog::on_addButton_clicked()
+{
+
+}
+
+void colourManagerDialog::on_removeButton_clicked()
+{
+
+}

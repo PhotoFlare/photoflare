@@ -200,6 +200,8 @@ private slots:
 
     void on_actionPlugins_triggered();
 
+    void on_actionCheck_for_updates_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

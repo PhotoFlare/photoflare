@@ -67,6 +67,7 @@
 #include "dialogs/compressiondialog.h"
 #include "dialogs/transparentdialog.h"
 #include "dialogs/plugindialog.h"
+#include "dialogs/checkupdatedialog.h"
 
 #include "BatchProcessWorker.h"
 #include "batchprogress.h"
@@ -1386,6 +1387,12 @@ void MainWindow::on_actionPlugins_triggered()
 
 */
 
+void MainWindow::on_actionCheck_for_updates_triggered()
+{
+    checkupdateDialog cud;
+    cud.exec();
+}
+
 void MainWindow::on_actionDonate_triggered()
 {
     QString link = "http://photoflare.io/donate/";
@@ -2338,9 +2345,3 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionValidate->setEnabled(false);
     }
 }
-
-
-
-
-
-

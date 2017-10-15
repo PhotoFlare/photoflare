@@ -87,7 +87,8 @@ SOURCES += src/main.cpp \
     src/toolSettings/erasersettingswidget.cpp \
     src/tools/SmudgeTool.cpp \
     src/toolSettings/SmudgeSettingsWidget.cpp \
-    src/dialogs/colourmanagerdialog.cpp
+    src/dialogs/colourmanagerdialog.cpp \
+    src/dialogs/checkupdatedialog.cpp
 
 HEADERS += src/mainwindow.h \
     src/dialogs/aboutdialog.h \
@@ -139,7 +140,8 @@ HEADERS += src/mainwindow.h \
     src/toolSettings/erasersettingswidget.h \
     src/tools/SmudgeTool.h \
     src/toolSettings/SmudgeSettingsWidget.h \
-    src/dialogs/colourmanagerdialog.h
+    src/dialogs/colourmanagerdialog.h \
+    src/dialogs/checkupdatedialog.h
 
 FORMS += src/mainwindow.ui \
     src/dialogs/aboutdialog.ui \
@@ -169,7 +171,8 @@ FORMS += src/mainwindow.ui \
     src/toolSettings/BlurSettingsWidget.ui \ 
     src/toolSettings/erasersettingswidget.ui \
     src/toolSettings/smudgesettingswidget.ui \
-    src/dialogs/colourmanagerdialog.ui
+    src/dialogs/colourmanagerdialog.ui \
+    src/dialogs/checkupdatedialog.ui
 
 RESOURCES += \
     Icons.qrc
