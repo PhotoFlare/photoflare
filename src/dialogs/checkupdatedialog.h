@@ -25,6 +25,8 @@ signals:
 private slots:
     void on_closeButton_clicked();
 
+    void on_downloadButton_clicked();
+
 private:
     Ui::checkupdateDialog *ui;
 };

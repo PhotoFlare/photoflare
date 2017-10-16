@@ -11,6 +11,7 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QVersionNumber>
+#include <QDesktopServices>
 
 #include "checkupdatedialog.h"
 #include "ui_checkupdatedialog.h"
@@ -20,6 +21,7 @@ checkupdateDialog::checkupdateDialog(QWidget *parent) :
     ui(new Ui::checkupdateDialog)
 {
     ui->setupUi(this);
+    ui->downloadButton->setVisible(false);
 
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),
@@ -46,6 +48,7 @@ void checkupdateDialog::replyFinished(QNetworkReply* reply)
     if(result)
     {
         ui->label->setText(tr("New version available"));
+        ui->downloadButton->setVisible(true);
     }
     else
     {
@@ -58,4 +61,10 @@ void checkupdateDialog::replyFinished(QNetworkReply* reply)
 void checkupdateDialog::on_closeButton_clicked()
 {
     close();
+}
+
+void checkupdateDialog::on_downloadButton_clicked()
+{
+    QString link = "http://photoflare.io/downloads/";
+    QDesktopServices::openUrl(QUrl(link));
 }

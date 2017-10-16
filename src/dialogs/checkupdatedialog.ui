@@ -42,6 +42,19 @@
     <string>Checking for updates...</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="downloadButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Download</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
