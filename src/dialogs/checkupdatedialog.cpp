@@ -1,9 +1,16 @@
-#include <QDebug>
+/*
+
+  Dialog for checking version updates.
+
+*/
+
+//#include <QDebug>
 
 #include <QNetworkAccessManager>
 #include <QUrl>
 #include <QNetworkRequest>
 #include <QNetworkReply>
+#include <QVersionNumber>
 
 #include "checkupdatedialog.h"
 #include "ui_checkupdatedialog.h"
@@ -28,8 +35,22 @@ checkupdateDialog::~checkupdateDialog()
 
 void checkupdateDialog::replyFinished(QNetworkReply* reply)
 {
-    qDebug() << reply->readAll();
-    qDebug() << qApp->applicationVersion();
+    QByteArray data = reply->readAll();
+    QString currentversion = QString::fromUtf8(data);
+
+    QVersionNumber ver1 = QVersionNumber::fromString(currentversion);
+    QVersionNumber ver2 = QVersionNumber::fromString(qApp->applicationVersion());
+
+    bool result = QVersionNumber::compare(ver1,ver2);
+
+    if(result)
+    {
+        ui->label->setText(tr("New version available"));
+    }
+    else
+    {
+        ui->label->setText(tr("No updates available"));
+    }
 
     emit finished();
 }

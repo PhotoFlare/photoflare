@@ -5,7 +5,7 @@
 */
 
 //#include <QDebug>
-//#include <cmath>
+
 #include <QTabWidget>
 #include <QWidget>
 #include <QImage>

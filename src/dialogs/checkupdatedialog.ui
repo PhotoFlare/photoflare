@@ -34,12 +34,12 @@
     <rect>
      <x>30</x>
      <y>20</y>
-     <width>151</width>
+     <width>181</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>No update available.</string>
+    <string>Checking for updates...</string>
    </property>
   </widget>
  </widget>
