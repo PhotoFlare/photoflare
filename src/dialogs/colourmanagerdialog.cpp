@@ -27,19 +27,35 @@ colourManagerDialog::~colourManagerDialog()
 
 void colourManagerDialog::on_addButton_clicked()
 {
-    QLabel *label = new QLabel();
-    label->setAutoFillBackground(true);
+    QLabel *text = new QLabel();
+    text->setText("NewPalette");
+    text->setFixedSize(80,26);
 
-    QPalette palette = label->palette();
-    palette.setColor(label->backgroundRole(), Qt::black);
-    palette.setColor(label->foregroundRole(), Qt::yellow);
-    label->setPalette(palette);
+    QLabel *label1 = new QLabel();
+    label1->setStyleSheet("background: black;");
+    label1->setFixedSize(26,26);
+
+    QLabel *label2 = new QLabel();
+    label2->setStyleSheet("background: red;");
+    label2->setFixedSize(26,26);
+
+    QLabel *label3 = new QLabel();
+    label3->setStyleSheet("background: blue;");
+    label3->setFixedSize(26,26);
+
+    QPushButton *button = new QPushButton();
+    button->setFixedSize(26,26);
+    button->setIcon(QIcon::fromTheme("add"));
 
     QListWidgetItem *item = new QListWidgetItem();
-    item->setSizeHint(QSize(0, 30));
+    item->setSizeHint(QSize(0, 50));
 
     QHBoxLayout *layout = new QHBoxLayout();
-    layout->addWidget(label);
+    layout->addWidget(text);
+    layout->addWidget(label1);
+    layout->addWidget(label2);
+    layout->addWidget(label3);
+    layout->addWidget(button);
 
     QWidget *widget = new QWidget();
     widget->setLayout(layout);
@@ -50,5 +66,5 @@ void colourManagerDialog::on_addButton_clicked()
 
 void colourManagerDialog::on_removeButton_clicked()
 {
-
+    qDeleteAll(ui->listWidget->selectedItems());
 }

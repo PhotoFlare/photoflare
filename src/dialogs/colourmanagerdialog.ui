@@ -6,20 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>384</width>
-    <height>356</height>
+    <width>761</width>
+    <height>382</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Colour palettes</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>50</y>
-     <width>361</width>
-     <height>261</height>
+     <width>741</width>
+     <height>291</height>
     </rect>
    </property>
   </widget>
@@ -60,8 +63,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>320</y>
+     <x>660</x>
+     <y>350</y>
      <width>89</width>
      <height>25</height>
     </rect>
