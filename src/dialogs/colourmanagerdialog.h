@@ -20,6 +20,10 @@ private slots:
 
     void on_removeButton_clicked();
 
+    QColor getColorFromLabel(QWidget *colorLabel) const;
+
+    void addColourToPalette();
+
 private:
     Ui::colourManagerDialog *ui;
 };

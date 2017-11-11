@@ -9,6 +9,7 @@
 #include <QBoxLayout>
 #include <QLabel>
 #include <QWidget>
+#include <QColorDialog>
 
 #include "colourmanagerdialog.h"
 #include "ui_colourmanagerdialog.h"
@@ -23,6 +24,20 @@ colourManagerDialog::colourManagerDialog(QWidget *parent) :
 colourManagerDialog::~colourManagerDialog()
 {
     delete ui;
+}
+
+QColor colourManagerDialog::getColorFromLabel(QWidget *colorLabel) const
+{
+    return colorLabel->palette().color(colorLabel->backgroundRole());
+}
+
+void colourManagerDialog::addColourToPalette()
+{
+    QColor selectedColor = QColorDialog::getColor(Qt::black, this);
+    if (selectedColor.isValid())
+    {
+
+    }
 }
 
 void colourManagerDialog::on_addButton_clicked()
@@ -46,6 +61,7 @@ void colourManagerDialog::on_addButton_clicked()
     QPushButton *button = new QPushButton();
     button->setFixedSize(26,26);
     button->setIcon(QIcon::fromTheme("add"));
+    connect(button, SIGNAL (released()),this, SLOT (addColourToPalette()));
 
     QListWidgetItem *item = new QListWidgetItem();
     item->setSizeHint(QSize(0, 50));

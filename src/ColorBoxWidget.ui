@@ -19381,7 +19381,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/index.png</normaloff>:/icons/icons/index.png</iconset>
+     <normaloff>:/icons/icons/palettemanager.png</normaloff>:/icons/icons/palettemanager.png</iconset>
    </property>
   </widget>
  </widget>
