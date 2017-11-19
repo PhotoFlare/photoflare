@@ -827,13 +827,17 @@ void MainWindow::on_actionAutomatic_Crop_triggered()
 
 void MainWindow::on_actionOutside_frame_triggered()
 {
-    OuterFrameDialog dialog(this);
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        OuterFrameDialog dialog(this);
 
-    if (dialog.exec() == QDialog::Accepted) {
-        PaintWidget *widget = getCurrentPaintWidget();
-        if (widget)
-            widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),dialog.width(),dialog.color()));
+        if (dialog.exec() == QDialog::Accepted) {
+            PaintWidget *widget = getCurrentPaintWidget();
+            if (widget)
+                widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),dialog.width(),dialog.color()));
 
+        }
     }
 }
 
@@ -897,19 +901,23 @@ void MainWindow::on_TextTool_finished()
 
 void MainWindow::on_actionText_triggered()
 {
-    textDialog dialog(this);
-    if(dialog.exec())
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
     {
-        // Set the previous tool so we can revert back to it after text placement
-        m_previousToolSelected = m_toolSelected;
-
-        clearToolpalette();
-        m_toolSelected = "text";
-        PaintWidget *widget = getCurrentPaintWidget();
-        if (widget)
+        textDialog dialog(this);
+        if(dialog.exec())
         {
-            widget->setPaintTool(TEXT_TOOL);
-            TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias());
+            // Set the previous tool so we can revert back to it after text placement
+            m_previousToolSelected = m_toolSelected;
+
+            clearToolpalette();
+            m_toolSelected = "text";
+            PaintWidget *widget = getCurrentPaintWidget();
+            if (widget)
+            {
+                widget->setPaintTool(TEXT_TOOL);
+                TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias());
+            }
         }
     }
 }
