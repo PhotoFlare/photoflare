@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>374</width>
+    <width>372</width>
     <height>136</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Outside Frame</string>
+   <string>Outside frame</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
@@ -55,7 +55,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>90</x>
      <y>20</y>
      <width>61</width>
      <height>16</height>
@@ -68,7 +68,7 @@
   <widget class="BrushTypeComboBox" name="colorComboBox" native="true">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>90</x>
      <y>40</y>
      <width>120</width>
      <height>24</height>
@@ -80,7 +80,7 @@
   <customwidget>
    <class>BrushTypeComboBox</class>
    <extends>QWidget</extends>
-   <header>brushtypecombobox.h</header>
+   <header location="global">brushtypecombobox.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

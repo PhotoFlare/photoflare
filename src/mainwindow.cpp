@@ -63,6 +63,7 @@
 #include "dialogs/ScanDevicesDialog.h"
 #include "dialogs/imagepropertiesdialog.h"
 #include "dialogs/outerframedialog.h"
+#include "dialogs/dropshadowdialog.h"
 #include "dialogs/huedialog.h"
 #include "dialogs/compressiondialog.h"
 #include "dialogs/transparentdialog.h"
@@ -845,7 +846,11 @@ void MainWindow::on_actionOutside_drop_shadow_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("dropShadow");
+    {
+        dropshadowDialog dialog(this);
+        dialog.exec();
+    }
+    //applyThreadedFilter("dropShadow");
 }
 
 void MainWindow::on_actionTransparent_colour_triggered()

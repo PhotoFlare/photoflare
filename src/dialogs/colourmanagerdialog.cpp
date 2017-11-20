@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QBoxLayout>
 #include <QLabel>
@@ -33,10 +33,17 @@ QColor colourManagerDialog::getColorFromLabel(QWidget *colorLabel) const
 
 void colourManagerDialog::addColourToPalette()
 {
+qCritical() << "test";
     QColor selectedColor = QColorDialog::getColor(Qt::black, this);
     if (selectedColor.isValid())
     {
+        QObject *senderObj = sender();
+        QString senderObjName = senderObj->objectName();
 
+        if(senderObjName == "A")
+        {
+            qCritical() << "yay";
+        }
     }
 }
 
@@ -61,7 +68,8 @@ void colourManagerDialog::on_addButton_clicked()
     QPushButton *button = new QPushButton();
     button->setFixedSize(26,26);
     button->setIcon(QIcon::fromTheme("add"));
-    connect(button, SIGNAL (released()),this, SLOT (addColourToPalette()));
+    button->setObjectName("A");
+    connect(button, SIGNAL (clicked()),this, SLOT (addColourToPalette()));
 
     QListWidgetItem *item = new QListWidgetItem();
     item->setSizeHint(QSize(0, 50));
