@@ -41,7 +41,6 @@ LineTool::LineTool(QObject *parent)
     : Tool(parent)
     , d(new LineToolPrivate)
 {
-
 }
 
 LineTool::~LineTool()
@@ -203,19 +202,15 @@ QCursor LineTool::getCursor()
     return QCursor(pixmap);
 }
 
-
 void LineTool::onMouseMove(const QPoint &pos)
 {
     d->secondPos = pos;
 
     if (m_paintDevice) {
         const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
-        QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
+        QImage surface = *image;
         QPainter painter(&surface);
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        //painter.fillRect(surface.rect(), Qt::transparent);
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
-        //painter.setPen(pen);
 
         QBrush brush = QBrush(pen.color(), Qt::SolidPattern);
         painter.setBrush(brush);
@@ -224,8 +219,8 @@ void LineTool::onMouseMove(const QPoint &pos)
         pen.setStyle(Qt::SolidLine);
         painter.setPen(pen);
 
-       QPoint firstPos = d->firstPos;
-       QPoint secondPos = d->secondPos;
+        QPoint firstPos = d->firstPos;
+        QPoint secondPos = d->secondPos;
         if(d->oneWayArrow)
             drawArrow(painter, d->firstPos, d->secondPos, secondPos);
 
@@ -239,10 +234,7 @@ void LineTool::onMouseMove(const QPoint &pos)
         painter.setPen(pen);
 
         painter.drawLine(firstPos, secondPos);
-
-        painter.end();
-
-        //emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
+        emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
     }
 }
 
@@ -284,13 +276,8 @@ void LineTool::onMouseRelease(const QPoint &pos)
 
         painter.drawLine(firstPos, secondPos);
 
-        painter.end();
-
         emit painted(m_paintDevice);
     }
 
     d->mouseButton = Qt::NoButton;
 }
-
-
-
