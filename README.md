@@ -20,9 +20,9 @@ Compile using either by opening the .pro file with Qt Creator or use qmake passi
 ## Translations
 Languages currently available:
 
-English
-French
-Dutsch
-German
+- English
+- French
+- Dutsch
+- German
 
 If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="http://photoflare.io/contributing/translations/">available here</a>
