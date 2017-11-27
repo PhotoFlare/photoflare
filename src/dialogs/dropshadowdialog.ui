@@ -68,7 +68,7 @@
     <string>Colour</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox">
+  <widget class="QSpinBox" name="radiusValue">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -78,7 +78,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox_2">
+  <widget class="QSpinBox" name="offsetValue">
    <property name="geometry">
     <rect>
      <x>120</x>

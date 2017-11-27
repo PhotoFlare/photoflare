@@ -169,14 +169,15 @@ QImage FilterManager::setOpacity(const QImage &image)
     return modifiedImage;
 }
 
-QImage FilterManager::dropShadow(const QImage &image)
+QImage FilterManager::dropShadow(const QImage &image, int radius, int offset, QColor color)
 {
     QGraphicsDropShadowEffect *e = new QGraphicsDropShadowEffect;
-    e->setColor(QColor(40,40,40,245));
+    //e->setColor(QColor(40,40,40,245));
+    e->setColor(color);
     e->setOffset(0,10);
-    e->setBlurRadius(50);
+    e->setBlurRadius(radius);
 
-    QImage modifiedImage = applyEffectToImage(image, e, 40);
+    QImage modifiedImage = applyEffectToImage(image, e, offset);
 
     return modifiedImage;
 }

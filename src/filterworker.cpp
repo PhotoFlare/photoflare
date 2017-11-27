@@ -77,7 +77,7 @@ void FilterWorker::process()
     }
     else if(currentFilter == "dropShadow")
     {
-        newImage = FilterManager::instance()->dropShadow(currentImage);
+        newImage = FilterManager::instance()->dropShadow(currentImage, 5, 40, Qt::black);
     }
     else if(currentFilter == "autoLevels")
     {

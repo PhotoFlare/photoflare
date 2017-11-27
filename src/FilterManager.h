@@ -80,7 +80,7 @@ public:
     QImage negative(const QImage &image);
 
     // Qt GraphicsEffect methods
-    QImage dropShadow(const QImage &image);
+    QImage dropShadow(const QImage &image, int radius, int offset, QColor color);
     QImage setOpacity(const QImage &image);
     QImage blurImage(const QImage &image, int radius);
     QImage colorize(const QImage &image, QColor color, double str,bool useContrast);

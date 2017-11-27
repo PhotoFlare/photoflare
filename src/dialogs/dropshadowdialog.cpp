@@ -43,3 +43,19 @@ void dropshadowDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
         e->accept();
     }
 }
+
+QColor dropshadowDialog::color() const
+{
+    QImage img = (QImage)ui->colorComboBox->currentData().value<QImage>();
+    return img.pixel(0,0);
+}
+
+int dropshadowDialog::radius() const
+{
+    return ui->radiusValue->value();
+}
+
+int dropshadowDialog::offset() const
+{
+    return ui->offsetValue->value();
+}

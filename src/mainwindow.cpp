@@ -832,12 +832,9 @@ void MainWindow::on_actionOutside_frame_triggered()
     if (widget)
     {
         OuterFrameDialog dialog(this);
-
-        if (dialog.exec() == QDialog::Accepted) {
-            PaintWidget *widget = getCurrentPaintWidget();
-            if (widget)
-                widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),dialog.width(),dialog.color()));
-
+        if (dialog.exec() == QDialog::Accepted)
+        {
+            widget->setImage(FilterManager::instance()->outsideFrame(widget->image(),dialog.width(),dialog.color()));
         }
     }
 }
@@ -848,7 +845,10 @@ void MainWindow::on_actionOutside_drop_shadow_triggered()
     if (widget)
     {
         dropshadowDialog dialog(this);
-        dialog.exec();
+        if (dialog.exec() == QDialog::Accepted)
+        {
+            widget->setImage(FilterManager::instance()->dropShadow(widget->image(),dialog.radius(),dialog.offset(),dialog.color()));
+        }
     }
     //applyThreadedFilter("dropShadow");
 }
