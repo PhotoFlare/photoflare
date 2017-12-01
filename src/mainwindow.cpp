@@ -850,7 +850,6 @@ void MainWindow::on_actionOutside_drop_shadow_triggered()
             widget->setImage(FilterManager::instance()->dropShadow(widget->image(),dialog.radius(),dialog.offset(),dialog.color()));
         }
     }
-    //applyThreadedFilter("dropShadow");
 }
 
 void MainWindow::on_actionTransparent_colour_triggered()
