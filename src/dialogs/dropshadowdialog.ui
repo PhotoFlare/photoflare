@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>135</height>
+    <height>197</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>90</y>
+     <x>40</x>
+     <y>150</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -34,12 +34,12 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>67</width>
+     <width>81</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Radius</string>
+    <string>Blur radius</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -52,7 +52,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Offset</string>
+    <string>Padding</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -73,12 +73,12 @@
     <rect>
      <x>20</x>
      <y>40</y>
-     <width>48</width>
+     <width>41</width>
      <height>26</height>
     </rect>
    </property>
   </widget>
-  <widget class="QSpinBox" name="offsetValue">
+  <widget class="QSpinBox" name="paddingValue">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -95,6 +95,52 @@
      <y>40</y>
      <width>120</width>
      <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Offset x</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>80</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Offset y</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="offsetxValue">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>48</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="offsetyValue">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>100</y>
+     <width>48</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

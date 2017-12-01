@@ -55,7 +55,17 @@ int dropshadowDialog::radius() const
     return ui->radiusValue->value();
 }
 
-int dropshadowDialog::offset() const
+int dropshadowDialog::padding() const
 {
-    return ui->offsetValue->value();
+    return ui->paddingValue->value();
+}
+
+int dropshadowDialog::offsetx() const
+{
+    return ui->offsetxValue->value();
+}
+
+int dropshadowDialog::offsety() const
+{
+    return ui->offsetyValue->value();
 }

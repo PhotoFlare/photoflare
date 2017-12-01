@@ -121,7 +121,7 @@ void BatchProcessWorker:: process()
             if(filter.contains("Gaussian noise"))
                 image = FilterManager::instance()->gaussianNoise(image);
             if(filter.contains("Drop shadow"))
-                image = FilterManager::instance()->dropShadow(image,5,40,Qt::black);
+                image = FilterManager::instance()->dropShadow(image,5,40,Qt::black,0,10);
             if(filter.contains("Opacity"))
                 image = FilterManager::instance()->setOpacity(image);
         }

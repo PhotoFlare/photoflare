@@ -21,7 +21,9 @@ public:
     void mousePressEvent(QComboBox* obj, QMouseEvent *e);
     QColor color() const;
     int radius() const;
-    int offset() const;
+    int padding() const;
+    int offsetx() const;
+    int offsety() const;
 
 private:
     Ui::dropshadowDialog *ui;
