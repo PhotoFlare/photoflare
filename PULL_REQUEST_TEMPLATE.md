@@ -11,4 +11,4 @@ Tag the issue number that your pull request relates to.
 Provide some information on your test results. Eg. Before and after your fix.
 
 ## Screenshots (if appropriate):
-Only required for fixes or features that invole a visual element.
+Only required for fixes or features that involve a visual element.
