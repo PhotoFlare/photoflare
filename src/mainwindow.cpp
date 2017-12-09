@@ -848,6 +848,7 @@ void MainWindow::on_actionOutside_drop_shadow_triggered()
         if (dialog.exec() == QDialog::Accepted)
         {
             widget->setImage(FilterManager::instance()->dropShadow(widget->image(),dialog.radius(),dialog.padding(),dialog.color(),dialog.offsetx(),dialog.offsety()));
+            dialog.on_buttonBox_accepted();
         }
     }
 }
