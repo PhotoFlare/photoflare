@@ -307,6 +307,11 @@ void PaintWidget::onSelectionChanged(QPolygon poly)
     setSelectionVisible(d->selection.first() != d->selection.last());
 }
 
+void PaintWidget::setImagePath(QString path)
+{
+    d->imagePath = path;
+}
+
 QString PaintWidget::imagePath() const
 {
     return d->imagePath;

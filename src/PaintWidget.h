@@ -36,6 +36,7 @@ public:
     void onCursorChanged(QCursor cursor);
     void onSelectionChanged(QPolygon poly);
 
+    void setImagePath(QString path);
     QString imagePath() const;
 
     void autoScale();
