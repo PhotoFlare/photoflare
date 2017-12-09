@@ -1,7 +1,9 @@
 #include "dropshadowdialog.h"
 #include "ui_dropshadowdialog.h"
+#include "../Settings.h"
 
 #include <QColorDialog>
+#include <QSettings>
 
 dropshadowDialog::dropshadowDialog(QWidget *parent) :
     QDialog(parent),
@@ -17,6 +19,11 @@ dropshadowDialog::dropshadowDialog(QWidget *parent) :
     }
 
     ui->colorComboBox->setOnClickHandler(this);
+
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        readSettings(this);
+    }
 }
 
 dropshadowDialog::~dropshadowDialog()
@@ -68,4 +75,62 @@ int dropshadowDialog::offsetx() const
 int dropshadowDialog::offsety() const
 {
     return ui->offsetyValue->value();
+}
+
+
+QColor dropshadowDialog::colorName()
+{
+    QImage img = (QImage)ui->colorComboBox->currentData().value<QImage>();
+    QColor color = img.pixel(0,0);
+    return color.name();
+}
+
+void dropshadowDialog::setComboColor(QComboBox *obj, QColor c)
+{
+    QPixmap pixmap(QSize(obj->width(),obj->height()));
+    pixmap.fill(c);
+    obj->insertItem(0, QString(), pixmap);
+    obj->setCurrentIndex(0);
+}
+
+void dropshadowDialog::on_buttonBox_accepted()
+{
+    if(SETTINGS->getMemParamsEnabled())
+    {
+        writeSettings(this);
+    }
+}
+
+void dropshadowDialog::writeSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    settings.setValue("pos", window->pos());
+    settings.setValue("size", window->size());
+    settings.setValue("color", colorName());
+    settings.setValue("radius", radius());
+    settings.setValue("padding", padding());
+    settings.setValue("offsetx", offsetx());
+    settings.setValue("offsety", offsety());
+    settings.endGroup();
+}
+
+void dropshadowDialog::readSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    QVariant value = settings.value("pos");
+    if (!value.isNull())
+    {
+        window->move(settings.value("pos").toPoint());
+        window->resize(settings.value("size").toSize());
+        setComboColor(ui->colorComboBox, settings.value("color").value<QColor>());
+        ui->radiusValue->setValue(settings.value("radius").toInt());
+        ui->paddingValue->setValue(settings.value("padding").toInt());
+        ui->offsetxValue->setValue(settings.value("offsetx").toInt());
+        ui->offsetyValue->setValue(settings.value("offsety").toInt());
+    }
+    settings.endGroup();
 }

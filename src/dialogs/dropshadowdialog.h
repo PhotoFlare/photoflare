@@ -28,6 +28,11 @@ public:
 private:
     Ui::dropshadowDialog *ui;
 
+    QColor colorName();
+    void setComboColor(QComboBox *obj, QColor c);
+    void on_buttonBox_accepted();
+    void writeSettings(QWidget* window);
+    void readSettings(QWidget* window);
 };
 
 #endif // DROPSHADOWDIALOG_H
