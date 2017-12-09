@@ -610,11 +610,11 @@ void MainWindow::onScanFnished(int,QProcess::ExitStatus status)
 
 void MainWindow::on_actionImage_properties_triggered()
 {
-    imagePropertiesDialog dialog(this);
-
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
+    imagePropertiesDialog dialog(this);
+
         if(!widget->imagePath().isEmpty())
         {
             QFileInfo fileInfo(widget->imagePath());
@@ -629,8 +629,8 @@ void MainWindow::on_actionImage_properties_triggered()
         int size = widget->image().width() * widget->image().height() * 3;
         dialog.setMemorySize(size);
         dialog.setTotalSize((widget->undoCount()+1)*size);
-    }
     dialog.exec();
+    }
 }
 
 void MainWindow::on_actionQuit_triggered()
