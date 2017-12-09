@@ -35,7 +35,17 @@
     <normaloff>:/pixmaps/pixmaps/logo.png</normaloff>:/pixmaps/pixmaps/logo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QScrollBar:vertical {
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="styleSheet">
+       <string notr="true">QScrollBar:vertical {
     border: 0px solid #c6c6c6;
     background: #eee;
     width: 5px;    
@@ -70,16 +80,6 @@ QScrollBar::sub-line:horizontal {
     subcontrol-position: left;
     subcontrol-origin: margin;
 }</string>
-  </property>
-  <widget class="QWidget" name="centralWidget">
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QMdiArea" name="mdiArea">
-      <property name="styleSheet">
-       <string notr="true"/>
       </property>
       <property name="viewMode">
        <enum>QMdiArea::TabbedView</enum>
