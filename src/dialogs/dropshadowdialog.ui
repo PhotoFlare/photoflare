@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>197</height>
+    <height>195</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -142,6 +142,19 @@
      <width>48</width>
      <height>26</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="defaultsButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>111</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Default values</string>
    </property>
   </widget>
  </widget>

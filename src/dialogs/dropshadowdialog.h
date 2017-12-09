@@ -27,6 +27,9 @@ public:
 
     void on_buttonBox_accepted();
 
+private slots:
+    void on_defaultsButton_clicked();
+
 private:
     Ui::dropshadowDialog *ui;
 

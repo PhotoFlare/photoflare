@@ -134,3 +134,12 @@ void dropshadowDialog::readSettings(QWidget* window)
     }
     settings.endGroup();
 }
+
+void dropshadowDialog::on_defaultsButton_clicked()
+{
+    setComboColor(ui->colorComboBox,Qt::black);
+    ui->radiusValue->setValue(5);
+    ui->paddingValue->setValue(15);
+    ui->offsetxValue->setValue(5);
+    ui->offsetyValue->setValue(5);
+}
