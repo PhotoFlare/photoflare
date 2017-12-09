@@ -64,6 +64,9 @@
         <file>icons/sepia.png</file>
         <file>icons/sel_square_mode.png</file>
         <file>icons/palettemanager.png</file>
+        <file>icons/aligntext_center.png</file>
+        <file>icons/aligntext_left.png</file>
+        <file>icons/aligntext_right.png</file>
     </qresource>
     <qresource prefix="/brushes">
         <file>brushes/circle.png</file>

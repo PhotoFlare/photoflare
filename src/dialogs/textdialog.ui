@@ -152,7 +152,7 @@
     <widget class="QCheckBox" name="checkBoxBold">
      <property name="geometry">
       <rect>
-       <x>440</x>
+       <x>500</x>
        <y>10</y>
        <width>97</width>
        <height>22</height>
@@ -165,8 +165,8 @@
     <widget class="QCheckBox" name="checkBoxItalic">
      <property name="geometry">
       <rect>
-       <x>440</x>
-       <y>40</y>
+       <x>500</x>
+       <y>30</y>
        <width>97</width>
        <height>22</height>
       </rect>
@@ -178,8 +178,8 @@
     <widget class="QCheckBox" name="checkBoxStrike">
      <property name="geometry">
       <rect>
-       <x>540</x>
-       <y>10</y>
+       <x>500</x>
+       <y>50</y>
        <width>97</width>
        <height>22</height>
       </rect>
@@ -191,8 +191,8 @@
     <widget class="QCheckBox" name="checkBoxUnderline">
      <property name="geometry">
       <rect>
-       <x>540</x>
-       <y>40</y>
+       <x>620</x>
+       <y>10</y>
        <width>97</width>
        <height>22</height>
       </rect>
@@ -233,8 +233,8 @@
     <widget class="QCheckBox" name="checkBoxAntialias">
      <property name="geometry">
       <rect>
-       <x>650</x>
-       <y>10</y>
+       <x>620</x>
+       <y>30</y>
        <width>96</width>
        <height>22</height>
       </rect>
@@ -266,6 +266,75 @@
       <string>Enter some text to continue</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="alignleftButton">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>30</y>
+       <width>24</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../../Icons.qrc">
+       <normaloff>:/icons/icons/aligntext_left.png</normaloff>:/icons/icons/aligntext_left.png</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="aligncenterButton">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>30</y>
+       <width>24</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../../Icons.qrc">
+       <normaloff>:/icons/icons/aligntext_center.png</normaloff>:/icons/icons/aligntext_center.png</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="alignRightButton">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>30</y>
+       <width>24</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../../Icons.qrc">
+       <normaloff>:/icons/icons/aligntext_right.png</normaloff>:/icons/icons/aligntext_right.png</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QDialogButtonBox" name="buttonBoxtextDialog">
@@ -282,6 +351,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

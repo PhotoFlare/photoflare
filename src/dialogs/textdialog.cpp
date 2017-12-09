@@ -25,6 +25,7 @@ textDialog::textDialog(QWidget *parent) :
     antialiasEnabled = false;
     ui->plainTextEdit->setFocus();
     ui->emptyWarning->hide();
+    ui->alignleftButton->setChecked(true);
 
     if(SETTINGS->getMemParamsEnabled())
     {
@@ -207,4 +208,19 @@ void textDialog::writeSettings(QWidget* window)
     settings.setValue("fontselected", ui->fontComboBox->currentIndex());
     settings.setValue("fontcolour", ui->textColour->palette().color(QPalette::Window).name());
     settings.endGroup();
+}
+
+void textDialog::on_alignleftButton_clicked()
+{
+
+}
+
+void textDialog::on_aligncenterButton_clicked()
+{
+
+}
+
+void textDialog::on_alignRightButton_clicked()
+{
+
 }

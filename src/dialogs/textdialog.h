@@ -45,6 +45,12 @@ private slots:
     void readSettings(QWidget* window);
     void writeSettings(QWidget* window);
 
+    void on_alignleftButton_clicked();
+
+    void on_aligncenterButton_clicked();
+
+    void on_alignRightButton_clicked();
+
 signals:
     void textAdded(const QString&, const QFont&);
 
