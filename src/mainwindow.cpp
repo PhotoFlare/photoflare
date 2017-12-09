@@ -383,77 +383,103 @@ void MainWindow::updateRecents()
 
 void MainWindow::on_actionSave_triggered()
 {
-    saveContent();
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        saveContent();
+    }
 }
 
 void MainWindow::on_actionSave_As_triggered()
 {
-    // Load default filter by image file name.
-    QString currentFileName;
-    currentFileName = ui->mdiArea->currentSubWindow()->windowTitle();
-
-    QString suffix = QFileInfo(currentFileName).suffix();
-
-    QStringList filters;
-    //filters << tr("All Files (*)");
-    filters << tr("png (*.png)");
-    filters << tr("jpg (*.jpg *.jpeg)");
-    filters << tr("bmp (*.bmp)");
-    filters << tr("pbm (*.pbm)");
-    filters << tr("pgm (*.pgm)");
-    filters << tr("ppm (*.ppm)");
-    filters << tr("ico (*.ico)");
-
-    QString defaultFilter;
-    if (!suffix.isEmpty())
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
     {
-        foreach (const QString &filter, filters) {
-            if (filter.contains(suffix, Qt::CaseInsensitive))
-            {
-                defaultFilter = filter;
-                break;
+        // Load default filter by image file name.
+        QString currentFileName;
+        currentFileName = ui->mdiArea->currentSubWindow()->windowTitle();
+
+        QString suffix = QFileInfo(currentFileName).suffix();
+
+        QStringList filters;
+        //filters << tr("All Files (*)");
+        filters << tr("png (*.png)");
+        filters << tr("jpg (*.jpg *.jpeg)");
+        filters << tr("bmp (*.bmp)");
+        filters << tr("pbm (*.pbm)");
+        filters << tr("pgm (*.pgm)");
+        filters << tr("ppm (*.ppm)");
+        filters << tr("ico (*.ico)");
+
+        QString defaultFilter;
+        if (!suffix.isEmpty())
+        {
+            foreach (const QString &filter, filters) {
+                if (filter.contains(suffix, Qt::CaseInsensitive))
+                {
+                    defaultFilter = filter;
+                    break;
+                }
             }
         }
-    }
-    if (defaultFilter.isEmpty() && SETTINGS->getSaveFormatEnabled())
-        defaultFilter = filters.at(SETTINGS->getSaveFormat().toInt());
+        if (defaultFilter.isEmpty() && SETTINGS->getSaveFormatEnabled())
+            defaultFilter = filters.at(SETTINGS->getSaveFormat().toInt());
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-                                                    SETTINGS->getSaveFolder(), filters.join(";;"), &defaultFilter);
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+                                                        SETTINGS->getSaveFolder(), filters.join(";;"), &defaultFilter);
 
-    if(SETTINGS->getPreviouslyOpenedSave() == true)
-    {
-        QDir d = QFileInfo(fileName).absoluteDir();
-        SETTINGS->setSaveFolder(d.absolutePath());
-    }
+        if(SETTINGS->getPreviouslyOpenedSave() == true)
+        {
+            QDir d = QFileInfo(fileName).absoluteDir();
+            SETTINGS->setSaveFolder(d.absolutePath());
+        }
 
 
-    if (fileName.isEmpty())
-        return;
+        if (fileName.isEmpty())
+            return;
 
-    // WORKAROUND: Add the extension to the file name manually.
-    QString fileNameSuffix = QFileInfo(fileName).suffix();
+        // WORKAROUND: Add the extension to the file name manually.
+        QString fileNameSuffix = QFileInfo(fileName).suffix();
 
-    if (fileNameSuffix.isEmpty())
-    {
-            QStringList list = defaultFilter.split(" (");
-            if (list.count() == 2)
+        if (fileNameSuffix.isEmpty())
+        {
+                QStringList list = defaultFilter.split(" (");
+                if (list.count() == 2)
+                {
+                    fileNameSuffix = list.at(0);
+                    fileName += "." + fileNameSuffix;
+                }
+        }
+
+        int quality = -1;
+
+        if(SETTINGS->getCompressionDialogEnabled() && fileNameSuffix == "jpg" || fileNameSuffix == "jpeg")
+        {
+            CompressionDialog dlg;
+            dlg.exec();
+            quality = dlg.quality();
+
+            //If dialog Accepted
+            if(dlg.enableSaveImage)
             {
-                fileNameSuffix = list.at(0);
-                fileName += "." + fileNameSuffix;
+                if (saveImage(fileName,quality))
+                {
+                    PaintWidget *widget = getCurrentPaintWidget();
+                    if (widget)
+                        widget->setImage(QImage(fileName));
+
+                    ui->mdiArea->currentSubWindow()->setWindowModified(false);
+                    ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
+                    SETTINGS->addRecentFile(fileName);
+                    updateRecents();
+                }
+                else
+                    showError(tr("Unable to save image."));
+
             }
-    }
-
-    int quality = -1;
-
-    if(SETTINGS->getCompressionDialogEnabled() && fileNameSuffix == "jpg" || fileNameSuffix == "jpeg")
-    {
-        CompressionDialog dlg;
-        dlg.exec();
-        quality = dlg.quality();
-
-        //If dialog Accepted
-        if(dlg.enableSaveImage)
+        }
+        //Other file formats
+        else
         {
             if (saveImage(fileName,quality))
             {
@@ -468,25 +494,7 @@ void MainWindow::on_actionSave_As_triggered()
             }
             else
                 showError(tr("Unable to save image."));
-
         }
-    }
-    //Other file formats
-    else
-    {
-        if (saveImage(fileName,quality))
-        {
-            PaintWidget *widget = getCurrentPaintWidget();
-            if (widget)
-                widget->setImage(QImage(fileName));
-
-            ui->mdiArea->currentSubWindow()->setWindowModified(false);
-            ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
-            SETTINGS->addRecentFile(fileName);
-            updateRecents();
-        }
-        else
-            showError(tr("Unable to save image."));
     }
 }
 
@@ -1881,6 +1889,8 @@ void MainWindow::addChildWindow(PaintWidget *widget)
     connect(widget, &PaintWidget::contentChanged, [widget, mdiSubWindow, title, this] () {
         if (!mdiSubWindow->isWindowModified())
             mdiSubWindow->setWindowModified(true);
+
+        ui->actionSave->setEnabled(widget->isUndoEnabled());
 
         ui->actionUndo->setEnabled(widget->isUndoEnabled());
         ui->actionRedo->setEnabled(widget->isRedoEnabled());
