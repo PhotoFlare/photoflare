@@ -25,6 +25,7 @@ public:
     QFont font() {return currentFont;}
     QColor color() {return currentColor;}
     bool antialias() {return antialiasEnabled;}
+    QString position() {return positionFont;}
 
     void editText(const QString &text, const QFont &font, const QColor &color);
 private slots:
@@ -46,10 +47,9 @@ private slots:
     void writeSettings(QWidget* window);
 
     void on_alignleftButton_clicked();
-
     void on_aligncenterButton_clicked();
-
     void on_alignRightButton_clicked();
+    void setFontPosition(QString pos);
 
 signals:
     void textAdded(const QString&, const QFont&);
@@ -61,6 +61,7 @@ private:
     QFont currentFont;
     QColor currentColor;
     bool antialiasEnabled;
+    QString positionFont = "left";
 };
 
 #endif // TEXTDIALOG_H

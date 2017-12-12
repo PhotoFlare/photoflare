@@ -26,6 +26,7 @@ textDialog::textDialog(QWidget *parent) :
     ui->plainTextEdit->setFocus();
     ui->emptyWarning->hide();
     ui->alignleftButton->setChecked(true);
+    positionFont = "left";
 
     if(SETTINGS->getMemParamsEnabled())
     {
@@ -188,6 +189,7 @@ void textDialog::readSettings(QWidget* window)
         ui->fontSizeSpinner->setValue(settings.value("fontsize").toInt());
         ui->fontComboBox->setCurrentIndex(settings.value("fontselected").toInt());
         ui->textColour->setPalette(settings.value("fontcolour").value<QColor>());
+        setFontPosition(settings.value("fontposition").toString());
     }
     settings.endGroup();
 }
@@ -207,20 +209,44 @@ void textDialog::writeSettings(QWidget* window)
     settings.setValue("fontsize", ui->fontSizeSpinner->value());
     settings.setValue("fontselected", ui->fontComboBox->currentIndex());
     settings.setValue("fontcolour", ui->textColour->palette().color(QPalette::Window).name());
+    settings.setValue("fontposition", positionFont);
     settings.endGroup();
 }
 
 void textDialog::on_alignleftButton_clicked()
 {
-
+    positionFont = "left";
+    setFontPosition(positionFont);
 }
 
 void textDialog::on_aligncenterButton_clicked()
 {
-
+    positionFont = "center";
+    setFontPosition(positionFont);
 }
 
 void textDialog::on_alignRightButton_clicked()
 {
+    positionFont = "right";
+    setFontPosition(positionFont);
+}
 
+void textDialog::setFontPosition(QString pos)
+{
+    ui->alignleftButton->setChecked(false);
+    ui->aligncenterButton->setChecked(false);
+    ui->alignRightButton->setChecked(false);
+
+    if(pos == "left")
+    {
+        ui->alignleftButton->setChecked(true);
+    }
+    else if(pos == "center")
+    {
+       ui->aligncenterButton->setChecked(true);
+    }
+    else if(pos == "right")
+    {
+        ui->alignRightButton->setChecked(true);
+    }
 }

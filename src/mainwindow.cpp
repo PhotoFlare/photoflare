@@ -941,7 +941,7 @@ void MainWindow::on_actionText_triggered()
             if (widget)
             {
                 widget->setPaintTool(TEXT_TOOL);
-                TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias());
+                TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias(), dialog.position());
             }
         }
     }
@@ -952,7 +952,7 @@ void MainWindow::onEditText(const QString& text,const QFont& font, const QColor&
     textDialog dialog(this);
     dialog.editText(text, font, color);
     if(dialog.exec())
-        TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias());
+        TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias(), dialog.position());
 }
 
 /*

@@ -28,6 +28,7 @@ public:
     QFont font;
     QColor color;
     bool antialiasEnabled;
+    QString position;
     bool previewMode;
 };
 
@@ -43,15 +44,30 @@ TextTool::~TextTool()
     delete d;
 }
 
-void TextTool::setText(const QString &text, const QFont &font, const QColor &color, const bool &antialiasEnabled)
+void TextTool::setText(const QString &text, const QFont &font, const QColor &color, const bool &antialiasEnabled, const QString &position)
 {
+    const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
     d->text = text;
     d->font = font;
     d->color = color;
     d->antialiasEnabled = antialiasEnabled;
+    d->position = position;
 
     QFontMetrics fontMetrics(font);
     d->textRect = fontMetrics.boundingRect(d->textRect ,Qt::TextSingleLine, text);
+
+    if(d->position == "left")
+    {
+        d->textRect.moveTo(QPoint(0,image->height()/2));
+    }
+    else if(d->position == "center")
+    {
+        d->textRect.moveCenter(QPoint(image->width()/2,image->height()/2));
+    }
+    else if(d->position == "right")
+    {
+        d->textRect.moveCenter(QPoint(image->width(),image->height()/2));
+    }
 
     d->previewMode = true;
     previewText();
@@ -62,6 +78,7 @@ void TextTool::previewText()
     if (m_paintDevice) {
         const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
         QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
+
         QPainter painter(&surface);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
         painter.fillRect(surface.rect(), Qt::transparent);

@@ -12,7 +12,7 @@ public:
     TextTool(QObject *parent = 0);
     ~TextTool();
 
-    void setText(const QString &text, const QFont &font, const QColor&, const bool &antialiasEnabled);
+    void setText(const QString &text, const QFont &font, const QColor&, const bool &antialiasEnabled, const QString &position);
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
