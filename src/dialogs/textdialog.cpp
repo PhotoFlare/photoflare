@@ -26,7 +26,7 @@ textDialog::textDialog(QWidget *parent) :
     ui->plainTextEdit->setFocus();
     ui->emptyWarning->hide();
     ui->alignleftButton->setChecked(true);
-    positionFont = "left";
+    positionFont;
 
     if(SETTINGS->getMemParamsEnabled())
     {

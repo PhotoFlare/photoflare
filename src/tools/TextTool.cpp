@@ -66,7 +66,7 @@ void TextTool::setText(const QString &text, const QFont &font, const QColor &col
     }
     else if(d->position == "right")
     {
-        d->textRect.moveCenter(QPoint(image->width(),image->height()/2));
+        d->textRect.moveCenter(QPoint(image->width()-(d->textRect.width()/2),image->height()/2));
     }
 
     d->previewMode = true;
