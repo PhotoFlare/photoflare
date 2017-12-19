@@ -43,9 +43,9 @@ void checkupdateDialog::replyFinished(QNetworkReply* reply)
     QVersionNumber ver1 = QVersionNumber::fromString(currentversion);
     QVersionNumber ver2 = QVersionNumber::fromString(qApp->applicationVersion());
 
-    bool result = QVersionNumber::compare(ver1,ver2);
+    int result = QVersionNumber::compare(ver1,ver2);
 
-    if(result)
+    if(result > 0)
     {
         ui->label->setText(tr("New version available"));
         ui->downloadButton->setVisible(true);
