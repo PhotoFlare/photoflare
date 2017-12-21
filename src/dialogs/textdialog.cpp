@@ -237,6 +237,8 @@ void textDialog::setFontPosition(QString pos)
     ui->aligncenterButton->setChecked(false);
     ui->alignRightButton->setChecked(false);
 
+    positionFont = pos;
+
     if(pos == "left")
     {
         ui->alignleftButton->setChecked(true);
