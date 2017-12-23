@@ -46,6 +46,10 @@ void HueDialog::setColor(const QColor &color, QWidget *colorLabel)
 
     m_color = color;
 
+    // Hide degrees as we don't know how to convert a color to a degree value
+    ui->horizontalSlider->setValue(0);
+    ui->valueLabel->setText("");
+
     emit huePreviewChanged(m_preview, ui->method1->isChecked(), color, 0);
 }
 
