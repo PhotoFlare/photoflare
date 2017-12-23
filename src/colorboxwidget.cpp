@@ -18,6 +18,9 @@ ColorBoxWidget::ColorBoxWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Hide colour manager for now
+    ui->colourManageButton->hide();
+
     setColor(Qt::black, ui->primaryColorLabel);
     setColor(Qt::red, ui->secondaryColorLabel);
 
