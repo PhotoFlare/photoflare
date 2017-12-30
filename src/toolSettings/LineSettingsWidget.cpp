@@ -17,7 +17,7 @@ LineSettingsWidget::LineSettingsWidget(QWidget *parent) :
 
     for(int i=1; i <= 6; i++)
     {
-        QPixmap pixmap = QPixmap (QString(":/lines/lines/type_%1.png").arg(i));
+        QPixmap pixmap = QPixmap (QString(":/lines/assets/lines/type_%1.png").arg(i));
         ui->styleComboBox->addItem(QString(), pixmap);
     }
 

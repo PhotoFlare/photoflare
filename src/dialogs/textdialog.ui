@@ -280,7 +280,7 @@
      </property>
      <property name="icon">
       <iconset resource="../../Icons.qrc">
-       <normaloff>:/icons/icons/aligntext_left.png</normaloff>:/icons/icons/aligntext_left.png</iconset>
+       <normaloff>:/icons/assets/icons/aligntext_left.png</normaloff>:/icons/assets/icons/aligntext_left.png</iconset>
      </property>
      <property name="checkable">
       <bool>true</bool>
@@ -303,7 +303,7 @@
      </property>
      <property name="icon">
       <iconset resource="../../Icons.qrc">
-       <normaloff>:/icons/icons/aligntext_center.png</normaloff>:/icons/icons/aligntext_center.png</iconset>
+       <normaloff>:/icons/assets/icons/aligntext_center.png</normaloff>:/icons/assets/icons/aligntext_center.png</iconset>
      </property>
      <property name="checkable">
       <bool>true</bool>
@@ -326,7 +326,7 @@
      </property>
      <property name="icon">
       <iconset resource="../../Icons.qrc">
-       <normaloff>:/icons/icons/aligntext_right.png</normaloff>:/icons/icons/aligntext_right.png</iconset>
+       <normaloff>:/icons/assets/icons/aligntext_right.png</normaloff>:/icons/assets/icons/aligntext_right.png</iconset>
      </property>
      <property name="checkable">
       <bool>true</bool>

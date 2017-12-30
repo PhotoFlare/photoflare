@@ -120,7 +120,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="../Icons.qrc">:/pixmaps/pixmaps/logo.png</pixmap>
+    <pixmap resource="../../Icons.qrc">:/pixmaps/assets/pixmaps/logo.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -160,7 +160,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../Icons.qrc"/>
+  <include location="../../Icons.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -136,7 +136,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../Icons.qrc">:/lines/lines/arrow_1.png</pixmap>
+              <pixmap>:/lines/lines/arrow_1.png</pixmap>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -172,7 +172,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../Icons.qrc">:/lines/lines/arrow_2.png</pixmap>
+              <pixmap>:/lines/lines/arrow_2.png</pixmap>
              </property>
             </widget>
            </item>
@@ -190,7 +190,7 @@
       </widget>
      </item>
      <item>
-      <widget class="BrushTypeComboBox" name="styleComboBox">
+      <widget class="BrushTypeComboBox" name="styleComboBox" native="true">
        <property name="minimumSize">
         <size>
          <width>32</width>
@@ -212,12 +212,11 @@
  <customwidgets>
   <customwidget>
    <class>BrushTypeComboBox</class>
-   <extends>QComboBox</extends>
-   <header location="global">brushtypecombobox.h</header>
+   <extends>QWidget</extends>
+   <header>brushtypecombobox.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../Icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

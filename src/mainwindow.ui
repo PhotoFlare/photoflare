@@ -31,7 +31,7 @@
    <string>PhotoFlare</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../Icons.qrc">
+   <iconset>
     <normaloff>:/pixmaps/pixmaps/logo.png</normaloff>:/pixmaps/pixmaps/logo.png</iconset>
   </property>
   <property name="styleSheet">
@@ -591,7 +591,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Eraser.png</normaloff>:/toolpalette_icons/toolpalette_icons/Eraser.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Eraser.png</normaloff>:/toolpalette/assets/toolpalette_icons/Eraser.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -626,7 +626,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</normaloff>:/toolpalette_icons/toolpalette_icons/Spraycan.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Spraycan.png</normaloff>:/toolpalette/assets/toolpalette_icons/Spraycan.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -667,7 +667,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Pointer.png</normaloff>:/toolpalette_icons/toolpalette_icons/Pointer.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Pointer.png</normaloff>:/toolpalette/assets/toolpalette_icons/Pointer.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -702,7 +702,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</normaloff>:/toolpalette_icons/toolpalette_icons/Line.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Line.png</normaloff>:/toolpalette/assets/toolpalette_icons/Line.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -737,7 +737,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</normaloff>:/toolpalette_icons/toolpalette_icons/Wand.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Wand.png</normaloff>:/toolpalette/assets/toolpalette_icons/Wand.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -772,7 +772,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/PaintBrush.png</normaloff>:/toolpalette/assets/toolpalette_icons/PaintBrush.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -807,7 +807,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush-Plus.png</normaloff>:/toolpalette_icons/toolpalette_icons/PaintBrush-Plus.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/PaintBrush-Plus.png</normaloff>:/toolpalette/assets/toolpalette_icons/PaintBrush-Plus.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -842,7 +842,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</normaloff>:/toolpalette_icons/toolpalette_icons/Blur.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Blur.png</normaloff>:/toolpalette/assets/toolpalette_icons/Blur.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -868,7 +868,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Smudge.png</normaloff>:/toolpalette_icons/toolpalette_icons/Smudge.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Smudge.png</normaloff>:/toolpalette/assets/toolpalette_icons/Smudge.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -903,7 +903,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</normaloff>:/toolpalette_icons/toolpalette_icons/Stamp.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Stamp.png</normaloff>:/toolpalette/assets/toolpalette_icons/Stamp.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -938,7 +938,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</normaloff>:/toolpalette_icons/toolpalette_icons/Bucket.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/Bucket.png</normaloff>:/toolpalette/assets/toolpalette_icons/Bucket.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -973,7 +973,7 @@ QToolButton:checked {
          </property>
          <property name="icon">
           <iconset resource="../Icons.qrc">
-           <normaloff>:/toolpalette_icons/toolpalette_icons/ColourPicker.png</normaloff>:/toolpalette_icons/toolpalette_icons/ColourPicker.png</iconset>
+           <normaloff>:/toolpalette/assets/toolpalette_icons/ColourPicker.png</normaloff>:/toolpalette/assets/toolpalette_icons/ColourPicker.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1091,7 +1091,7 @@ QToolButton:checked {
   <action name="actionNew">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/new.png</normaloff>:/icons/icons/new.png</iconset>
+     <normaloff>:/icons/assets/icons/new.png</normaloff>:/icons/assets/icons/new.png</iconset>
    </property>
    <property name="text">
     <string>&amp;New...</string>
@@ -1106,7 +1106,7 @@ QToolButton:checked {
   <action name="actionOpen">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/open.png</normaloff>:/icons/icons/open.png</iconset>
+     <normaloff>:/icons/assets/icons/open.png</normaloff>:/icons/assets/icons/open.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Open...</string>
@@ -1128,7 +1128,7 @@ QToolButton:checked {
   <action name="actionSave">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/save.png</normaloff>:/icons/icons/save.png</iconset>
+     <normaloff>:/icons/assets/icons/save.png</normaloff>:/icons/assets/icons/save.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Save</string>
@@ -1155,7 +1155,7 @@ QToolButton:checked {
   <action name="actionPrint">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/print.png</normaloff>:/icons/icons/print.png</iconset>
+     <normaloff>:/icons/assets/icons/print.png</normaloff>:/icons/assets/icons/print.png</iconset>
    </property>
    <property name="text">
     <string>Print...</string>
@@ -1177,7 +1177,7 @@ QToolButton:checked {
   <action name="actionUndo">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/undo.png</normaloff>:/icons/icons/undo.png</iconset>
+     <normaloff>:/icons/assets/icons/undo.png</normaloff>:/icons/assets/icons/undo.png</iconset>
    </property>
    <property name="text">
     <string>Undo</string>
@@ -1186,7 +1186,7 @@ QToolButton:checked {
   <action name="actionRedo">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/redo.png</normaloff>:/icons/icons/redo.png</iconset>
+     <normaloff>:/icons/assets/icons/redo.png</normaloff>:/icons/assets/icons/redo.png</iconset>
    </property>
    <property name="text">
     <string>Redo</string>
@@ -1270,7 +1270,7 @@ QToolButton:checked {
   <action name="actionFlip_Vertical">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/flipV.png</normaloff>:/icons/icons/flipV.png</iconset>
+     <normaloff>:/icons/assets/icons/flipV.png</normaloff>:/icons/assets/icons/flipV.png</iconset>
    </property>
    <property name="text">
     <string>Flip Vertical</string>
@@ -1279,7 +1279,7 @@ QToolButton:checked {
   <action name="actionFlip_Horizontal">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/flipH.png</normaloff>:/icons/icons/flipH.png</iconset>
+     <normaloff>:/icons/assets/icons/flipH.png</normaloff>:/icons/assets/icons/flipH.png</iconset>
    </property>
    <property name="text">
     <string>Flip Horizontal</string>
@@ -1293,7 +1293,7 @@ QToolButton:checked {
   <action name="actionImage_Size">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/imgsize.png</normaloff>:/icons/icons/imgsize.png</iconset>
+     <normaloff>:/icons/assets/icons/imgsize.png</normaloff>:/icons/assets/icons/imgsize.png</iconset>
    </property>
    <property name="text">
     <string>Image Size...</string>
@@ -1302,7 +1302,7 @@ QToolButton:checked {
   <action name="actionCanvas_Size">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/cansize.png</normaloff>:/icons/icons/cansize.png</iconset>
+     <normaloff>:/icons/assets/icons/cansize.png</normaloff>:/icons/assets/icons/cansize.png</iconset>
    </property>
    <property name="text">
     <string>Canvas Size...</string>
@@ -1341,7 +1341,7 @@ QToolButton:checked {
   <action name="actionTransparent_colour">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/trans.png</normaloff>:/icons/icons/trans.png</iconset>
+     <normaloff>:/icons/assets/icons/trans.png</normaloff>:/icons/assets/icons/trans.png</iconset>
    </property>
    <property name="text">
     <string>Transparent Colour...</string>
@@ -1360,7 +1360,7 @@ QToolButton:checked {
   <action name="actionText">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/text.png</normaloff>:/icons/icons/text.png</iconset>
+     <normaloff>:/icons/assets/icons/text.png</normaloff>:/icons/assets/icons/text.png</iconset>
    </property>
    <property name="text">
     <string>Text...</string>
@@ -1380,7 +1380,7 @@ QToolButton:checked {
    </property>
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/show.png</normaloff>:/icons/icons/show.png</iconset>
+     <normaloff>:/icons/assets/icons/sel_square_mode.png</normaloff>:/icons/assets/icons/sel_square_mode.png</iconset>
    </property>
    <property name="text">
     <string>Show Selection</string>
@@ -1489,7 +1489,7 @@ QToolButton:checked {
   <action name="actionAuto_levels">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/autolevel.png</normaloff>:/icons/icons/autolevel.png</iconset>
+     <normaloff>:/icons/assets/icons/autolevel.png</normaloff>:/icons/assets/icons/autolevel.png</iconset>
    </property>
    <property name="text">
     <string>Auto Levels</string>
@@ -1498,7 +1498,7 @@ QToolButton:checked {
   <action name="actionAuto_contrast">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/autobright.png</normaloff>:/icons/icons/autobright.png</iconset>
+     <normaloff>:/icons/assets/icons/autobright.png</normaloff>:/icons/assets/icons/autobright.png</iconset>
    </property>
    <property name="text">
     <string>Auto Contrast</string>
@@ -1557,7 +1557,7 @@ QToolButton:checked {
   <action name="actionHue_variation">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/hue.png</normaloff>:/icons/icons/hue.png</iconset>
+     <normaloff>:/icons/assets/icons/hue.png</normaloff>:/icons/assets/icons/hue.png</iconset>
    </property>
    <property name="text">
     <string>Hue Variation...</string>
@@ -1566,7 +1566,7 @@ QToolButton:checked {
   <action name="actionSoften">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/soften.png</normaloff>:/icons/icons/soften.png</iconset>
+     <normaloff>:/icons/assets/icons/soften.png</normaloff>:/icons/assets/icons/soften.png</iconset>
    </property>
    <property name="text">
     <string>Soften</string>
@@ -1575,7 +1575,7 @@ QToolButton:checked {
   <action name="actionSharpen">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/sharpen.png</normaloff>:/icons/icons/sharpen.png</iconset>
+     <normaloff>:/icons/assets/icons/sharpen.png</normaloff>:/icons/assets/icons/sharpen.png</iconset>
    </property>
    <property name="text">
     <string>Sharpen</string>
@@ -1654,7 +1654,7 @@ QToolButton:checked {
   <action name="actionAutomate_Batch">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/batch.png</normaloff>:/icons/icons/batch.png</iconset>
+     <normaloff>:/icons/assets/icons/batch.png</normaloff>:/icons/assets/icons/batch.png</iconset>
    </property>
    <property name="text">
     <string>Automate/Batch...</string>
@@ -1673,7 +1673,7 @@ QToolButton:checked {
   <action name="actionPreferences">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/pref.png</normaloff>:/icons/icons/pref.png</iconset>
+     <normaloff>:/icons/assets/icons/pref.png</normaloff>:/icons/assets/icons/pref.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Preferences</string>
@@ -1692,7 +1692,7 @@ QToolButton:checked {
   <action name="actionScan">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/scan.png</normaloff>:/icons/icons/scan.png</iconset>
+     <normaloff>:/icons/assets/icons/scan.png</normaloff>:/icons/assets/icons/scan.png</iconset>
    </property>
    <property name="text">
     <string>Scan</string>
@@ -1704,7 +1704,7 @@ QToolButton:checked {
   <action name="actionRGB_Mode">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/rgb.png</normaloff>:/icons/icons/rgb.png</iconset>
+     <normaloff>:/icons/assets/icons/rgb.png</normaloff>:/icons/assets/icons/rgb.png</iconset>
    </property>
    <property name="text">
     <string>RGB Mode</string>
@@ -1713,7 +1713,7 @@ QToolButton:checked {
   <action name="actionIndexed_Mode">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/index.png</normaloff>:/icons/icons/index.png</iconset>
+     <normaloff>:/icons/assets/icons/index.png</normaloff>:/icons/assets/icons/index.png</iconset>
    </property>
    <property name="text">
     <string>Indexed Mode</string>
@@ -1722,7 +1722,7 @@ QToolButton:checked {
   <action name="actionBrightminus">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/brightness-.png</normaloff>:/icons/icons/brightness-.png</iconset>
+     <normaloff>:/icons/assets/icons/brightness-.png</normaloff>:/icons/assets/icons/brightness-.png</iconset>
    </property>
    <property name="text">
     <string>brightminus</string>
@@ -1734,7 +1734,7 @@ QToolButton:checked {
   <action name="actionBrightplus">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/brightness+.png</normaloff>:/icons/icons/brightness+.png</iconset>
+     <normaloff>:/icons/assets/icons/brightness+.png</normaloff>:/icons/assets/icons/brightness+.png</iconset>
    </property>
    <property name="text">
     <string>Brightplus</string>
@@ -1746,7 +1746,7 @@ QToolButton:checked {
   <action name="actionContrastminus">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/contrast-.png</normaloff>:/icons/icons/contrast-.png</iconset>
+     <normaloff>:/icons/assets/icons/contrast-.png</normaloff>:/icons/assets/icons/contrast-.png</iconset>
    </property>
    <property name="text">
     <string>contrastminus</string>
@@ -1758,7 +1758,7 @@ QToolButton:checked {
   <action name="actionContrastplus">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/contrast+.png</normaloff>:/icons/icons/contrast+.png</iconset>
+     <normaloff>:/icons/assets/icons/contrast+.png</normaloff>:/icons/assets/icons/contrast+.png</iconset>
    </property>
    <property name="text">
     <string>contrastplus</string>
@@ -1770,7 +1770,7 @@ QToolButton:checked {
   <action name="actionSaturationminus">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/saturation-.png</normaloff>:/icons/icons/saturation-.png</iconset>
+     <normaloff>:/icons/assets/icons/saturation-.png</normaloff>:/icons/assets/icons/saturation-.png</iconset>
    </property>
    <property name="text">
     <string>saturationminus</string>
@@ -1782,7 +1782,7 @@ QToolButton:checked {
   <action name="actionSaturationplus">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/saturation+.png</normaloff>:/icons/icons/saturation+.png</iconset>
+     <normaloff>:/icons/assets/icons/saturation+.png</normaloff>:/icons/assets/icons/saturation+.png</iconset>
    </property>
    <property name="text">
     <string>saturationplus</string>
@@ -1794,7 +1794,7 @@ QToolButton:checked {
   <action name="actionGammaCorrectminus">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/gammacorrect-.png</normaloff>:/icons/icons/gammacorrect-.png</iconset>
+     <normaloff>:/icons/assets/icons/gammacorrect-.png</normaloff>:/icons/assets/icons/gammacorrect-.png</iconset>
    </property>
    <property name="text">
     <string>gammaCorrectminus</string>
@@ -1806,7 +1806,7 @@ QToolButton:checked {
   <action name="actionGammaCorrectplus">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/gammacorrect+.png</normaloff>:/icons/icons/gammacorrect+.png</iconset>
+     <normaloff>:/icons/assets/icons/gammacorrect+.png</normaloff>:/icons/assets/icons/gammacorrect+.png</iconset>
    </property>
    <property name="text">
     <string>gammaCorrectplus</string>
@@ -1818,7 +1818,7 @@ QToolButton:checked {
   <action name="actionGrayScale">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/grayscale.png</normaloff>:/icons/icons/grayscale.png</iconset>
+     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
    </property>
    <property name="text">
     <string>Gray Scale</string>
@@ -1830,7 +1830,7 @@ QToolButton:checked {
   <action name="actionOldPhoto">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/old_photo.png</normaloff>:/icons/icons/old_photo.png</iconset>
+     <normaloff>:/icons/assets/icons/old_photo.png</normaloff>:/icons/assets/icons/old_photo.png</iconset>
    </property>
    <property name="text">
     <string>Old Photo</string>
@@ -1842,7 +1842,7 @@ QToolButton:checked {
   <action name="actionDustReduction">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/dustreduction.png</normaloff>:/icons/icons/dustreduction.png</iconset>
+     <normaloff>:/icons/assets/icons/dustreduction.png</normaloff>:/icons/assets/icons/dustreduction.png</iconset>
    </property>
    <property name="text">
     <string>Dust Reduction</string>
@@ -1854,7 +1854,7 @@ QToolButton:checked {
   <action name="actionBlur">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/blur.png</normaloff>:/icons/icons/blur.png</iconset>
+     <normaloff>:/icons/assets/icons/blur.png</normaloff>:/icons/assets/icons/blur.png</iconset>
    </property>
    <property name="text">
     <string>Blur</string>
@@ -1866,7 +1866,7 @@ QToolButton:checked {
   <action name="actionReinforce">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/reinforce.png</normaloff>:/icons/icons/reinforce.png</iconset>
+     <normaloff>:/icons/assets/icons/reinforce.png</normaloff>:/icons/assets/icons/reinforce.png</iconset>
    </property>
    <property name="text">
     <string>Reinforce</string>
@@ -1878,7 +1878,7 @@ QToolButton:checked {
   <action name="actionGradient">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/gradient.png</normaloff>:/icons/icons/gradient.png</iconset>
+     <normaloff>:/icons/assets/icons/gradient.png</normaloff>:/icons/assets/icons/gradient.png</iconset>
    </property>
    <property name="text">
     <string>gradient</string>
@@ -1890,7 +1890,7 @@ QToolButton:checked {
   <action name="actionRotate_CCW">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/rotateCCW.png</normaloff>:/icons/icons/rotateCCW.png</iconset>
+     <normaloff>:/icons/assets/icons/rotateCCW.png</normaloff>:/icons/assets/icons/rotateCCW.png</iconset>
    </property>
    <property name="text">
     <string>Rotate CCW</string>
@@ -1899,7 +1899,7 @@ QToolButton:checked {
   <action name="actionRotate_CW">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/rotateCW.png</normaloff>:/icons/icons/rotateCW.png</iconset>
+     <normaloff>:/icons/assets/icons/rotateCW.png</normaloff>:/icons/assets/icons/rotateCW.png</iconset>
    </property>
    <property name="text">
     <string>Rotate CW</string>
@@ -2034,7 +2034,7 @@ QToolButton:checked {
   <action name="actionSepia">
    <property name="icon">
     <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/sepia.png</normaloff>:/icons/icons/sepia.png</iconset>
+     <normaloff>:/icons/assets/icons/sepia.png</normaloff>:/icons/assets/icons/sepia.png</iconset>
    </property>
    <property name="text">
     <string>Sepia</string>

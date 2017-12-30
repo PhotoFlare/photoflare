@@ -17,6 +17,8 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
+    flagPath = ":/pixmaps/flags/assets/pixmaps/flags/";
+
     //Folders tab
     ui->openFolderLineEdit->setText(SETTINGS->getOpenFolder());
     ui->saveFolderLineEdit->setText(SETTINGS->getSaveFolder());
@@ -62,10 +64,10 @@ prefsDialog::prefsDialog(QWidget *parent) :
     //Startup tab
     QStringList list(QStringList() << "English" << "French" << "Dutch" << "German");
     ui->comboBoxLanguage->addItems(list);
-    ui->comboBoxLanguage->setItemIcon(0,QIcon(":/pixmaps/flags/pixmaps/flags/United-kingdom.png"));
-    ui->comboBoxLanguage->setItemIcon(1,QIcon(":/pixmaps/flags/pixmaps/flags/France.png"));
-    ui->comboBoxLanguage->setItemIcon(2,QIcon(":/pixmaps/flags/pixmaps/flags/Netherlands.png"));
-    ui->comboBoxLanguage->setItemIcon(3,QIcon(":/pixmaps/flags/pixmaps/flags/Germany.png"));
+    ui->comboBoxLanguage->setItemIcon(0,QIcon(flagPath+"United-kingdom.png"));
+    ui->comboBoxLanguage->setItemIcon(1,QIcon(flagPath+"France.png"));
+    ui->comboBoxLanguage->setItemIcon(2,QIcon(flagPath+"Netherlands.png"));
+    ui->comboBoxLanguage->setItemIcon(3,QIcon(flagPath+"Germany.png"));
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());

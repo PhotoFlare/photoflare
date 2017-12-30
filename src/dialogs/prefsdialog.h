@@ -34,6 +34,7 @@ private slots:
 
 private:
     Ui::prefsDialog *ui;
+    QString flagPath;
 };
 
 #endif // PREFSDIALOG_H

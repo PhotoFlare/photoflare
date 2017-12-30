@@ -21,7 +21,7 @@
      </property>
      <property name="icon">
       <iconset resource="../../Icons.qrc">
-       <normaloff>:/brushes/brushes/circle.png</normaloff>:/brushes/brushes/circle.png</iconset>
+       <normaloff>:/brushes/assets/brushes/circle.png</normaloff>:/brushes/assets/brushes/circle.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -57,7 +57,7 @@
      </property>
      <property name="icon">
       <iconset resource="../../Icons.qrc">
-       <normaloff>:/brushes/brushes/square.png</normaloff>:/brushes/brushes/square.png</iconset>
+       <normaloff>:/brushes/assets/brushes/square.png</normaloff>:/brushes/assets/brushes/square.png</iconset>
      </property>
      <property name="iconSize">
       <size>

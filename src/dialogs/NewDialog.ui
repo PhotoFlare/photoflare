@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>353</width>
-    <height>484</height>
+    <height>458</height>
    </rect>
   </property>
   <property name="font">
@@ -22,7 +22,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>440</y>
+     <y>420</y>
      <width>321</width>
      <height>32</height>
     </rect>
@@ -69,61 +69,6 @@
     <number>10</number>
    </property>
   </widget>
-  <widget class="QLabel" name="imageHeight">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>67</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Height:</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="imageHvalue">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>220</y>
-     <width>100</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="decimals">
-    <number>0</number>
-   </property>
-   <property name="maximum">
-    <double>9999.000000000000000</double>
-   </property>
-   <property name="value">
-    <double>600.000000000000000</double>
-   </property>
-  </widget>
-  <widget class="QLabel" name="imageRes">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>260</y>
-     <width>81</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Resolution:</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="imageRvalue">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>280</y>
-     <width>100</width>
-     <height>27</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QComboBox" name="imageWHcombo">
    <property name="geometry">
     <rect>
@@ -149,26 +94,6 @@
    <item>
     <property name="text">
      <string>Inches</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QComboBox" name="imageResCombo">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>280</y>
-     <width>150</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>Pixels/cm</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Pixels/inch</string>
     </property>
    </item>
   </widget>
@@ -293,7 +218,7 @@
      <x>10</x>
      <y>100</y>
      <width>331</width>
-     <height>331</height>
+     <height>311</height>
     </rect>
    </property>
    <property name="focusPolicy">
@@ -308,9 +233,9 @@
    <widget class="QPushButton" name="lockedRatioButton">
     <property name="geometry">
      <rect>
-      <x>108</x>
-      <y>76</y>
-      <width>31</width>
+      <x>110</x>
+      <y>70</y>
+      <width>21</width>
       <height>41</height>
      </rect>
     </property>
@@ -322,7 +247,7 @@
     </property>
     <property name="icon">
      <iconset resource="../../Icons.qrc">
-      <normaloff>:/icons/icons/linked.png</normaloff>:/icons/icons/linked.png</iconset>
+      <normaloff>:/icons/assets/icons/linked.png</normaloff>:/icons/assets/icons/linked.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -333,12 +258,18 @@
     <property name="checkable">
      <bool>true</bool>
     </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="BrushTypeComboBox" name="backgroundColorComboBox" native="true">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
+      <y>150</y>
       <width>150</width>
       <height>27</height>
      </rect>
@@ -358,7 +289,7 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>160</y>
+      <y>130</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -371,8 +302,8 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>250</y>
-      <width>150</width>
+      <y>220</y>
+      <width>151</width>
       <height>27</height>
      </rect>
     </property>
@@ -381,7 +312,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>300</y>
+      <y>270</y>
       <width>200</width>
       <height>27</height>
      </rect>
@@ -439,7 +370,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>280</y>
+      <y>250</y>
       <width>81</width>
       <height>17</height>
      </rect>
@@ -452,7 +383,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>230</y>
+      <y>200</y>
       <width>131</width>
       <height>17</height>
      </rect>
@@ -461,32 +392,101 @@
      <string>Background colour:</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QLabel" name="backgroundLabel">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>260</y>
-     <width>131</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Colour</string>
-   </property>
+   <widget class="QLabel" name="imageHeight">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Height:</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="imageHvalue">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>100</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="decimals">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <double>9999.000000000000000</double>
+    </property>
+    <property name="value">
+     <double>600.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="backgroundLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Colour</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imageRes">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>81</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Resolution:</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="imageRvalue">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>100</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="imageResCombo">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>150</y>
+      <width>150</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Pixels/cm</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Pixels/inch</string>
+     </property>
+    </item>
+   </widget>
   </widget>
   <zorder>groupBox_2</zorder>
   <zorder>buttonBox</zorder>
   <zorder>imageWidth</zorder>
   <zorder>imageWvalue</zorder>
-  <zorder>imageHeight</zorder>
-  <zorder>imageHvalue</zorder>
-  <zorder>imageRes</zorder>
-  <zorder>imageRvalue</zorder>
   <zorder>imageWHcombo</zorder>
-  <zorder>imageResCombo</zorder>
   <zorder>groupBox</zorder>
-  <zorder>backgroundLabel</zorder>
  </widget>
  <customwidgets>
   <customwidget>
