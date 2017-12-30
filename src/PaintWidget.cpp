@@ -54,7 +54,7 @@ public:
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
         QBrush brush;
-        brush.setTextureImage(QImage(":/pixmaps/pixmaps/checkers.png"));
+        brush.setTextureImage(QImage(":/pixmaps/assets/pixmaps/checkers.png"));
         painter.setBrush(brush);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
         painter.fillRect(surface.rect(), brush);
@@ -90,7 +90,7 @@ public:
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
         QBrush brush;
-        brush.setTextureImage(QImage(":/pixmaps/pixmaps/checkers.png"));
+        brush.setTextureImage(QImage(":/pixmaps/assets/pixmaps/checkers.png"));
         painter.setBrush(brush);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
         painter.fillRect(surface.rect(), brush);
