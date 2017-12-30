@@ -6,9 +6,9 @@
 
 #include <QFileInfo>
 
-#include "BatchProcessWorker.h"
+#include "workers/BatchProcessWorker.h"
 #include "PaintWidget.h"
-#include "FilterManager.h"
+#include "managers/FilterManager.h"
 
 BatchProcessWorker::BatchProcessWorker(QObject *parent) : QObject(parent)
 {

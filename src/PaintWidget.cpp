@@ -18,7 +18,7 @@
 #include "PaintWidget.h"
 #include "./tools/Tool.h"
 
-#include "QProgressIndicator.h"
+#include "progress/QProgressIndicator.h"
 #include "Settings.h"
 
 class PaintWidgetPrivate : public QGraphicsScene

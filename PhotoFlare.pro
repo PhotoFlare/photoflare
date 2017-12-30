@@ -80,7 +80,7 @@ SOURCES += src/main.cpp \
     src/imagepositionwidget.cpp \
     src/workers/BatchProcessWorker.cpp \
     src/brushtypecombobox.cpp \
-    src/colorboxwidget.cpp \
+    src/widgets/colorboxwidget.cpp \
     src/progress/batchprogress.cpp \
     src/workers/filterworker.cpp \
     src/tools/EraserTool.cpp \
@@ -134,7 +134,7 @@ HEADERS += src/mainwindow.h \
     src/imagepositionwidget.h \
     src/workers/BatchProcessWorker.h \
     src/brushtypecombobox.h \
-    src/colorboxwidget.h \
+    src/widgets/colorboxwidget.h \
     src/progress/batchprogress.h \
     src/workers/filterworker.h \
     src/tools/EraserTool.h \
@@ -159,7 +159,7 @@ FORMS += src/mainwindow.ui \
     src/dialogs/outerframedialog.ui \
     src/dialogs/compressiondialog.ui \
     src/dialogs/plugindialog.ui \
-    src/ColorBoxWidget.ui \
+    src/widgets/ColorBoxWidget.ui \
     src/BrushTypeComboBox.ui \
     src/imagepositionwidget.ui \
     src/progress/batchprogress.ui \

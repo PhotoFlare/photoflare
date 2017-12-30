@@ -47,9 +47,9 @@
 #include "./toolSettings/erasersettingswidget.h"
 #include "./toolSettings/SmudgeSettingsWidget.h"
 
-#include "ToolManager.h"
+#include "managers/ToolManager.h"
 #include "Settings.h"
-#include "FilterManager.h"
+#include "managers/FilterManager.h"
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -71,9 +71,9 @@
 #include "dialogs/plugindialog.h"
 #include "dialogs/checkupdatedialog.h"
 
-#include "BatchProcessWorker.h"
-#include "batchprogress.h"
-#include "filterworker.h"
+#include "workers/BatchProcessWorker.h"
+#include "progress/batchprogress.h"
+#include "workers/filterworker.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
