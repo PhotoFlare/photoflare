@@ -76,12 +76,12 @@ SOURCES += src/main.cpp \
     src/toolSettings/StampSettingsWidget.cpp \
     src/toolSettings/BlurSettingsWidget.cpp \
     src/managers/ScanManager.cpp \
-    src/QProgressIndicator.cpp \
+    src/progress/QProgressIndicator.cpp \
     src/imagepositionwidget.cpp \
     src/workers/BatchProcessWorker.cpp \
     src/brushtypecombobox.cpp \
     src/colorboxwidget.cpp \
-    src/batchprogress.cpp \
+    src/progress/batchprogress.cpp \
     src/workers/filterworker.cpp \
     src/tools/EraserTool.cpp \
     src/toolSettings/erasersettingswidget.cpp \
@@ -122,7 +122,7 @@ HEADERS += src/mainwindow.h \
     src/tools/StampTool.h \
     src/tools/BlurTool.h \
     src/managers/ScanManager.h \
-    src/QProgressIndicator.h \
+    src/progress/QProgressIndicator.h \
     src/toolSettings/pointersettingswidget.h \
     src/toolSettings/PaintBrushSettingsWidget.h \
     src/toolSettings/PaintBrushAdvSettingsWidget.h \
@@ -135,7 +135,7 @@ HEADERS += src/mainwindow.h \
     src/workers/BatchProcessWorker.h \
     src/brushtypecombobox.h \
     src/colorboxwidget.h \
-    src/batchprogress.h \
+    src/progress/batchprogress.h \
     src/workers/filterworker.h \
     src/tools/EraserTool.h \
     src/toolSettings/erasersettingswidget.h \
@@ -162,7 +162,7 @@ FORMS += src/mainwindow.ui \
     src/ColorBoxWidget.ui \
     src/BrushTypeComboBox.ui \
     src/imagepositionwidget.ui \
-    src/batchprogress.ui \
+    src/progress/batchprogress.ui \
     src/toolSettings/pointersettingswidget.ui \
     src/toolSettings/PaintBrushSettingsWidget.ui \
     src/toolSettings/PaintBrushAdvSettingsWidget.ui \
