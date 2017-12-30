@@ -78,11 +78,11 @@ SOURCES += src/main.cpp \
     src/managers/ScanManager.cpp \
     src/QProgressIndicator.cpp \
     src/imagepositionwidget.cpp \
-    src/BatchProcessWorker.cpp \
+    src/workers/BatchProcessWorker.cpp \
     src/brushtypecombobox.cpp \
     src/colorboxwidget.cpp \
     src/batchprogress.cpp \
-    src/filterworker.cpp \
+    src/workers/filterworker.cpp \
     src/tools/EraserTool.cpp \
     src/toolSettings/erasersettingswidget.cpp \
     src/tools/SmudgeTool.cpp \
@@ -132,11 +132,11 @@ HEADERS += src/mainwindow.h \
     src/toolSettings/StampSettingsWidget.h \
     src/toolSettings/BlurSettingsWidget.h \
     src/imagepositionwidget.h \
-    src/BatchProcessWorker.h \
+    src/workers/BatchProcessWorker.h \
     src/brushtypecombobox.h \
     src/colorboxwidget.h \
     src/batchprogress.h \
-    src/filterworker.h \
+    src/workers/filterworker.h \
     src/tools/EraserTool.h \
     src/toolSettings/erasersettingswidget.h \
     src/tools/SmudgeTool.h \
