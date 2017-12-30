@@ -13,7 +13,7 @@
 #include <QProcess>
 #include <QLabel>
 
-#include "ScanManager.h"
+#include "managers/ScanManager.h"
 #include "dialogs/batchdialog.h"
 
 namespace Ui {

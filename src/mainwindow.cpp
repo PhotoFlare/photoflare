@@ -67,6 +67,7 @@
 #include "dialogs/huedialog.h"
 #include "dialogs/compressiondialog.h"
 #include "dialogs/transparentdialog.h"
+#include "dialogs/batchdialog.h"
 #include "dialogs/plugindialog.h"
 #include "dialogs/checkupdatedialog.h"
 

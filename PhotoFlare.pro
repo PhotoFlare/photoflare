@@ -53,8 +53,8 @@ SOURCES += src/main.cpp \
     src/dialogs/plugindialog.cpp \
     src/PaintWidget.cpp \
     src/Settings.cpp \
-    src/FilterManager.cpp \
-    src/ToolManager.cpp \
+    src/managers/FilterManager.cpp \
+    src/managers/ToolManager.cpp \
     src/tools/Tool.cpp \
     src/tools/PaintBrushTool.cpp \
     src/tools/ColourPickerTool.cpp \
@@ -75,7 +75,7 @@ SOURCES += src/main.cpp \
     src/toolSettings/MagicWandSettingsWidget.cpp \
     src/toolSettings/StampSettingsWidget.cpp \
     src/toolSettings/BlurSettingsWidget.cpp \
-    src/ScanManager.cpp \
+    src/managers/ScanManager.cpp \
     src/QProgressIndicator.cpp \
     src/imagepositionwidget.cpp \
     src/BatchProcessWorker.cpp \
@@ -107,8 +107,8 @@ HEADERS += src/mainwindow.h \
     src/dialogs/plugindialog.h \
     src/PaintWidget.h \
     src/Settings.h \
-    src/FilterManager.h \
-    src/ToolManager.h \
+    src/managers/FilterManager.h \
+    src/managers/ToolManager.h \
     src/tools/Tool.h \
     src/tools/PaintBrushTool.h \
     src/tools/ColourPickerTool.h \
@@ -121,7 +121,7 @@ HEADERS += src/mainwindow.h \
     src/tools/LineTool.h \
     src/tools/StampTool.h \
     src/tools/BlurTool.h \
-    src/ScanManager.h \
+    src/managers/ScanManager.h \
     src/QProgressIndicator.h \
     src/toolSettings/pointersettingswidget.h \
     src/toolSettings/PaintBrushSettingsWidget.h \
