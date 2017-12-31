@@ -5,19 +5,19 @@
 */
 
 #include "ToolManager.h"
-#include "./tools/ColourPickerTool.h"
-#include "./tools/PaintBrushTool.h"
-#include "./tools/PaintBrushAdvTool.h"
-#include "./tools/PaintBucketTool.h"
-#include "./tools/PointerTool.h"
-#include "./tools/TextTool.h"
-#include "./tools/SprayCanTool.h"
-#include "./tools/LineTool.h"
-#include "./tools/MagicWandTool.h"
-#include "./tools/StampTool.h"
-#include "./tools/BlurTool.h"
-#include "./tools/EraserTool.h"
-#include "./tools/SmudgeTool.h"
+#include "./ColourPickerTool.h"
+#include "./PaintBrushTool.h"
+#include "./PaintBrushAdvTool.h"
+#include "./PaintBucketTool.h"
+#include "./PointerTool.h"
+#include "./TextTool.h"
+#include "./SprayCanTool.h"
+#include "./LineTool.h"
+#include "./MagicWandTool.h"
+#include "./StampTool.h"
+#include "./BlurTool.h"
+#include "./EraserTool.h"
+#include "./SmudgeTool.h"
 
 ToolManager * ToolManager::m_instance = 0;
 

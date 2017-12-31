@@ -5,7 +5,7 @@
 */
 
 #include "EraserTool.h"
-#include "../PaintWidget.h"
+#include "PaintWidget.h"
 
 class EraserToolPrivate
 {

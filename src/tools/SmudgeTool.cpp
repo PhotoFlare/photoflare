@@ -5,7 +5,7 @@
 */
 
 #include "SmudgeTool.h"
-#include "../PaintWidget.h"
+#include "PaintWidget.h"
 
 #include <QPainter>
 #include <QBitmap>

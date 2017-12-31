@@ -5,7 +5,7 @@
 #include <QComboBox>
 #include <QMouseEvent>
 
-#include <widgets/brushtypecombobox.h>
+#include <brushtypecombobox.h>
 
 namespace Ui {
 class dropshadowDialog;

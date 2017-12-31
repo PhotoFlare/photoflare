@@ -7,7 +7,12 @@ TEMPLATE = app
 CONFIG += c++11
 
 # This path is used inside ui_mainwindow.h in order to find ColorBoxWidget.h
-INCLUDEPATH += ./src
+INCLUDEPATH += ./src/widgets \
+               ./src/dialogs \
+               ./src/tools \
+               ./src/progress \
+               ./src/managers
+               ./src/workers
 
 # Project settings for Windows. Adjust the paths as needed on your system.
 win32 {

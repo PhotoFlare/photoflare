@@ -10,7 +10,7 @@
 #include "colorboxwidget.h"
 #include "ui_ColorBoxWidget.h"
 
-#include "dialogs/colourmanagerdialog.h"
+#include "colourmanagerdialog.h"
 
 ColorBoxWidget::ColorBoxWidget(QWidget *parent) :
     QWidget(parent),

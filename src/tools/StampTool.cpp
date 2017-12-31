@@ -5,7 +5,7 @@
 */
 
 #include "StampTool.h"
-#include "../PaintWidget.h"
+#include "PaintWidget.h"
 
 #include <QPainter>
 #include <QtMath>

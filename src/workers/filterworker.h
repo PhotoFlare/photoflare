@@ -2,7 +2,7 @@
 #define FILTERWORKER_H
 
 #include <QObject>
-#include "mainwindow.h"
+#include "../mainwindow.h"
 
 class FilterWorker : public QObject
 {

@@ -16,10 +16,10 @@
 #include <QImageReader>
 
 #include "PaintWidget.h"
-#include "./tools/Tool.h"
+#include "./Tool.h"
 
-#include "progress/QProgressIndicator.h"
-#include "Settings.h"
+#include "QProgressIndicator.h"
+#include "src/Settings.h"
 
 class PaintWidgetPrivate : public QGraphicsScene
 {

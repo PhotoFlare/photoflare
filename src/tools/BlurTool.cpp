@@ -5,7 +5,7 @@
 */
 
 #include "BlurTool.h"
-#include "../PaintWidget.h"
+#include "PaintWidget.h"
 
 #include <QPainter>
 #include <QGraphicsBlurEffect>
