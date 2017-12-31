@@ -9,8 +9,9 @@
 
 #include <QDialog>
 #include <QComboBox>
-#include <brushtypecombobox.h>
 #include <QMouseEvent>
+
+#include <widgets/brushtypecombobox.h>
 
 namespace Ui {
 class OuterFrameDialog;

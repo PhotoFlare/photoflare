@@ -8,8 +8,7 @@
 */
 
 #include <QDialog>
-#include <brushtypecombobox.h>
-
+#include <widgets/brushtypecombobox.h>
 #include "widgets/imagepositionwidget.h"
 
 namespace Ui {
