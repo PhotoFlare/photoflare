@@ -1933,6 +1933,11 @@ bool MainWindow::handleCloseChildWindow(QMdiSubWindow *subWindow)
     subWindow->setWindowModified(false);
     subWindow->close();
 
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (!widget) {
+        updateStatusArea(0,0);
+    }
+
     return false;
 }
 
@@ -1951,6 +1956,10 @@ bool MainWindow::handleCloseTabs()
         else
         {
            subWindow->close();
+           PaintWidget *widget = getCurrentPaintWidget();
+           if (!widget) {
+               updateStatusArea(0,0);
+           }
         }
     }
 
