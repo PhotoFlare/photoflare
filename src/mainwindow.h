@@ -81,7 +81,6 @@ private slots:
     void refreshTools();
     void on_actionAbout_triggered();
     void setWindowSize();
-    void setDefaultSettings();
     void updateRecents();
     void showError(const QString &message);
 
@@ -194,12 +193,8 @@ private slots:
     bool fileExists(QString path);
 
     void on_actionOutside_drop_shadow_triggered();
-
     void on_actionOpacity_triggered();
-
-
     void on_actionPlugins_triggered();
-
     void on_actionCheck_for_updates_triggered();
 
 protected:

@@ -6,7 +6,7 @@
 
 #include "MagicWandTool.h"
 #include "../mainwindow.h"
-#include "../PaintWidget.h"
+#include "../widgets/PaintWidget.h"
 
 class MagicWandToolPrivate
 {

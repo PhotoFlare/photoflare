@@ -1,6 +1,6 @@
 #include "workers/filterworker.h"
 #include "managers/FilterManager.h"
-#include "PaintWidget.h"
+#include "widgets/PaintWidget.h"
 
 //#include <QDebug>
 

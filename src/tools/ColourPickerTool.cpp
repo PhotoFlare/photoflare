@@ -6,7 +6,7 @@
 
 #include "ColourPickerTool.h"
 #include "../mainwindow.h"
-#include "../PaintWidget.h"
+#include "../widgets/PaintWidget.h"
 
 class ColourPickerToolPrivate
 {

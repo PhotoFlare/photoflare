@@ -100,9 +100,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Setup default settings
-    setDefaultSettings();
-
     if(SETTINGS->isMultiWindowMode())
     {
         ui->mdiArea->setViewMode(QMdiArea::SubWindowView);
@@ -2175,21 +2172,6 @@ void MainWindow::on_actionGradient_triggered()
     | MISC FUNCTIONS |
 
 */
-
-void MainWindow::setDefaultSettings()
-{
-    QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare";
-    //qDebug() << loc;
-
-    if(QDir(loc).exists())
-    {
-        //qDebug() << "Exists";
-    }
-    else
-    {
-        SETTINGS->setDefaultSettings();
-    }
-}
 
 bool MainWindow::eventFilter(QObject * obj, QEvent * e)
 {

@@ -6,7 +6,7 @@
 
 #include "PaintBucketTool.h"
 #include "../mainwindow.h"
-#include "../PaintWidget.h"
+#include "../widgets/PaintWidget.h"
 
 PaintBucketTool::PaintBucketTool(QObject *parent)
     : Tool(parent)

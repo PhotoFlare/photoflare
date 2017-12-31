@@ -12,6 +12,7 @@
 #include <QtSingleApplication>
 #include <QStandardPaths>
 #include <QFileInfo>
+#include <QDir>
 
 #include "mainwindow.h"
 #include "Settings.h"
@@ -27,6 +28,18 @@ int main(int argc, char *argv[])
             app.setApplicationVersion(QObject::tr("1.5.0"));
             app.setOrganizationDomain(QObject::tr("photoflare.io"));
             app.setOrganizationName(QObject::tr("photoflare"));
+
+            // Setup Default settings
+            QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare";
+
+            if(QDir(loc).exists())
+            {
+                //qDebug() << "Exists";
+            }
+            else
+            {
+                SETTINGS->setDefaultSettings();
+            }
 
             QTranslator translator;
             QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
