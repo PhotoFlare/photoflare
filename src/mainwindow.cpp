@@ -54,7 +54,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "PaintWidget.h"
+#include "widgets/PaintWidget.h"
 #include "dialogs/NewDialog.h"
 #include "dialogs/aboutdialog.h"
 #include "dialogs/textdialog.h"

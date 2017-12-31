@@ -51,7 +51,7 @@ SOURCES += src/main.cpp \
     src/dialogs/outerframedialog.cpp \
     src/dialogs/compressiondialog.cpp \
     src/dialogs/plugindialog.cpp \
-    src/PaintWidget.cpp \
+    src/widgets/PaintWidget.cpp \
     src/Settings.cpp \
     src/managers/FilterManager.cpp \
     src/managers/ToolManager.cpp \
@@ -105,7 +105,7 @@ HEADERS += src/mainwindow.h \
     src/dialogs/outerframedialog.h \
     src/dialogs/compressiondialog.h \
     src/dialogs/plugindialog.h \
-    src/PaintWidget.h \
+    src/widgets/PaintWidget.h \
     src/Settings.h \
     src/managers/FilterManager.h \
     src/managers/ToolManager.h \
