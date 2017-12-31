@@ -16,9 +16,9 @@
     </qresource>
     <qresource prefix="/pixmaps">
         <file>assets/pixmaps/logo.png</file>
-        <file>assets/pixmaps/checkers.png</file>
         <file>assets/pixmaps/logo.ico</file>
         <file>plugins/default.ico</file>
+        <file>assets/pixmaps/checkers.png</file>
     </qresource>
     <qresource prefix="/icons">
         <file>assets/icons/autobright.png</file>

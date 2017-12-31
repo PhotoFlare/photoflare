@@ -24,7 +24,7 @@ public:
         saveFormat = settings.value("SaveFormat").toString();
         saveFormatEnabled = settings.value("SaveFormatEnabled").toBool();
         compressionDialogEnabled = settings.value("compressionDialogEnabled").toBool();
-        compressionDefaultValue = settings.value("compressionDefaultValue").toBool();
+        compressionDefaultValue = settings.value("compressionDefaultValue").toString();
         historyLimit = settings.value("historyLimit").toString();
         dockLayout = settings.value("dockLayout").toString();
         memDialogParams = settings.value("memorizeParamsEnabled").toBool();
