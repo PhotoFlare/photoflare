@@ -79,7 +79,7 @@ SOURCES += src/main.cpp \
     src/progress/QProgressIndicator.cpp \
     src/widgets/imagepositionwidget.cpp \
     src/workers/BatchProcessWorker.cpp \
-    src/brushtypecombobox.cpp \
+    src/widgets/brushtypecombobox.cpp \
     src/widgets/colorboxwidget.cpp \
     src/progress/batchprogress.cpp \
     src/workers/filterworker.cpp \
@@ -133,7 +133,7 @@ HEADERS += src/mainwindow.h \
     src/toolSettings/BlurSettingsWidget.h \
     src/widgets/imagepositionwidget.h \
     src/workers/BatchProcessWorker.h \
-    src/brushtypecombobox.h \
+    src/widgets/brushtypecombobox.h \
     src/widgets/colorboxwidget.h \
     src/progress/batchprogress.h \
     src/workers/filterworker.h \
@@ -160,7 +160,7 @@ FORMS += src/mainwindow.ui \
     src/dialogs/compressiondialog.ui \
     src/dialogs/plugindialog.ui \
     src/widgets/ColorBoxWidget.ui \
-    src/BrushTypeComboBox.ui \
+    src/widgets/BrushTypeComboBox.ui \
     src/widgets/imagepositionwidget.ui \
     src/progress/batchprogress.ui \
     src/toolSettings/pointersettingswidget.ui \
