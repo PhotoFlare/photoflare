@@ -10,7 +10,7 @@
 #include <QDialog>
 #include <brushtypecombobox.h>
 
-#include "imagepositionwidget.h"
+#include "widgets/imagepositionwidget.h"
 
 class BatchDialogPrivate;
 

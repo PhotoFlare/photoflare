@@ -77,7 +77,7 @@ SOURCES += src/main.cpp \
     src/toolSettings/BlurSettingsWidget.cpp \
     src/managers/ScanManager.cpp \
     src/progress/QProgressIndicator.cpp \
-    src/imagepositionwidget.cpp \
+    src/widgets/imagepositionwidget.cpp \
     src/workers/BatchProcessWorker.cpp \
     src/brushtypecombobox.cpp \
     src/widgets/colorboxwidget.cpp \
@@ -131,7 +131,7 @@ HEADERS += src/mainwindow.h \
     src/toolSettings/MagicWandSettingsWidget.h \
     src/toolSettings/StampSettingsWidget.h \
     src/toolSettings/BlurSettingsWidget.h \
-    src/imagepositionwidget.h \
+    src/widgets/imagepositionwidget.h \
     src/workers/BatchProcessWorker.h \
     src/brushtypecombobox.h \
     src/widgets/colorboxwidget.h \
@@ -161,7 +161,7 @@ FORMS += src/mainwindow.ui \
     src/dialogs/plugindialog.ui \
     src/widgets/ColorBoxWidget.ui \
     src/BrushTypeComboBox.ui \
-    src/imagepositionwidget.ui \
+    src/widgets/imagepositionwidget.ui \
     src/progress/batchprogress.ui \
     src/toolSettings/pointersettingswidget.ui \
     src/toolSettings/PaintBrushSettingsWidget.ui \

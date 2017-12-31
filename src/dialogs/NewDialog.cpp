@@ -22,7 +22,7 @@
 #include "ui_NewDialog.h"
 
 #include "../Settings.h"
-#include "imagepositionwidget.h"
+#include "widgets/imagepositionwidget.h"
 
 enum {PPM, PPI};
 enum {PX, CM, IN};
