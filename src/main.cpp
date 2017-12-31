@@ -49,7 +49,9 @@ int main(int argc, char *argv[])
                 QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");
                 if(check_file.exists() && check_file.isFile())
                 {
-                    if(translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/"))
+                    //if(translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/"))  for .deb installer
+
+                    if(translator.load(SETTINGS->getUserLanguage()+".qm", "/languages/")) // for local builds
                         qDebug() << "Loaded translation";
                     else
                         qDebug() << "Translation not loaded";
