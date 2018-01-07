@@ -215,7 +215,6 @@ void GradientDialog::writeSettings(QWidget* window)
 
     settings.beginGroup(window->objectName());
     settings.setValue("pos", window->pos());
-    settings.setValue("size", window->size());
     settings.setValue("startcolor", startColorName());
     settings.setValue("stopcolor", stopColorName());
     settings.setValue("direction", m_direction);
@@ -234,7 +233,6 @@ void GradientDialog::readSettings(QWidget* window)
     if (!value.isNull())
     {
         window->move(settings.value("pos").toPoint());
-        window->resize(settings.value("size").toSize());
         setComboColor(ui->startColorComboBox, settings.value("startcolor").value<QColor>());
         ui->startOpacity->setValue(settings.value("startopacity").toInt());
         setComboColor(ui->stopColorComboBox, settings.value("stopcolor").value<QColor>());

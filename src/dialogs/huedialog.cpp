@@ -137,7 +137,6 @@ void HueDialog::writeSettings(QWidget* window)
 
     settings.beginGroup(window->objectName());
     settings.setValue("pos", window->pos());
-    settings.setValue("size", window->size());
     settings.setValue("color", m_color.name());
     settings.setValue("degrees", m_degrees);
     settings.setValue("hue", ui->method2->isChecked());
@@ -153,7 +152,6 @@ void HueDialog::readSettings(QWidget* window)
     if (!value.isNull())
     {
         window->move(settings.value("pos").toPoint());
-        window->resize(settings.value("size").toSize());
         setColor(settings.value("color").value<QColor>(), ui->colorLabel);
         int value = settings.value("degrees").toInt();
         ui->valueLabel->setText(QString::number(value) + "°");

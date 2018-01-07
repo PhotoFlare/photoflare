@@ -373,7 +373,6 @@ void NewDialog::writeSettings(QWidget* window)
 
     settings.beginGroup(window->objectName());
     settings.setValue("pos", window->pos());
-    settings.setValue("size", window->size());
     settings.setValue("width", width_px);
     settings.setValue("height", height_px);
     settings.endGroup();
@@ -388,10 +387,8 @@ void NewDialog::readSettings(QWidget* window)
     if (!value.isNull())
     {
         window->move(settings.value("pos").toPoint());
-        window->resize(settings.value("size").toSize());
         ui->imageWvalue->setValue(settings.value("width").toFloat());
         ui->imageHvalue->setValue(height_px = settings.value("height").toFloat());
-
     }
     settings.endGroup();
 }

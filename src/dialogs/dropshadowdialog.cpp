@@ -107,7 +107,6 @@ void dropshadowDialog::writeSettings(QWidget* window)
 
     settings.beginGroup(window->objectName());
     settings.setValue("pos", window->pos());
-    settings.setValue("size", window->size());
     settings.setValue("color", colorName());
     settings.setValue("radius", radius());
     settings.setValue("padding", padding());
@@ -125,7 +124,6 @@ void dropshadowDialog::readSettings(QWidget* window)
     if (!value.isNull())
     {
         window->move(settings.value("pos").toPoint());
-        window->resize(settings.value("size").toSize());
         setComboColor(ui->colorComboBox, settings.value("color").value<QColor>());
         ui->radiusValue->setValue(settings.value("radius").toInt());
         ui->paddingValue->setValue(settings.value("padding").toInt());
