@@ -180,7 +180,6 @@ void textDialog::readSettings(QWidget* window)
     if (!value.isNull())
     {
         window->move(settings.value("pos").toPoint());
-        window->resize(settings.value("size").toSize());
         ui->checkBoxBold->setChecked(settings.value("bold").toBool());
         ui->checkBoxItalic->setChecked(settings.value("italic").toBool());
         ui->checkBoxUnderline->setChecked(settings.value("underline").toBool());
@@ -200,7 +199,6 @@ void textDialog::writeSettings(QWidget* window)
 
     settings.beginGroup(window->objectName());
     settings.setValue("pos", window->pos());
-    settings.setValue("size", window->size());
     settings.setValue("bold", ui->checkBoxBold->isChecked() ? "true" : "false");
     settings.setValue("italic", ui->checkBoxItalic->isChecked() ? "true" : "false");
     settings.setValue("underline", ui->checkBoxUnderline->isChecked() ? "true" : "false");
