@@ -4,6 +4,8 @@
 
 */
 
+#include <QDebug>
+
 #include <QLabel>
 #include <QPainter>
 #include <QScrollBar>
@@ -62,7 +64,9 @@ public:
         painter.drawImage(0, 0, image);
         if(isSelectionVisible)
         {
-            QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+            //qCritical() << QString::number(scale);
+            float scaledVal = 1+(scale*0.5);
+            QPen pen = QPen(QBrush(), scaledVal, Qt::DashLine);
             pen.setColor(Qt::gray);
             painter.setPen(pen);
             painter.setBrush(QBrush());
