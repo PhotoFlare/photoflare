@@ -5,6 +5,8 @@
 */
 
 #include <QFileDialog>
+#include <QApplication>
+#include <QProcess>
 
 #include "prefsdialog.h"
 #include "ui_prefsdialog.h"
@@ -168,4 +170,11 @@ void prefsDialog::on_historySlider_sliderMoved(int position)
 {
     QString val = QString::number(position);
     ui->history_value->setText(val);
+}
+
+void prefsDialog::on_restartButton_clicked()
+{
+    qApp->quit();
+    QProcess* proc = new QProcess();
+    proc->start(QCoreApplication::applicationFilePath());
 }

@@ -32,6 +32,8 @@ private slots:
 
     void on_historySlider_sliderMoved(int position);
 
+    void on_restartButton_clicked();
+
 private:
     Ui::prefsDialog *ui;
     QString flagPath;
