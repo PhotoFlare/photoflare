@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QLabel>
 #include <QPainter>
@@ -64,26 +64,45 @@ public:
         painter.drawImage(0, 0, image);
         if(isSelectionVisible)
         {
-            //qCritical() << QString::number(scale);
-            float scaledVal = 1+(scale*0.5);
-            QPen pen = QPen(QBrush(), scaledVal, Qt::DashLine);
-            pen.setColor(Qt::gray);
-            painter.setPen(pen);
-            painter.setBrush(QBrush());
-            painter.drawPolygon(selection, Qt::WindingFill);
+            float scaledVal = 1+(q->getScale()*0.5);
+            int cornerSize = 50;
+
             if(selection.size() == 4)
             {
                 QRect rect(selection.at(0),selection.at(3));
                 if(rect.topLeft() != rect.bottomLeft())
                 {
-                    painter.setPen(QPen(Qt::gray));
-                    painter.setBrush(QBrush(Qt::gray));
-                    painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), 10, 10));
-                    painter.drawPolygon(QRect(selection.at(1).x()-10,selection.at(1).y(), 10, 10));
-                    painter.drawPolygon(QRect(selection.at(2).x()-10,selection.at(2).y()-10, 10, 10));
-                    painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-10, 10, 10));
+                    QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
+                    penbg.setColor(Qt::white);
+                    painter.setPen(penbg);
+                    painter.setBrush(QBrush());
+                    painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
+                    painter.drawPolygon(QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize));
+                    painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
+                    painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
+
+                    QPen cornerpen = QPen(QBrush(), scaledVal, Qt::DotLine);
+                    cornerpen.setColor(Qt::black);
+                    painter.setPen(cornerpen);
+                    painter.setBrush(QBrush());
+                    painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
+                    painter.drawPolygon(QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize));
+                    painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
+                    painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
                 }
             }
+
+            QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
+            penbg.setColor(Qt::white);
+            painter.setPen(penbg);
+            painter.setBrush(QBrush());
+            painter.drawPolygon(selection, Qt::WindingFill);
+
+            QPen pen = QPen(QBrush(), scaledVal, Qt::DotLine);
+            pen.setColor(Qt::black);
+            painter.setPen(pen);
+            painter.setBrush(QBrush());
+            painter.drawPolygon(selection, Qt::WindingFill);
         }
         painter.end();
         canvas->setPixmap(QPixmap::fromImage(surface));

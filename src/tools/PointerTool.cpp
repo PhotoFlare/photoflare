@@ -264,10 +264,12 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             QPolygon selection = QPolygon(QRect(topLeft, bottomRight));
             emit selectionChanged(selection);
 
-            d->topLeftCorner = QRect(selection.at(0).x(),selection.at(0).y(), 10, 10);
-            d->topRightCorner = QRect(selection.at(1).x()-10,selection.at(1).y(), 10, 10);
-            d->bottomRightCorner = QRect(selection.at(2).x()-10,selection.at(2).y()-10, 10, 10);
-            d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-10, 10, 10);
+            int cornerSize = 50;
+
+            d->topLeftCorner = QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize);
+            d->topRightCorner = QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize);
+            d->bottomRightCorner = QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize);
+            d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize);
         }
         emit painted(m_paintDevice);
     }
