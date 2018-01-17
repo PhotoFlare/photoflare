@@ -19,6 +19,8 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
+    ui->restartButton->hide();
+
     flagPath = ":/pixmaps/flags/assets/pixmaps/flags/";
 
     //Folders tab
