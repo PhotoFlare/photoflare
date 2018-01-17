@@ -81,8 +81,8 @@ public:
                     painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
                     painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
 
-                    QPen cornerpen = QPen(QBrush(), scaledVal, Qt::DotLine);
-                    cornerpen.setColor(Qt::black);
+                    QPen cornerpen = QPen(QBrush(), scaledVal, Qt::DashLine);
+                    cornerpen.setColor(Qt::gray);
                     painter.setPen(cornerpen);
                     painter.setBrush(QBrush());
                     painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
@@ -98,8 +98,8 @@ public:
             painter.setBrush(QBrush());
             painter.drawPolygon(selection, Qt::WindingFill);
 
-            QPen pen = QPen(QBrush(), scaledVal, Qt::DotLine);
-            pen.setColor(Qt::black);
+            QPen pen = QPen(QBrush(), scaledVal, Qt::DashLine);
+            pen.setColor(Qt::gray);
             painter.setPen(pen);
             painter.setBrush(QBrush());
             painter.drawPolygon(selection, Qt::WindingFill);
