@@ -19,7 +19,6 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
-    ui->restartButton->hide();
 
     flagPath = ":/pixmaps/flags/assets/pixmaps/flags/";
 
@@ -87,6 +86,8 @@ prefsDialog::prefsDialog(QWidget *parent) :
 
     else if(SETTINGS->getUserLanguage() == "de")
         ui->comboBoxLanguage->setCurrentIndex(3);
+
+    ui->restartButton->hide();
 }
 
 prefsDialog::~prefsDialog()
@@ -179,4 +180,9 @@ void prefsDialog::on_restartButton_clicked()
     qApp->quit();
     QProcess* proc = new QProcess();
     proc->start(QCoreApplication::applicationFilePath());
+}
+
+void prefsDialog::on_comboBoxLanguage_currentIndexChanged(const QString &arg1)
+{
+    ui->restartButton->show();
 }

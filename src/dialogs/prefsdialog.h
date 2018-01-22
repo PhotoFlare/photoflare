@@ -34,6 +34,8 @@ private slots:
 
     void on_restartButton_clicked();
 
+    void on_comboBoxLanguage_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::prefsDialog *ui;
     QString flagPath;

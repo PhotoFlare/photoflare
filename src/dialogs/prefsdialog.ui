@@ -468,7 +468,7 @@
       <string>Restart to apply</string>
      </property>
      <property name="flat">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
    </widget>
