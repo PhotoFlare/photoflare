@@ -64,21 +64,25 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             {
                 d->corner = TOP_LEFT;
                 d->selectionMode = RESIZE;
+                emit cursorChanged(Qt::ClosedHandCursor);
             }
             else if(d->topRightCorner.contains(pos))
             {
                 d->corner = TOP_RIGHT;
                 d->selectionMode = RESIZE;
+                emit cursorChanged(Qt::ClosedHandCursor);
             }
             else if(d->bottomLeftCorner.contains(pos))
             {
                 d->corner = BOTTOM_LEFT;
                 d->selectionMode = RESIZE;
+                emit cursorChanged(Qt::ClosedHandCursor);
             }
             else if(d->bottomRightCorner.contains(pos))
             {
                 d->corner = BOTTOM_RIGHT;
                 d->selectionMode = RESIZE;
+                emit cursorChanged(Qt::ClosedHandCursor);
             }
 
             if(d->selectionMode == SELECT)
@@ -241,6 +245,8 @@ void PointerTool::onMouseMove(const QPoint &pos)
 void PointerTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
+    emit cursorChanged(Qt::ArrowCursor);
+
     if(d->selectionMode == HAND)
     {
         d->imagePos = QPoint(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y());
