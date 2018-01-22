@@ -177,6 +177,16 @@ void prefsDialog::on_historySlider_sliderMoved(int position)
 
 void prefsDialog::on_restartButton_clicked()
 {
+    // Save language before we quit
+    if(ui->comboBoxLanguage->currentIndex() == 0)
+        SETTINGS->setUserLanguage("en");
+    else if(ui->comboBoxLanguage->currentIndex() == 1)
+        SETTINGS->setUserLanguage("fr");
+    else if(ui->comboBoxLanguage->currentIndex() == 2)
+        SETTINGS->setUserLanguage("nl");
+    else if(ui->comboBoxLanguage->currentIndex() == 3)
+        SETTINGS->setUserLanguage("de");
+
     qApp->quit();
     QProcess* proc = new QProcess();
     proc->start(QCoreApplication::applicationFilePath());
