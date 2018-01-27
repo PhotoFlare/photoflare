@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
                 {
                     lang = "de";
                 }
-                else if(sysLanguage == "Dutsch")
+                else if(sysLanguage == "Dutch")
                 {
                     lang = "nl";
                 }
