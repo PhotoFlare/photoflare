@@ -1,4 +1,4 @@
-lessThan(QT_VERSION, 5.6.0): error(This project requires Qt 5.6.0 or later)
+#lessThan(QT_VERSION, 5.6.0): error(This project requires Qt 5.6.0 or later)
 
 QT += core gui widgets printsupport
 
@@ -29,15 +29,15 @@ linux {
 
 # Project settings for Mac OS. Adjust the paths as needed on your system.
 macx {
-  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.24/include/GraphicsMagick
-  LIBS += -L$$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/ -lGraphicsMagick++
-  LIBS += -L$$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/ -lGraphicsMagick
-  LIBS += -L$$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/ -lGraphicsMagickWand
-  INCLUDEPATH += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/include/GraphicsMagick
-  DEPENDPATH += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/include/GraphicsMagick
-  PRE_TARGETDEPS += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/libGraphicsMagick++.la
-  PRE_TARGETDEPS += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/libGraphicsMagick.la
-  PRE_TARGETDEPS += $$PWD/../../../../usr/local/Cellar/graphicsmagick/1.3.24/lib/libGraphicsMagickWand.la
+  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.28/include/GraphicsMagick
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.28/lib/ -lGraphicsMagick++
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.28/lib/ -lGraphicsMagick
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.28/lib/ -lGraphicsMagickWand
+  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.28/include/GraphicsMagick
+  DEPENDPATH += /usr/local/Cellar/graphicsmagick/1.3.28/include/GraphicsMagick
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagick++.la
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagick.la
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagickWand.la
   LIBS += -lbz2 -lxml2 -lz -lm
 }
 
