@@ -40,11 +40,9 @@ int main(int argc, char *argv[])
                 SETTINGS->setDefaultSettings();
             }
 
-            qCritical() << SETTINGS->getUserLanguage();
-
+            // Set language based on System locale
             if(SETTINGS->getUserLanguage() == "notset")
             {
-                // Set language based on System locale
                 QString sysLanguage =  QLocale::languageToString(QLocale::system().language());
                 QString lang;
 

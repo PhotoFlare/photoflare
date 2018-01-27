@@ -4,7 +4,7 @@
 <context>
     <name>BatchProgress</name>
     <message>
-        <location filename="src/batchprogress.ui" line="14"/>
+        <location filename="src/progress/batchprogress.ui" line="14"/>
         <source>Batch progress</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30,7 +30,7 @@
 <context>
     <name>BrushTypeComboBox</name>
     <message>
-        <location filename="src/BrushTypeComboBox.ui" line="14"/>
+        <location filename="src/widgets/BrushTypeComboBox.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -38,12 +38,12 @@
 <context>
     <name>ColorBoxWidget</name>
     <message>
-        <location filename="src/ColorBoxWidget.ui" line="19354"/>
+        <location filename="src/widgets/ColorBoxWidget.ui" line="19354"/>
         <source>&lt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/ColorBoxWidget.ui" line="19367"/>
+        <location filename="src/widgets/ColorBoxWidget.ui" line="19367"/>
         <source>&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -175,7 +175,7 @@
 <context>
     <name>ImagePositionWidget</name>
     <message>
-        <location filename="src/imagepositionwidget.ui" line="14"/>
+        <location filename="src/widgets/imagepositionwidget.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1157,84 +1157,84 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="243"/>
-        <location filename="src/mainwindow.cpp" line="265"/>
+        <location filename="src/mainwindow.cpp" line="241"/>
+        <location filename="src/mainwindow.cpp" line="263"/>
         <source>Ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="286"/>
+        <location filename="src/mainwindow.cpp" line="284"/>
         <source>Working...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="306"/>
+        <location filename="src/mainwindow.cpp" line="304"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="307"/>
+        <location filename="src/mainwindow.cpp" line="305"/>
         <source>All Files (*);;Image Files (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico);;ARW (*.arw *.srf *.sr2);;BAY (*.bay);;CR2 (*.crw *.cr2);;DCS (*.dcs *.dcr *.drf *.k25 *.kdc);;MOS (*.mos);;NEF (*.nef *.nrw);;RAW (*.raw *.rw2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="406"/>
+        <location filename="src/mainwindow.cpp" line="404"/>
         <source>png (*.png)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="407"/>
+        <location filename="src/mainwindow.cpp" line="405"/>
         <source>jpg (*.jpg *.jpeg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="408"/>
+        <location filename="src/mainwindow.cpp" line="406"/>
         <source>bmp (*.bmp)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="409"/>
+        <location filename="src/mainwindow.cpp" line="407"/>
         <source>pbm (*.pbm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="410"/>
+        <location filename="src/mainwindow.cpp" line="408"/>
         <source>pgm (*.pgm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="411"/>
+        <location filename="src/mainwindow.cpp" line="409"/>
         <source>ppm (*.ppm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="412"/>
+        <location filename="src/mainwindow.cpp" line="410"/>
         <source>ico (*.ico)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="428"/>
+        <location filename="src/mainwindow.cpp" line="426"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="483"/>
-        <location filename="src/mainwindow.cpp" line="508"/>
+        <location filename="src/mainwindow.cpp" line="481"/>
+        <location filename="src/mainwindow.cpp" line="506"/>
         <source>Unable to save image.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="1922"/>
+        <location filename="src/mainwindow.cpp" line="1920"/>
         <source>Unsaved Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="1922"/>
+        <location filename="src/mainwindow.cpp" line="1920"/>
         <source>Save changes before leaving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="2223"/>
+        <location filename="src/mainwindow.cpp" line="2215"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1248,124 +1248,124 @@
     </message>
     <message>
         <location filename="src/dialogs/NewDialog.ui" line="47"/>
-        <location filename="src/dialogs/NewDialog.ui" line="200"/>
+        <location filename="src/dialogs/NewDialog.ui" line="125"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="82"/>
-        <location filename="src/dialogs/NewDialog.ui" line="213"/>
-        <source>Height:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/NewDialog.ui" line="114"/>
-        <source>Resolution:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/NewDialog.ui" line="141"/>
+        <location filename="src/dialogs/NewDialog.ui" line="86"/>
         <source>Pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="146"/>
+        <location filename="src/dialogs/NewDialog.ui" line="91"/>
         <source>Cm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="151"/>
+        <location filename="src/dialogs/NewDialog.ui" line="96"/>
         <source>Inches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="166"/>
-        <source>Pixels/cm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/NewDialog.ui" line="171"/>
-        <source>Pixels/inch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/NewDialog.ui" line="185"/>
+        <location filename="src/dialogs/NewDialog.ui" line="110"/>
         <source>Size in Pixels/Memory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="226"/>
+        <location filename="src/dialogs/NewDialog.ui" line="138"/>
+        <location filename="src/dialogs/NewDialog.ui" line="405"/>
+        <source>Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/NewDialog.ui" line="151"/>
         <source>Memory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="303"/>
+        <location filename="src/dialogs/NewDialog.ui" line="228"/>
         <source>New Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="367"/>
+        <location filename="src/dialogs/NewDialog.ui" line="298"/>
         <source>Position:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="394"/>
+        <location filename="src/dialogs/NewDialog.ui" line="325"/>
         <source>(none)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="399"/>
+        <location filename="src/dialogs/NewDialog.ui" line="330"/>
         <source>100 x 100 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="404"/>
+        <location filename="src/dialogs/NewDialog.ui" line="335"/>
         <source>640 x 480 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="409"/>
+        <location filename="src/dialogs/NewDialog.ui" line="340"/>
         <source>800 x 600 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="414"/>
+        <location filename="src/dialogs/NewDialog.ui" line="345"/>
         <source>1024 x 768 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="419"/>
+        <location filename="src/dialogs/NewDialog.ui" line="350"/>
         <source>1366 x 768 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="424"/>
+        <location filename="src/dialogs/NewDialog.ui" line="355"/>
         <source>1600 x 900 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="429"/>
+        <location filename="src/dialogs/NewDialog.ui" line="360"/>
         <source>1920 x 1080 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="434"/>
+        <location filename="src/dialogs/NewDialog.ui" line="365"/>
         <source>3840 x 2160 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="448"/>
+        <location filename="src/dialogs/NewDialog.ui" line="379"/>
         <source>Preset Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="461"/>
+        <location filename="src/dialogs/NewDialog.ui" line="392"/>
         <source>Background colour:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="475"/>
+        <location filename="src/dialogs/NewDialog.ui" line="437"/>
         <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/NewDialog.ui" line="450"/>
+        <source>Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/NewDialog.ui" line="474"/>
+        <source>Pixels/cm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/NewDialog.ui" line="479"/>
+        <source>Pixels/inch</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1481,29 +1481,47 @@
     </message>
 </context>
 <context>
+    <name>PointerTool</name>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="117"/>
+        <source>Crop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="125"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="126"/>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="src/main.cpp" line="26"/>
+        <location filename="src/main.cpp" line="27"/>
         <source>PhotoFlare</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="27"/>
+        <location filename="src/main.cpp" line="28"/>
         <source>1.5.0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="28"/>
+        <location filename="src/main.cpp" line="29"/>
         <source>photoflare.io</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="29"/>
+        <location filename="src/main.cpp" line="30"/>
         <source>photoflare</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="93"/>
+        <location filename="src/mainwindow.cpp" line="94"/>
         <source>Untitled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2375,47 +2393,52 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="47"/>
-        <source>png (*.png)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="48"/>
-        <source>jpg (*.jpg *.jpeg)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="49"/>
-        <source>bmp (*.bmp)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="50"/>
-        <source>pbm (*.pbm)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="51"/>
-        <source>pgm (*.pgm)</source>
+        <location filename="src/dialogs/prefsdialog.ui" line="468"/>
+        <source>Restart to apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.cpp" line="52"/>
-        <source>ppm (*.ppm)</source>
+        <source>png (*.png)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.cpp" line="53"/>
+        <source>jpg (*.jpg *.jpeg)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.cpp" line="54"/>
+        <source>bmp (*.bmp)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.cpp" line="55"/>
+        <source>pbm (*.pbm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.cpp" line="56"/>
+        <source>pgm (*.pgm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.cpp" line="57"/>
+        <source>ppm (*.ppm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.cpp" line="58"/>
         <source>ico (*.ico)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="143"/>
+        <location filename="src/dialogs/prefsdialog.cpp" line="150"/>
         <source>Open Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="152"/>
+        <location filename="src/dialogs/prefsdialog.cpp" line="159"/>
         <source>Save Directory</source>
         <translation type="unfinished"></translation>
     </message>

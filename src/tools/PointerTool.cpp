@@ -114,7 +114,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             if(d->firstPos != d->secondPos)
             {
                 QMenu contextMenu("crop");
-                QAction crop("Crop", this);
+                QAction crop(tr("Crop"), this);
                 connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
                 contextMenu.addAction(&crop);
                 contextMenu.exec(QCursor::pos());
@@ -122,8 +122,8 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             else
             {
                 QMenu contextMenu("copy");
-                QAction copy("Copy", this);
-                QAction paste("Paste", this);
+                QAction copy(tr("Copy"), this);
+                QAction paste(tr("Paste"), this);
 
                 connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
                 contextMenu.addAction(&copy);
