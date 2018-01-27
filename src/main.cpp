@@ -40,6 +40,21 @@ int main(int argc, char *argv[])
                 SETTINGS->setDefaultSettings();
             }
 
+            qCritical() << SETTINGS->getUserLanguage();
+
+            if(SETTINGS->getUserLanguage() == "notset")
+            {
+                // Set language based on System locale
+                QString sysLanguage =  QLocale::languageToString(QLocale::system().language());
+                QString lang;
+
+                if(sysLanguage == "English")
+                {
+                    lang = "en";
+                }
+                SETTINGS->setUserLanguage(lang);
+            }
+
             QTranslator translator;
             QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
 

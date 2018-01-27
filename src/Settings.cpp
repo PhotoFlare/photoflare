@@ -91,7 +91,7 @@ void Settings::setDefaultSettings()
     d->setValue("RecentFiles", "");
     d->setValue("SaveFolder", "");
     d->setValue("SaveFormat", "");
-    d->setValue("UserLanguage", "en");
+    d->setValue("UserLanguage", "notset");
     d->setValue("compressionDefaultEnabled", false);
     d->setValue("compressionDefaultValue", 90);
     d->setValue("compressionDialogEnabled", true);
