@@ -50,6 +50,18 @@ int main(int argc, char *argv[])
                 {
                     lang = "en";
                 }
+                else if(sysLanguage == "French")
+                {
+                    lang = "fr";
+                }
+                else if(sysLanguage == "German")
+                {
+                    lang = "de";
+                }
+                else if(sysLanguage == "Dutsch")
+                {
+                    lang = "nl";
+                }
                 SETTINGS->setUserLanguage(lang);
             }
 
