@@ -1,6 +1,5 @@
 """This module outputs strings missing from other .ts files"""
 import sys
-
 EN_FILE = open("en.ts", "r")
 EN_STRINGS = []
 
@@ -16,7 +15,7 @@ for lang_short in sys.argv[1:]:
 
     for lang_string in LANG_FILE:
         lang_string = lang_string.lstrip()
-        
+
         if lang_string.startswith("<source>"):
             lang_string = lang_string[8:-10]
             LANG_STRING_LIST.append(lang_string)
