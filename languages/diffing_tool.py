@@ -15,10 +15,8 @@ for lang_short in sys.argv[1:]:
 
     for lang_string in LANG_FILE:
         lang_string = lang_string.lstrip()
-
         if lang_string.startswith("<source>"):
-            lang_string = lang_string[8:-10]
-            LANG_STRING_LIST.append(lang_string)
+            LANG_STRING_LIST.append(lang_string[8:-10])
 
     for string in EN_STRINGS:
         if string not in LANG_STRING_LIST:
