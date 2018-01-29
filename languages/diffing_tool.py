@@ -24,4 +24,4 @@ for lang_short in sys.argv[1:]:
         if string not in LANG_STRING_LIST:
             DIFF_LIST.append(string)
 
-    [DIFF_FILE_OUTPUT.write(line + "\n") for line in DIFF_LIST]
+    DIFF_LIST = [DIFF_FILE_OUTPUT.write(line + "\n") for line in DIFF_LIST]
