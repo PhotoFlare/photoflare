@@ -247,7 +247,8 @@
     </property>
     <property name="icon">
      <iconset resource="../../Icons.qrc">
-      <normaloff>:/icons/assets/icons/linked.png</normaloff>:/icons/assets/icons/linked.png</iconset>
+      <normaloff>:/icons/assets/icons/unlinked.png</normaloff>
+      <normalon>:/icons/assets/icons/linked.png</normalon>:/icons/assets/icons/unlinked.png</iconset>
     </property>
     <property name="iconSize">
      <size>

@@ -67,6 +67,7 @@
         <file>assets/icons/aligntext_center.png</file>
         <file>assets/icons/aligntext_left.png</file>
         <file>assets/icons/aligntext_right.png</file>
+        <file>assets/icons/unlinked.png</file>
     </qresource>
     <qresource prefix="/brushes">
         <file>assets/brushes/circle.png</file>
