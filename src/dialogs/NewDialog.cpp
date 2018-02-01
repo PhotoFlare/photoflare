@@ -46,6 +46,7 @@ NewDialog::NewDialog(QWidget *parent) :
     ui->pixelWvalue->setValue(width_px);
     ui->pixelHvalue->setValue(height_px);
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
+    ui->lockedRatioButton->setChecked(true);
 
     for(int i=Qt::white; i <= Qt::yellow; i++)
     {
