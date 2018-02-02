@@ -82,6 +82,24 @@
     </message>
 </context>
 <context>
+    <name>EraserSettingsWidget</name>
+    <message>
+        <location filename="src/toolSettings/erasersettingswidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/toolSettings/erasersettingswidget.ui" line="26"/>
+        <source>Radius:</source>
+        <translation>Straal:</translation>
+    </message>
+    <message>
+        <location filename="src/toolSettings/erasersettingswidget.ui" line="73"/>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GradientDialog</name>
     <message>
         <location filename="src/gradientdialog.ui" line="14"/>
@@ -1005,6 +1023,11 @@
         <translation>Dwarrelen</translation>
     </message>
     <message>
+        <location filename="src/mainwindow.ui" line="1925"/>
+        <source>Donate</source>
+        <translation>Doneer</translation>
+    </message>
+    <message>
         <location filename="src/mainwindow.ui" line="1820"/>
         <source>Register</source>
         <translation>Registreer</translation>
@@ -1115,6 +1138,11 @@
         <location filename="src/mainwindow.ui" line="1935"/>
         <source>Sepia</source>
         <translation>Sepia</translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.ui" line="2045"/>
+        <source>Black and white</source>
+        <translation>Zwart en wit</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1940"/>
