@@ -1145,6 +1145,32 @@
         <translation>Noir et blanc</translation>
     </message>
     <message>
+        <location filename="src/mainwindow.ui" line="2050"/>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.ui" line="2055"/>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.ui" line="2060"/>
+        <source>Check for updates...</source>
+        <translation>Vérifier les MAJ...</translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.cpp" line="241"/>
+        <location filename="src/mainwindow.cpp" line="263"/>
+        <source>Ready</source>
+        <translation>Prêt</translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.cpp" line="284"/>
+        <source>Working...</source>
+        <translation>En cours...</translation>
+    </message>
+    <message>
         <location filename="../src/mainwindow.cpp" line="245"/>
         <source>Open File</source>
         <translation>Ouvrir un fichier</translation>
