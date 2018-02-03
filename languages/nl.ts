@@ -1267,6 +1267,11 @@
         <translation>Vooraf ingestelde grootte</translation>
     </message>
     <message>
+        <location filename="src/dialogs/NewDialog.ui" line="392"/>
+        <source>Background colour:</source>
+        <translation>Achtergrond kleur:</translation>
+    </message>
+    <message>
         <location filename="src/NewDialog.ui" line="154"/>
         <source>100 x 100 pixels</source>
         <translation>100 x 100 pixels</translation>
@@ -1420,60 +1425,73 @@
 <context>
     <name>PluginDialog</name>
     <message>
-        <location filename="src/plugindialog.ui" line="14"/>
-        <source>Plugins</source>
-        <translation>Plugins</translation>
-    </message>
-    <message>
-        <location filename="src/plugindialog.ui" line="26"/>
-        <source>Close</source>
-        <translation>Sluiten</translation>
+        <location filename="src/dialogs/plugindialog.ui" line="14"/>
+        <source>Plugin Manager</source>
+        <translation>Plug-in beheerder</translation>
     </message>
 </context>
 <context>
     <name>PointerSettingsWidget</name>
     <message>
-        <location filename="src/pointersettingswidget.ui" line="14"/>
+        <location filename="src/toolSettings/pointersettingswidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/pointersettingswidget.ui" line="26"/>
+        <location filename="src/toolSettings/pointersettingswidget.ui" line="26"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/pointersettingswidget.ui" line="45"/>
+        <location filename="src/toolSettings/pointersettingswidget.ui" line="55"/>
         <source>Stroke</source>
         <translation>Lijn</translation>
     </message>
     <message>
-        <location filename="src/pointersettingswidget.ui" line="58"/>
+        <location filename="src/toolSettings/pointersettingswidget.ui" line="68"/>
         <source>Fill</source>
         <translation>Vullen</translation>
     </message>
 </context>
 <context>
+    <name>PointerTool</name>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="117"/>
+        <source>Crop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="125"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="126"/>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="src/main.cpp" line="24"/>
-        <source>PhotoFlare Studio</source>
-        <translation>PhotoFlare Studio</translation>
-    </message>
-    <message>
-        <location filename="src/main.cpp" line="25"/>
-        <source>1.2.0</source>
-        <translation>1.2.0</translation>
-    </message>
-    <message>
-        <location filename="src/main.cpp" line="26"/>
-        <source>photoflare.io</source>
-        <translation>photoflare.io</translation>
-    </message>
-    <message>
         <location filename="src/main.cpp" line="27"/>
+        <source>PhotoFlare</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main.cpp" line="28"/>
+        <source>1.5.1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main.cpp" line="29"/>
+        <source>photoflare.io</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main.cpp" line="30"/>
         <source>photoflare</source>
-        <translation>photoflare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="85"/>
@@ -1626,6 +1644,11 @@
         <location filename="src/aboutdialog.cpp" line="18"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
         <translation>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/aboutdialog.cpp" line="48"/>
+        <source> Community Edition</source>
+        <translation>Gemeenschapsuitgave</translation>
     </message>
     <message>
         <location filename="src/aboutdialog.cpp" line="43"/>

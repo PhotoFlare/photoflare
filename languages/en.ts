@@ -1507,7 +1507,7 @@
     </message>
     <message>
         <location filename="src/main.cpp" line="28"/>
-        <source>1.5.0</source>
+        <source>1.5.1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

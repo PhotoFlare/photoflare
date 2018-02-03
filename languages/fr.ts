@@ -1266,6 +1266,11 @@
         <translation>Taille prédéfinie :</translation>
     </message>
     <message>
+        <location filename="src/dialogs/NewDialog.ui" line="392"/>
+        <source>Background colour:</source>
+        <translation>Couleur d'arrière-plan:</translation>
+    </message>
+    <message>
         <location filename="../src/NewDialog.ui" line="154"/>
         <source>100 x 100 pixels</source>
         <translation>100 x 100 pixels</translation>
@@ -1397,26 +1402,75 @@
     </message>
 </context>
 <context>
+    <name>PluginDialog</name>
+    <message>
+        <location filename="src/dialogs/plugindialog.ui" line="14"/>
+        <source>Plugin Manager</source>
+        <translation>Gestionnaire de plugins</translation>
+    </message>
+</context>
+<context>
+    <name>PointerSettingsWidget</name>
+    <message>
+        <location filename="src/toolSettings/pointersettingswidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/toolSettings/pointersettingswidget.ui" line="26"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/toolSettings/pointersettingswidget.ui" line="55"/>
+        <source>Stroke</source>
+        <translation>Lisser</translation>
+    </message>
+    <message>
+        <location filename="src/toolSettings/pointersettingswidget.ui" line="68"/>
+        <source>Fill</source>
+        <translation>Remplir</translation>
+    </message>
+</context>
+<context>
+    <name>PointerTool</name>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="117"/>
+        <source>Crop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="125"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="126"/>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="22"/>
-        <source>PhotoFlare Studio Demo</source>
-        <translation>Démo PhotoFlare Studio</translation>
+        <location filename="src/main.cpp" line="27"/>
+        <source>PhotoFlare</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="23"/>
-        <source>1.0 demo version (Build 80)</source>
-        <translation>Version 1.0 (Build 80) de démonstration </translation>
+        <location filename="src/main.cpp" line="28"/>
+        <source>1.5.1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="24"/>
+        <location filename="src/main.cpp" line="29"/>
         <source>photoflare.io</source>
-        <translation>photoflare.io</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="25"/>
+        <location filename="src/main.cpp" line="30"/>
         <source>photoflare</source>
-        <translation>photoflare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="78"/>
@@ -1569,6 +1623,11 @@
         <location filename="../src/aboutdialog.cpp" line="18"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
         <translation>&lt;b&gt;Développeurs&lt;/b&gt;&lt;br&gt;Commercial &lt;br&gt;Responsable - Dylan Coakley&lt;br&gt;Développeur - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Design&lt;/b&gt;&lt;br&gt;Icône principale - Robert BM&lt;br&gt;Design du site - Raqasa&lt;br&gt;Icônes de l'application - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Supports promotionnels&lt;/b&gt;&lt;br&gt;Concepteur graphique - Catherine Fister&lt;br&gt;Publicité - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributeurs&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Icône du projet&lt;br&gt;&lt;br&gt;&lt;b&gt;Remerciements spéciaux&lt;/b&gt;&lt;br&gt;J'aimerais remercier Samantha d'être une personne aussi merveilleuse. Tu illumines ma vie et je suis fier de t'avoir trouvée.</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/aboutdialog.cpp" line="48"/>
+        <source> Community Edition</source>
+        <translation>Version community</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="43"/>
