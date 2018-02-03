@@ -2040,6 +2040,21 @@
         <translation>Gaussische ruis</translation>
     </message>
     <message>
+        <location filename="src/dialogs/batchdialog.cpp" line="66"/>
+        <source>Drop shadow</source>
+        <translation>Slagschaduw</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/batchdialog.cpp" line="67"/>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/batchdialog.cpp" line="97"/>
+        <source>Please add files to the batch file list and set output folder.</source>
+        <translation>Voeg alstublieft bestanden toe aan de batch bestandslijst en stel de uitvoermap in.</translation>
+    </message>
+    <message>
         <location filename="src/batchdialog.cpp" line="342"/>
         <source>Select Files</source>
         <translation>Selecteer bestanden</translation>
@@ -2048,6 +2063,39 @@
         <location filename="src/batchdialog.cpp" line="343"/>
         <source>Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)</source>
         <translation>Afbeelding bestanden (*.png *.jpg *.jpeg *.gif);;Alle bestanden (*)</translation>
+    </message>
+</context>
+<context>
+    <name>checkupdateDialog</name>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.ui" line="17"/>
+        <source>Updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.ui" line="29"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.ui" line="42"/>
+        <source>Checking for updates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.ui" line="55"/>
+        <source>Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.cpp" line="50"/>
+        <source>New version available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.cpp" line="55"/>
+        <source>No updates available</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
