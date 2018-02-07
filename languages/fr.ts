@@ -2049,32 +2049,32 @@
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="17"/>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>MAJ</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="29"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="42"/>
         <source>Checking for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérification des MAJ...</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="55"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Télécharger</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.cpp" line="50"/>
         <source>New version available</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvelle version disponible</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.cpp" line="55"/>
         <source>No updates available</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun MAJ disponible</translation>
     </message>
 </context>
 <context>

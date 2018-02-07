@@ -2070,32 +2070,32 @@
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="17"/>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Updates</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="29"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="42"/>
         <source>Checking for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer op updates...</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="55"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Download</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.cpp" line="50"/>
         <source>New version available</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe versie beschikbaar</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.cpp" line="55"/>
         <source>No updates available</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen updates beschikbaar</translation>
     </message>
 </context>
 <context>
