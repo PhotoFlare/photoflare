@@ -2078,6 +2078,57 @@
     </message>
 </context>
 <context>
+    <name>colourManagerDialog</name>
+    <message>
+        <location filename="src/dialogs/colourmanagerdialog.ui" line="14"/>
+        <source>Colour palettes</source>
+        <translation>Palettes de couleur</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/colourmanagerdialog.ui" line="73"/>
+        <source>Save</source>
+        <translation>Enregistrer</translation>
+    </message>
+</context>
+<context>
+    <name>dropshadowDialog</name>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="14"/>
+        <source>Drop shadow</source>
+        <translation>Ombre portée</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="42"/>
+        <source>Blur radius</source>
+        <translation>Rayon du flou gaussien</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="55"/>
+        <source>Padding</source>
+        <translation>Remplissage</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="68"/>
+        <source>Colour</source>
+        <translation>Couleur</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="111"/>
+        <source>Offset x</source>
+        <translation>Décalage x</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="124"/>
+        <source>Offset y</source>
+        <translation>Décalage y</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="157"/>
+        <source>Default values</source>
+        <translation>Valeurs par défaut</translation>
+    </message>
+</context>
+<context>
     <name>buyDialog</name>
     <message>
         <location filename="../src/buydialog.ui" line="14"/>

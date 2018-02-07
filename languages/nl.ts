@@ -2099,6 +2099,57 @@
     </message>
 </context>
 <context>
+    <name>colourManagerDialog</name>
+    <message>
+        <location filename="src/dialogs/colourmanagerdialog.ui" line="14"/>
+        <source>Colour palettes</source>
+        <translation>Kleurpaletten</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/colourmanagerdialog.ui" line="73"/>
+        <source>Save</source>
+        <translation>Opslaan</translation>
+    </message>
+</context>
+<context>
+    <name>dropshadowDialog</name>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="14"/>
+        <source>Drop shadow</source>
+        <translation>Slagschaduw</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="42"/>
+        <source>Blur radius</source>
+        <translation>Straal vervagen</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="55"/>
+        <source>Padding</source>
+        <translation>Opvullen</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="68"/>
+        <source>Colour</source>
+        <translation>kleur</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="111"/>
+        <source>Offset x</source>
+        <translation>Offset x</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="124"/>
+        <source>Offset y</source>
+        <translation>Offset y</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="157"/>
+        <source>Default values</source>
+        <translation>Standaard waarden</translation>
+    </message>
+</context>
+<context>
     <name>buyDialog</name>
     <message>
         <location filename="src/buydialog.ui" line="14"/>
