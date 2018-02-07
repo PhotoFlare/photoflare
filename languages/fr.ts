@@ -2262,7 +2262,7 @@
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="143"/>
         <source>Remember previous save folder</source>
-        <translation>Remember previous save folder</translation>
+        <translation>Se souvenir du dernier dossier de sauvegarde</translation>
     </message>
     <message>
         <location filename="../src/prefsdialog.ui" line="123"/>
