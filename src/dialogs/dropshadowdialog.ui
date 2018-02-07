@@ -34,7 +34,7 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>81</width>
+     <width>121</width>
      <height>17</height>
     </rect>
    </property>
@@ -45,9 +45,9 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>20</y>
-     <width>67</width>
+     <width>101</width>
      <height>17</height>
     </rect>
    </property>
@@ -58,9 +58,9 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>250</x>
      <y>20</y>
-     <width>67</width>
+     <width>121</width>
      <height>17</height>
     </rect>
    </property>
@@ -81,7 +81,7 @@
   <widget class="QSpinBox" name="paddingValue">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>40</y>
      <width>48</width>
      <height>26</height>
@@ -91,7 +91,7 @@
   <widget class="BrushTypeComboBox" name="colorComboBox" native="true">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>250</x>
      <y>40</y>
      <width>120</width>
      <height>21</height>
@@ -103,7 +103,7 @@
     <rect>
      <x>20</x>
      <y>80</y>
-     <width>67</width>
+     <width>101</width>
      <height>17</height>
     </rect>
    </property>
@@ -114,9 +114,9 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>80</y>
-     <width>67</width>
+     <width>81</width>
      <height>17</height>
     </rect>
    </property>
@@ -137,7 +137,7 @@
   <widget class="QSpinBox" name="offsetyValue">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>100</y>
      <width>48</width>
      <height>26</height>
@@ -149,7 +149,7 @@
     <rect>
      <x>20</x>
      <y>140</y>
-     <width>111</width>
+     <width>141</width>
      <height>25</height>
     </rect>
    </property>
@@ -162,7 +162,7 @@
   <customwidget>
    <class>BrushTypeComboBox</class>
    <extends>QWidget</extends>
-   <header location="global">brushtypecombobox.h</header>
+   <header>brushtypecombobox.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
