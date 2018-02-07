@@ -2276,6 +2276,16 @@
         <translation>Opslaan in map</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="130"/>
+        <source>Remember previous opened folder</source>
+        <translation>Onthoud de vorige geopende map</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="143"/>
+        <source>Remember previous save folder</source>
+        <translation>Onthoud de vorige bewaarmap</translation>
+    </message>
+    <message>
         <location filename="src/prefsdialog.ui" line="123"/>
         <source>S&amp;aving</source>
         <translation>B&amp;ewaren</translation>
@@ -2298,7 +2308,7 @@
     <message>
         <location filename="src/prefsdialog.ui" line="182"/>
         <source>Set default compression</source>
-        <translation>Stel standaard compressie in</translation>
+        <translation>Stel standaard comprimering in</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="232"/>
@@ -2321,14 +2331,44 @@
         <translation>Meerdere vensters modus</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="302"/>
+        <source>Default Toolpalette Location</source>
+        <translation>Standaard gereedschapspallet locatie</translation>
+    </message>
+    <message>
         <location filename="src/prefsdialog.ui" line="269"/>
         <source>&amp;Default Values</source>
         <translation>&amp;Standaard Waarden</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="330"/>
+        <source>Default Units</source>
+        <translation>Standaard eenheden</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="344"/>
+        <source>Pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="358"/>
+        <source>Memorize parameters</source>
+        <translation>Parameters onthouden</translation>
+    </message>
+    <message>
         <location filename="src/prefsdialog.ui" line="274"/>
         <source>&amp;History</source>
         <translation>&amp;Geschiedenis</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="376"/>
+        <source>Image History Size</source>
+        <translation>Omvang afbeeldingsgeschiedenis</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="414"/>
+        <source>24</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="279"/>
@@ -2344,6 +2384,11 @@
         <location filename="src/prefsdialog.ui" line="314"/>
         <source>Language</source>
         <translation>Taal</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="468"/>
+        <source>Restart to apply</source>
+        <translation>Start het programma opnieuw op om toe te passen</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.cpp" line="31"/>
@@ -2491,6 +2536,11 @@
         <location filename="src/textdialog.ui" line="243"/>
         <source>Antialias</source>
         <translation>Antialias</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/textdialog.ui" line="266"/>
+        <source>Enter some text to continue</source>
+        <translation>Voer tekst in om verder te gaan</translation>
     </message>
 </context>
 </TS>

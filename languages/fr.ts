@@ -2255,6 +2255,16 @@
         <translation>Répertoire de sauvegarde</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="130"/>
+        <source>Remember previous opened folder</source>
+        <translation>Se souvenir du dernier dossier ouvert</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="143"/>
+        <source>Remember previous save folder</source>
+        <translation>Remember previous save folder</translation>
+    </message>
+    <message>
         <location filename="../src/prefsdialog.ui" line="123"/>
         <source>S&amp;aving</source>
         <translation>&amp;Enregistrer</translation>
@@ -2270,6 +2280,21 @@
         <translation>&amp;Compression</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="189"/>
+        <source>Always show dialog</source>
+        <translation>Toujours afficher</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="208"/>
+        <source>Set default compression</source>
+        <translation>Définir la compression par défaut</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="258"/>
+        <source>Compression</source>
+        <translation>Compression</translation>
+    </message>
+    <message>
         <location filename="../src/prefsdialog.ui" line="156"/>
         <source>&amp;Layout</source>
         <translation>&amp;Disposition</translation>
@@ -2280,14 +2305,44 @@
         <translation>Multi-fenêtres </translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="302"/>
+        <source>Default Toolpalette Location</source>
+        <translation>Emplacement par défaut de la palette d'outils</translation>
+    </message>
+    <message>
         <location filename="../src/prefsdialog.ui" line="174"/>
         <source>&amp;Default Values</source>
         <translation>&amp;Valeurs par défaut</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="330"/>
+        <source>Default Units</source>
+        <translation>Unités par défaut</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="344"/>
+        <source>Pixels</source>
+        <translation>Pixels</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="358"/>
+        <source>Memorize parameters</source>
+        <translation>Se souvenir des paramètres</translation>
+    </message>
+    <message>
         <location filename="../src/prefsdialog.ui" line="179"/>
         <source>&amp;History</source>
         <translation>&amp;Historique</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="376"/>
+        <source>Image History Size</source>
+        <translation>Taille de l'historique des images</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="414"/>
+        <source>24</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/prefsdialog.ui" line="184"/>
@@ -2303,6 +2358,11 @@
         <location filename="../src/prefsdialog.ui" line="219"/>
         <source>Language</source>
         <translation>Langue</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="468"/>
+        <source>Restart to apply</source>
+        <translation>Redémarrer pour appliquer</translation>
     </message>
     <message>
         <location filename="../src/prefsdialog.cpp" line="24"/>
@@ -2435,6 +2495,11 @@
         <location filename="../src/textdialog.ui" line="246"/>
         <source>&amp;Effects</source>
         <translation>&amp;Effets</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/textdialog.ui" line="266"/>
+        <source>Enter some text to continue</source>
+        <translation>Saisir du texte pour poursuivre</translation>
     </message>
 </context>
 </TS>
