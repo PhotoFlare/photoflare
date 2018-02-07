@@ -1372,7 +1372,7 @@
     <name>PluginDialog</name>
     <message>
         <location filename="src/plugindialog.ui" line="14"/>
-        <source>Plugins</source>
+        <source>Plugin Manager</source>
         <translation>Plugins</translation>
     </message>
     <message>
@@ -2014,6 +2014,90 @@
         <location filename="src/buydialog.ui" line="145"/>
         <source>Please consider supporting the project by purchasing a license.</source>
         <translation>Overweeg alstublieft de ondersteuning van dit project door de aankoop van een licentie</translation>
+    </message>
+</context>
+<context>
+    <name>checkupdateDialog</name>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.ui" line="17"/>
+        <source>Updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.ui" line="29"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.ui" line="42"/>
+        <source>Checking for updates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.ui" line="55"/>
+        <source>Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.cpp" line="50"/>
+        <source>New version available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/checkupdatedialog.cpp" line="55"/>
+        <source>No updates available</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>colourManagerDialog</name>
+    <message>
+        <location filename="src/dialogs/colourmanagerdialog.ui" line="14"/>
+        <source>Colour palettes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/colourmanagerdialog.ui" line="73"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dropshadowDialog</name>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="14"/>
+        <source>Drop shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="42"/>
+        <source>Blur radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="55"/>
+        <source>Padding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="68"/>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="111"/>
+        <source>Offset x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="124"/>
+        <source>Offset y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/dropshadowdialog.ui" line="157"/>
+        <source>Default values</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
