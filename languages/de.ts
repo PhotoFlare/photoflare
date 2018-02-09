@@ -82,6 +82,24 @@
     </message>
 </context>
 <context>
+    <name>EraserSettingsWidget</name>
+    <message>
+        <location filename="src/toolSettings/erasersettingswidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/toolSettings/erasersettingswidget.ui" line="26"/>
+        <source>Radius:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/toolSettings/erasersettingswidget.ui" line="73"/>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GradientDialog</name>
     <message>
         <location filename="src/gradientdialog.ui" line="14"/>
@@ -541,7 +559,7 @@
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1228"/>
-        <source>Outside Frame...</source>
+        <source>Outside frame...</source>
         <translation>Buiten de lijst...</translation>
     </message>
     <message>
@@ -741,7 +759,7 @@
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1481"/>
-        <source>Reliëf</source>
+        <source>Relief</source>
         <translation>Reliëf</translation>
     </message>
     <message>
@@ -1005,6 +1023,11 @@
         <translation>Dwarrelen</translation>
     </message>
     <message>
+        <location filename="src/mainwindow.ui" line="1925"/>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="src/mainwindow.ui" line="1820"/>
         <source>Register</source>
         <translation>Registreer</translation>
@@ -1117,9 +1140,30 @@
         <translation>Sepia</translation>
     </message>
     <message>
+        <location filename="src/mainwindow.ui" line="2045"/>
+        <source>Black and white</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="src/mainwindow.ui" line="1940"/>
         <source>Plugins</source>
         <translation>Plugins</translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.ui" line="2060"/>
+        <source>Check for updates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.cpp" line="241"/>
+        <location filename="src/mainwindow.cpp" line="263"/>
+        <source>Ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.cpp" line="284"/>
+        <source>Working...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="248"/>
@@ -1307,7 +1351,7 @@
     <name>OuterFrameDialog</name>
     <message>
         <location filename="src/outerframedialog.ui" line="14"/>
-        <source>Outside Frame</source>
+        <source>Outside frame</source>
         <translation>Buitenkant lijst</translation>
     </message>
     <message>
@@ -1968,6 +2012,21 @@
         <translation>Gaussische ruis</translation>
     </message>
     <message>
+        <location filename="src/dialogs/batchdialog.cpp" line="66"/>
+        <source>Drop shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/batchdialog.cpp" line="67"/>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/batchdialog.cpp" line="97"/>
+        <source>Please add files to the batch file list and set output folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="src/batchdialog.cpp" line="342"/>
         <source>Select Files</source>
         <translation>Selecteer bestanden</translation>
@@ -2189,6 +2248,16 @@
         <translation>Opslaan in map</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="130"/>
+        <source>Remember previous opened folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="143"/>
+        <source>Remember previous save folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="src/prefsdialog.ui" line="123"/>
         <source>S&amp;aving</source>
         <translation>B&amp;ewaren</translation>
@@ -2234,14 +2303,39 @@
         <translation>Meerdere vensters modus</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="302"/>
+        <source>Default Toolpalette Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="src/prefsdialog.ui" line="269"/>
         <source>&amp;Default Values</source>
         <translation>&amp;Standaard Waarden</translation>
     </message>
     <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="330"/>
+        <source>Default Units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="344"/>
+        <source>Pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="358"/>
+        <source>Memorize parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="src/prefsdialog.ui" line="274"/>
         <source>&amp;History</source>
         <translation>&amp;Geschiedenis</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="376"/>
+        <source>Image History Size</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="279"/>
@@ -2257,6 +2351,11 @@
         <location filename="src/prefsdialog.ui" line="314"/>
         <source>Language</source>
         <translation>Taal</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/prefsdialog.ui" line="468"/>
+        <source>Restart to apply</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/prefsdialog.cpp" line="31"/>
@@ -2404,6 +2503,11 @@
         <location filename="src/textdialog.ui" line="243"/>
         <source>Antialias</source>
         <translation>Antialias</translation>
+    </message>
+    <message>
+        <location filename="src/dialogs/textdialog.ui" line="266"/>
+        <source>Enter some text to continue</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
