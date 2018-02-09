@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>
@@ -21,6 +21,7 @@
 #include <QDesktopServices>
 #include <QTimer>
 #include <QStandardPaths>
+#include <QImageReader>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -329,11 +330,16 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::openFile(const QString& fileName)
 {
-    if (!fileName.isEmpty())
+    QImageReader reader(fileName);
+    if (!fileName.isEmpty() && reader.format() != "")
     {
         addPaintWidget(createPaintWidget(fileName));
         SETTINGS->addRecentFile(fileName);
         updateRecents();
+    }
+    if(reader.format() == "")
+    {
+        showError(tr("Please open a valid image file"));
     }
 }
 
