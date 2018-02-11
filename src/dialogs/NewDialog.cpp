@@ -59,8 +59,6 @@ NewDialog::NewDialog(QWidget *parent) :
     ui->backgroundColorComboBox->setOnClickHandler(this);
     ui->backgroundColorComboBox_NewFile->setOnClickHandler(this);
 
-//    setMode(ResizeImage);
-
     if(SETTINGS->getMemParamsEnabled() && ResizeImage != 1)
     {
         //Read Dialog settings
