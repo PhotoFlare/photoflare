@@ -122,11 +122,49 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             else
             {
                 QMenu contextMenu("copy");
+                QAction save(tr("Save"), this);
+                QAction saveAs(tr("Save as"), this);
+                QAction close(tr("Close"), this);
+                QAction sep1(this);
+                sep1.setSeparator(true);
+
                 QAction copy(tr("Copy"), this);
                 QAction paste(tr("Paste"), this);
+                QAction sep2(this);
+                sep2.setSeparator(true);
 
-                connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
+                QAction imageSize(tr("Image size"), this);
+                QAction canvasSize(tr("Canvas size"), this);
+                QAction sep3(this);
+                sep3.setSeparator(true);
+
+                QAction undo(tr("Undo"), this);
+                QAction redo(tr("Redo"), this);
+
+
+                contextMenu.addAction(&save);
+                contextMenu.addAction(&saveAs);
+                contextMenu.addAction(&close);
+                contextMenu.addAction(&sep1);
+
+                contextMenu.addAction(&imageSize);
+                contextMenu.addAction(&canvasSize);
+
+                contextMenu.addAction(&sep2);
                 contextMenu.addAction(&copy);
+                contextMenu.addAction(&paste);
+
+                contextMenu.addAction(&sep3);
+                contextMenu.addAction(&undo);
+                contextMenu.addAction(&redo);
+
+                connect(&save, SIGNAL(triggered()), this, SLOT(copy()));
+                connect(&saveAs, SIGNAL(triggered()), this, SLOT(onCopy()));
+                connect(&close, SIGNAL(triggered()), this, SLOT(onCopy()));
+                connect(&imageSize, SIGNAL(triggered()), this, SLOT(onCopy()));
+                connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCopy()));
+                connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
+
 
                 QClipboard *clipboard = QApplication::clipboard();
                 if(!clipboard->image().isNull())
@@ -134,6 +172,9 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                     connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
                     contextMenu.addAction(&paste);
                 }
+
+                connect(&undo, SIGNAL(triggered()), this, SLOT(onCopy()));
+                connect(&redo, SIGNAL(triggered()), this, SLOT(onCopy()));
 
                 contextMenu.exec(QCursor::pos());
             }}
