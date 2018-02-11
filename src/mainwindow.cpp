@@ -311,8 +311,8 @@ void MainWindow::on_actionOpen_triggered()
                                 "GIF(*.gif);;"
                                 "TIFF(*.tif *.tiff);;"
                                 "BMP(*.bmp);;"
-                                "ICO(*.ico);;"
-
+                                "ICO(*.ico)"));
+/*
                                 "ARW (*.arw *.srf *.sr2);;"
                                 "BAY (*.bay);;"
                                 "CR2 (*.crw *.cr2);;"
@@ -320,6 +320,7 @@ void MainWindow::on_actionOpen_triggered()
                                 "MOS (*.mos);;"
                                 "NEF (*.nef *.nrw);;"
                                 "RAW (*.raw *.rw2)"));
+*/
     openFile(fileName);
 
     if(SETTINGS->getPreviouslyOpened() == true)
