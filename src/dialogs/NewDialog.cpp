@@ -59,8 +59,6 @@ NewDialog::NewDialog(QWidget *parent) :
     ui->backgroundColorComboBox->setOnClickHandler(this);
     ui->backgroundColorComboBox_NewFile->setOnClickHandler(this);
 
-    setMode(ResizeImage);
-
     if(SETTINGS->getMemParamsEnabled() && ResizeImage != 1)
     {
         //Read Dialog settings
@@ -290,6 +288,13 @@ void NewDialog::setMode(Mode mode)
         ui->backgroundColorComboBox_NewFile->setVisible(true);
         ui->positionLabel->setVisible(false);
         ui->positionWidget->setVisible(false);
+   }
+   else if (mode == NewImage) {
+       ui->positionLabel->setVisible(false);
+       ui->positionWidget->setVisible(false);
+       ui->lockedRatioButton->setChecked(false);
+       ui->backgroundLabel->setVisible(false);
+       ui->backgroundColorComboBox->setVisible(false);
    }
    else
    {

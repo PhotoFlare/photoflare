@@ -294,6 +294,7 @@ void MainWindow::applyThreadedFilter(QString filterName)
 void MainWindow::on_actionNew_triggered()
 {
     NewDialog dialog;
+    dialog.setMode(NewDialog::NewImage);
     if (dialog.exec())
     {
         addPaintWidget(createPaintWidget(dialog.newImageSize(),dialog.newImageBackgroundColor()));
@@ -785,6 +786,7 @@ void MainWindow::on_actionImage_Size_triggered()
 
     NewDialog dialog;
     dialog.setWindowTitle("Resize Image");
+    dialog.setMode(NewDialog::ResizeImage);
     dialog.setImageSize(widget->image().size());
     if (dialog.exec())
         widget->setImage(widget->image().scaled(dialog.newImageSize()));
