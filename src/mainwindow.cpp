@@ -213,6 +213,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(PAINT_BUCKET, SIGNAL(floodFillSecondaryColor(const QPoint&)), this, SLOT(onFloodFillSecondaryColor(const QPoint&)));
 
     QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
+    QObject::connect(MOUSE_POINTER, SIGNAL(save()), this, SLOT(on_actionSave_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(saveAs()), this, SLOT(on_actionSave_As_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(copy()), this, SLOT(onCopy()));
     QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(onPaste()));
 

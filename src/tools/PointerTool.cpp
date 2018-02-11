@@ -151,8 +151,8 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             contextMenu.addAction(&redo);
 
             connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
-            connect(&save, SIGNAL(triggered()), this, SLOT(onCopy()));
-            connect(&saveAs, SIGNAL(triggered()), this, SLOT(onCopy()));
+            connect(&save, SIGNAL(triggered()), this, SLOT(onSave()));
+            connect(&saveAs, SIGNAL(triggered()), this, SLOT(onSaveAs()));
             connect(&close, SIGNAL(triggered()), this, SLOT(onCopy()));
             connect(&imageSize, SIGNAL(triggered()), this, SLOT(onCopy()));
             connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCopy()));
@@ -180,6 +180,16 @@ void PointerTool::onCrop()
     d->secondPos = d->firstPos;
     emit selectionChanged(QRect());
     emit crop(rect);
+}
+
+void PointerTool::onSave()
+{
+    emit save();
+}
+
+void PointerTool::onSaveAs()
+{
+    emit saveAs();
 }
 
 void PointerTool::onCopy()
