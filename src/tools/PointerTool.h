@@ -22,18 +22,29 @@ public:
 
 public slots:
     void onCrop();
+    void onSave();
+    void onSaveAs();
+    void onClose();
+    void onImageSize();
+    void onCanvasSize();
     void onCopy();
     void onPaste();
+    void onUndo();
+    void onRedo();
 signals:
     void crop(const QRect&);
+    void save();
+    void saveAs();
+    void close();
+    void imageSize();
+    void canvasSize();
     void copy();
     void paste();
+    void undo();
+    void redo();
 
 private:
     PointerToolPrivate *d;
 };
 
-
-
 #endif // POINTERTOOL_H
-

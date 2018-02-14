@@ -111,35 +111,65 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             }
             break;
         case Qt::RightButton: {
+            QMenu contextMenu("default");
+            QAction crop(tr("Crop"), this);
+            contextMenu.addAction(&crop);
+            crop.setDisabled(true);
             if(d->firstPos != d->secondPos)
             {
-                QMenu contextMenu("crop");
-                QAction crop(tr("Crop"), this);
-                connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
-                contextMenu.addAction(&crop);
-                contextMenu.exec(QCursor::pos());
+                crop.setDisabled(false);
             }
-            else
+            QAction sep0(this);
+            sep0.setSeparator(true);
+            QAction save(tr("Save"), this);
+            QAction saveAs(tr("Save as"), this);
+            QAction close(tr("Close"), this);
+            QAction sep1(this);
+            sep1.setSeparator(true);
+            QAction copy(tr("Copy"), this);
+            QAction paste(tr("Paste"), this);
+            QAction sep2(this);
+            sep2.setSeparator(true);
+            QAction imageSize(tr("Image size"), this);
+            QAction canvasSize(tr("Canvas size"), this);
+            QAction sep3(this);
+            sep3.setSeparator(true);
+            QAction undo(tr("Undo"), this);
+            QAction redo(tr("Redo"), this);
+
+            contextMenu.addAction(&save);
+            contextMenu.addAction(&saveAs);
+            contextMenu.addAction(&close);
+            contextMenu.addAction(&sep1);
+            contextMenu.addAction(&imageSize);
+            contextMenu.addAction(&canvasSize);
+            contextMenu.addAction(&sep2);
+            contextMenu.addAction(&copy);
+            contextMenu.addAction(&paste);
+            contextMenu.addAction(&sep3);
+            contextMenu.addAction(&undo);
+            contextMenu.addAction(&redo);
+
+            connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
+            connect(&save, SIGNAL(triggered()), this, SLOT(onSave()));
+            connect(&saveAs, SIGNAL(triggered()), this, SLOT(onSaveAs()));
+            connect(&close, SIGNAL(triggered()), this, SLOT(onClose()));
+            connect(&imageSize, SIGNAL(triggered()), this, SLOT(onImageSize()));
+            connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCanvasSize()));
+            connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
+
+            QClipboard *clipboard = QApplication::clipboard();
+            if(!clipboard->image().isNull())
             {
-                QMenu contextMenu("copy");
-                QAction copy(tr("Copy"), this);
-                QAction paste(tr("Paste"), this);
+                connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
+                contextMenu.addAction(&paste);
+            }
+            connect(&undo, SIGNAL(triggered()), this, SLOT(onUndo()));
+            connect(&redo, SIGNAL(triggered()), this, SLOT(onRedo()));
 
-                connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
-                contextMenu.addAction(&copy);
-
-                QClipboard *clipboard = QApplication::clipboard();
-                if(!clipboard->image().isNull())
-                {
-                    connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
-                    contextMenu.addAction(&paste);
-                }
-
-                contextMenu.exec(QCursor::pos());
-            }}
-            break;
-        default:
-            break;
+            contextMenu.exec(QCursor::pos());
+            }
+        break;
     }
 }
 
@@ -151,6 +181,31 @@ void PointerTool::onCrop()
     emit crop(rect);
 }
 
+void PointerTool::onSave()
+{
+    emit save();
+}
+
+void PointerTool::onSaveAs()
+{
+    emit saveAs();
+}
+
+void PointerTool::onClose()
+{
+    emit close();
+}
+
+void PointerTool::onImageSize()
+{
+    emit imageSize();
+}
+
+void PointerTool::onCanvasSize()
+{
+    emit canvasSize();
+}
+
 void PointerTool::onCopy()
 {
     emit copy();
@@ -159,6 +214,17 @@ void PointerTool::onCopy()
 void PointerTool::onPaste()
 {
     emit paste();
+}
+
+
+void PointerTool::onUndo()
+{
+    emit undo();
+}
+
+void PointerTool::onRedo()
+{
+    emit redo();
 }
 
 void PointerTool::setOverlayImage(const QImage& image)
