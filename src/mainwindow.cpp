@@ -215,8 +215,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
     QObject::connect(MOUSE_POINTER, SIGNAL(save()), this, SLOT(on_actionSave_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(saveAs()), this, SLOT(on_actionSave_As_triggered()));
-    QObject::connect(MOUSE_POINTER, SIGNAL(copy()), this, SLOT(onCopy()));
-    QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(onPaste()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(close()), this, SLOT(on_actionClose_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(copy()), this, SLOT(on_actionCopy_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(on_actionPaste_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(imageSize()), this, SLOT(on_actionImage_Size_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(canvasSize()), this, SLOT(on_actionCanvas_Size_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(undo()), this, SLOT(on_actionUndo_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(redo()), this, SLOT(on_actionRedo_triggered()));
 
     QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished()), this, SLOT(on_TextTool_finished()));
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));

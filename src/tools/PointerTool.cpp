@@ -153,9 +153,9 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
             connect(&save, SIGNAL(triggered()), this, SLOT(onSave()));
             connect(&saveAs, SIGNAL(triggered()), this, SLOT(onSaveAs()));
-            connect(&close, SIGNAL(triggered()), this, SLOT(onCopy()));
-            connect(&imageSize, SIGNAL(triggered()), this, SLOT(onCopy()));
-            connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCopy()));
+            connect(&close, SIGNAL(triggered()), this, SLOT(onClose()));
+            connect(&imageSize, SIGNAL(triggered()), this, SLOT(onImageSize()));
+            connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCanvasSize()));
             connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
 
             QClipboard *clipboard = QApplication::clipboard();
@@ -164,9 +164,8 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                 connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
                 contextMenu.addAction(&paste);
             }
-
-            connect(&undo, SIGNAL(triggered()), this, SLOT(onCopy()));
-            connect(&redo, SIGNAL(triggered()), this, SLOT(onCopy()));
+            connect(&undo, SIGNAL(triggered()), this, SLOT(onUndo()));
+            connect(&redo, SIGNAL(triggered()), this, SLOT(onRedo()));
 
             contextMenu.exec(QCursor::pos());
             }
@@ -192,6 +191,21 @@ void PointerTool::onSaveAs()
     emit saveAs();
 }
 
+void PointerTool::onClose()
+{
+    emit close();
+}
+
+void PointerTool::onImageSize()
+{
+    emit imageSize();
+}
+
+void PointerTool::onCanvasSize()
+{
+    emit canvasSize();
+}
+
 void PointerTool::onCopy()
 {
     emit copy();
@@ -200,6 +214,17 @@ void PointerTool::onCopy()
 void PointerTool::onPaste()
 {
     emit paste();
+}
+
+
+void PointerTool::onUndo()
+{
+    emit undo();
+}
+
+void PointerTool::onRedo()
+{
+    emit redo();
 }
 
 void PointerTool::setOverlayImage(const QImage& image)
