@@ -232,7 +232,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Setup some other defaults on startup
     setWindowSize();
-    updateRecents();
+    updateRecentFilesMenu();
 
     // Initialize ScanManager for scanning images
     m_scanManager = new ScanManager();
@@ -344,7 +344,7 @@ void MainWindow::openFile(const QString& fileName)
     {
         addPaintWidget(createPaintWidget(fileName));
         SETTINGS->addRecentFile(fileName);
-        updateRecents();
+        updateRecentFilesMenu();
     }
     if(reader.format() == "")
     {
@@ -374,7 +374,7 @@ bool MainWindow::fileExists(QString path) {
     return (check_file.exists() && check_file.isFile());
 }
 
-void MainWindow::updateRecents()
+void MainWindow::updateRecentFilesMenu()
 {
     ui->menuRecent_Files->clear();
 
@@ -490,7 +490,7 @@ void MainWindow::on_actionSave_As_triggered()
                     widget->setImagePath(d.absolutePath());
 
                     SETTINGS->addRecentFile(fileName);
-                    updateRecents();
+                    updateRecentFilesMenu();
                 }
                 else
                     showError(tr("Unable to save image."));
@@ -515,7 +515,7 @@ void MainWindow::on_actionSave_As_triggered()
                 widget->setImagePath(d.absolutePath());
 
                 SETTINGS->addRecentFile(fileName);
-                updateRecents();
+                updateRecentFilesMenu();
             }
             else
                 showError(tr("Unable to save image."));
