@@ -6,7 +6,7 @@ TARGET = PhotoFlare
 TEMPLATE = app
 CONFIG += c++11
 
-# This path is used inside ui_mainwindow.h in order to find ColorBoxWidget.h
+# This path is used in order to find all of the header files
 INCLUDEPATH += ./src/widgets \
                ./src/dialogs \
                ./src/tools \
