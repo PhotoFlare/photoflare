@@ -110,7 +110,10 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                 }
             }
             break;
-        case Qt::RightButton: {
+        case Qt::RightButton:
+        {
+            QClipboard *clipboard = QApplication::clipboard();
+
             QMenu contextMenu("default");
             QAction crop(tr("Crop"), this);
             contextMenu.addAction(&crop);
@@ -128,6 +131,11 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             sep1.setSeparator(true);
             QAction copy(tr("Copy"), this);
             QAction paste(tr("Paste"), this);
+            paste.setDisabled(true);
+            if(!clipboard->image().isNull())
+            {
+                paste.setDisabled(false);
+            }
             QAction sep2(this);
             sep2.setSeparator(true);
             QAction imageSize(tr("Image size"), this);
@@ -157,13 +165,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             connect(&imageSize, SIGNAL(triggered()), this, SLOT(onImageSize()));
             connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCanvasSize()));
             connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
-
-            QClipboard *clipboard = QApplication::clipboard();
-            if(!clipboard->image().isNull())
-            {
-                connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
-                contextMenu.addAction(&paste);
-            }
+            connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
             connect(&undo, SIGNAL(triggered()), this, SLOT(onUndo()));
             connect(&redo, SIGNAL(triggered()), this, SLOT(onRedo()));
 
