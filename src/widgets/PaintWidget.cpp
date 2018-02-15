@@ -51,7 +51,7 @@ public:
         q->setStyleSheet("background-color: rgb(128, 128, 128);");
     }
 
-    void updateImageLabel()
+    void updateImageCanvas()
     {
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
@@ -108,7 +108,7 @@ public:
         canvas->setPixmap(QPixmap::fromImage(surface));
     }
 
-    void updateImageLabelWithOverlay(const QImage &overlayImage, QPainter::CompositionMode mode)
+    void updateImageCanvasWithOverlay(const QImage &overlayImage, QPainter::CompositionMode mode)
     {
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
@@ -133,7 +133,7 @@ public:
         }
 
         this->image = image;
-        this->updateImageLabel();
+        this->updateImageCanvas();
     }
 
     void disconnectLastTool()
@@ -285,7 +285,7 @@ void PaintWidget::setPaintTool(Tool *tool)
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
                 if (&d->image == paintDevice)
                 {
-                    d->updateImageLabel();
+                    d->updateImageCanvas();
                     this->contentChanged();
                     d->imageChanged = true;
                 }
@@ -293,7 +293,7 @@ void PaintWidget::setPaintTool(Tool *tool)
         d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode) {
                 if (&d->image == paintDevice)
                 {
-                    d->updateImageLabelWithOverlay(overlayImage, mode);
+                    d->updateImageCanvasWithOverlay(overlayImage, mode);
                 }
             });
 
@@ -303,7 +303,7 @@ void PaintWidget::setPaintTool(Tool *tool)
 
         d->currentTool->setScale(d->scale);
         d->currentTool->setPaintDevice(&d->image);
-        d->updateImageLabel();
+        d->updateImageCanvas();
     }
 }
 
@@ -489,7 +489,7 @@ int PaintWidget::undoCount()
 void PaintWidget::setSelectionVisible(bool visible)
 {
     d->isSelectionVisible = visible;
-    d->updateImageLabel();
+    d->updateImageCanvas();
     emit selectionChanged(visible);
 }
 
