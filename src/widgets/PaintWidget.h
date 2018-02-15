@@ -55,6 +55,7 @@ public:
     QPolygon selection();
     bool isSelectionVisible();
     void setHotspotVisble(bool visible);
+    void setImageModeIndexed(bool mode);
 
     void showProgressIndicator(bool visible);
 signals:

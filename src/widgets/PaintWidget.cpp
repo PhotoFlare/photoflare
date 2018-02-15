@@ -132,8 +132,14 @@ public:
         {
             q->setSceneRect(image.rect());
         }
-
-        this->image = image;
+        if(indexedMode)
+        {
+            this->image = image.convertToFormat(QImage::Format_Indexed8);
+        }
+        else
+        {
+            this->image = image;
+        }
         this->updateImageCanvas();
     }
 
@@ -205,6 +211,7 @@ public:
     QPolygon selection;
     bool isSelectionVisible;
     bool hotspotVisible;
+    bool indexedMode;
 
     PaintWidget *q;
 };
@@ -509,4 +516,9 @@ bool PaintWidget::isSelectionVisible()
 void PaintWidget::setHotspotVisble(bool visible)
 {
     d->hotspotVisible = visible;
+}
+
+void PaintWidget::setImageModeIndexed(bool mode)
+{
+    d->indexedMode = mode;
 }

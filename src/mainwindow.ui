@@ -1702,6 +1702,9 @@ QToolButton:checked {
    </property>
   </action>
   <action name="actionRGB_Mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../Icons.qrc">
      <normaloff>:/icons/assets/icons/rgb.png</normaloff>:/icons/assets/icons/rgb.png</iconset>
@@ -1711,6 +1714,9 @@ QToolButton:checked {
    </property>
   </action>
   <action name="actionIndexed_Mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../Icons.qrc">
      <normaloff>:/icons/assets/icons/index.png</normaloff>:/icons/assets/icons/index.png</iconset>

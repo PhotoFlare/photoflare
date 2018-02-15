@@ -242,6 +242,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(m_scanManager, SIGNAL(scanFinished(int,QProcess::ExitStatus)), this, SLOT(onScanFnished(int,QProcess::ExitStatus)));
 
     transparentDialog = 0;
+    ui->actionRGB_Mode->setChecked(true);
 
     on_toolButtonPointer_clicked();
 
@@ -748,16 +749,16 @@ void MainWindow::on_actionPaste_triggered()
 
 void MainWindow::on_actionRGB_Mode_triggered()
 {
+    ui->actionIndexed_Mode->setChecked(false);
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-        widget->setImage(widget->image().convertToFormat(QImage::Format_ARGB32_Premultiplied));
+    widget->setImageModeIndexed(false);
 }
 
 void MainWindow::on_actionIndexed_Mode_triggered()
 {
+    ui->actionRGB_Mode->setChecked(false);
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-        widget->setImage(widget->image().convertToFormat(QImage::Format_Indexed8));
+    widget->setImageModeIndexed(true);
 }
 
 void MainWindow::on_actionFlip_Horizontal_triggered()
@@ -2046,7 +2047,6 @@ PaintWidget *MainWindow::createPaintWidget(const QString &imagePath) const
 
 PaintWidget *MainWindow::createPaintWidget(const QSize &imageSize, const QColor &color) const
 {
-    //QColor color = Qt::white;
     return new PaintWidget(imageSize,color);
 }
 
