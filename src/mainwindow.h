@@ -81,7 +81,7 @@ private slots:
     void refreshTools();
     void on_actionAbout_triggered();
     void setWindowSize();
-    void updateRecents();
+    void updateRecentFilesMenu();
     void showError(const QString &message);
 
     void onPointerToolSettingsChanged();
