@@ -3,9 +3,9 @@ Version: 1.5.0~artful1
 Architecture: amd64
 Maintainer: Dylan Coakley <info@photoflare.io>
 Installed-Size: 5000
-Depends:  libc6,libgraphicsmagick++-q16-12,libqt5gui5,libqt5core5a,libqt5widgets5, libqt5printsupport5, libraw15
+Depends:  libc6,libgraphicsmagick++-q16-12,libqt5gui5,libqt5core5a,libqt5widgets5, libqt5printsupport5, libraw16
 Section: graphics
 Priority: optional
-Homepage: http://www.photoflare.io/
+Homepage: http://www.photoflare.io
 Description: PhotoFlare
  Simple but featureful editor. Built for casual graphic editing and performance.
