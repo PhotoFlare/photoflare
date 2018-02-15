@@ -223,6 +223,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MOUSE_POINTER, SIGNAL(undo()), this, SLOT(on_actionUndo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(redo()), this, SLOT(on_actionRedo_triggered()));
 
+    QObject::connect(MOUSE_POINTER, SIGNAL(showhotspots()), this, SLOT(on_show_hotspots_triggered()));
+
     QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished()), this, SLOT(on_TextTool_finished()));
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));
 
@@ -2071,6 +2073,15 @@ PaintWidget* MainWindow::getCurrentPaintWidget()
     }
 
     return widget;
+}
+
+void MainWindow::on_show_hotspots_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        widget->setHotspotVisble(true);
+    }
 }
 
 /*

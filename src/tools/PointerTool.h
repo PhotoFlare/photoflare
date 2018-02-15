@@ -42,6 +42,7 @@ signals:
     void paste();
     void undo();
     void redo();
+    void showhotspots();
 
 private:
     PointerToolPrivate *d;

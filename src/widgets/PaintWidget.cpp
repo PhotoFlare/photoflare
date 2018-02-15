@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QLabel>
 #include <QPainter>
@@ -36,6 +36,7 @@ public:
         q->setScene(this);
 
         isSelectionVisible = true;
+        hotspotVisible = false;
         selection = QRect();
     }
     ~PaintWidgetPrivate()
@@ -70,7 +71,7 @@ public:
             if(selection.size() == 4)
             {
                 QRect rect(selection.at(0),selection.at(3));
-                if(rect.topLeft() != rect.bottomLeft())
+                if(rect.topLeft() != rect.bottomLeft() && hotspotVisible)
                 {
                     QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
                     penbg.setColor(Qt::white);
@@ -146,6 +147,7 @@ public:
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
+        hotspotVisible = false;
         if (currentTool)
         {
             // Set current image to the tool when we start painting.
@@ -202,6 +204,7 @@ public:
     bool imageChanged;
     QPolygon selection;
     bool isSelectionVisible;
+    bool hotspotVisible;
 
     PaintWidget *q;
 };
@@ -501,4 +504,9 @@ QPolygon PaintWidget::selection()
 bool PaintWidget::isSelectionVisible()
 {
     return d->isSelectionVisible && d->selection.first() != d->selection.last();
+}
+
+void PaintWidget::setHotspotVisble(bool visible)
+{
+    d->hotspotVisible = visible;
 }

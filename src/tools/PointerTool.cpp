@@ -345,6 +345,7 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             d->bottomRightCorner = QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize);
             d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize);
         }
+        emit showhotspots();
         emit painted(m_paintDevice);
     }
     else if(d->selectionMode == RESIZE)
