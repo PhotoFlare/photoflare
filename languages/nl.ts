@@ -1181,6 +1181,11 @@
         <translation>Alle bestanden</translation>
     </message>
     <message>
+        <location filename="src/mainwindow.cpp" line="354"/>
+        <source>Please open a valid image file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="src/mainwindow.cpp" line="325"/>
         <source>png (*.png)</source>
         <translation>png (*.png)</translation>
@@ -1456,18 +1461,53 @@
 <context>
     <name>PointerTool</name>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="117"/>
+        <location filename="src/tools/PointerTool.cpp" line="118"/>
         <source>Crop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="125"/>
+        <location filename="src/tools/PointerTool.cpp" line="127"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="128"/>
+        <source>Save as</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="129"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="132"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="126"/>
+        <location filename="src/tools/PointerTool.cpp" line="133"/>
         <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="141"/>
+        <source>Image size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="142"/>
+        <source>Canvas size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="145"/>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="146"/>
+        <source>Redo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1449,16 +1449,69 @@
     </message>
 </context>
 <context>
+    <name>PointerTool</name>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="118"/>
+        <source>Crop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="127"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="128"/>
+        <source>Save as</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="129"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="132"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="133"/>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="141"/>
+        <source>Image size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="142"/>
+        <source>Canvas size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="145"/>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="146"/>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="src/main.cpp" line="24"/>
-        <source>PhotoFlare Studio</source>
-        <translation>PhotoFlare Studio</translation>
+        <source>PhotoFlare</source>
+        <translation>PhotoFlare</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="25"/>
-        <source>1.2.0</source>
-        <translation>1.2.0</translation>
+        <source>1.5.1</source>
+        <translation>1.5.1</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="26"/>
