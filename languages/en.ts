@@ -866,375 +866,380 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1710"/>
+        <location filename="src/mainwindow.ui" line="1713"/>
         <source>RGB Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1719"/>
+        <location filename="src/mainwindow.ui" line="1725"/>
         <source>Indexed Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1728"/>
+        <location filename="src/mainwindow.ui" line="1734"/>
         <source>brightminus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1731"/>
+        <location filename="src/mainwindow.ui" line="1737"/>
         <source>Brightness (-)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1740"/>
+        <location filename="src/mainwindow.ui" line="1746"/>
         <source>Brightplus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1743"/>
+        <location filename="src/mainwindow.ui" line="1749"/>
         <source>Brightness (+)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1752"/>
+        <location filename="src/mainwindow.ui" line="1758"/>
         <source>contrastminus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1755"/>
+        <location filename="src/mainwindow.ui" line="1761"/>
         <source>Contrast (-)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1764"/>
+        <location filename="src/mainwindow.ui" line="1770"/>
         <source>contrastplus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1767"/>
+        <location filename="src/mainwindow.ui" line="1773"/>
         <source>Contrast (+)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1776"/>
+        <location filename="src/mainwindow.ui" line="1782"/>
         <source>saturationminus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1779"/>
+        <location filename="src/mainwindow.ui" line="1785"/>
         <source>Saturation (-)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1788"/>
+        <location filename="src/mainwindow.ui" line="1794"/>
         <source>saturationplus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1791"/>
+        <location filename="src/mainwindow.ui" line="1797"/>
         <source>Saturation (+)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1800"/>
+        <location filename="src/mainwindow.ui" line="1806"/>
         <source>gammaCorrectminus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1803"/>
+        <location filename="src/mainwindow.ui" line="1809"/>
         <source>Gamma Correct (-)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1812"/>
+        <location filename="src/mainwindow.ui" line="1818"/>
         <source>gammaCorrectplus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1815"/>
+        <location filename="src/mainwindow.ui" line="1821"/>
         <source>Gamma Correct (+)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1824"/>
-        <location filename="src/mainwindow.ui" line="1827"/>
+        <location filename="src/mainwindow.ui" line="1830"/>
+        <location filename="src/mainwindow.ui" line="1833"/>
         <source>Gray Scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1836"/>
+        <location filename="src/mainwindow.ui" line="1842"/>
         <source>Old Photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1839"/>
+        <location filename="src/mainwindow.ui" line="1845"/>
         <source>Old Photography</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1848"/>
-        <location filename="src/mainwindow.ui" line="1851"/>
+        <location filename="src/mainwindow.ui" line="1854"/>
+        <location filename="src/mainwindow.ui" line="1857"/>
         <source>Dust Reduction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1860"/>
-        <location filename="src/mainwindow.ui" line="1863"/>
+        <location filename="src/mainwindow.ui" line="1866"/>
+        <location filename="src/mainwindow.ui" line="1869"/>
         <source>Blur</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1872"/>
-        <location filename="src/mainwindow.ui" line="1875"/>
+        <location filename="src/mainwindow.ui" line="1878"/>
+        <location filename="src/mainwindow.ui" line="1881"/>
         <source>Reinforce</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1884"/>
+        <location filename="src/mainwindow.ui" line="1890"/>
         <source>gradient</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1887"/>
+        <location filename="src/mainwindow.ui" line="1893"/>
         <source>Gradient</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1896"/>
+        <location filename="src/mainwindow.ui" line="1902"/>
         <source>Rotate CCW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1905"/>
+        <location filename="src/mainwindow.ui" line="1911"/>
         <source>Rotate CW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1910"/>
+        <location filename="src/mainwindow.ui" line="1916"/>
         <source>&amp;Oil Paint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1915"/>
+        <location filename="src/mainwindow.ui" line="1921"/>
         <source>&amp;Charcoal Drawing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1920"/>
+        <location filename="src/mainwindow.ui" line="1926"/>
         <source>Swirl</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1925"/>
+        <location filename="src/mainwindow.ui" line="1931"/>
         <source>Donate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1930"/>
+        <location filename="src/mainwindow.ui" line="1936"/>
         <source>Acquire image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1935"/>
+        <location filename="src/mainwindow.ui" line="1941"/>
         <source>Select source...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1940"/>
+        <location filename="src/mainwindow.ui" line="1946"/>
         <source>Solarize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1945"/>
+        <location filename="src/mainwindow.ui" line="1951"/>
         <source>Wave</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1950"/>
+        <location filename="src/mainwindow.ui" line="1956"/>
         <source>Implode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1955"/>
+        <location filename="src/mainwindow.ui" line="1961"/>
         <source>Emboss</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1960"/>
+        <location filename="src/mainwindow.ui" line="1966"/>
         <source>Trim</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1965"/>
+        <location filename="src/mainwindow.ui" line="1971"/>
         <source>Gaussian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1970"/>
+        <location filename="src/mainwindow.ui" line="1976"/>
         <source>Impulse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1975"/>
+        <location filename="src/mainwindow.ui" line="1981"/>
         <source>Laplacian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1980"/>
+        <location filename="src/mainwindow.ui" line="1986"/>
         <source>Poisson</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1985"/>
+        <location filename="src/mainwindow.ui" line="1991"/>
         <source>MonoChromatic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1990"/>
+        <location filename="src/mainwindow.ui" line="1996"/>
         <source>Equalize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1995"/>
-        <location filename="src/mainwindow.ui" line="1998"/>
+        <location filename="src/mainwindow.ui" line="2001"/>
+        <location filename="src/mainwindow.ui" line="2004"/>
         <source>Crop center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2003"/>
-        <location filename="src/mainwindow.ui" line="2006"/>
+        <location filename="src/mainwindow.ui" line="2009"/>
+        <location filename="src/mainwindow.ui" line="2012"/>
         <source>Simple frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2011"/>
+        <location filename="src/mainwindow.ui" line="2017"/>
         <source>Motion blur</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2016"/>
+        <location filename="src/mainwindow.ui" line="2022"/>
         <source>Normalize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2021"/>
+        <location filename="src/mainwindow.ui" line="2027"/>
         <source>3D frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2026"/>
+        <location filename="src/mainwindow.ui" line="2032"/>
         <source>Explode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2031"/>
+        <location filename="src/mainwindow.ui" line="2037"/>
         <source>Despeckle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2040"/>
+        <location filename="src/mainwindow.ui" line="2046"/>
         <source>Sepia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2045"/>
+        <location filename="src/mainwindow.ui" line="2051"/>
         <source>Black and white</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2050"/>
+        <location filename="src/mainwindow.ui" line="2056"/>
         <source>Opacity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2055"/>
+        <location filename="src/mainwindow.ui" line="2061"/>
         <source>Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2060"/>
+        <location filename="src/mainwindow.ui" line="2066"/>
         <source>Check for updates...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="241"/>
-        <location filename="src/mainwindow.cpp" line="263"/>
+        <location filename="src/mainwindow.cpp" line="252"/>
+        <location filename="src/mainwindow.cpp" line="274"/>
         <source>Ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="284"/>
+        <location filename="src/mainwindow.cpp" line="295"/>
         <source>Working...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="304"/>
+        <location filename="src/mainwindow.cpp" line="316"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="305"/>
-        <source>All Files (*);;Image Files (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico);;ARW (*.arw *.srf *.sr2);;BAY (*.bay);;CR2 (*.crw *.cr2);;DCS (*.dcs *.dcr *.drf *.k25 *.kdc);;MOS (*.mos);;NEF (*.nef *.nrw);;RAW (*.raw *.rw2)</source>
+        <location filename="src/mainwindow.cpp" line="317"/>
+        <source>All Files (*);;Image Files (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="404"/>
+        <location filename="src/mainwindow.cpp" line="354"/>
+        <source>Please open a valid image file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/mainwindow.cpp" line="422"/>
         <source>png (*.png)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="405"/>
+        <location filename="src/mainwindow.cpp" line="423"/>
         <source>jpg (*.jpg *.jpeg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="406"/>
+        <location filename="src/mainwindow.cpp" line="424"/>
         <source>bmp (*.bmp)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="407"/>
+        <location filename="src/mainwindow.cpp" line="425"/>
         <source>pbm (*.pbm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="408"/>
+        <location filename="src/mainwindow.cpp" line="426"/>
         <source>pgm (*.pgm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="409"/>
+        <location filename="src/mainwindow.cpp" line="427"/>
         <source>ppm (*.ppm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="410"/>
+        <location filename="src/mainwindow.cpp" line="428"/>
         <source>ico (*.ico)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="426"/>
+        <location filename="src/mainwindow.cpp" line="444"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="481"/>
-        <location filename="src/mainwindow.cpp" line="506"/>
+        <location filename="src/mainwindow.cpp" line="499"/>
+        <location filename="src/mainwindow.cpp" line="524"/>
         <source>Unable to save image.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="1920"/>
+        <location filename="src/mainwindow.cpp" line="1939"/>
         <source>Unsaved Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="1920"/>
+        <location filename="src/mainwindow.cpp" line="1939"/>
         <source>Save changes before leaving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="2215"/>
+        <location filename="src/mainwindow.cpp" line="2242"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1274,7 +1279,7 @@
     </message>
     <message>
         <location filename="src/dialogs/NewDialog.ui" line="138"/>
-        <location filename="src/dialogs/NewDialog.ui" line="405"/>
+        <location filename="src/dialogs/NewDialog.ui" line="406"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1289,82 +1294,82 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="298"/>
+        <location filename="src/dialogs/NewDialog.ui" line="299"/>
         <source>Position:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="325"/>
+        <location filename="src/dialogs/NewDialog.ui" line="326"/>
         <source>(none)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="330"/>
+        <location filename="src/dialogs/NewDialog.ui" line="331"/>
         <source>100 x 100 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="335"/>
+        <location filename="src/dialogs/NewDialog.ui" line="336"/>
         <source>640 x 480 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="340"/>
+        <location filename="src/dialogs/NewDialog.ui" line="341"/>
         <source>800 x 600 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="345"/>
+        <location filename="src/dialogs/NewDialog.ui" line="346"/>
         <source>1024 x 768 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="350"/>
+        <location filename="src/dialogs/NewDialog.ui" line="351"/>
         <source>1366 x 768 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="355"/>
+        <location filename="src/dialogs/NewDialog.ui" line="356"/>
         <source>1600 x 900 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="360"/>
+        <location filename="src/dialogs/NewDialog.ui" line="361"/>
         <source>1920 x 1080 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="365"/>
+        <location filename="src/dialogs/NewDialog.ui" line="366"/>
         <source>3840 x 2160 pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="379"/>
+        <location filename="src/dialogs/NewDialog.ui" line="380"/>
         <source>Preset Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="392"/>
+        <location filename="src/dialogs/NewDialog.ui" line="393"/>
         <source>Background colour:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="437"/>
+        <location filename="src/dialogs/NewDialog.ui" line="438"/>
         <source>Colour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="450"/>
+        <location filename="src/dialogs/NewDialog.ui" line="451"/>
         <source>Resolution:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="474"/>
+        <location filename="src/dialogs/NewDialog.ui" line="475"/>
         <source>Pixels/cm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="479"/>
+        <location filename="src/dialogs/NewDialog.ui" line="480"/>
         <source>Pixels/inch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1483,18 +1488,53 @@
 <context>
     <name>PointerTool</name>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="117"/>
+        <location filename="src/tools/PointerTool.cpp" line="118"/>
         <source>Crop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="125"/>
+        <location filename="src/tools/PointerTool.cpp" line="127"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="128"/>
+        <source>Save as</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="129"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="132"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="126"/>
+        <location filename="src/tools/PointerTool.cpp" line="133"/>
         <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="141"/>
+        <source>Image size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="142"/>
+        <source>Canvas size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="145"/>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/tools/PointerTool.cpp" line="146"/>
+        <source>Redo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1507,7 +1547,7 @@
     </message>
     <message>
         <location filename="src/main.cpp" line="28"/>
-        <source>1.5.1</source>
+        <source>1.5.0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1521,7 +1561,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="94"/>
+        <location filename="src/mainwindow.cpp" line="95"/>
         <source>Untitled</source>
         <translation type="unfinished"></translation>
     </message>
