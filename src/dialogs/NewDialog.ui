@@ -74,7 +74,7 @@
     <rect>
      <x>190</x>
      <y>180</y>
-     <width>150</width>
+     <width>141</width>
      <height>27</height>
     </rect>
    </property>
@@ -304,7 +304,7 @@
      <rect>
       <x>10</x>
       <y>220</y>
-      <width>151</width>
+      <width>161</width>
       <height>27</height>
      </rect>
     </property>
@@ -314,7 +314,7 @@
      <rect>
       <x>10</x>
       <y>270</y>
-      <width>200</width>
+      <width>161</width>
       <height>27</height>
      </rect>
     </property>
@@ -385,7 +385,7 @@
      <rect>
       <x>10</x>
       <y>200</y>
-      <width>161</width>
+      <width>141</width>
       <height>17</height>
      </rect>
     </property>
@@ -466,7 +466,7 @@
      <rect>
       <x>180</x>
       <y>150</y>
-      <width>150</width>
+      <width>141</width>
       <height>27</height>
      </rect>
     </property>
@@ -480,6 +480,19 @@
       <string>Pixels/inch</string>
      </property>
     </item>
+   </widget>
+   <widget class="QCheckBox" name="backgroundColourEnabled">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>200</y>
+      <width>16</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <zorder>groupBox_2</zorder>

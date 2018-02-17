@@ -307,7 +307,13 @@ void MainWindow::on_actionNew_triggered()
     dialog.setMode(NewDialog::NewImage);
     if (dialog.exec())
     {
-        addPaintWidget(createPaintWidget(dialog.newImageSize(),dialog.newImageBackgroundColor()));
+        if(dialog.backgroundColorEnabled() == true)
+        {
+            addPaintWidget(createPaintWidget(dialog.newImageSize(),dialog.newImageBackgroundColor()));
+        }
+        else if(dialog.backgroundColorEnabled() == false){
+            addPaintWidget(createPaintWidget(dialog.newImageSize(),Qt::transparent));
+        }
     }
 }
 

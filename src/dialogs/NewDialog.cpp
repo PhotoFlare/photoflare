@@ -58,6 +58,7 @@ NewDialog::NewDialog(QWidget *parent) :
 
     ui->backgroundColorComboBox->setOnClickHandler(this);
     ui->backgroundColorComboBox_NewFile->setOnClickHandler(this);
+    ui->backgroundColourEnabled->setChecked(true);
 
     if(SETTINGS->getMemParamsEnabled() && ResizeImage != 1)
     {
@@ -92,6 +93,11 @@ QColor NewDialog::backgroundColor() const
 {
     QImage img = (QImage)ui->backgroundColorComboBox->currentData().value<QImage>();
     return img.pixel(0,0);
+}
+
+bool NewDialog::backgroundColorEnabled()
+{
+    return ui->backgroundColourEnabled->isChecked();
 }
 
 void NewDialog::on_buttonBox_accepted()
@@ -289,6 +295,7 @@ void NewDialog::setMode(Mode mode)
         ui->backgroundColorNewLabel->setVisible(false);
         ui->positionLabel->setVisible(false);
         ui->positionWidget->setVisible(false);
+        ui->backgroundColourEnabled->setVisible(false);
    }
    else if (mode == NewImage) {
        ui->positionLabel->setVisible(false);
@@ -296,6 +303,7 @@ void NewDialog::setMode(Mode mode)
        ui->lockedRatioButton->setChecked(false);
        ui->backgroundLabel->setVisible(false);
        ui->backgroundColorComboBox->setVisible(false);
+       ui->backgroundColourEnabled->setVisible(true);
    }
    else
    {
@@ -312,6 +320,7 @@ void NewDialog::setMode(Mode mode)
        ui->backgroundColorComboBox_NewFile->setVisible(false);
        ui->positionLabel->setVisible(true);
        ui->positionWidget->setVisible(true);
+       ui->backgroundColourEnabled->setVisible(false);
    }
 }
 

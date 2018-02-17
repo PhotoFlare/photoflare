@@ -35,6 +35,8 @@ public:
 
     QColor backgroundColor() const;
 
+    bool backgroundColorEnabled();
+
     enum Mode {ResizeImage, ResizeCanvas, NewImage};
     void setMode(Mode mode);
     ImagePosition imagePosition();
