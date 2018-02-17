@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QApplication>
 #include <QFileInfo>
@@ -77,10 +77,10 @@ int main(int argc, char *argv[])
                 {
                     //if(translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/"))  for .deb installer
 
-                    if(translator.load(SETTINGS->getUserLanguage()+".qm", "languages/")) //local builds
-                        qCritical() << "Loaded translation";
-                    else
-                        qCritical() << "Translation not loaded";
+                    //if(translator.load(SETTINGS->getUserLanguage()+".qm", "languages/")) //local builds
+                        //qCritical() << "Loaded translation";
+                    //else
+                        //qCritical() << "Translation not loaded";
                 }
             }
             app.installTranslator(&translator);

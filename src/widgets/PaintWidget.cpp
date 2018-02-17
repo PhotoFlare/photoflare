@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QLabel>
 #include <QPainter>

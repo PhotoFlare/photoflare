@@ -1,7 +1,7 @@
 #include "plugindialog.h"
 #include "ui_plugindialog.h"
 
-#include <QDebug>
+//#include <QDebug>
 #include <QDir>
 
 PluginDialog::PluginDialog(QWidget *parent) :
@@ -14,7 +14,7 @@ PluginDialog::PluginDialog(QWidget *parent) :
     QDir dir("plugins");
     if (!dir.exists())
     {
-        qWarning("Cannot find the plugins directory");
+        //qWarning("Cannot find the plugins directory");
     }
     else
     {

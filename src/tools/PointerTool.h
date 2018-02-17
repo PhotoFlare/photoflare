@@ -17,6 +17,7 @@ public:
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
+    void onKeyPressed(QKeyEvent *keyEvent) override;
     void setStroke(bool enabled);
     void setFill(bool enabled);
 
@@ -46,6 +47,8 @@ signals:
 
 private:
     PointerToolPrivate *d;
+    int x_pos;
+    int y_pos;
 };
 
 #endif // POINTERTOOL_H

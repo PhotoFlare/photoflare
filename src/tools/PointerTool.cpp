@@ -11,7 +11,7 @@
 #include <QPainter>
 #include <QMenu>
 
-//#include <QDebug>
+#include <QDebug>
 
 enum SelectionMode {SELECT, HAND, RESIZE, STROKE, FILL};
 enum Corner {TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT};
@@ -54,8 +54,7 @@ PointerTool::~PointerTool()
 
 void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
-    switch(button)
-    {
+    switch(button) {
         case Qt::LeftButton:
             d->firstPos = pos;
             d->secondPos = pos;
@@ -110,8 +109,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                 }
             }
             break;
-        case Qt::RightButton:
-        {
+        case Qt::RightButton: {
             QClipboard *clipboard = QApplication::clipboard();
 
             QMenu contextMenu("default");
@@ -314,6 +312,7 @@ void PointerTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
     emit cursorChanged(Qt::ArrowCursor);
+    emit showhotspots();
 
     if(d->selectionMode == HAND)
     {
@@ -345,8 +344,6 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             d->bottomRightCorner = QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize);
             d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize);
         }
-        emit showhotspots();
-        emit painted(m_paintDevice);
     }
     else if(d->selectionMode == RESIZE)
     {
@@ -354,6 +351,40 @@ void PointerTool::onMouseRelease(const QPoint &pos)
         d->secondPos = d->bottomRightCorner.bottomRight();
         d->selectionMode = SELECT;
     }
+    emit painted(m_paintDevice);
+}
+
+void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
+{
+    QRect rect(d->firstPos,d->secondPos);
+
+    //qCritical() << keyEvent->key();
+    if(keyEvent->key() == Qt::Key_Left)
+    {
+        qCritical() << "left";
+        x_pos = rect.x()-2;
+        y_pos = rect.y();
+    }
+    else if(keyEvent->key() == Qt::Key_Right)
+    {
+        qCritical() << "right";
+        x_pos = rect.x()+2;
+        y_pos = rect.y();
+    }
+    else if(keyEvent->key() == Qt::Key_Up)
+    {
+        qCritical() << "up";
+        x_pos = rect.x();
+        y_pos = rect.y()-2;
+    }
+    else if(keyEvent->key() == Qt::Key_Down)
+    {
+        qCritical() << "down";
+        x_pos = rect.x();
+        y_pos = rect.y()+2;
+    }
+    rect.moveTo(QPoint(x_pos,y_pos));
+    emit selectionChanged(rect);
 }
 
 void PointerTool::setStroke(bool enabled)

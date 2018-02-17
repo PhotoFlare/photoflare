@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QBoxLayout>
 #include <QLabel>
@@ -33,7 +33,7 @@ QColor colourManagerDialog::getColorFromLabel(QWidget *colorLabel) const
 
 void colourManagerDialog::addColourToPalette()
 {
-qCritical() << "test";
+//qCritical() << "test";
     QColor selectedColor = QColorDialog::getColor(Qt::black, this);
     if (selectedColor.isValid())
     {
@@ -42,7 +42,7 @@ qCritical() << "test";
 
         if(senderObjName == "A")
         {
-            qCritical() << "yay";
+            //qCritical() << "yay";
         }
     }
 }
