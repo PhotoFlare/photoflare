@@ -11,7 +11,7 @@
 #include <QPainter>
 #include <QMenu>
 
-#include <QDebug>
+//#include <QDebug>
 
 enum SelectionMode {SELECT, HAND, RESIZE, STROKE, FILL};
 enum Corner {TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT};
@@ -358,28 +358,23 @@ void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
 {
     QRect rect(d->firstPos,d->secondPos);
 
-    //qCritical() << keyEvent->key();
     if(keyEvent->key() == Qt::Key_Left)
     {
-        qCritical() << "left";
         x_pos = rect.x()-2;
         y_pos = rect.y();
     }
     else if(keyEvent->key() == Qt::Key_Right)
     {
-        qCritical() << "right";
         x_pos = rect.x()+2;
         y_pos = rect.y();
     }
     else if(keyEvent->key() == Qt::Key_Up)
     {
-        qCritical() << "up";
         x_pos = rect.x();
         y_pos = rect.y()-2;
     }
     else if(keyEvent->key() == Qt::Key_Down)
     {
-        qCritical() << "down";
         x_pos = rect.x();
         y_pos = rect.y()+2;
     }
