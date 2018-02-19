@@ -1447,47 +1447,47 @@
     <message>
         <location filename="src/tools/PointerTool.cpp" line="127"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="128"/>
         <source>Save as</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer sous</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="129"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="132"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="133"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Coller</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="141"/>
         <source>Image size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille de l'image</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="142"/>
         <source>Canvas size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille du canevas</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="145"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="146"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Refaire</translation>
     </message>
 </context>
 <context>
