@@ -1483,32 +1483,32 @@
     <message>
         <location filename="src/tools/PointerTool.cpp" line="132"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>kopiëren</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="133"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>plakken</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="141"/>
         <source>Image size</source>
-        <translation type="unfinished"></translation>
+        <translation>Afmeting Afbeelding</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="142"/>
         <source>Canvas size</source>
-        <translation type="unfinished"></translation>
+        <translation>Afmetingen canvas</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="145"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Ongedaan maken</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="146"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Opnieuw</translation>
     </message>
 </context>
 <context>
