@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QLabel>
 #include <QPainter>
@@ -132,7 +132,6 @@ public:
         {
             q->setSceneRect(image.rect());
         }
-        qCritical() << indexedMode;
 
         if(indexedMode)
         {
