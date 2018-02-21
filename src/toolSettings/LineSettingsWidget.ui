@@ -136,7 +136,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>:/lines/lines/arrow_1.png</pixmap>
+              <pixmap resource="../../Icons.qrc">:/lines/assets/lines/arrow_1.png</pixmap>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -172,7 +172,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>:/lines/lines/arrow_2.png</pixmap>
+              <pixmap resource="../../Icons.qrc">:/lines/assets/lines/arrow_2.png</pixmap>
              </property>
             </widget>
            </item>
@@ -217,6 +217,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../Icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
