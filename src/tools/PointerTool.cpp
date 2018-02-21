@@ -356,6 +356,7 @@ void PointerTool::onMouseRelease(const QPoint &pos)
 
 void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
 {
+    /*
     QRect rect(d->firstPos,d->secondPos);
 
     if(keyEvent->key() == Qt::Key_Left)
@@ -380,6 +381,7 @@ void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
     }
     rect.moveTo(QPoint(x_pos,y_pos));
     emit selectionChanged(rect);
+    */
 }
 
 void PointerTool::setStroke(bool enabled)
