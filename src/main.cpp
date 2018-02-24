@@ -70,12 +70,12 @@ int main(int argc, char *argv[])
 
             for(int i = 0;i < paths.length(); i++)
             {
-                //QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");  for .deb installer
+                QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");  //for .deb installer
 
-                QFileInfo check_file("languages/"+SETTINGS->getUserLanguage()+".qm");  //local builds
+                //QFileInfo check_file("languages/"+SETTINGS->getUserLanguage()+".qm");  //local builds
                 if(check_file.exists() && check_file.isFile())
                 {
-                    //if(translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/"))  for .deb installer
+                    translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/");  //for .deb installer
 
                     //if(translator.load(SETTINGS->getUserLanguage()+".qm", "languages/")) //local builds
                         //qCritical() << "Loaded translation";
