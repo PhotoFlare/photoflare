@@ -2027,7 +2027,7 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionNew->setShortcut(QString("Ctrl+N"));
     ui->actionOpen->setShortcut(QString("Ctrl+O"));
     ui->actionSave->setShortcut(QString("Ctrl+S"));
-    ui->actionSave_As->setShortcut(QString("Ctrl+Shift+S")); //broken
+    ui->actionSave_As->setShortcut(QString("Ctrl+Shift+S"));
     ui->actionPrint->setShortcut(QString("Ctrl+P"));
     ui->actionClose->setShortcut(QString("Ctrl+W"));
     ui->actionQuit->setShortcut(QString("Ctrl+Q"));
@@ -2035,6 +2035,7 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionCut->setShortcut(QString("Ctrl+X")); //not implemented
     ui->actionCopy->setShortcut(QString("Ctrl+C"));
     ui->actionPaste->setShortcut(QString("Ctrl+V"));
+    ui->actionPaste_as_new_image->setShortcut(QString("Ctrl+Shift+V"));
     ui->actionUndo->setShortcut(QString("Ctrl+Z"));
     ui->actionRedo->setShortcut(QString("Ctrl+Y"));
     ui->actionImage_properties->setShortcut(QString("Ctrl+J")); //not implemented
