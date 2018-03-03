@@ -355,7 +355,7 @@ void MainWindow::openFile(const QString& fileName)
         SETTINGS->addRecentFile(fileName);
         updateRecentFilesMenu();
     }
-    if(reader.format() == "")
+    if(!fileName.isEmpty() && reader.format() == "")
     {
         showError(tr("Please open a valid image file"));
     }
