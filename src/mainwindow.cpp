@@ -723,17 +723,7 @@ void MainWindow::onPaste()
     }
     else
     {
-        QClipboard *clipboard = QApplication::clipboard();
-        if(clipboard->mimeData()->hasImage())
-        {
-            addPaintWidget(createPaintWidget(clipboard->image().size(),Qt::white));
-            widget = getCurrentPaintWidget();
-            if (widget)
-            {
-                widget->setImage(clipboard->image());
-                widget->setPaintTool(MOUSE_POINTER);
-            }
-        }
+        on_actionPaste_as_new_image_triggered();
     }
 }
 
@@ -745,6 +735,21 @@ void MainWindow::on_actionCopy_triggered()
 void MainWindow::on_actionPaste_triggered()
 {
     onPaste();
+}
+
+void MainWindow::on_actionPaste_as_new_image_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    QClipboard *clipboard = QApplication::clipboard();
+    if(clipboard->mimeData()->hasImage())
+    {
+        addPaintWidget(createPaintWidget(clipboard->image().size(),Qt::white));
+        widget = getCurrentPaintWidget();
+        if (widget)
+        {
+            widget->setImage(clipboard->image());
+        }
+    }
 }
 
 /*
@@ -2304,7 +2309,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionOutside_drop_shadow->setVisible(true);
         ui->actionOptions->setVisible(false);
         ui->actionPaste_and_text_bounding_box->setVisible(false);
-        ui->actionPaste_as_new_image->setVisible(false);
+        ui->actionPaste_as_new_image->setVisible(true);
         ui->actionPaste_shape->setVisible(false);
         ui->actionPaste_special->setVisible(false);
         ui->actionPosterize->setVisible(false);

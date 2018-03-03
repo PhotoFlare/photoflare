@@ -103,6 +103,7 @@ private slots:
     void onCrop(const QRect&);
     void onCopy();
     void onPaste();
+    void on_actionPaste_as_new_image_triggered();
     void onZoomChanged(const QString&);
     void onSubWindowActivated(QMdiSubWindow*);
     void onEditText(const QString&,const QFont&, const QColor&);
