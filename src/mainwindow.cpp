@@ -2270,11 +2270,9 @@ void MainWindow::disableUnimplementedActions(bool hide)
 
         ui->actionAged_effect->setVisible(false);
         ui->actionAntialiasing->setVisible(false);
-        ui->actionAutomatic_Crop->setVisible(true);
         ui->actionAutomatic_transparency->setVisible(false);
         ui->actionBounding_box->setVisible(false);
         ui->actionBright_Contrast->setVisible(false);
-        ui->actionCanvas_Size->setVisible(true);
         ui->actionCenter->setVisible(false);
         ui->actionClear->setVisible(false);
         ui->actionColour_balance->setVisible(false);
@@ -2295,8 +2293,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionFit_ratio->setVisible(false);
         ui->actionGamma_correct->setVisible(false);
         ui->actionHue_Saturation->setVisible(false);
-        ui->actionAcquire_image->setVisible(true);
-        ui->actionIndexed_Mode->setVisible(true);
         ui->actionInformation->setVisible(false);
         ui->actionInvert->setVisible(false);
         ui->actionLevels->setVisible(false);
@@ -2304,19 +2300,14 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionManual_settings->setVisible(false);
         ui->actionMore_highlights->setVisible(false);
         ui->actionMore_shadows->setVisible(false);
-        ui->actionNegative->setVisible(true);
         ui->actionOptimized_Clipping->setVisible(false);
         ui->actionOther->setVisible(false);
-        ui->actionOutside_drop_shadow->setVisible(true);
         ui->actionOptions->setVisible(false);
         ui->actionPaste_and_text_bounding_box->setVisible(false);
-        ui->actionPaste_as_new_image->setVisible(true);
         ui->actionPaste_shape->setVisible(false);
         ui->actionPaste_special->setVisible(false);
         ui->actionPosterize->setVisible(false);
-        ui->actionPrint->setVisible(true);
         ui->actionPurge->setVisible(false);
-        ui->actionRGB_Mode->setVisible(true);
         ui->actionRelief->setVisible(false);
         ui->actionReplace_colour->setVisible(false);
         ui->actionReplace_colour_range->setVisible(false);
@@ -2325,7 +2316,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionSet_shape->setVisible(false);
         ui->actionSet_wallpaper->setVisible(false);
         ui->actionShow_grid->setVisible(false);
-        ui->actionShow_selection->setVisible(true);
         ui->actionSkew->setVisible(false);
         ui->actionSnap_to_grid->setVisible(false);
         ui->actionStroke_and_fill->setVisible(false);
@@ -2335,7 +2325,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionTransform->setVisible(false);
         ui->actionTransform_2->setVisible(false);
         ui->actionTransparency_mask->setVisible(false);
-        ui->actionTransparent_colour->setVisible(true);
         ui->actionValidate->setVisible(false);
     }
     else
@@ -2346,7 +2335,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionAutomatic_transparency->setEnabled(false);
         ui->actionBounding_box->setEnabled(false);
         ui->actionBright_Contrast->setEnabled(false);
-        ui->actionCanvas_Size->setEnabled(true);
         ui->actionCenter->setEnabled(false);
         ui->actionClear->setEnabled(false);
         ui->actionColour_balance->setEnabled(false);
@@ -2367,8 +2355,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionFit_ratio->setEnabled(false);
         ui->actionGamma_correct->setEnabled(false);
         ui->actionHue_Saturation->setEnabled(false);
-        ui->actionAcquire_image->setEnabled(true);
-        ui->actionIndexed_Mode->setEnabled(true);
         ui->actionInformation->setEnabled(false);
         ui->actionInvert->setEnabled(false);
         ui->actionLevels->setEnabled(false);
@@ -2376,19 +2362,15 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionManual_settings->setEnabled(false);
         ui->actionMore_highlights->setEnabled(false);
         ui->actionMore_shadows->setEnabled(false);
-        ui->actionNegative->setEnabled(true);
         ui->actionOptimized_Clipping->setEnabled(false);
         ui->actionOther->setEnabled(false);
-        ui->actionOutside_drop_shadow->setEnabled(true);
         ui->actionOptions->setEnabled(false);
         ui->actionPaste_and_text_bounding_box->setEnabled(false);
         ui->actionPaste_as_new_image->setEnabled(false);
         ui->actionPaste_shape->setEnabled(false);
         ui->actionPaste_special->setEnabled(false);
         ui->actionPosterize->setEnabled(false);
-        ui->actionPrint->setEnabled(true);
         ui->actionPurge->setEnabled(false);
-        ui->actionRGB_Mode->setEnabled(true);
         ui->actionRelief->setEnabled(false);
         ui->actionReplace_colour->setEnabled(false);
         ui->actionReplace_colour_range->setEnabled(false);
@@ -2397,7 +2379,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionSet_shape->setEnabled(false);
         ui->actionSet_wallpaper->setVisible(false);
         ui->actionShow_grid->setEnabled(false);
-        ui->actionShow_selection->setEnabled(true);
         ui->actionSkew->setEnabled(false);
         ui->actionSnap_to_grid->setEnabled(false);
         ui->actionStroke_and_fill->setEnabled(false);
@@ -2407,7 +2388,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionTransform->setEnabled(false);
         ui->actionTransform_2->setEnabled(false);
         ui->actionTransparency_mask->setEnabled(false);
-        ui->actionTransparent_colour->setEnabled(true);
         ui->actionValidate->setEnabled(false);
     }
 }
