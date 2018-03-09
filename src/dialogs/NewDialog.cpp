@@ -60,6 +60,9 @@ NewDialog::NewDialog(QWidget *parent) :
     ui->backgroundColorComboBox_NewFile->setOnClickHandler(this);
     ui->backgroundColourEnabled->setChecked(true);
 
+    setTabOrder(ui->imageWvalue, ui->imageHvalue);
+    ui->imageWvalue->setFocus();
+
     if(SETTINGS->getMemParamsEnabled() && ResizeImage != 1)
     {
         //Read Dialog settings
