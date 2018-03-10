@@ -200,6 +200,8 @@ private slots:
 
     void on_show_hotspots_triggered();
 
+    void on_actionSelect_all_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

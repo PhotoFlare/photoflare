@@ -520,6 +520,15 @@ void PaintWidget::setHotspotVisble(bool visible)
     d->hotspotVisible = visible;
 }
 
+void PaintWidget::selectAll()
+{
+    d->selection = d->image.rect();
+    d->hotspotVisible = true;
+    d->updateImageCanvas();
+    //emit selectionChanged(true);
+    //onContentChanged();
+}
+
 void PaintWidget::setImageModeIndexed(bool mode)
 {
     d->indexedMode = mode;

@@ -999,6 +999,15 @@ void MainWindow::on_actionShow_selection_triggered(bool checked)
     }
 }
 
+void MainWindow::on_actionSelect_all_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        widget->selectAll();
+    }
+}
+
 void MainWindow::onSelectionChanged(bool visible)
 {
     ui->actionCrop->setEnabled(ui->actionShow_selection->isChecked() && visible);
@@ -2279,7 +2288,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionContract->setVisible(false);
         ui->actionCopy_shape->setVisible(false);
         ui->actionCopyright->setVisible(false);
-        ui->actionCrop->setVisible(false);
         ui->actionCut->setVisible(false);
         ui->actionDefine_pattern->setVisible(false);
         ui->actionDithering->setVisible(false);
@@ -2312,7 +2320,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionReplace_colour->setVisible(false);
         ui->actionReplace_colour_range->setVisible(false);
         ui->actionSave_shape->setVisible(false);
-        ui->actionSelect_all->setVisible(false);
+        ui->actionSelect_all->setVisible(true);
         ui->actionSet_shape->setVisible(false);
         ui->actionSet_wallpaper->setVisible(false);
         ui->actionShow_grid->setVisible(false);
@@ -2341,7 +2349,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionContract->setEnabled(false);
         ui->actionCopy_shape->setEnabled(false);
         ui->actionCopyright->setEnabled(false);
-        ui->actionCrop->setEnabled(false);
         ui->actionCut->setEnabled(false);
         ui->actionDefine_pattern->setEnabled(false);
         ui->actionDithering->setEnabled(false);
@@ -2366,7 +2373,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionOther->setEnabled(false);
         ui->actionOptions->setEnabled(false);
         ui->actionPaste_and_text_bounding_box->setEnabled(false);
-        ui->actionPaste_as_new_image->setEnabled(false);
         ui->actionPaste_shape->setEnabled(false);
         ui->actionPaste_special->setEnabled(false);
         ui->actionPosterize->setEnabled(false);
