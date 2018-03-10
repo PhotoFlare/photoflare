@@ -96,6 +96,9 @@ private slots:
 
     void done(int r);
 
+    void writeSettings(QWidget* window);
+    void readSettings(QWidget* window);
+
 private:
     Ui::batchDialog *ui;
     BatchDialogPrivate *d;

@@ -4,13 +4,16 @@
 
 */
 
+//#include <QDebug>
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QMessageBox>
+#include <QSettings>
 
 #include "batchdialog.h"
 #include "ui_batchdialog.h"
 #include "NewDialog.h"
+#include "../Settings.h"
 
 enum {Pixels, Percent};
 
@@ -19,6 +22,7 @@ class BatchDialogPrivate
 public:
     QStringList fileList;
     QStringList filterList;
+    QString openDir;
     QString outDir;
     double imageRatio;
 };
@@ -367,8 +371,21 @@ char batchDialog::flip() const
 
 void batchDialog::on_addFilesButton_clicked()
 {
-        d->fileList = QFileDialog::getOpenFileNames(this, tr("Select Files"),
-                                                        QString(), tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
+        if(SETTINGS->getMemParamsEnabled() == true)
+        {
+            readSettings(this);
+        }
+        else
+        {
+            d->openDir = QString();
+        }
+        d->fileList = QFileDialog::getOpenFileNames(this, tr("Select Files"),d->openDir, tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
+
+        if(SETTINGS->getMemParamsEnabled() == true)
+        {
+            QDir dir = QFileInfo(d->fileList[0]).absoluteDir();
+            d->openDir = dir.absolutePath();
+        }
         ui->listWidget->clear();
 
         for(QString file : d->fileList)
@@ -379,6 +396,8 @@ void batchDialog::on_addFilesButton_clicked()
             ui->listWidget->setIconSize(QSize(64,64));
             ui->listWidget->addItem(itm);
         }
+
+        writeSettings(this);
 }
 
 void batchDialog::on_outFolderPushButton_clicked()
@@ -405,4 +424,28 @@ void batchDialog::on_saturationSlider_valueChanged(int value)
 void batchDialog::on_gammaSlider_valueChanged(int value)
 {
     ui->gammaValue->setText(QString::number((float)value / (float)100, 'f', 2));
+}
+
+void batchDialog::writeSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    settings.setValue("pos", window->pos());
+    settings.setValue("opendir", d->openDir);
+    settings.endGroup();
+}
+
+void batchDialog::readSettings(QWidget* window)
+{
+    QSettings settings;
+
+    settings.beginGroup(window->objectName());
+    QVariant value = settings.value("pos");
+    if (!value.isNull())
+    {
+        window->move(settings.value("pos").toPoint());
+        d->openDir = settings.value("opendir").toString();
+    }
+    settings.endGroup();
 }
