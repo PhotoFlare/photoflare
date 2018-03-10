@@ -172,64 +172,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             }
             break;
         case Qt::RightButton: {
-            QClipboard *clipboard = QApplication::clipboard();
-
-            QMenu contextMenu("default");
-            QAction crop(tr("Crop"), this);
-            contextMenu.addAction(&crop);
-            crop.setDisabled(true);
-            if(d->firstPos != d->secondPos)
-            {
-                crop.setDisabled(false);
-            }
-            QAction sep0(this);
-            sep0.setSeparator(true);
-            QAction save(tr("Save"), this);
-            QAction saveAs(tr("Save as"), this);
-            QAction close(tr("Close"), this);
-            QAction sep1(this);
-            sep1.setSeparator(true);
-            QAction copy(tr("Copy"), this);
-            QAction paste(tr("Paste"), this);
-            paste.setDisabled(true);
-            if(!clipboard->image().isNull())
-            {
-                paste.setDisabled(false);
-            }
-            QAction sep2(this);
-            sep2.setSeparator(true);
-            QAction imageSize(tr("Image size"), this);
-            QAction canvasSize(tr("Canvas size"), this);
-            QAction sep3(this);
-            sep3.setSeparator(true);
-            QAction undo(tr("Undo"), this);
-            QAction redo(tr("Redo"), this);
-
-            contextMenu.addAction(&save);
-            contextMenu.addAction(&saveAs);
-            contextMenu.addAction(&close);
-            contextMenu.addAction(&sep1);
-            contextMenu.addAction(&imageSize);
-            contextMenu.addAction(&canvasSize);
-            contextMenu.addAction(&sep2);
-            contextMenu.addAction(&copy);
-            contextMenu.addAction(&paste);
-            contextMenu.addAction(&sep3);
-            contextMenu.addAction(&undo);
-            contextMenu.addAction(&redo);
-
-            connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
-            connect(&save, SIGNAL(triggered()), this, SLOT(onSave()));
-            connect(&saveAs, SIGNAL(triggered()), this, SLOT(onSaveAs()));
-            connect(&close, SIGNAL(triggered()), this, SLOT(onClose()));
-            connect(&imageSize, SIGNAL(triggered()), this, SLOT(onImageSize()));
-            connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCanvasSize()));
-            connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
-            connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
-            connect(&undo, SIGNAL(triggered()), this, SLOT(onUndo()));
-            connect(&redo, SIGNAL(triggered()), this, SLOT(onRedo()));
-
-            contextMenu.exec(QCursor::pos());
+                setupRightClickMenu();
             }
         break;
     }
@@ -400,4 +343,64 @@ void PointerTool::setFill(bool enabled)
     }
 }
 
+void PointerTool::setupRightClickMenu()
+{
+    QClipboard *clipboard = QApplication::clipboard();
 
+    QMenu contextMenu("default");
+    QAction crop(tr("Crop"), this);
+    contextMenu.addAction(&crop);
+    crop.setDisabled(true);
+    if(d->firstPos != d->secondPos)
+    {
+        crop.setDisabled(false);
+    }
+    QAction sep0(this);
+    sep0.setSeparator(true);
+    QAction save(tr("Save"), this);
+    QAction saveAs(tr("Save as"), this);
+    QAction close(tr("Close"), this);
+    QAction sep1(this);
+    sep1.setSeparator(true);
+    QAction copy(tr("Copy"), this);
+    QAction paste(tr("Paste"), this);
+    paste.setDisabled(true);
+    if(!clipboard->image().isNull())
+    {
+        paste.setDisabled(false);
+    }
+    QAction sep2(this);
+    sep2.setSeparator(true);
+    QAction imageSize(tr("Image size"), this);
+    QAction canvasSize(tr("Canvas size"), this);
+    QAction sep3(this);
+    sep3.setSeparator(true);
+    QAction undo(tr("Undo"), this);
+    QAction redo(tr("Redo"), this);
+
+    contextMenu.addAction(&save);
+    contextMenu.addAction(&saveAs);
+    contextMenu.addAction(&close);
+    contextMenu.addAction(&sep1);
+    contextMenu.addAction(&imageSize);
+    contextMenu.addAction(&canvasSize);
+    contextMenu.addAction(&sep2);
+    contextMenu.addAction(&copy);
+    contextMenu.addAction(&paste);
+    contextMenu.addAction(&sep3);
+    contextMenu.addAction(&undo);
+    contextMenu.addAction(&redo);
+
+    connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
+    connect(&save, SIGNAL(triggered()), this, SLOT(onSave()));
+    connect(&saveAs, SIGNAL(triggered()), this, SLOT(onSaveAs()));
+    connect(&close, SIGNAL(triggered()), this, SLOT(onClose()));
+    connect(&imageSize, SIGNAL(triggered()), this, SLOT(onImageSize()));
+    connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCanvasSize()));
+    connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
+    connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
+    connect(&undo, SIGNAL(triggered()), this, SLOT(onUndo()));
+    connect(&redo, SIGNAL(triggered()), this, SLOT(onRedo()));
+
+    contextMenu.exec(QCursor::pos());
+}
