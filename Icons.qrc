@@ -21,53 +21,54 @@
         <file>assets/pixmaps/checkers.png</file>
     </qresource>
     <qresource prefix="/icons">
-        <file>assets/icons/autobright.png</file>
-        <file>assets/icons/autolevel.png</file>
-        <file>assets/icons/batch.png</file>
-        <file>assets/icons/blur.png</file>
-        <file>assets/icons/brightness-.png</file>
-        <file>assets/icons/brightness+.png</file>
-        <file>assets/icons/cansize.png</file>
-        <file>assets/icons/contrast-.png</file>
-        <file>assets/icons/contrast+.png</file>
-        <file>assets/icons/dustreduction.png</file>
-        <file>assets/icons/flipH.png</file>
-        <file>assets/icons/flipV.png</file>
-        <file>assets/icons/gammacorrect-.png</file>
-        <file>assets/icons/gammacorrect+.png</file>
-        <file>assets/icons/gradient.png</file>
-        <file>assets/icons/grayscale.png</file>
-        <file>assets/icons/hue.png</file>
-        <file>assets/icons/imgsize.png</file>
-        <file>assets/icons/index.png</file>
         <file>assets/icons/linked.png</file>
-        <file>assets/icons/pref.png</file>
-        <file>assets/icons/reinforce.png</file>
-        <file>assets/icons/rgb.png</file>
-        <file>assets/icons/rotateCCW.png</file>
-        <file>assets/icons/rotateCW.png</file>
-        <file>assets/icons/saturation-.png</file>
-        <file>assets/icons/saturation+.png</file>
-        <file>assets/icons/scan.png</file>
-        <file>assets/icons/sharpen.png</file>
-        <file>assets/icons/show.png</file>
-        <file>assets/icons/soften.png</file>
-        <file>assets/icons/text.png</file>
-        <file>assets/icons/trans.png</file>
-        <file>assets/icons/undo.png</file>
-        <file>assets/icons/save.png</file>
-        <file>assets/icons/open.png</file>
-        <file>assets/icons/new.png</file>
-        <file>assets/icons/redo.png</file>
-        <file>assets/icons/print.png</file>
-        <file>assets/icons/old_photo.png</file>
-        <file>assets/icons/sepia.png</file>
-        <file>assets/icons/sel_square_mode.png</file>
         <file>assets/icons/palettemanager.png</file>
         <file>assets/icons/aligntext_center.png</file>
         <file>assets/icons/aligntext_left.png</file>
         <file>assets/icons/aligntext_right.png</file>
         <file>assets/icons/unlinked.png</file>
+        <file>assets/icons/toolbar1/batch.png</file>
+        <file>assets/icons/toolbar1/cansize.png</file>
+        <file>assets/icons/toolbar1/imgsize.png</file>
+        <file>assets/icons/toolbar1/index.png</file>
+        <file>assets/icons/toolbar1/new.png</file>
+        <file>assets/icons/toolbar1/open.png</file>
+        <file>assets/icons/toolbar1/pref.png</file>
+        <file>assets/icons/toolbar1/print.png</file>
+        <file>assets/icons/toolbar1/redo.png</file>
+        <file>assets/icons/toolbar1/rgb.png</file>
+        <file>assets/icons/toolbar1/save.png</file>
+        <file>assets/icons/toolbar1/scan.png</file>
+        <file>assets/icons/toolbar1/show.png</file>
+        <file>assets/icons/toolbar1/text.png</file>
+        <file>assets/icons/toolbar1/trans.png</file>
+        <file>assets/icons/toolbar1/undo.png</file>
+        <file>assets/icons/toolbar2/autobright.png</file>
+        <file>assets/icons/toolbar2/autolevel.png</file>
+        <file>assets/icons/toolbar2/blur.png</file>
+        <file>assets/icons/toolbar2/brightness-.png</file>
+        <file>assets/icons/toolbar2/brightness+.png</file>
+        <file>assets/icons/toolbar2/contrast-.png</file>
+        <file>assets/icons/toolbar2/contrast+.png</file>
+        <file>assets/icons/toolbar2/dustreduction.png</file>
+        <file>assets/icons/toolbar2/flipH.png</file>
+        <file>assets/icons/toolbar2/flipV.png</file>
+        <file>assets/icons/toolbar2/gammacorrect-.png</file>
+        <file>assets/icons/toolbar2/gammacorrect+.png</file>
+        <file>assets/icons/toolbar2/gradient.png</file>
+        <file>assets/icons/toolbar2/grayscale.png</file>
+        <file>assets/icons/toolbar2/hue.png</file>
+        <file>assets/icons/toolbar2/old_photo.png</file>
+        <file>assets/icons/toolbar2/reinforce.png</file>
+        <file>assets/icons/toolbar2/rotateCCW.png</file>
+        <file>assets/icons/toolbar2/rotateCW.png</file>
+        <file>assets/icons/toolbar2/saturation-.png</file>
+        <file>assets/icons/toolbar2/saturation+.png</file>
+        <file>assets/icons/toolbar2/sepia.png</file>
+        <file>assets/icons/toolbar2/sharpen.png</file>
+        <file>assets/icons/toolbar2/soften.png</file>
+        <file>assets/icons/selections/circle_sel.png</file>
+        <file>assets/icons/selections/square_sel.png</file>
     </qresource>
     <qresource prefix="/brushes">
         <file>assets/brushes/circle.png</file>

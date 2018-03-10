@@ -26,8 +26,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -55,8 +55,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -84,8 +84,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -113,8 +113,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -142,8 +142,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -171,8 +171,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -200,8 +200,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -229,8 +229,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -258,8 +258,8 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/assets/icons/grayscale.png</normaloff>:/icons/assets/icons/grayscale.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/toolbar2/grayscale.png</normaloff>:/icons/assets/icons/toolbar2/grayscale.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -276,7 +276,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../Icons.qrc"/>
+  <include location="../../Icons.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -127,7 +127,7 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
+    <iconset>
      <normaloff>:/toolpalette_icons/icons/swap.png</normaloff>:/toolpalette_icons/icons/swap.png</iconset>
    </property>
    <property name="flat">
@@ -19380,13 +19380,13 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../Icons.qrc">
-     <normaloff>:/icons/icons/palettemanager.png</normaloff>:/icons/icons/palettemanager.png</iconset>
+    <iconset resource="../../Icons.qrc">
+     <normaloff>:/icons/assets/icons/palettemanager.png</normaloff>:/icons/assets/icons/palettemanager.png</iconset>
    </property>
   </widget>
  </widget>
  <resources>
-  <include location="../Icons.qrc"/>
+  <include location="../../Icons.qrc"/>
  </resources>
  <connections/>
 </ui>
