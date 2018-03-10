@@ -68,6 +68,7 @@ public:
             float scaledVal = 1+(q->getScale()*0.5);
             int cornerSize = 50;
 
+            //Draw the selection hotspots
             if(selection.size() == 4)
             {
                 QRect rect(selection.at(0),selection.at(3));
@@ -92,7 +93,7 @@ public:
                     painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
                 }
             }
-
+            //Grey and white dashed line for visibility no matter the background colours
             QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
             penbg.setColor(Qt::white);
             painter.setPen(penbg);

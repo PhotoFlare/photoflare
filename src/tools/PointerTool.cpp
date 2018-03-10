@@ -52,6 +52,68 @@ PointerTool::~PointerTool()
     delete d;
 }
 
+void PointerTool::onCrop()
+{
+    const QRect &rect = QRect(d->firstPos, d->secondPos);
+    d->secondPos = d->firstPos;
+    emit selectionChanged(QRect());
+    emit crop(rect);
+}
+
+void PointerTool::onSave()
+{
+    emit save();
+}
+
+void PointerTool::onSaveAs()
+{
+    emit saveAs();
+}
+
+void PointerTool::onClose()
+{
+    emit close();
+}
+
+void PointerTool::onImageSize()
+{
+    emit imageSize();
+}
+
+void PointerTool::onCanvasSize()
+{
+    emit canvasSize();
+}
+
+void PointerTool::onCopy()
+{
+    emit copy();
+}
+
+void PointerTool::onPaste()
+{
+    emit paste();
+}
+
+
+void PointerTool::onUndo()
+{
+    emit undo();
+}
+
+void PointerTool::onRedo()
+{
+    emit redo();
+}
+
+void PointerTool::setOverlayImage(const QImage& image)
+{
+    d->selectionMode = HAND;
+    d->image = image;
+    d->imagePos = QPoint(0,0);
+    emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
+}
+
 void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     switch(button) {
@@ -171,68 +233,6 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             }
         break;
     }
-}
-
-void PointerTool::onCrop()
-{
-    const QRect &rect = QRect(d->firstPos, d->secondPos);
-    d->secondPos = d->firstPos;
-    emit selectionChanged(QRect());
-    emit crop(rect);
-}
-
-void PointerTool::onSave()
-{
-    emit save();
-}
-
-void PointerTool::onSaveAs()
-{
-    emit saveAs();
-}
-
-void PointerTool::onClose()
-{
-    emit close();
-}
-
-void PointerTool::onImageSize()
-{
-    emit imageSize();
-}
-
-void PointerTool::onCanvasSize()
-{
-    emit canvasSize();
-}
-
-void PointerTool::onCopy()
-{
-    emit copy();
-}
-
-void PointerTool::onPaste()
-{
-    emit paste();
-}
-
-
-void PointerTool::onUndo()
-{
-    emit undo();
-}
-
-void PointerTool::onRedo()
-{
-    emit redo();
-}
-
-void PointerTool::setOverlayImage(const QImage& image)
-{
-    d->selectionMode = HAND;
-    d->image = image;
-    d->imagePos = QPoint(0,0);
-    emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
 }
 
 void PointerTool::onMouseMove(const QPoint &pos)
