@@ -13,8 +13,8 @@ ImagePositionWidget::ImagePositionWidget(QWidget *parent) :
     ui(new Ui::ImagePositionWidget)
 {
     ui->setupUi(this);
-    iconSepia = ":/icons/assets/icons/sepia.png";
-    iconGray = ":/icons/assets/icons/grayscale.png";
+    iconSepia = ":/icons/assets/icons/toolbar2/sepia.png";
+    iconGray = ":/icons/assets/icons/toolbar2/grayscale.png";
     on_pushButton_5_clicked();
 }
 
