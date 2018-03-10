@@ -12,7 +12,8 @@ PointerSettingsWidget::PointerSettingsWidget(QWidget *parent) :
 
     ui->checkBoxStroke->setDisabled(true);
     ui->checkBoxFill->setDisabled(true);
-    //ui->square_sel->setDisabled(true);
+    ui->square_sel->setDisabled(true);
+    ui->circle_sel->setVisible(false);
 }
 
 PointerSettingsWidget::~PointerSettingsWidget()
