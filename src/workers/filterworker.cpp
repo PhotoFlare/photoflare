@@ -211,6 +211,10 @@ void FilterWorker::process()
     {
         newImage = FilterManager::instance()->monoChromeEdges(currentImage);
     }
+    else if(currentFilter == "colourthreshold")
+    {
+        newImage = FilterManager::instance()->colourthreshold(currentImage);
+    }
     emit filterProcessFinished(newImage);
 
 

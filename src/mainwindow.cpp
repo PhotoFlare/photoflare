@@ -1199,6 +1199,13 @@ void MainWindow::on_actionBlack_and_white_triggered()
     applyThreadedFilter("blackwhite");
 }
 
+void MainWindow::on_actionColour_Threshold_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    applyThreadedFilter("colourthreshold");
+}
+
 void MainWindow::on_actionOil_Paint_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();

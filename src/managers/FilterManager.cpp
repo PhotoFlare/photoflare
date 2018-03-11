@@ -193,6 +193,17 @@ QImage FilterManager::blackwhite(const QImage &image)
     return modifiedImage;
 }
 
+QImage FilterManager::colourthreshold(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->adaptiveThreshold(400,300);
+
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+
+    return modifiedImage;
+}
+
 QImage FilterManager::oilPaint(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);

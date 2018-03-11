@@ -347,6 +347,7 @@ QScrollBar::sub-line:horizontal {
      <addaction name="actionEqualize"/>
      <addaction name="actionNormalize"/>
      <addaction name="actionBlack_and_white"/>
+     <addaction name="actionColour_Threshold"/>
     </widget>
     <widget class="QMenu" name="menuVisual_Effect">
      <property name="title">
@@ -2064,6 +2065,11 @@ QToolButton:checked {
   <action name="actionCheck_for_updates">
    <property name="text">
     <string>Check for updates...</string>
+   </property>
+  </action>
+  <action name="actionColour_Threshold">
+   <property name="text">
+    <string>Colour Threshold</string>
    </property>
   </action>
  </widget>

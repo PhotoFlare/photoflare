@@ -202,6 +202,8 @@ private slots:
 
     void on_actionSelect_all_triggered();
 
+    void on_actionColour_Threshold_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

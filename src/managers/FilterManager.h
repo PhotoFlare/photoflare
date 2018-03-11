@@ -24,6 +24,7 @@ public:
     int changeBrightness(int value,int brightness);
     QImage applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent = 0);
     QImage blackwhite(const QImage &image);
+    QImage colourthreshold(const QImage &image);
     QImage oilPaint(const QImage &image);
     QImage charcoal(const QImage &image);
     QImage swirl(const QImage &image);
