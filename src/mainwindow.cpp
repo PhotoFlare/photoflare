@@ -55,6 +55,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "widgets/layermanager.h"
 #include "widgets/PaintWidget.h"
 #include "dialogs/NewDialog.h"
 #include "dialogs/aboutdialog.h"
@@ -138,6 +139,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mainToolBar->addWidget(zoomCombo);
     connect(zoomCombo, SIGNAL(activated(const QString&)), this, SLOT(onZoomChanged(const QString&)));
     connect(ui->mdiArea, &QMdiArea::subWindowActivated, this, &MainWindow::onSubWindowActivated);
+
+    // Add the LayerManager to the left dock
+    m_layerListWidget = new LayerManager;
+    //ui->dockWidgetLayers->layout()->addWidget(m_layerListWidget);
 
     // Add Settings Widgets to the Dock
     m_ptSettingsWidget = new PointerSettingsWidget;
@@ -981,6 +986,22 @@ void MainWindow::onEditText(const QString& text,const QFont& font, const QColor&
     dialog.editText(text, font, color);
     if(dialog.exec())
         TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias(), dialog.position());
+}
+
+/*
+
+    | LAYERS MENU |
+
+*/
+
+void MainWindow::on_actionNew_layer_triggered()
+{
+    m_layerListWidget->addLayer();
+}
+
+void MainWindow::on_actionDelete_layer_triggered()
+{
+    m_layerListWidget->deleteLayer();
 }
 
 /*

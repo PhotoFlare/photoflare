@@ -86,6 +86,7 @@ SOURCES += src/main.cpp \
     src/workers/BatchProcessWorker.cpp \
     src/widgets/brushtypecombobox.cpp \
     src/widgets/colorboxwidget.cpp \
+    src/widgets/layermanager.cpp \
     src/progress/batchprogress.cpp \
     src/workers/filterworker.cpp \
     src/tools/EraserTool.cpp \
@@ -111,6 +112,7 @@ HEADERS += src/mainwindow.h \
     src/dialogs/compressiondialog.h \
     src/dialogs/plugindialog.h \
     src/widgets/PaintWidget.h \
+    src/widgets/layermanager.h \
     src/Settings.h \
     src/managers/FilterManager.h \
     src/managers/ToolManager.h \
@@ -167,6 +169,7 @@ FORMS += src/mainwindow.ui \
     src/widgets/ColorBoxWidget.ui \
     src/widgets/BrushTypeComboBox.ui \
     src/widgets/imagepositionwidget.ui \
+    src/widgets/layermanager.ui \
     src/progress/batchprogress.ui \
     src/toolSettings/pointersettingswidget.ui \
     src/toolSettings/PaintBrushSettingsWidget.ui \
