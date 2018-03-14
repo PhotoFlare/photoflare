@@ -4,7 +4,7 @@ QT += core gui widgets printsupport
 
 TARGET = PhotoFlare
 TEMPLATE = app
-CONFIG += c++11
+CONFIG += c++17
 
 # This path is used in order to find all of the header files
 INCLUDEPATH += ./src/widgets \
