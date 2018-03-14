@@ -1933,6 +1933,8 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
             this->zoomCombo->setCurrentIndex(index);
         }
         updateStatusArea(widget->image().width(),widget->image().height());
+        ui->actionUndo->setEnabled(widget->isUndoEnabled());
+        ui->actionRedo->setEnabled(widget->isRedoEnabled());
     }
 }
 
