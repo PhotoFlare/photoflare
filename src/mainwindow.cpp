@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>
@@ -1896,10 +1896,22 @@ void MainWindow::onSmudgeSettingsChanged()
 
 */
 
+void MainWindow::clearStatusArea()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (!widget) {
+        updateStatusArea(0,0);
+    }
+}
+
 void MainWindow::updateStatusArea(int width, int height)
 {
     ui->statusBar->removeWidget(imagesizeLbl);
     imagesizeLbl = new QLabel(QString::number(width)+" x "+QString::number(height));
+    if(width == 0 && height == 0)
+    {
+        imagesizeLbl = new QLabel(QString());
+    }
     ui->statusBar->addWidget(imagesizeLbl);
 }
 
@@ -2002,10 +2014,7 @@ bool MainWindow::handleCloseChildWindow(QMdiSubWindow *subWindow)
     subWindow->setWindowModified(false);
     subWindow->close();
 
-    PaintWidget *widget = getCurrentPaintWidget();
-    if (!widget) {
-        updateStatusArea(0,0);
-    }
+    clearStatusArea();
 
     return false;
 }
@@ -2025,10 +2034,7 @@ bool MainWindow::handleCloseTabs()
         else
         {
            subWindow->close();
-           PaintWidget *widget = getCurrentPaintWidget();
-           if (!widget) {
-               updateStatusArea(0,0);
-           }
+           qCritical() << "Close event";qCritical() << "Close event";
         }
     }
 

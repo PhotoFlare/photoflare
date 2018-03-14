@@ -227,6 +227,7 @@ private:
     void createKeyboardShortcuts();
     void disableUnimplementedActions(bool hide);
     void updateStatusArea(int width, int height);
+    void clearStatusArea();
 
     void applyThreadedFilter(QString filterName);
 
