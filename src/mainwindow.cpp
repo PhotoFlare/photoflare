@@ -2375,7 +2375,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
     {
         ui->actionAged_effect->setEnabled(false);
         ui->actionAntialiasing->setEnabled(false);
-        ui->actionAutomatic_Crop->setEnabled(false);
         ui->actionAutomatic_transparency->setEnabled(false);
         ui->actionBounding_box->setEnabled(false);
         ui->actionBright_Contrast->setEnabled(false);
@@ -2417,7 +2416,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionReplace_colour->setEnabled(false);
         ui->actionReplace_colour_range->setEnabled(false);
         ui->actionSave_shape->setEnabled(false);
-        ui->actionSelect_all->setEnabled(false);
         ui->actionSet_shape->setEnabled(false);
         ui->actionSet_wallpaper->setVisible(false);
         ui->actionShow_grid->setEnabled(false);
