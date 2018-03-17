@@ -143,7 +143,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Add the LayerManager to the left dock
     m_layerListWidget = new LayerManager;
     //ui->dockWidgetLayers->layout()->addWidget(m_layerListWidget);
-    ui->dockWidgetLayers->hide();
+    ui->dockWidgetLayers->hide(); //Hide layers for now
 
     // Add Settings Widgets to the Dock
     m_ptSettingsWidget = new PointerSettingsWidget;
@@ -1000,7 +1000,7 @@ void MainWindow::on_actionNew_layer_triggered()
     m_layerListWidget->addLayer();
 }
 
-void MainWindow::on_actionDelete_layer_triggered()
+void MainWindow::on_actionRemove_layer_triggered()
 {
     m_layerListWidget->deleteLayer();
 }
@@ -2371,6 +2371,8 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionTransform_2->setVisible(false);
         ui->actionTransparency_mask->setVisible(false);
         ui->actionValidate->setVisible(false);
+        //Hide layers for now
+        ui->menuLayers->menuAction()->setVisible(false);
     }
     else
     {
@@ -2430,5 +2432,7 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionTransform_2->setEnabled(false);
         ui->actionTransparency_mask->setEnabled(false);
         ui->actionValidate->setEnabled(false);
+        //Hide layers for now
+        ui->menuLayers->setEnabled(false);
     }
 }

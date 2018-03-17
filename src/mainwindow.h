@@ -206,7 +206,7 @@ private slots:
     void on_actionColour_Threshold_triggered();
 
     void on_actionNew_layer_triggered();
-    void on_actionDelete_layer_triggered();
+    void on_actionRemove_layer_triggered();
 
 protected:
     void closeEvent(QCloseEvent *event);

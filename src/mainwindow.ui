@@ -410,9 +410,17 @@ QScrollBar::sub-line:horizontal {
     <addaction name="actionDonate"/>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuLayers">
+    <property name="title">
+     <string>Layers</string>
+    </property>
+    <addaction name="actionNew_layer"/>
+    <addaction name="actionRemove_layer"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuImage"/>
+   <addaction name="menuLayers"/>
    <addaction name="menuSelection"/>
    <addaction name="menuAdjust"/>
    <addaction name="menuFilter"/>
@@ -1090,6 +1098,18 @@ QToolButton:checked {
    <widget class="QWidget" name="dockWidgetContents"/>
   </widget>
   <widget class="QDockWidget" name="dockWidgetLayers">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>120</width>
+     <height>35</height>
+    </size>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
@@ -2076,6 +2096,16 @@ QToolButton:checked {
   <action name="actionColour_Threshold">
    <property name="text">
     <string>Colour Threshold</string>
+   </property>
+  </action>
+  <action name="actionNew_layer">
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </action>
+  <action name="actionRemove_layer">
+   <property name="text">
+    <string>Remove</string>
    </property>
   </action>
  </widget>
