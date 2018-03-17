@@ -143,6 +143,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Add the LayerManager to the left dock
     m_layerListWidget = new LayerManager;
     //ui->dockWidgetLayers->layout()->addWidget(m_layerListWidget);
+    ui->dockWidgetLayers->hide();
 
     // Add Settings Widgets to the Dock
     m_ptSettingsWidget = new PointerSettingsWidget;
