@@ -2083,12 +2083,12 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionPaste_as_new_image->setShortcut(QString("Ctrl+Shift+V"));
     ui->actionUndo->setShortcut(QString("Ctrl+Z"));
     ui->actionRedo->setShortcut(QString("Ctrl+Y"));
-    ui->actionImage_properties->setShortcut(QString("Ctrl+J")); //not implemented
+    ui->actionImage_properties->setShortcut(QString("Ctrl+J"));
     //Image Menu
     ui->actionImage_Size->setShortcut(QString("Ctrl+H"));
-    ui->actionCrop->setShortcut(QString("Ctrl+Shift+H")); //broken
+    ui->actionCrop->setShortcut(QString("Ctrl+Shift+H"));
     //View Menu
-    ui->actionToolpalette->setShortcut(QString("Ctrl+L")); //broken
+    ui->actionToolpalette->setShortcut(QString("Ctrl+L"));
 }
 
 /*
