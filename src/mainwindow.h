@@ -208,9 +208,9 @@ private slots:
     void on_actionNew_layer_triggered();
     void on_actionRemove_layer_triggered();
 
-    void on_actionHistory_triggered();
+    void on_actionClearHistory_triggered();
 
-    void on_actionClipboard_triggered();
+    void on_actionClearClipboard_triggered();
 
 protected:
     void closeEvent(QCloseEvent *event);

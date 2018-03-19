@@ -498,6 +498,12 @@ int PaintWidget::undoCount()
     return historyIndex;
 }
 
+void PaintWidget::clearUndoHistory()
+{
+    historyIndex = 0;
+    historyList.clear();
+}
+
 void PaintWidget::setSelectionVisible(bool visible)
 {
     d->isSelectionVisible = visible;

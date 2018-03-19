@@ -153,8 +153,8 @@ QScrollBar::sub-line:horizontal {
      <property name="title">
       <string>Purge</string>
      </property>
-     <addaction name="actionHistory"/>
-     <addaction name="actionClipboard"/>
+     <addaction name="actionClearHistory"/>
+     <addaction name="actionClearClipboard"/>
     </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
@@ -2110,12 +2110,12 @@ QToolButton:checked {
     <string>Remove</string>
    </property>
   </action>
-  <action name="actionHistory">
+  <action name="actionClearHistory">
    <property name="text">
     <string>History</string>
    </property>
   </action>
-  <action name="actionClipboard">
+  <action name="actionClearClipboard">
    <property name="text">
     <string>Clipboard</string>
    </property>

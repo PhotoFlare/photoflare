@@ -50,6 +50,7 @@ public:
     int undoCount();
     bool isUndoEnabled();
     bool isRedoEnabled();
+    void clearUndoHistory();
 
     void setSelectionVisible(bool visible);
     QPolygon selection();

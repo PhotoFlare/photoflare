@@ -228,7 +228,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MOUSE_POINTER, SIGNAL(canvasSize()), this, SLOT(on_actionCanvas_Size_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(undo()), this, SLOT(on_actionUndo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(redo()), this, SLOT(on_actionRedo_triggered()));
-
     QObject::connect(MOUSE_POINTER, SIGNAL(showhotspots()), this, SLOT(on_show_hotspots_triggered()));
 
     QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished()), this, SLOT(on_TextTool_finished()));
@@ -295,7 +294,6 @@ void MainWindow::applyThreadedFilter(QString filterName)
 
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
     connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(on_image_filtered(QImage)));
-
     thread->start();
 
     batchLbl->setText(tr("Working..."));
@@ -758,12 +756,18 @@ void MainWindow::on_actionPaste_as_new_image_triggered()
     }
 }
 
-void MainWindow::on_actionHistory_triggered()
+void MainWindow::on_actionClearHistory_triggered()
 {
-
+    PaintWidget *widget = getCurrentPaintWidget();
+    if(widget)
+    {
+        widget->clearUndoHistory();
+        ui->actionUndo->setEnabled(widget->isUndoEnabled());
+        ui->actionRedo->setEnabled(widget->isRedoEnabled());
+    }
 }
 
-void MainWindow::on_actionClipboard_triggered()
+void MainWindow::on_actionClearClipboard_triggered()
 {
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->clear();
