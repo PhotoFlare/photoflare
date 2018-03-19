@@ -824,6 +824,10 @@ void MainWindow::on_actionImage_Size_triggered()
 
 void MainWindow::on_actionCanvas_Size_triggered()
 {
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (!widget)
+        return;
+
     NewDialog dialog;
     dialog.setWindowTitle("Resize Canvas");
     dialog.setMode(NewDialog::ResizeCanvas);
