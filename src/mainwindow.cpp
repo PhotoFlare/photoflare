@@ -121,7 +121,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
     // Disable actions that are not yet implemented. True = hidden, False = Disabled
-    disableUnimplementedActions(false);
+    disableUnimplementedActions(true);
 
     // Create the keyboard shortcut bindings
     createKeyboardShortcuts();
@@ -802,6 +802,18 @@ void MainWindow::on_actionIndexed_Mode_triggered()
     }
     else {
         ui->actionIndexed_Mode->setChecked(false);
+    }
+}
+
+void MainWindow::on_actionDuplicate_triggered()
+{
+    PaintWidget *oldwidget = getCurrentPaintWidget();
+    addPaintWidget(createPaintWidget(oldwidget->image().size(),Qt::white));
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        widget->setImage(oldwidget->image());
     }
 }
 
@@ -2360,7 +2372,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionDefine_pattern->setVisible(false);
         ui->actionDithering->setVisible(false);
         ui->actionDuotone->setVisible(false);
-        ui->actionDuplicate->setVisible(false);
         ui->actionExpand->setVisible(false);
         ui->actionExport_as_icon->setVisible(false);
         ui->actionFade->setVisible(false);
@@ -2421,7 +2432,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionDefine_pattern->setEnabled(false);
         ui->actionDithering->setEnabled(false);
         ui->actionDuotone->setEnabled(false);
-        ui->actionDuplicate->setEnabled(false);
         ui->actionExpand->setEnabled(false);
         ui->actionExport_as_icon->setEnabled(false);
         ui->actionFade->setEnabled(false);
@@ -2465,5 +2475,3 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->menuLayers->setEnabled(false);
     }
 }
-
-

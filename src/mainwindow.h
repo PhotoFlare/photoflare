@@ -212,6 +212,8 @@ private slots:
 
     void on_actionClearClipboard_triggered();
 
+    void on_actionDuplicate_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
