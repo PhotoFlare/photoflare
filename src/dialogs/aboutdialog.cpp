@@ -36,6 +36,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
                                     "<br>Helene Levernieux - Project Icon"
                                     "<br><br><b>Translators</b>"
                                     "<br>FR - Ludovic"
+                                    "<br>FR - Nerdouille"
                                     "<br>NL - Freek"
                                     "<br>DE - Freacore"
                                     "<br><br><b>Special thanks"
