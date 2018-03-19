@@ -7,7 +7,7 @@
 
 Simple but powerful Cross Platform image editor originally inspired by the PhotoFiltre image editor on Windows. Created with C++ 11, Qt Framework and the Graphicsmagick library.
 
-<img src="http://photoflare.io/wp-content/uploads/2015/04/CrossPlatform2.png">
+<img src=""http://photoflare.io/wp-content/uploads/2018/03/CrossPlatform2.png>
 
 ## Documentation
 Information on features and using the project will be <a href="http://photoflare.io/documentation/">available here</a>. At the moment its a work in progress.
