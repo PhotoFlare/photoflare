@@ -766,16 +766,28 @@ void MainWindow::on_actionPaste_as_new_image_triggered()
 
 void MainWindow::on_actionRGB_Mode_triggered()
 {
-    ui->actionIndexed_Mode->setChecked(false);
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImageModeIndexed(false);
+    if(widget)
+    {
+        ui->actionIndexed_Mode->setChecked(false);
+        widget->setImageModeIndexed(false);
+    }
+    else {
+        ui->actionRGB_Mode->setChecked(false);
+    }
 }
 
 void MainWindow::on_actionIndexed_Mode_triggered()
 {
-    ui->actionRGB_Mode->setChecked(false);
     PaintWidget *widget = getCurrentPaintWidget();
-    widget->setImageModeIndexed(true);
+    if(widget)
+    {
+        ui->actionRGB_Mode->setChecked(false);
+        widget->setImageModeIndexed(true);
+    }
+    else {
+        ui->actionIndexed_Mode->setChecked(false);
+    }
 }
 
 void MainWindow::on_actionFlip_Horizontal_triggered()
