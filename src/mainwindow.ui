@@ -149,6 +149,13 @@ QScrollBar::sub-line:horizontal {
     <property name="title">
      <string>&amp;Edit</string>
     </property>
+    <widget class="QMenu" name="menuPurge">
+     <property name="title">
+      <string>Purge</string>
+     </property>
+     <addaction name="actionHistory"/>
+     <addaction name="actionClipboard"/>
+    </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
     <addaction name="actionFade"/>
@@ -171,7 +178,7 @@ QScrollBar::sub-line:horizontal {
     <addaction name="actionDefine_pattern"/>
     <addaction name="actionFill_with_pattern"/>
     <addaction name="separator"/>
-    <addaction name="actionPurge"/>
+    <addaction name="menuPurge"/>
    </widget>
    <widget class="QMenu" name="menuImage">
     <property name="title">
@@ -1289,11 +1296,6 @@ QToolButton:checked {
     <string>Fill With Pattern</string>
    </property>
   </action>
-  <action name="actionPurge">
-   <property name="text">
-    <string>Purge</string>
-   </property>
-  </action>
   <action name="actionFlip_Vertical">
    <property name="icon">
     <iconset resource="../Icons.qrc">
@@ -2106,6 +2108,16 @@ QToolButton:checked {
   <action name="actionRemove_layer">
    <property name="text">
     <string>Remove</string>
+   </property>
+  </action>
+  <action name="actionHistory">
+   <property name="text">
+    <string>History</string>
+   </property>
+  </action>
+  <action name="actionClipboard">
+   <property name="text">
+    <string>Clipboard</string>
    </property>
   </action>
  </widget>

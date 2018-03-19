@@ -121,7 +121,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
     // Disable actions that are not yet implemented. True = hidden, False = Disabled
-    disableUnimplementedActions(true);
+    disableUnimplementedActions(false);
 
     // Create the keyboard shortcut bindings
     createKeyboardShortcuts();
@@ -756,6 +756,17 @@ void MainWindow::on_actionPaste_as_new_image_triggered()
             widget->setImage(clipboard->image());
         }
     }
+}
+
+void MainWindow::on_actionHistory_triggered()
+{
+
+}
+
+void MainWindow::on_actionClipboard_triggered()
+{
+    QClipboard *clipboard = QApplication::clipboard();
+    clipboard->clear();
 }
 
 /*
@@ -2368,7 +2379,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionPaste_shape->setVisible(false);
         ui->actionPaste_special->setVisible(false);
         ui->actionPosterize->setVisible(false);
-        ui->actionPurge->setVisible(false);
         ui->actionRelief->setVisible(false);
         ui->actionReplace_colour->setVisible(false);
         ui->actionReplace_colour_range->setVisible(false);
@@ -2430,7 +2440,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionPaste_shape->setEnabled(false);
         ui->actionPaste_special->setEnabled(false);
         ui->actionPosterize->setEnabled(false);
-        ui->actionPurge->setEnabled(false);
         ui->actionRelief->setEnabled(false);
         ui->actionReplace_colour->setEnabled(false);
         ui->actionReplace_colour_range->setEnabled(false);
@@ -2452,3 +2461,5 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->menuLayers->setEnabled(false);
     }
 }
+
+
