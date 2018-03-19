@@ -2129,6 +2129,7 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionRedo->setShortcut(QString("Ctrl+Y"));
     ui->actionImage_properties->setShortcut(QString("Ctrl+J"));
     //Image Menu
+    ui->actionDuplicate->setShortcut(QString("Ctrl+U"));
     ui->actionImage_Size->setShortcut(QString("Ctrl+H"));
     ui->actionCrop->setShortcut(QString("Ctrl+Shift+H"));
     //View Menu
