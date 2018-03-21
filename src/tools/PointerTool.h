@@ -49,7 +49,7 @@ private:
     PointerToolPrivate *d;
     int x_pos;
     int y_pos;
-    void setupRightClickMenu();
+    void setupRightClickMenu(bool execute);
 };
 
 #endif // POINTERTOOL_H

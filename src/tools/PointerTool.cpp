@@ -45,6 +45,7 @@ PointerTool::PointerTool(QObject *parent)
     : Tool(parent)
     , d(new PointerToolPrivate)
 {
+    setupRightClickMenu(false);
 }
 
 PointerTool::~PointerTool()
@@ -172,7 +173,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             }
             break;
         case Qt::RightButton: {
-                setupRightClickMenu();
+                setupRightClickMenu(true);
             }
         break;
     }
@@ -343,7 +344,7 @@ void PointerTool::setFill(bool enabled)
     }
 }
 
-void PointerTool::setupRightClickMenu()
+void PointerTool::setupRightClickMenu(bool execute)
 {
     QClipboard *clipboard = QApplication::clipboard();
 
@@ -402,5 +403,8 @@ void PointerTool::setupRightClickMenu()
     connect(&undo, SIGNAL(triggered()), this, SLOT(onUndo()));
     connect(&redo, SIGNAL(triggered()), this, SLOT(onRedo()));
 
-    contextMenu.exec(QCursor::pos());
+    if(execute)
+    {
+        contextMenu.exec(QCursor::pos());
+    }
 }
