@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QLabel>
 #include <QPainter>
@@ -121,7 +121,6 @@ public:
         painter.fillRect(surface.rect(), brush);
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawImage(0, 0, image);
-        qCritical()<< mode;
         painter.setCompositionMode(mode);
         painter.drawImage(0, 0, overlayImage);
         painter.end();

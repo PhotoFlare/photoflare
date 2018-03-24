@@ -288,14 +288,15 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             d->bottomRightCorner = QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize);
             d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize);
         }
+        emit painted(m_paintDevice);
     }
     else if(d->selectionMode == RESIZE)
     {
         d->firstPos = d->topLeftCorner.topLeft();
         d->secondPos = d->bottomRightCorner.bottomRight();
         d->selectionMode = SELECT;
+        emit painted(m_paintDevice);
     }
-    emit painted(m_paintDevice);
 }
 
 void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
