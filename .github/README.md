@@ -5,7 +5,7 @@
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://travis-ci.org/PhotoFlare.io/photoflare)
 [![Snap Status](https://build.snapcraft.io/badge/PhotoFlare/photoflare.svg)](https://build.snapcraft.io/user/PhotoFlare/photoflare)
 
-Simple but powerful Cross Platform image editor originally inspired by the PhotoFiltre image editor on Windows. Created with C++ 11, Qt Framework and the Graphicsmagick library.
+Simple but powerful Cross Platform image editor originally inspired by the PhotoFiltre image editor on Windows. Created with C++ 17, Qt Framework and the Graphicsmagick library.
 
 <img src="http://photoflare.io/wp-content/uploads/2018/03/CrossPlatform2.png">
 
