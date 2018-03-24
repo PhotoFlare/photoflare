@@ -574,25 +574,29 @@ void MainWindow::on_actionClose_all_triggered()
 
 void MainWindow::on_actionPrint_triggered()
 {
-    QPrinter printer;
-
-    QPrintDialog *dialog = new QPrintDialog(&printer);
-    if (dialog->exec() == QDialog::Accepted)
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
     {
-        QPainter painter;
-        if (! painter.begin(&printer))
+        QPrinter printer;
+
+        QPrintDialog *dialog = new QPrintDialog(&printer);
+        if (dialog->exec() == QDialog::Accepted)
         {
-            qWarning("Failed to init printer");
-            return;
+            QPainter painter;
+            if (! painter.begin(&printer))
+            {
+                qWarning("Failed to init printer");
+                return;
+            }
+            PaintWidget *widget = getCurrentPaintWidget();
+            if (widget)
+            {
+                painter.drawImage(0,0,widget->image());
+            }
+            painter.end();
         }
-        PaintWidget *widget = getCurrentPaintWidget();
-        if (widget)
-        {
-            painter.drawImage(0,0,widget->image());
-        }
-        painter.end();
+        delete dialog;
     }
-    delete dialog;
 }
 
 void MainWindow::on_actionAcquire_image_triggered()
