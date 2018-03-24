@@ -655,8 +655,7 @@ void MainWindow::on_actionImage_properties_triggered()
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
-    imagePropertiesDialog dialog(this);
-
+        imagePropertiesDialog dialog(this);
         if(!widget->imagePath().isEmpty())
         {
             QFileInfo fileInfo(widget->imagePath());
@@ -671,7 +670,7 @@ void MainWindow::on_actionImage_properties_triggered()
         int size = widget->image().width() * widget->image().height() * 3;
         dialog.setMemorySize(size);
         dialog.setTotalSize((widget->undoCount()+1)*size);
-    dialog.exec();
+        dialog.exec();
     }
 }
 
