@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QLabel>
 #include <QPainter>
@@ -121,6 +121,7 @@ public:
         painter.fillRect(surface.rect(), brush);
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawImage(0, 0, image);
+        qCritical()<< mode;
         painter.setCompositionMode(mode);
         painter.drawImage(0, 0, overlayImage);
         painter.end();
@@ -295,22 +296,21 @@ void PaintWidget::setPaintTool(Tool *tool)
     if (d->currentTool)
     {
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
-                if (&d->image == paintDevice)
-                {
-                    d->updateImageCanvas();
-                    this->contentChanged();
-                    d->imageChanged = true;
-                }
-            });
+            if (&d->image == paintDevice)
+            {
+                d->updateImageCanvas();
+                this->contentChanged();
+                d->imageChanged = true;
+            }
+        });
         d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode) {
-                if (&d->image == paintDevice)
-                {
-                    d->updateImageCanvasWithOverlay(overlayImage, mode);
-                }
-            });
+            if (&d->image == paintDevice)
+            {
+                d->updateImageCanvasWithOverlay(overlayImage, mode);
+            }
+        });
 
         d->cursorConnection = connect(d->currentTool, &Tool::cursorChanged, this, &PaintWidget::onCursorChanged);
-
         d->selectionConnection = connect(d->currentTool, &Tool::selectionChanged, this, &PaintWidget::onSelectionChanged);
 
         d->currentTool->setScale(d->scale);
