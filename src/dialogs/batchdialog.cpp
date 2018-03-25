@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QMessageBox>
@@ -377,9 +377,8 @@ void batchDialog::on_addFilesButton_clicked()
         }
         else
         {
-           // d->openDir = QString();
+           d->openDir = QString();
         }
-        qCritical()<<d->openDir;
         d->fileList = QFileDialog::getOpenFileNames(this, tr("Select Files"),d->openDir, tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
 
         if(SETTINGS->getMemParamsEnabled() == true)
