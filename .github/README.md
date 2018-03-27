@@ -1,6 +1,6 @@
 # PhotoFlare
 
-[![GitHub release](https://img.shields.io/badge/Release-1.5.1-green.svg)](https://github.com/PhotoFlare/photoflare/releases)
+[![GitHub release](https://img.shields.io/badge/Release-1.5.2-green.svg)](https://github.com/PhotoFlare/photoflare/releases)
 [![License: GPL v3+](https://img.shields.io/badge/License-GPL-yellowgreen.svg)](http://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://travis-ci.org/PhotoFlare.io/photoflare)
 [![Snap Status](https://build.snapcraft.io/badge/PhotoFlare/photoflare.svg)](https://build.snapcraft.io/user/PhotoFlare/photoflare)
