@@ -46,7 +46,7 @@ public:
     ~MainWindow();
 
     PaintWidget* getCurrentPaintWidget();
-    void openFile(const QString& fileName);
+    void openFile(const QString& fileName, bool direct);
 
 public slots:
     void handleMessage(const QString& message);

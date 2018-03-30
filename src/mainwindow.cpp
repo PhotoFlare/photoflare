@@ -341,7 +341,7 @@ void MainWindow::on_actionOpen_triggered()
                                 "NEF (*.nef *.nrw);;"
                                 "RAW (*.raw *.rw2)"));
 */
-    openFile(fileName);
+    openFile(fileName, false);
 
     if(SETTINGS->getPreviouslyOpened() == true)
     {
@@ -350,18 +350,27 @@ void MainWindow::on_actionOpen_triggered()
     }
 }
 
-void MainWindow::openFile(const QString& fileName)
+void MainWindow::openFile(const QString& fileName, bool direct)
 {
-    QImageReader reader(fileName);
-    if (!fileName.isEmpty() && reader.format() != "")
+    if(direct && !fileName.isEmpty())
     {
-        addPaintWidget(createPaintWidget(fileName));
-        SETTINGS->addRecentFile(fileName);
-        updateRecentFilesMenu();
+            addPaintWidget(createPaintWidget(fileName));
+            SETTINGS->addRecentFile(fileName);
+            updateRecentFilesMenu();
     }
-    if(!fileName.isEmpty() && reader.format() == "")
+    else
     {
-        showError(tr("Please open a valid image file"));
+        QImageReader reader(fileName);
+        if (!fileName.isEmpty() && reader.format() != "")
+        {
+            addPaintWidget(createPaintWidget(fileName));
+            SETTINGS->addRecentFile(fileName);
+            updateRecentFilesMenu();
+        }
+        if(!fileName.isEmpty() && reader.format() == "")
+        {
+            showError(tr("Please open a valid image file"));
+        }
     }
 }
 
@@ -369,7 +378,7 @@ void MainWindow::handleMessage(const QString& message)
 {
     QFileInfo fileInfo(message);
     if(fileInfo.exists())
-        openFile(QString(fileInfo.absoluteFilePath()));
+        openFile(QString(fileInfo.absoluteFilePath()),true);
 }
 
 void MainWindow::on_actionRevert_triggered()
