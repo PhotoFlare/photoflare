@@ -22,6 +22,7 @@
 #include <QTimer>
 #include <QStandardPaths>
 #include <QImageReader>
+#include <QInputDialog>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -279,7 +280,7 @@ void MainWindow::on_image_filtered(QImage image)
     batchLbl->setText(tr("Ready"));
 }
 
-void MainWindow::applyThreadedFilter(QString filterName)
+void MainWindow::applyThreadedFilter(QString filterName, double dV)
 {
     QThread *thread = new QThread();
     FilterWorker *worker = new FilterWorker();
@@ -288,7 +289,7 @@ void MainWindow::applyThreadedFilter(QString filterName)
     PaintWidget *widget = getCurrentPaintWidget();
     if(widget)
     worker->setImage(widget->image());
-
+    worker->setDoubleVal(dV);
     worker->setParent(this);
     worker->moveToThread(thread);
 
@@ -1153,9 +1154,15 @@ void MainWindow::on_actionNegative_triggered()
 
 void MainWindow::on_actionOpacity_triggered()
 {
-    PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-    applyThreadedFilter("setOpacity");
+    bool ok;
+    double d = QInputDialog::getDouble(this, tr("Set Image Opacity"),
+                                           tr("Opacity:"), 0.5, 0.0, 1.0, 2, &ok);
+    if(ok)
+    {
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget)
+        applyThreadedFilter("setOpacity", d);
+    }
 }
 
 /*

@@ -123,7 +123,7 @@ void BatchProcessWorker:: process()
             if(filter.contains("Drop shadow"))
                 image = FilterManager::instance()->dropShadow(image,5,40,Qt::black,0,10);
             if(filter.contains("Opacity"))
-                image = FilterManager::instance()->setOpacity(image);
+                image = FilterManager::instance()->setOpacity(image,0.5);
         }
 
         switch (m_params->rotate()) {

@@ -13,6 +13,7 @@ public:
     void setParent(MainWindow* parent){m_parent = parent;}
     void setImage(QImage image);
     void setFilter(QString filter);
+    void setDoubleVal(double v);
 
 public slots:
     void process();
@@ -24,6 +25,7 @@ private:
     MainWindow* m_parent;
     QImage currentImage;
     QString currentFilter;
+    double currentDouble;
 };
 
 #endif // FILTERWORKER_H

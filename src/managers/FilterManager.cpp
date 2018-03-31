@@ -160,10 +160,10 @@ QImage FilterManager::blurImage(const QImage &image, int radius)
     return modifiedImage;
 }
 
-QImage FilterManager::setOpacity(const QImage &image)
+QImage FilterManager::setOpacity(const QImage &image, double dV)
 {
     QGraphicsOpacityEffect *e = new QGraphicsOpacityEffect;
-    e->setOpacity(0.5);
+    e->setOpacity(dV);
     QImage modifiedImage = applyEffectToImage(image, e);
 
     return modifiedImage;
@@ -172,7 +172,6 @@ QImage FilterManager::setOpacity(const QImage &image)
 QImage FilterManager::dropShadow(const QImage &image, int radius, int padding, QColor color, int offsetx, int offsety)
 {
     QGraphicsDropShadowEffect *e = new QGraphicsDropShadowEffect;
-    //e->setColor(QColor(40,40,40,245));
     e->setColor(color);
     e->setOffset(offsetx,offsety);
     e->setBlurRadius(radius);

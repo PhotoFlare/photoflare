@@ -19,6 +19,11 @@ void FilterWorker::setFilter(QString filter)
     currentFilter = filter;
 }
 
+void FilterWorker::setDoubleVal(double v)
+{
+    currentDouble = v;
+}
+
 void FilterWorker::process()
 {
     QImage newImage;
@@ -93,7 +98,7 @@ void FilterWorker::process()
     }
     else if(currentFilter == "setOpacity")
     {
-        newImage = FilterManager::instance()->setOpacity(currentImage);
+        newImage = FilterManager::instance()->setOpacity(currentImage,currentDouble);
     }
     else if(currentFilter == "soften")
     {
