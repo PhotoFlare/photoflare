@@ -28,12 +28,10 @@ class FilterManagerPrivate
 public:
     FilterManagerPrivate()
     {
-
     }
 
     ~FilterManagerPrivate()
     {
-
     }
 
     Magick::Image* fromQtImage(const QImage &image) const
@@ -73,17 +71,16 @@ public:
     }
 
     QImage toQtImageTransparent(Magick::Image *image)
-        {
-            Magick::Blob blob;
-            image->write(&blob);
+    {
+        Magick::Blob blob;
+        image->write(&blob);
 
-            QByteArray arr((char *)blob.data(), blob.length());
-            QImage img;
-            img.loadFromData(arr);
+        QByteArray arr((char *)blob.data(), blob.length());
+        QImage img;
+        img.loadFromData(arr);
 
-            return img;
-        }
-
+        return img;
+    }
 };
 
 FilterManager* FilterManager::m_instance = 0;
@@ -123,17 +120,6 @@ QImage FilterManager::applyEffectToImage(QImage src, QGraphicsEffect *effect, in
 
 QImage FilterManager::colorize(const QImage &image, QColor color, double str, bool useContrast)
 {
-    // 16.04
-    /*
-        Magick::Image *magickImage = d->fromQtImage(image);
-        magickImage->modulate(100.0f, 0.0f, 1.0f);
-        magickImage->colorize(20, Magick::ColorRGB(color.redF(), color.greenF(), color.blueF()));
-
-        QImage modifiedImage = d->toQtImage(magickImage);
-        delete magickImage;
-        return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
-    */
-
     QGraphicsColorizeEffect *e = new QGraphicsColorizeEffect;
     e->setColor(color);
     e->setStrength(str);
@@ -318,7 +304,6 @@ QImage FilterManager::grayscale(const QImage &image)
         *data = qRgba(val, val, val, qAlpha(*data));
         ++data;
      }
-
      return modifiedImage;
 }
 
@@ -343,17 +328,6 @@ QImage FilterManager::colorize(const QImage &image, QColor color)
 
 QImage FilterManager::hue(const QImage &image, int degrees)
 {
-    //16.04
-    /*
-        Magick::Image *magickImage = d->fromQtImage(image);
-        magickImage->modulate(100.0f, 100.0f, degrees*(float)200/(float)360 + 70);
-
-        QImage modifiedImage = d->toQtImage(magickImage);
-        delete magickImage;
-
-        return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
-    */
-
     QImage modifiedImage = image;
 
     for(int i=0; i<modifiedImage.width(); i++)
@@ -386,7 +360,6 @@ QImage FilterManager::gradient(const QImage &image, QPoint startPoint, QPoint st
 
     return surface;
 }
-
 
 QImage FilterManager::fitImage(const QImage &image)
 {
@@ -621,17 +594,7 @@ static Magick::ChannelType channelById(int channelId)
 
 QImage FilterManager::setBrightness(const QImage &image, int brightness, int channelId)
 {
-    //16.04
-    /*
-        Magick::Image *magickImage = d->fromQtImage(image);
-        magickImage->modulate(brightness + 100.0f, 100.0f, 100.0f);
-
-        QImage modifiedImage = d->toQtImage(magickImage);
-        delete magickImage;
-
-        return modifiedImage;
-    */
-
+    Q_UNUSED(channelId);
     QImage modifiedImage = image;
 
     for(int i=0; i<modifiedImage.width(); i++)
@@ -643,7 +606,6 @@ QImage FilterManager::setBrightness(const QImage &image, int brightness, int cha
             modifiedImage.setPixelColor(i, j, color);
         }
     }
-
     return modifiedImage;
 }
 
@@ -817,7 +779,7 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
     if(changeStartColor)
         magickImage->opaque(Magick::ColorRGB(0.01f, 0, 0), Magick::ColorRGB(0, 0, 0));
 
-    return polygon;//d->toQtImage(magickImage2.data());
+    return polygon;
 }
 
 QImage FilterManager::floodFillOpacity(const QImage &image, const QColor &color, int tolerance)
@@ -849,8 +811,6 @@ QImage FilterManager::floodFillOpacity(const QImage &image, const QColor &color,
             }
         }
     }
-
-    //return d->toQtImage(magickImage.data()); //problem with alpha channel
     return d->toQtImageTransparent(magickImage.data());
 }
 

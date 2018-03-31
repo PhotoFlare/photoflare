@@ -1407,6 +1407,13 @@ void MainWindow::on_actionToolpalette_triggered()
         ui->dockWidget_palette->show();
 }
 
+void MainWindow::on_actionShow_grid_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    widget->showGrid();
+}
+
 void MainWindow::on_actionZoom_in_triggered()
 {
     this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
@@ -2421,7 +2428,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionSelect_all->setVisible(true);
         ui->actionSet_shape->setVisible(false);
         ui->actionSet_wallpaper->setVisible(false);
-        //ui->actionShow_grid->setVisible(false);
         ui->actionSkew->setVisible(false);
         ui->actionSnap_to_grid->setVisible(false);
         ui->actionStroke_and_fill->setVisible(false);
@@ -2480,7 +2486,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionSave_shape->setEnabled(false);
         ui->actionSet_shape->setEnabled(false);
         ui->actionSet_wallpaper->setVisible(false);
-        //ui->actionShow_grid->setEnabled(false);
         ui->actionSkew->setEnabled(false);
         ui->actionSnap_to_grid->setEnabled(false);
         ui->actionStroke_and_fill->setEnabled(false);
@@ -2494,11 +2499,4 @@ void MainWindow::disableUnimplementedActions(bool hide)
         //Hide layers for now
         ui->menuLayers->setEnabled(false);
     }
-}
-
-void MainWindow::on_actionShow_grid_triggered()
-{
-    PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-    widget->showGrid();
 }
