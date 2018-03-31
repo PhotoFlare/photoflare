@@ -59,8 +59,8 @@ public:
     void selectAll();
 
     void setImageModeIndexed(bool mode);
-
     void showProgressIndicator(bool visible);
+    void showGrid();
 signals:
     // Temporary signal to inform UI that user painted something.
     void contentChanged();

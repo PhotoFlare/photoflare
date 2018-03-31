@@ -214,6 +214,8 @@ private slots:
 
     void on_actionDuplicate_triggered();
 
+    void on_actionShow_grid_triggered();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);

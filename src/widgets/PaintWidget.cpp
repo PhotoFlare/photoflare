@@ -199,6 +199,15 @@ public:
             currentTool->onKeyReleased(keyEvent);
     }
 
+    void showGrid()
+    {
+        for (int x=0; x<=image.width(); x+=10)
+        q->scene()->addLine(x,0,x,image.height(), QPen(Qt::black));
+
+        for (int y=0; y<=image.height(); y+=10)
+        q->scene()->addLine(0,y,image.width(),y, QPen(Qt::black));
+    }
+
     QString imagePath;
     QLabel *imageLabel;
     QImage image;
@@ -214,6 +223,7 @@ public:
     bool isSelectionVisible;
     bool hotspotVisible;
     bool indexedMode = false;
+    bool showGridEnabled = false;
 
     PaintWidget *q;
 };
@@ -263,7 +273,6 @@ PaintWidget::PaintWidget(const QSize &imageSize, const QColor &bgcolor, QWidget 
 {
     QImage image(imageSize, QImage::Format_ARGB32_Premultiplied);
     image.fill(bgcolor);
-
 
     d->initialize(image);
     this->init();
@@ -535,4 +544,9 @@ void PaintWidget::selectAll()
 void PaintWidget::setImageModeIndexed(bool mode)
 {
     d->indexedMode = mode;
+}
+
+void PaintWidget::showGrid()
+{
+    d->showGrid();
 }
