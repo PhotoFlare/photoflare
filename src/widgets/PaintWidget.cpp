@@ -201,11 +201,29 @@ public:
 
     void showGrid()
     {
-        for (int x=0; x<=image.width(); x+=10)
-        q->scene()->addLine(x,0,x,image.height(), QPen(Qt::black));
+        if(showGridEnabled)
+        {
+            for (int i=0; i<lines.length(); i++)
+            {
+                q->scene()->removeItem(lines[i]);
+            }
+            showGridEnabled = false;
+        }
+        else
+        {
+            for (int x=0; x<=image.width(); x+=10)
+            {
+                xline = q->scene()->addLine(x,0,x,image.height(), QPen(Qt::black));
+                lines.append(xline);
+            }
 
-        for (int y=0; y<=image.height(); y+=10)
-        q->scene()->addLine(0,y,image.width(),y, QPen(Qt::black));
+            for (int y=0; y<=image.height(); y+=10)
+            {
+                yline = q->scene()->addLine(0,y,image.width(),y, QPen(Qt::black));
+                lines.append(yline);
+            }
+            showGridEnabled = true;
+        }
     }
 
     QString imagePath;
@@ -224,6 +242,10 @@ public:
     bool hotspotVisible;
     bool indexedMode = false;
     bool showGridEnabled = false;
+    QGraphicsLineItem *xline;
+    QGraphicsLineItem *yline;
+
+    QVector<QGraphicsLineItem*> lines;
 
     PaintWidget *q;
 };
