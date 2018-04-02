@@ -213,13 +213,13 @@ public:
         {
             for (int x=0; x<=image.width(); x+=10)
             {
-                xline = q->scene()->addLine(x,0,x,image.height(), QPen(Qt::black));
+                xline = q->scene()->addLine(x,0,x,image.height(), QPen(Qt::gray));
                 lines.append(xline);
             }
 
             for (int y=0; y<=image.height(); y+=10)
             {
-                yline = q->scene()->addLine(0,y,image.width(),y, QPen(Qt::black));
+                yline = q->scene()->addLine(0,y,image.width(),y, QPen(Qt::gray));
                 lines.append(yline);
             }
             showGridEnabled = true;
