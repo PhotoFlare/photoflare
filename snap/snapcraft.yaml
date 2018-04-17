@@ -9,7 +9,7 @@ description: Simple but powerful Cross Platform image editor.
 parts:
   photoflare:
     after: [desktop-qt5]
-    source: https://github.com:PhotoFlare/photoflare.git
+    source: ../
     source-type: git
     source-tag: 'v1.5.3'
     source-depth: 1
