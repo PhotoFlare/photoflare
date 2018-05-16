@@ -4,21 +4,24 @@ apps:
 name: photoflare
 summary: PhotoFlare
 confinement: devmode
-version: 1.4
+version: 1.5.3
 description: Simple but powerful Cross Platform image editor.
 parts:
   photoflare:
-    source: src/
+    after: [desktop-qt5]
+    source: ../
+    source-type: git
+    source-tag: 'v1.5.3'
+    source-depth: 1
     plugin: qmake
     qt-version: qt5
     build-packages:
       - g++
-      - qtbase5-dev
-      - dpkg-dev
+      - qt5-default
+      - libgraphicsmagick++-dev
     stage-packages:
       - libc6
       - libgraphicsmagick++-q16-12
       - libqt5gui5
       - libqt5core5a
       - libqt5widgets5
-    after: [desktop-qt5]
