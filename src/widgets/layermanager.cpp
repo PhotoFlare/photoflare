@@ -31,5 +31,5 @@ void LayerManager::deleteLayer()
 
 int LayerManager::getLayerCount()
 {
-    ui->listWidget->count();
+    return ui->listWidget->count();
 }
