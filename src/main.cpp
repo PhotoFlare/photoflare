@@ -31,11 +31,7 @@ int main(int argc, char *argv[])
 
             // Setup Default settings
             QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare";
-            if(QDir(loc).exists())
-            {
-                //qCritical() << "Exists";
-            }
-            else
+            if(QDir(loc).exists() == false)
             {
                 SETTINGS->setDefaultSettings();
             }
@@ -70,17 +66,12 @@ int main(int argc, char *argv[])
 
             for(int i = 0;i < paths.length(); i++)
             {
-                QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");  //for .deb installer
-
+                QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");  //for installers
                 //QFileInfo check_file("languages/"+SETTINGS->getUserLanguage()+".qm");  //local builds
                 if(check_file.exists() && check_file.isFile())
                 {
-                    translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/");  //for .deb installer
-
-                    //if(translator.load(SETTINGS->getUserLanguage()+".qm", "languages/")) //local builds
-                        //qCritical() << "Loaded translation";
-                    //else
-                        //qCritical() << "Translation not loaded";
+                    translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/");  //for installers
+                    //translator.load(SETTINGS->getUserLanguage()+".qm", "languages/") //local builds
                 }
             }
             app.installTranslator(&translator);
