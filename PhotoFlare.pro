@@ -195,7 +195,8 @@ INCLUDEPATH += external/qt-solutions/qtsingleapplication
 TRANSLATIONS = languages/en.ts\
                languages/fr.ts\
                languages/nl.ts\
-               languages/de.ts
+               languages/de.ts\
+               languages/zh_TW.ts
 
 # Generate translations in build
 TRANSLATIONS_FILES =
