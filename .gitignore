@@ -1,3 +1,9 @@
 PhotoFlare.pro.user
 .DS_Store
 .vscode/
+*.o
+languages/*.qm
+moc_*.cpp
+ui_*.h
+debian/.debhelper/*
+debian/photoflare/*
