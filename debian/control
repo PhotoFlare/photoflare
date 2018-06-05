@@ -1,0 +1,15 @@
+Source: photoflare
+Section: Graphics
+Priority: optional
+Maintainer: jimmy <jimmy@jimmy-alpha>
+Build-Depends: debhelper (>= 10), libgraphicsmagick++-dev, qt5-default, qtcreator
+Standards-Version: 4.1.2
+Homepage: <insert the upstream URL, if relevant>
+Vcs-Git: https://github.com/PhotoFlare/photoflare.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/photoflare.git
+
+Package: photoflare
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Simple but powerful Cross Platform image editor originally inspired by the PhotoFiltre image editor on Windows
+ Created with C++ 17, Qt Framework and the Graphicsmagick library
