@@ -2,7 +2,7 @@ lessThan(QT_VERSION, 5.6.0): error(This project requires Qt 5.6.0 or later)
 
 QT += core gui widgets printsupport
 
-TARGET = PhotoFlare
+TARGET = photoFlare
 TEMPLATE = app
 CONFIG += c++17
 
@@ -178,7 +178,7 @@ FORMS += src/mainwindow.ui \
     src/toolSettings/LineSettingsWidget.ui \
     src/toolSettings/MagicWandSettingsWidget.ui \
     src/toolSettings/StampSettingsWidget.ui \
-    src/toolSettings/BlurSettingsWidget.ui \ 
+    src/toolSettings/BlurSettingsWidget.ui \
     src/toolSettings/erasersettingswidget.ui \
     src/toolSettings/smudgesettingswidget.ui \
     src/dialogs/colourmanagerdialog.ui \
