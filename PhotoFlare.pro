@@ -196,3 +196,45 @@ TRANSLATIONS = languages/en.ts\
                languages/fr.ts\
                languages/nl.ts\
                languages/de.ts
+
+# Generate translations in build
+TRANSLATIONS_FILES =
+
+qtPrepareTool(LRELEASE, lrelease)
+for(tsfile, TRANSLATIONS) {
+    qmfile = $$shadowed($$tsfile)
+    qmfile ~= s,.ts$,.qm,
+    qmdir = $$dirname(qmfile)
+    !exists($$qmdir) {
+        mkpath($$qmdir)|error("Aborting.")
+    }
+    command = $$LRELEASE -removeidentical $$tsfile -qm $$qmfile
+    system($$command)|error("Failed to run: $$command")
+    TRANSLATIONS_FILES += $$qmfile
+}
+
+# installs
+unix:!macx {
+    isEmpty(PREFIX) {
+      packaging {
+        PREFIX = /usr
+      } else {
+        PREFIX = /usr/local
+      }
+    }
+    DEFINES += APP_PREFIX=\\\"$$PREFIX\\\"
+
+    target.path = $${BASEDIR}$${PREFIX}/bin/
+    qmfile.path = $${BASEDIR}$${PREFIX}/share/${TARGET}/languages/
+    qmfile.files = $${TRANSLATIONS_FILES}
+    icon.path = $${BASEDIR}$${PREFIX}/share/icons/
+    icon.extra = cp installers/snap/gui/logo.png installers/snap/gui/${TARGET}.png
+    icon.files = installers/snap/gui/logo.png
+    desktopentry.path = $${BASEDIR}$${PREFIX}/share/applications
+    desktopentry.files = installers/deb/DEBIAN/usr/share/applications/${TARGET}.desktop
+
+     INSTALLS += target \
+        qmfile \
+        icon \
+        desktopentry
+}
