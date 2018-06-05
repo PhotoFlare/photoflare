@@ -103,7 +103,7 @@ QScrollBar::sub-line:horizontal {
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -1090,7 +1090,7 @@ QToolButton:checked {
    <property name="minimumSize">
     <size>
      <width>150</width>
-     <height>400</height>
+     <height>0</height>
     </size>
    </property>
    <property name="maximumSize">
