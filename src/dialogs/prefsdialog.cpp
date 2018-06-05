@@ -65,12 +65,13 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->historySlider->setValue(SETTINGS->getHistoryLimit().toInt());
 
     //Startup tab
-    QStringList list(QStringList() << "English" << "French" << "Dutch" << "German");
+    QStringList list(QStringList() << "English" << "French" << "Dutch" << "German" << "Chinese");
     ui->comboBoxLanguage->addItems(list);
     ui->comboBoxLanguage->setItemIcon(0,QIcon(flagPath+"United-kingdom.png"));
     ui->comboBoxLanguage->setItemIcon(1,QIcon(flagPath+"France.png"));
     ui->comboBoxLanguage->setItemIcon(2,QIcon(flagPath+"Netherlands.png"));
     ui->comboBoxLanguage->setItemIcon(3,QIcon(flagPath+"Germany.png"));
+    ui->comboBoxLanguage->setItemIcon(4,QIcon(flagPath+"Taiwan.png"));
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
@@ -86,6 +87,9 @@ prefsDialog::prefsDialog(QWidget *parent) :
 
     else if(SETTINGS->getUserLanguage() == "de")
         ui->comboBoxLanguage->setCurrentIndex(3);
+
+    else if(SETTINGS->getUserLanguage() == "zh_TW")
+            ui->comboBoxLanguage->setCurrentIndex(4);
 
     ui->restartButton->hide();
 }
@@ -135,14 +139,8 @@ void prefsDialog::on_buttonBox_accepted()
     if (ui->checkBox->isChecked() != SETTINGS->isMultiWindowMode())
         SETTINGS->setMultiWindowMode(ui->checkBox->isChecked());
 
-    if(ui->comboBoxLanguage->currentIndex() == 0)
-        SETTINGS->setUserLanguage("en");
-    else if(ui->comboBoxLanguage->currentIndex() == 1)
-        SETTINGS->setUserLanguage("fr");
-    else if(ui->comboBoxLanguage->currentIndex() == 2)
-        SETTINGS->setUserLanguage("nl");
-    else if(ui->comboBoxLanguage->currentIndex() == 3)
-        SETTINGS->setUserLanguage("de");
+    // Save language when we close the dialog
+    set_user_language();
 }
 
 void prefsDialog::on_openFolderButton_clicked()
@@ -178,14 +176,7 @@ void prefsDialog::on_historySlider_sliderMoved(int position)
 void prefsDialog::on_restartButton_clicked()
 {
     // Save language before we quit
-    if(ui->comboBoxLanguage->currentIndex() == 0)
-        SETTINGS->setUserLanguage("en");
-    else if(ui->comboBoxLanguage->currentIndex() == 1)
-        SETTINGS->setUserLanguage("fr");
-    else if(ui->comboBoxLanguage->currentIndex() == 2)
-        SETTINGS->setUserLanguage("nl");
-    else if(ui->comboBoxLanguage->currentIndex() == 3)
-        SETTINGS->setUserLanguage("de");
+    set_user_language();
 
     qApp->quit();
     QProcess* proc = new QProcess();
@@ -195,4 +186,18 @@ void prefsDialog::on_restartButton_clicked()
 void prefsDialog::on_comboBoxLanguage_currentIndexChanged(const QString &arg1)
 {
     ui->restartButton->show();
+}
+
+void prefsDialog::set_user_language()
+{
+    if(ui->comboBoxLanguage->currentIndex() == 0)
+        SETTINGS->setUserLanguage("en");
+    else if(ui->comboBoxLanguage->currentIndex() == 1)
+        SETTINGS->setUserLanguage("fr");
+    else if(ui->comboBoxLanguage->currentIndex() == 2)
+        SETTINGS->setUserLanguage("nl");
+    else if(ui->comboBoxLanguage->currentIndex() == 3)
+        SETTINGS->setUserLanguage("de");
+    else if(ui->comboBoxLanguage->currentIndex() == 4)
+        SETTINGS->setUserLanguage("zh_TW");
 }

@@ -34,6 +34,8 @@ private slots:
 
     void on_restartButton_clicked();
 
+    void set_user_language();
+
     void on_comboBoxLanguage_currentIndexChanged(const QString &arg1);
 
 private:
