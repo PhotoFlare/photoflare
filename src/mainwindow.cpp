@@ -63,7 +63,6 @@
 #include "dialogs/textdialog.h"
 #include "dialogs/prefsdialog.h"
 #include "dialogs/gradientdialog.h"
-#include "dialogs/ScanDevicesDialog.h"
 #include "dialogs/imagepropertiesdialog.h"
 #include "dialogs/outerframedialog.h"
 #include "dialogs/dropshadowdialog.h"
@@ -241,11 +240,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // Setup some other defaults on startup
     setWindowSize();
     updateRecentFilesMenu();
-
-    // Initialize ScanManager for scanning images
-    m_scanManager = new ScanManager();
-    QObject::connect(m_scanManager, SIGNAL(listFinished(int,QProcess::ExitStatus)), this, SLOT(onListFnished(int,QProcess::ExitStatus)));
-    QObject::connect(m_scanManager, SIGNAL(scanFinished(int,QProcess::ExitStatus)), this, SLOT(onScanFnished(int,QProcess::ExitStatus)));
 
     transparentDialog = 0;
     ui->actionRGB_Mode->setChecked(true);
@@ -606,57 +600,6 @@ void MainWindow::on_actionPrint_triggered()
             painter.end();
         }
         delete dialog;
-    }
-}
-
-void MainWindow::on_actionAcquire_image_triggered()
-{
-    addPaintWidget(createPaintWidget(QSize(480,640),Qt::white));
-    PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
-        widget->showProgressIndicator(true);
-    }
-    m_scanManager->scan();
-}
-
-void MainWindow::on_actionScan_triggered()
-{
-   this->on_actionAcquire_image_triggered();
-}
-
-void MainWindow::on_actionSelect_device_triggered()
-{
-    m_scanManager->list();
-}
-
-void MainWindow::onListFnished(int,QProcess::ExitStatus status)
-{
-    if(status == QProcess::NormalExit)
-    {
-        ScanDevicesDialog dlg(this);
-        dlg.setSourceList(m_scanManager->getSourceList());
-        if (dlg.exec() == QDialog::Accepted)
-        {
-            m_scanManager->setCurrentSourceId(dlg.getCurrentSourceId());
-        }
-    }
-}
-
-void MainWindow::onScanFnished(int,QProcess::ExitStatus status)
-{
-    if(status == QProcess::NormalExit)
-    {
-        QFile file("FROM_SCANNER.bmp");
-
-        PaintWidget *widget = getCurrentPaintWidget();
-        if (widget)
-        {
-            widget->showProgressIndicator(false);
-            widget->setImage(QImage(file.fileName()));
-            widget->autoScale();
-        }
-
-        file.remove();
     }
 }
 

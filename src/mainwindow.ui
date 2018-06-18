@@ -121,13 +121,6 @@ QScrollBar::sub-line:horizontal {
       <string>Recent Files</string>
      </property>
     </widget>
-    <widget class="QMenu" name="menuImport_TWAIN">
-     <property name="title">
-      <string>Import TWAIN</string>
-     </property>
-     <addaction name="actionAcquire_image"/>
-     <addaction name="actionSelect_device"/>
-    </widget>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionRevert"/>
@@ -139,7 +132,6 @@ QScrollBar::sub-line:horizontal {
     <addaction name="actionClose_all"/>
     <addaction name="separator"/>
     <addaction name="actionPrint"/>
-    <addaction name="menuImport_TWAIN"/>
     <addaction name="separator"/>
     <addaction name="actionImage_properties"/>
     <addaction name="separator"/>
@@ -1090,7 +1082,7 @@ QToolButton:checked {
    <property name="minimumSize">
     <size>
      <width>150</width>
-     <height>0</height>
+     <height>35</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -1728,6 +1720,9 @@ QToolButton:checked {
    </property>
    <property name="toolTip">
     <string>Scan</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionRGB_Mode">

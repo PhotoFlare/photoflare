@@ -13,7 +13,6 @@
 #include <QProcess>
 #include <QLabel>
 
-#include "managers/ScanManager.h"
 #include "dialogs/batchdialog.h"
 
 namespace Ui {
@@ -124,11 +123,6 @@ private slots:
     void on_actionUndo_triggered();
     void on_actionRedo_triggered();
     void on_actionPrint_triggered();
-    void on_actionAcquire_image_triggered();
-    void onScanFnished(int,QProcess::ExitStatus);
-    void onListFnished(int,QProcess::ExitStatus);
-    void on_actionSelect_device_triggered();
-    void on_actionScan_triggered();
     void on_actionFull_screen_triggered();
     void on_actionOriginal_size_triggered();
     void on_actionSolarize_triggered();
@@ -254,7 +248,6 @@ private:
     EraserSettingsWidget *m_eraserSettingsWidget;
     SmudgeSettingsWidget *m_smudgeSettingsWidget;
     QComboBox *zoomCombo;
-    ScanManager *m_scanManager;
     QImage origImage;
     TransparentDialog *transparentDialog;
     QLabel *batchLbl;
