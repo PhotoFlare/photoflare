@@ -45,7 +45,6 @@ SOURCES += src/main.cpp \
     src/mainwindow.cpp \
     src/dialogs/aboutdialog.cpp \
     src/dialogs/NewDialog.cpp \
-    src/dialogs/ScanDevicesDialog.cpp \
     src/dialogs/textdialog.cpp \
     src/dialogs/prefsdialog.cpp \
     src/dialogs/batchdialog.cpp \
@@ -80,7 +79,6 @@ SOURCES += src/main.cpp \
     src/toolSettings/MagicWandSettingsWidget.cpp \
     src/toolSettings/StampSettingsWidget.cpp \
     src/toolSettings/BlurSettingsWidget.cpp \
-    src/managers/ScanManager.cpp \
     src/progress/QProgressIndicator.cpp \
     src/widgets/imagepositionwidget.cpp \
     src/workers/BatchProcessWorker.cpp \
@@ -100,7 +98,6 @@ SOURCES += src/main.cpp \
 HEADERS += src/mainwindow.h \
     src/dialogs/aboutdialog.h \
     src/dialogs/NewDialog.h \
-    src/dialogs/ScanDevicesDialog.h \
     src/dialogs/textdialog.h \
     src/dialogs/prefsdialog.h \
     src/dialogs/batchdialog.h \
@@ -128,7 +125,6 @@ HEADERS += src/mainwindow.h \
     src/tools/LineTool.h \
     src/tools/StampTool.h \
     src/tools/BlurTool.h \
-    src/managers/ScanManager.h \
     src/progress/QProgressIndicator.h \
     src/toolSettings/pointersettingswidget.h \
     src/toolSettings/PaintBrushSettingsWidget.h \
@@ -155,7 +151,6 @@ HEADERS += src/mainwindow.h \
 FORMS += src/mainwindow.ui \
     src/dialogs/aboutdialog.ui \
     src/dialogs/NewDialog.ui \
-    src/dialogs/scandevicesdialog.ui \
     src/dialogs/textdialog.ui \
     src/dialogs/prefsdialog.ui \
     src/dialogs/batchdialog.ui \
