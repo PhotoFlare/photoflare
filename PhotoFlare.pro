@@ -224,13 +224,15 @@ unix:!macx {
     qmfile.path = $${BASEDIR}$${PREFIX}/share/$${TARGET}/languages/
     qmfile.files = $${TRANSLATIONS_FILES}
     icon.path = $${BASEDIR}$${PREFIX}/share/icons/
-    icon.extra = cp installers/snap/gui/logo.png installers/snap/gui/$${TARGET}.png
     icon.files = installers/deb/DEBIAN/usr/share/icons/
     desktopentry.path = $${BASEDIR}$${PREFIX}/share/applications
     desktopentry.files = installers/deb/DEBIAN/usr/share/applications/$${TARGET}.desktop
+    documentation.path = /usr/share/man/man1/
+    documentation.files = photoFlare.1
 
      INSTALLS += target \
         qmfile \
         icon \
-        desktopentry
+        desktopentry \
+        documentation
 }
