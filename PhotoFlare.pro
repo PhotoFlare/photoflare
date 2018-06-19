@@ -225,7 +225,7 @@ unix:!macx {
     qmfile.files = $${TRANSLATIONS_FILES}
     icon.path = $${BASEDIR}$${PREFIX}/share/icons/
     icon.extra = cp installers/snap/gui/logo.png installers/snap/gui/$${TARGET}.png
-    icon.files = installers/snap/gui/$${TARGET}.png
+    icon.files = installers/deb/DEBIAN/usr/share/icons/
     desktopentry.path = $${BASEDIR}$${PREFIX}/share/applications
     desktopentry.files = installers/deb/DEBIAN/usr/share/applications/$${TARGET}.desktop
 
