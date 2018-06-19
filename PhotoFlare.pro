@@ -227,7 +227,7 @@ unix:!macx {
     icon.files = installers/deb/DEBIAN/usr/share/icons/
     desktopentry.path = $${BASEDIR}$${PREFIX}/share/applications
     desktopentry.files = installers/deb/DEBIAN/usr/share/applications/$${TARGET}.desktop
-    documentation.path = /usr/share/man/man1/
+    documentation.path = $${PREFIX}/share/man/man1/
     documentation.files = photoFlare.1
 
      INSTALLS += target \
