@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+​<!-- Copyright 2018 Dylan Coakley <info@photoflare.io> -->
+​<component type="desktop-application">
+​  <id>io.photoflare.photoflare</id>
+​  <metadata_license>FSFAP</metadata_license>
+​  <project_license>GPL-3.0+</project_license>
+​  <name>PhotoFlare</name>
+​  <summary>Simple but powerful Cross Platform Image Editor</summary>
+​
+​  <description>
+​    <p>
+​      This is an effort to bring quick, simple but powerful image editing to the masses. PhotoFlare is inspired by the image editor currently only available on Microsoft Windows – PhotoFiltre. However, it will not be a straight clone. It is being built from the ground up to be much improved and cross platform too!
+​    </p>
+​    <p>Features:</p>
+​    <ul>
+​      <li>Easy quick cropping tool.</li>
+​      <li>Flip, Rotate and scale images.</li>
+      <li>Lots of unique image filters.</li>
+      <li>Batch processing tool with support for all editor features.</li>
+      <li>Multiple translations are supported.</li>
+​    </ul>
+​  </description>
+​
+​  <launchable type="desktop-id">io.photoflare.photoflare.desktop</launchable>
+​
+​  <screenshots>
+​    <screenshot type="default">
+​      <caption>Main Window</caption>
+​      <image>http://photoflare.io/wp-content/uploads/2015/04/CrossPlatform.png</image>
+​    </screenshot>
+​  </screenshots>
+​
+​  <url type="homepage">http://photoflare.io</url>
+​  <project_group>PhotoFlare</project_group>
+​
+​  <provides>
+​    <binary>photoflare</binary>
+​  </provides>
+​
+​  <releases>
+​    <release version="1.5.4" date="2018-06-24">
+​      <description>
+​ 		<ul>
+			<li>Added Chinese translation (zh_TW).</li>
+			<li>Added a man page.</li>
+			<li>Added AppStream to ease packaging.</li>
+			<li>Updated project to build translation files on compile/build phase.</li>
+			<li>Removed Scan feature to ease Debian release.</li>
+			<li>Fixed Toolpalette looking poor on non-FHD screens.</li>
+		</ul>
+​      </description>
+​    </release>
+​  </releases>
+​</component>
