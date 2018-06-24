@@ -39,6 +39,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
                                     "<br>FR - Nerdouille"
                                     "<br>NL - Freek"
                                     "<br>DE - Freacore"
+                                    "<br>zh_TW - Coolshou"
                                     "<br><br><b>Special thanks"
                                     "</b><br>I would like to thank Samantha for being an absolute gem of a person. You light up my life and I'm so glad to have found you."));
 
