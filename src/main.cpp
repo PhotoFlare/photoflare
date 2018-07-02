@@ -24,10 +24,9 @@ int main(int argc, char *argv[])
 
         if(!app.isRunning())
         {
-            app.setApplicationName(QObject::tr("PhotoFlare"));
+            app.setApplicationName(QObject::tr("photoFlare"));
             app.setApplicationVersion(QObject::tr("1.5.4"));
             app.setOrganizationDomain(QObject::tr("photoflare.io"));
-            app.setOrganizationName(QObject::tr("photoflare"));
 
             // Setup Default settings
             QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare";
