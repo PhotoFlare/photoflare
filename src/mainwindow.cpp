@@ -4,7 +4,7 @@
 
 */
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>
@@ -1986,7 +1986,7 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
 void MainWindow::setWindowSize()
 {
     bool maximize = SETTINGS->isMaximizeWindow();
-    qDebug()<<maximize;
+
     if (maximize)
     {
         this->setWindowState(Qt::WindowMaximized);
