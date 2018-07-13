@@ -1354,7 +1354,15 @@ void MainWindow::on_actionShow_grid_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    widget->showGrid();
+    {
+        bool ok;
+        int i = QInputDialog::getInt(this, tr("Set Grid size"),
+                                               tr("Cell width"), 1, 0.0, 999, 1, &ok);
+        if(ok)
+        {
+            widget->showGrid(i);
+        }
+    }
 }
 
 void MainWindow::on_actionZoom_in_triggered()

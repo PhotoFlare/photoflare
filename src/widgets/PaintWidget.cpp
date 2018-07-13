@@ -199,7 +199,7 @@ public:
             currentTool->onKeyReleased(keyEvent);
     }
 
-    void showGrid()
+    void showGrid(int width)
     {
         if(showGridEnabled)
         {
@@ -211,13 +211,13 @@ public:
         }
         else
         {
-            for (int x=0; x<=image.width(); x+=10)
+            for (int x=0; x<=image.width(); x+=width)
             {
                 xline = q->scene()->addLine(x,0,x,image.height(), QPen(Qt::gray));
                 lines.append(xline);
             }
 
-            for (int y=0; y<=image.height(); y+=10)
+            for (int y=0; y<=image.height(); y+=width)
             {
                 yline = q->scene()->addLine(0,y,image.width(),y, QPen(Qt::gray));
                 lines.append(yline);
@@ -568,7 +568,7 @@ void PaintWidget::setImageModeIndexed(bool mode)
     d->indexedMode = mode;
 }
 
-void PaintWidget::showGrid()
+void PaintWidget::showGrid(int width)
 {
-    d->showGrid();
+    d->showGrid(width);
 }
