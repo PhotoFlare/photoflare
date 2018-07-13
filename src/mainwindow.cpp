@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>
@@ -1986,6 +1986,7 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
 void MainWindow::setWindowSize()
 {
     bool maximize = SETTINGS->isMaximizeWindow();
+    qDebug()<<maximize;
     if (maximize)
     {
         this->setWindowState(Qt::WindowMaximized);
@@ -2077,7 +2078,7 @@ bool MainWindow::handleCloseTabs()
 void MainWindow::saveGeometryState()
 {
     // Save maximized window state if user maximizes the window manually.
-    if (this->isMaximized() && !SETTINGS->isMaximizeWindow())
+    if (this->isMaximized())
     {
         SETTINGS->setMaximizeWindow(true);
     }
