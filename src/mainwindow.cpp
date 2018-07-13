@@ -1355,15 +1355,25 @@ void MainWindow::on_actionToolpalette_triggered()
 void MainWindow::on_actionShow_grid_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
+    bool enabled = widget->isGridEnabled();
     if (widget)
     {
-        bool ok;
-        int i = QInputDialog::getInt(this, tr("Set Grid size"),
-                                               tr("Cell width"), 1, 0.0, 999, 1, &ok);
-        if(ok)
+        // Only show cell width dialog if we are about to show the grid
+        if(!enabled)
         {
-            widget->showGrid(i);
+            bool ok;
+            int i = QInputDialog::getInt(this, tr("Set Grid size"),
+                                                   tr("Cell width"), 1, 0.0, 999, 1, &ok);
+            if(ok)
+            {
+                widget->showGrid(i);
+            }
         }
+        else
+        {
+            widget->showGrid(1);
+        }
+
     }
 }
 

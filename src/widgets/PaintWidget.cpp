@@ -211,15 +211,17 @@ public:
         }
         else
         {
+            QPen pen = QPen(QBrush(), 0.1, Qt::SolidLine);
+            pen.setColor(Qt::gray);
             for (int x=0; x<=image.width(); x+=width)
             {
-                xline = q->scene()->addLine(x,0,x,image.height(), QPen(Qt::gray));
+                xline = q->scene()->addLine(x,0,x,image.height(), pen);
                 lines.append(xline);
             }
 
             for (int y=0; y<=image.height(); y+=width)
             {
-                yline = q->scene()->addLine(0,y,image.width(),y, QPen(Qt::gray));
+                yline = q->scene()->addLine(0,y,image.width(),y, pen);
                 lines.append(yline);
             }
             showGridEnabled = true;
@@ -571,4 +573,9 @@ void PaintWidget::setImageModeIndexed(bool mode)
 void PaintWidget::showGrid(int width)
 {
     d->showGrid(width);
+}
+
+bool PaintWidget::isGridEnabled()
+{
+    return d->showGridEnabled;
 }
