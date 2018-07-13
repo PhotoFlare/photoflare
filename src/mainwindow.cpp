@@ -1097,14 +1097,16 @@ void MainWindow::on_actionNegative_triggered()
 
 void MainWindow::on_actionOpacity_triggered()
 {
-    bool ok;
-    double d = QInputDialog::getDouble(this, tr("Set Image Opacity"),
-                                           tr("Opacity:"), 0.5, 0.0, 1.0, 2, &ok);
-    if(ok)
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
     {
-        PaintWidget *widget = getCurrentPaintWidget();
-        if (widget)
-        applyThreadedFilter("setOpacity", d);
+        bool ok;
+        double d = QInputDialog::getDouble(this, tr("Set Image Opacity"),
+                                               tr("Opacity:"), 0.5, 0.0, 1.0, 2, &ok);
+        if(ok)
+        {
+            applyThreadedFilter("setOpacity", d);
+        }
     }
 }
 

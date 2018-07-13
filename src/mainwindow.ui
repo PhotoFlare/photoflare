@@ -1639,7 +1639,7 @@ QToolButton:checked {
   </action>
   <action name="actionShow_grid">
    <property name="text">
-    <string>Show Grid</string>
+    <string>Show Grid...</string>
    </property>
   </action>
   <action name="actionSnap_to_grid">
@@ -2077,7 +2077,7 @@ QToolButton:checked {
   </action>
   <action name="actionOpacity">
    <property name="text">
-    <string>Opacity</string>
+    <string>Opacity...</string>
    </property>
   </action>
   <action name="actionPlugins">
