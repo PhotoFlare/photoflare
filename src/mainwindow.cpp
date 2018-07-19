@@ -1367,11 +1367,13 @@ void MainWindow::on_actionShow_grid_triggered()
             if(ok)
             {
                 widget->showGrid(i);
+                ui->actionShow_grid->setText(tr("Hide Grid"));
             }
         }
         else
         {
             widget->showGrid(1);
+            ui->actionShow_grid->setText(tr("Show Grid..."));
         }
 
     }
