@@ -10,10 +10,10 @@ PointerSettingsWidget::PointerSettingsWidget(QWidget *parent) :
     connect(ui->checkBoxStroke, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
     connect(ui->checkBoxFill, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
 
-    ui->checkBoxStroke->setDisabled(true);
-    ui->checkBoxFill->setDisabled(true);
+    ui->checkBoxStroke->setHidden(true);
+    ui->checkBoxFill->setHidden(true);
     ui->square_sel->setDisabled(true);
-    ui->circle_sel->setVisible(false);
+    ui->circle_sel->setHidden(true);
 }
 
 PointerSettingsWidget::~PointerSettingsWidget()
