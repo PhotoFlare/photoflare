@@ -31,6 +31,7 @@ public:
     QStringList fileList();
     QStringList filterList();
     QString outDir();
+    QString outputFormat();
     void onFinished();
 
     bool changeImageSize() const;
@@ -98,6 +99,8 @@ private slots:
 
     void writeSettings(QWidget* window);
     void readSettings(QWidget* window);
+
+    void on_outFormat_currentIndexChanged(int index);
 
 private:
     Ui::batchDialog *ui;

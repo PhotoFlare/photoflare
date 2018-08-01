@@ -24,6 +24,7 @@ public:
     QStringList filterList;
     QString openDir;
     QString outDir;
+    QString outFormat;
     double imageRatio;
 };
 
@@ -40,8 +41,13 @@ batchDialog::batchDialog(QWidget *parent) :
     formats << tr("*.jpg");
     formats << tr("*.gif");
 
+    QStringList outputformats;
+    outputformats << tr(".png");
+    outputformats << tr(".jpg");
+    outputformats << tr(".bmp");
+
     ui->comboBox_2->addItems(formats);
-    ui->comboBox_3->addItems(formats);
+    ui->outFormat->addItems(outputformats);
 
     QStringList filters;
     filters << tr("Oil");
@@ -141,6 +147,11 @@ QStringList batchDialog::filterList()
 QString batchDialog::outDir()
 {
     return d->outDir;
+}
+
+QString batchDialog::outputFormat()
+{
+    return d->outFormat;
 }
 
 void batchDialog::on_tabWidget_currentChanged(int index)
@@ -447,4 +458,9 @@ void batchDialog::readSettings(QWidget* window)
         d->openDir = settings.value("opendir").toString();
     }
     settings.endGroup();
+}
+
+void batchDialog::on_outFormat_currentIndexChanged(int index)
+{
+    d->outFormat = ui->outFormat->currentText();
 }

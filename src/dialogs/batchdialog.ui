@@ -138,7 +138,7 @@
       <string>Output Format</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_3">
+    <widget class="QComboBox" name="outFormat">
      <property name="geometry">
       <rect>
        <x>430</x>

@@ -4,6 +4,7 @@
 
 */
 
+//#include <QDebug>
 #include <QFileInfo>
 
 #include "BatchProcessWorker.h"
@@ -157,7 +158,7 @@ void BatchProcessWorker:: process()
         image = FilterManager::instance()->setContrast(image, m_params->contrast(), m_params->contrastChannel());
         image = FilterManager::instance()->setGamma(image, m_params->gamma(), m_params->gammaChannel());
 
-        QString newFile = m_params->outDir() + "/" + QFileInfo(file).fileName();
+        QString newFile = m_params->outDir() + "/" + QFileInfo(file).baseName()+m_params->outputFormat();
         emit fileProcessFinished(newFile, image);
         emit batchProgress(++i, m_params->fileList().size());
     }
