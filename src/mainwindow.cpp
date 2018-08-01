@@ -1437,7 +1437,7 @@ void MainWindow::on_actionFull_screen_triggered()
 {
     if(this->isFullScreen())
     {
-        setWindowSize();
+        this->setWindowState(Qt::WindowMaximized);
     }
     else
     {
