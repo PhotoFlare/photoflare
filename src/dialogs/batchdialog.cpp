@@ -392,21 +392,24 @@ void batchDialog::on_addFilesButton_clicked()
         }
         d->fileList = QFileDialog::getOpenFileNames(this, tr("Select Files"),d->openDir, tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
 
-        if(SETTINGS->getMemParamsEnabled() == true)
+        if(d->fileList.length()>0)
         {
-            QDir dir = QFileInfo(d->fileList[0]).absoluteDir();
-            d->openDir = dir.absolutePath();
-            writeSettings(this);
-        }
-        ui->listWidget->clear();
+            if(SETTINGS->getMemParamsEnabled() == true)
+            {
+                QDir dir = QFileInfo(d->fileList[0]).absoluteDir();
+                d->openDir = dir.absolutePath();
+                writeSettings(this);
+            }
+            ui->listWidget->clear();
 
-        for(QString file : d->fileList)
-        {
-            QListWidgetItem *itm = new QListWidgetItem(QFileInfo(file).fileName() + "\r\n" + file);
-            itm->setSizeHint(QSize(64,70));
-            itm->setIcon(QIcon(file));
-            ui->listWidget->setIconSize(QSize(64,64));
-            ui->listWidget->addItem(itm);
+            for(QString file : d->fileList)
+            {
+                QListWidgetItem *itm = new QListWidgetItem(QFileInfo(file).fileName() + "\r\n" + file);
+                itm->setSizeHint(QSize(64,70));
+                itm->setIcon(QIcon(file));
+                ui->listWidget->setIconSize(QSize(64,64));
+                ui->listWidget->addItem(itm);
+            }
         }
 }
 
