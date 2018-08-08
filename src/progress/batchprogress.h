@@ -18,6 +18,9 @@ public:
 public slots:
     void progress(int,int);
 
+private slots:
+    void on_hideButton_clicked();
+
 private:
     Ui::BatchProgress *ui;
 };

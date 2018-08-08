@@ -19,3 +19,8 @@ void BatchProgress::progress(int value,int total)
     if(value == total) 
         hide();
 }
+
+void BatchProgress::on_hideButton_clicked()
+{
+    hide();
+}
