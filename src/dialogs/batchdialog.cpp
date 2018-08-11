@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QMessageBox>
+#include <QMimeDatabase>
 #include <QSettings>
 
 #include "batchdialog.h"
@@ -36,17 +37,18 @@ batchDialog::batchDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
-    QStringList formats;
-    formats << tr("*.png");
-    formats << tr("*.jpg");
-    formats << tr("*.gif");
+    QStringList sourceFormats;
+    sourceFormats << tr("All formats");
+    sourceFormats << tr(".png");
+    sourceFormats << tr(".jpg");
+    sourceFormats << tr(".gif");
 
     QStringList outputformats;
     outputformats << tr(".png");
     outputformats << tr(".jpg");
     outputformats << tr(".bmp");
 
-    ui->comboBox_2->addItems(formats);
+    ui->sourceFormat->addItems(sourceFormats);
     ui->outFormat->addItems(outputformats);
 
     QStringList filters;
@@ -466,4 +468,76 @@ void batchDialog::readSettings(QWidget* window)
 void batchDialog::on_outFormat_currentIndexChanged(int index)
 {
     d->outFormat = ui->outFormat->currentText();
+}
+
+void batchDialog::on_sourceFormat_currentIndexChanged(int index)
+{
+    ui->listWidget->clear();
+
+    if(index == 0)
+    {
+        if(original_list.length()>0)
+        {
+            for(int i=0;i<original_list.length();i++)
+            {
+                //Add to display the file list
+                QListWidgetItem *itm = new QListWidgetItem(QFileInfo(original_list[i]).fileName() + "\r\n" + original_list[i]);
+                itm->setSizeHint(QSize(64,70));
+                itm->setIcon(QIcon(original_list[i]));
+                ui->listWidget->setIconSize(QSize(64,64));
+                ui->listWidget->addItem(itm);
+            }
+        }
+    }
+    else
+    {
+        if(original_list.length() == 0)
+        {
+            original_list = d->fileList;
+        }
+        else
+        {
+            d->fileList = original_list;
+        }
+
+        QString sourceExt = ui->sourceFormat->currentText();
+        QString filterMIMEType = "";
+        QStringList newFileList;
+
+        if(sourceExt == ".png")
+        {
+            filterMIMEType = "image/png";
+        }
+        else if(sourceExt == ".jpg")
+        {
+            filterMIMEType = "image/jpeg";
+        }
+        else
+        {
+            filterMIMEType = "image/gif";
+        }
+
+        if(original_list.length()>0)
+        {
+            for(int i=0;i<original_list.length();i++)
+            {
+                QMimeDatabase db;
+                QMimeType mime = db.mimeTypeForFile(original_list[i]);
+
+                if(mime.name() == filterMIMEType)
+                {
+                    //Push to new array
+                    newFileList.append(original_list[i]);
+
+                    //Add to display the file list
+                    QListWidgetItem *itm = new QListWidgetItem(QFileInfo(original_list[i]).fileName() + "\r\n" + original_list[i]);
+                    itm->setSizeHint(QSize(64,70));
+                    itm->setIcon(QIcon(original_list[i]));
+                    ui->listWidget->setIconSize(QSize(64,64));
+                    ui->listWidget->addItem(itm);
+                }
+            }
+            d->fileList = newFileList;
+        }
+    }
 }

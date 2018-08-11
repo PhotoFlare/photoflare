@@ -102,9 +102,13 @@ private slots:
 
     void on_outFormat_currentIndexChanged(int index);
 
+    void on_sourceFormat_currentIndexChanged(int index);
+
 private:
     Ui::batchDialog *ui;
     BatchDialogPrivate *d;
+
+    QStringList original_list;
 };
 
 #endif // BATCHDIALOG_H

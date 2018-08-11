@@ -89,7 +89,7 @@
       <string>Source Format</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_2">
+    <widget class="QComboBox" name="sourceFormat">
      <property name="geometry">
       <rect>
        <x>430</x>
