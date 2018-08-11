@@ -2110,7 +2110,7 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionSave->setShortcut(QString("Ctrl+S"));
     ui->actionSave_As->setShortcut(QString("Ctrl+Shift+S"));
     ui->actionPrint->setShortcut(QString("Ctrl+P"));
-    ui->actionClose->setShortcut(QString("Ctrl+W"));
+    ui->actionClose->setShortcut(QString("Ctrl+Shift+W"));
     ui->actionQuit->setShortcut(QString("Ctrl+Q"));
     //Edit Menu
     ui->actionCut->setShortcut(QString("Ctrl+X")); //not implemented
