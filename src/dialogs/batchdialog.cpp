@@ -87,6 +87,15 @@ batchDialog::batchDialog(QWidget *parent) :
     }
 
     ui->backgroundColorComboBox->setOnClickHandler(this);
+
+    if(SETTINGS->getMemParamsEnabled() == true)
+    {
+        readSettings(this);
+    }
+    else
+    {
+       d->openDir = QString();
+    }
 }
 
 batchDialog::~batchDialog()
@@ -98,8 +107,15 @@ void batchDialog::done(int r)
 {
     if(QDialog::Accepted == r)
     {
-        if(ui->listWidget->count() > 0 && ui->lineEdit_3->text().size() > 0)
+        if(ui->listWidget->count() > 0 && ui->outputDir->text().size() > 0)
         {
+            if(SETTINGS->getMemParamsEnabled() == true)
+            {
+                QDir dir = QFileInfo(d->fileList[0]).absoluteDir();
+                d->openDir = dir.absolutePath();
+                writeSettings(this);
+            }
+
             QDialog::done(r);
             return;
         }
@@ -384,24 +400,10 @@ char batchDialog::flip() const
 
 void batchDialog::on_addFilesButton_clicked()
 {
-        if(SETTINGS->getMemParamsEnabled() == true)
-        {
-            readSettings(this);
-        }
-        else
-        {
-           d->openDir = QString();
-        }
         d->fileList = QFileDialog::getOpenFileNames(this, tr("Select Files"),d->openDir, tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
 
         if(d->fileList.length()>0)
         {
-            if(SETTINGS->getMemParamsEnabled() == true)
-            {
-                QDir dir = QFileInfo(d->fileList[0]).absoluteDir();
-                d->openDir = dir.absolutePath();
-                writeSettings(this);
-            }
             ui->listWidget->clear();
 
             for(QString file : d->fileList)
@@ -414,7 +416,7 @@ void batchDialog::on_addFilesButton_clicked()
 void batchDialog::on_outFolderPushButton_clicked()
 {
     d->outDir = QFileDialog::getExistingDirectory();
-    ui->lineEdit_3->setText(d->outDir);
+    ui->outputDir->setText(d->outDir);
 }
 
 void batchDialog::on_brightnessSlider_valueChanged(int value)
@@ -444,6 +446,7 @@ void batchDialog::writeSettings(QWidget* window)
     settings.beginGroup(window->objectName());
     settings.setValue("pos", window->pos());
     settings.setValue("opendir", d->openDir);
+    settings.setValue("outputdir", d->outDir);
     settings.endGroup();
 }
 
@@ -457,6 +460,8 @@ void batchDialog::readSettings(QWidget* window)
     {
         window->move(settings.value("pos").toPoint());
         d->openDir = settings.value("opendir").toString();
+        d->outDir = settings.value("outputdir").toString();
+        ui->outputDir->setText(d->outDir);
     }
     settings.endGroup();
 }

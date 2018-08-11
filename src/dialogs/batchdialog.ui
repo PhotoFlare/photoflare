@@ -112,7 +112,7 @@
       <string>Output Folder</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="outputDir">
      <property name="geometry">
       <rect>
        <x>430</x>
