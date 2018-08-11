@@ -470,15 +470,15 @@ void batchDialog::on_sourceFormat_currentIndexChanged(int index)
 {
     ui->listWidget->clear();
 
-    if(index == 0)
+    if(index == 0 && original_list.length()>0)
     {
-        if(original_list.length()>0)
+        //Restore original list
+        d->fileList = original_list;
+
+        //Add to ListWidget to display the file list
+        for(int i=0;i<original_list.length();i++)
         {
-            for(int i=0;i<original_list.length();i++)
-            {
-                //Add to display the file list
-                addItemToFileListWidget(original_list[i]);
-            }
+            addItemToFileListWidget(original_list[i]);
         }
     }
     else
@@ -521,7 +521,7 @@ void batchDialog::on_sourceFormat_currentIndexChanged(int index)
                     //Push to new array if correct file type
                     newFileList.append(original_list[i]);
 
-                    //Add to display the file list
+                    //Add to ListWidget to display the file list
                     addItemToFileListWidget(original_list[i]);
                 }
             }
