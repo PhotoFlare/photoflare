@@ -104,6 +104,8 @@ private slots:
 
     void on_sourceFormat_currentIndexChanged(int index);
 
+    void addItemToFileListWidget(QString filePath);
+
 private:
     Ui::batchDialog *ui;
     BatchDialogPrivate *d;

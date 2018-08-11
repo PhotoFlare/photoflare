@@ -406,11 +406,7 @@ void batchDialog::on_addFilesButton_clicked()
 
             for(QString file : d->fileList)
             {
-                QListWidgetItem *itm = new QListWidgetItem(QFileInfo(file).fileName() + "\r\n" + file);
-                itm->setSizeHint(QSize(64,70));
-                itm->setIcon(QIcon(file));
-                ui->listWidget->setIconSize(QSize(64,64));
-                ui->listWidget->addItem(itm);
+                addItemToFileListWidget(file);
             }
         }
 }
@@ -481,11 +477,7 @@ void batchDialog::on_sourceFormat_currentIndexChanged(int index)
             for(int i=0;i<original_list.length();i++)
             {
                 //Add to display the file list
-                QListWidgetItem *itm = new QListWidgetItem(QFileInfo(original_list[i]).fileName() + "\r\n" + original_list[i]);
-                itm->setSizeHint(QSize(64,70));
-                itm->setIcon(QIcon(original_list[i]));
-                ui->listWidget->setIconSize(QSize(64,64));
-                ui->listWidget->addItem(itm);
+                addItemToFileListWidget(original_list[i]);
             }
         }
     }
@@ -526,18 +518,23 @@ void batchDialog::on_sourceFormat_currentIndexChanged(int index)
 
                 if(mime.name() == filterMIMEType)
                 {
-                    //Push to new array
+                    //Push to new array if correct file type
                     newFileList.append(original_list[i]);
 
                     //Add to display the file list
-                    QListWidgetItem *itm = new QListWidgetItem(QFileInfo(original_list[i]).fileName() + "\r\n" + original_list[i]);
-                    itm->setSizeHint(QSize(64,70));
-                    itm->setIcon(QIcon(original_list[i]));
-                    ui->listWidget->setIconSize(QSize(64,64));
-                    ui->listWidget->addItem(itm);
+                    addItemToFileListWidget(original_list[i]);
                 }
             }
             d->fileList = newFileList;
         }
     }
+}
+
+void batchDialog::addItemToFileListWidget(QString filePath)
+{
+    QListWidgetItem *itm = new QListWidgetItem(QFileInfo(filePath).fileName() + "\r\n" + filePath);
+    itm->setSizeHint(QSize(64,70));
+    itm->setIcon(QIcon(filePath));
+    ui->listWidget->setIconSize(QSize(64,64));
+    ui->listWidget->addItem(itm);
 }
