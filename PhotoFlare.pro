@@ -230,7 +230,7 @@ unix:!macx {
     qmfile.files = $${TRANSLATIONS_FILES}
     icon.path = $${BASEDIR}$${PREFIX}/share/icons/
     icon.files = installers/deb/DEBIAN/usr/share/icons/*
-    pixmaps.path = ${PREFIX}/share/pixmaps/
+    pixmaps.path = $${BASEDIR}$${PREFIX}/share/pixmaps/
     pixmaps.files = installers/deb/DEBIAN/usr/share/icons/hicolor/48x48/apps/photoFlare.png
     desktopentry.path = $${BASEDIR}$${PREFIX}/share/applications
     desktopentry.files = installers/deb/DEBIAN/usr/share/applications/$${TARGET}.desktop
