@@ -102,6 +102,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QString theme = "Default";
+
+    if(theme == "Retro")
+    {
+        ui->actionNew->setIcon(QIcon("./assets/themes/Retro/toolbar1/new.png"));
+    }
+
     if(SETTINGS->isMultiWindowMode())
     {
         ui->mdiArea->setViewMode(QMdiArea::SubWindowView);
