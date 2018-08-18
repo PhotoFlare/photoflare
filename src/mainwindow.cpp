@@ -325,7 +325,7 @@ void MainWindow::on_actionNew_triggered()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    const QString& fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
+    const QStringList& fileName = QFileDialog::getOpenFileNames(this, tr("Open File"),
     SETTINGS->getOpenFolder(), tr("All Files (*);;"
                                 "Image Files (*.png *.jpg *.jpeg *.gif);;"
                                 "PNG(*.png);;"
@@ -343,11 +343,15 @@ void MainWindow::on_actionOpen_triggered()
                                 "NEF (*.nef *.nrw);;"
                                 "RAW (*.raw *.rw2)"));
 */
-    openFile(fileName, false);
+
+    for(int i=0;i<fileName.length();i++)
+    {
+        openFile(fileName[i], false);
+    }
 
     if(SETTINGS->getPreviouslyOpened() == true)
     {
-        QDir d = QFileInfo(fileName).absoluteDir();
+        QDir d = QFileInfo(fileName[0]).absoluteDir();
         SETTINGS->setOpenFolder(d.absolutePath());
     }
 }
