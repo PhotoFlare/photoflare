@@ -107,6 +107,9 @@ MainWindow::MainWindow(QWidget *parent) :
     if(theme == "Retro")
     {
         ui->actionNew->setIcon(QIcon("./assets/themes/Retro/toolbar1/new.png"));
+        ui->actionOpen->setIcon(QIcon("./assets/themes/Retro/toolbar1/open.png"));
+        ui->actionSave->setIcon(QIcon("./assets/themes/Retro/toolbar1/save.png"));
+        ui->actionPrint->setIcon(QIcon("./assets/themes/Retro/toolbar1/print.png"));
     }
 
     if(SETTINGS->isMultiWindowMode())
