@@ -46,39 +46,18 @@
      <widget class="QMdiArea" name="mdiArea">
       <property name="styleSheet">
        <string notr="true">QScrollBar:vertical {
-    border: 0px solid #c6c6c6;
+    border: 1px solid #c6c6c6;
     background: #eee;
-    width: 5px;    
-    margin: 0px 0px 0px 0px;
+    width: 10px;
 }
 QScrollBar:horizontal {
-    border: 0px solid #c6c6c6;
+    border: 1px solid #c6c6c6;
     background: #eee;
-    height: 5px;    
-    margin: 0px 0px 0px 0px;
+    height: 10px;
 }
 QScrollBar::handle {
     background: #63c5ff;
-}
-QScrollBar::add-line:vertical {
-    background: #2b3a42;
-    subcontrol-position: bottom;
-    subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical {
-    height: 0 px;
-    subcontrol-position: top;
-    subcontrol-origin: margin;
-}
-QScrollBar::add-line:horizontal {
-    background: #2b3a42;
-    subcontrol-position: right;
-    subcontrol-origin: margin;
-}
-QScrollBar::sub-line:horizontal {
-    width: 0 px;
-    subcontrol-position: left;
-    subcontrol-origin: margin;
+	width: 15px;
 }</string>
       </property>
       <property name="viewMode">
