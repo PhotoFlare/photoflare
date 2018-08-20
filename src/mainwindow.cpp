@@ -778,12 +778,14 @@ void MainWindow::on_actionIndexed_Mode_triggered()
 void MainWindow::on_actionDuplicate_triggered()
 {
     PaintWidget *oldwidget = getCurrentPaintWidget();
-    addPaintWidget(createPaintWidget(oldwidget->image().size(),Qt::white));
-
-    PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
+    if (oldwidget)
     {
-        widget->setImage(oldwidget->image());
+        addPaintWidget(createPaintWidget(oldwidget->image().size(),Qt::white));
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget)
+        {
+            widget->setImage(oldwidget->image());
+        }
     }
 }
 
