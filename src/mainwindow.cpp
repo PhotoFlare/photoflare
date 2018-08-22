@@ -361,24 +361,31 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::openFile(const QString& fileName, bool direct)
 {
-    if(direct && !fileName.isEmpty())
+    if(!fileExists(fileName))
     {
-            addPaintWidget(createPaintWidget(fileName));
-            SETTINGS->addRecentFile(fileName);
-            updateRecentFilesMenu();
+        showError(tr("Image does not exist at this file path"));
     }
     else
     {
-        QImageReader reader(fileName);
-        if (!fileName.isEmpty() && reader.format() != "")
+        if(direct && !fileName.isEmpty())
         {
-            addPaintWidget(createPaintWidget(fileName));
-            SETTINGS->addRecentFile(fileName);
-            updateRecentFilesMenu();
+                addPaintWidget(createPaintWidget(fileName));
+                SETTINGS->addRecentFile(fileName);
+                updateRecentFilesMenu();
         }
-        if(!fileName.isEmpty() && reader.format() == "")
+        else
         {
-            showError(tr("Please open a valid image file"));
+            QImageReader reader(fileName);
+            if (!fileName.isEmpty() && reader.format() != "")
+            {
+                addPaintWidget(createPaintWidget(fileName));
+                SETTINGS->addRecentFile(fileName);
+                updateRecentFilesMenu();
+            }
+            if(!fileName.isEmpty() && reader.format() == "")
+            {
+                showError(tr("Please open a valid image file"));
+            }
         }
     }
 }
@@ -419,7 +426,7 @@ void MainWindow::updateRecentFilesMenu()
         {
             QAction* action = ui->menuRecent_Files->addAction(fileName);
             connect(action, &QAction::triggered, [this, fileName] () {
-                addPaintWidget(createPaintWidget(fileName));
+                openFile(fileName,false);
             });
         }
     }
