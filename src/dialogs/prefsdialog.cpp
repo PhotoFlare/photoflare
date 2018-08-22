@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QApplication>
 #include <QProcess>
+#include <QStandardPaths>
 
 #include "prefsdialog.h"
 #include "ui_prefsdialog.h"
@@ -18,7 +19,6 @@ prefsDialog::prefsDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setFixedSize(size());
-
 
     flagPath = ":/pixmaps/flags/assets/pixmaps/flags/";
 
@@ -141,6 +141,16 @@ void prefsDialog::on_buttonBox_accepted()
 
     // Save language when we close the dialog
     set_user_language();
+}
+
+void prefsDialog::on_buttonBox_rejected()
+{
+    // Setup Default settings
+    QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare";
+    if(QDir(loc).exists() == false)
+    {
+        SETTINGS->setDefaultSettings();
+    }
 }
 
 void prefsDialog::on_openFolderButton_clicked()

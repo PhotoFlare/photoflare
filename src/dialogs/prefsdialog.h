@@ -38,6 +38,8 @@ private slots:
 
     void on_comboBoxLanguage_currentIndexChanged(const QString &arg1);
 
+    void on_buttonBox_rejected();
+
 private:
     Ui::prefsDialog *ui;
     QString flagPath;
