@@ -573,6 +573,9 @@ QToolButton:checked {
            <height>40</height>
           </size>
          </property>
+         <property name="toolTip">
+          <string>Eraser Tool</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -608,6 +611,9 @@ QToolButton:checked {
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Spray Can</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -642,6 +648,9 @@ QToolButton:checked {
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Pointer Tool</string>
          </property>
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
@@ -684,6 +693,9 @@ QToolButton:checked {
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Line Tool</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -718,6 +730,9 @@ QToolButton:checked {
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Magic Wand</string>
          </property>
          <property name="text">
           <string>...</string>
@@ -754,6 +769,9 @@ QToolButton:checked {
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Paint Brush</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -788,6 +806,9 @@ QToolButton:checked {
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Advanced Paint Brush</string>
          </property>
          <property name="text">
           <string>...</string>
@@ -824,6 +845,9 @@ QToolButton:checked {
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Blur Tool</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -849,6 +873,9 @@ QToolButton:checked {
            <width>40</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="toolTip">
+          <string>Smudge Tool</string>
          </property>
          <property name="text">
           <string>...</string>
@@ -885,6 +912,9 @@ QToolButton:checked {
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Clone Stamp</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -920,6 +950,9 @@ QToolButton:checked {
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Paint Bucket</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -954,6 +987,9 @@ QToolButton:checked {
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Colour Dropper</string>
          </property>
          <property name="text">
           <string>...</string>
