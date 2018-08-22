@@ -466,6 +466,9 @@
       <height>27</height>
      </rect>
     </property>
+    <property name="minimum">
+     <double>1.000000000000000</double>
+    </property>
    </widget>
    <widget class="QComboBox" name="imageResCombo">
     <property name="geometry">
