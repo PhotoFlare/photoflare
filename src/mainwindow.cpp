@@ -102,7 +102,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QString theme = "Default";
+    QString theme = "Retro";
 
     if(theme == "Retro")
     {
@@ -110,6 +110,9 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->actionOpen->setIcon(QIcon("./assets/themes/Retro/toolbar1/open.png"));
         ui->actionSave->setIcon(QIcon("./assets/themes/Retro/toolbar1/save.png"));
         ui->actionPrint->setIcon(QIcon("./assets/themes/Retro/toolbar1/print.png"));
+        ui->actionUndo->setIcon(QIcon("./assets/themes/Retro/toolbar1/undo.png"));
+        ui->actionRedo->setIcon(QIcon("./assets/themes/Retro/toolbar1/redo.png"));
+        ui->actionRGB_Mode->setIcon(QIcon("./assets/themes/Retro/toolbar1/rgb.png"));
     }
 
     if(SETTINGS->isMultiWindowMode())
