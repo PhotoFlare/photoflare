@@ -102,7 +102,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QString theme = "Retro";
+    QString theme = "Default";
 
     if(theme == "Retro")
     {
