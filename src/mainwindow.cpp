@@ -340,15 +340,18 @@ void MainWindow::on_actionOpen_triggered()
                                 "RAW (*.raw *.rw2)"));
 */
 
-    for(int i=0;i<fileName.length();i++)
+    if(fileName.length()>0)
     {
-        openFile(fileName[i], false);
-    }
+        for(int i=0;i<fileName.length();i++)
+        {
+            openFile(fileName[i], false);
+        }
 
-    if(SETTINGS->getPreviouslyOpened() == true)
-    {
-        QDir d = QFileInfo(fileName[0]).absoluteDir();
-        SETTINGS->setOpenFolder(d.absolutePath());
+        if(SETTINGS->getPreviouslyOpened() == true)
+        {
+            QDir d = QFileInfo(fileName[0]).absoluteDir();
+            SETTINGS->setOpenFolder(d.absolutePath());
+        }
     }
 }
 
