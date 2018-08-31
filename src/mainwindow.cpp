@@ -102,18 +102,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QString theme = "Default";
-
-    if(theme == "Retro")
-    {
-        ui->actionNew->setIcon(QIcon("./assets/themes/Retro/toolbar1/new.png"));
-        ui->actionOpen->setIcon(QIcon("./assets/themes/Retro/toolbar1/open.png"));
-        ui->actionSave->setIcon(QIcon("./assets/themes/Retro/toolbar1/save.png"));
-        ui->actionPrint->setIcon(QIcon("./assets/themes/Retro/toolbar1/print.png"));
-        ui->actionUndo->setIcon(QIcon("./assets/themes/Retro/toolbar1/undo.png"));
-        ui->actionRedo->setIcon(QIcon("./assets/themes/Retro/toolbar1/redo.png"));
-        ui->actionRGB_Mode->setIcon(QIcon("./assets/themes/Retro/toolbar1/rgb.png"));
-    }
+    //QString theme = "Default";
+    //applyTheme(theme);
 
     if(SETTINGS->isMultiWindowMode())
     {
@@ -2328,6 +2318,20 @@ void MainWindow::on_actionGradient_triggered()
     | MISC FUNCTIONS |
 
 */
+
+void MainWindow::applyTheme(QString theme)
+{
+    if(theme != "Default")
+    {
+        ui->actionNew->setIcon(QIcon("./assets/themes/"+theme+"/toolbar1/new.png"));
+        ui->actionOpen->setIcon(QIcon("./assets/themes/"+theme+"/toolbar1/open.png"));
+        ui->actionSave->setIcon(QIcon("./assets/themes/"+theme+"/toolbar1/save.png"));
+        ui->actionPrint->setIcon(QIcon("./assets/themes/"+theme+"/toolbar1/print.png"));
+        ui->actionUndo->setIcon(QIcon("./assets/themes/"+theme+"/toolbar1/undo.png"));
+        ui->actionRedo->setIcon(QIcon("./assets/themes/"+theme+"/toolbar1/redo.png"));
+        ui->actionRGB_Mode->setIcon(QIcon("./assets/themes/"+theme+"/toolbar1/rgb.png"));
+    }
+}
 
 bool MainWindow::eventFilter(QObject * obj, QEvent * e)
 {

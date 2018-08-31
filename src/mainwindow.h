@@ -228,6 +228,7 @@ private:
     void saveGeometryState();
     void createKeyboardShortcuts();
     void disableUnimplementedActions(bool hide);
+    void applyTheme(QString theme);
     void updateStatusArea(int width, int height);
     void clearStatusArea();
 
