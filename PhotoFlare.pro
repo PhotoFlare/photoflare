@@ -7,7 +7,7 @@ isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 6) {
 
 QT += core gui widgets printsupport
 
-TARGET = photoFlare
+TARGET = photoflare
 TEMPLATE = app
 CONFIG += c++17
 
