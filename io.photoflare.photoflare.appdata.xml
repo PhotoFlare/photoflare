@@ -38,15 +38,28 @@
   </provides>
 
   <releases>
-    <release version="1.5.4" date="2018-06-24">
+    <release version="1.5.5" date="2018-09-02">
       <description>
  		<ul>
-			<li>Added Chinese translation (zh_TW).</li>
-			<li>Added a man page.</li>
-			<li>Added AppStream to ease packaging.</li>
-			<li>Updated project to build translation files on compile/build phase.</li>
-			<li>Removed Scan feature to ease Debian release.</li>
-			<li>Fixed Toolpalette looking poor on non-FHD screens.</li>
+			<li>Added support for MNG, TGA, TIFF and WBMP image formats.</li>
+			<li>Added source file filtering to the BatchDialog.</li>
+			<li>Added grid size dialog for "Show Grid" to specify cell width.</li>
+			<li>Removed WhatIsThis question marks from Window titles.</li>
+			<li>Fixed default settings not set if you cancel the Preferences dialog.</li>
+			<li>Fixed tools not having tooltips.</li>
+			<li>Fixed setting resolution zero in NewDialog causing numbers to be maximum values.</li>
+			<li>Fixed no warning message if opening a recent file deleted from disk.</li>
+			<li>Fixed issues with scrolling certain directions when grabbing scrollbar.</li>
+			<li>Fixed Duplicate without image causing a crash.</li>
+			<li>Fixed NewDialog able to create files with 0x0 pixels.</li>
+			<li>Fixed OpenDialog only able to open one file at a time.</li>
+			<li>Fixed Cancel on File Chooser for BatchDialog causing application crash.</li>
+			<li>Fixed BatchDialog output format not working.</li>
+			<li>Fixed restore fullscreen leaving application in broken state.</li>
+			<li>Fixed disabled controls showing.</li>
+			<li>Fixed text always displaying "Show Grid" even if already enabled.</li>
+			<li>Fixed always maximize preference being reset on close.</li>
+			<li>Fixed being able to launch Opacity dialog without image.</li>
 		</ul>
       </description>
     </release>
