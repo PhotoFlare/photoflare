@@ -3,7 +3,7 @@ Version: 1.5.5~bionic1
 Architecture: amd64
 Maintainer: Dylan Coakley <info@photoflare.io>
 Installed-Size: 5000
-Depends:  libc6,libgraphicsmagick++-q16-12,libqt5gui5,libqt5core5a,libqt5widgets5, libqt5printsupport5, qt5-image-formats-plugins
+Depends: libc6,libgraphicsmagick++-q16-12,libqt5gui5,libqt5core5a,libqt5widgets5,libqt5printsupport5,qt5-image-formats-plugins
 Section: graphics
 Priority: optional
 Homepage: http://www.photoflare.io
