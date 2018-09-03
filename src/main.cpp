@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     QtSingleApplication app("PhotoFlare", argc, argv);
 
     // Remove WhatIsThis from Window Controls
-    //app::setAttribute(Qt::AA_DisableWindowContextHelpButton);
+    //app.setAttribute(Qt::AA_DisableWindowContextHelpButton); //required in newer Qt versions
 
         if(!app.isRunning())
         {
