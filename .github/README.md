@@ -21,6 +21,17 @@ Information on features and using the project will be <a href="http://photoflare
 
 Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter. Full instructions for each platform <a href="http://photoflare.io/contributing/building-the-source/">available here</a>
 
+## Running
+
+### Dependencies
+- libc6
+- libgraphicsmagick++-q16-12
+- libqt5gui5
+- libqt5core5a
+- libqt5widgets5
+- libqt5printsupport5
+- qt5-image-formats-plugins (Optional - Extra file format support)
+
 ## Translations
 Languages currently available:
 
