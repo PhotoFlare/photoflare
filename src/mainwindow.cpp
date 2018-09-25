@@ -1386,15 +1386,14 @@ void MainWindow::on_actionShow_grid_triggered()
             if(ok)
             {
                 widget->showGrid(i);
-                ui->actionShow_grid->setText(tr("Hide Grid"));
+                ui->actionShow_grid->setChecked(true);
             }
         }
         else
         {
             widget->showGrid(1);
-            ui->actionShow_grid->setText(tr("Show Grid..."));
+            ui->actionShow_grid->setChecked(false);
         }
-
     }
 }
 
@@ -2001,6 +2000,16 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
         updateStatusArea(widget->image().width(),widget->image().height());
         ui->actionUndo->setEnabled(widget->isUndoEnabled());
         ui->actionRedo->setEnabled(widget->isRedoEnabled());
+
+        bool enabled = widget->isGridEnabled();
+        if(enabled)
+        {
+            ui->actionShow_grid->setChecked(true);
+        }
+        else
+        {
+            ui->actionShow_grid->setChecked(false);
+        }
     }
 }
 
