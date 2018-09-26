@@ -1460,10 +1460,12 @@ void MainWindow::on_actionFull_screen_triggered()
     if(this->isFullScreen())
     {
         this->setWindowState(Qt::WindowMaximized);
+        ui->actionFull_screen->setChecked(false);
     }
     else
     {
         this->showFullScreen();
+        ui->actionFull_screen->setChecked(true);
     }
 }
 

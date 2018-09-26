@@ -1692,6 +1692,9 @@ QToolButton:checked {
    </property>
   </action>
   <action name="actionFull_screen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Full Screen</string>
    </property>
