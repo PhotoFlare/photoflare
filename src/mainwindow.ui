@@ -1643,11 +1643,17 @@ QToolButton:checked {
    </property>
   </action>
   <action name="actionFilterbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Filterbar</string>
    </property>
   </action>
   <action name="actionToolpalette">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Toolpalette</string>
    </property>

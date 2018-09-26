@@ -2001,14 +2001,34 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
         ui->actionUndo->setEnabled(widget->isUndoEnabled());
         ui->actionRedo->setEnabled(widget->isRedoEnabled());
 
-        bool enabled = widget->isGridEnabled();
-        if(enabled)
+        // Set view grid checked status
+        if(widget->isGridEnabled())
         {
             ui->actionShow_grid->setChecked(true);
         }
         else
         {
             ui->actionShow_grid->setChecked(false);
+        }
+
+        // Set view toolbar checked status
+        if(ui->toolBar->isVisible())
+        {
+            ui->actionFilterbar->setChecked(true);
+        }
+        else
+        {
+            ui->actionFilterbar->setChecked(false);
+        }
+
+        // Set view toolPalette checked status
+        if(ui->dockWidget_palette->isVisible())
+        {
+            ui->actionToolpalette->setChecked(true);
+        }
+        else
+        {
+            ui->actionToolpalette->setChecked(false);
         }
     }
 }
