@@ -193,6 +193,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actionUndo->setEnabled(false);
     ui->actionRedo->setEnabled(false);
 
+    // Set checked by default
+    ui->actionFilterbar->setChecked(true);
+    ui->actionToolpalette->setChecked(true);
+
     // Setup Tool Initial Colours and link signals to the colorChanged functions
     PAINT_BRUSH->setPrimaryColor(ui->colorBoxWidget->primaryColor());
     PAINT_BRUSH->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
