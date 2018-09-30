@@ -11,8 +11,8 @@ grade: devel
 
 apps:
   photoflare:
-    command: photoflare
-    desktop: usr/share/applications/photoflare.desktop
+    command: usr/local/bin/photoflare
+    desktop: usr/local/share/applications/photoflare.desktop
 
 parts:
   photoflare:
