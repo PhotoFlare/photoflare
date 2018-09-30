@@ -7,3 +7,7 @@ moc_*.cpp
 ui_*.h
 debian/.debhelper/*
 debian/photoflare/*
+parts/
+prime/
+snap/.snapcraft/
+stage/
