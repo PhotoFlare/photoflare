@@ -11,11 +11,12 @@ grade: devel
 
 apps:
   photoflare:
-    command: usr/local/bin/photoflare
+    command: desktop-launch $SNAP/usr/local/bin/photoflare
     desktop: usr/local/share/applications/photoflare.desktop
 
 parts:
   photoflare:
+    after: [desktop-qt5]
     source: https://github.com/PhotoFlare/photoflare.git
     source-type: git
     source-tag: 'v1.5.5.1'
@@ -26,4 +27,6 @@ parts:
       - qttools5-dev-tools
       - libgraphicsmagick++-dev
     stage-packages:
+      - libgraphicsmagick++-q16-12
+      - libqt5printsupport5
       - qt5-image-formats-plugins
