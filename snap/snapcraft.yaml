@@ -1,27 +1,32 @@
-apps: 
-  photoflare:
-    command: desktop-launch usr/bin/photoflare
 name: photoflare
+version: 1.5.5.1
 summary: PhotoFlare
+description: Simple but powerful Cross Platform image editor
+icon: installers/deb/DEBIAN/usr/share/icons/hicolor/48x48/apps/photoflare.png
+type: app
+
+base: core18
 confinement: devmode
-version: 1.5.3
-description: Simple but powerful Cross Platform image editor.
+grade: devel
+
+apps:
+  photoflare:
+    command: desktop-launch $SNAP/usr/local/bin/photoflare
+    desktop: usr/local/share/applications/photoflare.desktop
+
 parts:
   photoflare:
     after: [desktop-qt5]
-    source: ../
+    source: https://github.com/PhotoFlare/photoflare.git
     source-type: git
-    source-tag: 'v1.5.3'
-    source-depth: 1
+    source-tag: 'v1.5.5.1'
     plugin: qmake
     qt-version: qt5
     build-packages:
-      - g++
-      - qt5-default
+      - qtbase5-dev
+      - qttools5-dev-tools
       - libgraphicsmagick++-dev
     stage-packages:
-      - libc6
       - libgraphicsmagick++-q16-12
-      - libqt5gui5
-      - libqt5core5a
-      - libqt5widgets5
+      - libqt5printsupport5
+      - qt5-image-formats-plugins
