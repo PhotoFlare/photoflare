@@ -1378,9 +1378,9 @@ void MainWindow::on_actionToolpalette_triggered()
 void MainWindow::on_actionShow_grid_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    bool enabled = widget->isGridEnabled();
     if (widget)
     {
+        bool enabled = widget->isGridEnabled();
         // Only show cell width dialog if we are about to show the grid
         if(!enabled)
         {
