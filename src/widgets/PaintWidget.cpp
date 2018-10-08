@@ -209,7 +209,7 @@ public:
             }
             showGridEnabled = false;
         }
-        else
+        else if(width > 0)
         {
             QPen pen = QPen(QBrush(), 0.1, Qt::SolidLine);
             pen.setColor(Qt::gray);

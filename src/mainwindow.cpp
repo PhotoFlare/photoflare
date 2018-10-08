@@ -1386,7 +1386,7 @@ void MainWindow::on_actionShow_grid_triggered()
         {
             bool ok;
             int i = QInputDialog::getInt(this, tr("Set Grid size"),
-                                                   tr("Cell width"), 1, 0.0, 999, 1, &ok);
+                                                   tr("Cell width"), 1, 1.0, 999, 1, &ok);
             if(ok)
             {
                 widget->showGrid(i);
