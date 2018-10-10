@@ -1440,9 +1440,8 @@ void MainWindow::on_actionOriginal_size_triggered()
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
-        this->zoomCombo->setItemText(0,"100%");
-        this->zoomCombo->setCurrentIndex(0);
-        widget->setScale("100%");
+        this->zoomCombo->setCurrentIndex(9);
+        widget->setScale(this->zoomCombo->currentText());
     }
 }
 
