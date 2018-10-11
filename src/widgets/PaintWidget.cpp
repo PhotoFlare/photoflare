@@ -48,6 +48,7 @@ public:
         this->image = image;
         q->setSceneRect(image.rect());
         canvas = addPixmap(QPixmap::fromImage(image));
+        canvas->setTransformationMode(Qt::SmoothTransformation);
 
         q->setStyleSheet("background-color: rgb(128, 128, 128);");
     }
