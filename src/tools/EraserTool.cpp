@@ -82,6 +82,7 @@ void EraserTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     QPen pen;
     pen.setColor(Qt::white);
+    pen.setWidth(d->primaryPen.width());
 
     QPainter painter(m_paintDevice);
     painter.setPen(pen);
