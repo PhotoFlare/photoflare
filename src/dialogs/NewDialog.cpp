@@ -26,7 +26,7 @@
 
 enum {PPM, PPI};
 enum {PX, CM, IN};
-enum {x0y0, x100y100, x640y480, x800y600, x1024y768, x1366y768, x1600y900, x1920y1080, x3840y2160};
+enum {x0y0, x100y100, x640y480, x800y600, x1024y768, x1366y768, x1600y900, x1920y1080, x2560y1440, x3840y2160};
 
 #define CM_IN_INCH 2.54f
 
@@ -156,6 +156,11 @@ void NewDialog::on_imagePresetCombo_currentIndexChanged(int index)
     {
         width_px = 1920;
         height_px = 1080;
+    }
+    else if (index == x2560y1440)
+    {
+        width_px = 2560;
+        height_px = 1440;
     }
     else if (index == x3840y2160)
     {

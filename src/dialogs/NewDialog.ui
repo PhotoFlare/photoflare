@@ -366,6 +366,11 @@
     </item>
     <item>
      <property name="text">
+      <string>2560 x 1440 pixels</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>3840 x 2160 pixels</string>
      </property>
     </item>
