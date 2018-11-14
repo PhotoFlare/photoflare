@@ -1052,6 +1052,9 @@ QToolButton:checked {
      <height>24</height>
     </size>
    </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
