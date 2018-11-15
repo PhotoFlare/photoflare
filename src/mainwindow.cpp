@@ -376,6 +376,7 @@ void MainWindow::openFile(const QString& fileName, bool direct)
         else
         {
             QImageReader reader(fileName);
+            //reader.setDecideFormatFromContent(true); // Allows to continue to addPaintWidget but image will be blank
             if (!fileName.isEmpty() && reader.format() != "")
             {
                 addPaintWidget(createPaintWidget(fileName));
