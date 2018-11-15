@@ -30,11 +30,11 @@ void FilterWorker::process()
 
     if(currentFilter == "gammacorrectminus")
     {
-        newImage = FilterManager::instance()->setGamma(currentImage, -0.1, 0);
+        newImage = FilterManager::instance()->setGamma(currentImage, 0.5, 0);
     }
     else if(currentFilter == "gammacorrectplus")
     {
-        newImage = FilterManager::instance()->setGamma(currentImage, +0.1, 0);
+        newImage = FilterManager::instance()->setGamma(currentImage, 1.5, 0);
     }
     else if(currentFilter == "saturationminus")
     {

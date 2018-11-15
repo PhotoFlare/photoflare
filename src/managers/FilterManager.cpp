@@ -663,9 +663,8 @@ QImage FilterManager::setContrast(const QImage &image, int contrast, int channel
     return modifiedImage;
 }
 
-QImage FilterManager::setGamma(const QImage &image, float agamma, int channelId)
+QImage FilterManager::setGamma(const QImage &image, double gamma, int channelId)
 {
-    double gamma = agamma / 100.0f;
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->gamma(gamma, gamma, gamma);
 

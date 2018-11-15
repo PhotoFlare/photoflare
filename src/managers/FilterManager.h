@@ -22,6 +22,11 @@ public:
     static FilterManager* instance();
 
     int changeBrightness(int value,int brightness);
+    int changeContrast(int value,int contrast);
+    int changeGamma(int value,int gamma);
+    QImage contrastImage(const QImage &source, int contrast);
+
+
     QImage applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent = 0);
     QImage blackwhite(const QImage &image);
     QImage colourthreshold(const QImage &image);
@@ -50,7 +55,7 @@ public:
     QImage setBrightness(const QImage &image, int brightness, int channel);
     QImage setSaturation(const QImage &image, int saturation, int channel);
     QImage setContrast(const QImage &image, int contrast, int channel);
-    QImage setGamma(const QImage &image, float gamma, int channel);
+    QImage setGamma(const QImage &image, double gamma, int channel);
 
     QImage emboss(const QImage &image);
     QImage trim(const QImage &image);
