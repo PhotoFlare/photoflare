@@ -93,6 +93,7 @@ void textDialog::updateFont()
     currentFont.setStrikeOut(ui->checkBoxStrike->isChecked());
     currentFont.setUnderline(ui->checkBoxUnderline->isChecked());
     ui->textPreview->setFont(currentFont);
+    currentColor = ui->textColour->palette().color(QPalette::Window).name();
 }
 
 void textDialog::editText(const QString &text, const QFont &font, const QColor &color)
