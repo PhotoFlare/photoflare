@@ -22,10 +22,6 @@ public:
     static FilterManager* instance();
 
     int changeBrightness(int value,int brightness);
-    int changeContrast(int value,int contrast);
-    int changeGamma(int value,int gamma);
-    QImage contrastImage(const QImage &source, int contrast);
-
 
     QImage applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent = 0);
     QImage blackwhite(const QImage &image);

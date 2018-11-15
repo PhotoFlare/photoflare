@@ -643,6 +643,7 @@ QImage FilterManager::setBrightness(const QImage &image, int brightness, int cha
 
 QImage FilterManager::setSaturation(const QImage &image, int saturation, int channelId)
 {
+    Q_UNUSED(channelId);
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->modulate(100.0f, saturation + 100.0f, 100.0f);
 
@@ -654,6 +655,7 @@ QImage FilterManager::setSaturation(const QImage &image, int saturation, int cha
 
 QImage FilterManager::setContrast(const QImage &image, int contrast, int channelId)
 {
+    Q_UNUSED(channelId);
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->contrast(contrast);
 
@@ -665,6 +667,7 @@ QImage FilterManager::setContrast(const QImage &image, int contrast, int channel
 
 QImage FilterManager::setGamma(const QImage &image, double gamma, int channelId)
 {
+    Q_UNUSED(channelId);
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->gamma(gamma, gamma, gamma);
 
