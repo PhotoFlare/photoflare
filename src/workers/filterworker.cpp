@@ -30,11 +30,11 @@ void FilterWorker::process()
 
     if(currentFilter == "gammacorrectminus")
     {
-        newImage = FilterManager::instance()->setGamma(currentImage, 0.5, 0);
+        newImage = FilterManager::instance()->setGamma(currentImage, 0.9, 0);
     }
     else if(currentFilter == "gammacorrectplus")
     {
-        newImage = FilterManager::instance()->setGamma(currentImage, 1.5, 0);
+        newImage = FilterManager::instance()->setGamma(currentImage, 1.1, 0);
     }
     else if(currentFilter == "saturationminus")
     {
@@ -46,11 +46,11 @@ void FilterWorker::process()
     }
     else if(currentFilter == "contrastminus")
     {
-        newImage = FilterManager::instance()->setContrast(currentImage, -5, 0);
+        newImage = FilterManager::instance()->setContrast(currentImage, 0.5, 0);
     }
     else if(currentFilter == "contrastplus")
     {
-        newImage = FilterManager::instance()->setContrast(currentImage, 5, 0);
+        newImage = FilterManager::instance()->setContrast(currentImage, 1.0, 0);
     }
     else if(currentFilter == "brightminus")
     {

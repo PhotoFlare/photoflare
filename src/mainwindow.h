@@ -220,7 +220,7 @@ private:
     void addPaintWidget(PaintWidget *widget);
     void addTab(PaintWidget *widget);
     void addChildWindow(PaintWidget *widget);
-    void on_actionAuto_zoom_triggered(PaintWidget *widget);
+    void on_actionAuto_zoom_triggered();
     void saveContent();
     bool saveImage(const QString &fileName, int quality);
     bool handleCloseChildWindow(QMdiSubWindow *subWindow);

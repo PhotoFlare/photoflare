@@ -1446,8 +1446,9 @@ void MainWindow::on_actionOriginal_size_triggered()
     }
 }
 
-void MainWindow::on_actionAuto_zoom_triggered(PaintWidget *widget)
+void MainWindow::on_actionAuto_zoom_triggered()
 {
+    PaintWidget *widget = getCurrentPaintWidget();
     widget->autoScale();
     connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
         this->zoomCombo->setItemText(0, QString::number((int)(scale*100)).append("%"));
