@@ -115,6 +115,7 @@ void HueDialog::on_horizontalSlider_valueChanged(int value)
 void HueDialog::setPreviewImage(const QImage& image)
 {
     ui->previewLabel->setPixmap(QPixmap::fromImage(image));
+    ui->previewLabel->setScaledContents(true);
     if(SETTINGS->getMemParamsEnabled())
     {
         writeSettings(this);

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>455</width>
-    <height>300</height>
+    <width>512</width>
+    <height>271</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>350</x>
      <y>230</y>
      <width>151</width>
-     <height>61</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="orientation">
@@ -63,7 +63,7 @@
     <rect>
      <x>47</x>
      <y>20</y>
-     <width>391</width>
+     <width>451</width>
      <height>21</height>
     </rect>
    </property>
@@ -500,7 +500,7 @@
     <rect>
      <x>47</x>
      <y>46</y>
-     <width>391</width>
+     <width>451</width>
      <height>19</height>
     </rect>
    </property>
@@ -954,14 +954,29 @@
   <widget class="QLabel" name="previewLabel">
    <property name="geometry">
     <rect>
-     <x>14</x>
-     <y>80</y>
-     <width>240</width>
-     <height>180</height>
+     <x>50</x>
+     <y>90</y>
+     <width>251</width>
+     <height>131</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="autoFillBackground">
     <bool>true</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
    </property>
    <property name="text">
     <string/>
@@ -970,8 +985,8 @@
   <widget class="QRadioButton" name="method1">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>70</y>
+     <x>340</x>
+     <y>90</y>
      <width>161</width>
      <height>17</height>
     </rect>
@@ -986,8 +1001,8 @@
   <widget class="QRadioButton" name="method2">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>90</y>
+     <x>340</x>
+     <y>110</y>
      <width>141</width>
      <height>17</height>
     </rect>
