@@ -20,7 +20,7 @@ PaintBrushAdvSettingsWidget::PaintBrushAdvSettingsWidget(QWidget *parent) :
     }
 
     connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SIGNAL(settingsChanged()));
-    connect(ui->preassureSlider, SIGNAL(valueChanged(int)), this, SIGNAL(settingsChanged()));
+    connect(ui->pressureSlider, SIGNAL(valueChanged(int)), this, SIGNAL(settingsChanged()));
     connect(ui->stepSlider, SIGNAL(valueChanged(int)), this, SIGNAL(settingsChanged()));
     connect(ui->fadeCheckBox, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
 }
@@ -40,9 +40,9 @@ int PaintBrushAdvSettingsWidget::brushWidth() const
     return ui->comboBox->height();
 }
 
-int PaintBrushAdvSettingsWidget::preassure() const
+int PaintBrushAdvSettingsWidget::pressure() const
 {
-    return ui->preassureSlider->value();
+    return ui->pressureSlider->value();
 }
 
 bool PaintBrushAdvSettingsWidget::fade() const

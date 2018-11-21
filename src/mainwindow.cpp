@@ -1895,7 +1895,7 @@ void MainWindow::onPaintBrushAdvSettingsChanged()
 {
     PAINT_BRUSH_ADV->setWidth(m_pbAdvSettingsWidget->brushWidth());
     PAINT_BRUSH_ADV->setBrushPixmap(m_pbAdvSettingsWidget->brushPixmap());
-    PAINT_BRUSH_ADV->setPreassure(m_pbAdvSettingsWidget->preassure());
+    PAINT_BRUSH_ADV->setPressure(m_pbAdvSettingsWidget->pressure());
     PAINT_BRUSH_ADV->setFade(m_pbAdvSettingsWidget->fade());
     PAINT_BRUSH_ADV->setStep(m_pbAdvSettingsWidget->step());
 }

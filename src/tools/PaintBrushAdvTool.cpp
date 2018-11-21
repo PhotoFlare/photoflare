@@ -20,14 +20,13 @@ public:
     }
     ~PaintBrushAdvToolPrivate()
     {
-
     }
 
     QPoint lastPos;
     QPen primaryPen;
     QPen secondaryPen;
     QPixmap pixmap;
-    int preassure;
+    int pressure;
     float opacity;
     bool fade;
     int step;
@@ -40,7 +39,6 @@ PaintBrushAdvTool::PaintBrushAdvTool(QObject *parent)
     : Tool(parent)
     , d(new PaintBrushAdvToolPrivate)
 {
-
 }
 
 PaintBrushAdvTool::~PaintBrushAdvTool()
@@ -84,9 +82,9 @@ void PaintBrushAdvTool::setBrushPixmap(QPixmap pixmap)
     d->pixmap = pixmap;
 }
 
-void PaintBrushAdvTool::setPreassure(int preassure)
+void PaintBrushAdvTool::setPressure(int pressure)
 {
-    d->preassure = preassure;
+    d->pressure = pressure;
 }
 
 void PaintBrushAdvTool::setFade(bool fade)
@@ -114,8 +112,6 @@ QCursor PaintBrushAdvTool::getCursor()
 
 void PaintBrushAdvTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
-    Q_UNUSED(button);
-
     d->lastPos = pos;
     d->mouseButton = button;
 
@@ -126,7 +122,7 @@ void PaintBrushAdvTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     pxr.setMask(d->pixmap.createMaskFromColor(Qt::transparent));
 
     d->pixmap = pxr;
-    d->opacity = qPow(((float)d->preassure / 10.0f), 2);
+    d->opacity = qPow(((float)d->pressure / 10.0f), 2);
 }
 
 void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
@@ -188,9 +184,5 @@ void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
 void PaintBrushAdvTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
-
     d->mouseButton = Qt::NoButton;
 }
-
-
-

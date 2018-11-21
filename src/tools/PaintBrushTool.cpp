@@ -130,8 +130,6 @@ QCursor PaintBrushTool::getCursor()
 
 void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
-    Q_UNUSED(button);
-
     d->lastPos = pos;
     d->mouseButton = button;
 

@@ -23,7 +23,7 @@ public:
     void setBrushPixmap(QPixmap pixmap);
 
     void setCapStyle(Qt::PenCapStyle capStyle);
-    void setPreassure(int preassure);
+    void setPressure(int pressure);
     void setFade(bool fade);
     void setStep(int step);
 

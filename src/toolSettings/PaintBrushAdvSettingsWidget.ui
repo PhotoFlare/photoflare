@@ -75,7 +75,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QSlider" name="preassureSlider">
+        <widget class="QSlider" name="pressureSlider">
          <property name="minimum">
           <number>1</number>
          </property>

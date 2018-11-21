@@ -23,7 +23,7 @@ public:
 
     QPixmap brushPixmap();
     int brushWidth() const;
-    int preassure() const;
+    int pressure() const;
     bool fade() const;
     int step() const;
 signals:
