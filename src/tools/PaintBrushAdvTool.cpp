@@ -116,13 +116,20 @@ void PaintBrushAdvTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     d->mouseButton = button;
 
     QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+    int w = d->primaryPen.width();
 
+    // Setup the pixmap to paint
     QPixmap pxr(d->pixmap.size());
     pxr.fill(pen.color());
     pxr.setMask(d->pixmap.createMaskFromColor(Qt::transparent));
-
     d->pixmap = pxr;
     d->opacity = qPow(((float)d->pressure / 10.0f), 2);
+
+    // Paint with single click
+    QPainter painter(m_paintDevice);
+    painter.setOpacity(d->opacity);
+    painter.drawPixmap(pos.x() - w/2, pos.y() - w/2, d->pixmap);
+    emit painted(m_paintDevice);
 }
 
 void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
