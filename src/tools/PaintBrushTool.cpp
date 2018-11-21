@@ -4,9 +4,8 @@
 
 */
 
-#include "PaintBrushTool.h"
-
 #include <QPainter>
+#include "PaintBrushTool.h"
 
 class PaintBrushToolPrivate
 {
@@ -19,7 +18,6 @@ public:
     }
     ~PaintBrushToolPrivate()
     {
-
     }
 
     QPoint lastPos;
@@ -27,14 +25,13 @@ public:
     QPen secondaryPen;
     bool antialiasing;
     Qt::MouseButton mouseButton;
-    int pressure;
+    int pressure = 100;
 };
 
 PaintBrushTool::PaintBrushTool(QObject *parent)
     : Tool(parent)
     , d(new PaintBrushToolPrivate)
 {
-
 }
 
 PaintBrushTool::~PaintBrushTool()
@@ -137,6 +134,7 @@ void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
     QPainter painter(m_paintDevice);
     painter.setPen(pen);
+    // Cast int to double for setting opacity
     double realVal = double(d->pressure / double(100.0));
     painter.setOpacity(realVal);
     painter.drawPoint(pos.x(), pos.y());
@@ -152,12 +150,13 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
         if (d->antialiasing)
             painter.setRenderHint(QPainter::Antialiasing);
 
+        // Cast int to double for setting opacity
         double realVal = double(d->pressure / double(100.0));
         painter.setOpacity(realVal);
 
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
-
         int w = pen.width();
+
         if(pen.capStyle() == Qt::SquareCap && w > 1)
         {
             painter.setPen(QPen(pen.color()));
@@ -173,7 +172,6 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
                 int temp = x1; x1 = x2; x2 = temp;
                 temp = y1; y1 = y2; y2 = temp;
             }
-
             for(int y, x = x1; x < x2; x += w/2) {
                 y = (x - x1)*(y2 - y1)/(x2 - x1) + y1;
                 painter.drawRect(QRect(x - w/2, y - w/2, w, w));
@@ -183,18 +181,16 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
                 int temp = x1; x1 = x2; x2 = temp;
                 temp = y1; y1 = y2; y2 = temp;
             }
-
             for(int x, y = y1; y < y2; y += w/2) {
                 x = (y - y1)*(x2 - x1)/(y2 - y1) + x1;
                 painter.drawRect(QRect(x - w/2, y - w/2, w, w));
             }
-
-        } else
+        }
+        else
         {
             painter.setPen(pen);
             painter.drawLine(d->lastPos, pos);
         }
-
         d->lastPos = pos;
         emit painted(m_paintDevice);
     }
@@ -203,9 +199,5 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
 void PaintBrushTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
-
     d->mouseButton = Qt::NoButton;
 }
-
-
-

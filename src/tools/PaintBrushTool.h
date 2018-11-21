@@ -42,7 +42,4 @@ private:
     PaintBrushToolPrivate *d;
 };
 
-
-
 #endif // PAINTBRUSHTOOL_H
-
