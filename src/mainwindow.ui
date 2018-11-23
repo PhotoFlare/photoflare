@@ -1109,6 +1109,9 @@ QToolButton:checked {
      <height>400</height>
     </size>
    </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetMovable</set>
+   </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
    </attribute>

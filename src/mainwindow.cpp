@@ -102,7 +102,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //QString theme = "Default";
+    //QString theme = "Retro";
     //applyTheme(theme);
 
     if(SETTINGS->isMultiWindowMode())
