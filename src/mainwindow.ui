@@ -485,6 +485,9 @@ QScrollBar::handle {
    <property name="floating">
     <bool>false</bool>
    </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetMovable</set>
+   </property>
    <property name="allowedAreas">
     <set>Qt::BottomDockWidgetArea|Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
    </property>
@@ -1129,6 +1132,9 @@ QToolButton:checked {
      <width>120</width>
      <height>35</height>
     </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetMovable</set>
    </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
