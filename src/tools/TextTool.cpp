@@ -54,7 +54,7 @@ void TextTool::setText(const QString &text, const QFont &font, const QColor &col
     d->position = position;
 
     QFontMetrics fontMetrics(font);
-    d->textRect = fontMetrics.boundingRect(d->textRect ,Qt::TextSingleLine, text);
+    d->textRect = fontMetrics.boundingRect(d->textRect ,Qt::TextWordWrap, text);
 
     if(d->position == "left")
     {
