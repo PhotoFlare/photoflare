@@ -43,7 +43,8 @@ aboutDialog::aboutDialog(QWidget *parent) :
                                     "<br><br><b>Special thanks"
                                     "</b><br>I would like to thank Samantha for being an absolute gem of a person. You light up my life and I'm so glad to have found you."));
 
-    ui->appName->setText(qApp->applicationName());
+    QString appName = qApp->applicationName().replace("p","P");
+    ui->appName->setText(appName);
     QFont font;
     font.setPointSize(14);
     ui->appName->setFont(font);
