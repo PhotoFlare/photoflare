@@ -1,5 +1,6 @@
 # PhotoFlare
 
+[![DebianBadge](https://badges.debian.net/badges/debian/testing/photoflare/version.svg)](https://packages.debian.org/testing/photoflare)
 [![GitHub release](https://img.shields.io/badge/Release-1.5.6-green.svg)](https://github.com/PhotoFlare/photoflare/releases)
 [![License: GPL v3+](https://img.shields.io/badge/License-GPL-yellowgreen.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://travis-ci.org/PhotoFlare/photoflare.svg?branch=master)](https://travis-ci.org/PhotoFlare/photoflare)
