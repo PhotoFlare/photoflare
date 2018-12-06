@@ -38,28 +38,35 @@
   </provides>
 
   <releases>
-    <release version="1.5.5" date="2018-09-02">
+  <release version="1.5.6.1" date="2018-12-02">
       <description>
  		<ul>
-			<li>Added support for MNG, TGA, TIFF and WBMP image formats.</li>
-			<li>Added source file filtering to the BatchDialog.</li>
-			<li>Added grid size dialog for "Show Grid" to specify cell width.</li>
-			<li>Removed WhatIsThis question marks from Window titles.</li>
-			<li>Fixed default settings not set if you cancel the Preferences dialog.</li>
-			<li>Fixed tools not having tooltips.</li>
-			<li>Fixed setting resolution zero in NewDialog causing numbers to be maximum values.</li>
-			<li>Fixed no warning message if opening a recent file deleted from disk.</li>
-			<li>Fixed issues with scrolling certain directions when grabbing scrollbar.</li>
-			<li>Fixed Duplicate without image causing a crash.</li>
-			<li>Fixed NewDialog able to create files with 0x0 pixels.</li>
-			<li>Fixed OpenDialog only able to open one file at a time.</li>
-			<li>Fixed Cancel on File Chooser for BatchDialog causing application crash.</li>
-			<li>Fixed BatchDialog output format not working.</li>
-			<li>Fixed restore fullscreen leaving application in broken state.</li>
-			<li>Fixed disabled controls showing.</li>
-			<li>Fixed text always displaying "Show Grid" even if already enabled.</li>
-			<li>Fixed always maximize preference being reset on close.</li>
-			<li>Fixed being able to launch Opacity dialog without image.</li>
+			<li>Fixed the TextTool wrapping for text more than a single line.</li>
+			<li>Fixed the EraserTool incorrectly showing zero as the initial radius.</li>
+			<li>Fixed issue with the language path not detected correctly.</li>
+		</ul>
+      </description>
+    </release>
+    <release version="1.5.6" date="2018-11-23">
+      <description>
+ 		<ul>
+			<li>Improved layout of the Hue Dialog.</li>
+			<li>Improved rendering of scaled high resolution images. (8K)</li>
+			<li>Fixed Dockpalettes being able to close or float.</li>
+			<li>Fixed Advanced PaintBrush not painting via single click.</li>
+			<li>Fixed Basic PaintBrush not having a default opacity/pressure set.</li>
+			<li>Fixed Contrast increase/decrease not working with the latest graphicsmagick.</li>
+			<li>Fixed Gamma increase/decrease not working with the latest graphicsmagick.</li>
+			<li>Fixed TextDialog font not taking the colour previously selected after first use.</li>
+			<li>Fixed Filterbar being floatable causing issues outside program bounds.</li>
+			<li>Fixed Eraser tool width incorrect on mouse click.</li>
+			<li>Fixed text cut off on Restart button in Preferences for NL translation.</li>
+			<li>Fixed zoom +/- after using Original zoom from View menu.</li>
+			<li>Fixed Show grid with zero causing max consumption of resources.</li>
+			<li>Fixed Show grid without image causing crash.</li>
+			<li>Add 2560 x 1440 to the New dialog presets.</li>
+			<li>Add support for generating Snap installers on 18.04.</li>
+			<li>Add checkbox menu toggle for Fullscreen, Filterbar, Toolpalette and View grid.</li>
 		</ul>
       </description>
     </release>
