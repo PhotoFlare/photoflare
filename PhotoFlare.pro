@@ -26,8 +26,8 @@ win32 {
     RC_ICONS += assets/pixmaps/logo.ico
 }
 
-# Project settings for Linux. Adjust the paths as needed on your system.
-linux {
+# Project settings for Linux and Hurd. Adjust the paths as needed on your system.
+linux|hurd {
     INCLUDEPATH += /usr/include/GraphicsMagick
     LIBS += -L/usr/lib -lGraphicsMagick++
 }
