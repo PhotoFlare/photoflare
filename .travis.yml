@@ -1,12 +1,19 @@
-sudo: required
-
 language: cpp
-
-services:
-  - docker
+compiler: gcc
+sudo: require
+dist: trusty
 
 before_install:
-  - docker pull ubuntu:latest
+    - sudo add-apt-repository ppa:beineri/opt-qt-5.10.1-trusty -y
+    - sudo apt-get update -qq
+    
+install: 
+    - sudo apt-get -y install libc6 libgraphicsmagick++-q16-12 lqt511base qt511imageformats
+    - source /opt/qt5*/bin/qt5*-env.sh
 
 script:
-  - docker run -v "$(pwd):/var/photoflare" ubuntu:latest /bin/sh -c "cd /var/photoflare/ && ./build.sh"
+  "/bin/sh -c cd /var/photoflare/ && ./build.sh"
+
+branches:
+  only:
+    - master
