@@ -5,7 +5,7 @@ dist: trusty
 
 before_install:
     - sudo add-apt-repository ppa:beineri/opt-qt-5.10.1-trusty -y
-    - sudo apt-get update -qq
+    - sudo apt-get update
     
 install: 
     - sudo apt-get -y install libc6 libgraphicsmagick++1-dev qt511base
