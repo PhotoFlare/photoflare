@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="nl">
 <context>
     <name>BatchProgress</name>
     <message>
@@ -695,7 +695,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1390"/>
         <source>Auto Levels</source>
-        <translation>Auto Niveau's</translation>
+        <translation>Auto Niveau&apos;s</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1399"/>
@@ -715,7 +715,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1414"/>
         <source>Levels...</source>
-        <translation>Niveau's...</translation>
+        <translation>Niveau&apos;s...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1419"/>
@@ -793,8 +793,8 @@
         <translation>Gereedschapspallet</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1516"/>
-        <source>Show Grid</source>
+        <location filename="src/mainwindow.ui" line="1678"/>
+        <source>Show Grid...</source>
         <translation>Raster tonen</translation>
     </message>
     <message>
@@ -1349,7 +1349,7 @@
     <message>
         <location filename="src/NewDialog.ui" line="364"/>
         <source>New Size</source>
-        <translation>>Nieuwe grootte</translation>
+        <translation>&gt;Nieuwe grootte</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="428"/>
@@ -1678,12 +1678,12 @@
     <message>
         <location filename="src/aboutdialog.ui" line="142"/>
         <source>C&amp;redits</source>
-        <translation>K&amp;ediet</translation>
+        <translation>B&amp;ijdragen</translation>
     </message>
     <message>
-        <location filename="src/aboutdialog.cpp" line="18"/>
-        <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
-        <translation>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</translation>
+        <location filename="src/aboutdialog.cpp" line="20"/>
+        <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Translators&lt;/b&gt;&lt;br&gt;FR - Ludovic&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Freacore&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
+        <translation>&lt;b&gt;Ontwikkelaars&lt;/b&gt;&lt;br&gt;Commercieel - ICS&lt;br&gt;Hoofd Leiding - Dylan Coakley&lt;br&gt;Ontwikkelaar - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Grafiek&lt;/b&gt;&lt;br&gt;Hoofdpictogram - Robert BM&lt;br&gt;Website afbeeldingen - Raqasa&lt;br&gt;Programma pictogrammen - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotie&lt;/b&gt;&lt;br&gt;Kunst Ontwerper - Catherine Fister&lt;br&gt;Adverteren - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Medewerkers&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Projectpictogram&lt;br&gt;&lt;br&gt;&lt;b&gt;Vertalers&lt;/b&gt;&lt;br&gt;FR - Ludovic - Nerdouille&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Freacore&lt;br&gt;&lt;br&gt;&lt;b&gt;Speciale dank&lt;/b&gt;&lt;br&gt;Ik wil Samantha bedanken voor het feit dat ze een absolute parel van een persoon is. Je verlicht mijn leven en ik ben zo blij dat ik je heb gevonden.</translation>
     </message>
     <message>
         <location filename="src/dialogs/aboutdialog.cpp" line="48"/>
@@ -1798,7 +1798,7 @@
     <message>
         <location filename="src/batchdialog.ui" line="479"/>
         <source>Adjust Levels</source>
-        <translation>Niveau's aanpassen</translation>
+        <translation>Niveau&apos;s aanpassen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="601"/>
