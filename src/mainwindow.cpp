@@ -359,6 +359,53 @@ void MainWindow::on_actionOpen_triggered()
     }
 }
 
+bool MainWindow::fileTypeSupported(QList<QByteArray> formats, QString ext)
+{
+    bool status = false;
+    for(int i=0;i<formats.length();i++)
+    {
+        if(formats[i] == ext)
+        {
+            status = true;
+        }
+    }
+    return status;
+}
+
+QString MainWindow::prepareFile(const QString& fileName)
+{
+    QString newFileName = fileName;
+    QFileInfo info(fileName);
+    QImageReader reader(fileName);
+    reader.setDecideFormatFromContent(true); // Autodetect file type without depending on extension
+
+    if(info.completeSuffix() != reader.format() && fileTypeSupported(reader.supportedImageFormats(),reader.format()))
+    {
+        int ret = QMessageBox::warning(this,
+                    tr("Incorrect file extension detected"),
+                    tr("Do you want to update this extension?"),
+                    QMessageBox::Save,QMessageBox::Cancel);
+
+        if(ret == QMessageBox::Save)
+        {
+          newFileName = info.path()+QDir::separator()+info.baseName()+"."+reader.format();
+          QDir dir (info.baseName());
+          dir.rename(fileName,newFileName);
+        }
+        else if(ret == QMessageBox::Cancel)
+        {
+            newFileName = "";
+        }
+    }
+    else if(!fileTypeSupported(reader.supportedImageFormats(),reader.format()))
+    {
+        newFileName = "";
+        showError(tr("Please open a valid image file"));
+    }
+
+    return newFileName;
+}
+
 void MainWindow::openFile(const QString& fileName, bool direct)
 {
     if(!fileExists(fileName))
@@ -367,26 +414,13 @@ void MainWindow::openFile(const QString& fileName, bool direct)
     }
     else
     {
-        if(direct && !fileName.isEmpty())
+        QString updatedFileName = prepareFile(fileName);
+
+        if (!updatedFileName.isEmpty())
         {
-                addPaintWidget(createPaintWidget(fileName));
-                SETTINGS->addRecentFile(fileName);
-                updateRecentFilesMenu();
-        }
-        else
-        {
-            QImageReader reader(fileName);
-            //reader.setDecideFormatFromContent(true); // Allows to continue to addPaintWidget but image will be blank
-            if (!fileName.isEmpty() && reader.format() != "")
-            {
-                addPaintWidget(createPaintWidget(fileName));
-                SETTINGS->addRecentFile(fileName);
-                updateRecentFilesMenu();
-            }
-            if(!fileName.isEmpty() && reader.format() == "")
-            {
-                showError(tr("Please open a valid image file"));
-            }
+            addPaintWidget(createPaintWidget(updatedFileName));
+            SETTINGS->addRecentFile(updatedFileName);
+            updateRecentFilesMenu();
         }
     }
 }
@@ -582,8 +616,7 @@ bool MainWindow::saveImage(const QString &fileName, int quality)
     if (fileName.isEmpty())
         return false;
 
-    PaintWidget *widget;
-    widget = getCurrentPaintWidget();
+    PaintWidget *widget = getCurrentPaintWidget();
 
     return widget ? widget->image().save(fileName,0,quality) : false;
 }

@@ -210,6 +210,9 @@ private slots:
 
     void on_actionShow_grid_triggered();
 
+    QString prepareFile(const QString& fileName);
+    bool fileTypeSupported(QList<QByteArray> formats, QString ext);
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
