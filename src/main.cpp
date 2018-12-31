@@ -64,6 +64,10 @@ int main(int argc, char *argv[])
                 {
                     lang = "zh_TW";
                 }
+                else if(sysLanguage == "Czech")
+                {
+                    lang = "cs";
+                }
                 SETTINGS->setUserLanguage(lang);
             }
 

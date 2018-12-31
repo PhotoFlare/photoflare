@@ -65,31 +65,30 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->historySlider->setValue(SETTINGS->getHistoryLimit().toInt());
 
     //Startup tab
-    QStringList list(QStringList() << "English" << "French" << "Dutch" << "German" << "Chinese");
+    QStringList list(QStringList() << "English" << "French" << "Dutch" << "German" << "Chinese" << "Czech Republic");
     ui->comboBoxLanguage->addItems(list);
     ui->comboBoxLanguage->setItemIcon(0,QIcon(flagPath+"United-kingdom.png"));
     ui->comboBoxLanguage->setItemIcon(1,QIcon(flagPath+"France.png"));
     ui->comboBoxLanguage->setItemIcon(2,QIcon(flagPath+"Netherlands.png"));
     ui->comboBoxLanguage->setItemIcon(3,QIcon(flagPath+"Germany.png"));
     ui->comboBoxLanguage->setItemIcon(4,QIcon(flagPath+"Taiwan.png"));
+    ui->comboBoxLanguage->setItemIcon(5,QIcon(flagPath+"Czech-Republic.png"));
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
 
     if(SETTINGS->getUserLanguage() == "en")
         ui->comboBoxLanguage->setCurrentIndex(0);
-
     else if(SETTINGS->getUserLanguage() == "fr")
         ui->comboBoxLanguage->setCurrentIndex(1);
-
     else if(SETTINGS->getUserLanguage() == "nl")
         ui->comboBoxLanguage->setCurrentIndex(2);
-
     else if(SETTINGS->getUserLanguage() == "de")
         ui->comboBoxLanguage->setCurrentIndex(3);
-
     else if(SETTINGS->getUserLanguage() == "zh_TW")
             ui->comboBoxLanguage->setCurrentIndex(4);
+    else if(SETTINGS->getUserLanguage() == "cs")
+            ui->comboBoxLanguage->setCurrentIndex(5);
 
     ui->restartButton->hide();
 }
@@ -210,4 +209,6 @@ void prefsDialog::set_user_language()
         SETTINGS->setUserLanguage("de");
     else if(ui->comboBoxLanguage->currentIndex() == 4)
         SETTINGS->setUserLanguage("zh_TW");
+    else if(ui->comboBoxLanguage->currentIndex() == 5)
+        SETTINGS->setUserLanguage("cs");
 }

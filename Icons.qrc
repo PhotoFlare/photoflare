@@ -99,6 +99,7 @@
         <file>assets/pixmaps/flags/United-kingdom.png</file>
         <file>assets/pixmaps/flags/Netherlands.png</file>
         <file>assets/pixmaps/flags/Taiwan.png</file>
+        <file>assets/pixmaps/flags/Czech-Republic.png</file>
     </qresource>
     <qresource prefix="/cursors">
         <file>assets/cursors/color-picker.png</file>
