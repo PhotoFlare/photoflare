@@ -41,5 +41,6 @@ Languages currently available:
 - Dutsch
 - German
 - Chinese (TW)
+- Czech
 
 If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="http://photoflare.io/contributing/translations/">available here</a>
