@@ -34,7 +34,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>311</width>
+     <width>321</width>
      <height>101</height>
     </rect>
    </property>
@@ -44,8 +44,8 @@
    <widget class="QRadioButton" name="directionN">
     <property name="geometry">
      <rect>
-      <x>37</x>
-      <y>26</y>
+      <x>34</x>
+      <y>34</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -66,8 +66,8 @@
    <widget class="QRadioButton" name="directionW">
     <property name="geometry">
      <rect>
-      <x>17</x>
-      <y>46</y>
+      <x>14</x>
+      <y>54</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -82,8 +82,8 @@
    <widget class="QRadioButton" name="directionE">
     <property name="geometry">
      <rect>
-      <x>57</x>
-      <y>46</y>
+      <x>54</x>
+      <y>54</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -98,8 +98,8 @@
    <widget class="QRadioButton" name="directionS">
     <property name="geometry">
      <rect>
-      <x>37</x>
-      <y>66</y>
+      <x>34</x>
+      <y>74</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -114,8 +114,8 @@
    <widget class="QRadioButton" name="directionNE">
     <property name="geometry">
      <rect>
-      <x>51</x>
-      <y>32</y>
+      <x>48</x>
+      <y>40</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -133,8 +133,8 @@
    <widget class="QRadioButton" name="directionSE">
     <property name="geometry">
      <rect>
-      <x>51</x>
-      <y>60</y>
+      <x>48</x>
+      <y>68</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -152,8 +152,8 @@
    <widget class="QRadioButton" name="directionSW">
     <property name="geometry">
      <rect>
-      <x>23</x>
-      <y>60</y>
+      <x>20</x>
+      <y>68</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -171,8 +171,8 @@
    <widget class="QRadioButton" name="directionNW">
     <property name="geometry">
      <rect>
-      <x>23</x>
-      <y>32</y>
+      <x>20</x>
+      <y>40</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -193,9 +193,9 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>80</x>
       <y>10</y>
-      <width>201</width>
+      <width>231</width>
       <height>81</height>
      </rect>
     </property>
@@ -215,7 +215,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>23</y>
+       <y>30</y>
        <width>101</width>
        <height>17</height>
       </rect>
@@ -231,7 +231,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>43</y>
+       <y>50</y>
        <width>141</width>
        <height>17</height>
       </rect>
@@ -247,7 +247,7 @@
     <rect>
      <x>10</x>
      <y>120</y>
-     <width>311</width>
+     <width>321</width>
      <height>111</height>
     </rect>
    </property>
@@ -258,7 +258,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>22</y>
+      <y>30</y>
       <width>131</width>
       <height>25</height>
      </rect>
@@ -295,7 +295,7 @@
      <rect>
       <x>10</x>
       <y>77</y>
-      <width>291</width>
+      <width>301</width>
       <height>19</height>
      </rect>
     </property>
@@ -324,7 +324,7 @@
     <rect>
      <x>10</x>
      <y>240</y>
-     <width>311</width>
+     <width>321</width>
      <height>111</height>
     </rect>
    </property>
@@ -335,7 +335,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>22</y>
+      <y>30</y>
       <width>131</width>
       <height>25</height>
      </rect>
@@ -372,7 +372,7 @@
      <rect>
       <x>10</x>
       <y>77</y>
-      <width>291</width>
+      <width>301</width>
       <height>19</height>
      </rect>
     </property>
