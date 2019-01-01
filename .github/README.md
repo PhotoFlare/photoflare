@@ -38,7 +38,7 @@ Languages currently available:
 
 - English
 - French
-- Dutsch
+- Dutch
 - German
 - Chinese (TW)
 - Czech
