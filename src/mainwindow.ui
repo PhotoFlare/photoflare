@@ -992,7 +992,7 @@ QToolButton:checked {
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
-          <string>Colour Dropper</string>
+          <string>Colour Picker</string>
          </property>
          <property name="text">
           <string>...</string>
