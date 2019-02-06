@@ -13,7 +13,6 @@
 
 BatchProcessWorker::BatchProcessWorker(QObject *parent) : QObject(parent)
 {
-
 }
 
 void BatchProcessWorker:: process()
@@ -162,7 +161,4 @@ void BatchProcessWorker:: process()
         emit fileProcessFinished(newFile, image);
         emit batchProgress(++i, m_params->fileList().size());
     }
-
-    m_params->onFinished();
-    m_params->exec();
 }
