@@ -333,9 +333,9 @@ int batchDialog::brightnessChannel() const
     return ui->brightnessChannel->currentIndex();
 }
 
-int batchDialog::gamma() const
+double batchDialog::gamma() const
 {
-    return ui->gammaSlider->value();
+    return (float) ui->gammaSlider->value() / (float)100;
 }
 
 int batchDialog::gammaChannel() const

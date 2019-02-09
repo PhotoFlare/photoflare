@@ -55,7 +55,7 @@ public:
     int saturation() const;
     int saturationChannel() const;
 
-    int gamma() const;
+    double gamma() const;
     int gammaChannel() const;
 
 private slots:
