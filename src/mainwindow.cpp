@@ -723,7 +723,10 @@ void MainWindow::onCopy()
     if (widget)
     {
         QClipboard *clipboard = QApplication::clipboard();
-        clipboard->setImage(widget->image());
+        QImage cpy = widget->selection().isEmpty()
+            ? widget->image()
+            : widget->image().copy(widget->selection().boundingRect());
+        clipboard->setImage(cpy);
     }
 }
 
