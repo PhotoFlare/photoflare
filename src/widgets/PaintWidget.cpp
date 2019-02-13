@@ -66,7 +66,12 @@ public:
         if(isSelectionVisible)
         {
             float scaledVal = 3.00/scale;
-            float cornerSize = 50.00/scale;
+            int cornerSize = 50;
+
+            if(scale < 0.5)
+            {
+                cornerSize = 100;
+            }
 
             //Draw the selection hotspots
             if(selection.size() == 4)
