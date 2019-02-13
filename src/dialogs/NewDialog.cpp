@@ -222,7 +222,8 @@ void NewDialog::on_imageRvalue_valueChanged(double value)
 
 void NewDialog::on_imageHvalue_valueChanged(double value)
 {
-    Q_UNUSED(value)
+    Q_UNUSED(value);
+    imageRatio = (width_px/height_px);
     float resoulution_in = ui->imageRvalue->value();
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;
@@ -248,15 +249,12 @@ void NewDialog::on_imageHvalue_valueChanged(double value)
         if(ui->imageHvalue->hasFocus())
             ui->imageWvalue->setValue(ui->imageHvalue->value() * imageRatio); //width = height * imageRatio
     }
-    else
-    {
-        imageRatio = (width_px/height_px);
-    }
 }
 
 void NewDialog::on_imageWvalue_valueChanged(double value)
 {
-    Q_UNUSED(value)
+    Q_UNUSED(value);
+    imageRatio = (width_px/height_px);
     float resoulution_in = ui->imageRvalue->value();
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;
@@ -279,10 +277,6 @@ void NewDialog::on_imageWvalue_valueChanged(double value)
     if(ui->lockedRatioButton->isChecked()) {
         if(ui->imageWvalue->hasFocus())
             ui->imageHvalue->setValue(ui->imageWvalue->value() / imageRatio); //height = width / imageRatio
-    }
-    else
-    {
-        imageRatio = (width_px/height_px);
     }
 }
 
