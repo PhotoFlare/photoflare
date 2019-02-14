@@ -20,8 +20,6 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
     QtSingleApplication app("PhotoFlare", argc, argv);
 
     // Remove WhatIsThis from Window Controls
