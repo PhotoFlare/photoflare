@@ -39,8 +39,9 @@ NewDialog::NewDialog(QWidget *parent) :
     width_px = 1024;
     height_px = 768;
     imageRatio = (width_px/height_px);
-    currentUnit = PX;
+    currentUnit = SETTINGS->getUnit();
     ui->imageResCombo->setCurrentIndex(PPI);
+    ui->imageWHcombo->setCurrentIndex(currentUnit);
     //Standard ppi
     ui->imageRvalue->setValue(96.0);
     ui->pixelWvalue->setValue(width_px);

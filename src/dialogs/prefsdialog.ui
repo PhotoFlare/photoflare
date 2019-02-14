@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>6</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -330,7 +330,7 @@
       <string>Default Units</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="unitsCBox">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -342,6 +342,16 @@
      <item>
       <property name="text">
        <string>Pixels</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>CM</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Inches</string>
       </property>
      </item>
     </widget>

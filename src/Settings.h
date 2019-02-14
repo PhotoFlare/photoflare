@@ -54,6 +54,8 @@ public:
     QString getDockLayout() const;
     void setMemParamsEnabled(bool enabled);
     bool getMemParamsEnabled() const;
+    void setUnit(int);
+    int getUnit() const;
 
 private:
     explicit Settings(QObject *parent = 0);

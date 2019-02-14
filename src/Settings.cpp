@@ -28,6 +28,7 @@ public:
         historyLimit = settings.value("historyLimit").toString();
         dockLayout = settings.value("dockLayout").toString();
         memDialogParams = settings.value("memorizeParamsEnabled").toBool();
+        unit = settings.value("unit").toInt();
     }
 
     ~SettingsPrivate()
@@ -58,6 +59,7 @@ public:
     QString historyLimit;
     QString dockLayout;
     bool memDialogParams;
+    int unit;
     QSettings settings;
 };
 
@@ -101,6 +103,18 @@ void Settings::setDefaultSettings()
     d->setValue("prevOpened", false);
     d->setValue("prevOpenedSave", false);
     d->setValue("saveFormatEnabled", false);
+    d->setValue("unit", 0);
+}
+
+void Settings::setUnit(int unitcode)
+{
+    d->unit = unitcode;
+    d->setValue("unit", unitcode);
+}
+
+int Settings::getUnit() const
+{
+    return d->unit;
 }
 
 void Settings::setMaximizeWindow(bool maximize)

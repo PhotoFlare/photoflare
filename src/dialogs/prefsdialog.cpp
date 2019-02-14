@@ -46,6 +46,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
 
     //Default values tab
     ui->memorizeParams->setChecked(SETTINGS->getMemParamsEnabled());
+    ui->unitsCBox->setCurrentIndex(SETTINGS->getUnit());
 
     //Saving tab
     QStringList filters;
@@ -119,6 +120,7 @@ void prefsDialog::on_buttonBox_accepted()
 
     //Default values tab
     SETTINGS->setMemParamsEnabled(ui->memorizeParams->isChecked());
+    SETTINGS->setUnit(ui->unitsCBox->currentIndex());
 
     //Saving tab
     SETTINGS->setSaveFormat(QString::number(ui->comboBoxSaveFormat->currentIndex()));
