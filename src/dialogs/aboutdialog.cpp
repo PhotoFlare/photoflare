@@ -19,6 +19,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
     ui->creditsTextArea->setVisible(false);
     ui->creditsTextArea->setText(tr("<b>Developers</b>"
                                     "<br>Commercial - ICS<br>Lead - Dylan Coakley"
+                                    "<br>Developer - Marek Mosna"
                                     "<br>Developer - Dmitry Vasilenko"
                                     "<br><br><b>Graphics</b>"
                                     "<br>Main icon - Robert BM"
