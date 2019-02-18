@@ -65,6 +65,6 @@ void checkupdateDialog::on_closeButton_clicked()
 
 void checkupdateDialog::on_downloadButton_clicked()
 {
-    QString link = "http://photoflare.io/downloads/";
+    QString link = "https://photoflare.io/downloads/";
     QDesktopServices::openUrl(QUrl(link));
 }
