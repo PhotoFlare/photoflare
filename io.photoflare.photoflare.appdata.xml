@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 Dylan Coakley <info@photoflare.io> -->
+<!-- Copyright 2019 Dylan Coakley <info@photoflare.io> -->
 <component type="desktop-application">
   <id>io.photoflare.photoflare</id>
   <metadata_license>FSFAP</metadata_license>
@@ -38,35 +38,27 @@
   </provides>
 
   <releases>
+  <release version="1.5.7" date="2019-02-18">
+      <description>
+ 		<ul>
+			<li>Fixed user only able to set Pixels as default unit via preferences.</li>
+			<li>Fixed copy not taking selected area instead of full image.</li>
+			<li>Fixed scaled corners not being clickable.</li>
+			<li>Fixed imageRatio not being set correctly.</li>
+			<li>Fixed gamma data type for batch processing.</li>
+			<li>Added full Czech (CZ) translation.</li>
+			<li>Added feature to detect and change invalid file extensions.</li>
+			<li>Improved layout of gradient dialog.</li>
+			<li>Improved selection lines to depend on scale.</li>
+		</ul>
+      </description>
+  </release>
   <release version="1.5.6.1" date="2018-12-02">
       <description>
  		<ul>
 			<li>Fixed the TextTool wrapping for text more than a single line.</li>
 			<li>Fixed the EraserTool incorrectly showing zero as the initial radius.</li>
 			<li>Fixed issue with the language path not detected correctly.</li>
-		</ul>
-      </description>
-    </release>
-    <release version="1.5.6" date="2018-11-23">
-      <description>
- 		<ul>
-			<li>Improved layout of the Hue Dialog.</li>
-			<li>Improved rendering of scaled high resolution images. (8K)</li>
-			<li>Fixed Dockpalettes being able to close or float.</li>
-			<li>Fixed Advanced PaintBrush not painting via single click.</li>
-			<li>Fixed Basic PaintBrush not having a default opacity/pressure set.</li>
-			<li>Fixed Contrast increase/decrease not working with the latest graphicsmagick.</li>
-			<li>Fixed Gamma increase/decrease not working with the latest graphicsmagick.</li>
-			<li>Fixed TextDialog font not taking the colour previously selected after first use.</li>
-			<li>Fixed Filterbar being floatable causing issues outside program bounds.</li>
-			<li>Fixed Eraser tool width incorrect on mouse click.</li>
-			<li>Fixed text cut off on Restart button in Preferences for NL translation.</li>
-			<li>Fixed zoom +/- after using Original zoom from View menu.</li>
-			<li>Fixed Show grid with zero causing max consumption of resources.</li>
-			<li>Fixed Show grid without image causing crash.</li>
-			<li>Add 2560 x 1440 to the New dialog presets.</li>
-			<li>Add support for generating Snap installers on 18.04.</li>
-			<li>Add checkbox menu toggle for Fullscreen, Filterbar, Toolpalette and View grid.</li>
 		</ul>
       </description>
     </release>
