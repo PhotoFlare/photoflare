@@ -1,13 +1,13 @@
 name: photoflare
-version: 1.5.5.1
+version: 1.5.7
 summary: PhotoFlare
 description: Simple but powerful Cross Platform image editor
 icon: installers/deb/DEBIAN/usr/share/icons/hicolor/48x48/apps/photoflare.png
 type: app
 
 base: core18
-confinement: devmode
-grade: devel
+confinement: classic
+grade: stable
 
 apps:
   photoflare:
@@ -19,7 +19,7 @@ parts:
     after: [desktop-qt5]
     source: https://github.com/PhotoFlare/photoflare.git
     source-type: git
-    source-tag: 'v1.5.5.1'
+    source-tag: 'v1.5.7'
     plugin: qmake
     qt-version: qt5
     build-packages:
