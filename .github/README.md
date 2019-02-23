@@ -8,7 +8,7 @@
 
 Simple but powerful Cross Platform image editor originally inspired by the PhotoFiltre image editor on Windows. Created with C++ 17, Qt Framework and the Graphicsmagick library.
 
-<img src="http://photoflare.io/wp-content/uploads/2018/03/CrossPlatform2.png">
+<img src="https://photoflare.io/wp-content/uploads/2018/03/CrossPlatform2.png">
 
 ## Documentation
 Information on features and using the project will be <a href="http://photoflare.io/documentation/">available here</a>. At the moment its a work in progress.
@@ -20,7 +20,7 @@ Information on features and using the project will be <a href="http://photoflare
 - qt5-default (Ubuntu only)
 - G++ on Linux, MinGW on Windows or Clang on MacOSX
 
-Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter. Full instructions for each platform <a href="http://photoflare.io/contributing/building-the-source/">available here</a>
+Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter. Full instructions for each platform <a href="https://photoflare.io/contributing/building-the-source/">available here</a>
 
 ## Running
 
@@ -43,4 +43,4 @@ Languages currently available:
 - Chinese (TW)
 - Czech
 
-If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="http://photoflare.io/contributing/translations/">available here</a>
+If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="https://photoflare.io/contributing/translations/">available here</a>
