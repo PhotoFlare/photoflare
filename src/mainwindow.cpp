@@ -871,10 +871,11 @@ void MainWindow::on_actionImage_Size_triggered()
     dialog.setWindowTitle("Resize Image");
     dialog.setMode(NewDialog::ResizeImage);
     dialog.setImageSize(widget->image().size());
-    if (dialog.exec())
+    if (dialog.exec() == QDialog::Accepted)
+    {
         widget->setImage(widget->image().scaled(dialog.newImageSize()));
-
-    updateStatusArea(dialog.newImageSize().width(),dialog.newImageSize().height());
+        updateStatusArea(dialog.newImageSize().width(),dialog.newImageSize().height());
+    }
 }
 
 void MainWindow::on_actionCanvas_Size_triggered()
