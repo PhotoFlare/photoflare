@@ -1429,12 +1429,20 @@ void MainWindow::on_actionShow_grid_triggered()
                 widget->showGrid(i);
                 ui->actionShow_grid->setChecked(true);
             }
+            else
+            {
+                ui->actionShow_grid->setChecked(false);
+            }
         }
         else
         {
             widget->showGrid(1);
             ui->actionShow_grid->setChecked(false);
         }
+    }
+    else
+    {
+        ui->actionShow_grid->setChecked(false);
     }
 }
 
