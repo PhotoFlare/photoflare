@@ -232,6 +232,9 @@
      <property name="decimals">
       <number>0</number>
      </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
+     </property>
      <property name="maximum">
       <double>9999.000000000000000</double>
      </property>
@@ -256,6 +259,9 @@
      </property>
      <property name="decimals">
       <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
      </property>
      <property name="maximum">
       <double>9999.000000000000000</double>
@@ -288,7 +294,7 @@
       <rect>
        <x>10</x>
        <y>90</y>
-       <width>131</width>
+       <width>171</width>
        <height>17</height>
       </rect>
      </property>
@@ -310,6 +316,9 @@
      </property>
      <property name="decimals">
       <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
      </property>
      <property name="maximum">
       <double>9999.000000000000000</double>
@@ -377,6 +386,9 @@
      </property>
      <property name="decimals">
       <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
      </property>
      <property name="maximum">
       <double>9999.000000000000000</double>
