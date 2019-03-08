@@ -53,6 +53,22 @@ private slots:
 
     void readSettings(QWidget* window);
 
+    void on_directionN_clicked(bool checked);
+
+    void on_directionNE_clicked(bool checked);
+
+    void on_directionE_clicked(bool checked);
+
+    void on_directionSE_clicked(bool checked);
+
+    void on_directionS_clicked(bool checked);
+
+    void on_directionSW_clicked(bool checked);
+
+    void on_directionW_clicked(bool checked);
+
+    void on_directionNW_clicked(bool checked);
+
 private:
     Ui::GradientDialog *ui;
     Direction m_direction;

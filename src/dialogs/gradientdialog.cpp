@@ -242,3 +242,67 @@ void GradientDialog::readSettings(QWidget* window)
     }
     settings.endGroup();
 }
+
+void GradientDialog::on_directionN_clicked(bool checked)
+{
+    if(!checked)
+    {
+        ui->directionN->setChecked(true);
+    }
+}
+
+void GradientDialog::on_directionNE_clicked(bool checked)
+{
+    if(!checked)
+    {
+        ui->directionNE->setChecked(true);
+    }
+}
+
+void GradientDialog::on_directionE_clicked(bool checked)
+{
+    if(!checked)
+    {
+        ui->directionE->setChecked(true);
+    }
+}
+
+void GradientDialog::on_directionSE_clicked(bool checked)
+{
+    if(!checked)
+    {
+        ui->directionSE->setChecked(true);
+    }
+}
+
+void GradientDialog::on_directionS_clicked(bool checked)
+{
+    if(!checked)
+    {
+        ui->directionS->setChecked(true);
+    }
+}
+
+void GradientDialog::on_directionSW_clicked(bool checked)
+{
+    if(!checked)
+    {
+        ui->directionSW->setChecked(true);
+    }
+}
+
+void GradientDialog::on_directionW_clicked(bool checked)
+{
+    if(!checked)
+    {
+        ui->directionW->setChecked(true);
+    }
+}
+
+void GradientDialog::on_directionNW_clicked(bool checked)
+{
+    if(!checked)
+    {
+        ui->directionNW->setChecked(true);
+    }
+}
