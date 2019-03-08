@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>textDialog</class>
  <widget class="QDialog" name="textDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>

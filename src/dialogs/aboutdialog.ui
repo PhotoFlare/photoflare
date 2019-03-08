@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>aboutDialog</class>
  <widget class="QDialog" name="aboutDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="enabled">
    <bool>true</bool>
   </property>
