@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Transparent color</string>
+   <string>Transparent colour</string>
   </property>
   <widget class="QSlider" name="horizontalSlider">
    <property name="geometry">
