@@ -36,19 +36,20 @@ NewDialog::NewDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    width_px = 1024;
-    height_px = 768;
-    imageRatio = (width_px/height_px);
+    // Set default values
+    original_width_px = 0;
+    original_height_px = 0;
     currentUnit = SETTINGS->getUnit();
     ui->imageResCombo->setCurrentIndex(PPI);
     ui->imageWHcombo->setCurrentIndex(currentUnit);
-    //Standard ppi
+    // Standard PPI
     ui->imageRvalue->setValue(96.0);
     ui->pixelWvalue->setValue(width_px);
     ui->pixelHvalue->setValue(height_px);
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
     ui->lockedRatioButton->setChecked(true);
 
+    // Setup Colour combobox colours
     for(int i=Qt::white; i <= Qt::yellow; i++)
     {
         QPixmap pixmap(QSize(ui->backgroundColorComboBox->width(),ui->backgroundColorComboBox->height()));
@@ -89,6 +90,8 @@ QColor NewDialog::newImageBackgroundColor() const
 
 void NewDialog::setImageSize(QSize size)
 {
+    original_width_px = size.width();
+    original_height_px =size.height();
     ui->imageWvalue->setValue(size.width());
     ui->imageHvalue->setValue(size.height());
 }
@@ -224,7 +227,14 @@ void NewDialog::on_imageRvalue_valueChanged(double value)
 void NewDialog::on_imageHvalue_valueChanged(double value)
 {
     Q_UNUSED(value);
-    imageRatio = (width_px/height_px);
+    if(original_width_px>0)
+    {
+        imageRatio = (original_width_px/original_height_px);
+    }
+    else
+    {
+        imageRatio = (width_px/height_px);
+    }
     float resoulution_in = ui->imageRvalue->value();
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;
@@ -255,7 +265,14 @@ void NewDialog::on_imageHvalue_valueChanged(double value)
 void NewDialog::on_imageWvalue_valueChanged(double value)
 {
     Q_UNUSED(value);
-    imageRatio = (width_px/height_px);
+    if(original_width_px>0)
+    {
+        imageRatio = (original_width_px/original_height_px);
+    }
+    else
+    {
+        imageRatio = (width_px/height_px);
+    }
     float resoulution_in = ui->imageRvalue->value();
     if(ui->imageResCombo->currentIndex() == PPM)
         resoulution_in = resoulution_in * CM_IN_INCH;

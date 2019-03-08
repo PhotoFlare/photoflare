@@ -70,6 +70,8 @@ private:
     double imageRatio;
     float width_px;
     float height_px;
+    float original_width_px;
+    float original_height_px;
     int currentUnit;
 };
 
