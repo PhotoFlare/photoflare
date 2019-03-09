@@ -379,7 +379,7 @@ QString MainWindow::prepareFile(const QString& fileName)
     QImageReader reader(fileName);
     reader.setDecideFormatFromContent(true); // Autodetect file type without depending on extension
 
-    if(info.completeSuffix() != "jpg" && info.completeSuffix() != reader.format() && fileTypeSupported(reader.supportedImageFormats(),reader.format()))
+    if(info.completeSuffix().toLower() != "jpg" && info.completeSuffix() != reader.format() && fileTypeSupported(reader.supportedImageFormats(),reader.format()))
     {
         int ret = QMessageBox::warning(this,
                     tr("Incorrect file extension detected"),
