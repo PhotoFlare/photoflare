@@ -38,6 +38,23 @@
   </provides>
 
   <releases>
+  <release version="1.5.8" date="2019-03-10">
+      <description>
+ 		<ul>
+			<li>Fixed selection changes adding an undo step when it should not.</li>
+			<li>Fixed restart app button not working after language change.</li>
+			<li>Fixed upper case file extensions not being opened correctly.</li>
+			<li>Fixed allowing zero values on image resize in Batch/Automate.</li>
+			<li>Fixed cancel on Image Size setting incorrect image dimensions in status area.</li>
+			<li>Fixed being able to toggle show grid without an image.</li>
+			<li>Fixed cancel on show grid still marking menuItem as checked.</li>
+			<li>Fixed dialogs not being a window type of application modal.</li>
+			<li>Fixed being able to uncheck direction on Gradient Dialog.</li>
+			<li>Fixed maintaining image ratio for Resize dialog.</li>
+			<li>Fixed Window Title typo on Transparent colour Dialog.</li>
+		</ul>
+      </description>
+  </release>
   <release version="1.5.7" date="2019-02-18">
       <description>
  		<ul>
@@ -53,14 +70,5 @@
 		</ul>
       </description>
   </release>
-  <release version="1.5.6.1" date="2018-12-02">
-      <description>
- 		<ul>
-			<li>Fixed the TextTool wrapping for text more than a single line.</li>
-			<li>Fixed the EraserTool incorrectly showing zero as the initial radius.</li>
-			<li>Fixed issue with the language path not detected correctly.</li>
-		</ul>
-      </description>
-    </release>
   </releases>
 </component>
