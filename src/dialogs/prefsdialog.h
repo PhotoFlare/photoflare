@@ -36,7 +36,7 @@ private slots:
 
     void set_user_language();
 
-    void on_comboBoxLanguage_currentIndexChanged(const QString &arg1);
+    void on_comboBoxLanguage_currentIndexChanged();
 
     void on_buttonBox_rejected();
 

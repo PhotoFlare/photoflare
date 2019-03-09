@@ -190,11 +190,10 @@ void prefsDialog::on_restartButton_clicked()
     set_user_language();
 
     qApp->quit();
-    QProcess* proc = new QProcess();
-    proc->start(QCoreApplication::applicationFilePath());
+    QProcess::startDetached(QCoreApplication::applicationFilePath());
 }
 
-void prefsDialog::on_comboBoxLanguage_currentIndexChanged(const QString &arg1)
+void prefsDialog::on_comboBoxLanguage_currentIndexChanged()
 {
     ui->restartButton->show();
 }
