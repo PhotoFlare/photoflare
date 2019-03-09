@@ -9,10 +9,7 @@
 #include <QLabel>
 #include <QPainter>
 #include <QScrollBar>
-#include <QMouseEvent>
-#include <QGraphicsView>
 #include <QGraphicsScene>
-#include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsProxyWidget>
 #include <QImageReader>
@@ -21,7 +18,6 @@
 #include "./Tool.h"
 
 #include "QProgressIndicator.h"
-#include "src/Settings.h"
 
 class PaintWidgetPrivate : public QGraphicsScene
 {
@@ -184,7 +180,7 @@ public:
         if (currentTool)
         {
             currentTool->onMouseRelease(QPoint(event->scenePos().x(), event->scenePos().y()));
-            if(imageChanged)
+            if(currentTool->objectName() != "PointerTool" && imageChanged)
             {
                 q->onContentChanged();
                 q->contentChanged();

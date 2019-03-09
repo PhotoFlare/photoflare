@@ -45,6 +45,7 @@ PointerTool::PointerTool(QObject *parent)
     : Tool(parent)
     , d(new PointerToolPrivate)
 {
+    this->setObjectName("PointerTool");
     setupRightClickMenu(false);
 }
 
