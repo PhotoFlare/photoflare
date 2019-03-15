@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="12.8" version="15.7" Modules="simple" RootPath="." Language="en" Id="{5D06178B-435B-4E42-97DD-F876229286E7}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXAppDetailsComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;FixupComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPURLINFOABOUT" Value="http://photoflare.io"/>
+    <ROW Property="Manufacturer" Value="PhotoFlare.io"/>
+    <ROW Property="ProductCode" Value="1033:{07297193-3625-4016-9C28-602ECEDA3FC2} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="PhotoFlare"/>
+    <ROW Property="ProductVersion" Value="1.5.8.0" Type="32" TargetFile="PhotoFlare.exe"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{5DFB1CEA-0740-4E8A-9CE9-D5A82084C960}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="imageformats_Dir" Directory_Parent="APPDIR" DefaultDir="IMAGEF~1|imageformats"/>
+    <ROW Directory="languages_1_Dir" Directory_Parent="APPDIR" DefaultDir="LANGUA~1|languages"/>
+    <ROW Directory="platforms_Dir" Directory_Parent="APPDIR" DefaultDir="PLATFO~1|platforms"/>
+    <ROW Directory="printsupport_Dir" Directory_Parent="APPDIR" DefaultDir="PRINTS~1|printsupport"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="CORE_RL_Magick_.dll" ComponentId="{C4F82B72-FA73-4B50-83AD-4EE1C5A3F699}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_Magick_.dll_1"/>
+    <ROW Component="CORE_RL_bzlib_.dll" ComponentId="{5AC84C37-82CD-4B39-A3F0-F40F119548CE}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_bzlib_.dll"/>
+    <ROW Component="CORE_RL_jbig_.dll" ComponentId="{97B6BE9C-FEF0-4FEC-B6F5-A35C476A656C}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_jbig_.dll"/>
+    <ROW Component="CORE_RL_jp2_.dll" ComponentId="{2B325DA6-C290-4D49-B8A8-3F28E49A5D77}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_jp2_.dll"/>
+    <ROW Component="CORE_RL_jpeg_.dll" ComponentId="{A5FC015F-F9B4-4D72-9D89-3F2FAC8A1B38}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_jpeg_.dll"/>
+    <ROW Component="CORE_RL_lcms_.dll" ComponentId="{0C3667E3-D4E0-4F49-A276-BCE42B890190}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_lcms_.dll"/>
+    <ROW Component="CORE_RL_libxml_.dll" ComponentId="{397FDF57-C4B6-4F7B-B4B0-665F45F49E17}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_libxml_.dll"/>
+    <ROW Component="CORE_RL_magick_.dll" ComponentId="{499E03B8-FF05-40F9-9983-03B6BB3826F9}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_magick_.dll"/>
+    <ROW Component="CORE_RL_png_.dll" ComponentId="{1ADD9A16-18C9-43C7-A16A-1BE34B74D9FC}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_png_.dll"/>
+    <ROW Component="CORE_RL_tiff_.dll" ComponentId="{9116B285-8521-4978-8493-D31054CBBD30}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_tiff_.dll"/>
+    <ROW Component="CORE_RL_ttf_.dll" ComponentId="{052A5A7D-1716-4218-914D-712E22A9499A}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_ttf_.dll"/>
+    <ROW Component="CORE_RL_webp_.dll" ComponentId="{348B64C4-5DD9-4C26-A7DD-F5C9F6E2DB20}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_webp_.dll"/>
+    <ROW Component="CORE_RL_xlib_.dll" ComponentId="{A2178E6F-D9C9-4E04-A27E-BFA6D2C241F0}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_xlib_.dll"/>
+    <ROW Component="CORE_RL_zlib_.dll" ComponentId="{D80EEBBC-7455-4CF2-B919-71DB053E39EF}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_zlib_.dll"/>
+    <ROW Component="IM_MOD_RL_art_.dll" ComponentId="{17C7434D-E2C3-4563-A63B-54A251670A89}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_art_.dll"/>
+    <ROW Component="IM_MOD_RL_avi_.dll" ComponentId="{9156F9D2-98C4-452A-94D4-909729C7629B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_avi_.dll"/>
+    <ROW Component="IM_MOD_RL_avs_.dll" ComponentId="{9461C853-BDEE-42F9-8E52-387D0727BE0C}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_avs_.dll"/>
+    <ROW Component="IM_MOD_RL_bmp_.dll" ComponentId="{CFBCF8E3-85A9-4E39-BFCE-BA6FAAFE37FC}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_bmp_.dll"/>
+    <ROW Component="IM_MOD_RL_cals_.dll" ComponentId="{9A699038-B05D-493C-A6ED-78FDE10223C1}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_cals_.dll"/>
+    <ROW Component="IM_MOD_RL_caption_.dll" ComponentId="{14B049AF-BFBE-44F6-A576-991352E6DF2E}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_caption_.dll"/>
+    <ROW Component="IM_MOD_RL_cineon_.dll" ComponentId="{69B1E091-477C-4ACE-B18E-6E04FA8E8534}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_cineon_.dll"/>
+    <ROW Component="IM_MOD_RL_clipboard_.dll" ComponentId="{2A7145B6-10BA-4F79-8DD1-AE3CB881CB5B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_clipboard_.dll"/>
+    <ROW Component="IM_MOD_RL_cmyk_.dll" ComponentId="{83C1A0CC-7218-4B9E-B09B-5024B29C9692}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_cmyk_.dll"/>
+    <ROW Component="IM_MOD_RL_cut_.dll" ComponentId="{7CA09AA4-0AEA-4E66-A14F-6D889C748A9C}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_cut_.dll"/>
+    <ROW Component="IM_MOD_RL_dcm_.dll" ComponentId="{C8BF4BDA-25C4-41C9-9274-5C6A4AE8C23F}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dcm_.dll"/>
+    <ROW Component="IM_MOD_RL_dcraw_.dll" ComponentId="{714E0E42-2C1D-4478-AB07-0E2A63BCB713}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dcraw_.dll"/>
+    <ROW Component="IM_MOD_RL_dib_.dll" ComponentId="{959D4E27-A12B-44FB-9BFD-F7FD80408E71}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dib_.dll"/>
+    <ROW Component="IM_MOD_RL_dps_.dll" ComponentId="{9AE9DF4A-00BE-492E-87A9-5E4B24B37F6B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dps_.dll"/>
+    <ROW Component="IM_MOD_RL_dpx_.dll" ComponentId="{3CFC6120-75DB-43FA-AEB7-733D2845930E}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dpx_.dll"/>
+    <ROW Component="IM_MOD_RL_emf_.dll" ComponentId="{AFE586EA-C2C4-4CA1-8836-72CE3ED8862C}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_emf_.dll"/>
+    <ROW Component="IM_MOD_RL_ept_.dll" ComponentId="{11389379-4188-4414-BCD7-F8CA796AFEDF}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_ept_.dll"/>
+    <ROW Component="IM_MOD_RL_fax_.dll" ComponentId="{D82276C8-5025-44DC-A380-956FD90E3BED}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_fax_.dll"/>
+    <ROW Component="IM_MOD_RL_fits_.dll" ComponentId="{A14FDFA3-5034-4DC0-9B8F-74A57769A2F7}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_fits_.dll"/>
+    <ROW Component="IM_MOD_RL_fpx_.dll" ComponentId="{55D991DB-E1BF-462C-A2B6-A0E6600DC38E}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_fpx_.dll"/>
+    <ROW Component="IM_MOD_RL_gif_.dll" ComponentId="{3CDEF4C3-B842-43C6-AC52-5F8163DE11B6}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_gif_.dll"/>
+    <ROW Component="IM_MOD_RL_gradient_.dll" ComponentId="{A32B41FC-CB9C-4D4B-935E-ED3FE8BE66DF}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_gradient_.dll"/>
+    <ROW Component="IM_MOD_RL_gray_.dll" ComponentId="{D0390046-BCF5-4019-9CC8-BF1D95AD0DF7}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_gray_.dll"/>
+    <ROW Component="IM_MOD_RL_histogram_.dll" ComponentId="{09D305D2-450F-4017-A6BE-936837D95E2B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_histogram_.dll"/>
+    <ROW Component="IM_MOD_RL_hrz_.dll" ComponentId="{8FFE4102-CE2F-402F-B71F-D72BA06B7A86}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_hrz_.dll"/>
+    <ROW Component="IM_MOD_RL_html_.dll" ComponentId="{590490FC-757A-43D0-AAD1-9788C1C9EE85}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_html_.dll"/>
+    <ROW Component="IM_MOD_RL_icon_.dll" ComponentId="{15CDB13C-F603-4866-B055-AF3D2EF5740B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_icon_.dll"/>
+    <ROW Component="IM_MOD_RL_identity_.dll" ComponentId="{BB136A76-9414-428A-859F-DCA70E45D3AD}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_identity_.dll"/>
+    <ROW Component="IM_MOD_RL_info_.dll" ComponentId="{3666B8E7-8E8F-4A59-9B0C-554D2A8AC7CA}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_info_.dll"/>
+    <ROW Component="IM_MOD_RL_jbig_.dll" ComponentId="{7C3C920E-0DAE-4DF1-B3EC-BB1352F369AA}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_jbig_.dll"/>
+    <ROW Component="IM_MOD_RL_jnx_.dll" ComponentId="{ED8344FE-1F4A-40D1-B384-16B7930654A2}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_jnx_.dll"/>
+    <ROW Component="IM_MOD_RL_jp2_.dll" ComponentId="{698BC869-CB55-4D43-B0FC-84F68863DA4B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_jp2_.dll"/>
+    <ROW Component="IM_MOD_RL_jpeg_.dll" ComponentId="{33E8CFB8-9297-448E-8C62-9BD7C28B82EA}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_jpeg_.dll"/>
+    <ROW Component="IM_MOD_RL_label_.dll" ComponentId="{9DD8CF95-ABDF-461C-8216-92001DFA5ADA}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_label_.dll"/>
+    <ROW Component="IM_MOD_RL_locale_.dll" ComponentId="{1CBE126B-B67E-4047-A5E7-0D61D63A93C2}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_locale_.dll"/>
+    <ROW Component="IM_MOD_RL_logo_.dll" ComponentId="{F1BD31D8-9198-411B-86F6-BD42770A6CA5}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_logo_.dll"/>
+    <ROW Component="IM_MOD_RL_mac_.dll" ComponentId="{219079EA-5BB6-4960-A5CF-445F25E0E617}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_mac_.dll"/>
+    <ROW Component="IM_MOD_RL_map_.dll" ComponentId="{6653E6DF-F36E-40CE-86B6-B8C5CA39402C}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_map_.dll"/>
+    <ROW Component="IM_MOD_RL_mat_.dll" ComponentId="{3760C332-8284-4DB0-A010-0BE1FDC10138}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_mat_.dll"/>
+    <ROW Component="IM_MOD_RL_matte_.dll" ComponentId="{B977BBC5-DC5F-4313-866B-B86887B900C4}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_matte_.dll"/>
+    <ROW Component="IM_MOD_RL_meta_.dll" ComponentId="{70D26EBF-F55A-472C-BB61-853C8FE7EA42}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_meta_.dll"/>
+    <ROW Component="IM_MOD_RL_miff_.dll" ComponentId="{5AFCC06C-546A-40DB-BEA3-750CD37953C5}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_miff_.dll"/>
+    <ROW Component="IM_MOD_RL_mono_.dll" ComponentId="{85ADC53B-6BF8-4266-93CB-EB0021512080}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_mono_.dll"/>
+    <ROW Component="IM_MOD_RL_mpc_.dll" ComponentId="{8BF7FC1C-FAC1-4249-93C1-05781E3BCFDE}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_mpc_.dll"/>
+    <ROW Component="IM_MOD_RL_mpeg_.dll" ComponentId="{84A076A3-FF83-4DF8-A7AD-E44FF88ACB17}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_mpeg_.dll"/>
+    <ROW Component="IM_MOD_RL_mpr_.dll" ComponentId="{BE0B4355-1B15-473E-95AB-FD1A94CD4F12}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_mpr_.dll"/>
+    <ROW Component="IM_MOD_RL_msl_.dll" ComponentId="{7ED3537B-73A1-42A0-83C8-5B5C5C1902FE}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_msl_.dll"/>
+    <ROW Component="IM_MOD_RL_mtv_.dll" ComponentId="{9EAFF11E-BA29-4E0D-8B72-94010A55695C}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_mtv_.dll"/>
+    <ROW Component="IM_MOD_RL_mvg_.dll" ComponentId="{DF2121BE-1F37-44B4-ADEB-2EB58A79B9AB}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_mvg_.dll"/>
+    <ROW Component="IM_MOD_RL_null_.dll" ComponentId="{BF35BAE7-C761-4373-81F9-FB32C5D7EF86}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_null_.dll"/>
+    <ROW Component="IM_MOD_RL_otb_.dll" ComponentId="{30FB965D-27A0-4235-BD33-577ACE85508D}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_otb_.dll"/>
+    <ROW Component="IM_MOD_RL_palm_.dll" ComponentId="{6B3B6E02-6993-47AB-B4C3-C4403B986227}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_palm_.dll"/>
+    <ROW Component="IM_MOD_RL_pcd_.dll" ComponentId="{FEF7E751-715B-41EB-8F4F-4D3CE3AA8ED6}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pcd_.dll"/>
+    <ROW Component="IM_MOD_RL_pcl_.dll" ComponentId="{1CB818A7-D86B-4276-9670-649441D457FC}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pcl_.dll"/>
+    <ROW Component="IM_MOD_RL_pcx_.dll" ComponentId="{6223C3BA-30E0-4EF0-BD6B-CB03352ED8A4}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pcx_.dll"/>
+    <ROW Component="IM_MOD_RL_pdb_.dll" ComponentId="{4C6E8FD3-D165-476E-B10E-2BF4FC0AAA28}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pdb_.dll"/>
+    <ROW Component="IM_MOD_RL_pdf_.dll" ComponentId="{402E468B-3CEB-4344-9EDA-79247F5187D1}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pdf_.dll"/>
+    <ROW Component="IM_MOD_RL_pict_.dll" ComponentId="{2499B2DF-ABC7-4341-B5C4-E9D461547DDA}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pict_.dll"/>
+    <ROW Component="IM_MOD_RL_pix_.dll" ComponentId="{11EE3F26-B02D-4996-9914-8EF9614599BE}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pix_.dll"/>
+    <ROW Component="IM_MOD_RL_plasma_.dll" ComponentId="{44C42923-8899-435E-93C4-601C6E28101E}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_plasma_.dll"/>
+    <ROW Component="IM_MOD_RL_png_.dll" ComponentId="{BE2B38B7-4FB7-4B6A-855E-5029506D0108}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_png_.dll"/>
+    <ROW Component="IM_MOD_RL_pnm_.dll" ComponentId="{C20CFCD4-96B8-4CEF-B4BA-94F856D2F49E}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pnm_.dll"/>
+    <ROW Component="IM_MOD_RL_preview_.dll" ComponentId="{C0D5EE27-38C9-44A1-975A-5C8137474A36}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_preview_.dll"/>
+    <ROW Component="IM_MOD_RL_ps2_.dll" ComponentId="{A3F1D75D-A3D7-42D0-BB02-919AB44EEB12}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_ps2_.dll"/>
+    <ROW Component="IM_MOD_RL_ps3_.dll" ComponentId="{D936C6B0-3FE3-4500-9105-471F622B91B5}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_ps3_.dll"/>
+    <ROW Component="IM_MOD_RL_ps_.dll" ComponentId="{145B8E85-F473-4EAB-A36E-038FA923C205}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_ps_.dll"/>
+    <ROW Component="IM_MOD_RL_psd_.dll" ComponentId="{85A5E27E-BF26-4471-A23D-36CBDC229C0B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_psd_.dll"/>
+    <ROW Component="IM_MOD_RL_pwp_.dll" ComponentId="{FC91BDA2-430C-4C2F-9E7E-961B5A6FB529}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_pwp_.dll"/>
+    <ROW Component="IM_MOD_RL_rgb_.dll" ComponentId="{EB9E0688-C11F-4899-ABDD-FA7484AACB1A}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_rgb_.dll"/>
+    <ROW Component="IM_MOD_RL_rla_.dll" ComponentId="{D167D10E-5FC8-412A-BD24-7352B04B6DA7}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_rla_.dll"/>
+    <ROW Component="IM_MOD_RL_rle_.dll" ComponentId="{09A52DF8-53A6-45F5-9ADB-A49FD0E56E46}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_rle_.dll"/>
+    <ROW Component="IM_MOD_RL_sct_.dll" ComponentId="{09DBFACD-B419-4CD5-98F0-B4C7A37A8DBC}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_sct_.dll"/>
+    <ROW Component="IM_MOD_RL_sfw_.dll" ComponentId="{F44769F3-4095-49D9-B1DB-555C253D71C2}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_sfw_.dll"/>
+    <ROW Component="IM_MOD_RL_sgi_.dll" ComponentId="{53235C4C-6744-4164-AA51-3DE96FCBEE5B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_sgi_.dll"/>
+    <ROW Component="IM_MOD_RL_stegano_.dll" ComponentId="{1F50747E-1246-4685-B41B-36CAB3654A05}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_stegano_.dll"/>
+    <ROW Component="IM_MOD_RL_sun_.dll" ComponentId="{79E80EC1-EAEB-4775-A78C-6C14EDA0B521}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_sun_.dll"/>
+    <ROW Component="IM_MOD_RL_svg_.dll" ComponentId="{8956CEAA-F58B-48BB-8341-FDD8B256ECDA}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_svg_.dll"/>
+    <ROW Component="IM_MOD_RL_tga_.dll" ComponentId="{EF13D848-6BCC-4023-97F9-08F8AB52EC29}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_tga_.dll"/>
+    <ROW Component="IM_MOD_RL_tiff_.dll" ComponentId="{83CF6A00-0427-4AFB-A29D-C84E3A75C991}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_tiff_.dll"/>
+    <ROW Component="IM_MOD_RL_tile_.dll" ComponentId="{A3526D52-954E-47B3-BD12-DFD9A4B473A8}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_tile_.dll"/>
+    <ROW Component="IM_MOD_RL_tim_.dll" ComponentId="{1967AABC-305E-4B31-8B62-75C8EB1B510E}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_tim_.dll"/>
+    <ROW Component="IM_MOD_RL_topol_.dll" ComponentId="{22DAEB4A-BC75-423D-BED0-E2F5C3B35CDB}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_topol_.dll"/>
+    <ROW Component="IM_MOD_RL_ttf_.dll" ComponentId="{F6FEB8EC-25B3-41A1-94D2-EBD60683F820}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_ttf_.dll"/>
+    <ROW Component="IM_MOD_RL_txt_.dll" ComponentId="{16B54916-CA03-4DD1-B5E2-62E1B4D9E5FD}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_txt_.dll"/>
+    <ROW Component="IM_MOD_RL_uil_.dll" ComponentId="{C6B19A16-6783-44D6-90B1-058E404BED28}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_uil_.dll"/>
+    <ROW Component="IM_MOD_RL_url_.dll" ComponentId="{94811D7A-A472-49F9-A663-77A2D1E01C0D}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_url_.dll"/>
+    <ROW Component="IM_MOD_RL_uyvy_.dll" ComponentId="{D3D51265-01E5-4311-A660-F65833325C55}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_uyvy_.dll"/>
+    <ROW Component="IM_MOD_RL_vicar_.dll" ComponentId="{79E5B3B3-E059-454E-B2C3-8C908BC30E23}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_vicar_.dll"/>
+    <ROW Component="IM_MOD_RL_vid_.dll" ComponentId="{B75630CB-11C5-417B-8BFF-452E10C2B3ED}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_vid_.dll"/>
+    <ROW Component="IM_MOD_RL_viff_.dll" ComponentId="{2A4EB7C0-48DB-452F-B55B-58F01D832B45}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_viff_.dll"/>
+    <ROW Component="IM_MOD_RL_wbmp_.dll" ComponentId="{A32C46E3-8A2D-445E-8957-A9D1EECFEF0B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_wbmp_.dll"/>
+    <ROW Component="IM_MOD_RL_webp_.dll" ComponentId="{065CC683-CEFC-45DD-87E1-16CC1404AA42}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_webp_.dll"/>
+    <ROW Component="IM_MOD_RL_wmf_.dll" ComponentId="{77609972-80F4-49AC-88E3-DCD3C5F6238F}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_wmf_.dll"/>
+    <ROW Component="IM_MOD_RL_wpg_.dll" ComponentId="{DA74C48D-CAA6-4668-B3DD-83C097C20291}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_wpg_.dll"/>
+    <ROW Component="IM_MOD_RL_x_.dll" ComponentId="{6C219494-992A-4EEC-88DB-FB5E6548061A}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_x_.dll"/>
+    <ROW Component="IM_MOD_RL_xbm_.dll" ComponentId="{C1F89648-BE5E-472A-AFE5-225D0EB0DAC0}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_xbm_.dll"/>
+    <ROW Component="IM_MOD_RL_xc_.dll" ComponentId="{B204E314-38BE-45B2-B1A9-8694CAA3F10C}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_xc_.dll"/>
+    <ROW Component="IM_MOD_RL_xcf_.dll" ComponentId="{B1EBE9D7-73F4-4549-9037-7F26029DB0CE}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_xcf_.dll"/>
+    <ROW Component="IM_MOD_RL_xpm_.dll" ComponentId="{BAC8794E-382A-4A5F-9A22-0587FD95FE93}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_xpm_.dll"/>
+    <ROW Component="IM_MOD_RL_xtrn_.dll" ComponentId="{168A5733-4905-46B5-BF9F-9938F9FD9EED}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_xtrn_.dll"/>
+    <ROW Component="IM_MOD_RL_xwd_.dll" ComponentId="{104CB893-8EB7-429C-AB5D-ED44794B68D0}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_xwd_.dll"/>
+    <ROW Component="IM_MOD_RL_yuv_.dll" ComponentId="{81FF1D83-E3D6-4FE0-AC64-7092987F099A}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_yuv_.dll"/>
+    <ROW Component="PhotoFlare.exe" ComponentId="{CE99A836-A332-41B7-8CEA-B64304A84B03}" Directory_="APPDIR" Attributes="256" KeyPath="PhotoFlare.exe"/>
+    <ROW Component="ProductInformation" ComponentId="{1D65AC3D-F912-4D07-86A8-9BC9D948D9E9}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="Qt5Core.dll" ComponentId="{8E80789F-5524-41FC-B938-346E637F7924}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5Core.dll"/>
+    <ROW Component="Qt5Gui.dll" ComponentId="{BBC92AA9-EC05-455D-AA49-443D7AFFFFEF}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5Gui.dll"/>
+    <ROW Component="Qt5Network.dll" ComponentId="{E0F6A1DC-217B-4723-BAE1-3C14580DF378}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5Network.dll"/>
+    <ROW Component="Qt5PrintSupport.dll" ComponentId="{87D368C3-FC22-42EB-8920-0B8FF2B6B50C}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5PrintSupport.dll"/>
+    <ROW Component="Qt5Widgets.dll" ComponentId="{07B075E8-B7DA-4A33-9C84-519A9EDC925B}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5Widgets.dll"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{202F0FB9-770D-44E5-8361-5F049171728D}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="de.qm_1" ComponentId="{3BA836DD-1727-4927-9E58-18FECB054517}" Directory_="languages_1_Dir" Attributes="0" KeyPath="de.qm_1" Type="0"/>
+    <ROW Component="qgif.dll" ComponentId="{18BC4281-B02D-41E2-BB0C-2E83D0FC38ED}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qgif.dll"/>
+    <ROW Component="qicns.dll" ComponentId="{73491785-C752-4CD1-B122-EF8AE35D1AAB}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qicns.dll"/>
+    <ROW Component="qico.dll" ComponentId="{2EA6A2C1-408F-4B5D-A418-0EE0ABB279CC}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qico.dll"/>
+    <ROW Component="qjpeg.dll" ComponentId="{8F6E5540-C8AE-49B2-BA8C-8D948AEDA577}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qjpeg.dll"/>
+    <ROW Component="qminimal.dll" ComponentId="{CC88D05C-634F-4286-B3C1-FFBDB312C048}" Directory_="platforms_Dir" Attributes="256" KeyPath="qminimal.dll"/>
+    <ROW Component="qsvg.dll" ComponentId="{527834BA-26F5-4F23-B4A6-3AC769564E36}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qsvg.dll"/>
+    <ROW Component="qtga.dll" ComponentId="{5F78C423-277B-48DA-9620-7741E4177551}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qtga.dll"/>
+    <ROW Component="qtiff.dll" ComponentId="{638F7C10-FD35-4AED-B61C-C7CBA4630C0C}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qtiff.dll"/>
+    <ROW Component="qwbmp.dll" ComponentId="{A4197EF2-79E3-4AD0-A06E-F0BBE967F9AB}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwbmp.dll"/>
+    <ROW Component="qwebp.dll" ComponentId="{54D6EFC0-1C85-4500-B07F-7C9275EA1AAF}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwebp.dll"/>
+    <ROW Component="qwindows.dll" ComponentId="{5121C9C1-4980-4305-B917-25EFB28C38B9}" Directory_="platforms_Dir" Attributes="256" KeyPath="qwindows.dll"/>
+    <ROW Component="vcomp140.dll" ComponentId="{6A51B338-3E59-4E74-A07B-641357DEFB27}" Directory_="APPDIR" Attributes="256" KeyPath="vcomp140.dll"/>
+    <ROW Component="windowsprintersupport.dll" ComponentId="{6A66529A-34FC-49E4-AF59-9C2350BEDF76}" Directory_="printsupport_Dir" Attributes="256" KeyPath="windowsprintersupport.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="CORE_RL_Magick_.dll CORE_RL_bzlib_.dll CORE_RL_jbig_.dll CORE_RL_jp2_.dll CORE_RL_jpeg_.dll CORE_RL_lcms_.dll CORE_RL_libxml_.dll CORE_RL_magick_.dll CORE_RL_png_.dll CORE_RL_tiff_.dll CORE_RL_ttf_.dll CORE_RL_webp_.dll CORE_RL_xlib_.dll CORE_RL_zlib_.dll IM_MOD_RL_art_.dll IM_MOD_RL_avi_.dll IM_MOD_RL_avs_.dll IM_MOD_RL_bmp_.dll IM_MOD_RL_cals_.dll IM_MOD_RL_caption_.dll IM_MOD_RL_cineon_.dll IM_MOD_RL_clipboard_.dll IM_MOD_RL_cmyk_.dll IM_MOD_RL_cut_.dll IM_MOD_RL_dcm_.dll IM_MOD_RL_dcraw_.dll IM_MOD_RL_dib_.dll IM_MOD_RL_dps_.dll IM_MOD_RL_dpx_.dll IM_MOD_RL_emf_.dll IM_MOD_RL_ept_.dll IM_MOD_RL_fax_.dll IM_MOD_RL_fits_.dll IM_MOD_RL_fpx_.dll IM_MOD_RL_gif_.dll IM_MOD_RL_gradient_.dll IM_MOD_RL_gray_.dll IM_MOD_RL_histogram_.dll IM_MOD_RL_hrz_.dll IM_MOD_RL_html_.dll IM_MOD_RL_icon_.dll IM_MOD_RL_identity_.dll IM_MOD_RL_info_.dll IM_MOD_RL_jbig_.dll IM_MOD_RL_jnx_.dll IM_MOD_RL_jp2_.dll IM_MOD_RL_jpeg_.dll IM_MOD_RL_label_.dll IM_MOD_RL_locale_.dll IM_MOD_RL_logo_.dll IM_MOD_RL_mac_.dll IM_MOD_RL_map_.dll IM_MOD_RL_mat_.dll IM_MOD_RL_matte_.dll IM_MOD_RL_meta_.dll IM_MOD_RL_miff_.dll IM_MOD_RL_mono_.dll IM_MOD_RL_mpc_.dll IM_MOD_RL_mpeg_.dll IM_MOD_RL_mpr_.dll IM_MOD_RL_msl_.dll IM_MOD_RL_mtv_.dll IM_MOD_RL_mvg_.dll IM_MOD_RL_null_.dll IM_MOD_RL_otb_.dll IM_MOD_RL_palm_.dll IM_MOD_RL_pcd_.dll IM_MOD_RL_pcl_.dll IM_MOD_RL_pcx_.dll IM_MOD_RL_pdb_.dll IM_MOD_RL_pdf_.dll IM_MOD_RL_pict_.dll IM_MOD_RL_pix_.dll IM_MOD_RL_plasma_.dll IM_MOD_RL_png_.dll IM_MOD_RL_pnm_.dll IM_MOD_RL_preview_.dll IM_MOD_RL_ps2_.dll IM_MOD_RL_ps3_.dll IM_MOD_RL_ps_.dll IM_MOD_RL_psd_.dll IM_MOD_RL_pwp_.dll IM_MOD_RL_rgb_.dll IM_MOD_RL_rla_.dll IM_MOD_RL_rle_.dll IM_MOD_RL_sct_.dll IM_MOD_RL_sfw_.dll IM_MOD_RL_sgi_.dll IM_MOD_RL_stegano_.dll IM_MOD_RL_sun_.dll IM_MOD_RL_svg_.dll IM_MOD_RL_tga_.dll IM_MOD_RL_tiff_.dll IM_MOD_RL_tile_.dll IM_MOD_RL_tim_.dll IM_MOD_RL_topol_.dll IM_MOD_RL_ttf_.dll IM_MOD_RL_txt_.dll IM_MOD_RL_uil_.dll IM_MOD_RL_url_.dll IM_MOD_RL_uyvy_.dll IM_MOD_RL_vicar_.dll IM_MOD_RL_vid_.dll IM_MOD_RL_viff_.dll IM_MOD_RL_wbmp_.dll IM_MOD_RL_webp_.dll IM_MOD_RL_wmf_.dll IM_MOD_RL_wpg_.dll IM_MOD_RL_x_.dll IM_MOD_RL_xbm_.dll IM_MOD_RL_xc_.dll IM_MOD_RL_xcf_.dll IM_MOD_RL_xpm_.dll IM_MOD_RL_xtrn_.dll IM_MOD_RL_xwd_.dll IM_MOD_RL_yuv_.dll PhotoFlare.exe ProductInformation Qt5Core.dll Qt5Gui.dll Qt5Network.dll Qt5PrintSupport.dll Qt5Widgets.dll SHORTCUTDIR de.qm_1 qgif.dll qicns.dll qico.dll qjpeg.dll qminimal.dll qsvg.dll qtga.dll qtiff.dll qwbmp.dll qwebp.dll qwindows.dll vcomp140.dll windowsprintersupport.dll"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="CORE_RL_Magick_.dll_1" Component_="CORE_RL_Magick_.dll" FileName="CORE_R~5.DLL|CORE_RL_Magick++_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_Magick++_.dll" SelfReg="false" NextFile="CORE_RL_ttf_.dll"/>
+    <ROW File="CORE_RL_bzlib_.dll" Component_="CORE_RL_bzlib_.dll" FileName="CORE_R~1.DLL|CORE_RL_bzlib_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_bzlib_.dll" SelfReg="false" NextFile="CORE_RL_lcms_.dll"/>
+    <ROW File="CORE_RL_jbig_.dll" Component_="CORE_RL_jbig_.dll" FileName="CORE_R~9.DLL|CORE_RL_jbig_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_jbig_.dll" SelfReg="false" NextFile="CORE_RL_jp2_.dll"/>
+    <ROW File="CORE_RL_jp2_.dll" Component_="CORE_RL_jp2_.dll" FileName="CORE_~10.DLL|CORE_RL_jp2_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_jp2_.dll" SelfReg="false" NextFile="CORE_RL_jpeg_.dll"/>
+    <ROW File="CORE_RL_jpeg_.dll" Component_="CORE_RL_jpeg_.dll" FileName="CORE_~11.DLL|CORE_RL_jpeg_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_jpeg_.dll" SelfReg="false" NextFile="CORE_RL_png_.dll"/>
+    <ROW File="CORE_RL_lcms_.dll" Component_="CORE_RL_lcms_.dll" FileName="CORE_R~2.DLL|CORE_RL_lcms_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_lcms_.dll" SelfReg="false" NextFile="CORE_RL_libxml_.dll"/>
+    <ROW File="CORE_RL_libxml_.dll" Component_="CORE_RL_libxml_.dll" FileName="CORE_R~3.DLL|CORE_RL_libxml_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_libxml_.dll" SelfReg="false" NextFile="CORE_RL_magick_.dll"/>
+    <ROW File="CORE_RL_magick_.dll" Component_="CORE_RL_magick_.dll" FileName="CORE_R~4.DLL|CORE_RL_magick_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_magick_.dll" SelfReg="false" NextFile="CORE_RL_Magick_.dll_1"/>
+    <ROW File="CORE_RL_png_.dll" Component_="CORE_RL_png_.dll" FileName="CORE_~12.DLL|CORE_RL_png_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_png_.dll" SelfReg="false" NextFile="CORE_RL_tiff_.dll"/>
+    <ROW File="CORE_RL_tiff_.dll" Component_="CORE_RL_tiff_.dll" FileName="CORE_~13.DLL|CORE_RL_tiff_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_tiff_.dll" SelfReg="false" NextFile="CORE_RL_webp_.dll"/>
+    <ROW File="CORE_RL_ttf_.dll" Component_="CORE_RL_ttf_.dll" FileName="CORE_R~6.DLL|CORE_RL_ttf_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_ttf_.dll" SelfReg="false" NextFile="CORE_RL_xlib_.dll"/>
+    <ROW File="CORE_RL_webp_.dll" Component_="CORE_RL_webp_.dll" FileName="CORE_~14.DLL|CORE_RL_webp_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_webp_.dll" SelfReg="false" NextFile="IM_MOD_RL_art_.dll"/>
+    <ROW File="CORE_RL_xlib_.dll" Component_="CORE_RL_xlib_.dll" FileName="CORE_R~7.DLL|CORE_RL_xlib_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_xlib_.dll" SelfReg="false" NextFile="CORE_RL_zlib_.dll"/>
+    <ROW File="CORE_RL_zlib_.dll" Component_="CORE_RL_zlib_.dll" FileName="CORE_R~8.DLL|CORE_RL_zlib_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_zlib_.dll" SelfReg="false" NextFile="Qt5Core.dll"/>
+    <ROW File="IM_MOD_RL_art_.dll" Component_="IM_MOD_RL_art_.dll" FileName="IM_MOD~1.DLL|IM_MOD_RL_art_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_art_.dll" SelfReg="false" NextFile="IM_MOD_RL_avi_.dll"/>
+    <ROW File="IM_MOD_RL_avi_.dll" Component_="IM_MOD_RL_avi_.dll" FileName="IM_MOD~2.DLL|IM_MOD_RL_avi_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_avi_.dll" SelfReg="false" NextFile="IM_MOD_RL_avs_.dll"/>
+    <ROW File="IM_MOD_RL_avs_.dll" Component_="IM_MOD_RL_avs_.dll" FileName="IM_MOD~3.DLL|IM_MOD_RL_avs_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_avs_.dll" SelfReg="false" NextFile="IM_MOD_RL_bmp_.dll"/>
+    <ROW File="IM_MOD_RL_bmp_.dll" Component_="IM_MOD_RL_bmp_.dll" FileName="IM_MOD~4.DLL|IM_MOD_RL_bmp_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_bmp_.dll" SelfReg="false" NextFile="IM_MOD_RL_cals_.dll"/>
+    <ROW File="IM_MOD_RL_cals_.dll" Component_="IM_MOD_RL_cals_.dll" FileName="IM_MOD~5.DLL|IM_MOD_RL_cals_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_cals_.dll" SelfReg="false" NextFile="IM_MOD_RL_caption_.dll"/>
+    <ROW File="IM_MOD_RL_caption_.dll" Component_="IM_MOD_RL_caption_.dll" FileName="IM_MOD~6.DLL|IM_MOD_RL_caption_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_caption_.dll" SelfReg="false" NextFile="IM_MOD_RL_cineon_.dll"/>
+    <ROW File="IM_MOD_RL_cineon_.dll" Component_="IM_MOD_RL_cineon_.dll" FileName="IM_MOD~7.DLL|IM_MOD_RL_cineon_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_cineon_.dll" SelfReg="false" NextFile="IM_MOD_RL_clipboard_.dll"/>
+    <ROW File="IM_MOD_RL_clipboard_.dll" Component_="IM_MOD_RL_clipboard_.dll" FileName="IM_MOD~8.DLL|IM_MOD_RL_clipboard_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_clipboard_.dll" SelfReg="false" NextFile="IM_MOD_RL_cmyk_.dll"/>
+    <ROW File="IM_MOD_RL_cmyk_.dll" Component_="IM_MOD_RL_cmyk_.dll" FileName="IM_MOD~9.DLL|IM_MOD_RL_cmyk_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_cmyk_.dll" SelfReg="false" NextFile="IM_MOD_RL_cut_.dll"/>
+    <ROW File="IM_MOD_RL_cut_.dll" Component_="IM_MOD_RL_cut_.dll" FileName="IM_MO~10.DLL|IM_MOD_RL_cut_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_cut_.dll" SelfReg="false" NextFile="IM_MOD_RL_dcm_.dll"/>
+    <ROW File="IM_MOD_RL_dcm_.dll" Component_="IM_MOD_RL_dcm_.dll" FileName="IM_MO~11.DLL|IM_MOD_RL_dcm_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dcm_.dll" SelfReg="false" NextFile="IM_MOD_RL_dcraw_.dll"/>
+    <ROW File="IM_MOD_RL_dcraw_.dll" Component_="IM_MOD_RL_dcraw_.dll" FileName="IM_MO~12.DLL|IM_MOD_RL_dcraw_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dcraw_.dll" SelfReg="false" NextFile="IM_MOD_RL_dib_.dll"/>
+    <ROW File="IM_MOD_RL_dib_.dll" Component_="IM_MOD_RL_dib_.dll" FileName="IM_MO~13.DLL|IM_MOD_RL_dib_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dib_.dll" SelfReg="false" NextFile="IM_MOD_RL_dps_.dll"/>
+    <ROW File="IM_MOD_RL_dps_.dll" Component_="IM_MOD_RL_dps_.dll" FileName="IM_MO~14.DLL|IM_MOD_RL_dps_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dps_.dll" SelfReg="false" NextFile="IM_MOD_RL_dpx_.dll"/>
+    <ROW File="IM_MOD_RL_dpx_.dll" Component_="IM_MOD_RL_dpx_.dll" FileName="IM_MO~15.DLL|IM_MOD_RL_dpx_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dpx_.dll" SelfReg="false" NextFile="IM_MOD_RL_emf_.dll"/>
+    <ROW File="IM_MOD_RL_emf_.dll" Component_="IM_MOD_RL_emf_.dll" FileName="IM_MO~16.DLL|IM_MOD_RL_emf_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_emf_.dll" SelfReg="false" NextFile="IM_MOD_RL_ept_.dll"/>
+    <ROW File="IM_MOD_RL_ept_.dll" Component_="IM_MOD_RL_ept_.dll" FileName="IM_MO~17.DLL|IM_MOD_RL_ept_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_ept_.dll" SelfReg="false" NextFile="IM_MOD_RL_fax_.dll"/>
+    <ROW File="IM_MOD_RL_fax_.dll" Component_="IM_MOD_RL_fax_.dll" FileName="IM_MO~18.DLL|IM_MOD_RL_fax_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_fax_.dll" SelfReg="false" NextFile="IM_MOD_RL_fits_.dll"/>
+    <ROW File="IM_MOD_RL_fits_.dll" Component_="IM_MOD_RL_fits_.dll" FileName="IM_MO~19.DLL|IM_MOD_RL_fits_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_fits_.dll" SelfReg="false" NextFile="IM_MOD_RL_fpx_.dll"/>
+    <ROW File="IM_MOD_RL_fpx_.dll" Component_="IM_MOD_RL_fpx_.dll" FileName="IM_MO~20.DLL|IM_MOD_RL_fpx_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_fpx_.dll" SelfReg="false" NextFile="IM_MOD_RL_gif_.dll"/>
+    <ROW File="IM_MOD_RL_gif_.dll" Component_="IM_MOD_RL_gif_.dll" FileName="IM_MO~21.DLL|IM_MOD_RL_gif_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_gif_.dll" SelfReg="false" NextFile="IM_MOD_RL_gradient_.dll"/>
+    <ROW File="IM_MOD_RL_gradient_.dll" Component_="IM_MOD_RL_gradient_.dll" FileName="IM_MO~22.DLL|IM_MOD_RL_gradient_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_gradient_.dll" SelfReg="false" NextFile="IM_MOD_RL_gray_.dll"/>
+    <ROW File="IM_MOD_RL_gray_.dll" Component_="IM_MOD_RL_gray_.dll" FileName="IM_MO~23.DLL|IM_MOD_RL_gray_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_gray_.dll" SelfReg="false" NextFile="IM_MOD_RL_histogram_.dll"/>
+    <ROW File="IM_MOD_RL_histogram_.dll" Component_="IM_MOD_RL_histogram_.dll" FileName="IM_MO~24.DLL|IM_MOD_RL_histogram_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_histogram_.dll" SelfReg="false" NextFile="IM_MOD_RL_hrz_.dll"/>
+    <ROW File="IM_MOD_RL_hrz_.dll" Component_="IM_MOD_RL_hrz_.dll" FileName="IM_MO~25.DLL|IM_MOD_RL_hrz_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_hrz_.dll" SelfReg="false" NextFile="IM_MOD_RL_html_.dll"/>
+    <ROW File="IM_MOD_RL_html_.dll" Component_="IM_MOD_RL_html_.dll" FileName="IM_MO~26.DLL|IM_MOD_RL_html_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_html_.dll" SelfReg="false" NextFile="IM_MOD_RL_icon_.dll"/>
+    <ROW File="IM_MOD_RL_icon_.dll" Component_="IM_MOD_RL_icon_.dll" FileName="IM_MO~27.DLL|IM_MOD_RL_icon_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_icon_.dll" SelfReg="false" NextFile="IM_MOD_RL_identity_.dll"/>
+    <ROW File="IM_MOD_RL_identity_.dll" Component_="IM_MOD_RL_identity_.dll" FileName="IM_MO~28.DLL|IM_MOD_RL_identity_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_identity_.dll" SelfReg="false" NextFile="IM_MOD_RL_info_.dll"/>
+    <ROW File="IM_MOD_RL_info_.dll" Component_="IM_MOD_RL_info_.dll" FileName="IM_MO~29.DLL|IM_MOD_RL_info_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_info_.dll" SelfReg="false" NextFile="IM_MOD_RL_jbig_.dll"/>
+    <ROW File="IM_MOD_RL_jbig_.dll" Component_="IM_MOD_RL_jbig_.dll" FileName="IM_MO~30.DLL|IM_MOD_RL_jbig_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_jbig_.dll" SelfReg="false" NextFile="IM_MOD_RL_jnx_.dll"/>
+    <ROW File="IM_MOD_RL_jnx_.dll" Component_="IM_MOD_RL_jnx_.dll" FileName="IM_MO~31.DLL|IM_MOD_RL_jnx_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_jnx_.dll" SelfReg="false" NextFile="IM_MOD_RL_jp2_.dll"/>
+    <ROW File="IM_MOD_RL_jp2_.dll" Component_="IM_MOD_RL_jp2_.dll" FileName="IM_MO~32.DLL|IM_MOD_RL_jp2_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_jp2_.dll" SelfReg="false" NextFile="IM_MOD_RL_jpeg_.dll"/>
+    <ROW File="IM_MOD_RL_jpeg_.dll" Component_="IM_MOD_RL_jpeg_.dll" FileName="IM_MO~33.DLL|IM_MOD_RL_jpeg_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_jpeg_.dll" SelfReg="false" NextFile="IM_MOD_RL_label_.dll"/>
+    <ROW File="IM_MOD_RL_label_.dll" Component_="IM_MOD_RL_label_.dll" FileName="IM_MO~34.DLL|IM_MOD_RL_label_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_label_.dll" SelfReg="false" NextFile="IM_MOD_RL_locale_.dll"/>
+    <ROW File="IM_MOD_RL_locale_.dll" Component_="IM_MOD_RL_locale_.dll" FileName="IM_MO~35.DLL|IM_MOD_RL_locale_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_locale_.dll" SelfReg="false" NextFile="IM_MOD_RL_logo_.dll"/>
+    <ROW File="IM_MOD_RL_logo_.dll" Component_="IM_MOD_RL_logo_.dll" FileName="IM_MO~36.DLL|IM_MOD_RL_logo_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_logo_.dll" SelfReg="false" NextFile="IM_MOD_RL_mac_.dll"/>
+    <ROW File="IM_MOD_RL_mac_.dll" Component_="IM_MOD_RL_mac_.dll" FileName="IM_MO~37.DLL|IM_MOD_RL_mac_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_mac_.dll" SelfReg="false" NextFile="IM_MOD_RL_map_.dll"/>
+    <ROW File="IM_MOD_RL_map_.dll" Component_="IM_MOD_RL_map_.dll" FileName="IM_MO~38.DLL|IM_MOD_RL_map_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_map_.dll" SelfReg="false" NextFile="IM_MOD_RL_mat_.dll"/>
+    <ROW File="IM_MOD_RL_mat_.dll" Component_="IM_MOD_RL_mat_.dll" FileName="IM_MO~39.DLL|IM_MOD_RL_mat_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_mat_.dll" SelfReg="false" NextFile="IM_MOD_RL_matte_.dll"/>
+    <ROW File="IM_MOD_RL_matte_.dll" Component_="IM_MOD_RL_matte_.dll" FileName="IM_MO~40.DLL|IM_MOD_RL_matte_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_matte_.dll" SelfReg="false" NextFile="IM_MOD_RL_meta_.dll"/>
+    <ROW File="IM_MOD_RL_meta_.dll" Component_="IM_MOD_RL_meta_.dll" FileName="IM_MO~41.DLL|IM_MOD_RL_meta_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_meta_.dll" SelfReg="false" NextFile="IM_MOD_RL_miff_.dll"/>
+    <ROW File="IM_MOD_RL_miff_.dll" Component_="IM_MOD_RL_miff_.dll" FileName="IM_MO~42.DLL|IM_MOD_RL_miff_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_miff_.dll" SelfReg="false" NextFile="IM_MOD_RL_mono_.dll"/>
+    <ROW File="IM_MOD_RL_mono_.dll" Component_="IM_MOD_RL_mono_.dll" FileName="IM_MO~43.DLL|IM_MOD_RL_mono_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_mono_.dll" SelfReg="false" NextFile="IM_MOD_RL_mpc_.dll"/>
+    <ROW File="IM_MOD_RL_mpc_.dll" Component_="IM_MOD_RL_mpc_.dll" FileName="IM_MO~44.DLL|IM_MOD_RL_mpc_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_mpc_.dll" SelfReg="false" NextFile="IM_MOD_RL_mpeg_.dll"/>
+    <ROW File="IM_MOD_RL_mpeg_.dll" Component_="IM_MOD_RL_mpeg_.dll" FileName="IM_MO~45.DLL|IM_MOD_RL_mpeg_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_mpeg_.dll" SelfReg="false" NextFile="IM_MOD_RL_mpr_.dll"/>
+    <ROW File="IM_MOD_RL_mpr_.dll" Component_="IM_MOD_RL_mpr_.dll" FileName="IM_MO~46.DLL|IM_MOD_RL_mpr_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_mpr_.dll" SelfReg="false" NextFile="IM_MOD_RL_msl_.dll"/>
+    <ROW File="IM_MOD_RL_msl_.dll" Component_="IM_MOD_RL_msl_.dll" FileName="IM_MO~47.DLL|IM_MOD_RL_msl_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_msl_.dll" SelfReg="false" NextFile="IM_MOD_RL_mtv_.dll"/>
+    <ROW File="IM_MOD_RL_mtv_.dll" Component_="IM_MOD_RL_mtv_.dll" FileName="IM_MO~48.DLL|IM_MOD_RL_mtv_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_mtv_.dll" SelfReg="false" NextFile="IM_MOD_RL_mvg_.dll"/>
+    <ROW File="IM_MOD_RL_mvg_.dll" Component_="IM_MOD_RL_mvg_.dll" FileName="IM_MO~49.DLL|IM_MOD_RL_mvg_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_mvg_.dll" SelfReg="false" NextFile="IM_MOD_RL_null_.dll"/>
+    <ROW File="IM_MOD_RL_null_.dll" Component_="IM_MOD_RL_null_.dll" FileName="IM_MO~50.DLL|IM_MOD_RL_null_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_null_.dll" SelfReg="false" NextFile="IM_MOD_RL_otb_.dll"/>
+    <ROW File="IM_MOD_RL_otb_.dll" Component_="IM_MOD_RL_otb_.dll" FileName="IM_MO~51.DLL|IM_MOD_RL_otb_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_otb_.dll" SelfReg="false" NextFile="IM_MOD_RL_palm_.dll"/>
+    <ROW File="IM_MOD_RL_palm_.dll" Component_="IM_MOD_RL_palm_.dll" FileName="IM_MO~52.DLL|IM_MOD_RL_palm_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_palm_.dll" SelfReg="false" NextFile="IM_MOD_RL_pcd_.dll"/>
+    <ROW File="IM_MOD_RL_pcd_.dll" Component_="IM_MOD_RL_pcd_.dll" FileName="IM_MO~53.DLL|IM_MOD_RL_pcd_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pcd_.dll" SelfReg="false" NextFile="IM_MOD_RL_pcl_.dll"/>
+    <ROW File="IM_MOD_RL_pcl_.dll" Component_="IM_MOD_RL_pcl_.dll" FileName="IM_MO~54.DLL|IM_MOD_RL_pcl_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pcl_.dll" SelfReg="false" NextFile="IM_MOD_RL_pcx_.dll"/>
+    <ROW File="IM_MOD_RL_pcx_.dll" Component_="IM_MOD_RL_pcx_.dll" FileName="IM_MO~55.DLL|IM_MOD_RL_pcx_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pcx_.dll" SelfReg="false" NextFile="IM_MOD_RL_pdb_.dll"/>
+    <ROW File="IM_MOD_RL_pdb_.dll" Component_="IM_MOD_RL_pdb_.dll" FileName="IM_MO~56.DLL|IM_MOD_RL_pdb_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pdb_.dll" SelfReg="false" NextFile="IM_MOD_RL_pdf_.dll"/>
+    <ROW File="IM_MOD_RL_pdf_.dll" Component_="IM_MOD_RL_pdf_.dll" FileName="IM_MO~57.DLL|IM_MOD_RL_pdf_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pdf_.dll" SelfReg="false" NextFile="IM_MOD_RL_pict_.dll"/>
+    <ROW File="IM_MOD_RL_pict_.dll" Component_="IM_MOD_RL_pict_.dll" FileName="IM_MO~58.DLL|IM_MOD_RL_pict_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pict_.dll" SelfReg="false" NextFile="IM_MOD_RL_pix_.dll"/>
+    <ROW File="IM_MOD_RL_pix_.dll" Component_="IM_MOD_RL_pix_.dll" FileName="IM_MO~59.DLL|IM_MOD_RL_pix_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pix_.dll" SelfReg="false" NextFile="IM_MOD_RL_plasma_.dll"/>
+    <ROW File="IM_MOD_RL_plasma_.dll" Component_="IM_MOD_RL_plasma_.dll" FileName="IM_MO~60.DLL|IM_MOD_RL_plasma_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_plasma_.dll" SelfReg="false" NextFile="IM_MOD_RL_png_.dll"/>
+    <ROW File="IM_MOD_RL_png_.dll" Component_="IM_MOD_RL_png_.dll" FileName="IM_MO~61.DLL|IM_MOD_RL_png_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_png_.dll" SelfReg="false" NextFile="IM_MOD_RL_pnm_.dll"/>
+    <ROW File="IM_MOD_RL_pnm_.dll" Component_="IM_MOD_RL_pnm_.dll" FileName="IM_MO~62.DLL|IM_MOD_RL_pnm_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pnm_.dll" SelfReg="false" NextFile="IM_MOD_RL_preview_.dll"/>
+    <ROW File="IM_MOD_RL_preview_.dll" Component_="IM_MOD_RL_preview_.dll" FileName="IM_MO~63.DLL|IM_MOD_RL_preview_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_preview_.dll" SelfReg="false" NextFile="IM_MOD_RL_ps_.dll"/>
+    <ROW File="IM_MOD_RL_ps2_.dll" Component_="IM_MOD_RL_ps2_.dll" FileName="IM_MO~65.DLL|IM_MOD_RL_ps2_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_ps2_.dll" SelfReg="false" NextFile="IM_MOD_RL_ps3_.dll"/>
+    <ROW File="IM_MOD_RL_ps3_.dll" Component_="IM_MOD_RL_ps3_.dll" FileName="IM_MO~66.DLL|IM_MOD_RL_ps3_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_ps3_.dll" SelfReg="false" NextFile="IM_MOD_RL_psd_.dll"/>
+    <ROW File="IM_MOD_RL_ps_.dll" Component_="IM_MOD_RL_ps_.dll" FileName="IM_MO~64.DLL|IM_MOD_RL_ps_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_ps_.dll" SelfReg="false" NextFile="IM_MOD_RL_ps2_.dll"/>
+    <ROW File="IM_MOD_RL_psd_.dll" Component_="IM_MOD_RL_psd_.dll" FileName="IM_MO~67.DLL|IM_MOD_RL_psd_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_psd_.dll" SelfReg="false" NextFile="IM_MOD_RL_pwp_.dll"/>
+    <ROW File="IM_MOD_RL_pwp_.dll" Component_="IM_MOD_RL_pwp_.dll" FileName="IM_MO~68.DLL|IM_MOD_RL_pwp_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_pwp_.dll" SelfReg="false" NextFile="IM_MOD_RL_rgb_.dll"/>
+    <ROW File="IM_MOD_RL_rgb_.dll" Component_="IM_MOD_RL_rgb_.dll" FileName="IM_MO~69.DLL|IM_MOD_RL_rgb_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_rgb_.dll" SelfReg="false" NextFile="IM_MOD_RL_rla_.dll"/>
+    <ROW File="IM_MOD_RL_rla_.dll" Component_="IM_MOD_RL_rla_.dll" FileName="IM_MO~70.DLL|IM_MOD_RL_rla_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_rla_.dll" SelfReg="false" NextFile="IM_MOD_RL_rle_.dll"/>
+    <ROW File="IM_MOD_RL_rle_.dll" Component_="IM_MOD_RL_rle_.dll" FileName="IM_MO~71.DLL|IM_MOD_RL_rle_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_rle_.dll" SelfReg="false" NextFile="IM_MOD_RL_sct_.dll"/>
+    <ROW File="IM_MOD_RL_sct_.dll" Component_="IM_MOD_RL_sct_.dll" FileName="IM_MO~72.DLL|IM_MOD_RL_sct_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_sct_.dll" SelfReg="false" NextFile="IM_MOD_RL_sfw_.dll"/>
+    <ROW File="IM_MOD_RL_sfw_.dll" Component_="IM_MOD_RL_sfw_.dll" FileName="IM_MO~73.DLL|IM_MOD_RL_sfw_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_sfw_.dll" SelfReg="false" NextFile="IM_MOD_RL_sgi_.dll"/>
+    <ROW File="IM_MOD_RL_sgi_.dll" Component_="IM_MOD_RL_sgi_.dll" FileName="IM_MO~74.DLL|IM_MOD_RL_sgi_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_sgi_.dll" SelfReg="false" NextFile="IM_MOD_RL_stegano_.dll"/>
+    <ROW File="IM_MOD_RL_stegano_.dll" Component_="IM_MOD_RL_stegano_.dll" FileName="IM_MO~75.DLL|IM_MOD_RL_stegano_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_stegano_.dll" SelfReg="false" NextFile="IM_MOD_RL_sun_.dll"/>
+    <ROW File="IM_MOD_RL_sun_.dll" Component_="IM_MOD_RL_sun_.dll" FileName="IM_MO~76.DLL|IM_MOD_RL_sun_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_sun_.dll" SelfReg="false" NextFile="IM_MOD_RL_svg_.dll"/>
+    <ROW File="IM_MOD_RL_svg_.dll" Component_="IM_MOD_RL_svg_.dll" FileName="IM_MO~77.DLL|IM_MOD_RL_svg_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_svg_.dll" SelfReg="false" NextFile="IM_MOD_RL_tga_.dll"/>
+    <ROW File="IM_MOD_RL_tga_.dll" Component_="IM_MOD_RL_tga_.dll" FileName="IM_MO~78.DLL|IM_MOD_RL_tga_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_tga_.dll" SelfReg="false" NextFile="IM_MOD_RL_tiff_.dll"/>
+    <ROW File="IM_MOD_RL_tiff_.dll" Component_="IM_MOD_RL_tiff_.dll" FileName="IM_MO~79.DLL|IM_MOD_RL_tiff_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_tiff_.dll" SelfReg="false" NextFile="IM_MOD_RL_tile_.dll"/>
+    <ROW File="IM_MOD_RL_tile_.dll" Component_="IM_MOD_RL_tile_.dll" FileName="IM_MO~80.DLL|IM_MOD_RL_tile_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_tile_.dll" SelfReg="false" NextFile="IM_MOD_RL_tim_.dll"/>
+    <ROW File="IM_MOD_RL_tim_.dll" Component_="IM_MOD_RL_tim_.dll" FileName="IM_MO~81.DLL|IM_MOD_RL_tim_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_tim_.dll" SelfReg="false" NextFile="IM_MOD_RL_topol_.dll"/>
+    <ROW File="IM_MOD_RL_topol_.dll" Component_="IM_MOD_RL_topol_.dll" FileName="IM_MO~82.DLL|IM_MOD_RL_topol_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_topol_.dll" SelfReg="false" NextFile="IM_MOD_RL_ttf_.dll"/>
+    <ROW File="IM_MOD_RL_ttf_.dll" Component_="IM_MOD_RL_ttf_.dll" FileName="IM_MO~83.DLL|IM_MOD_RL_ttf_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_ttf_.dll" SelfReg="false" NextFile="IM_MOD_RL_txt_.dll"/>
+    <ROW File="IM_MOD_RL_txt_.dll" Component_="IM_MOD_RL_txt_.dll" FileName="IM_MO~84.DLL|IM_MOD_RL_txt_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_txt_.dll" SelfReg="false" NextFile="IM_MOD_RL_uil_.dll"/>
+    <ROW File="IM_MOD_RL_uil_.dll" Component_="IM_MOD_RL_uil_.dll" FileName="IM_MO~85.DLL|IM_MOD_RL_uil_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_uil_.dll" SelfReg="false" NextFile="IM_MOD_RL_url_.dll"/>
+    <ROW File="IM_MOD_RL_url_.dll" Component_="IM_MOD_RL_url_.dll" FileName="IM_MO~86.DLL|IM_MOD_RL_url_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_url_.dll" SelfReg="false" NextFile="IM_MOD_RL_uyvy_.dll"/>
+    <ROW File="IM_MOD_RL_uyvy_.dll" Component_="IM_MOD_RL_uyvy_.dll" FileName="IM_MO~87.DLL|IM_MOD_RL_uyvy_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_uyvy_.dll" SelfReg="false" NextFile="IM_MOD_RL_vicar_.dll"/>
+    <ROW File="IM_MOD_RL_vicar_.dll" Component_="IM_MOD_RL_vicar_.dll" FileName="IM_MO~88.DLL|IM_MOD_RL_vicar_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_vicar_.dll" SelfReg="false" NextFile="IM_MOD_RL_vid_.dll"/>
+    <ROW File="IM_MOD_RL_vid_.dll" Component_="IM_MOD_RL_vid_.dll" FileName="IM_MO~89.DLL|IM_MOD_RL_vid_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_vid_.dll" SelfReg="false" NextFile="IM_MOD_RL_viff_.dll"/>
+    <ROW File="IM_MOD_RL_viff_.dll" Component_="IM_MOD_RL_viff_.dll" FileName="IM_MO~90.DLL|IM_MOD_RL_viff_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_viff_.dll" SelfReg="false" NextFile="IM_MOD_RL_wbmp_.dll"/>
+    <ROW File="IM_MOD_RL_wbmp_.dll" Component_="IM_MOD_RL_wbmp_.dll" FileName="IM_MO~91.DLL|IM_MOD_RL_wbmp_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_wbmp_.dll" SelfReg="false" NextFile="IM_MOD_RL_webp_.dll"/>
+    <ROW File="IM_MOD_RL_webp_.dll" Component_="IM_MOD_RL_webp_.dll" FileName="IM_MO~92.DLL|IM_MOD_RL_webp_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_webp_.dll" SelfReg="false" NextFile="IM_MOD_RL_wmf_.dll"/>
+    <ROW File="IM_MOD_RL_wmf_.dll" Component_="IM_MOD_RL_wmf_.dll" FileName="IM_MO~93.DLL|IM_MOD_RL_wmf_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_wmf_.dll" SelfReg="false" NextFile="IM_MOD_RL_wpg_.dll"/>
+    <ROW File="IM_MOD_RL_wpg_.dll" Component_="IM_MOD_RL_wpg_.dll" FileName="IM_MO~94.DLL|IM_MOD_RL_wpg_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_wpg_.dll" SelfReg="false" NextFile="IM_MOD_RL_x_.dll"/>
+    <ROW File="IM_MOD_RL_x_.dll" Component_="IM_MOD_RL_x_.dll" FileName="IM_MO~95.DLL|IM_MOD_RL_x_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_x_.dll" SelfReg="false" NextFile="IM_MOD_RL_xbm_.dll"/>
+    <ROW File="IM_MOD_RL_xbm_.dll" Component_="IM_MOD_RL_xbm_.dll" FileName="IM_MO~96.DLL|IM_MOD_RL_xbm_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_xbm_.dll" SelfReg="false" NextFile="IM_MOD_RL_xc_.dll"/>
+    <ROW File="IM_MOD_RL_xc_.dll" Component_="IM_MOD_RL_xc_.dll" FileName="IM_MO~97.DLL|IM_MOD_RL_xc_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_xc_.dll" SelfReg="false" NextFile="IM_MOD_RL_xcf_.dll"/>
+    <ROW File="IM_MOD_RL_xcf_.dll" Component_="IM_MOD_RL_xcf_.dll" FileName="IM_MO~98.DLL|IM_MOD_RL_xcf_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_xcf_.dll" SelfReg="false" NextFile="IM_MOD_RL_xpm_.dll"/>
+    <ROW File="IM_MOD_RL_xpm_.dll" Component_="IM_MOD_RL_xpm_.dll" FileName="IM_MO~99.DLL|IM_MOD_RL_xpm_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_xpm_.dll" SelfReg="false" NextFile="IM_MOD_RL_xtrn_.dll"/>
+    <ROW File="IM_MOD_RL_xtrn_.dll" Component_="IM_MOD_RL_xtrn_.dll" FileName="IM_M~100.DLL|IM_MOD_RL_xtrn_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_xtrn_.dll" SelfReg="false" NextFile="IM_MOD_RL_xwd_.dll"/>
+    <ROW File="IM_MOD_RL_xwd_.dll" Component_="IM_MOD_RL_xwd_.dll" FileName="IM_M~101.DLL|IM_MOD_RL_xwd_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_xwd_.dll" SelfReg="false" NextFile="IM_MOD_RL_yuv_.dll"/>
+    <ROW File="IM_MOD_RL_yuv_.dll" Component_="IM_MOD_RL_yuv_.dll" FileName="IM_M~102.DLL|IM_MOD_RL_yuv_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_yuv_.dll" SelfReg="false" NextFile="vcomp140.dll"/>
+    <ROW File="PhotoFlare.exe" Component_="PhotoFlare.exe" FileName="PHOTOF~1.EXE|photoflare.exe" Version="1.5.5.0" Attributes="0" SourcePath="PhotoFlare_Win_AIP\PhotoFlare.exe" SelfReg="false" NextFile="CORE_RL_bzlib_.dll" DigSign="true"/>
+    <ROW File="Qt5Core.dll" Component_="Qt5Core.dll" FileName="Qt5Core.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\Qt5Core.dll" SelfReg="false" NextFile="Qt5Gui.dll"/>
+    <ROW File="Qt5Gui.dll" Component_="Qt5Gui.dll" FileName="Qt5Gui.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\Qt5Gui.dll" SelfReg="false" NextFile="Qt5Network.dll"/>
+    <ROW File="Qt5Network.dll" Component_="Qt5Network.dll" FileName="QT5NET~1.DLL|Qt5Network.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\Qt5Network.dll" SelfReg="false" NextFile="Qt5PrintSupport.dll"/>
+    <ROW File="Qt5PrintSupport.dll" Component_="Qt5PrintSupport.dll" FileName="QT5PRI~1.DLL|Qt5PrintSupport.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\Qt5PrintSupport.dll" SelfReg="false" NextFile="Qt5Widgets.dll"/>
+    <ROW File="Qt5Widgets.dll" Component_="Qt5Widgets.dll" FileName="QT5WID~1.DLL|Qt5Widgets.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\Qt5Widgets.dll" SelfReg="false" NextFile="qgif.dll"/>
+    <ROW File="cs.qm" Component_="de.qm_1" FileName="cs.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\cs.qm" SelfReg="false"/>
+    <ROW File="de.qm_1" Component_="de.qm_1" FileName="de.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\de.qm" SelfReg="false" NextFile="en.qm_1"/>
+    <ROW File="en.qm_1" Component_="de.qm_1" FileName="en.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\en.qm" SelfReg="false" NextFile="fr.qm_1"/>
+    <ROW File="fr.qm_1" Component_="de.qm_1" FileName="fr.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\fr.qm" SelfReg="false" NextFile="nl.qm_1"/>
+    <ROW File="nl.qm_1" Component_="de.qm_1" FileName="nl.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\nl.qm" SelfReg="false" NextFile="zh_TW.qm_1"/>
+    <ROW File="qgif.dll" Component_="qgif.dll" FileName="qgif.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qgif.dll" SelfReg="false" NextFile="qicns.dll"/>
+    <ROW File="qicns.dll" Component_="qicns.dll" FileName="qicns.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qicns.dll" SelfReg="false" NextFile="qico.dll"/>
+    <ROW File="qico.dll" Component_="qico.dll" FileName="qico.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qico.dll" SelfReg="false" NextFile="qjpeg.dll"/>
+    <ROW File="qjpeg.dll" Component_="qjpeg.dll" FileName="qjpeg.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qjpeg.dll" SelfReg="false" NextFile="qsvg.dll"/>
+    <ROW File="qminimal.dll" Component_="qminimal.dll" FileName="qminimal.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\platforms\qminimal.dll" SelfReg="false" NextFile="qwindows.dll"/>
+    <ROW File="qsvg.dll" Component_="qsvg.dll" FileName="qsvg.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qsvg.dll" SelfReg="false" NextFile="qtga.dll"/>
+    <ROW File="qtga.dll" Component_="qtga.dll" FileName="qtga.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qtga.dll" SelfReg="false" NextFile="qtiff.dll"/>
+    <ROW File="qtiff.dll" Component_="qtiff.dll" FileName="qtiff.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qtiff.dll" SelfReg="false" NextFile="qwbmp.dll"/>
+    <ROW File="qwbmp.dll" Component_="qwbmp.dll" FileName="qwbmp.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qwbmp.dll" SelfReg="false" NextFile="qwebp.dll"/>
+    <ROW File="qwebp.dll" Component_="qwebp.dll" FileName="qwebp.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qwebp.dll" SelfReg="false" NextFile="qminimal.dll"/>
+    <ROW File="qwindows.dll" Component_="qwindows.dll" FileName="qwindows.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\platforms\qwindows.dll" SelfReg="false" NextFile="windowsprintersupport.dll"/>
+    <ROW File="vcomp140.dll" Component_="vcomp140.dll" FileName="vcomp140.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\vcomp140.dll" SelfReg="false" NextFile="de.qm_1"/>
+    <ROW File="windowsprintersupport.dll" Component_="windowsprintersupport.dll" FileName="WINDOW~1.DLL|windowsprintersupport.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\printsupport\windowsprintersupport.dll" SelfReg="false" NextFile="CORE_RL_jbig_.dll"/>
+    <ROW File="zh_TW.qm_1" Component_="de.qm_1" FileName="zh_TW.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\zh_TW.qm" SelfReg="false" NextFile="cs.qm"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true" MsiPackageType="x64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+    <ROW Dialog_="FolderDlg" Control_="Browse" Event="[_BrowseProperty]" Argument="APPDIR" Condition="1" Ordering="100" MsiKey="FolderDlg#Browse#[_BrowseProperty]#APPDIR#1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="SetTargetPath" Argument="APPDIR" Condition="1" Ordering="200" MsiKey="FolderDlg#Next#SetTargetPath#APPDIR#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="[InstallMode]" Argument="Change" Condition="1" Ordering="100" MsiKey="MaintenanceTypeDlg#ChangeButton#[InstallMode]#Change#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="[Progress1]" Argument="[CtrlEvtChanging]" Condition="1" Ordering="200" MsiKey="MaintenanceTypeDlg#ChangeButton#[Progress1]#[CtrlEvtChanging]#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="[Progress2]" Argument="[CtrlEvtchanges]" Condition="1" Ordering="300" MsiKey="MaintenanceTypeDlg#ChangeButton#[Progress2]#[CtrlEvtchanges]#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="[AI_INSTALL_MODE]" Argument="Change" Condition="1" Ordering="400" MsiKey="MaintenanceTypeDlg#ChangeButton#[AI_INSTALL_MODE]#Change#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="[AI_CommitButton]" Argument="ButtonText_Install" Condition="1" Ordering="500" MsiKey="MaintenanceTypeDlg#ChangeButton#[AI_CommitButton]#ButtonText_Install#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="[InstallMode]" Argument="Remove" Condition="1" Ordering="100" MsiKey="MaintenanceTypeDlg#RemoveButton#[InstallMode]#Remove#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="[Progress1]" Argument="[CtrlEvtRemoving]" Condition="1" Ordering="200" MsiKey="MaintenanceTypeDlg#RemoveButton#[Progress1]#[CtrlEvtRemoving]#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="[Progress2]" Argument="[CtrlEvtremoves]" Condition="1" Ordering="300" MsiKey="MaintenanceTypeDlg#RemoveButton#[Progress2]#[CtrlEvtremoves]#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="[AI_INSTALL_MODE]" Argument="Remove" Condition="1" Ordering="500" MsiKey="MaintenanceTypeDlg#RemoveButton#[AI_INSTALL_MODE]#Remove#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="[AI_CommitButton]" Argument="ButtonText_Remove" Condition="1" Ordering="600" MsiKey="MaintenanceTypeDlg#RemoveButton#[AI_CommitButton]#ButtonText_Remove#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="[InstallMode]" Argument="Repair" Condition="1" Ordering="100" MsiKey="MaintenanceTypeDlg#RepairButton#[InstallMode]#Repair#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="[Progress1]" Argument="[CtrlEvtRepairing]" Condition="1" Ordering="200" MsiKey="MaintenanceTypeDlg#RepairButton#[Progress1]#[CtrlEvtRepairing]#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="[Progress2]" Argument="[CtrlEvtrepairs]" Condition="1" Ordering="300" MsiKey="MaintenanceTypeDlg#RepairButton#[Progress2]#[CtrlEvtrepairs]#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="[AI_INSTALL_MODE]" Argument="Repair" Condition="1" Ordering="500" MsiKey="MaintenanceTypeDlg#RepairButton#[AI_INSTALL_MODE]#Repair#1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="[AI_CommitButton]" Argument="ButtonText_Repair" Condition="1" Ordering="600" MsiKey="MaintenanceTypeDlg#RepairButton#[AI_CommitButton]#ButtonText_Repair#1"/>
+    <ROW Dialog_="AdminBrowseDlg" Control_="Cancel" Event="EndDialog" Argument="Return" Condition="1" Ordering="200" MsiKey="AdminBrowseDlg#Cancel#EndDialog#Return#1"/>
+    <ROW Dialog_="AdminBrowseDlg" Control_="OK" Event="EndDialog" Argument="Return" Condition="1" Ordering="200" MsiKey="AdminBrowseDlg#OK#EndDialog#Return#1"/>
+    <ROW Dialog_="AdminBrowseDlg" Control_="OK" Event="SetTargetPath" Argument="TARGETDIR" Condition="1" Ordering="100" MsiKey="AdminBrowseDlg#OK#SetTargetPath#TARGETDIR#1"/>
+    <ROW Dialog_="AdminInstallPointDlg" Control_="Next" Event="SetTargetPath" Argument="TARGETDIR" Condition="1" Ordering="100" MsiKey="AdminInstallPointDlg#Next#SetTargetPath#TARGETDIR#1"/>
+    <ROW Dialog_="AdminWelcomeDlg" Control_="Next" Event="[InstallMode]" Argument="Server Image" Condition="1" Ordering="100" MsiKey="AdminWelcomeDlg#Next#[InstallMode]#Server Image#1"/>
+    <ROW Dialog_="BrowseDlg" Control_="Cancel" Event="EndDialog" Argument="Return" Condition="1" Ordering="200" MsiKey="BrowseDlg#Cancel#EndDialog#Return#1"/>
+    <ROW Dialog_="BrowseDlg" Control_="OK" Event="EndDialog" Argument="Return" Condition="1" Ordering="200" MsiKey="BrowseDlg#OK#EndDialog#Return#1"/>
+    <ROW Dialog_="BrowseDlg" Control_="OK" Event="SetTargetPath" Argument="[_BrowseProperty]" Condition="1" Ordering="100" MsiKey="BrowseDlg#OK#SetTargetPath#[_BrowseProperty]#1"/>
+    <ROW Dialog_="CancelDlg" Control_="No" Event="EndDialog" Argument="Return" Condition="1" Ordering="100" MsiKey="CancelDlg#No#EndDialog#Return#1"/>
+    <ROW Dialog_="CancelDlg" Control_="Yes" Event="EndDialog" Argument="Exit" Condition="1" Ordering="100" MsiKey="CancelDlg#Yes#EndDialog#Exit#1"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="DoAction" Argument="AI_InstallModeCheck" Condition="AI_MAINT" Ordering="100" MsiKey="CustomizeDlg#Next#DoAction#AI_InstallModeCheck#AI_MAINT"/>
+    <ROW Dialog_="DiskCostDlg" Control_="OK" Event="EndDialog" Argument="Return" Condition="1" Ordering="100" MsiKey="DiskCostDlg#OK#EndDialog#Return#1"/>
+    <ROW Dialog_="ErrorDlg" Control_="A" Event="EndDialog" Argument="ErrorAbort" Condition="1" Ordering="100" MsiKey="ErrorDlg#A#EndDialog#ErrorAbort#1"/>
+    <ROW Dialog_="ErrorDlg" Control_="C" Event="EndDialog" Argument="ErrorCancel" Condition="1" Ordering="100" MsiKey="ErrorDlg#C#EndDialog#ErrorCancel#1"/>
+    <ROW Dialog_="ErrorDlg" Control_="I" Event="EndDialog" Argument="ErrorIgnore" Condition="1" Ordering="100" MsiKey="ErrorDlg#I#EndDialog#ErrorIgnore#1"/>
+    <ROW Dialog_="ErrorDlg" Control_="N" Event="EndDialog" Argument="ErrorNo" Condition="1" Ordering="100" MsiKey="ErrorDlg#N#EndDialog#ErrorNo#1"/>
+    <ROW Dialog_="ErrorDlg" Control_="O" Event="EndDialog" Argument="ErrorOk" Condition="1" Ordering="100" MsiKey="ErrorDlg#O#EndDialog#ErrorOk#1"/>
+    <ROW Dialog_="ErrorDlg" Control_="R" Event="EndDialog" Argument="ErrorRetry" Condition="1" Ordering="100" MsiKey="ErrorDlg#R#EndDialog#ErrorRetry#1"/>
+    <ROW Dialog_="ErrorDlg" Control_="Y" Event="EndDialog" Argument="ErrorYes" Condition="1" Ordering="100" MsiKey="ErrorDlg#Y#EndDialog#ErrorYes#1"/>
+    <ROW Dialog_="ExitDialog" Control_="Finish" Event="DoAction" Argument="AI_LaunchApp" Condition="(RUNAPPLICATION=1) AND (AI_INSTALL OR AI_PATCH)" Ordering="200" MsiKey="ExitDialog#Finish#DoAction#AI_LaunchApp#(RUNAPPLICATION=1) AND (AI_INSTALL OR AI_PATCH)"/>
+    <ROW Dialog_="ExitDialog" Control_="Finish" Event="DoAction" Argument="AI_ViewReadme" Condition="(VIEWREADME=1) AND (AI_INSTALL OR AI_PATCH)" Ordering="100" MsiKey="ExitDialog#Finish#DoAction#AI_ViewReadme#(VIEWREADME=1) AND (AI_INSTALL OR AI_PATCH)"/>
+    <ROW Dialog_="ExitDialog" Control_="Finish" Event="EndDialog" Argument="Return" Condition="1" Ordering="300" MsiKey="ExitDialog#Finish#EndDialog#Return#1"/>
+    <ROW Dialog_="ExitDialog" Control_="Cancel" Event="EndDialog" Argument="Return" Condition="1" Ordering="100" MsiKey="ExitDialog#Cancel#EndDialog#Return#1"/>
+    <ROW Dialog_="FatalError" Control_="Finish" Event="EndDialog" Argument="Exit" Condition="1" Ordering="100" MsiKey="FatalError#Finish#EndDialog#Exit#1"/>
+    <ROW Dialog_="FatalError" Control_="Finish" Event="DoAction" Argument="AI_SHOW_LOG" Condition="(MsiLogFileLocation AND AI_LOG_CHECKBOX)" Ordering="101" MsiKey="FatalError#Finish#DoAction#AI_SHOW_LOG#(MsiLogFileLocation AND AI_LOG_CHECKBOX)"/>
+    <ROW Dialog_="FatalError" Control_="Cancel" Event="EndDialog" Argument="Exit" Condition="1" Ordering="100" MsiKey="FatalError#Cancel#EndDialog#Exit#1"/>
+    <ROW Dialog_="FilesInUse" Control_="Exit" Event="EndDialog" Argument="Exit" Condition="1" Ordering="100" MsiKey="FilesInUse#Exit#EndDialog#Exit#1"/>
+    <ROW Dialog_="FilesInUse" Control_="Ignore" Event="EndDialog" Argument="Ignore" Condition="1" Ordering="100" MsiKey="FilesInUse#Ignore#EndDialog#Ignore#1"/>
+    <ROW Dialog_="FilesInUse" Control_="Retry" Event="EndDialog" Argument="Retry" Condition="1" Ordering="100" MsiKey="FilesInUse#Retry#EndDialog#Retry#1"/>
+    <ROW Dialog_="OutOfDiskDlg" Control_="OK" Event="EndDialog" Argument="Return" Condition="1" Ordering="100" MsiKey="OutOfDiskDlg#OK#EndDialog#Return#1"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control_="No" Event="EndDialog" Argument="Return" Condition="1" Ordering="100" MsiKey="OutOfRbDiskDlg#No#EndDialog#Return#1"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control_="Yes" Event="EnableRollback" Argument="False" Condition="1" Ordering="100" MsiKey="OutOfRbDiskDlg#Yes#EnableRollback#False#1"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control_="Yes" Event="EndDialog" Argument="Return" Condition="1" Ordering="200" MsiKey="OutOfRbDiskDlg#Yes#EndDialog#Return#1"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EnableRollback" Argument="False" Condition="OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="500" MsiKey="ResumeDlg#Install#EnableRollback#False#OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;"/>
+    <ROW Dialog_="UserExit" Control_="Finish" Event="EndDialog" Argument="Exit" Condition="1" Ordering="100" MsiKey="UserExit#Finish#EndDialog#Exit#1"/>
+    <ROW Dialog_="UserExit" Control_="Cancel" Event="EndDialog" Argument="Exit" Condition="1" Ordering="100" MsiKey="UserExit#Cancel#EndDialog#Exit#1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_ADMIN AND InstallMode = &quot;Server Image&quot;" Ordering="150" MsiKey="VerifyReadyDlg#Install#EndDialog#Return#AI_ADMIN AND InstallMode = &quot;Server Image&quot;"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EnableRollback" Argument="False" Condition="OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="400" MsiKey="VerifyReadyDlg#Install#EnableRollback#False#OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;"/>
+    <ROW Dialog_="WaitForCostingDlg" Control_="Return" Event="EndDialog" Argument="Exit" Condition="1" Ordering="100" MsiKey="WaitForCostingDlg#Return#EndDialog#Exit#1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="ReinstallMode" Argument="ecmus" Condition="AI_PATCH" Ordering="100" MsiKey="PatchWelcomeDlg#Next#ReinstallMode#ecmus#AI_PATCH"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="Reinstall" Argument="All" Condition="AI_PATCH" Ordering="200" MsiKey="PatchWelcomeDlg#Next#Reinstall#All#AI_PATCH"/>
+    <ROW Dialog_="MsiRMFilesInUse" Control_="Cancel" Event="EndDialog" Argument="Exit" Condition="1" Ordering="100" MsiKey="MsiRMFilesInUse#Cancel#EndDialog#Exit#1"/>
+    <ROW Dialog_="MsiRMFilesInUse" Control_="OK" Event="EndDialog" Argument="Return" Condition="1" Ordering="200" MsiKey="MsiRMFilesInUse#OK#EndDialog#Return#1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EnableRollback" Argument="False" Condition="OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="500" MsiKey="VerifyRemoveDlg#Remove#EnableRollback#False#OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="Remove" Argument="ALL" Condition="OutOfDiskSpace &lt;&gt; 1" Ordering="100" MsiKey="VerifyRemoveDlg#Remove#Remove#All#OutOfDiskSpace &lt;&gt; 1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EnableRollback" Argument="False" Condition="OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="600" MsiKey="VerifyRepairDlg#Repair#EnableRollback#False#OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="Reinstall" Argument="All" Condition="OutOfDiskSpace &lt;&gt; 1" Ordering="200" MsiKey="VerifyRepairDlg#Repair#Reinstall#All#OutOfDiskSpace &lt;&gt; 1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="ReinstallMode" Argument="ecmus" Condition="OutOfDiskSpace &lt;&gt; 1" Ordering="100" MsiKey="VerifyRepairDlg#Repair#ReinstallMode#ecmus#OutOfDiskSpace &lt;&gt; 1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFiles64Folder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="PhotoFlare_1.exe" SourcePath="PhotoFlare_Win_AIP\logo.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="201"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT64 OR ((VersionNT &lt;&gt; 501) OR (ServicePackLevel = 3))) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel = 2))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="PhotoFiltreLX" Directory_="SHORTCUTDIR" Name="PHOTOF~1|PhotoFlare" Component_="PhotoFlare.exe" Target="[APPDIR]\PhotoFlare" Arguments="Your Arguments" Description="Simple but powerful image editor" Hotkey="0" Icon_="PhotoFlare_1.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>
