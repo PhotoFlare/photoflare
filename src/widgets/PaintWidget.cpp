@@ -33,7 +33,6 @@ public:
 
         isSelectionVisible = true;
         hotspotVisible = false;
-        selection = QRect();
     }
     ~PaintWidgetPrivate()
     {

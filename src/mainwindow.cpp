@@ -1711,7 +1711,7 @@ void MainWindow::on_actionCrop_triggered()
     if (widget)
     {
         MOUSE_POINTER->onCrop();
-        widget->onSelectionChanged(QRect());
+        widget->onSelectionChanged(QPolygon());
     }
 }
 

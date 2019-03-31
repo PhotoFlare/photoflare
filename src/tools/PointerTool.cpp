@@ -58,7 +58,7 @@ void PointerTool::onCrop()
 {
     const QRect &rect = QRect(d->firstPos, d->secondPos);
     d->secondPos = d->firstPos;
-    emit selectionChanged(QRect());
+    emit selectionChanged(QPolygon());
     emit crop(rect);
 }
 
@@ -270,7 +270,7 @@ void PointerTool::onMouseRelease(const QPoint &pos)
     {
         if(d->firstPos == d->secondPos)
         {
-            emit selectionChanged(QRect());
+            emit selectionChanged(QPolygon());
         }
         else
         {
