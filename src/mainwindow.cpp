@@ -757,6 +757,7 @@ void MainWindow::on_actionPaste_triggered()
 
 void MainWindow::on_actionPaste_as_new_image_triggered()
 {
+    on_actionCopy_triggered();
     PaintWidget *widget = getCurrentPaintWidget();
     QClipboard *clipboard = QApplication::clipboard();
     if(clipboard->mimeData()->hasImage())
