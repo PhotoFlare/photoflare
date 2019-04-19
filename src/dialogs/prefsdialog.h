@@ -40,6 +40,10 @@ private slots:
 
     void on_buttonBox_rejected();
 
+    void on_compressionSlider_valueChanged(int value);
+
+    void on_historySlider_valueChanged(int value);
+
 private:
     Ui::prefsDialog *ui;
     QString flagPath;
