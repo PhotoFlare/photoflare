@@ -21,6 +21,7 @@ checkupdateDialog::checkupdateDialog(QWidget *parent) :
     ui(new Ui::checkupdateDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
     ui->downloadButton->setVisible(false);
 
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);

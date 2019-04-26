@@ -35,6 +35,7 @@ NewDialog::NewDialog(QWidget *parent) :
     ui(new Ui::NewDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     // Set default values
     original_width_px = 0;

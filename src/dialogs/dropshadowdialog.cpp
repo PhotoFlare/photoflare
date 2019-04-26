@@ -10,6 +10,7 @@ dropshadowDialog::dropshadowDialog(QWidget *parent) :
     ui(new Ui::dropshadowDialog)
 {
     ui->setupUi(this);
+    setFixedSize(size());
 
     for(int i=Qt::white; i <= Qt::yellow; i++)
     {
