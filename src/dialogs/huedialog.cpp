@@ -122,7 +122,7 @@ void HueDialog::setPreviewImage(const QImage& image)
     }
 }
 
-void HueDialog::on_method1_toggled(bool checked)
+void HueDialog::on_method1_toggled()
 {
     on_horizontalSlider_valueChanged(ui->horizontalSlider->value());
 }

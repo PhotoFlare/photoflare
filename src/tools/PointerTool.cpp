@@ -305,6 +305,7 @@ void PointerTool::onMouseRelease(const QPoint &pos)
 
 void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
 {
+    Q_UNUSED(keyEvent);
     /*
     QRect rect(d->firstPos,d->secondPos);
 
