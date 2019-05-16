@@ -172,10 +172,13 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                     emit cursorChanged(Qt::OpenHandCursor);
                 }
             }
-            break;
-        case Qt::RightButton: {
-                setupRightClickMenu(true);
-            }
+        break;
+        case Qt::RightButton:
+        {
+            setupRightClickMenu(true);
+        }
+        break;
+        default:
         break;
     }
 }

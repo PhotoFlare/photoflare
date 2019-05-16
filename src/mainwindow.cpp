@@ -348,7 +348,7 @@ void MainWindow::on_actionOpen_triggered()
     {
         for(int i=0;i<fileName.length();i++)
         {
-            openFile(fileName[i], false);
+            openFile(fileName[i]);
         }
 
         if(SETTINGS->getPreviouslyOpened() == true)
@@ -406,7 +406,7 @@ QString MainWindow::prepareFile(const QString& fileName)
     return newFileName;
 }
 
-void MainWindow::openFile(const QString& fileName, bool direct)
+void MainWindow::openFile(const QString& fileName)
 {
     if(!fileExists(fileName))
     {
@@ -429,7 +429,7 @@ void MainWindow::handleMessage(const QString& message)
 {
     QFileInfo fileInfo(message);
     if(fileInfo.exists())
-        openFile(QString(fileInfo.absoluteFilePath()),true);
+        openFile(QString(fileInfo.absoluteFilePath()));
 }
 
 void MainWindow::on_actionRevert_triggered()
@@ -461,7 +461,7 @@ void MainWindow::updateRecentFilesMenu()
         {
             QAction* action = ui->menuRecent_Files->addAction(fileName);
             connect(action, &QAction::triggered, [this, fileName] () {
-                openFile(fileName,false);
+                openFile(fileName);
             });
         }
     }
@@ -539,7 +539,7 @@ void MainWindow::on_actionSave_As_triggered()
 
         int quality = -1;
 
-        if(SETTINGS->getCompressionDialogEnabled() && fileNameSuffix == "jpg" || fileNameSuffix == "jpeg")
+        if(SETTINGS->getCompressionDialogEnabled() && (fileNameSuffix == "jpg" || fileNameSuffix == "jpeg"))
         {
             CompressionDialog dlg;
             dlg.exec();
