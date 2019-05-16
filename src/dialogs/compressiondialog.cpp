@@ -39,3 +39,8 @@ void CompressionDialog::on_buttonBox_rejected()
 {
     this->enableSaveImage = false;
 }
+
+void CompressionDialog::on_horizontalSlider_valueChanged(int value)
+{
+    ui->valueLabel->setText(QString::number(value));
+}

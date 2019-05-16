@@ -30,6 +30,8 @@ private slots:
 
     void on_buttonBox_rejected();
 
+    void on_horizontalSlider_valueChanged(int value);
+
 private:
     Ui::CompressionDialog *ui;
 };
