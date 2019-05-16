@@ -179,7 +179,7 @@ public:
         if (currentTool)
         {
             currentTool->onMouseRelease(QPoint(event->scenePos().x(), event->scenePos().y()));
-            if(currentTool->objectName() != "PointerTool" && imageChanged)
+            if(q->selection().size()==0 && imageChanged)
             {
                 q->onContentChanged();
                 q->contentChanged();
