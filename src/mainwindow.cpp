@@ -1458,7 +1458,7 @@ void MainWindow::getNextZoomFromScale(QString scaletext)
 
         if(a > b)
         {
-            this->zoomCombo->setCurrentIndex(i);
+            this->zoomCombo->setCurrentIndex(i-1);
             break;
         }
     }
