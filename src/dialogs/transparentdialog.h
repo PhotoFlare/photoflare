@@ -25,18 +25,11 @@ public:
     QColor color() {return m_color;}
     int tolerance();
 private slots:
-    void on_horizontalSlider_sliderMoved(int position);
-
     void on_horizontalSlider_valueChanged(int value);
-
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
-
     void on_pushButton_3_clicked();
-
     void readSettings(QWidget* window);
-
     void writeSettings(QWidget* window);
 
 signals:

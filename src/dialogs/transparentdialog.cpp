@@ -30,10 +30,6 @@ TransparentDialog::~TransparentDialog()
     delete ui;
 }
 
-void TransparentDialog::on_horizontalSlider_sliderMoved(int value)
-{
-}
-
 void TransparentDialog::setColor(QRgb color)
 {
     m_color = QColor(color);
