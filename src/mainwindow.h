@@ -212,6 +212,7 @@ private slots:
 
     QString prepareFile(const QString& fileName);
     bool fileTypeSupported(QList<QByteArray> formats, QString ext);
+    void getNextZoomFromScale(QString scaletext);
 
 protected:
     void closeEvent(QCloseEvent *event);

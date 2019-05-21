@@ -1448,9 +1448,30 @@ void MainWindow::on_actionShow_grid_triggered()
     }
 }
 
+void MainWindow::getNextZoomFromScale(QString scaletext)
+{
+    int count = this->zoomCombo->count();
+    for(int i=1;i<count;i++)
+    {
+        int a = this->zoomCombo->itemText(i).replace("%","").toInt();
+        int b = scaletext.replace("%","").toInt();
+
+        if(a > b)
+        {
+            this->zoomCombo->setCurrentIndex(i);
+            break;
+        }
+    }
+}
+
 void MainWindow::on_actionZoom_in_triggered()
 {
-    if(this->zoomCombo->currentIndex()+1 < this->zoomCombo->count())
+    if(this->zoomCombo->currentIndex()==0)
+    {
+        getNextZoomFromScale(this->zoomCombo->currentText());
+    }
+
+    if(this->zoomCombo->currentIndex()+1 < this->zoomCombo->count() && this->zoomCombo->currentIndex()>0)
     {
         this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
     }
