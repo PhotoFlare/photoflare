@@ -21,6 +21,12 @@
   <property name="windowTitle">
    <string>New</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
@@ -166,11 +172,17 @@
       <height>27</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="frame">
      <bool>true</bool>
     </property>
     <property name="readOnly">
      <bool>true</bool>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
     </property>
     <property name="decimals">
      <number>0</number>
@@ -188,8 +200,14 @@
       <height>27</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="readOnly">
      <bool>true</bool>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
     </property>
     <property name="decimals">
      <number>0</number>
@@ -207,8 +225,14 @@
       <height>27</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="readOnly">
      <bool>true</bool>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
     </property>
     <property name="maximum">
      <double>9999999.000000000000000</double>
