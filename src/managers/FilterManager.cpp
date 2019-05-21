@@ -756,11 +756,9 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
             if((i == magickImage->columns() - 1) && marked)
                 marked = false;
 
-            if(magickImage->pixelColor(i,j) == Magick::ColorRGB (0, 0, 0) && !marked ||
-               magickImage->pixelColor(i,j) != Magick::ColorRGB(0, 0, 0) && marked )
+            if( (magickImage->pixelColor(i,j) == Magick::ColorRGB (0, 0, 0) && !marked) || (magickImage->pixelColor(i,j) != Magick::ColorRGB(0, 0, 0) && marked) )
             {
                 polygon<<QPoint(i,j);
-                //marked = !marked;
                 break;
             }
         }
@@ -774,8 +772,7 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
             if((i == magickImage->columns() - 1) && marked)
                 marked = false;
 
-            if(magickImage->pixelColor(i,j) == Magick::ColorRGB(0, 0, 0) && !marked ||
-               magickImage->pixelColor(i,j) != Magick::ColorRGB(0, 0, 0) && marked )
+            if((magickImage->pixelColor(i,j) == Magick::ColorRGB(0, 0, 0) && !marked) || (magickImage->pixelColor(i,j) != Magick::ColorRGB(0, 0, 0) && marked) )
             {
                 polygon<<QPoint(i,j);
                 break;
