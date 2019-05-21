@@ -2227,6 +2227,7 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionCrop->setShortcut(QString("Ctrl+Shift+H"));
     //View Menu
     ui->actionToolpalette->setShortcut(QString("Ctrl+L"));
+    ui->actionFull_screen->setShortcut(QString("Ctrl+F"));
 }
 
 /*
