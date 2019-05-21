@@ -1450,7 +1450,11 @@ void MainWindow::on_actionShow_grid_triggered()
 
 void MainWindow::on_actionZoom_in_triggered()
 {
-    this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
+    if(this->zoomCombo->currentIndex()+1 < this->zoomCombo->count())
+    {
+        this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
+    }
+
     if(this->zoomCombo->currentText() == "")
     {
         this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
@@ -1465,7 +1469,7 @@ void MainWindow::on_actionZoom_in_triggered()
 
 void MainWindow::on_actionZoom_out_triggered()
 {
-    if(this->zoomCombo->currentIndex() > 0)
+    if(this->zoomCombo->currentIndex()-1 > 1)
     {
         this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()-1);
     }
@@ -2227,6 +2231,8 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionCrop->setShortcut(QString("Ctrl+Shift+H"));
     //View Menu
     ui->actionToolpalette->setShortcut(QString("Ctrl+L"));
+    ui->actionZoom_in->setShortcut(QKeySequence::ZoomIn);
+    ui->actionZoom_out->setShortcut(QKeySequence::ZoomOut);
     ui->actionFull_screen->setShortcut(QString("Ctrl+F"));
 }
 
