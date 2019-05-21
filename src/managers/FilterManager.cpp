@@ -138,7 +138,7 @@ QImage FilterManager::colorize(const QImage &image, QColor color, double str, bo
     if(useContrast)
     {
         QImage modifiedImage = applyEffectToImage(image, e);
-        QImage newImage = setContrast(modifiedImage,5,0);
+        QImage newImage = setContrast(modifiedImage,5);
         return newImage;
     }
     else
@@ -590,30 +590,7 @@ QImage FilterManager::rotateCW(const QImage &image)
     return image.transformed(QMatrix().rotate(90.0));
 }
 
-static Magick::ChannelType channelById(int channelId)
-{
-    switch(channelId)
-    {
-    case 0:
-        return Magick::AllChannels;
-    case 1:
-        return Magick::RedChannel;
-    case 2:
-        return Magick::GreenChannel;
-    case 3:
-        return Magick::BlueChannel;
-    case 4:
-        return Magick::CyanChannel;
-    case 5:
-        return Magick::MagentaChannel;
-    case 6:
-        return Magick::YellowChannel;
-    default:
-        return Magick::AllChannels;
-    }
-}
-
-QImage FilterManager::setBrightness(const QImage &image, int brightness, int channelId)
+QImage FilterManager::setBrightness(const QImage &image, int brightness)
 {
   //16.04
   /*
@@ -626,7 +603,6 @@ QImage FilterManager::setBrightness(const QImage &image, int brightness, int cha
         return modifiedImage;
   */
   
-    Q_UNUSED(channelId);
     QImage modifiedImage = image;
 
     for(int i=0; i<modifiedImage.width(); i++)
@@ -641,9 +617,8 @@ QImage FilterManager::setBrightness(const QImage &image, int brightness, int cha
     return modifiedImage;
 }
 
-QImage FilterManager::setSaturation(const QImage &image, int saturation, int channelId)
+QImage FilterManager::setSaturation(const QImage &image, int saturation)
 {
-    Q_UNUSED(channelId);
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->modulate(100.0f, saturation + 100.0f, 100.0f);
 
@@ -653,9 +628,8 @@ QImage FilterManager::setSaturation(const QImage &image, int saturation, int cha
     return modifiedImage;
 }
 
-QImage FilterManager::setContrast(const QImage &image, int contrast, int channelId)
+QImage FilterManager::setContrast(const QImage &image, int contrast)
 {
-    Q_UNUSED(channelId);
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->contrast(contrast);
 
@@ -665,9 +639,8 @@ QImage FilterManager::setContrast(const QImage &image, int contrast, int channel
     return modifiedImage;
 }
 
-QImage FilterManager::setGamma(const QImage &image, double gamma, int channelId)
+QImage FilterManager::setGamma(const QImage &image, double gamma)
 {
-    Q_UNUSED(channelId);
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->gamma(gamma, gamma, gamma);
 

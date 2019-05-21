@@ -48,10 +48,10 @@ public:
     QImage rotateCCW(const QImage &image);
     QImage rotateCW(const QImage &image);
 
-    QImage setBrightness(const QImage &image, int brightness, int channel);
-    QImage setSaturation(const QImage &image, int saturation, int channel);
-    QImage setContrast(const QImage &image, int contrast, int channel);
-    QImage setGamma(const QImage &image, double gamma, int channel);
+    QImage setBrightness(const QImage &image, int brightness);
+    QImage setSaturation(const QImage &image, int saturation);
+    QImage setContrast(const QImage &image, int contrast);
+    QImage setGamma(const QImage &image, double gamma);
 
     QImage emboss(const QImage &image);
     QImage trim(const QImage &image);

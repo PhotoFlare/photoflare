@@ -152,10 +152,10 @@ void BatchProcessWorker:: process()
                 break;
         }
 
-        image = FilterManager::instance()->setBrightness(image, m_params->brightness(), m_params->brightnessChannel());
-        image = FilterManager::instance()->setSaturation(image, m_params->saturation(), m_params->saturationChannel());
-        image = FilterManager::instance()->setContrast(image, m_params->contrast(), m_params->contrastChannel());
-        image = FilterManager::instance()->setGamma(image, m_params->gamma(), m_params->gammaChannel());
+        image = FilterManager::instance()->setBrightness(image, m_params->brightness());
+        image = FilterManager::instance()->setSaturation(image, m_params->saturation());
+        image = FilterManager::instance()->setContrast(image, m_params->contrast());
+        image = FilterManager::instance()->setGamma(image, m_params->gamma());
 
         QString newFile = m_params->outDir() + "/" + QFileInfo(file).baseName()+m_params->outputFormat();
         emit fileProcessFinished(newFile, image);

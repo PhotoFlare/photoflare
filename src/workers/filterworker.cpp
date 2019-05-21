@@ -30,35 +30,35 @@ void FilterWorker::process()
 
     if(currentFilter == "gammacorrectminus")
     {
-        newImage = FilterManager::instance()->setGamma(currentImage, 0.9, 0);
+        newImage = FilterManager::instance()->setGamma(currentImage, 0.9);
     }
     else if(currentFilter == "gammacorrectplus")
     {
-        newImage = FilterManager::instance()->setGamma(currentImage, 1.1, 0);
+        newImage = FilterManager::instance()->setGamma(currentImage, 1.1);
     }
     else if(currentFilter == "saturationminus")
     {
-        newImage = FilterManager::instance()->setSaturation(currentImage, -15, 0);
+        newImage = FilterManager::instance()->setSaturation(currentImage, -15);
     }
     else if(currentFilter == "saturationplus")
     {
-        newImage = FilterManager::instance()->setSaturation(currentImage, +15, 0);
+        newImage = FilterManager::instance()->setSaturation(currentImage, +15);
     }
     else if(currentFilter == "contrastminus")
     {
-        newImage = FilterManager::instance()->setContrast(currentImage, 0.5, 0);
+        newImage = FilterManager::instance()->setContrast(currentImage, 0.5);
     }
     else if(currentFilter == "contrastplus")
     {
-        newImage = FilterManager::instance()->setContrast(currentImage, 1.0, 0);
+        newImage = FilterManager::instance()->setContrast(currentImage, 1.0);
     }
     else if(currentFilter == "brightminus")
     {
-        newImage = FilterManager::instance()->setBrightness(currentImage, -5, 0);
+        newImage = FilterManager::instance()->setBrightness(currentImage, -5);
     }
     else if(currentFilter == "brightplus")
     {
-        newImage = FilterManager::instance()->setBrightness(currentImage, 5, 0);
+        newImage = FilterManager::instance()->setBrightness(currentImage, 5);
     }
     else if(currentFilter == "flipHorz")
     {
