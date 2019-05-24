@@ -263,6 +263,7 @@ void batchDialog::on_imageHvalue_valueChanged(double value)
 
 void batchDialog::mousePressEvent(QComboBox* obj, QMouseEvent *e)
 {
+    Q_UNUSED(obj);
     if(!ui->backgroundColorComboBox->isVisible())
     {
         e->accept();
@@ -468,6 +469,7 @@ void batchDialog::readSettings(QWidget* window)
 
 void batchDialog::on_outFormat_currentIndexChanged(int index)
 {
+    Q_UNUSED(index);
     d->outFormat = ui->outFormat->currentText();
 }
 
