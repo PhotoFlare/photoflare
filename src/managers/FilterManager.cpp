@@ -743,10 +743,10 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
     magickImage->floodFillColor(pos.x(), pos.y(), Magick::ColorRGB(0,0,0));
 
     QPolygon polygon;
-    for(int j=0; j<magickImage->rows(); j++)
+    for(unsigned int j=0; j<magickImage->rows(); j++)
     {
         bool marked = false;
-        for(int i=0; i<magickImage->columns(); i++)
+        for(unsigned int i=0; i<magickImage->columns(); i++)
         {
             if(color && magickImage->pixelColor(i,j) == targetColor)
             {
@@ -767,7 +767,7 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
     for(int j=magickImage->rows(); j>0; j--)
     {
         bool marked = false;
-        for(int i=magickImage->columns(); i>0; i--)
+        for(unsigned int i=magickImage->columns(); i>0; i--)
         {
             if((i == magickImage->columns() - 1) && marked)
                 marked = false;
@@ -796,9 +796,9 @@ QImage FilterManager::floodFillOpacity(const QImage &image, const QColor &color,
         return image;
 
     magickImage->colorFuzz(tolerance);
-    for(int j=0; j<magickImage->rows(); j++)
+    for(unsigned int j=0; j<magickImage->rows(); j++)
     {
-        for(int i=0; i<magickImage->columns(); i++)
+        for(unsigned int i=0; i<magickImage->columns(); i++)
         {
             Magick::Color color = magickImage->pixelColor(i,j);
             if(color.alpha() != 1.0f && color == targetColor)

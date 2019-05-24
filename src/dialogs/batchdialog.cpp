@@ -378,24 +378,24 @@ void batchDialog::on_flipCheckBox_clicked(bool checked)
 
 char batchDialog::rotate() const
 {
-    if(!ui->rotateCheckBox->isChecked())
-        return 0;
     if(ui->rotate90radioButton->isChecked())
         return Rotate90CW;
-    if(ui->rotate90ccwRadioButton->isChecked())
+    else if(ui->rotate90ccwRadioButton->isChecked())
         return Rotate90CCW;
-    if(ui->rotate180RadioButton->isChecked())
+    else if(ui->rotate180RadioButton->isChecked())
         return Rotate180;
+    else
+        return 0;
 }
 
 char batchDialog::flip() const
 {
-    if(!ui->flipCheckBox->isChecked())
-        return 0;
     if(ui->flipVerticalRadioButton)
         return FlipVertical;
-    if(ui->flipHorizontalRadioButton)
+    else if(ui->flipHorizontalRadioButton)
         return FlipHorizontal;
+    else
+        return 0;
 }
 
 void batchDialog::on_addFilesButton_clicked()
