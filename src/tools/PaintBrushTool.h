@@ -26,7 +26,7 @@ public:
     void setPressure(int value) const;
     int pressure() const;
 
-    QCursor getCursor();
+    QCursor getCursor() override;
 
     void setCapStyle(Qt::PenCapStyle capStyle);
 

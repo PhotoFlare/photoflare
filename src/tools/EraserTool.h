@@ -14,7 +14,7 @@ public:
     int width() const;
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
-    QCursor getCursor();
+    QCursor getCursor() override;
 
 private:
     EraserToolPrivate *d;

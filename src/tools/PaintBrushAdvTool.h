@@ -27,7 +27,7 @@ public:
     void setFade(bool fade);
     void setStep(int step);
 
-    QCursor getCursor();
+    QCursor getCursor() override;
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;

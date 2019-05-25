@@ -20,7 +20,7 @@ public:
     void setRadius(int radius);
     void setPressure(int pressure);
 
-    QCursor getCursor();
+    QCursor getCursor() override;
 
     void setCapStyle(Qt::PenCapStyle capStyle);
 

@@ -12,7 +12,7 @@ public:
     SmudgeTool(QObject *parent = 0);
     ~SmudgeTool();
 
-    QCursor getCursor();
+    QCursor getCursor() override;
 
     void setRadius(int radius);
     void setPressure(int pressure);

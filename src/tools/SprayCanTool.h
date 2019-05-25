@@ -25,7 +25,7 @@ public:
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
-    QCursor getCursor();
+    QCursor getCursor() override;
 
 public slots:
     void setPrimaryColor(const QColor &color);
@@ -33,7 +33,7 @@ public slots:
 
 private:
     void fillPattern();
-    void timerEvent(QTimerEvent *event);
+    void timerEvent(QTimerEvent *event) override;
 private:
     SprayCanToolPrivate *d;
 };

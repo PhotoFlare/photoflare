@@ -24,7 +24,7 @@ public:
     void setPrecise(bool precise);
     void setDiffuse(bool diffuse);
 
-    QCursor getCursor();
+    QCursor getCursor() override;
 
     void setCapStyle(Qt::PenCapStyle capStyle);
 
