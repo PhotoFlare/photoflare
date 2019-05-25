@@ -22,7 +22,6 @@ public:
 
     QPoint firstPos;
     QPoint secondPos;
-
     QRect textRect;
     QString text;
     QFont font;
@@ -75,7 +74,8 @@ void TextTool::setText(const QString &text, const QFont &font, const QColor &col
 
 void TextTool::previewText()
 {
-    if (m_paintDevice) {
+    if (m_paintDevice)
+    {
         const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
         QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
 
@@ -102,7 +102,8 @@ void TextTool::previewText()
 
 void TextTool::drawText()
 {
-    if (m_paintDevice) {
+    if (m_paintDevice)
+    {
         QPainter painter(m_paintDevice);
         painter.setPen(d->color);
         painter.setFont(d->font);
@@ -145,7 +146,8 @@ void TextTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 void TextTool::onMouseMove(const QPoint &pos)
 {
     d->secondPos = pos;
-    if(d->previewMode) {
+    if(d->previewMode)
+    {
         d->textRect.moveTo(pos);
         previewText();
     }
@@ -153,9 +155,7 @@ void TextTool::onMouseMove(const QPoint &pos)
 
 void TextTool::onMouseRelease(const QPoint &pos)
 {
-    if(d->previewMode &&
-       d->firstPos == d->secondPos &&
-       d->textRect.contains(pos))
+    if(d->previewMode && d->firstPos == d->secondPos && d->textRect.contains(pos))
     {
         emit editText(d->text, d->font, d->color);
     }
