@@ -11,14 +11,20 @@ Simple but powerful Cross Platform image editor originally inspired by the Photo
 <img src="https://photoflare.io/wp-content/uploads/2018/03/CrossPlatform2.png">
 
 ## Documentation
-Information on features and using the project will be <a href="https://photoflare.io/documentation/">available here</a>. At the moment its a work in progress.
+Information on features and using the project will be <a href="https://photoflare.io/documentation/">available here</a>. (WIP)
 
 ## Building
 
 ### Dependencies
+- G++/Clang on Linux, MinGW on Windows or Clang on MacOSX
 - libgraphicsmagick++-dev
-- qt5-default (Ubuntu only)
-- G++ on Linux, MinGW on Windows or Clang on MacOSX
+<br>
+- qt5-default (Ubuntu only) 
+**<p>or</p>**
+- libc6-dev
+- libqt5core5a-dev
+- libqt5gui5-dev
+- libqt5widgets5-dev
 
 Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter. Full instructions for each platform <a href="https://photoflare.io/contributing/building-the-source/">available here</a>
 
@@ -27,8 +33,8 @@ Compile using either by opening the .pro file with Qt Creator or use qmake passi
 ### Dependencies
 - libc6
 - libgraphicsmagick++-q16-12
-- libqt5gui5
 - libqt5core5a
+- libqt5gui5
 - libqt5widgets5
 - libqt5printsupport5
 - qt5-image-formats-plugins (Optional - Extra file format support)
