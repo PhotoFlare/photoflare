@@ -16,7 +16,7 @@ Information on features and using the project will be <a href="https://photoflar
 ## Building
 
 ### Dependencies
-- G++/Clang on Linux, MinGW on Windows or Clang on MacOSX
+- G++/Clang on Linux, MSVC/Clang on Windows or Clang on MacOSX
 - libgraphicsmagick++-dev
 - qt5-default (Ubuntu only)  
 **or**
