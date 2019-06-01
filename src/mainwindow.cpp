@@ -77,6 +77,8 @@
 #include "progress/batchprogress.h"
 #include "workers/filterworker.h"
 
+#include <omp.h>
+
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
 #define COLOUR_PICKER ToolManager::instance()->colourPicker()
@@ -2338,7 +2340,9 @@ void MainWindow::on_actionContrastplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
+
     applyThreadedFilter("contrastplus");
+
 }
 
 void MainWindow::on_actionContrastminus_triggered()

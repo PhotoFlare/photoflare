@@ -30,6 +30,8 @@ win32 {
 linux|hurd {
     INCLUDEPATH += /usr/include/GraphicsMagick
     LIBS += -L/usr/lib -lGraphicsMagick++
+    QMAKE_CXXFLAGS += -fopenmp
+    LIBS += -fopenmp
 }
 
 # Project settings for Mac OS. Adjust the paths as needed on your system.

@@ -19,6 +19,7 @@
 #include <QGraphicsEffect>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+
 //#include <QElapsedTimer>
 
 #include "FilterManager.h"

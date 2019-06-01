@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QApplication>
 #include <QFileInfo>
@@ -13,6 +13,7 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QDir>
+#include <omp.h>
 
 #include "mainwindow.h"
 #include "Settings.h"
@@ -20,6 +21,14 @@
 
 int main(int argc, char *argv[])
 {
+    qDebug() << "Max Thread " << omp_get_max_threads();
+
+    #pragma omp parallel
+    {
+        int tid = omp_get_thread_num();
+        printf("Qt Parallel thread %d\n",tid);
+    }
+
     QtSingleApplication app("PhotoFlare", argc, argv);
 
     // Remove WhatIsThis from Window Controls (Windows only)
