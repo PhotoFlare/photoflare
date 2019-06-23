@@ -1233,7 +1233,7 @@ void MainWindow::on_actionDustReduction_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("dustreduction");
+    applyThreadedFilterMP("dustreduction");
 }
 
 void MainWindow::on_actionDespeckle_triggered()
@@ -1254,21 +1254,21 @@ void MainWindow::on_actionImpulse_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("impulseNoise");
+    applyThreadedFilterMP("impulseNoise");
 }
 
 void MainWindow::on_actionLaplacian_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("laplacianNoise");
+    applyThreadedFilterMP("laplacianNoise");
 }
 
 void MainWindow::on_actionPoisson_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("poissonNoise");
+    applyThreadedFilterMP("poissonNoise");
 }
 
 void MainWindow::on_actionGrayScale_triggered()
@@ -1324,7 +1324,7 @@ void MainWindow::on_actionOil_Paint_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("oil");
+    applyThreadedFilterMP("oil");
 }
 
 void MainWindow::on_actionCharcoal_Drawing_triggered()
@@ -2370,35 +2370,35 @@ void MainWindow::on_actionContrastminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("contrastminus");
+    applyThreadedFilterMP("contrastminus");
 }
 
 void MainWindow::on_actionSaturationplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("saturationplus");
+    applyThreadedFilterMP("saturationplus");
 }
 
 void MainWindow::on_actionSaturationminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("saturationminus");
+    applyThreadedFilterMP("saturationminus");
 }
 
 void MainWindow::on_actionGammaCorrectplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("gammacorrectplus");
+    applyThreadedFilterMP("gammacorrectplus");
 }
 
 void MainWindow::on_actionGammaCorrectminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("gammacorrectminus");
+    applyThreadedFilterMP("gammacorrectminus");
 }
 
 void MainWindow::on_actionGradient_triggered()
