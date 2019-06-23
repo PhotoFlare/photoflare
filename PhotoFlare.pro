@@ -94,6 +94,7 @@ SOURCES += src/main.cpp \
     src/widgets/layermanager.cpp \
     src/progress/batchprogress.cpp \
     src/workers/filterworker.cpp \
+    src/workers/filterworkermp.cpp \
     src/tools/EraserTool.cpp \
     src/toolSettings/erasersettingswidget.cpp \
     src/tools/SmudgeTool.cpp \
@@ -147,6 +148,7 @@ HEADERS += src/mainwindow.h \
     src/widgets/colorboxwidget.h \
     src/progress/batchprogress.h \
     src/workers/filterworker.h \
+    src/workers/filterworkermp.h \
     src/tools/EraserTool.h \
     src/toolSettings/erasersettingswidget.h \
     src/tools/SmudgeTool.h \

@@ -237,6 +237,7 @@ private:
     void clearStatusArea();
 
     void applyThreadedFilter(QString filterName, double doubleVal = 0.0);
+    void applyThreadedFilterMP(QString filterName, double doubleVal = 0.0);
 
     Ui::MainWindow *ui;
     QString m_toolSelected;

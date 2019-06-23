@@ -76,6 +76,7 @@
 #include "workers/BatchProcessWorker.h"
 #include "progress/batchprogress.h"
 #include "workers/filterworker.h"
+#include "workers/filterworkermp.h"
 
 #include <omp.h>
 
@@ -287,6 +288,26 @@ void MainWindow::applyThreadedFilter(QString filterName, double dV)
 {
     QThread *thread = new QThread();
     FilterWorker *worker = new FilterWorker();
+    worker->setFilter(filterName);
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if(widget)
+    worker->setImage(widget->image());
+    worker->setDoubleVal(dV);
+    worker->setParent(this);
+    worker->moveToThread(thread);
+
+    connect(thread, SIGNAL(started()), worker, SLOT(process()));
+    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(on_image_filtered(QImage)));
+    thread->start();
+
+    batchLbl->setText(tr("Working..."));
+}
+
+void MainWindow::applyThreadedFilterMP(QString filterName, double dV)
+{
+    QThread *thread = new QThread();
+    FilterWorkerMP *worker = new FilterWorkerMP();
     worker->setFilter(filterName);
 
     PaintWidget *widget = getCurrentPaintWidget();
@@ -2341,7 +2362,7 @@ void MainWindow::on_actionContrastplus_triggered()
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
 
-    applyThreadedFilter("contrastplus");
+    applyThreadedFilterMP("contrastplus");
 
 }
 
