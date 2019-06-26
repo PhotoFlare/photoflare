@@ -5,7 +5,7 @@
 #include <cmath>
 #include "omp.h"
 
-#include <QDebug>
+//#include <QDebug>
 
 FilterWorkerMP::FilterWorkerMP(QObject *parent) : QObject(parent)
 {
