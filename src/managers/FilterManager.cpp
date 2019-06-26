@@ -19,6 +19,7 @@
 #include <QGraphicsEffect>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+
 //#include <QElapsedTimer>
 
 #include "FilterManager.h"
@@ -303,19 +304,13 @@ QImage FilterManager::reinforce(const QImage &image)
 
 QImage FilterManager::grayscale(const QImage &image)
 {
-    QImage modifiedImage = image.convertToFormat(image.hasAlphaChannel() ?
-    QImage::Format_ARGB32 : QImage::Format_RGB32);
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->modulate(100,0,0);
 
-     unsigned int *data = (unsigned int*)modifiedImage.bits();
-     int pixelCount = modifiedImage.width() * modifiedImage.height();
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
 
-     // Convert each pixel to grayscale
-     for(int i = 0; i < pixelCount; ++i) {
-        int val = qGray(*data);
-        *data = qRgba(val, val, val, qAlpha(*data));
-        ++data;
-     }
-     return modifiedImage;
+    return modifiedImage;
 }
 
 QImage FilterManager::oldPhoto(const QImage &image)
@@ -592,28 +587,12 @@ QImage FilterManager::rotateCW(const QImage &image)
 
 QImage FilterManager::setBrightness(const QImage &image, int brightness)
 {
-  //16.04
-  /*
-        Magick::Image *magickImage = d->fromQtImage(image);
-        magickImage->modulate(brightness + 100.0f, 100.0f, 100.0f);
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->modulate(brightness + 100.0f, 100.0f, 100.0f);
 
-        QImage modifiedImage = d->toQtImage(magickImage);
-        delete magickImage;
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
 
-        return modifiedImage;
-  */
-  
-    QImage modifiedImage = image;
-
-    for(int i=0; i<modifiedImage.width(); i++)
-    {
-        for(int j=0; j<modifiedImage.height(); j++)
-        {
-            QColor color = modifiedImage.pixelColor(i,j);
-            color.setHsv(color.hue(), color.saturation(), changeBrightness(color.value(),brightness), color.alpha());
-            modifiedImage.setPixelColor(i, j, color);
-        }
-    }
     return modifiedImage;
 }
 

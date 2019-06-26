@@ -76,6 +76,9 @@
 #include "workers/BatchProcessWorker.h"
 #include "progress/batchprogress.h"
 #include "workers/filterworker.h"
+#include "workers/filterworkermp.h"
+
+#include <omp.h>
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
@@ -285,6 +288,26 @@ void MainWindow::applyThreadedFilter(QString filterName, double dV)
 {
     QThread *thread = new QThread();
     FilterWorker *worker = new FilterWorker();
+    worker->setFilter(filterName);
+
+    PaintWidget *widget = getCurrentPaintWidget();
+    if(widget)
+    worker->setImage(widget->image());
+    worker->setDoubleVal(dV);
+    worker->setParent(this);
+    worker->moveToThread(thread);
+
+    connect(thread, SIGNAL(started()), worker, SLOT(process()));
+    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(on_image_filtered(QImage)));
+    thread->start();
+
+    batchLbl->setText(tr("Working..."));
+}
+
+void MainWindow::applyThreadedFilterMP(QString filterName, double dV)
+{
+    QThread *thread = new QThread();
+    FilterWorkerMP *worker = new FilterWorkerMP();
     worker->setFilter(filterName);
 
     PaintWidget *widget = getCurrentPaintWidget();
@@ -1210,7 +1233,7 @@ void MainWindow::on_actionDustReduction_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("dustreduction");
+    applyThreadedFilterMP("dustreduction");
 }
 
 void MainWindow::on_actionDespeckle_triggered()
@@ -1231,21 +1254,21 @@ void MainWindow::on_actionImpulse_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("impulseNoise");
+    applyThreadedFilterMP("impulseNoise");
 }
 
 void MainWindow::on_actionLaplacian_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("laplacianNoise");
+    applyThreadedFilterMP("laplacianNoise");
 }
 
 void MainWindow::on_actionPoisson_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("poissonNoise");
+    applyThreadedFilterMP("poissonNoise");
 }
 
 void MainWindow::on_actionGrayScale_triggered()
@@ -1301,7 +1324,7 @@ void MainWindow::on_actionOil_Paint_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("oil");
+    applyThreadedFilterMP("oil");
 }
 
 void MainWindow::on_actionCharcoal_Drawing_triggered()
@@ -2338,42 +2361,44 @@ void MainWindow::on_actionContrastplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("contrastplus");
+
+    applyThreadedFilterMP("contrastplus");
+
 }
 
 void MainWindow::on_actionContrastminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("contrastminus");
+    applyThreadedFilterMP("contrastminus");
 }
 
 void MainWindow::on_actionSaturationplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("saturationplus");
+    applyThreadedFilterMP("saturationplus");
 }
 
 void MainWindow::on_actionSaturationminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("saturationminus");
+    applyThreadedFilterMP("saturationminus");
 }
 
 void MainWindow::on_actionGammaCorrectplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("gammacorrectplus");
+    applyThreadedFilterMP("gammacorrectplus");
 }
 
 void MainWindow::on_actionGammaCorrectminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("gammacorrectminus");
+    applyThreadedFilterMP("gammacorrectminus");
 }
 
 void MainWindow::on_actionGradient_triggered()
