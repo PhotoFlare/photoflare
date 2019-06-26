@@ -2254,6 +2254,7 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionToolpalette->setShortcut(QString("Ctrl+L"));
     ui->actionZoom_in->setShortcut(QKeySequence::ZoomIn);
     ui->actionZoom_out->setShortcut(QKeySequence::ZoomOut);
+    ui->actionOriginal_size->setShortcut(QString("Ctrl+0"));
     ui->actionFull_screen->setShortcut(QString("Ctrl+F"));
 }
 
