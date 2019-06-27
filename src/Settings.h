@@ -52,6 +52,8 @@ public:
     QString getHistoryLimit() const;
     void setDockLayout(const QString val);
     QString getDockLayout() const;
+    void setZoomDirection(const QString val);
+    QString getZoomDirection() const;
     void setMemParamsEnabled(bool enabled);
     bool getMemParamsEnabled() const;
     void setUnit(int);
