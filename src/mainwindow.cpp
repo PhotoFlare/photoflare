@@ -2301,6 +2301,8 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionDuplicate->setShortcut(QString("Ctrl+U"));
     ui->actionImage_Size->setShortcut(QString("Ctrl+H"));
     ui->actionCrop->setShortcut(QString("Ctrl+Shift+H"));
+    // Selection Menu
+    ui->actionSelect_all->setShortcut(QString("Ctrl+A"));
     //View Menu
     ui->actionToolpalette->setShortcut(QString("Ctrl+L"));
     ui->actionZoom_in->setShortcut(QKeySequence::ZoomIn);
