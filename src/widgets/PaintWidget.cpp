@@ -14,6 +14,7 @@
 #include <QGraphicsProxyWidget>
 #include <QImageReader>
 
+#include "../Settings.h"
 #include "PaintWidget.h"
 #include "./Tool.h"
 
@@ -444,8 +445,19 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
 {
     const QPointF p0scene = mapToScene(event->pos());
     float scaleFactor = 1.1f;
+    bool zoomDirection;
 
-    if(event->delta() > 0)
+    // Zoom in or out depending on user preference
+    if(SETTINGS->getZoomDirection()=="Default")
+    {
+        zoomDirection = event->delta() > 0;
+    }
+    else
+    {
+        zoomDirection = event->delta() < 0;
+    }
+
+    if(zoomDirection)
     {
        d->scale = d->scale / scaleFactor;
        d->scale = (d->scale < 0.1f) ? 0.1f : d->scale;
