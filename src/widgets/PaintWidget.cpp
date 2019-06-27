@@ -448,7 +448,7 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
     bool zoomDirection;
 
     // Zoom in or out depending on user preference
-    if(SETTINGS->getZoomDirection()=="Default")
+    if(SETTINGS->getZoomDirection()=="0")
     {
         zoomDirection = event->delta() > 0;
     }

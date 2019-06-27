@@ -44,9 +44,9 @@ prefsDialog::prefsDialog(QWidget *parent) :
         ui->toolPaletteLocation->setCurrentIndex(1);
     }
 
-    QStringList zoomList(QStringList() << "Default" << "Inverted");
+    QStringList zoomList(QStringList() << tr("Default") << tr("Inverted"));
     ui->zoomDirection->addItems(zoomList);
-    if(SETTINGS->getZoomDirection() == "Inverted")
+    if(SETTINGS->getZoomDirection() == "1")
     {
         ui->zoomDirection->setCurrentIndex(1);
     }
@@ -117,15 +117,7 @@ void prefsDialog::on_buttonBox_accepted()
 
     //Layout tab
     SETTINGS->setDockLayout(QString::number(ui->toolPaletteLocation->currentIndex()));
-
-    if(ui->zoomDirection->currentIndex() == 0)
-    {
-        SETTINGS->setZoomDirection("Default");
-    }
-    else
-    {
-        SETTINGS->setZoomDirection("Inverted");
-    }
+    SETTINGS->setZoomDirection(QString::number(ui->zoomDirection->currentIndex()));
 
     //Default values tab
     SETTINGS->setMemParamsEnabled(ui->memorizeParams->isChecked());
