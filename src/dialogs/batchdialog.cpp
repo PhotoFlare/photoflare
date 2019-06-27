@@ -545,3 +545,13 @@ void batchDialog::addItemToFileListWidget(QString filePath)
     ui->listWidget->setIconSize(QSize(64,64));
     ui->listWidget->addItem(itm);
 }
+
+void batchDialog::on_addFilterButton_clicked()
+{
+    on_listWidget_2_doubleClicked(ui->listWidget_2->currentIndex());
+}
+
+void batchDialog::on_removeFilterButton_clicked()
+{
+    on_listWidget_3_doubleClicked(ui->listWidget_3->currentIndex());
+}

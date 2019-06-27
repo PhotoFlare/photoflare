@@ -106,6 +106,10 @@ private slots:
 
     void addItemToFileListWidget(QString filePath);
 
+    void on_addFilterButton_clicked();
+
+    void on_removeFilterButton_clicked();
+
 private:
     Ui::batchDialog *ui;
     BatchDialogPrivate *d;
