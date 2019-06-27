@@ -1,0 +1,19 @@
+{
+    "app-id": "io.photoflare_editor.photoflare",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.11",
+    "sdk": "org.kde.Platform",
+    "command": "photoflare",
+    "modules": [
+        {
+            "name": "photoflare",
+            "buildsystem": "qmake",
+            "sources": [
+                {
+                    "type": "git",
+                    "path": "https://github.com/PhotoFlare/photoflare.git"
+                }
+            ]
+        }
+    ]
+}
