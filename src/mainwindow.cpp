@@ -4,7 +4,7 @@
 
 */
 
-//#include <QDebug>
+#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>
@@ -1471,6 +1471,27 @@ void MainWindow::on_actionShow_grid_triggered()
     }
 }
 
+void MainWindow::getPrevZoomFromScale(QString scaletext)
+{
+    int count = this->zoomCombo->count();
+    for(int i=count;i>=0;i--)
+    {
+        int a = this->zoomCombo->itemText(i).replace("%","").toInt();
+        int b = scaletext.replace("%","").toInt();
+
+        //qDebug() << "a" << a;
+        //qDebug() << "b" << b;
+
+        if(b > a)
+        {
+            //qDebug() << "i" << i;
+            //qDebug()<< this->zoomCombo->itemText(i);
+            this->zoomCombo->setCurrentIndex(i-1);
+            break;
+        }
+    }
+}
+
 void MainWindow::getNextZoomFromScale(QString scaletext)
 {
     int count = this->zoomCombo->count();
@@ -1493,15 +1514,17 @@ void MainWindow::on_actionZoom_in_triggered()
     {
         getNextZoomFromScale(this->zoomCombo->currentText());
     }
-
-    if(this->zoomCombo->currentIndex()+1 < this->zoomCombo->count() && this->zoomCombo->currentIndex()>0)
+    else
     {
-        this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
-    }
+        if(this->zoomCombo->currentIndex()+1 < this->zoomCombo->count() && this->zoomCombo->currentIndex()>0)
+        {
+            this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
+        }
 
-    if(this->zoomCombo->currentText() == "")
-    {
-        this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
+        if(this->zoomCombo->currentText() == "")
+        {
+            this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()+1);
+        }
     }
 
     PaintWidget *widget = getCurrentPaintWidget();
@@ -1513,6 +1536,11 @@ void MainWindow::on_actionZoom_in_triggered()
 
 void MainWindow::on_actionZoom_out_triggered()
 {
+    if(this->zoomCombo->currentIndex()==0)
+    {
+        getPrevZoomFromScale(this->zoomCombo->currentText());
+    }
+
     if(this->zoomCombo->currentIndex()-1 > 1)
     {
         this->zoomCombo->setCurrentIndex(this->zoomCombo->currentIndex()-1);
