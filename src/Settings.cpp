@@ -99,7 +99,7 @@ void Settings::setDefaultSettings()
     d->setValue("compressionDefaultEnabled", false);
     d->setValue("compressionDefaultValue", 90);
     d->setValue("compressionDialogEnabled", true);
-    d->setValue("dockLayout", "Right");
+    d->setValue("dockLayout", "");
     d->setValue("zoomDirection", "Default");
     d->setValue("historyLimit", 24);
     d->setValue("memorizeParamsEnabled", true);

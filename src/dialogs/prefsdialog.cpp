@@ -36,10 +36,10 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->compressionSlider->setValue(SETTINGS->getCompressionDefaultValue().toInt());
 
     //Layout tab
-    QStringList toolList(QStringList() << "Right" << "Left");
+    QStringList toolList(QStringList() << tr("Right") << tr("Left"));
     ui->toolPaletteLocation->addItems(toolList);
 
-    if(SETTINGS->getDockLayout() == "Left")
+    if(SETTINGS->getDockLayout() == "1")
     {
         ui->toolPaletteLocation->setCurrentIndex(1);
     }
@@ -116,14 +116,7 @@ void prefsDialog::on_buttonBox_accepted()
     SETTINGS->setPreviouslyOpenedSave(ui->previousOpenedSaveEnabled->isChecked());
 
     //Layout tab
-    if(ui->toolPaletteLocation->currentIndex() == 0)
-    {
-        SETTINGS->setDockLayout("Right");
-    }
-    else
-    {
-        SETTINGS->setDockLayout("Left");
-    }
+    SETTINGS->setDockLayout(QString::number(ui->toolPaletteLocation->currentIndex()));
 
     if(ui->zoomDirection->currentIndex() == 0)
     {
