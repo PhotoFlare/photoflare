@@ -6,6 +6,24 @@
     "command": "photoflare",
     "modules": [
         {
+            "name": "graphicsmagick",
+            "builddir": true,
+            "config-opts": [
+                "--enable-shared",
+                "--with-modules",
+                "--with-perl",
+                "--with-quantum-depth=16",
+                "--with-threads"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.icm.edu.pl/pub/unix/graphics/GraphicsMagick/1.3/GraphicsMagick-1.3.29.tar.gz",
+                    "sha256":"de820cd10597205941a7e9d02c2e679231e92e8e769c204ef09034d2279ad453"
+                }
+            ]
+        },
+        {
             "name": "photoflare",
             "buildsystem": "qmake",
             "sources": [
