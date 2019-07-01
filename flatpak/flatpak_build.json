@@ -11,7 +11,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "path": "https://github.com/PhotoFlare/photoflare.git"
+                    "url": "https://github.com/PhotoFlare/photoflare.git",
+                    "commit": "a2b8c0da81811000e17c2e008de43a27523b4f2f"
                 }
             ]
         }
