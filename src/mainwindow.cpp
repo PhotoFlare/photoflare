@@ -1471,6 +1471,13 @@ void MainWindow::on_actionShow_grid_triggered()
     }
 }
 
+/*
+ * TODO
+ * - This needs to work in the opposite way to getNextZoom.
+ * - Needed to transition from autoZoom to stepZoom if users clicks zoom out.
+ * (Autozoom happens after opening an image)
+*/
+
 void MainWindow::getPrevZoomFromScale(QString scaletext)
 {
     int count = this->zoomCombo->count();
