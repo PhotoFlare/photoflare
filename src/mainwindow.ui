@@ -364,7 +364,6 @@ QScrollBar::handle {
     <addaction name="actionZoom_in"/>
     <addaction name="actionZoom_out"/>
     <addaction name="actionOriginal_size"/>
-    <addaction name="actionAuto_zoom"/>
     <addaction name="actionFull_screen"/>
    </widget>
    <widget class="QMenu" name="menuTools">
