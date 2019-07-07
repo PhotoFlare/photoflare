@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>391</width>
-    <height>411</height>
+    <width>425</width>
+    <height>408</height>
    </rect>
   </property>
   <property name="font">
@@ -24,10 +24,10 @@
   <property name="windowTitle">
    <string>About</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="closeButton">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>310</x>
      <y>370</y>
      <width>99</width>
      <height>27</height>
@@ -42,7 +42,7 @@
     <rect>
      <x>0</x>
      <y>210</y>
-     <width>381</width>
+     <width>421</width>
      <height>31</height>
     </rect>
    </property>
@@ -52,18 +52,24 @@
    <property name="textFormat">
     <enum>Qt::RichText</enum>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="appVersion">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>250</y>
-     <width>381</width>
+     <width>421</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="appDescription">
@@ -71,12 +77,15 @@
     <rect>
      <x>0</x>
      <y>280</y>
-     <width>381</width>
+     <width>421</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="appUrl">
@@ -84,7 +93,7 @@
     <rect>
      <x>0</x>
      <y>300</y>
-     <width>381</width>
+     <width>421</width>
      <height>20</height>
     </rect>
    </property>
@@ -94,6 +103,9 @@
    <property name="textFormat">
     <enum>Qt::RichText</enum>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
    <property name="openExternalLinks">
     <bool>true</bool>
    </property>
@@ -101,7 +113,7 @@
   <widget class="QLabel" name="appLogo">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>30</y>
      <width>150</width>
      <height>150</height>
@@ -132,7 +144,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="creditsButton">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -145,21 +157,102 @@
     <string>C&amp;redits</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="creditsTextArea">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+  <widget class="QTabWidget" name="creditsWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>210</y>
-     <width>351</width>
-     <height>151</height>
+     <y>200</y>
+     <width>391</width>
+     <height>161</height>
     </rect>
    </property>
-   <property name="readOnly">
-    <bool>true</bool>
+   <property name="currentIndex">
+    <number>0</number>
    </property>
+   <widget class="QWidget" name="d_tab">
+    <attribute name="title">
+     <string>Developers</string>
+    </attribute>
+    <widget class="QTextEdit" name="devTextArea">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>391</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="g_tab">
+    <attribute name="title">
+     <string>Graphics</string>
+    </attribute>
+    <widget class="QTextEdit" name="graphicsTextArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>391</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="t_tab">
+    <attribute name="title">
+     <string>Translators</string>
+    </attribute>
+    <widget class="QTextEdit" name="translateTextArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>391</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="c_tab">
+    <attribute name="title">
+     <string>Contributors</string>
+    </attribute>
+    <widget class="QTextEdit" name="contribTextArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>391</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources>

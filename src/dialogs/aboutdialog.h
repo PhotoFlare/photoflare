@@ -22,12 +22,11 @@ public:
     ~aboutDialog();
 
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
+    void on_closeButton_clicked();
+    void on_creditsButton_clicked();
 
 private:
     Ui::aboutDialog *ui;
-    bool creditsVisible;
 };
 
 #endif // ABOUTDIALOG_H
