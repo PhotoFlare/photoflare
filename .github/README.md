@@ -37,7 +37,7 @@ Compile using either by opening the .pro file with Qt Creator or use qmake passi
 - libqt5gui5
 - libqt5widgets5
 - libqt5printsupport5
-- libomp
+- libomp5
 - qt5-image-formats-plugins (Optional - Extra file format support)
 
 ## Translations
