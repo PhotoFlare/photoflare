@@ -18,6 +18,7 @@ Information on features and using the project will be <a href="https://photoflar
 ### Dependencies
 - G++/Clang on Linux, MSVC/Clang on Windows or Clang on MacOSX
 - libgraphicsmagick++-dev
+- libomp-dev
 - qt5-default (Ubuntu only)  
 **or**
 - libc6-dev
@@ -36,6 +37,7 @@ Compile using either by opening the .pro file with Qt Creator or use qmake passi
 - libqt5gui5
 - libqt5widgets5
 - libqt5printsupport5
+- libomp5
 - qt5-image-formats-plugins (Optional - Extra file format support)
 
 ## Translations
