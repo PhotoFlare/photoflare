@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Photoflare documentation</title>
-</head>
+---
+layout: default
+---
 <body>
 
 <h1>Photoflare user manual</h1>
@@ -13,9 +11,9 @@
 
 <h2>Table of contents</h2>
 <ul>
-	<li>Creating a new image</li>
-	<li>Opening files</li>
-	<li>Resizing images</li>
+	<li><a href="#creating">Creating a new image</a></li>
+	<li><a href="#opening">Opening files</a></li>
+	<li><a href="#resize">Resizing images</a></li>
 	<li>Cropping</li>
 	<li>Tools</li>
 	<li>Adjusting hue</li>
@@ -23,9 +21,9 @@
 	<li>Batch processing/Automation</li>
 </ul>
 
-<h2>Creating images</h2>
+<h2><a name="creating">Creating a new image</a></h2>
 <p>
-	Images are created by using the New file dialog. This can be accessed via "File >> New...", the button or keyboard shortcut (Ctrl+N).
+	Images are created by using the New file dialog. This can be accessed via "File >> New...", the toolbar button or keyboard shortcut (Ctrl+N).
 </p>
 <img src="images/newDialog.png"/>
 <ul>
@@ -33,5 +31,27 @@
 	<li>The bottom area allows you to select the width, height, unit to use (Pixels,Cm,Inches), Background colour and Preset size.</li>
 </ul>
 
+<h2><a name="opening">Opening files</h2>
+<p>
+	Open files with the Open file dialog. This can be accessed via "File >> Open...", the toolbar button or keyboard shortcut (Ctrl+O).
+</p>
+<img src="images/openDialog.png" width="600"/>
+<h3>Supported formats</h3>
+<ul>
+	<li>.png</li>
+	<li>.jpeg</li>
+	<li>.gif</li>
+	<li>.tiff</li>
+	<li>.bmp</li>
+	<li>.ico</li>
+</ul>
+
+<h2><a name="resize">Resizing images</a></h2>
+<p>
+	Resize images with the Image size dialog. This can be accessed via "Image >> Image size...", the toolbar button or keyboard shortcut (Ctrl+H).
+</p>
+<img src="images/resizeDialog.png"/>
+<p>
+	This has similar options to the new file dialog. One new option here is the "Lock ratio" option. This will keep the ratio of the image intact if you change the width/height.
+</p>
 </body>
-</html>
