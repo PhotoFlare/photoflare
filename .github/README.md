@@ -11,7 +11,8 @@ Simple but powerful Cross Platform image editor originally inspired by the Photo
 <img src="https://photoflare.io/wp-content/uploads/2018/03/CrossPlatform2.png">
 
 ## Documentation
-Information on features and using the project will be <a href="https://photoflare.io/documentation/">available here</a>. (WIP)
+Information on current features and how to use the application will be 
+<a href="https://photoflare.github.io/photoflare/">available here</a>. (WIP)
 
 ## Building
 
