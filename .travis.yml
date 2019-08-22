@@ -9,7 +9,7 @@ before_install:
     - sudo apt-get update
     
 install:
-    - sudo apt-get -y install libc6 qt510base qt510tools gcc-8
+    - sudo apt-get -y install libc6 qt510base qt510tools gcc-8 libomp-dev
     - source /opt/qt5*/bin/qt5*-env.sh
 
 script:
