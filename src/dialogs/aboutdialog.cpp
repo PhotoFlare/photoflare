@@ -1,8 +1,21 @@
 /*
+    This file is part of Photoflare.
 
-  About dialog class for the PhotoFlare application.
+    Photoflare is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
+    Photoflare is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+// About dialog class for the PhotoFlare application.
 
 #include <QApplication>
 #include <QTextEdit>
@@ -45,7 +58,8 @@ aboutDialog::aboutDialog(QWidget *parent) :
                                  "<br>Michael Sheppard - Code"
                                  "<br>Helene Levernieux - Project Icon"
                                  "<br><br><b>Special thanks"
-                                 "</b><br>I would like to thank Samantha for being an absolute gem of a person. You light up my life and I'm so glad to have found you.")
+                                 "</b><br>I would like to thank Samantha for being an absolute gem of a person."
+                                 " You light up my life and I'm so glad to have found you.")
     );
 
     QString appName = qApp->applicationName().replace("p","P");
