@@ -74,12 +74,17 @@ public:
         painter.drawImage(0, 0, image);
         if(isSelectionVisible)
         {
-            float scaledVal = 3.00/scale;
+            float scaledVal = 2.00;
             int cornerSize = 50;
 
             if(scale < 0.5)
             {
                 cornerSize = 100;
+                scaledVal = 5.00;
+            }
+            else if(scale > 1) {
+                cornerSize = 20;
+                scaledVal = 1.00;
             }
 
             //Draw the selection hotspots
