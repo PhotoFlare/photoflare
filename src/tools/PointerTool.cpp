@@ -127,6 +127,7 @@ void PointerTool::setOverlayImage(const QImage& image)
     d->image = image;
     d->imagePos = QPoint(0,0);
     emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
+    emit cursorChanged(Qt::OpenHandCursor);
 }
 
 void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
@@ -204,12 +205,22 @@ void PointerTool::onMouseMove(const QPoint &pos)
     {
         if(d->selectionMode == HAND)
         {
+            float scaledVal = 2.00;
+
+            if(m_scale < 0.5)
+            {
+                scaledVal = 5.00;
+            }
+            else if(m_scale > 1) {
+                scaledVal = 1.00;
+            }
+
             const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
             QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
             QPainter painter(&surface);
             painter.setCompositionMode(QPainter::CompositionMode_Source);
             painter.fillRect(surface.rect(), Qt::transparent);
-            QPen pen = QPen(QBrush(), (5*m_scale), Qt::DashLine);
+            QPen pen = QPen(QBrush(), (scaledVal), Qt::DashLine);
             pen.setColor(Qt::red);
             painter.setPen(pen);
 
