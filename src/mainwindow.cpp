@@ -774,6 +774,8 @@ void MainWindow::onPaste()
         QClipboard *clipboard = QApplication::clipboard();
         widget->setPaintTool(MOUSE_POINTER);
         MOUSE_POINTER->setOverlayImage(clipboard->image());
+        m_toolSelected = "pointer";
+        refreshTools();
     }
     else
     {
