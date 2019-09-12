@@ -44,3 +44,8 @@ void PaintBucketTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             break;
     }
 }
+
+QCursor PaintBucketTool::getCursor()
+{
+    return QCursor(QPixmap (QString(":/cursors/assets/cursors/bucket.png")));
+}

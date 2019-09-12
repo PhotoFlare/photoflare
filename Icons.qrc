@@ -103,5 +103,6 @@
     </qresource>
     <qresource prefix="/cursors">
         <file>assets/cursors/color-picker.png</file>
+        <file>assets/cursors/bucket.png</file>
     </qresource>
 </RCC>

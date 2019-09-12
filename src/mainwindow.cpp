@@ -17,7 +17,7 @@
 
 // Main window class for the PhotoFlare application.
 
-#include <QDebug>
+//#include <QDebug>
 
 #include <QClipboard>
 #include <QSettings>

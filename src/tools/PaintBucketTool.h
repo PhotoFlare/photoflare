@@ -30,6 +30,7 @@ public:
     virtual ~PaintBucketTool();
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
+    QCursor getCursor() override;
 
 signals:
     void floodFillPrimaryColor(const QPoint&);
