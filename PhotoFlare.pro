@@ -9,7 +9,7 @@ QT += core gui widgets printsupport
 
 TARGET = photoflare
 TEMPLATE = app
-CONFIG += c++17
+CONFIG += c++11
 
 # This path is used in order to find all of the header files
 INCLUDEPATH += ./src/widgets \
