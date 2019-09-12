@@ -2123,7 +2123,10 @@ void MainWindow::onMultiWindowModeChanged(bool multiWindowMode)
 
 void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
 {
-    Q_UNUSED(window)
+    Q_UNUSED(window);
+    // Set the previously selected tool as active
+    refreshTools();
+
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
