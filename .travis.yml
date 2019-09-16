@@ -9,7 +9,7 @@ before_install:
     - sudo apt-get update
     
 install:
-    - sudo apt-get -y install libc6 qt512base qt512tools gcc-8 libomp-dev
+    - sudo apt-get -y install libc6 libgl1-mesa-dev qt512base qt512tools gcc-8 libomp-dev
     - source /opt/qt5*/bin/qt5*-env.sh
 
 script:
