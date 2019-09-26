@@ -41,6 +41,7 @@
     <release version="1.6.0" date="2019-09-26">
       <description>
     <ul>
+      <li>Added new User documentation as Github pages.</li>
       <li>Added custom cursor for Paint Bucket tool.</li>
       <li>Fixed incorrect tool being selected when you change tab.</li>
       <li>Improved aboutDialog credits layout so titles can be translated.</li>
