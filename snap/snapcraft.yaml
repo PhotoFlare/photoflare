@@ -26,7 +26,9 @@ parts:
       - qtbase5-dev
       - qttools5-dev-tools
       - libgraphicsmagick++-dev
+      - libomp-dev
     stage-packages:
       - libgraphicsmagick++-q16-12
+      - libomp5
       - libqt5printsupport5
       - qt5-image-formats-plugins
