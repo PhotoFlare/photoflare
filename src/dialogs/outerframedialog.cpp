@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Outerframe dialog class for the PhotoFlare application.
+// Outerframe dialog class for the Photoflare application.
 
 #include <QColorDialog>
 

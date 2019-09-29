@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// PhotoFlare main program.
+// Photoflare main program.
 
 //#include <QDebug>
 
@@ -33,7 +33,7 @@
 
 int main(int argc, char *argv[])
 {
-    QtSingleApplication app("PhotoFlare", argc, argv);
+    QtSingleApplication app("Photoflare", argc, argv);
 
     // Remove WhatIsThis from Window Controls (Windows only)
     #ifdef WIN32

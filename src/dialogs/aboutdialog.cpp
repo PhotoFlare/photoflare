@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// About dialog class for the PhotoFlare application.
+// About dialog class for the Photoflare application.
 
 #include <QApplication>
 #include <QTextEdit>

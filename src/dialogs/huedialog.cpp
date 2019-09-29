@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Hue dialog class for the PhotoFlare application.
+// Hue dialog class for the Photoflare application.
 
 #include <QMouseEvent>
 #include <QColorDialog>

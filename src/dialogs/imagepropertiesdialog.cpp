@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// ImageProperties dialog class for the PhotoFlare application.
+// ImageProperties dialog class for the Photoflare application.
 
 #include "imagepropertiesdialog.h"
 #include "ui_imagepropertiesdialog.h"

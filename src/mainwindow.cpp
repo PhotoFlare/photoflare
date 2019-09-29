@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Main window class for the PhotoFlare application.
+// Main window class for the Photoflare application.
 
 //#include <QDebug>
 
@@ -1653,11 +1653,11 @@ void MainWindow::batchProcess_batchProgress(int index,int total)
 {
     if(index < total)
     {
-        this->setWindowTitle(QString("PhotoFlare - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
+        this->setWindowTitle(QString("Photoflare - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
     }
     else
     {
-        this->setWindowTitle(QString("PhotoFlare"));
+        this->setWindowTitle(QString("Photoflare"));
     }
 }
 

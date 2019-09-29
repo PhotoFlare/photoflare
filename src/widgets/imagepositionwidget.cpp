@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Image position widget for the PhotoFlare application.
+// Image position widget for the Photoflare application.
 
 #include "imagepositionwidget.h"
 #include "ui_imagepositionwidget.h"

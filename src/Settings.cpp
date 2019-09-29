@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Settings class for the PhotoFlare application.
+// Settings class for the Photoflare application.
 
 #include <QSettings>
 #include <QRect>

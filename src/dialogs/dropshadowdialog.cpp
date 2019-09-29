@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Dropshadow dialog class for the PhotoFlare application.
+// Dropshadow dialog class for the Photoflare application.
 
 #include "dropshadowdialog.h"
 #include "ui_dropshadowdialog.h"

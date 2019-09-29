@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Text dialog class for the PhotoFlare application.
+// Text dialog class for the Photoflare application.
 
 #include <QColorDialog>
 #include <QSettings>
