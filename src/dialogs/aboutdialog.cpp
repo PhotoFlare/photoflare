@@ -36,7 +36,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
                 "<br>Lead - Dylan Coakley"
                 "<br>Developer - Marek Mosna"
                 "<br>Developer - Dmitry Vasilenko"
-                "<br>Debian package - Dylan Aissi"
+                "<br>Debian package - Dylan Aïssi"
                 "<br>AppImage package - probonopd")
     );
     ui->graphicsTextArea->setText(tr("Main icon - Robert BM"
