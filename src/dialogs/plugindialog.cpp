@@ -20,6 +20,7 @@
 
 //#include <QDebug>
 #include <QDir>
+#include <QStandardPaths>
 
 PluginDialog::PluginDialog(QWidget *parent) :
     QDialog(parent),
@@ -28,10 +29,16 @@ PluginDialog::PluginDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
-    QDir dir("plugins");
+    QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io/plugins";
+    QDir dir(loc);
+
     if (!dir.exists())
     {
         //qWarning("Cannot find the plugins directory");
+    }
+    else if(dir.exists() && dir.entryList(QDir::NoDotAndDotDot|QDir::AllEntries).count() == 0)
+    {
+        ui->listWidget->addItem(QString(tr("No plugins installed")));
     }
     else
     {
