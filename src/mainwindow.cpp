@@ -117,9 +117,47 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Add Settings Widgets to the Dock
+    addSettingsWidgets();
+
+    // Connect signals to the various Tools
+    connectTools();
+
+    // Setup additional workspace UI after parsing ui file
+    setupWorkspace();
+
+    // Disable actions that are not yet implemented. True = hidden, False = Disabled
+    disableUnimplementedActions(true);
+
+    // Create the keyboard shortcut bindings
+    createKeyboardShortcuts();
+
+    // Setup some other defaults on startup
+    setWindowSize();
+    updateRecentFilesMenu();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+/*
+
+    | Initial GUI Setup |
+
+*/
+
+void MainWindow::setupWorkspace()
+{
+    // Set icon theme - WIP
     //QString theme = "Retro";
     //applyTheme(theme);
 
+    // Add zoom ComboBox
+    addZoomCombo();
+
+    // Set window mode
     if(SETTINGS->isMultiWindowMode())
     {
         ui->mdiArea->setViewMode(QMdiArea::SubWindowView);
@@ -129,6 +167,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->mdiArea->setViewMode(QMdiArea::TabbedView);
     }
 
+    // Set dock layout
     if(SETTINGS->getDockLayout() == "1")
     {
         addDockWidget(Qt::LeftDockWidgetArea, ui->dockWidget_palette);
@@ -138,13 +177,32 @@ MainWindow::MainWindow(QWidget *parent) :
     // Center colorBox in tool palette.
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
-    // Disable actions that are not yet implemented. True = hidden, False = Disabled
-    disableUnimplementedActions(true);
+    // Default the transparent dialog and colour mode
+    transparentDialog = 0;
+    ui->actionRGB_Mode->setChecked(true);
 
-    // Create the keyboard shortcut bindings
-    createKeyboardShortcuts();
+    // Remove Qt contextmenu from the toolbars
+    setContextMenuPolicy(Qt::NoContextMenu);
 
-    // Add zoom ComboBox
+    // Setup status text defaults
+    batchLbl = new QLabel(tr("Ready"));
+    batchLbl->setStyleSheet("margin:0 100 0 0");
+    ui->statusBar->addWidget(batchLbl);
+
+    // Disable undo/redo buttons on startup
+    ui->actionUndo->setEnabled(false);
+    ui->actionRedo->setEnabled(false);
+
+    // Set checked by default
+    ui->actionFilterbar->setChecked(true);
+    ui->actionToolpalette->setChecked(true);
+
+    // Pointer tool selected by default
+    on_toolButtonPointer_clicked();
+}
+
+void MainWindow::addZoomCombo()
+{
     zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
     // FIXME: String below should probably be localized.
@@ -157,56 +215,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mainToolBar->addWidget(zoomCombo);
     connect(zoomCombo, SIGNAL(activated(const QString&)), this, SLOT(onZoomChanged(const QString&)));
     connect(ui->mdiArea, &QMdiArea::subWindowActivated, this, &MainWindow::onSubWindowActivated);
+}
 
-    // Add Settings Widgets to the Dock
-    m_ptSettingsWidget = new PointerSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_ptSettingsWidget);
-    connect(m_ptSettingsWidget, &PointerSettingsWidget::settingsChanged, this, &MainWindow::onPointerToolSettingsChanged);
-
-    m_pbSettingsWidget = new PaintBrushSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_pbSettingsWidget);
-    connect(m_pbSettingsWidget, &PaintBrushSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushSettingsChanged);
-
-    m_pbAdvSettingsWidget = new PaintBrushAdvSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_pbAdvSettingsWidget);
-    connect(m_pbAdvSettingsWidget, &PaintBrushAdvSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushAdvSettingsChanged);
-
-    m_scSettingsWidget = new SprayCanSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_scSettingsWidget);
-    connect(m_scSettingsWidget, &SprayCanSettingsWidget::settingsChanged, this, &MainWindow::onSprayCanSettingsChanged);
-
-    m_lineSettingsWidget = new LineSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_lineSettingsWidget);
-    connect(m_lineSettingsWidget, &LineSettingsWidget::settingsChanged, this, &MainWindow::onLineSettingsChanged);
-
-    m_magicWandSettingsWidget = new MagicWandSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_magicWandSettingsWidget);
-    connect(m_magicWandSettingsWidget, &MagicWandSettingsWidget::settingsChanged, this, &MainWindow::onMagicWandSettingsChanged);
-
-    m_stampSettingsWidget = new StampSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_stampSettingsWidget);
-    connect(m_stampSettingsWidget, &StampSettingsWidget::settingsChanged, this, &MainWindow::onStampSettingsChanged);
-
-    m_blurSettingsWidget = new BlurSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
-    connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
-
-    m_eraserSettingsWidget = new EraserSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_eraserSettingsWidget);
-    connect(m_eraserSettingsWidget, &EraserSettingsWidget::settingsChanged, this, &MainWindow::onEraserSettingsChanged);
-
-    m_smudgeSettingsWidget = new SmudgeSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_smudgeSettingsWidget);
-    connect(m_smudgeSettingsWidget, &SmudgeSettingsWidget::settingsChanged, this, &MainWindow::onSmudgeSettingsChanged);
-
-    // Disable undo/redo buttons on startup
-    ui->actionUndo->setEnabled(false);
-    ui->actionRedo->setEnabled(false);
-
-    // Set checked by default
-    ui->actionFilterbar->setChecked(true);
-    ui->actionToolpalette->setChecked(true);
-
+void MainWindow::connectTools()
+{
     // Setup Tool Initial Colours and link signals to the colorChanged functions
     PAINT_BRUSH->setPrimaryColor(ui->colorBoxWidget->primaryColor());
     PAINT_BRUSH->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
@@ -253,27 +265,49 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&,int,bool)), this, SLOT(onSelectPrimaryColor(const QPoint&,int,bool)));
 
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
-
-    // Setup some other defaults on startup
-    setWindowSize();
-    updateRecentFilesMenu();
-
-    transparentDialog = 0;
-    ui->actionRGB_Mode->setChecked(true);
-
-    on_toolButtonPointer_clicked();
-
-    // Remove Qt contextmenu from the toolbars
-    setContextMenuPolicy(Qt::NoContextMenu);
-
-    batchLbl = new QLabel(tr("Ready"));
-    batchLbl->setStyleSheet("margin:0 100 0 0");
-    ui->statusBar->addWidget(batchLbl);
 }
 
-MainWindow::~MainWindow()
+void MainWindow::addSettingsWidgets()
 {
-    delete ui;
+    m_ptSettingsWidget = new PointerSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_ptSettingsWidget);
+    connect(m_ptSettingsWidget, &PointerSettingsWidget::settingsChanged, this, &MainWindow::onPointerToolSettingsChanged);
+
+    m_pbSettingsWidget = new PaintBrushSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_pbSettingsWidget);
+    connect(m_pbSettingsWidget, &PaintBrushSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushSettingsChanged);
+
+    m_pbAdvSettingsWidget = new PaintBrushAdvSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_pbAdvSettingsWidget);
+    connect(m_pbAdvSettingsWidget, &PaintBrushAdvSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushAdvSettingsChanged);
+
+    m_scSettingsWidget = new SprayCanSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_scSettingsWidget);
+    connect(m_scSettingsWidget, &SprayCanSettingsWidget::settingsChanged, this, &MainWindow::onSprayCanSettingsChanged);
+
+    m_lineSettingsWidget = new LineSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_lineSettingsWidget);
+    connect(m_lineSettingsWidget, &LineSettingsWidget::settingsChanged, this, &MainWindow::onLineSettingsChanged);
+
+    m_magicWandSettingsWidget = new MagicWandSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_magicWandSettingsWidget);
+    connect(m_magicWandSettingsWidget, &MagicWandSettingsWidget::settingsChanged, this, &MainWindow::onMagicWandSettingsChanged);
+
+    m_stampSettingsWidget = new StampSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_stampSettingsWidget);
+    connect(m_stampSettingsWidget, &StampSettingsWidget::settingsChanged, this, &MainWindow::onStampSettingsChanged);
+
+    m_blurSettingsWidget = new BlurSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
+    connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
+
+    m_eraserSettingsWidget = new EraserSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_eraserSettingsWidget);
+    connect(m_eraserSettingsWidget, &EraserSettingsWidget::settingsChanged, this, &MainWindow::onEraserSettingsChanged);
+
+    m_smudgeSettingsWidget = new SmudgeSettingsWidget;
+    ui->dockWidgetSettings->layout()->addWidget(m_smudgeSettingsWidget);
+    connect(m_smudgeSettingsWidget, &SmudgeSettingsWidget::settingsChanged, this, &MainWindow::onSmudgeSettingsChanged);
 }
 
 /*
