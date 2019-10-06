@@ -30,7 +30,6 @@ namespace Ui {
 class MainWindow;
 }
 
-class LayerManager;
 class PaintWidget;
 class PointerSettingsWidget;
 class PaintBrushSettingsWidget;
@@ -210,9 +209,6 @@ private slots:
 
     void on_actionColour_Threshold_triggered();
 
-    void on_actionNew_layer_triggered();
-    void on_actionRemove_layer_triggered();
-
     void on_actionClearHistory_triggered();
 
     void on_actionClearClipboard_triggered();
@@ -253,7 +249,6 @@ private:
     Ui::MainWindow *ui;
     QString m_toolSelected;
     QString m_previousToolSelected;
-    LayerManager *m_layerListWidget;
     PointerSettingsWidget *m_ptSettingsWidget;
     PaintBrushSettingsWidget *m_pbSettingsWidget;
     PaintBrushAdvSettingsWidget *m_pbAdvSettingsWidget;
