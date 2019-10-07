@@ -51,7 +51,8 @@ aboutDialog::aboutDialog(QWidget *parent) :
                                    "<br>DE - Freacore"
                                    "<br>zh_TW - Coolshou")
     );
-    ui->contribTextArea->setText(tr("Duzy Chan - Code"
+    ui->contribTextArea->setText(tr("Carlo Vaccari - Code"
+    							 "<br>Duzy Chan - Code"
                                  "<br>Samuel Cowen - Code"
                                  "<br>Richard Senior - GNU Autotools"
                                  "<br>Alexandre Kharlamov - Code"
