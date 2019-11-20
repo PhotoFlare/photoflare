@@ -398,7 +398,10 @@ void PaintWidget::onCursorChanged(QCursor cursor)
 void PaintWidget::onSelectionChanged(QPolygon poly)
 {
     d->selection = poly;
-    setSelectionVisible(d->selection.first() != d->selection.last());
+    if(!d->selection.isEmpty())
+    {
+        setSelectionVisible(true);
+    }
 }
 
 void PaintWidget::setImagePath(QString path)
@@ -588,7 +591,7 @@ QPolygon PaintWidget::selection()
 
 bool PaintWidget::isSelectionVisible()
 {
-    return d->isSelectionVisible && d->selection.first() != d->selection.last();
+    return d->isSelectionVisible;
 }
 
 void PaintWidget::setHotspotVisble(bool visible)
