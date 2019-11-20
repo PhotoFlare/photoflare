@@ -198,7 +198,8 @@ TRANSLATIONS = languages/en.ts\
                languages/nl.ts\
                languages/de.ts\
                languages/zh_TW.ts \
-               languages/cs.ts
+               languages/cs.ts \
+               languages/zh_CN.ts
 
 # Generate translations in build
 TRANSLATIONS_FILES =
