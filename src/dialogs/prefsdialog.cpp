@@ -86,14 +86,15 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->historySlider->setValue(SETTINGS->getHistoryLimit().toInt());
 
     //Startup tab
-    QStringList list(QStringList() << "English" << "French" << "Dutch" << "German" << "Chinese" << "Czech Republic");
+    QStringList list(QStringList() << "English" << "French" << "Dutch" << "German" << "Chinese (CN)" << "Chinese (TW)" << "Czech Republic");
     ui->comboBoxLanguage->addItems(list);
     ui->comboBoxLanguage->setItemIcon(0,QIcon(flagPath+"United-kingdom.png"));
     ui->comboBoxLanguage->setItemIcon(1,QIcon(flagPath+"France.png"));
     ui->comboBoxLanguage->setItemIcon(2,QIcon(flagPath+"Netherlands.png"));
     ui->comboBoxLanguage->setItemIcon(3,QIcon(flagPath+"Germany.png"));
-    ui->comboBoxLanguage->setItemIcon(4,QIcon(flagPath+"Taiwan.png"));
-    ui->comboBoxLanguage->setItemIcon(5,QIcon(flagPath+"Czech-Republic.png"));
+    ui->comboBoxLanguage->setItemIcon(4,QIcon(flagPath+"China.png"));
+    ui->comboBoxLanguage->setItemIcon(5,QIcon(flagPath+"Taiwan.png"));
+    ui->comboBoxLanguage->setItemIcon(6,QIcon(flagPath+"Czech-Republic.png"));
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
@@ -106,10 +107,12 @@ prefsDialog::prefsDialog(QWidget *parent) :
         ui->comboBoxLanguage->setCurrentIndex(2);
     else if(SETTINGS->getUserLanguage() == "de")
         ui->comboBoxLanguage->setCurrentIndex(3);
-    else if(SETTINGS->getUserLanguage() == "zh_TW")
+    else if(SETTINGS->getUserLanguage() == "zh_CN")
             ui->comboBoxLanguage->setCurrentIndex(4);
-    else if(SETTINGS->getUserLanguage() == "cs")
+    else if(SETTINGS->getUserLanguage() == "zh_TW")
             ui->comboBoxLanguage->setCurrentIndex(5);
+    else if(SETTINGS->getUserLanguage() == "cs")
+            ui->comboBoxLanguage->setCurrentIndex(6);
 
     ui->restartButton->hide();
 }
@@ -235,7 +238,9 @@ void prefsDialog::set_user_language()
     else if(ui->comboBoxLanguage->currentIndex() == 3)
         SETTINGS->setUserLanguage("de");
     else if(ui->comboBoxLanguage->currentIndex() == 4)
-        SETTINGS->setUserLanguage("zh_TW");
+        SETTINGS->setUserLanguage("zh_CN");
     else if(ui->comboBoxLanguage->currentIndex() == 5)
+        SETTINGS->setUserLanguage("zh_TW");
+    else if(ui->comboBoxLanguage->currentIndex() == 6)
         SETTINGS->setUserLanguage("cs");
 }
