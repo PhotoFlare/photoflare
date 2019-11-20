@@ -180,7 +180,9 @@ public:
             // Set current image to the tool when we start painting.
             currentTool->setPaintDevice(&image);
             imageChanged = false;
-            currentTool->onMousePress(QPoint(event->scenePos().x(), event->scenePos().y()) , event->button());
+            int s_x = static_cast<int>(event->scenePos().x());
+            int s_y = static_cast<int>(event->scenePos().y());
+            currentTool->onMousePress(QPoint(s_x, s_y) , event->button());
         }
     }
 
@@ -190,14 +192,20 @@ public:
             return;
 
         if (currentTool)
-            currentTool->onMouseMove(QPoint(event->scenePos().x(), event->scenePos().y()));
+        {
+            int s_x = static_cast<int>(event->scenePos().x());
+            int s_y = static_cast<int>(event->scenePos().y());
+            currentTool->onMouseMove(QPoint(s_x, s_y));
+        }
     }
 
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     {
         if (currentTool)
         {
-            currentTool->onMouseRelease(QPoint(event->scenePos().x(), event->scenePos().y()));
+            int s_x = static_cast<int>(event->scenePos().x());
+            int s_y = static_cast<int>(event->scenePos().y());
+            currentTool->onMouseRelease(QPoint(s_x, s_y));
             if(q->selection().size()==0 && imageChanged)
             {
                 q->onContentChanged();
