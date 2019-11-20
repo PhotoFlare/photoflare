@@ -2359,7 +2359,7 @@ void MainWindow::addPaintWidget(PaintWidget *widget)
     widget->autoScale();
 
     connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
-        this->zoomCombo->setItemText(0, QString::number((int)(scale*100)).append("%"));
+        this->zoomCombo->setItemText(0, QString::number(static_cast<int>(scale*100)).append("%"));
         this->zoomCombo->setCurrentIndex(0);
     });
 
