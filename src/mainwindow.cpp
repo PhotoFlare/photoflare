@@ -1665,7 +1665,7 @@ void MainWindow::batchProcess_batchProgress(int index,int total)
 {
     if(index < total)
     {
-        this->setWindowTitle(QString("Photoflare - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * (float)index/(float)total)));
+        this->setWindowTitle(QString("Photoflare - %1/%2 (%3%)").arg(index).arg(total).arg(int(100 * static_cast<float>(index)/static_cast<float>(total))));
     }
     else
     {
@@ -2142,7 +2142,7 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
-        QString scale = QString::number((int)(widget->getScale()*100)).append("%");
+        QString scale = QString::number(static_cast<int>(widget->getScale()*100)).append("%");
         int index = this->zoomCombo->findText(scale);
         if(index < 0)
         {
