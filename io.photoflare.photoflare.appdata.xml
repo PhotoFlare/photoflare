@@ -38,6 +38,14 @@
   </provides>
 
   <releases>
+    <release version="1.6.1" date="2019-12-02">
+      <description>
+    <ul>
+      <li>Fixed crash on mouse release after creating a selection.</li>
+      <li>Added Chinese (simplified) translation.</li>
+    </ul>
+      </description>
+  </release>
     <release version="1.6.0" date="2019-09-26">
       <description>
     <ul>
