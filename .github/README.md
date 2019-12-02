@@ -47,7 +47,8 @@ Languages currently available:
 - French
 - Dutch
 - German
-- Chinese (TW)
+- Chinese (Simplified - zh_CN)
+- Chinese (Traditional - zh_TW)
 - Czech
 
 If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="https://photoflare.io/contributing/translations/">available here</a>
