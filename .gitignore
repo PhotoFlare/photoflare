@@ -11,3 +11,4 @@ parts/
 prime/
 snap/.snapcraft/
 stage/
+external/GraphicsMagick-1.3.28
