@@ -321,6 +321,7 @@
     <ROW File="nl.qm_1" Component_="de.qm_1" FileName="nl.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\nl.qm" SelfReg="false"/>
     <ROW File="zh_TW.qm_1" Component_="de.qm_1" FileName="zh_TW.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\zh_TW.qm" SelfReg="false"/>
     <ROW File="cs.qm" Component_="de.qm_1" FileName="cs.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\cs.qm" SelfReg="false"/>
+    <ROW File="zh_CN.qm" Component_="de.qm_1" FileName="zh_CN.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\zh_CN.qm" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
     <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true" MsiPackageType="x64"/>
