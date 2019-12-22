@@ -29,7 +29,7 @@ win32 {
 # Project settings for Linux and Hurd. Adjust the paths as needed on your system.
 linux|hurd {
     INCLUDEPATH += /usr/include/GraphicsMagick
-    LIBS += -L/usr/lib -lGraphicsMagick++
+    LIBS += -lGraphicsMagick++
     QMAKE_CXXFLAGS += -fopenmp
     LIBS += -fopenmp
 }
