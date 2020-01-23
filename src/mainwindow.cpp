@@ -1513,13 +1513,8 @@ void MainWindow::getPrevZoomFromScale(QString scaletext)
         int a = this->zoomCombo->itemText(i).replace("%","").toInt();
         int b = scaletext.replace("%","").toInt();
 
-        //qDebug() << "a" << a;
-        //qDebug() << "b" << b;
-
         if(b > a)
         {
-            //qDebug() << "i" << i;
-            //qDebug()<< this->zoomCombo->itemText(i);
             this->zoomCombo->setCurrentIndex(i-1);
             break;
         }
@@ -1536,7 +1531,7 @@ void MainWindow::getNextZoomFromScale(QString scaletext)
 
         if(a > b)
         {
-            this->zoomCombo->setCurrentIndex(i-1);
+            this->zoomCombo->setCurrentIndex(i);
             break;
         }
     }
