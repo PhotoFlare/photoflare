@@ -38,6 +38,15 @@
   </provides>
 
   <releases>
+    <release version="1.6.2" date="2020-01-26">
+      <description>
+    <ul>
+      <li>Fixed zoom out transition from autozoom to step zoom.</li>
+      <li>Fixed zoom in transition from autozoom to step zoom.</li>
+      <li>Fixed building on OpenMandriva Cooker with clang and lld linker.</li>
+    </ul>
+      </description>
+  </release>
     <release version="1.6.1" date="2019-12-02">
       <description>
     <ul>
@@ -60,22 +69,6 @@
       <li>Added buttons to add/remove filters on batch/automate dialog.</li>
       <li>Added keyboard shortcut for original zoom. (Ctrl+0)</li>
       <li>Added OpenMP to use multiple threads for graphicsmagick filters.</li>
-    </ul>
-      </description>
-  </release>
-  <release version="1.5.9" date="2019-05-26">
-      <description>
-    <ul>
-      <li>Added ability to transition from auto zoom to zoom step for zoom in.</li>
-      <li>Added keyboard shortcuts for zoom in/zoom out.</li>
-      <li>Added keyboard shortcut to toggle View > Full Screen.</li>
-      <li>Fixed the newdialog size preview having arrow controls and focus.</li>
-      <li>Fixed not being able to undo after pasting image.</li>
-      <li>Fixed whatIsThis not disabled on Windows during compile.</li>
-      <li>Fixed being able to resize certain dialogs.</li>
-      <li>Fixed Compression and History size sliders not updating on click. </li>
-      <li>Fixed Paste as New Image without any copied data.</li>
-      <li>Removed lots of compiler warnings.</li>
     </ul>
       </description>
   </release>
