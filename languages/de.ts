@@ -241,28 +241,28 @@
     <message>
         <location filename="src/mainwindow.ui" line="80"/>
         <source>&amp;File</source>
-        <translation>&amp;Bestand</translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="84"/>
         <location filename="src/mainwindow.ui" line="1020"/>
         <source>Recent Files</source>
-        <translation>Laatst gebruikte bestanden</translation>
+        <translation>Neueste Dateien</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="89"/>
         <source>Import TWAIN</source>
-        <translation>Importeer TWAIN</translation>
+        <translation>Importieren TWAIN</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="113"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Bewerken</translation>
+        <translation>&amp;Bearbeiten</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="141"/>
         <source>&amp;Image</source>
-        <translation>&amp;Afbeelding</translation>
+        <translation>&amp;Bild</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="145"/>
@@ -274,17 +274,17 @@
         <location filename="src/mainwindow.ui" line="1147"/>
         <location filename="src/mainwindow.ui" line="1326"/>
         <source>Transform</source>
-        <translation>Transformeren</translation>
+        <translation>Verwandeln</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="185"/>
         <source>&amp;Selection</source>
-        <translation>&amp;Selectie</translation>
+        <translation>&amp;Auswahl</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="212"/>
         <source>&amp;Adjust</source>
-        <translation>&amp;Aanpassen</translation>
+        <translation>&amp;Anpassen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="238"/>
@@ -294,74 +294,74 @@
     <message>
         <location filename="src/mainwindow.ui" line="242"/>
         <source>Deform</source>
-        <translation>Vervormen</translation>
+        <translation>Verformen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="251"/>
         <source>Artistic</source>
-        <translation>Artistiek</translation>
+        <translation>Künstlerisch</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="259"/>
         <location filename="src/mainwindow.ui" line="1467"/>
         <source>Soften</source>
-        <translation>Verzachten</translation>
+        <translation>Erweichen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="266"/>
         <location filename="src/mainwindow.ui" line="1476"/>
         <source>Sharpen</source>
-        <translation>Verscherpen</translation>
+        <translation>Schärfen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="273"/>
         <source>Flatten</source>
-        <translation>Effenen</translation>
+        <translation>Ebnen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="279"/>
         <source>Edges</source>
-        <translation>Randen</translation>
+        <translation>Kanten</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="285"/>
         <source>Noise</source>
-        <translation>Ruis</translation>
+        <translation>Lärm</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="296"/>
         <source>Frame</source>
-        <translation>Lijst</translation>
+        <translation>Rahmen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="304"/>
         <source>Colour</source>
-        <translation>Kleur</translation>
+        <translation>Farbe</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="314"/>
         <source>Visual Effect</source>
-        <translation>Visueel effect</translation>
+        <translation>Visueller Effekt</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="338"/>
         <source>&amp;View</source>
-        <translation>&amp;Beeld</translation>
+        <translation>&amp;Aussicht</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="354"/>
         <source>&amp;Tools</source>
-        <translation>&amp;Gereedschappen</translation>
+        <translation>&amp;Werkzeuge</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="366"/>
         <source>&amp;Help</source>
-        <translation>&amp;Help</translation>
+        <translation>&amp;Hilfe</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="393"/>
         <source>Main ToolBar</source>
-        <translation>Hoofd werkbalk</translation>
+        <translation>Hauptwerkzeugleiste</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="552"/>
@@ -380,57 +380,57 @@
     <message>
         <location filename="src/mainwindow.ui" line="925"/>
         <source>Extra ToolBar</source>
-        <translation>Extra werkbalk</translation>
+        <translation>Extra Toolbar</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="992"/>
         <source>&amp;New...</source>
-        <translation>Nieuw...</translation>
+        <translation>Neu...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1007"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Open...</translation>
+        <translation>&amp;Öffnen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1015"/>
         <source>Revert</source>
-        <translation>Vorige</translation>
+        <translation>Zurückkehren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1029"/>
         <source>&amp;Save</source>
-        <translation>Opslaan</translation>
+        <translation>speichern</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1037"/>
         <source>&amp;Save As...</source>
-        <translation>&amp;Opslaan als...</translation>
+        <translation>&amp;Speichern als...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1042"/>
         <source>&amp;Close</source>
-        <translation>&amp;Sluiten</translation>
+        <translation>&amp;Schließen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1047"/>
         <source>Close &amp;All</source>
-        <translation>Sluit &amp;alles</translation>
+        <translation>Alle &amp;schließen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1056"/>
         <source>Print...</source>
-        <translation>Afdrukken...</translation>
+        <translation>Drucken...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1064"/>
         <source>Image Properties</source>
-        <translation>Afbeelding eigenschappen</translation>
+        <translation>Bildeigenschaften</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1069"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Afsluiten</translation>
+        <translation>&amp;Verlassen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1078"/>
