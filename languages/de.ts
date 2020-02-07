@@ -1628,12 +1628,12 @@
     <message>
         <location filename="src/aboutdialog.ui" line="22"/>
         <source>About</source>
-        <translation>Over</translation>
+        <translation>Über</translation>
     </message>
     <message>
         <location filename="src/aboutdialog.ui" line="34"/>
         <source>&amp;Close</source>
-        <translation>&amp;Sluiten</translation>
+        <translation>&amp;Schließen</translation>
     </message>
     <message>
         <location filename="src/aboutdialog.ui" line="47"/>
@@ -1645,12 +1645,12 @@
         <location filename="src/aboutdialog.ui" line="76"/>
         <location filename="src/aboutdialog.ui" line="89"/>
         <source>TextLabel</source>
-        <translation>Tekstlabel</translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="src/aboutdialog.ui" line="142"/>
         <source>C&amp;redits</source>
-        <translation>K&amp;ediet</translation>
+        <translation>C&amp;redits</translation>
     </message>
     <message>
         <location filename="src/aboutdialog.cpp" line="18"/>
@@ -1660,7 +1660,7 @@
     <message>
         <location filename="src/aboutdialog.cpp" line="43"/>
         <source>A simple but featureful editor.</source>
-        <translation>Een eenvoudig maar veelzijdig programma.</translation>
+        <translation>Ein einfacher, aber feinfühliger Editor.</translation>
     </message>
     <message>
         <location filename="src/aboutdialog.cpp" line="44"/>
@@ -1673,32 +1673,32 @@
     <message>
         <location filename="src/batchdialog.ui" line="14"/>
         <source>Automate/Batch</source>
-        <translation>Automatiseer/Batch</translation>
+        <translation>Automatisieren/Batch</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="49"/>
         <source>Files</source>
-        <translation>Bestanden</translation>
+        <translation>Dateien</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="77"/>
         <source>Source Format</source>
-        <translation>Oorspronkelijk formaat</translation>
+        <translation>Quellformat</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="100"/>
         <source>Output Folder</source>
-        <translation>Uitgaande map</translation>
+        <translation>Ausgabeordner</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="126"/>
         <source>Output Format</source>
-        <translation>Uitgaande formaat</translation>
+        <translation>Ausgabeformat</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="155"/>
         <source>Add Files</source>
-        <translation>Bestanden toevoegen</translation>
+        <translation>Dateien hinzufügen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="168"/>
@@ -1708,34 +1708,34 @@
     <message>
         <location filename="src/batchdialog.ui" line="174"/>
         <source>Image Size</source>
-        <translation>Afmeting Afbeelding</translation>
+        <translation>Bildgröße</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="186"/>
         <source>Image size</source>
-        <translation>Afmeting afbeelding</translation>
+        <translation>Bildgröße</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="202"/>
         <location filename="src/batchdialog.ui" line="335"/>
         <source>Height:</source>
-        <translation>Hoogte:</translation>
+        <translation>Höhe:</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="265"/>
         <location filename="src/batchdialog.ui" line="319"/>
         <source>Width:</source>
-        <translation>Breedte:</translation>
+        <translation>Breite:</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="281"/>
         <source>Preserve aspect ratio</source>
-        <translation>Aspectverhouding behouden</translation>
+        <translation>Seitenverhältnis beibehalten</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="348"/>
         <source>Canvas size</source>
-        <translation>Canvas grootte</translation>
+        <translation>Leinwandgröße</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="393"/>
@@ -1750,22 +1750,22 @@
     <message>
         <location filename="src/batchdialog.ui" line="415"/>
         <source>Unit:</source>
-        <translation>Eenheid:</translation>
+        <translation>Einheit:</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="444"/>
         <source>Background:</source>
-        <translation>Achtergrond:</translation>
+        <translation>Hintergrund:</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="473"/>
         <source>Position:</source>
-        <translation>Positie:</translation>
+        <translation>Position:</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="479"/>
         <source>Adjust Levels</source>
-        <translation>Niveau's aanpassen</translation>
+        <translation>Pegel einstellen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="601"/>
@@ -1773,7 +1773,7 @@
         <location filename="src/batchdialog.ui" line="691"/>
         <location filename="src/batchdialog.ui" line="736"/>
         <source>&lt;Alls&gt;</source>
-        <translation>&lt;Alles&gt;</translation>
+        <translation>&lt;Alls&gt;</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="606"/>
@@ -1781,7 +1781,7 @@
         <location filename="src/batchdialog.ui" line="696"/>
         <location filename="src/batchdialog.ui" line="741"/>
         <source>Red</source>
-        <translation>Rood</translation>
+        <translation>rot</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="611"/>
@@ -1789,7 +1789,7 @@
         <location filename="src/batchdialog.ui" line="701"/>
         <location filename="src/batchdialog.ui" line="746"/>
         <source>Green</source>
-        <translation>Groen</translation>
+        <translation>Grün</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="616"/>
@@ -1797,7 +1797,7 @@
         <location filename="src/batchdialog.ui" line="706"/>
         <location filename="src/batchdialog.ui" line="751"/>
         <source>Blue</source>
-        <translation>Blauw</translation>
+        <translation>Blau</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="621"/>
@@ -1805,7 +1805,7 @@
         <location filename="src/batchdialog.ui" line="711"/>
         <location filename="src/batchdialog.ui" line="756"/>
         <source>Cyan</source>
-        <translation>Cyaan</translation>
+        <translation>Cyan</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="626"/>
@@ -1821,32 +1821,32 @@
         <location filename="src/batchdialog.ui" line="721"/>
         <location filename="src/batchdialog.ui" line="766"/>
         <source>Yellow</source>
-        <translation>Geel</translation>
+        <translation>Gelb</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="780"/>
         <source>Brightness</source>
-        <translation>Helderheid</translation>
+        <translation>Helligkeit</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="793"/>
         <source>Contrast</source>
-        <translation>Contrast</translation>
+        <translation>Kontrast</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="806"/>
         <source>Saturation</source>
-        <translation>Verzadiging</translation>
+        <translation>Sättigung</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="819"/>
         <source>Gamma correct</source>
-        <translation>Gamma correctie</translation>
+        <translation>Gamma richtig</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="832"/>
         <source>Channel</source>
-        <translation>Kanaal</translation>
+        <translation>Kanal</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="845"/>
@@ -1868,57 +1868,57 @@
     <message>
         <location filename="src/batchdialog.ui" line="902"/>
         <source>Available</source>
-        <translation>Beschikbaar</translation>
+        <translation>Verfügbar</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="925"/>
         <source>Enabled</source>
-        <translation>Ingeschakeld</translation>
+        <translation>aktiviert</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="941"/>
         <source>Transform</source>
-        <translation>Transformeren</translation>
+        <translation>Verwandeln</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="968"/>
         <source>Rotate 90° CCW</source>
-        <translation>Draai 90° CCW</translation>
+        <translation>Drehen 90° CCW</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="984"/>
         <source>Rotate 180°</source>
-        <translation>Draai 180°</translation>
+        <translation>Drehen 180°</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="997"/>
         <source>Rotate</source>
-        <translation>Draaien</translation>
+        <translation>Drehen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="1013"/>
         <source>Rotate 90° CW</source>
-        <translation>Draai 90° CW</translation>
+        <translation>Drehen 90° CW</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="1045"/>
         <source>Flip vertical</source>
-        <translation>Vertikaal omdraaien</translation>
+        <translation>Vertikal spiegeln</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="1064"/>
         <source>Flip horizontal</source>
-        <translation>Horizontaal omdraaien</translation>
+        <translation>Horizontal spiegeln</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="1077"/>
         <source>Flip</source>
-        <translation>Omdraaien</translation>
+        <translation>Flip</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="1084"/>
         <source>Summary</source>
-        <translation>Samenvatting</translation>
+        <translation>Zusammenfassung</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="33"/>
@@ -1938,63 +1938,63 @@
     <message>
         <location filename="src/batchdialog.cpp" line="41"/>
         <source>Oil</source>
-        <translation>Olie</translation>
+        <translation>Öl</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="42"/>
         <source>Charcoal</source>
-        <translation>Houtskool</translation>
+        <translation>Holzkohle</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="43"/>
         <source>Swirl</source>
-        <translation>Dwarrelen</translation>
+        <translation>Strudel</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="44"/>
         <source>Solarize</source>
-        <translation>Overbelichten</translation>
+        <translation>Solarisieren</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="45"/>
         <source>Wave</source>
-        <translation>Golf</translation>
+        <translation>Welle</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="46"/>
         <location filename="src/batchdialog.cpp" line="54"/>
         <source>Implode</source>
-        <translation>Imploderen</translation>
+        <translation>Implodieren</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="47"/>
         <source>Soften</source>
-        <translation>Verzachten</translation>
+        <translation>Erweichen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="48"/>
         <source>Blur</source>
-        <translation>Vervagen</translation>
+        <translation>Verwischen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="49"/>
         <source>Sharpen</source>
-        <translation>Verscherpen</translation>
+        <translation>Schärfen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="50"/>
         <source>Reinforce</source>
-        <translation>Versterken</translation>
+        <translation>Verstärken</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="51"/>
         <source>Grayscale</source>
-        <translation>Grijswaarden</translation>
+        <translation>Graustufen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="52"/>
         <source>Old Photo</source>
-        <translation>Oude foto</translation>
+        <translation>Altes Foto</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="53"/>
@@ -2004,27 +2004,27 @@
     <message>
         <location filename="src/batchdialog.cpp" line="55"/>
         <source>Explode</source>
-        <translation>Exploderen</translation>
+        <translation>Explodieren</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="56"/>
         <source>Simple Frame</source>
-        <translation>Eenvoudige lijst</translation>
+        <translation>Einfacher Rahmen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="57"/>
         <source>3D Frame</source>
-        <translation>3D lijst</translation>
+        <translation>3D Rahmen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="58"/>
         <source>Normalize</source>
-        <translation>Normaliseren</translation>
+        <translation>Normalisieren</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="59"/>
         <source>Motion Blur</source>
-        <translation>Bewegingsonscherpte</translation>
+        <translation>Bewegungsunschärfe</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="60"/>
@@ -2034,42 +2034,42 @@
     <message>
         <location filename="src/batchdialog.cpp" line="61"/>
         <source>Equalize colours</source>
-        <translation>Egaliseren</translation>
+        <translation>Auf Mitte zuschneiden</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="62"/>
         <source>Monochrome edges</source>
-        <translation>Monochroom</translation>
+        <translation>Einfarbige Kanten</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="63"/>
         <source>Gaussian noise</source>
-        <translation>Gaussische ruis</translation>
+        <translation>Gaußsches Rauschen</translation>
     </message>
     <message>
         <location filename="src/dialogs/batchdialog.cpp" line="66"/>
         <source>Drop shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Schlagschatten</translation>
     </message>
     <message>
         <location filename="src/dialogs/batchdialog.cpp" line="67"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opazität</translation>
     </message>
     <message>
         <location filename="src/dialogs/batchdialog.cpp" line="97"/>
         <source>Please add files to the batch file list and set output folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte fügen Sie der Batch-Dateiliste Dateien hinzu und legen Sie den Ausgabeordner fest.</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="342"/>
         <source>Select Files</source>
-        <translation>Selecteer bestanden</translation>
+        <translation>Dateien auswählen</translation>
     </message>
     <message>
         <location filename="src/batchdialog.cpp" line="343"/>
         <source>Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)</source>
-        <translation>Afbeelding bestanden (*.png *.jpg *.jpeg *.gif);;Alle bestanden (*)</translation>
+        <translation>Bilddateien (*.png *.jpg *.jpeg *.gif);;Alle Dateien (*)</translation>
     </message>
 </context>
 <context>
@@ -2077,12 +2077,12 @@
     <message>
         <location filename="src/buydialog.ui" line="14"/>
         <source>Register now</source>
-        <translation>Registreer nu</translation>
+        <translation>Jetzt registrieren</translation>
     </message>
     <message>
         <location filename="src/buydialog.ui" line="26"/>
         <source>Purchase</source>
-        <translation>Kopen</translation>
+        <translation>Kauf</translation>
     </message>
     <message>
         <location filename="src/buydialog.ui" line="42"/>
@@ -2097,17 +2097,17 @@
     <message>
         <location filename="src/buydialog.ui" line="107"/>
         <source>Hello! Thanks for trying out PhotoFlare Studio. </source>
-        <translation>Hallo! Bedankt voor het uitproberen van PhotoFlare Studio</translation>
+        <translation>Hallo! Vielen Dank, dass Sie PhotoFlare Studio ausprobiert haben</translation>
     </message>
     <message>
         <location filename="src/buydialog.ui" line="126"/>
         <source>This program is an unlimited trial version but requires a license for continued usage. </source>
-        <translation>Dit programma is een ongelimiteerde proefversie maar een vergunning is vereist voor voortgezet gebruik</translation>
+        <translation>Dieses Programm ist eine uneingeschränkte Testversion, für die weitere Verwendung ist jedoch eine Lizenz erforderlich.</translation>
     </message>
     <message>
         <location filename="src/buydialog.ui" line="145"/>
         <source>Please consider supporting the project by purchasing a license.</source>
-        <translation>Overweeg alstublieft de ondersteuning van dit project door de aankoop van een licentie</translation>
+        <translation>Bitte denken Sie daran, das Projekt durch den Kauf einer Lizenz zu unterstützen.</translation>
     </message>
 </context>
 <context>
@@ -2115,32 +2115,32 @@
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="17"/>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualisierung</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="29"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="42"/>
         <source>Checking for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach Updates suchen</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.ui" line="55"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunterladen</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.cpp" line="50"/>
         <source>New version available</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Version verfügbar</translation>
     </message>
     <message>
         <location filename="src/dialogs/checkupdatedialog.cpp" line="55"/>
         <source>No updates available</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Updates verfügbar</translation>
     </message>
 </context>
 <context>
@@ -2148,12 +2148,12 @@
     <message>
         <location filename="src/dialogs/colourmanagerdialog.ui" line="14"/>
         <source>Colour palettes</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbpaletten</translation>
     </message>
     <message>
         <location filename="src/dialogs/colourmanagerdialog.ui" line="73"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>speichern</translation>
     </message>
 </context>
 <context>
@@ -2161,22 +2161,22 @@
     <message>
         <location filename="src/dialogs/dropshadowdialog.ui" line="14"/>
         <source>Drop shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Schlagschatten</translation>
     </message>
     <message>
         <location filename="src/dialogs/dropshadowdialog.ui" line="42"/>
         <source>Blur radius</source>
-        <translation type="unfinished"></translation>
+        <translation>Radius verwischen</translation>
     </message>
     <message>
         <location filename="src/dialogs/dropshadowdialog.ui" line="55"/>
         <source>Padding</source>
-        <translation type="unfinished"></translation>
+        <translation>Polsterung</translation>
     </message>
     <message>
         <location filename="src/dialogs/dropshadowdialog.ui" line="68"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Colour</translation>
     </message>
     <message>
         <location filename="src/dialogs/dropshadowdialog.ui" line="111"/>
@@ -2191,7 +2191,7 @@
     <message>
         <location filename="src/dialogs/dropshadowdialog.ui" line="157"/>
         <source>Default values</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardwerte</translation>
     </message>
 </context>
 <context>
@@ -2199,32 +2199,32 @@
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="14"/>
         <source>Image Properties</source>
-        <translation>Afbeelding Eigenschappen</translation>
+        <translation>Bildeigenschaften</translation>
     </message>
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="42"/>
         <source>Image name:</source>
-        <translation>Afbeelding naam:</translation>
+        <translation>Bildname:</translation>
     </message>
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="61"/>
         <source>Folder:</source>
-        <translation>Map:</translation>
+        <translation>Mappe:</translation>
     </message>
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="74"/>
         <source>Size:</source>
-        <translation>Grootte:</translation>
+        <translation>Größe:</translation>
     </message>
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="87"/>
         <source>Color count:</source>
-        <translation>Aantal kleuren:</translation>
+        <translation>Farbanzahl:</translation>
     </message>
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="100"/>
         <source>File size:</source>
-        <translation>Bestandsgrootte:</translation>
+        <translation>Dateigröße:</translation>
     </message>
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="113"/>
@@ -2234,12 +2234,12 @@
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="126"/>
         <source>Memory size:</source>
-        <translation>Geheugen grootte:</translation>
+        <translation>Speichergröße:</translation>
     </message>
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="139"/>
         <source>Undo Cache Size</source>
-        <translation>Buffer ongedaan maken</translation>
+        <translation>Cache-Größe rückgängig machen</translation>
     </message>
     <message>
         <location filename="src/imagepropertiesdialog.ui" line="152"/>
@@ -2251,7 +2251,7 @@
         <location filename="src/imagepropertiesdialog.ui" line="230"/>
         <location filename="src/imagepropertiesdialog.ui" line="243"/>
         <source>TextLabel</source>
-        <translation>Tekst label</translation>
+        <translation>TextLabel</translation>
     </message>
 </context>
 <context>
@@ -2259,17 +2259,17 @@
     <message>
         <location filename="src/prefsdialog.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Voorkeuren</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="46"/>
         <source>&amp;Folders</source>
-        <translation>&amp;Mappen</translation>
+        <translation>&amp;Ordner</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="58"/>
         <source>Opening folder</source>
-        <translation>Map openen</translation>
+        <translation>Ordner öffnen</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="81"/>
@@ -2280,47 +2280,47 @@
     <message>
         <location filename="src/prefsdialog.ui" line="104"/>
         <source>Saving folder</source>
-        <translation>Opslaan in map</translation>
+        <translation>Ordner wird gespeichert</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="130"/>
         <source>Remember previous opened folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Erinnere dich an den zuvor geöffneten Ordner</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="143"/>
         <source>Remember previous save folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorherigen Speicherordner merken</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="123"/>
         <source>S&amp;aving</source>
-        <translation>B&amp;ewaren</translation>
+        <translation>S&amp;peichern</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="135"/>
         <source>Default file format</source>
-        <translation>Standaard bestandsformaat</translation>
+        <translation>Standarddateiformat</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="151"/>
         <source>&amp;Compression</source>
-        <translation>&amp;Compressie</translation>
+        <translation>&amp;Kompression</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="163"/>
         <source>Always show dialog</source>
-        <translation>Dialoogvenster altijd tonen</translation>
+        <translation>Dialog immer anzeigen</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="182"/>
         <source>Set default compression</source>
-        <translation>Stel standaard compressie in</translation>
+        <translation>Standardkomprimierung einstellen</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="232"/>
         <source>Compression</source>
-        <translation>Compressie</translation>
+        <translation>Kompression</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="245"/>
@@ -2330,27 +2330,27 @@
     <message>
         <location filename="src/prefsdialog.ui" line="251"/>
         <source>&amp;Layout</source>
-        <translation>&amp;Bildengeving</translation>
+        <translation>&amp;Layout</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="263"/>
         <source>Multi-Window Mode</source>
-        <translation>Meerdere vensters modus</translation>
+        <translation>Mehrfenstermodus</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="302"/>
         <source>Default Toolpalette Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardspeicherort der Toolpalette</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="269"/>
         <source>&amp;Default Values</source>
-        <translation>&amp;Standaard Waarden</translation>
+        <translation>&amp;Standardwerte</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="330"/>
         <source>Default Units</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardeinheiten</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="344"/>
@@ -2360,37 +2360,37 @@
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="358"/>
         <source>Memorize parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Parameter speichern</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="274"/>
         <source>&amp;History</source>
-        <translation>&amp;Geschiedenis</translation>
+        <translation>&amp;Geschichte</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="376"/>
         <source>Image History Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildverlaufsgröße</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="279"/>
         <source>&amp;Startup</source>
-        <translation>&amp;Opstarten</translation>
+        <translation>&amp;Anfang</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="291"/>
         <source>Maximize on Startup</source>
-        <translation>Maximaliseren bij opstarten</translation>
+        <translation>Beim Start maximieren</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="314"/>
         <source>Language</source>
-        <translation>Taal</translation>
+        <translation>Sprache</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="468"/>
         <source>Restart to apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Zum Übernehmen neu starten</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.cpp" line="31"/>
@@ -2425,12 +2425,12 @@
     <message>
         <location filename="src/prefsdialog.cpp" line="104"/>
         <source>Open Directory</source>
-        <translation>Map Openen</translation>
+        <translation>Verzeichnis öffnen</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.cpp" line="113"/>
         <source>Save Directory</source>
-        <translation>Map bewaren</translation>
+        <translation>Verzeichnis speichern</translation>
     </message>
 </context>
 <context>
@@ -2439,37 +2439,37 @@
         <location filename="src/registerdialog.ui" line="14"/>
         <location filename="src/registerdialog.ui" line="68"/>
         <source>Register</source>
-        <translation>Registreren</translation>
+        <translation>Registrieren</translation>
     </message>
     <message>
         <location filename="src/registerdialog.ui" line="36"/>
         <source>Enter your registration key below to unlock:</source>
-        <translation>Vul hieronder uw registraitesleutel in om te ontgrendelen</translation>
+        <translation>Geben Sie unten Ihren Registrierungsschlüssel ein, um die Sperre aufzuheben</translation>
     </message>
     <message>
         <location filename="src/registerdialog.ui" line="55"/>
         <source>Invalid key entered</source>
-        <translation>Ongeldige sleutel ingevoerd</translation>
+        <translation>Ungültiger Schlüssel eingegeben</translation>
     </message>
     <message>
         <location filename="src/registerdialog.ui" line="81"/>
         <source>Cancel</source>
-        <translation>Anuleren</translation>
+        <translation>Stornieren</translation>
     </message>
     <message>
         <location filename="src/registerdialog.cpp" line="20"/>
         <source>Registered successfully</source>
-        <translation>Succesvol geregistreerd</translation>
+        <translation>Erfolgreich registriert</translation>
     </message>
     <message>
         <location filename="src/registerdialog.cpp" line="160"/>
         <source>Registration successful</source>
-        <translation>Registratie geslaagd</translation>
+        <translation>Registrierung erfolgreich</translation>
     </message>
     <message>
         <location filename="src/registerdialog.cpp" line="171"/>
         <source>Invalid registration key</source>
-        <translation>Ongeldige registratiesleutel</translation>
+        <translation>Ungültiger Registrierungsschlüssel</translation>
     </message>
 </context>
 <context>
@@ -2477,32 +2477,32 @@
     <message>
         <location filename="src/textdialog.ui" line="14"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>Text</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="33"/>
         <source>&amp;Text</source>
-        <translation>&amp;Tekst</translation>
+        <translation>&amp;Text</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="55"/>
         <source>Font</source>
-        <translation>Lettertype</translation>
+        <translation>Schriftart</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="68"/>
         <source>Size</source>
-        <translation>Tekengrootte</translation>
+        <translation>Größe</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="94"/>
         <source>Text Input</source>
-        <translation>Tekst invoer</translation>
+        <translation>Text Eingabe</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="117"/>
         <source>Preview</source>
-        <translation>Voorbeeld</translation>
+        <translation>Vorschau</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="145"/>
@@ -2512,27 +2512,27 @@
     <message>
         <location filename="src/textdialog.ui" line="162"/>
         <source>Bold</source>
-        <translation>Vet</translation>
+        <translation>Fett gedruckt</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="175"/>
         <source>Italic</source>
-        <translation>Cursief</translation>
+        <translation>Kursiv</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="188"/>
         <source>Strike out</source>
-        <translation>Doorhalen</translation>
+        <translation>Durchstreichen</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="201"/>
         <source>Underline</source>
-        <translation>Onderstreept</translation>
+        <translation>Unterstreichen</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="214"/>
         <source>Colour</source>
-        <translation>Kleur</translation>
+        <translation>Farbe</translation>
     </message>
     <message>
         <location filename="src/textdialog.ui" line="243"/>
@@ -2542,7 +2542,7 @@
     <message>
         <location filename="src/dialogs/textdialog.ui" line="266"/>
         <source>Enter some text to continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Geben Sie einen Text ein, um fortzufahren</translation>
     </message>
 </context>
 </TS>
