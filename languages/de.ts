@@ -6,7 +6,7 @@
     <message>
         <location filename="src/batchprogress.ui" line="14"/>
         <source>Batch progress</source>
-        <translation>Batch Vorgang</translation>
+        <translation>Batch-Fortschritt</translation>
     </message>
 </context>
 <context>
@@ -68,12 +68,12 @@
     <message>
         <location filename="src/compressiondialog.ui" line="96"/>
         <source>Low quality</source>
-        <translation>niedrige Qualität</translation>
+        <translation>Geringe Qualität</translation>
     </message>
     <message>
         <location filename="src/compressiondialog.ui" line="109"/>
         <source>Best quality</source>
-        <translation>hohe Qualität</translation>
+        <translation>Beste Qualität</translation>
     </message>
     <message>
         <location filename="src/compressiondialog.ui" line="122"/>
@@ -104,7 +104,7 @@
     <message>
         <location filename="src/gradientdialog.ui" line="14"/>
         <source>Gradient</source>
-        <translation>Verlauf</translation>
+        <translation>Gradient</translation>
     </message>
     <message>
         <location filename="src/gradientdialog.ui" line="42"/>
@@ -114,12 +114,12 @@
     <message>
         <location filename="src/gradientdialog.ui" line="224"/>
         <source>Duotone</source>
-        <translation>Duplexdruck</translation>
+        <translation>Duoton</translation>
     </message>
     <message>
         <location filename="src/gradientdialog.ui" line="240"/>
         <source>Monochromatic</source>
-        <translation>einfarbig</translation>
+        <translation>Einfarbig</translation>
     </message>
     <message>
         <location filename="src/gradientdialog.ui" line="255"/>
@@ -130,7 +130,7 @@
         <location filename="src/gradientdialog.ui" line="277"/>
         <location filename="src/gradientdialog.ui" line="351"/>
         <source>Opacity:</source>
-        <translation>Deckkraft</translation>
+        <translation>Opazität</translation>
     </message>
     <message>
         <location filename="src/gradientdialog.ui" line="290"/>
@@ -149,7 +149,7 @@
     <message>
         <location filename="src/huedialog.ui" line="14"/>
         <source>Hue variation</source>
-        <translation>Kleursamenstelling</translation>
+        <translation>Farbtonvariation</translation>
     </message>
     <message>
         <location filename="src/huedialog.ui" line="42"/>
@@ -159,17 +159,17 @@
     <message>
         <location filename="src/huedialog.ui" line="58"/>
         <source>Color:</source>
-        <translation>Kleur:</translation>
+        <translation>Farbe:</translation>
     </message>
     <message>
         <location filename="src/huedialog.ui" line="980"/>
         <source>Method1 / Colorize</source>
-        <translation>Methode 1 / Inkleuren</translation>
+        <translation>Methode 1 / Kolorieren</translation>
     </message>
     <message>
         <location filename="src/huedialog.ui" line="996"/>
         <source>Method2 / Hue</source>
-        <translation>Methode 2 / Kleursamenstelling</translation>
+        <translation>Methode 2 / Farbton</translation>
     </message>
 </context>
 <context>
@@ -190,12 +190,12 @@
     <message>
         <location filename="src/LineSettingsWidget.ui" line="35"/>
         <source>Width</source>
-        <translation>Breedte</translation>
+        <translation>Breite</translation>
     </message>
     <message>
         <location filename="src/LineSettingsWidget.ui" line="55"/>
         <source>Opacity</source>
-        <translation>Matheid</translation>
+        <translation>Opazität</translation>
     </message>
     <message>
         <location filename="src/LineSettingsWidget.ui" line="83"/>
@@ -205,12 +205,12 @@
     <message>
         <location filename="src/LineSettingsWidget.ui" line="103"/>
         <source>Arrow</source>
-        <translation>Pijl</translation>
+        <translation>Pfeil</translation>
     </message>
     <message>
         <location filename="src/LineSettingsWidget.ui" line="188"/>
         <source>Style:</source>
-        <translation>Stijl</translation>
+        <translation>Stil</translation>
     </message>
 </context>
 <context>
@@ -223,12 +223,12 @@
     <message>
         <location filename="src/MagicWandSettingsWidget.ui" line="35"/>
         <source>Tolerance</source>
-        <translation>Tolerantie</translation>
+        <translation>Toleranz</translation>
     </message>
     <message>
         <location filename="src/MagicWandSettingsWidget.ui" line="72"/>
         <source>Color</source>
-        <translation>Kleur</translation>
+        <translation>Farbe</translation>
     </message>
 </context>
 <context>
@@ -248,11 +248,6 @@
         <location filename="src/mainwindow.ui" line="1020"/>
         <source>Recent Files</source>
         <translation>Neueste Dateien</translation>
-    </message>
-    <message>
-        <location filename="src/mainwindow.ui" line="89"/>
-        <source>Import TWAIN</source>
-        <translation>Importieren TWAIN</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="113"/>
