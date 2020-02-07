@@ -435,92 +435,92 @@
     <message>
         <location filename="src/mainwindow.ui" line="1078"/>
         <source>Undo</source>
-        <translation>Ongedaan maken</translation>
+        <translation>Rückgängig machen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1087"/>
         <source>Redo</source>
-        <translation>Opnieuw</translation>
+        <translation>Wiederholen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1092"/>
         <source>Fade</source>
-        <translation>Vervagen</translation>
+        <translation>Verblassen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1097"/>
         <source>Cut</source>
-        <translation>Knippen</translation>
+        <translation>Schnitt</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1102"/>
         <source>Copy</source>
-        <translation>Kopiëren</translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1107"/>
         <source>Paste</source>
-        <translation>Plakken</translation>
+        <translation>Einfügen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1112"/>
         <source>Clear</source>
-        <translation>Wissen</translation>
+        <translation>klar</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1117"/>
         <source>Paste As New Image</source>
-        <translation>Plakken als Nieuwe Afbeelding</translation>
+        <translation>Einfügen als neues Bild</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1122"/>
         <source>Paste Special</source>
-        <translation>Plakken speciaal</translation>
+        <translation>Spezialpaste</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1127"/>
         <source>Stroke and Fill...</source>
-        <translation>Omlijnen en vullen</translation>
+        <translation>Streicheln und Füllen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1132"/>
         <source>Optimized Clipping...</source>
-        <translation>Geoptimaliseerd knippen</translation>
+        <translation>Optimiertes Clipping</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1137"/>
         <source>Validate</source>
-        <translation>Goedkeuren</translation>
+        <translation>Bestätigen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1142"/>
         <source>Options...</source>
-        <translation>Opties...</translation>
+        <translation>Optionen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1152"/>
         <source>Define Pattern</source>
-        <translation>Definieer patroon</translation>
+        <translation>Ein Muster definieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1157"/>
         <source>Fill With Pattern</source>
-        <translation>Vul met patroon</translation>
+        <translation>Füllen Sie mit Muster</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1162"/>
         <source>Purge</source>
-        <translation>Vegen</translation>
+        <translation>Reinigen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1171"/>
         <source>Flip Vertical</source>
-        <translation>Vertikaal kantelen</translation>
+        <translation>Vertikal spiegeln</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1180"/>
         <source>Flip Horizontal</source>
-        <translation>Horizontaal kantelen</translation>
+        <translation>Horizontal spiegeln</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1185"/>
@@ -530,92 +530,92 @@
     <message>
         <location filename="src/mainwindow.ui" line="1194"/>
         <source>Image Size...</source>
-        <translation>Afmetingen afbeelding</translation>
+        <translation>Bildgröße</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1203"/>
         <source>Canvas Size...</source>
-        <translation>Afmetingen canvas</translation>
+        <translation>Leinwandgröße</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1208"/>
         <source>Fit Image...</source>
-        <translation>Afbeelding passend maken</translation>
+        <translation>Bild anpassen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1213"/>
         <source>Duplicate</source>
-        <translation>Dupliceren</translation>
+        <translation>Duplikat</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1218"/>
         <source>Crop</source>
-        <translation>Bijsnijden</translation>
+        <translation>ausgeschnitten</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1223"/>
         <source>Automatic Crop</source>
-        <translation>Automatisch Bijsnijden</translation>
+        <translation>Automatisches Zuschneiden</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1228"/>
         <source>Outside frame...</source>
-        <translation>Buiten de lijst...</translation>
+        <translation>Äußerer Rahmen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1233"/>
         <source>Outside Drop Shadow...</source>
-        <translation>Schaduw om afbeelding...</translation>
+        <translation>Außerhalb Schlagschatten...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1242"/>
         <source>Transparent Colour...</source>
-        <translation>Transparantie kleur...</translation>
+        <translation>Transparente Farbe...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1247"/>
         <source>Automatic Transparency</source>
-        <translation>Automatische transparantie</translation>
+        <translation>Automatische Transparenz</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1252"/>
         <source>Transparency Mask...</source>
-        <translation>Transparant masker...</translation>
+        <translation>Transparenzmaske...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1261"/>
         <source>Text...</source>
-        <translation>Tekst...</translation>
+        <translation>Text...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1266"/>
         <source>Copyright...</source>
-        <translation>Auteursrecht...</translation>
+        <translation>Urheberrechte...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1281"/>
         <source>Show Selection</source>
-        <translation>Selectie tonen</translation>
+        <translation>Auswahl anzeigen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1286"/>
         <source>Select All</source>
-        <translation>Alles selecteren</translation>
+        <translation>Wählen Sie Alle</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1291"/>
         <source>Set Shape</source>
-        <translation>Vorm kiezen</translation>
+        <translation>Form einstellen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1296"/>
         <source>Invert</source>
-        <translation>Omkeren</translation>
+        <translation>Umkehren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1301"/>
         <source>Manual Settings...</source>
-        <translation>Handmatig instellen</translation>
+        <translation>Manuelle Einstellungen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1306"/>
@@ -625,237 +625,237 @@
     <message>
         <location filename="src/mainwindow.ui" line="1311"/>
         <source>Fit Ratio</source>
-        <translation>Passende ratio</translation>
+        <translation>Fit-Verhältnis</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1316"/>
         <source>Contract...</source>
-        <translation>Contract...</translation>
+        <translation>zusammenziehen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1321"/>
         <source>Expand...</source>
-        <translation>Vergroten...</translation>
+        <translation>Erweitern...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1331"/>
         <source>Antialiasing</source>
-        <translation>Antialiasing</translation>
+        <translation>Kantenglättung</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1336"/>
         <source>Bounding Box</source>
-        <translation>Rechthoek</translation>
+        <translation>Begrenzungsrahmen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1341"/>
         <source>Paste and Text Bounding Box</source>
-        <translation>Plakken en tekst Selectiekader</translation>
+        <translation>Einfügen und Textrahmen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1346"/>
         <source>Copy Shape</source>
-        <translation>Vorm kopieren</translation>
+        <translation>Form kopieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1351"/>
         <source>Paste Shape</source>
-        <translation>Vorm plakken</translation>
+        <translation>Form einfügen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1356"/>
         <source>Load Shape</source>
-        <translation>Selectievorm laden</translation>
+        <translation>Form laden</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1361"/>
         <source>Save Shape</source>
-        <translation>Selectievorm opslaan</translation>
+        <translation>Form speichern</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1366"/>
         <source>Bright/Contrast...</source>
-        <translation>Helderheid/Contrast...</translation>
+        <translation>Hell/Kontrast...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1371"/>
         <source>Hue/Saturation...</source>
-        <translation>Tint/Verzadiging...</translation>
+        <translation>Farbton/Sättigung...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1376"/>
         <source>Colour Balance...</source>
-        <translation>Kleurbalans...</translation>
+        <translation>Farbbalance...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1381"/>
         <source>Gamma Correct...</source>
-        <translation>Gammacorrectie...</translation>
+        <translation>Gamma-Korrektur...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1390"/>
         <source>Auto Levels</source>
-        <translation>Auto Niveau's</translation>
+        <translation>Auto Levels</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1399"/>
         <source>Auto Contrast</source>
-        <translation>Auto Contrast</translation>
+        <translation>Automatischer Kontrast</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1404"/>
         <source>More Shadows</source>
-        <translation>Meer schaduw</translation>
+        <translation>Noch mehr Schatten</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1409"/>
         <source>More Highlights</source>
-        <translation>Meer belichting</translation>
+        <translation>Weitere Highlights</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1414"/>
         <source>Levels...</source>
-        <translation>Niveau's...</translation>
+        <translation>Ebenen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1419"/>
         <source>Swap RGB Channel...</source>
-        <translation>RGB kanaal wisselen</translation>
+        <translation>RGB-Kanal tauschen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1424"/>
         <source>Replace Colour...</source>
-        <translation>Kleur vervangen...</translation>
+        <translation>Farbe ersetzen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1429"/>
         <source>Replace Colour Range...</source>
-        <translation>Kleurgebied vervangen...</translation>
+        <translation>Farbbereich ersetzen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1434"/>
         <source>Duotone...</source>
-        <translation>Duotoon...</translation>
+        <translation>Duoton...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1439"/>
         <source>Dithering</source>
-        <translation>Ruisonderdrukking</translation>
+        <translation>Dithering</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1444"/>
         <source>Negative</source>
-        <translation>Negatief</translation>
+        <translation>Negativ</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1449"/>
         <source>Posterize...</source>
-        <translation>Waarden beperken...</translation>
+        <translation>Posterisieren...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1458"/>
         <source>Hue Variation...</source>
-        <translation>Kleur variatie...</translation>
+        <translation>Farbtonvariation...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1481"/>
         <source>Relief</source>
-        <translation>Reliëf</translation>
+        <translation>Linderung</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1486"/>
         <source>Stylize</source>
-        <translation>Stileren</translation>
+        <translation>Stilisieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1491"/>
         <source>Aged Effect</source>
-        <translation>Verouderingseffect</translation>
+        <translation>Alterungseffekt</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1496"/>
         <source>Texture</source>
-        <translation>Textuur</translation>
+        <translation>Textur</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1501"/>
         <source>Other</source>
-        <translation>Overig</translation>
+        <translation>Andere</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1506"/>
         <source>Filterbar</source>
-        <translation>Filter taakblak</translation>
+        <translation>Filterleiste</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1511"/>
         <source>Toolpalette</source>
-        <translation>Gereedschapspallet</translation>
+        <translation>Werkzeugpalette</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1516"/>
         <source>Show Grid</source>
-        <translation>Raster tonen</translation>
+        <translation>Raster anzeigen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1521"/>
         <source>Snap To Grid</source>
-        <translation>Magnestisch raster</translation>
+        <translation>Am Raster ausrichten</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1526"/>
         <source>Zoom In</source>
-        <translation>Inzoomen</translation>
+        <translation>Hineinzoomen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1531"/>
         <source>Zoom Out</source>
-        <translation>Uitzoomen</translation>
+        <translation>Rauszoomen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1536"/>
         <source>Original Size</source>
-        <translation>Oorspronkelijke grootte</translation>
+        <translation>Originalgröße</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1541"/>
         <source>Auto Zoom</source>
-        <translation>Automatische zoom</translation>
+        <translation>automatischer Zoom</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1546"/>
         <source>Full Screen</source>
-        <translation>Volledig scherm</translation>
+        <translation>Ganzer Bildschirm</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1555"/>
         <source>Automate/Batch...</source>
-        <translation>Automatiseer/Batch...</translation>
+        <translation>Automatisieren/Batch...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1560"/>
         <source>Set Wallpaper</source>
-        <translation>Stel in als achtergrond</translation>
+        <translation>Hintergrundbild festlegen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1565"/>
         <source>Export As Icon...</source>
-        <translation>Exporteer als pictogram...</translation>
+        <translation>Als Symbol exportieren...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1574"/>
         <source>&amp;Preferences</source>
-        <translation>&amp;Voorkeuren</translation>
+        <translation>&amp;Einstellungen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1579"/>
         <source>Information</source>
-        <translation>Informatie</translation>
+        <translation>Information</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1584"/>
         <source>&amp;About</source>
-        <translation>&amp;Met dank aan</translation>
+        <translation>&amp;Über</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1593"/>
@@ -866,136 +866,136 @@
     <message>
         <location filename="src/mainwindow.ui" line="1605"/>
         <source>RGB Mode</source>
-        <translation>RGB modus</translation>
+        <translation>RGB Modus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1614"/>
         <source>Indexed Mode</source>
-        <translation>Indexeer modus</translation>
+        <translation>indexieren Modus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1623"/>
         <source>brightminus</source>
-        <translation>minder helder</translation>
+        <translation>Brightminus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1626"/>
         <source>Brightness (-)</source>
-        <translation>Helderheid (-)</translation>
+        <translation>Helligkeit (-)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1635"/>
         <source>Brightplus</source>
-        <translation>Helderheid plus</translation>
+        <translation>Helligkeit plus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1638"/>
         <source>Brightness (+)</source>
-        <translation>Helderheid (+)</translation>
+        <translation>Helligkeit (+)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1647"/>
         <source>contrastminus</source>
-        <translation>Minder contrast</translation>
+        <translation>Kontrastminus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1650"/>
         <source>Contrast (-)</source>
-        <translation>Contrast (-)</translation>
+        <translation>Kontrast (-)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1659"/>
         <source>contrastplus</source>
-        <translation>Contrast plus</translation>
+        <translation>Kontrast plus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1662"/>
         <source>Contrast (+)</source>
-        <translation>Contrast (+)</translation>
+        <translation>Kontrast (+)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1671"/>
         <source>saturationminus</source>
-        <translation>Minder verzadiging</translation>
+        <translation>Sättigungminus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1674"/>
         <source>Saturation (-)</source>
-        <translation>Verzadiging (-)</translation>
+        <translation>Sättigung (-)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1683"/>
         <source>saturationplus</source>
-        <translation>Verzadiging plus</translation>
+        <translation>Sättigung plus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1686"/>
         <source>Saturation (+)</source>
-        <translation>Verzadiging (+)</translation>
+        <translation>Sättigung (+)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1695"/>
         <source>gammaCorrectminus</source>
-        <translation>Minder gammacorrectie</translation>
+        <translation>gammaCorrectminus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1698"/>
         <source>Gamma Correct (-)</source>
-        <translation>Gamma correctie (-)</translation>
+        <translation>Gamma Correct (-)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1707"/>
         <source>gammaCorrectplus</source>
-        <translation>Gammacorrectie (+)</translation>
+        <translation>gammacorrectplus (+)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1710"/>
         <source>Gamma Correct (+)</source>
-        <translation>Gamma Correctie</translation>
+        <translation>Gamma Correct</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1719"/>
         <location filename="src/mainwindow.ui" line="1722"/>
         <source>Gray Scale</source>
-        <translation>Grijswaarden</translation>
+        <translation>Graustufen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1731"/>
         <source>Old Photo</source>
-        <translation>Oude foto</translation>
+        <translation>Altes Foto</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1734"/>
         <source>Old Photography</source>
-        <translation>Oude fotografie</translation>
+        <translation>Alte Fotografie</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1743"/>
         <location filename="src/mainwindow.ui" line="1746"/>
         <source>Dust Reduction</source>
-        <translation>Stof verminderen</translation>
+        <translation>Staubreduzierung</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1755"/>
         <location filename="src/mainwindow.ui" line="1758"/>
         <source>Blur</source>
-        <translation>Vervagen</translation>
+        <translation>Verwischen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1767"/>
         <location filename="src/mainwindow.ui" line="1770"/>
         <source>Reinforce</source>
-        <translation>Versterken</translation>
+        <translation>Verstärken</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1779"/>
         <source>gradient</source>
-        <translation>helling</translation>
+        <translation>Gradient</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1782"/>
         <source>Gradient</source>
-        <translation>Helling</translation>
+        <translation>Gradient</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1791"/>
@@ -1005,42 +1005,32 @@
     <message>
         <location filename="src/mainwindow.ui" line="1800"/>
         <source>Rotate CW</source>
-        <translation>Draaien CW</translation>
+        <translation>Drehen CW</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1805"/>
         <source>&amp;Oil Paint</source>
-        <translation>&amp;Olieverf</translation>
+        <translation>&amp;Ölgemälde</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1810"/>
         <source>&amp;Charcoal Drawing</source>
-        <translation>Houtskool tekenen</translation>
+        <translation>Kohlezeichnung</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1815"/>
         <source>Swirl</source>
-        <translation>Dwarrelen</translation>
+        <translation>Strudel</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1925"/>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Spenden</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1820"/>
         <source>Register</source>
-        <translation>Registreer</translation>
-    </message>
-    <message>
-        <location filename="src/mainwindow.ui" line="1825"/>
-        <source>Acquire image...</source>
-        <translation>Afbeelding ophalen...</translation>
-    </message>
-    <message>
-        <location filename="src/mainwindow.ui" line="1830"/>
-        <source>Select source...</source>
-        <translation>Selecteer bron...</translation>
+        <translation>Registrieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1835"/>
