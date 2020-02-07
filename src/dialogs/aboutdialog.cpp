@@ -31,37 +31,41 @@ aboutDialog::aboutDialog(QWidget *parent) :
     setFixedSize(size());
     ui->creditsWidget->setVisible(false);
 
-    ui->devTextArea->setText(
-                tr("Commercial - ICS"
-                "<br>Lead - Dylan Coakley"
-                "<br>Developer - Marek Mosna"
-                "<br>Developer - Dmitry Vasilenko"
-                "<br>Debian package - Dylan Aïssi"
-                "<br>AppImage package - probonopd")
+    ui->devTextArea->setText(tr(
+        "Commercial - ICS"
+        "<br>Lead - Dylan Coakley"
+        "<br>Developer - Marek Mosna"
+        "<br>Developer - Dmitry Vasilenko"
+        "<br>Debian package - Dylan Aïssi"
+        "<br>AppImage package - probonopd")
     );
-    ui->graphicsTextArea->setText(tr("Main icon - Robert BM"
-                                  "<br>Website graphics - Raqasa"
-                                  "<br>Application icons - Attari B"
-                                  "<br>Art Designer - Catherine Hegedusich"
-                                  "<br>Advertising - Don Murphy")
+    ui->graphicsTextArea->setText(tr(
+        "Main icon - Robert BM"
+        "<br>Website graphics - Raqasa"
+        "<br>Application icons - Attari B"
+        "<br>Art Designer - Catherine Hegedusich"
+        "<br>Advertising - Don Murphy")
     );
 
-    ui->translateTextArea->setText(tr("FR - Ludovic, Nerdouille"
-                                   "<br>NL - Freek Pol"
-                                   "<br>DE - Freacore"
-                                   "<br>zh_TW - Coolshou"
-                                   "<br>zh_CN - Nichts Hsu")
+    ui->translateTextArea->setText(tr(
+        "FR - Ludovic, Nerdouille"
+        "<br>NL - Freek Pol"
+        "<br>DE - Freacore"
+        "<br>zh_TW - Coolshou"
+        "<br>zh_CN - Nichts Hsu")
     );
-    ui->contribTextArea->setText(tr("Carlo Vaccari - Code"
-    							 "<br>Duzy Chan - Code"
-                                 "<br>Samuel Cowen - Code"
-                                 "<br>Richard Senior - GNU Autotools"
-                                 "<br>Alexandre Kharlamov - Code"
-                                 "<br>Michael Sheppard - Code"
-                                 "<br>Helene Levernieux - Project Icon"
-                                 "<br><br><b>Special thanks"
-                                 "</b><br>I would like to thank Samantha for being an absolute gem of a person."
-                                 " You light up my life and I'm so glad to have found you.")
+    ui->contribTextArea->setText(tr(
+        "AngryPenguinPL - Code"
+        "<br>Carlo Vaccari - Code"
+        "<br>Duzy Chan - Code"
+        "<br>Samuel Cowen - Code"
+        "<br>Richard Senior - GNU Autotools"
+        "<br>Alexandre Kharlamov - Code"
+        "<br>Michael Sheppard - Code"
+        "<br>Helene Levernieux - Project Icon"
+        "<br><br><b>Special thanks"
+        "</b><br>I would like to thank Samantha for being an absolute gem of a person."
+        " You light up my life and I'm so glad to have found you.")
     );
 
     QString appName = qApp->applicationName().replace("p","P");
