@@ -177,7 +177,7 @@
     <message>
         <location filename="src/imagepositionwidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Bilden</translation>
     </message>
 </context>
 <context>
@@ -185,7 +185,7 @@
     <message>
         <location filename="src/LineSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Bilden</translation>
     </message>
     <message>
         <location filename="src/LineSettingsWidget.ui" line="35"/>
@@ -218,7 +218,7 @@
     <message>
         <location filename="src/MagicWandSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Bilden</translation>
     </message>
     <message>
         <location filename="src/MagicWandSettingsWidget.ui" line="35"/>
@@ -1035,32 +1035,32 @@
     <message>
         <location filename="src/mainwindow.ui" line="1835"/>
         <source>Solarize</source>
-        <translation>Overbelichten</translation>
+        <translation>Solarisieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1840"/>
         <source>Wave</source>
-        <translation>Golf</translation>
+        <translation>Welle</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1845"/>
         <source>Implode</source>
-        <translation>Imploderen</translation>
+        <translation>Implodieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1850"/>
         <source>Emboss</source>
-        <translation>Reliëf</translation>
+        <translation>stanzen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1855"/>
         <source>Trim</source>
-        <translation>Bijknippen</translation>
+        <translation>Trimmen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1860"/>
         <source>Gaussian</source>
-        <translation>Gaussiaans</translation>
+        <translation>Gaußsche</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1865"/>
@@ -1070,59 +1070,59 @@
     <message>
         <location filename="src/mainwindow.ui" line="1870"/>
         <source>Laplacian</source>
-        <translation>Laplaciaan</translation>
+        <translation>Laplace</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1875"/>
         <source>Poisson</source>
-        <translation>Vergif</translation>
+        <translation>Poisson</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1880"/>
         <source>MonoChromatic</source>
-        <translation>Monochroom</translation>
+        <translation>Monochromatisch</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1885"/>
         <source>Equalize</source>
-        <translation>Egalizeren</translation>
+        <translation>Ausgleichen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1890"/>
         <location filename="src/mainwindow.ui" line="1893"/>
         <source>Crop center</source>
-        <translation>Uitsnede centreren</translation>
+        <translation>Erntezentrum</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1898"/>
         <location filename="src/mainwindow.ui" line="1901"/>
         <source>Simple frame</source>
-        <translation>Eenvoudige lijst</translation>
+        <translation>Einfacher Rahmen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1906"/>
         <source>Motion blur</source>
-        <translation>Bewegingsonscherpte</translation>
+        <translation>Bewegungsunschärfe</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1911"/>
         <source>Normalize</source>
-        <translation>Normalizeren</translation>
+        <translation>Normalisieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1916"/>
         <source>3D frame</source>
-        <translation>3D lijst</translation>
+        <translation>3D Rahmen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1921"/>
         <source>Explode</source>
-        <translation>Exploderen</translation>
+        <translation>Explodieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1926"/>
         <source>Despeckle</source>
-        <translation>Uitstippen</translation>
+        <translation>Despeckle</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1935"/>
@@ -1132,7 +1132,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="2045"/>
         <source>Black and white</source>
-        <translation type="unfinished"></translation>
+        <translation>Schwarz und weiß</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1940"/>
@@ -1142,28 +1142,28 @@
     <message>
         <location filename="src/mainwindow.ui" line="2060"/>
         <source>Check for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf Updates prüfen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="241"/>
         <location filename="src/mainwindow.cpp" line="263"/>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>Bereit</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="284"/>
         <source>Working...</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbeiten</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="248"/>
         <source>Open File</source>
-        <translation>Open bestand</translation>
+        <translation>Datei öffnen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="249"/>
         <source>All Files (*);;Image Files (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ARW (*.ARW);;CR2 (*.CR2);;DCS (*.DCS *.DCR *.DRF *.K25 *.KDC);;MOS (*.MOS);;NEF (*.NEF *.NRW);;RAW (*.RAW)</source>
-        <translation>Alle bestanden</translation>
+        <translation>Alle Dateien</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="325"/>
@@ -1204,17 +1204,17 @@
         <location filename="src/mainwindow.cpp" line="389"/>
         <location filename="src/mainwindow.cpp" line="408"/>
         <source>Unable to save image.</source>
-        <translation>Kan afbeelding niet opslaan.</translation>
+        <translation>Bild kann nicht gespeichert werden.</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="1730"/>
         <source>Unsaved Changes</source>
-        <translation>Veranderingen niet opgeslagen</translation>
+        <translation>Nicht gespeicherte Änderungen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="1730"/>
         <source>Save changes before leaving?</source>
-        <translation>Veranderingen opslaan voor afsluiten?</translation>
+        <translation>Speichern Sie die Änderungen vor dem Verlassen?</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="2021"/>
@@ -1227,29 +1227,29 @@
     <message>
         <location filename="src/NewDialog.ui" line="19"/>
         <source>New</source>
-        <translation>Nieuw</translation>
+        <translation>Neu</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="47"/>
         <location filename="src/NewDialog.ui" line="261"/>
         <source>Width:</source>
-        <translation>Breedte:</translation>
+        <translation>Breite:</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="82"/>
         <location filename="src/NewDialog.ui" line="274"/>
         <source>Height:</source>
-        <translation>Hoogte:</translation>
+        <translation>Höhe:</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="114"/>
         <source>Resolution:</source>
-        <translation>Resolutie:</translation>
+        <translation>Auflösung:</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="137"/>
         <source>Preset Size:</source>
-        <translation>Vooraf ingestelde grootte</translation>
+        <translation>Voreingestellte Größe</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="154"/>
@@ -1314,27 +1314,27 @@
     <message>
         <location filename="src/NewDialog.ui" line="246"/>
         <source>Size in Pixels/Memory</source>
-        <translation>Grootte in pixels/Geheugen</translation>
+        <translation>Größe in Pixel/Speicher</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="287"/>
         <source>Memory:</source>
-        <translation>Geheugen</translation>
+        <translation>Speicher</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="364"/>
         <source>New Size</source>
-        <translation>>Nieuwe grootte</translation>
+        <translation>>Neue Größe</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="428"/>
         <source>Position:</source>
-        <translation>Positie</translation>
+        <translation>Position</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="442"/>
         <source>Colour</source>
-        <translation>Kleur</translation>
+        <translation>Farbe</translation>
     </message>
 </context>
 <context>
@@ -1342,17 +1342,17 @@
     <message>
         <location filename="src/outerframedialog.ui" line="14"/>
         <source>Outside frame</source>
-        <translation>Buitenkant lijst</translation>
+        <translation>Äußerer Rahmen</translation>
     </message>
     <message>
         <location filename="src/outerframedialog.ui" line="52"/>
         <source>Width:</source>
-        <translation>Breedte</translation>
+        <translation>Breite</translation>
     </message>
     <message>
         <location filename="src/outerframedialog.ui" line="65"/>
         <source>Colour:</source>
-        <translation>Kleur</translation>
+        <translation>Farbe</translation>
     </message>
 </context>
 <context>
@@ -1360,22 +1360,22 @@
     <message>
         <location filename="src/PaintBrushAdvSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Bilden</translation>
     </message>
     <message>
         <location filename="src/PaintBrushAdvSettingsWidget.ui" line="73"/>
         <source>Pressure</source>
-        <translation>Druk</translation>
+        <translation>Druck</translation>
     </message>
     <message>
         <location filename="src/PaintBrushAdvSettingsWidget.ui" line="107"/>
         <source>Step</source>
-        <translation>Stap</translation>
+        <translation>Schritt</translation>
     </message>
     <message>
         <location filename="src/PaintBrushAdvSettingsWidget.ui" line="140"/>
         <source>Fade</source>
-        <translation>Vervagen</translation>
+        <translation>Verblassen</translation>
     </message>
 </context>
 <context>
@@ -1383,7 +1383,7 @@
     <message>
         <location filename="src/PaintBrushSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Bilden</translation>
     </message>
     <message>
         <location filename="src/PaintBrushSettingsWidget.ui" line="24"/>
@@ -1394,12 +1394,12 @@
     <message>
         <location filename="src/PaintBrushSettingsWidget.ui" line="97"/>
         <source>&amp;Radius:</source>
-        <translation>&amp;Straal</translation>
+        <translation>&amp;Radius</translation>
     </message>
     <message>
         <location filename="src/PaintBrushSettingsWidget.ui" line="131"/>
         <source>&amp;Anti-aliasing</source>
-        <translation>&amp;Antialiasing</translation>
+        <translation>&amp;Kantenglättung</translation>
     </message>
 </context>
 <context>
@@ -1407,12 +1407,12 @@
     <message>
         <location filename="src/plugindialog.ui" line="14"/>
         <source>Plugin Manager</source>
-        <translation>Plugins</translation>
+        <translation>Plugin Manager</translation>
     </message>
     <message>
         <location filename="src/plugindialog.ui" line="26"/>
         <source>Close</source>
-        <translation>Sluiten</translation>
+        <translation>Schließen</translation>
     </message>
 </context>
 <context>
@@ -1420,7 +1420,7 @@
     <message>
         <location filename="src/pointersettingswidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Bilden</translation>
     </message>
     <message>
         <location filename="src/pointersettingswidget.ui" line="26"/>
@@ -1430,12 +1430,12 @@
     <message>
         <location filename="src/pointersettingswidget.ui" line="45"/>
         <source>Stroke</source>
-        <translation>Lijn</translation>
+        <translation>Schlaganfall</translation>
     </message>
     <message>
         <location filename="src/pointersettingswidget.ui" line="58"/>
         <source>Fill</source>
-        <translation>Vullen</translation>
+        <translation>Füllen</translation>
     </message>
 </context>
 <context>
@@ -1443,65 +1443,65 @@
     <message>
         <location filename="src/tools/PointerTool.cpp" line="118"/>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>scheren</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="127"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>speichern</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="128"/>
         <source>Save as</source>
-        <translation type="unfinished"></translation>
+        <translation>speichern</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="129"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="132"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="133"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Einfügen</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="141"/>
         <source>Image size</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildgröße</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="142"/>
         <source>Canvas size</source>
-        <translation type="unfinished"></translation>
+        <translation>Leinwandgröße</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="145"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Rückgängig machen</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="146"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiederholen</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <location filename="src/main.cpp" line="24"/>
-        <source>PhotoFlare</source>
-        <translation>PhotoFlare</translation>
+        <source>Photoflare</source>
+        <translation>Photoflare</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="25"/>
-        <source>1.5.1</source>
-        <translation>1.5.1</translation>
+        <source>1.6.2</source>
+        <translation>1.6.2</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="26"/>
@@ -1516,15 +1516,7 @@
     <message>
         <location filename="src/mainwindow.cpp" line="85"/>
         <source>Untitled</source>
-        <translation>Zonder titel</translation>
-    </message>
-</context>
-<context>
-    <name>ScanDevicesDialog</name>
-    <message>
-        <location filename="src/scandevicesdialog.ui" line="14"/>
-        <source>Select source</source>
-        <translation>Selecteer bron</translation>
+        <translation>Ohne Titel</translation>
     </message>
 </context>
 <context>
@@ -1532,27 +1524,27 @@
     <message>
         <location filename="src/SprayCanSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Bilden</translation>
     </message>
     <message>
         <location filename="src/SprayCanSettingsWidget.ui" line="35"/>
         <source>Radius</source>
-        <translation>Straal</translation>
+        <translation>Radius</translation>
     </message>
     <message>
         <location filename="src/SprayCanSettingsWidget.ui" line="60"/>
         <source>Pressure</source>
-        <translation>Druk</translation>
+        <translation>Druck</translation>
     </message>
     <message>
         <location filename="src/SprayCanSettingsWidget.ui" line="94"/>
         <source>Dispersion</source>
-        <translation>Spreiding</translation>
+        <translation>Dispersion</translation>
     </message>
     <message>
         <location filename="src/SprayCanSettingsWidget.ui" line="127"/>
         <source>Rainbow</source>
-        <translation>Regenboog</translation>
+        <translation>Regenbogen</translation>
     </message>
 </context>
 <context>
@@ -1560,37 +1552,37 @@
     <message>
         <location filename="src/StampSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Bilden</translation>
     </message>
     <message>
         <location filename="src/StampSettingsWidget.ui" line="35"/>
         <source>Radius</source>
-        <translation>Straal</translation>
+        <translation>Radius</translation>
     </message>
     <message>
         <location filename="src/StampSettingsWidget.ui" line="60"/>
         <source>Pressure</source>
-        <translation>Druk</translation>
+        <translation>Druck</translation>
     </message>
     <message>
         <location filename="src/StampSettingsWidget.ui" line="94"/>
         <source>Step</source>
-        <translation>Stap</translation>
+        <translation>Schritt</translation>
     </message>
     <message>
         <location filename="src/StampSettingsWidget.ui" line="127"/>
         <source>Fixed</source>
-        <translation>Vast</translation>
+        <translation>Fest</translation>
     </message>
     <message>
         <location filename="src/StampSettingsWidget.ui" line="134"/>
         <source>Precise</source>
-        <translation>Precies</translation>
+        <translation>Präzise</translation>
     </message>
     <message>
         <location filename="src/StampSettingsWidget.ui" line="141"/>
         <source>Diffuse</source>
-        <translation>Verspreid</translation>
+        <translation>Diffus</translation>
     </message>
 </context>
 <context>
@@ -1598,12 +1590,12 @@
     <message>
         <location filename="src/transparentdialog.ui" line="14"/>
         <source>Transparent color</source>
-        <translation>Transparante kleur</translation>
+        <translation>Transparente Farbe</translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="51"/>
         <source>Tolerance:</source>
-        <translation>Tolerantie</translation>
+        <translation>Toleranz</translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="64"/>
@@ -1613,12 +1605,12 @@
     <message>
         <location filename="src/transparentdialog.ui" line="93"/>
         <source>Color:</source>
-        <translation>Kleur:</translation>
+        <translation>Farbe:</translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="109"/>
         <source>Preview</source>
-        <translation>Voorbeeld</translation>
+        <translation>Vorschau</translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="122"/>
@@ -1628,7 +1620,7 @@
     <message>
         <location filename="src/transparentdialog.ui" line="135"/>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation>Stornieren</translation>
     </message>
 </context>
 <context>
@@ -2095,7 +2087,7 @@
     <message>
         <location filename="src/buydialog.ui" line="42"/>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation>Stornieren</translation>
     </message>
     <message>
         <location filename="src/buydialog.ui" line="61"/>
@@ -2338,7 +2330,7 @@
     <message>
         <location filename="src/prefsdialog.ui" line="251"/>
         <source>&amp;Layout</source>
-        <translation>&amp;Vormgeving</translation>
+        <translation>&amp;Bildengeving</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="263"/>
