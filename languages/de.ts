@@ -58,7 +58,7 @@
     <message>
         <location filename="src/compressiondialog.ui" line="42"/>
         <source>Compression:</source>
-        <translation>Kompression</translation>
+        <translation>Kompression:</translation>
     </message>
     <message>
         <location filename="src/compressiondialog.ui" line="55"/>
@@ -130,13 +130,13 @@
         <location filename="src/gradientdialog.ui" line="277"/>
         <location filename="src/gradientdialog.ui" line="351"/>
         <source>Opacity:</source>
-        <translation>Opazität</translation>
+        <translation>Deckkraft:</translation>
     </message>
     <message>
         <location filename="src/gradientdialog.ui" line="290"/>
         <location filename="src/gradientdialog.ui" line="364"/>
         <source>0%</source>
-        <translation>%</translation>
+        <translation>0%</translation>
     </message>
     <message>
         <location filename="src/gradientdialog.ui" line="329"/>
@@ -177,7 +177,7 @@
     <message>
         <location filename="src/imagepositionwidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Bilden</translation>
+        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -195,7 +195,7 @@
     <message>
         <location filename="src/LineSettingsWidget.ui" line="55"/>
         <source>Opacity</source>
-        <translation>Eintrübung</translation>
+        <translation>Deckkraft</translation>
     </message>
     <message>
         <location filename="src/LineSettingsWidget.ui" line="83"/>
@@ -341,7 +341,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="338"/>
         <source>&amp;View</source>
-        <translation>&amp;Aussicht</translation>
+        <translation>&amp;Ansicht</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="354"/>
@@ -395,12 +395,12 @@
     <message>
         <location filename="src/mainwindow.ui" line="1029"/>
         <source>&amp;Save</source>
-        <translation>&amp;speichern</translation>
+        <translation>&amp;Speichern</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1037"/>
         <source>&amp;Save As...</source>
-        <translation>&amp;Speichern als...</translation>
+        <translation>&amp;Speichern unter...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1042"/>
@@ -535,7 +535,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1208"/>
         <source>Fit Image...</source>
-        <translation>Bild anpassen</translation>
+        <translation>Bild anpassen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1213"/>
@@ -560,7 +560,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1233"/>
         <source>Outside Drop Shadow...</source>
-        <translation>Außerhalb Schlagschatten...</translation>
+        <translation>Äußerer Schlagschatten...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1242"/>
@@ -605,12 +605,12 @@
     <message>
         <location filename="src/mainwindow.ui" line="1296"/>
         <source>Invert</source>
-        <translation>Umkehren</translation>
+        <translation>Invertieren</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1301"/>
         <source>Manual Settings...</source>
-        <translation>Manuelle Einstellungen</translation>
+        <translation>Manuelle Einstellungen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1306"/>
@@ -620,12 +620,12 @@
     <message>
         <location filename="src/mainwindow.ui" line="1311"/>
         <source>Fit Ratio</source>
-        <translation>Proportionen ajnpassen</translation>
+        <translation>Proportionen anpassen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1316"/>
         <source>Contract...</source>
-        <translation>zusammenziehen...</translation>
+        <translation>Zusammenziehen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1321"/>
@@ -805,7 +805,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1531"/>
         <source>Zoom Out</source>
-        <translation>Rauszoomen</translation>
+        <translation>Herauszoomen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1536"/>
@@ -820,7 +820,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1546"/>
         <source>Full Screen</source>
-        <translation>Ganzer Bildschirm</translation>
+        <translation>Vollbild</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1555"/>
@@ -830,7 +830,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1560"/>
         <source>Set Wallpaper</source>
-        <translation>Hintergrundbild festlegen</translation>
+        <translation>Als Hintergrundbild festlegen</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1565"/>
@@ -946,7 +946,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1710"/>
         <source>Gamma Correct (+)</source>
-        <translation>Gamma Correct</translation>
+        <translation>Gamma Correct (+)</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1719"/>
@@ -1010,7 +1010,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1810"/>
         <source>&amp;Charcoal Drawing</source>
-        <translation>Kohlezeichnung</translation>
+        <translation>&amp;Kohlezeichnung</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1815"/>
@@ -1244,7 +1244,7 @@
     <message>
         <location filename="src/NewDialog.ui" line="137"/>
         <source>Preset Size:</source>
-        <translation>Voreingestellte Größe</translation>
+        <translation>Voreingestellte Größe:</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="154"/>
@@ -1319,7 +1319,7 @@
     <message>
         <location filename="src/NewDialog.ui" line="364"/>
         <source>New Size</source>
-        <translation>&gt;Neue Größe</translation>
+        <translation>Neue Größe</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="428"/>
@@ -1511,7 +1511,7 @@
     <message>
         <location filename="src/mainwindow.cpp" line="85"/>
         <source>Untitled</source>
-        <translation>Ohne Titel</translation>
+        <translation>Unbenannt</translation>
     </message>
 </context>
 <context>
@@ -1868,7 +1868,7 @@
     <message>
         <location filename="src/batchdialog.ui" line="925"/>
         <source>Enabled</source>
-        <translation>aktiviert</translation>
+        <translation>Aktiviert</translation>
     </message>
     <message>
         <location filename="src/batchdialog.ui" line="941"/>
@@ -2370,7 +2370,7 @@
     <message>
         <location filename="src/prefsdialog.ui" line="279"/>
         <source>&amp;Startup</source>
-        <translation>&amp;Anfang</translation>
+        <translation>&amp;Programmstart</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="291"/>
@@ -2444,7 +2444,7 @@
     <message>
         <location filename="src/registerdialog.ui" line="55"/>
         <source>Invalid key entered</source>
-        <translation>Ungültiger Schlüssel eingegeben</translation>
+        <translation>Ungültiger Schlüssel wurde eingegeben</translation>
     </message>
     <message>
         <location filename="src/registerdialog.ui" line="81"/>
