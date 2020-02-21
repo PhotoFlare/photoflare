@@ -47,3 +47,21 @@ bool PointerSettingsWidget::fill() const
 {
     return ui->checkBoxFill->isChecked();
 }
+
+void PointerSettingsWidget::on_square_sel_clicked(bool checked)
+{
+    if(checked)
+    {
+        ui->square_sel->setChecked(true);
+        ui->circle_sel->setChecked(false);
+    }
+}
+
+void PointerSettingsWidget::on_circle_sel_clicked(bool checked)
+{
+    if(checked)
+    {
+        ui->square_sel->setChecked(false);
+        ui->circle_sel->setChecked(true);
+    }
+}
