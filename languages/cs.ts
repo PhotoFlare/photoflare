@@ -68,12 +68,12 @@
     <message>
         <location filename="src/dialogs/compressiondialog.ui" line="96"/>
         <source>Low quality</source>
-        <translation>Nízká jakost</translation>
+        <translation>Nízká kvalita</translation>
     </message>
     <message>
         <location filename="src/dialogs/compressiondialog.ui" line="109"/>
         <source>Best quality</source>
-        <translation>Nejlepší jakost</translation>
+        <translation>Nejlepší kvalita</translation>
     </message>
     <message>
         <location filename="src/dialogs/compressiondialog.ui" line="122"/>
@@ -252,7 +252,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="126"/>
         <source>Import TWAIN</source>
-        <translation>Zavést TWAIN</translation>
+        <translation>Importovat TWAIN</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="150"/>
@@ -592,12 +592,12 @@
     <message>
         <location filename="src/mainwindow.ui" line="1371"/>
         <source>Copyright...</source>
-        <translation>Kopírovací práva...</translation>
+        <translation>Autorská práva...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1386"/>
         <source>Show Selection</source>
-        <translation>Ukázat výběr</translation>
+        <translation>Zobrazit výběr</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1391"/>
@@ -797,7 +797,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1621"/>
         <source>Show Grid</source>
-        <translation>Ukázat mřížku</translation>
+        <translation>Zobrazit mřížku</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1626"/>
@@ -842,7 +842,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1670"/>
         <source>Export As Icon...</source>
-        <translation>Vyvést jako ikonu...</translation>
+        <translation>Exportovat jako ikonu...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1679"/>
@@ -1129,7 +1129,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="2037"/>
         <source>Despeckle</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit zrnění</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="2046"/>
@@ -1733,7 +1733,7 @@
     <message>
         <location filename="src/dialogs/aboutdialog.cpp" line="48"/>
         <source> Community Edition</source>
-        <translation> Společenstevní vydání</translation>
+        <translation> Komunitní vydání</translation>
     </message>
     <message>
         <location filename="src/dialogs/aboutdialog.cpp" line="49"/>
@@ -2325,12 +2325,12 @@
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="130"/>
         <source>Remember previous opened folder</source>
-        <translation>Zapamatovat si předchozí otevřenou složku</translation>
+        <translation>Pamatovat si předchozí otevřenou složku</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="143"/>
         <source>Remember previous save folder</source>
-        <translation>Zapamatovat si předchozí ukládací složku</translation>
+        <translation>Pamatovat si předchozí ukládací složku</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="149"/>
@@ -2350,7 +2350,7 @@
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="189"/>
         <source>Always show dialog</source>
-        <translation>Ukázat dialog vždy</translation>
+        <translation>Vždy zobrazit dialog</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="208"/>
@@ -2365,7 +2365,7 @@
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="271"/>
         <source>90</source>
-        <translation></translation>
+        <translation>90</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="277"/>
@@ -2475,12 +2475,12 @@
     <message>
         <location filename="src/dialogs/prefsdialog.cpp" line="150"/>
         <source>Open Directory</source>
-        <translation>Otevírací adresář</translation>
+        <translation>Otevřít adresář</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.cpp" line="159"/>
         <source>Save Directory</source>
-        <translation>Ukládací adresář</translation>
+        <translation>Uložit adresář</translation>
     </message>
 </context>
 <context>
@@ -2523,12 +2523,12 @@
     <message>
         <location filename="src/dialogs/textdialog.ui" line="162"/>
         <source>Bold</source>
-        <translation>Tučné</translation>
+        <translation>Tučně</translation>
     </message>
     <message>
         <location filename="src/dialogs/textdialog.ui" line="175"/>
         <source>Italic</source>
-        <translation>Kurzíva</translation>
+        <translation>Kurzívou</translation>
     </message>
     <message>
         <location filename="src/dialogs/textdialog.ui" line="188"/>
