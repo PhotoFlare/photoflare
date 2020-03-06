@@ -38,38 +38,48 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.6.3" date="2020-03-07">
+        <description>
+          <ul>
+            <li>Released on Flathub.</li>
+            <li>Updated Czech (cs) translation.</li>
+            <li>Updated German (de) translation.</li>
+            <li>Added oars rating (required for flathub)</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.6.2" date="2020-01-26">
       <description>
-    <ul>
-      <li>Fixed zoom out transition from autozoom to step zoom.</li>
-      <li>Fixed zoom in transition from autozoom to step zoom.</li>
-      <li>Fixed building on OpenMandriva Cooker with clang and lld linker.</li>
-    </ul>
+        <ul>
+          <li>Fixed zoom out transition from autozoom to step zoom.</li>
+          <li>Fixed zoom in transition from autozoom to step zoom.</li>
+          <li>Fixed building on OpenMandriva Cooker with clang and lld linker.</li>
+        </ul>
       </description>
   </release>
     <release version="1.6.1" date="2019-12-02">
       <description>
-    <ul>
-      <li>Fixed crash on mouse release after creating a selection.</li>
-      <li>Added Chinese (simplified) translation.</li>
-    </ul>
+        <ul>
+          <li>Fixed crash on mouse release after creating a selection.</li>
+          <li>Added Chinese (simplified) translation.</li>
+        </ul>
       </description>
   </release>
     <release version="1.6.0" date="2019-09-26">
       <description>
-    <ul>
-      <li>Added new User documentation as Github pages.</li>
-      <li>Added custom cursor for Paint Bucket tool.</li>
-      <li>Fixed incorrect tool being selected when you change tab.</li>
-      <li>Improved aboutDialog credits layout so titles can be translated.</li>
-      <li>Added Flatpak packaging manifest.</li>
-      <li>Added keyboard shortcut for Select All.</li>
-      <li>Improved Dock layout and Zoom settings to be translatable.</li>
-      <li>Added zoom direction feature to Preferences.</li>
-      <li>Added buttons to add/remove filters on batch/automate dialog.</li>
-      <li>Added keyboard shortcut for original zoom. (Ctrl+0)</li>
-      <li>Added OpenMP to use multiple threads for graphicsmagick filters.</li>
-    </ul>
+        <ul>
+          <li>Added new User documentation as Github pages.</li>
+          <li>Added custom cursor for Paint Bucket tool.</li>
+          <li>Fixed incorrect tool being selected when you change tab.</li>
+          <li>Improved aboutDialog credits layout so titles can be translated.</li>
+          <li>Added Flatpak packaging manifest.</li>
+          <li>Added keyboard shortcut for Select All.</li>
+          <li>Improved Dock layout and Zoom settings to be translatable.</li>
+          <li>Added zoom direction feature to Preferences.</li>
+          <li>Added buttons to add/remove filters on batch/automate dialog.</li>
+          <li>Added keyboard shortcut for original zoom. (Ctrl+0)</li>
+          <li>Added OpenMP to use multiple threads for graphicsmagick filters.</li>
+        </ul>
       </description>
   </release>
   </releases>
