@@ -101,6 +101,8 @@
         <file>assets/pixmaps/flags/Taiwan.png</file>
         <file>assets/pixmaps/flags/Czech-Republic.png</file>
         <file>assets/pixmaps/flags/China.png</file>
+        <file>assets/pixmaps/flags/Portugal.png</file>
+        <file>assets/pixmaps/flags/Brazil.png</file>
     </qresource>
     <qresource prefix="/cursors">
         <file>assets/cursors/color-picker.png</file>

@@ -86,7 +86,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->historySlider->setValue(SETTINGS->getHistoryLimit().toInt());
 
     //Startup tab
-    QStringList list(QStringList() << "English" << "French" << "Dutch" << "German" << "Chinese (CN)" << "Chinese (TW)" << "Czech Republic");
+    QStringList list(QStringList() << tr("English") << tr("French") << tr("Dutch") << tr("German") << tr("Chinese (CN)") << tr("Chinese (TW)") << tr("Czech Republic") << tr("Portuguese (PT)") << tr("Portuguese (BR)"));
     ui->comboBoxLanguage->addItems(list);
     ui->comboBoxLanguage->setItemIcon(0,QIcon(flagPath+"United-kingdom.png"));
     ui->comboBoxLanguage->setItemIcon(1,QIcon(flagPath+"France.png"));
@@ -95,6 +95,8 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->comboBoxLanguage->setItemIcon(4,QIcon(flagPath+"China.png"));
     ui->comboBoxLanguage->setItemIcon(5,QIcon(flagPath+"Taiwan.png"));
     ui->comboBoxLanguage->setItemIcon(6,QIcon(flagPath+"Czech-Republic.png"));
+    ui->comboBoxLanguage->setItemIcon(7,QIcon(flagPath+"Portugal.png"));
+    ui->comboBoxLanguage->setItemIcon(8,QIcon(flagPath+"Brazil.png"));
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
@@ -113,6 +115,10 @@ prefsDialog::prefsDialog(QWidget *parent) :
             ui->comboBoxLanguage->setCurrentIndex(5);
     else if(SETTINGS->getUserLanguage() == "cs")
             ui->comboBoxLanguage->setCurrentIndex(6);
+    else if(SETTINGS->getUserLanguage() == "pt_PT")
+            ui->comboBoxLanguage->setCurrentIndex(7);
+    else if(SETTINGS->getUserLanguage() == "pt_BR")
+            ui->comboBoxLanguage->setCurrentIndex(8);
 
     ui->restartButton->hide();
 }
@@ -243,4 +249,8 @@ void prefsDialog::set_user_language()
         SETTINGS->setUserLanguage("zh_TW");
     else if(ui->comboBoxLanguage->currentIndex() == 6)
         SETTINGS->setUserLanguage("cs");
+    else if(ui->comboBoxLanguage->currentIndex() == 7)
+        SETTINGS->setUserLanguage("pt_PT");
+    else if(ui->comboBoxLanguage->currentIndex() == 8)
+        SETTINGS->setUserLanguage("pt_BR");
 }

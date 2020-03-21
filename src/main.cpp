@@ -94,6 +94,14 @@ int main(int argc, char *argv[])
             {
                 lang = "cs";
             }
+            else if(sysLanguage == "Portuguese")
+            {
+                lang = "pt_PT";
+            }
+            else if(sysLanguage == "Brazil")
+            {
+                lang = "pt_BR";
+            }
             SETTINGS->setUserLanguage(lang);
         }
 
