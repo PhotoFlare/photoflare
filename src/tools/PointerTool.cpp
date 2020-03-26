@@ -127,7 +127,6 @@ void PointerTool::setOverlayImage(const QImage& image)
     d->image = image;
     d->imagePos = QPoint(0,0);
     emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
-    emit cursorChanged(Qt::OpenHandCursor);
 }
 
 void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)

@@ -801,9 +801,9 @@ void MainWindow::onPaste()
     {
         QClipboard *clipboard = QApplication::clipboard();
         widget->setPaintTool(MOUSE_POINTER);
-        MOUSE_POINTER->setOverlayImage(clipboard->image());
         m_toolSelected = "pointer";
         refreshTools();
+        MOUSE_POINTER->setOverlayImage(clipboard->image());
     }
     else
     {
@@ -1687,7 +1687,7 @@ void MainWindow::on_actionCheck_for_updates_triggered()
 
 void MainWindow::on_actionDonate_triggered()
 {
-    QString link = "http://photoflare.io/donate/";
+    QString link = "https://photoflare.io/donate/";
     QDesktopServices::openUrl(QUrl(link));
 }
 
