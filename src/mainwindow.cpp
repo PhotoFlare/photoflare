@@ -954,6 +954,7 @@ void MainWindow::on_actionCanvas_Size_triggered()
     NewDialog dialog;
     dialog.setWindowTitle("Resize Canvas");
     dialog.setMode(NewDialog::ResizeCanvas);
+    dialog.setImageSize(widget->image().size());
     if (dialog.exec())
     {
         QImage canvas (dialog.newImageSize(), QImage::Format_ARGB32_Premultiplied);
