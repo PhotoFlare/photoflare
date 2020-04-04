@@ -548,6 +548,7 @@ void MainWindow::on_actionSave_As_triggered()
         QString currentFileName = ui->mdiArea->currentSubWindow()->windowTitle();
         QString suffix = QFileInfo(currentFileName).suffix();
 
+        // Setup file filters
         QStringList filters;
         filters << tr("png (*.png)");
         filters << tr("jpg (*.jpg *.jpeg)");
@@ -571,87 +572,68 @@ void MainWindow::on_actionSave_As_triggered()
         if (defaultFilter.isEmpty() && SETTINGS->getSaveFormatEnabled())
             defaultFilter = filters.at(SETTINGS->getSaveFormat().toInt());
 
+        // Get fileName from the dialog
         QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-                                                        SETTINGS->getSaveFolder(), filters.join(";;"), &defaultFilter);
+            SETTINGS->getSaveFolder(), filters.join(";;"), &defaultFilter);
 
+        // Escape if no fileName
+        if (fileName.isEmpty())
+            return;
+
+        // Set Save path to previously used location
         if(SETTINGS->getPreviouslyOpenedSave() == true)
         {
             QDir d = QFileInfo(fileName).absoluteDir();
             SETTINGS->setSaveFolder(d.absolutePath());
         }
 
-        if (fileName.isEmpty())
-            return;
-
         // WORKAROUND: Add the extension to the file name manually.
         QString fileNameSuffix = QFileInfo(fileName).suffix();
-
         if (fileNameSuffix.isEmpty())
         {
-                QStringList list = defaultFilter.split(" (");
-                if (list.count() == 2)
-                {
-                    fileNameSuffix = list.at(0);
-                    fileName += "." + fileNameSuffix;
-                }
+            QStringList list = defaultFilter.split(" (");
+            if (list.count() == 2)
+            {
+                fileNameSuffix = list.at(0);
+                fileName += "." + fileNameSuffix;
+            }
         }
-
+        // Default image quality 100 percent
         int quality = -1;
 
+        // Compression dialog to set the quality
         if(SETTINGS->getCompressionDialogEnabled() && (fileNameSuffix == "jpg" || fileNameSuffix == "jpeg"))
         {
             CompressionDialog dlg;
             dlg.exec();
-            quality = dlg.quality();
 
-            //If dialog Accepted
+            // Dialog Accepted
             if(dlg.enableSaveImage)
             {
-                if (saveImage(fileName,quality))
-                {
-                    PaintWidget *widget = getCurrentPaintWidget();
-                    if (widget)
-                        widget->setImage(QImage(fileName));
-
-                    //Update tab label
-                    ui->mdiArea->currentSubWindow()->setWindowModified(false);
-                    ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
-
-                    //Update image path so the file properties dialog will show all file details
-                    QDir d = QFileInfo(fileName).absoluteDir();
-                    widget->setImagePath(d.absolutePath());
-
-                    SETTINGS->addRecentFile(fileName);
-                    updateRecentFilesMenu();
-                }
-                else
-                    showError(tr("Unable to save image."));
-
+                quality = dlg.quality();
             }
         }
-        //Other file formats
-        else
+        // Save image with the selected quality value
+        if (saveImage(fileName, quality))
         {
-            if (saveImage(fileName,quality))
-            {
-                PaintWidget *widget = getCurrentPaintWidget();
-                if (widget)
-                    widget->setImage(QImage(fileName));
+            PaintWidget *widget = getCurrentPaintWidget();
+            if (widget)
+                widget->setImage(QImage(fileName));
 
-                //Update tab label
-                ui->mdiArea->currentSubWindow()->setWindowModified(false);
-                ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
+            // Update tab label
+            ui->mdiArea->currentSubWindow()->setWindowModified(false);
+            ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
 
-                //Update image path so the file properties dialog will show all file details
-                QDir d = QFileInfo(fileName).absoluteDir();
-                widget->setImagePath(d.absolutePath());
+            // Update image path so the file properties dialog will show all file details
+            QDir d = QFileInfo(fileName).absoluteDir();
+            widget->setImagePath(d.absolutePath());
 
-                SETTINGS->addRecentFile(fileName);
-                updateRecentFilesMenu();
-            }
-            else
-                showError(tr("Unable to save image."));
+            // Update recents
+            SETTINGS->addRecentFile(fileName);
+            updateRecentFilesMenu();
         }
+        else
+            showError(tr("Unable to save image."));
     }
 }
 
@@ -677,7 +659,7 @@ bool MainWindow::saveImage(const QString &fileName, int quality)
 
     PaintWidget *widget = getCurrentPaintWidget();
 
-    return widget ? widget->image().save(fileName,0,quality) : false;
+    return widget ? widget->image().save(fileName,nullptr,quality) : false;
 }
 
 void MainWindow::on_actionClose_triggered()
