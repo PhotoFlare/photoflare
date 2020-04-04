@@ -197,7 +197,7 @@ void batchDialog::on_tabWidget_currentChanged(int index)
         ui->plainTextEdit->insertPlainText("\n");
         ui->plainTextEdit->insertPlainText(tr("Output folder: ") + d->outDir + "\n");
         ui->plainTextEdit->insertPlainText("\n");
-        ui->plainTextEdit->insertPlainText(tr("Filters:") + "\n");
+        ui->plainTextEdit->insertPlainText(tr("Filters: ") + "\n");
         foreach (QString filter, d->filterList) {
             ui->plainTextEdit->insertPlainText("  " + filter + "\n");
         }
@@ -208,7 +208,7 @@ void batchDialog::onFinished()
 {
     ui->tabWidget->setCurrentIndex(5);
     ui->plainTextEdit->insertPlainText("\n");
-    ui->plainTextEdit->insertPlainText("Batch processing finished successfully !");
+    ui->plainTextEdit->insertPlainText(tr("Batch processing finished successfully !"));
 }
 
 void batchDialog::on_imageSizeCheckBox_clicked(bool checked)
