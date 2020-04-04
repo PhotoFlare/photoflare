@@ -190,14 +190,14 @@ void batchDialog::on_tabWidget_currentChanged(int index)
     if(index == 5)
     {
         ui->plainTextEdit->clear();
-        ui->plainTextEdit->insertPlainText("Input files:\n");
+        ui->plainTextEdit->insertPlainText(tr("Input files:") + "\n");
         foreach (QString file, d->fileList) {
             ui->plainTextEdit->insertPlainText("  " + file + "\n");
         }
         ui->plainTextEdit->insertPlainText("\n");
-        ui->plainTextEdit->insertPlainText("Output folder: " + d->outDir + "\n");
+        ui->plainTextEdit->insertPlainText(tr("Output folder: ") + d->outDir + "\n");
         ui->plainTextEdit->insertPlainText("\n");
-        ui->plainTextEdit->insertPlainText("Filters: \n");
+        ui->plainTextEdit->insertPlainText(tr("Filters:") + "\n");
         foreach (QString filter, d->filterList) {
             ui->plainTextEdit->insertPlainText("  " + filter + "\n");
         }
