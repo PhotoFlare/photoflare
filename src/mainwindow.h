@@ -51,7 +51,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow();
     ~MainWindow();
 
     PaintWidget* getCurrentPaintWidget();
@@ -185,7 +185,7 @@ private slots:
     void on_actionHue_variation_triggered();
     void onHuePreviewChanged(QImage image, bool colorize, QColor color, int degrees);
     void onPreviewTransparent(QColor color, int tolerance);
-    void onTransparentFinished(int);
+    void onTransparentFinished();
     void onTransparentAccepted();
     void onTransparentRejected();
     void on_actionGradient_triggered();

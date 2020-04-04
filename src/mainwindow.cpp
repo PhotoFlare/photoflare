@@ -111,8 +111,8 @@ namespace
 const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
 }
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+MainWindow::MainWindow() :
+    QMainWindow(),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -177,8 +177,7 @@ void MainWindow::setupWorkspace()
     // Center colorBox in tool palette.
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
-    // Default the transparent dialog and colour mode
-    transparentDialog = 0;
+    // Default the colour mode
     ui->actionRGB_Mode->setChecked(true);
 
     // Remove Qt contextmenu from the toolbars
@@ -546,13 +545,10 @@ void MainWindow::on_actionSave_As_triggered()
     if (widget)
     {
         // Load default filter by image file name.
-        QString currentFileName;
-        currentFileName = ui->mdiArea->currentSubWindow()->windowTitle();
-
+        QString currentFileName = ui->mdiArea->currentSubWindow()->windowTitle();
         QString suffix = QFileInfo(currentFileName).suffix();
 
         QStringList filters;
-        //filters << tr("All Files (*)");
         filters << tr("png (*.png)");
         filters << tr("jpg (*.jpg *.jpeg)");
         filters << tr("bmp (*.bmp)");
@@ -583,7 +579,6 @@ void MainWindow::on_actionSave_As_triggered()
             QDir d = QFileInfo(fileName).absoluteDir();
             SETTINGS->setSaveFolder(d.absolutePath());
         }
-
 
         if (fileName.isEmpty())
             return;
@@ -800,9 +795,7 @@ void MainWindow::onPaste()
     if (widget)
     {
         QClipboard *clipboard = QApplication::clipboard();
-        widget->setPaintTool(MOUSE_POINTER);
-        m_toolSelected = "pointer";
-        refreshTools();
+        on_toolButtonPointer_clicked();
         MOUSE_POINTER->setOverlayImage(clipboard->image());
     }
     else
@@ -1004,7 +997,7 @@ void MainWindow::on_actionAutomatic_Crop_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("trim");
+        applyThreadedFilter("trim");
 }
 
 void MainWindow::on_actionOutside_frame_triggered()
@@ -1046,7 +1039,7 @@ void MainWindow::on_actionTransparent_colour_triggered()
         on_toolButtonDropper_clicked();
         transparentDialog = new TransparentDialog();
         QObject::connect(transparentDialog, SIGNAL(previewTransparent(QColor,int)), this, SLOT(onPreviewTransparent(QColor,int)));
-        QObject::connect(transparentDialog, SIGNAL(dialogFinished(int)), this, SLOT(onTransparentFinished(int)));
+        QObject::connect(transparentDialog, SIGNAL(dialogFinished(int)), this, SLOT(onTransparentFinished()));
         QObject::connect(transparentDialog, SIGNAL(dialogAccepted()), this, SLOT(onTransparentAccepted()));
         QObject::connect(transparentDialog, SIGNAL(dialogRejected()), this, SLOT(onTransparentRejected()));
         transparentDialog->setColor(widget->image().pixel(0,0));
@@ -1055,10 +1048,9 @@ void MainWindow::on_actionTransparent_colour_triggered()
     }
 }
 
-void MainWindow::onTransparentFinished(int)
+void MainWindow::onTransparentFinished()
 {
     delete transparentDialog;
-    transparentDialog = 0;
     // Restore previous tool
     m_toolSelected = m_previousToolSelected;
     QTimer::singleShot(1000, this, SLOT(refreshTools()));
@@ -1119,7 +1111,9 @@ void MainWindow::onEditText(const QString& text,const QFont& font, const QColor&
     textDialog dialog(this);
     dialog.editText(text, font, color);
     if(dialog.exec())
+    {
         TEXT_TOOL->setText(dialog.text(), dialog.font(), dialog.color(), dialog.antialias(), dialog.position());
+    }
 }
 
 /*
@@ -1457,7 +1451,9 @@ void MainWindow::on_actionFilterbar_triggered()
         ui->toolBar->hide();
     }
     else
+    {
         ui->toolBar->show();
+    }
 }
 
 void MainWindow::on_actionToolpalette_triggered()
@@ -1467,7 +1463,9 @@ void MainWindow::on_actionToolpalette_triggered()
         ui->dockWidget_palette->hide();
     }
     else
+    {
         ui->dockWidget_palette->show();
+    }
 }
 
 void MainWindow::on_actionShow_grid_triggered()
@@ -2356,20 +2354,17 @@ void MainWindow::addPaintWidget(PaintWidget *widget)
         this->zoomCombo->setItemText(0, QString::number(static_cast<int>(scale*100)).append("%"));
         this->zoomCombo->setCurrentIndex(0);
     });
-
     connect(widget, &PaintWidget::selectionChanged, this, &MainWindow::onSelectionChanged);
-
     addChildWindow(widget);
 }
 
 PaintWidget* MainWindow::getCurrentPaintWidget()
 {
-    PaintWidget *widget = 0;
+    PaintWidget *widget = nullptr;
     if(ui->mdiArea->currentSubWindow())
     {
         widget = static_cast<PaintWidget *>(ui->mdiArea->currentSubWindow()->widget());
     }
-
     return widget;
 }
 
@@ -2399,58 +2394,56 @@ void MainWindow::on_actionBrightplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("brightplus");
+        applyThreadedFilter("brightplus");
 }
 
 void MainWindow::on_actionBrightminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilter("brightminus");
+        applyThreadedFilter("brightminus");
 }
 
 void MainWindow::on_actionContrastplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-
-    applyThreadedFilterMP("contrastplus");
-
+        applyThreadedFilterMP("contrastplus");
 }
 
 void MainWindow::on_actionContrastminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("contrastminus");
+        applyThreadedFilterMP("contrastminus");
 }
 
 void MainWindow::on_actionSaturationplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("saturationplus");
+        applyThreadedFilterMP("saturationplus");
 }
 
 void MainWindow::on_actionSaturationminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("saturationminus");
+        applyThreadedFilterMP("saturationminus");
 }
 
 void MainWindow::on_actionGammaCorrectplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("gammacorrectplus");
+        applyThreadedFilterMP("gammacorrectplus");
 }
 
 void MainWindow::on_actionGammaCorrectminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("gammacorrectminus");
+        applyThreadedFilterMP("gammacorrectminus");
 }
 
 void MainWindow::on_actionGradient_triggered()
@@ -2498,7 +2491,7 @@ void MainWindow::on_actionGradient_triggered()
                     stopPoint.setX(image.width());stopPoint.setY(image.height());
                     break;
                 }
-                widget->setImage(FilterManager::instance()->gradient(image,startPoint,stopPoint,dlg.startColor(),dlg.stopColor()));
+                widget->setImage(FilterManager::instance()->gradient(image, startPoint, stopPoint, dlg.startColor(), dlg.stopColor()));
         }
     }
 }
@@ -2536,14 +2529,12 @@ bool MainWindow::eventFilter(QObject * obj, QEvent * e)
                 e->ignore();
                 return true;
             }
-
             subWindow->widget()->deleteLater();
             break;
         }
         default:
             qt_noop();
     }
-
     return QObject::eventFilter(obj, e);
 }
 
