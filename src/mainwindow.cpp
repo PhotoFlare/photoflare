@@ -934,7 +934,7 @@ void MainWindow::on_actionImage_Size_triggered()
         return;
 
     NewDialog dialog;
-    dialog.setWindowTitle("Resize Image");
+    dialog.setWindowTitle(tr("Resize Image"));
     dialog.setMode(NewDialog::ResizeImage);
     dialog.setImageSize(widget->image().size());
     if (dialog.exec() == QDialog::Accepted)
@@ -951,7 +951,7 @@ void MainWindow::on_actionCanvas_Size_triggered()
         return;
 
     NewDialog dialog;
-    dialog.setWindowTitle("Resize Canvas");
+    dialog.setWindowTitle(tr("Resize Canvas"));
     dialog.setMode(NewDialog::ResizeCanvas);
     dialog.setImageSize(widget->image().size());
     if (dialog.exec())
