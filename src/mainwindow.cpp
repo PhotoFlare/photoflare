@@ -706,7 +706,7 @@ void MainWindow::on_actionPrint_triggered()
         if (dialog->exec() == QDialog::Accepted)
         {
             QPainter painter;
-            if (! painter.begin(&printer))
+            if (!painter.begin(&printer))
             {
                 qWarning("Failed to init printer");
                 return;
@@ -823,13 +823,12 @@ void MainWindow::on_actionPaste_triggered()
 
 void MainWindow::on_actionPaste_as_new_image_triggered()
 {
-    on_actionCopy_triggered();
-    PaintWidget *widget = getCurrentPaintWidget();
+    on_actionCopy_triggered();  
     QClipboard *clipboard = QApplication::clipboard();
     if(clipboard->mimeData()->hasImage())
     {
         addPaintWidget(createPaintWidget(clipboard->image().size(),Qt::white));
-        widget = getCurrentPaintWidget();
+        PaintWidget *widget = getCurrentPaintWidget();
         if (widget)
         {
             widget->setImage(clipboard->image());
