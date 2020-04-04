@@ -41,6 +41,8 @@
     <release version="1.6.4" date="2020-04-04">
         <description>
           <ul>
+            <li>Fixed transparent dialog not restoring previous tool.</li>
+            <li>Fixed transparent dialog incorrect window type preventing left click.</li>
             <li>Fixed canvas dialog not defaulting to current image size.</li>
             <li>Fixed pasted image visibility issue.</li>
             <li>Added Portuguese translations (pt, pt_BR).</li>
