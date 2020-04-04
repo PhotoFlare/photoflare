@@ -1039,8 +1039,11 @@ void MainWindow::on_actionTransparent_colour_triggered()
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
+        // Set the previous tool so we can revert back to it after finishing transparent colour operation
+        m_previousToolSelected = m_toolSelected;
+
         origImage = widget->image();
-        emit ui->toolButtonDropper->clicked();
+        on_toolButtonDropper_clicked();
         transparentDialog = new TransparentDialog();
         QObject::connect(transparentDialog, SIGNAL(previewTransparent(QColor,int)), this, SLOT(onPreviewTransparent(QColor,int)));
         QObject::connect(transparentDialog, SIGNAL(dialogFinished(int)), this, SLOT(onTransparentFinished(int)));
@@ -1056,6 +1059,9 @@ void MainWindow::onTransparentFinished(int)
 {
     delete transparentDialog;
     transparentDialog = 0;
+    // Restore previous tool
+    m_toolSelected = m_previousToolSelected;
+    QTimer::singleShot(1000, this, SLOT(refreshTools()));
 }
 
 void MainWindow::onTransparentAccepted()
