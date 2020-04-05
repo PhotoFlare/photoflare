@@ -36,7 +36,6 @@
     <name>BrushTypeComboBox</name>
     <message>
         <location filename="../src/widgets/BrushTypeComboBox.ui" line="14"/>
-        <location filename="../src/widgets/brushtypecombobox.ui" line="14"/>
         <source>Form</source>
         <translation>Formulário</translation>
     </message>
@@ -342,7 +341,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="356"/>
         <source>&amp;View</source>
-        <translation>&amp;Exibir</translation>
+        <translation>&amp;Ver</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="371"/>
@@ -398,12 +397,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1157"/>
         <source>&amp;Save</source>
-        <translation>&amp;Salvar</translation>
+        <translation>&amp;Guardar</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1165"/>
         <source>&amp;Save As...</source>
-        <translation>&amp;Salvar Como...</translation>
+        <translation>&amp;Guardar Como...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1170"/>
@@ -678,7 +677,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1424"/>
         <source>Manual Settings...</source>
-        <translation>Configurações Manual...</translation>
+        <translation>Definições Manual...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1429"/>
@@ -733,7 +732,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1484"/>
         <source>Save Shape</source>
-        <translation>Salvar Forma</translation>
+        <translation>Guardar Forma</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1489"/>
@@ -1240,128 +1239,137 @@
     <message>
         <location filename="../src/mainwindow.ui" line="2099"/>
         <source>Check for updates...</source>
-        <translation>Verificar por atualizações...</translation>
+        <translation>Certificar por atualizações...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
-        <location filename="../src/mainwindow.cpp" line="325"/>
+        <location filename="../src/mainwindow.cpp" line="187"/>
+        <location filename="../src/mainwindow.cpp" line="324"/>
         <source>Ready</source>
         <translation>Pronto</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="345"/>
-        <location filename="../src/mainwindow.cpp" line="365"/>
+        <location filename="../src/mainwindow.cpp" line="344"/>
+        <location filename="../src/mainwindow.cpp" line="364"/>
         <source>Working...</source>
         <translation>Trabalhando...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="392"/>
+        <location filename="../src/mainwindow.cpp" line="391"/>
         <source>Open File</source>
         <translation>Abrir Ficheiro</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="393"/>
+        <location filename="../src/mainwindow.cpp" line="392"/>
         <source>All Files (*);;Image Files (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</source>
         <translation>Todos Ficheiros (*);;Ficheiros de Imagem (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="449"/>
+        <location filename="../src/mainwindow.cpp" line="448"/>
         <source>Incorrect file extension detected</source>
         <translation>Detectada a extensão do ficheiro incorreta</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="450"/>
+        <location filename="../src/mainwindow.cpp" line="449"/>
         <source>Do you want to update this extension?</source>
-        <translation>Deseja atualizar esta extensão?</translation>
+        <translation>Pretende atualizar esta extensão?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="467"/>
+        <location filename="../src/mainwindow.cpp" line="466"/>
         <source>Please open a valid image file</source>
         <translation>Por favor, abra um ficheiro de imagem válido</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="477"/>
+        <location filename="../src/mainwindow.cpp" line="476"/>
         <source>Image does not exist at this file path</source>
         <translation>Não existe imagem neste caminho de ficheiro</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="556"/>
+        <location filename="../src/mainwindow.cpp" line="553"/>
         <source>png (*.png)</source>
         <translation>png (*.png)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="557"/>
+        <location filename="../src/mainwindow.cpp" line="554"/>
         <source>jpg (*.jpg *.jpeg)</source>
         <translation>jpg (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="558"/>
+        <location filename="../src/mainwindow.cpp" line="555"/>
         <source>bmp (*.bmp)</source>
         <translation>bmp (*.bmp)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="559"/>
+        <location filename="../src/mainwindow.cpp" line="556"/>
         <source>pbm (*.pbm)</source>
         <translation>pbm (*.pbm)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="560"/>
+        <location filename="../src/mainwindow.cpp" line="557"/>
         <source>pgm (*.pgm)</source>
         <translation>pgm (*.pgm)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="561"/>
+        <location filename="../src/mainwindow.cpp" line="558"/>
         <source>ppm (*.ppm)</source>
         <translation>ppm (*.ppm)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="562"/>
+        <location filename="../src/mainwindow.cpp" line="559"/>
         <source>ico (*.ico)</source>
         <translation>ico (*.ico)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="578"/>
+        <location filename="../src/mainwindow.cpp" line="576"/>
         <source>Save File</source>
-        <translation>Salvar Ficheiro</translation>
+        <translation>Guardar Ficheiro</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="633"/>
-        <location filename="../src/mainwindow.cpp" line="658"/>
+        <location filename="../src/mainwindow.cpp" line="636"/>
         <source>Unable to save image.</source>
-        <translation>Não foi possível salvar a imagem.</translation>
+        <translation>Não foi possível guardar a imagem.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1216"/>
+        <location filename="../src/mainwindow.cpp" line="912"/>
+        <source>Resize Image</source>
+        <translation>Redimensionar Imagem</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="929"/>
+        <source>Resize Canvas</source>
+        <translation>Redimensionar Tela de Pintura</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1198"/>
         <source>Set Image Opacity</source>
         <translation>Definir Opacidade da Imagem</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1217"/>
+        <location filename="../src/mainwindow.cpp" line="1199"/>
         <source>Opacity:</source>
         <translation>Opacidade:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1477"/>
+        <location filename="../src/mainwindow.cpp" line="1463"/>
         <source>Set Grid size</source>
         <translation>Definir Tamanho da Grade</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1478"/>
+        <location filename="../src/mainwindow.cpp" line="1464"/>
         <source>Cell width</source>
         <translation>Largura da célula</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2229"/>
+        <location filename="../src/mainwindow.cpp" line="2215"/>
         <source>Unsaved Changes</source>
-        <translation>Alterações Não Salvas</translation>
+        <translation>Mudanças Não Guardadas</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2229"/>
+        <location filename="../src/mainwindow.cpp" line="2215"/>
         <source>Save changes before leaving?</source>
-        <translation>Salvar alterações antes de sair?</translation>
+        <translation>Guardar mudanças antes da saída?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2546"/>
+        <location filename="../src/mainwindow.cpp" line="2525"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
@@ -1586,7 +1594,7 @@
     <message>
         <location filename="../src/dialogs/plugindialog.ui" line="17"/>
         <source>Plugin Manager</source>
-        <translation>Gerenciador de Plugin</translation>
+        <translation>Gestor de Plugin</translation>
     </message>
     <message>
         <location filename="../src/dialogs/plugindialog.cpp" line="41"/>
@@ -1621,52 +1629,52 @@
 <context>
     <name>PointerTool</name>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="382"/>
+        <location filename="../src/tools/PointerTool.cpp" line="381"/>
         <source>Crop</source>
         <translation>Cortar</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="391"/>
+        <location filename="../src/tools/PointerTool.cpp" line="390"/>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/PointerTool.cpp" line="391"/>
+        <source>Save as</source>
+        <translation>Guardar como</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="392"/>
-        <source>Save as</source>
-        <translation>Salvar como</translation>
-    </message>
-    <message>
-        <location filename="../src/tools/PointerTool.cpp" line="393"/>
         <source>Close</source>
         <translation>Fechar</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="396"/>
+        <location filename="../src/tools/PointerTool.cpp" line="395"/>
         <source>Copy</source>
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="397"/>
+        <location filename="../src/tools/PointerTool.cpp" line="396"/>
         <source>Paste</source>
         <translation>Colar</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="405"/>
+        <location filename="../src/tools/PointerTool.cpp" line="404"/>
         <source>Image size</source>
         <translation>Tamanho da imagem</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="406"/>
+        <location filename="../src/tools/PointerTool.cpp" line="405"/>
         <source>Canvas size</source>
         <translation>Tamanho da tela de pintura</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="409"/>
+        <location filename="../src/tools/PointerTool.cpp" line="408"/>
         <source>Undo</source>
         <translation>Desfazer</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="410"/>
+        <location filename="../src/tools/PointerTool.cpp" line="409"/>
         <source>Redo</source>
         <translation>Refazer</translation>
     </message>
@@ -1675,8 +1683,8 @@
     <name>QObject</name>
     <message>
         <location filename="../src/main.cpp" line="46"/>
-        <source>1.6.3</source>
-        <translation>1.6.3</translation>
+        <source>1.6.4</source>
+        <translation>1.6.4</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="47"/>
@@ -1877,8 +1885,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="50"/>
-        <source>FR - Ludovic, Nerdouille&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Freacore&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts Hsu&lt;br&gt;pt_PT - Elton&lt;br&gt;pt_BR - Elton</source>
-        <translation>FR - Ludovic, Nerdouille&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Freacore&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts Hsu&lt;br&gt;pt_PT - Elton&lt;br&gt;pt_BR - Elton</translation>
+        <source>FR - Ludovic, Nerdouille&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Steffen Gunther&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts Hsu&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10</source>
+        <translation>FR - Ludovic, Nerdouille&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Steffen Gunther&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts Hsu&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="59"/>
@@ -1921,7 +1929,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="115"/>
         <source>Output Folder</source>
-        <translation>Pasta de Saída</translation>
+        <translation>Diretório de Saída</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="141"/>
@@ -2314,7 +2322,27 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="138"/>
         <source>Please add files to the batch file list and set output folder.</source>
-        <translation>Por favor, adicione ficheiro à lista de arquivos em lote e defina a pasta de saída.</translation>
+        <translation>Por favor, adicione ficheiro para lista de ficheiros em lote e defina o diretório de saída.</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="193"/>
+        <source>Input files:</source>
+        <translation>Ficheiros adicionados:</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="198"/>
+        <source>Output folder: </source>
+        <translation>Diretório de saída: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="200"/>
+        <source>Filters: </source>
+        <translation>Filtros: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="211"/>
+        <source>Batch processing finished successfully !</source>
+        <translation>Processamento do lote terminado com sucesso !</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="417"/>
@@ -2342,7 +2370,7 @@
     <message>
         <location filename="../src/dialogs/checkupdatedialog.ui" line="42"/>
         <source>Checking for updates...</source>
-        <translation>Verificando por atualizações...</translation>
+        <translation>Certificando por atualizações...</translation>
     </message>
     <message>
         <location filename="../src/dialogs/checkupdatedialog.ui" line="55"/>
@@ -2370,7 +2398,7 @@
     <message>
         <location filename="../src/dialogs/colourmanagerdialog.ui" line="76"/>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
@@ -2408,7 +2436,7 @@
     <message>
         <location filename="../src/dialogs/dropshadowdialog.ui" line="160"/>
         <source>Default values</source>
-        <translation>Valores padrão</translation>
+        <translation>Valores predefinido</translation>
     </message>
 </context>
 <context>
@@ -2426,7 +2454,7 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="64"/>
         <source>Folder:</source>
-        <translation>Pasta:</translation>
+        <translation>Diretório:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="77"/>
@@ -2481,12 +2509,12 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="49"/>
         <source>&amp;Folders</source>
-        <translation>&amp;Pastas</translation>
+        <translation>&amp;Diretórios</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="61"/>
         <source>Opening folder</source>
-        <translation>Pasta para abrir</translation>
+        <translation>Diretório para abrir</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="84"/>
@@ -2497,17 +2525,17 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="107"/>
         <source>Saving folder</source>
-        <translation>Pasta para salvar</translation>
+        <translation>Diretório para guardar</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="133"/>
         <source>Remember previous opened folder</source>
-        <translation>Lembrar pasta aberta anteriormente</translation>
+        <translation>Memorizar diretório aberto anteriormente</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="146"/>
         <source>Remember previous save folder</source>
-        <translation>Lembrar pasta de salvamento anterior</translation>
+        <translation>Memorizar diretório de guardar anterior</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="152"/>
@@ -2517,7 +2545,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="164"/>
         <source>Default file format</source>
-        <translation>Formato de ficheiro padrão</translation>
+        <translation>Formato de ficheiro predefinido</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="180"/>
@@ -2532,7 +2560,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="211"/>
         <source>Set default compression</source>
-        <translation>Definir compressão padrão</translation>
+        <translation>Definir compressão predefinido</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="261"/>
@@ -2547,7 +2575,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="280"/>
         <source>&amp;Layout</source>
-        <translation>&amp;Leiaute</translation>
+        <translation>&amp;Esquema</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="292"/>
@@ -2557,7 +2585,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="305"/>
         <source>Default Toolpalette Location</source>
-        <translation>Localização padrão da ferramenta de paleta de cores</translation>
+        <translation>Local predefinido da ferramenta de paleta de cores</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="328"/>
@@ -2567,12 +2595,12 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="344"/>
         <source>&amp;Default Values</source>
-        <translation>&amp;Valores Padrão</translation>
+        <translation>&amp;Valores Predefinido</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="356"/>
         <source>Default Units</source>
-        <translation>Unidade Padrão</translation>
+        <translation>Unidade Predefinido</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="370"/>
@@ -2642,7 +2670,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="60"/>
         <source>Default</source>
-        <translation>Padrão</translation>
+        <translation>Predefinido</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="60"/>
@@ -2737,7 +2765,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="191"/>
         <source>Save Directory</source>
-        <translation>Salvar Diretório</translation>
+        <translation>Guardar Diretório</translation>
     </message>
 </context>
 <context>
@@ -2755,7 +2783,7 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="58"/>
         <source>Font</source>
-        <translation>Fonte</translation>
+        <translation>Letra</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="71"/>
@@ -2765,7 +2793,7 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="97"/>
         <source>Text Input</source>
-        <translation>Inserir Texto</translation>
+        <translation>Digitar Texto</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="120"/>
@@ -2810,7 +2838,7 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="269"/>
         <source>Enter some text to continue</source>
-        <translation>Inserir algum texto para continuar</translation>
+        <translation>Digitar algum texto para continuar</translation>
     </message>
 </context>
 </TS>
