@@ -36,7 +36,6 @@
     <name>BrushTypeComboBox</name>
     <message>
         <location filename="../src/widgets/BrushTypeComboBox.ui" line="14"/>
-        <location filename="../src/widgets/brushtypecombobox.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1243,125 +1242,134 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
-        <location filename="../src/mainwindow.cpp" line="325"/>
+        <location filename="../src/mainwindow.cpp" line="187"/>
+        <location filename="../src/mainwindow.cpp" line="324"/>
         <source>Ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="345"/>
-        <location filename="../src/mainwindow.cpp" line="365"/>
+        <location filename="../src/mainwindow.cpp" line="344"/>
+        <location filename="../src/mainwindow.cpp" line="364"/>
         <source>Working...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="392"/>
+        <location filename="../src/mainwindow.cpp" line="391"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="393"/>
+        <location filename="../src/mainwindow.cpp" line="392"/>
         <source>All Files (*);;Image Files (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="449"/>
+        <location filename="../src/mainwindow.cpp" line="448"/>
         <source>Incorrect file extension detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="450"/>
+        <location filename="../src/mainwindow.cpp" line="449"/>
         <source>Do you want to update this extension?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="467"/>
+        <location filename="../src/mainwindow.cpp" line="466"/>
         <source>Please open a valid image file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="477"/>
+        <location filename="../src/mainwindow.cpp" line="476"/>
         <source>Image does not exist at this file path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="556"/>
+        <location filename="../src/mainwindow.cpp" line="553"/>
         <source>png (*.png)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="557"/>
+        <location filename="../src/mainwindow.cpp" line="554"/>
         <source>jpg (*.jpg *.jpeg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="558"/>
+        <location filename="../src/mainwindow.cpp" line="555"/>
         <source>bmp (*.bmp)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="559"/>
+        <location filename="../src/mainwindow.cpp" line="556"/>
         <source>pbm (*.pbm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="560"/>
+        <location filename="../src/mainwindow.cpp" line="557"/>
         <source>pgm (*.pgm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="561"/>
+        <location filename="../src/mainwindow.cpp" line="558"/>
         <source>ppm (*.ppm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="562"/>
+        <location filename="../src/mainwindow.cpp" line="559"/>
         <source>ico (*.ico)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="578"/>
+        <location filename="../src/mainwindow.cpp" line="576"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="633"/>
-        <location filename="../src/mainwindow.cpp" line="658"/>
+        <location filename="../src/mainwindow.cpp" line="636"/>
         <source>Unable to save image.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1216"/>
+        <location filename="../src/mainwindow.cpp" line="912"/>
+        <source>Resize Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="929"/>
+        <source>Resize Canvas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1198"/>
         <source>Set Image Opacity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1217"/>
+        <location filename="../src/mainwindow.cpp" line="1199"/>
         <source>Opacity:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1477"/>
+        <location filename="../src/mainwindow.cpp" line="1463"/>
         <source>Set Grid size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1478"/>
+        <location filename="../src/mainwindow.cpp" line="1464"/>
         <source>Cell width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2229"/>
+        <location filename="../src/mainwindow.cpp" line="2215"/>
         <source>Unsaved Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2229"/>
+        <location filename="../src/mainwindow.cpp" line="2215"/>
         <source>Save changes before leaving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2546"/>
+        <location filename="../src/mainwindow.cpp" line="2525"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1621,52 +1629,52 @@
 <context>
     <name>PointerTool</name>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="382"/>
+        <location filename="../src/tools/PointerTool.cpp" line="381"/>
         <source>Crop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="391"/>
+        <location filename="../src/tools/PointerTool.cpp" line="390"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="392"/>
+        <location filename="../src/tools/PointerTool.cpp" line="391"/>
         <source>Save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="393"/>
+        <location filename="../src/tools/PointerTool.cpp" line="392"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="396"/>
+        <location filename="../src/tools/PointerTool.cpp" line="395"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="397"/>
+        <location filename="../src/tools/PointerTool.cpp" line="396"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="405"/>
+        <location filename="../src/tools/PointerTool.cpp" line="404"/>
         <source>Image size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="406"/>
+        <location filename="../src/tools/PointerTool.cpp" line="405"/>
         <source>Canvas size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="409"/>
+        <location filename="../src/tools/PointerTool.cpp" line="408"/>
         <source>Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="410"/>
+        <location filename="../src/tools/PointerTool.cpp" line="409"/>
         <source>Redo</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1680,7 +1688,7 @@
     </message>
     <message>
         <location filename="../src/main.cpp" line="46"/>
-        <source>1.6.3</source>
+        <source>1.6.4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1877,7 +1885,7 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="50"/>
-        <source>FR - Ludovic, Nerdouille&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Freacore&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts Hsu&lt;br&gt;pt_PT - Elton&lt;br&gt;pt_BR - Elton</source>
+        <source>FR - Ludovic, Nerdouille&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Steffen Gunther&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts Hsu&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2314,6 +2322,26 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="138"/>
         <source>Please add files to the batch file list and set output folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="193"/>
+        <source>Input files:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="198"/>
+        <source>Output folder: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="200"/>
+        <source>Filters: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="211"/>
+        <source>Batch processing finished successfully !</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
