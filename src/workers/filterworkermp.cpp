@@ -19,8 +19,6 @@
 
 #include "filterworkermp.h"
 #include "FilterManager.h"
-#include "PaintWidget.h"
-#include <vector>
 #include <cmath>
 #include "omp.h"
 
@@ -28,7 +26,6 @@
 
 FilterWorkerMP::FilterWorkerMP(QObject *parent) : QObject(parent)
 {
-
 }
 
 void FilterWorkerMP::setImage(QImage image)
@@ -260,7 +257,7 @@ void FilterWorkerMP::process()
             newImageSlice = FilterManager::instance()->colourthreshold(currentImageSlice);
         }
 
-
+        // Setup new image by joining the slices together
         for(int y=0; y<bottom-top;y++)
         {
             int outputY = y+top;
@@ -271,6 +268,5 @@ void FilterWorkerMP::process()
         }
     }
 }
-
     emit filterProcessFinished(newImage);
 }

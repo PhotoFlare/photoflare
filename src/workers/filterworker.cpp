@@ -19,13 +19,11 @@
 
 #include "filterworker.h"
 #include "FilterManager.h"
-#include "PaintWidget.h"
 
 //#include <QDebug>
 
 FilterWorker::FilterWorker(QObject *parent) : QObject(parent)
 {
-
 }
 
 void FilterWorker::setImage(QImage image)
@@ -240,6 +238,4 @@ void FilterWorker::process()
         newImage = FilterManager::instance()->colourthreshold(currentImage);
     }
     emit filterProcessFinished(newImage);
-
-
 }
