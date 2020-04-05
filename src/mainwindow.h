@@ -209,17 +209,11 @@ private slots:
     void on_actionCheck_for_updates_triggered();
 
     void on_show_hotspots_triggered();
-
     void on_actionSelect_all_triggered();
-
     void on_actionColour_Threshold_triggered();
-
     void on_actionClearHistory_triggered();
-
     void on_actionClearClipboard_triggered();
-
     void on_actionDuplicate_triggered();
-
     void on_actionShow_grid_triggered();
 
     QString prepareFile(const QString& fileName);
@@ -244,7 +238,6 @@ private:
     void saveGeometryState();
     void createKeyboardShortcuts();
     void disableUnimplementedActions(bool hide);
-    void applyTheme(QString theme);
     void updateStatusArea(int width, int height);
     void clearStatusArea();
 
