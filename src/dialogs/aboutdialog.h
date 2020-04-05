@@ -29,7 +29,7 @@ class aboutDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit aboutDialog(QWidget *parent = 0);
+    explicit aboutDialog(QWidget *parent = nullptr);
     ~aboutDialog();
 
 private slots:

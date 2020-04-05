@@ -17,9 +17,6 @@
 
 // About dialog class for the Photoflare application.
 
-#include <QApplication>
-#include <QTextEdit>
-
 #include "aboutdialog.h"
 #include "ui_aboutdialog.h"
 

@@ -26,7 +26,6 @@
 
 #include "batchdialog.h"
 #include "ui_batchdialog.h"
-#include "NewDialog.h"
 #include "../Settings.h"
 
 enum {Pixels, Percent};
