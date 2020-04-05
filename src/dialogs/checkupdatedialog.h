@@ -30,7 +30,7 @@ class checkupdateDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit checkupdateDialog(QWidget *parent = 0);
+    explicit checkupdateDialog(QWidget *parent = nullptr);
     ~checkupdateDialog();
 
 public slots:

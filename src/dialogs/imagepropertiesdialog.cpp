@@ -27,7 +27,7 @@ imagePropertiesDialog::imagePropertiesDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
-    ui->imageNameLabel->setText("Untitled");
+    ui->imageNameLabel->setText(tr("Untitled"));
     ui->folderLabel->setText("<Not saved>");
     ui->fileSizeLabel->setText("<Not saved>");
     ui->dateLabel->setText("<Not saved>");
@@ -73,8 +73,7 @@ void imagePropertiesDialog::setColorCount(QImage image)
 QString sizeToString(qint64 size)
 {
     float num = size;
-    QStringList list;
-    list << "KB" << "MB" << "GB" << "TB";
+    QStringList list(QStringList() << "KB" << "MB" << "GB" << "TB");
 
     QStringListIterator i(list);
     QString unit("bytes");
@@ -84,7 +83,6 @@ QString sizeToString(qint64 size)
         unit = i.next();
         num /= 1024.0;
     }
-
     return QString().setNum(num,'f',2) + " " + unit;
 }
 

@@ -32,23 +32,23 @@ GradientDialog::GradientDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
+    // Populate colour boxes
     for(int i=Qt::white; i <= Qt::yellow; i++)
     {
         QPixmap pixmap(QSize(ui->startColorComboBox->width(),ui->startColorComboBox->height()));
         pixmap.fill(static_cast<Qt::GlobalColor>(i));
         ui->startColorComboBox->addItem(QString(), pixmap);
     }
-
     for(int i=Qt::white; i <= Qt::yellow; i++)
     {
         QPixmap pixmap(QSize(ui->stopColorComboBox->width(),ui->stopColorComboBox->height()));
         pixmap.fill(static_cast<Qt::GlobalColor>(i));
         ui->stopColorComboBox->addItem(QString(), pixmap);
     }
-
+    // Setup click handlers
     ui->startColorComboBox->setOnClickHandler(this);
     ui->stopColorComboBox->setOnClickHandler(this);
-
+    // Default Opacity text
     ui->opacityValue->setText("50%");
     ui->opacityValue_2->setText("50%");
 

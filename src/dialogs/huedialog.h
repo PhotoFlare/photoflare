@@ -41,7 +41,6 @@ public:
 
 private slots:
     void on_horizontalSlider_valueChanged(int value);
-
     void on_method1_toggled();
     void setColor(const QColor &color, QWidget *colorLabel);
     void showColorDialog(QWidget *colorLabel);

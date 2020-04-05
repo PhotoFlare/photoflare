@@ -97,7 +97,6 @@ int dropshadowDialog::offsety() const
     return ui->offsetyValue->value();
 }
 
-
 QColor dropshadowDialog::colorName()
 {
     QImage img = (QImage)ui->colorComboBox->currentData().value<QImage>();

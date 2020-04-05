@@ -33,7 +33,7 @@ class dropshadowDialog : public QDialog, QComboBoxEventsInterface
     Q_OBJECT
 
 public:
-    explicit dropshadowDialog(QWidget *parent = 0);
+    explicit dropshadowDialog(QWidget *parent = nullptr);
     ~dropshadowDialog();
 
     void mousePressEvent(QComboBox* obj, QMouseEvent *e);
