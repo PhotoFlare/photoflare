@@ -42,7 +42,6 @@ public:
         currentTool = 0;
         scale = 1.0f;
         q = widget;
-
         q->setScene(this);
 
         isSelectionVisible = true;
@@ -57,7 +56,6 @@ public:
         this->image = image;
         q->setSceneRect(image.rect());
         canvas = addPixmap(QPixmap::fromImage(image));
-
         q->setStyleSheet("background-color: rgb(128, 128, 128);");
     }
 
@@ -273,7 +271,6 @@ public:
     bool showGridEnabled = false;
     QGraphicsLineItem *xline;
     QGraphicsLineItem *yline;
-
     QVector<QGraphicsLineItem*> lines;
 
     PaintWidget *q;
@@ -387,6 +384,7 @@ void PaintWidget::setImage(const QImage &image)
 
 void PaintWidget::setImageOriginal(const QImage &image)
 {
+    // Replace the image without creating any undo steps
     d->setImage(image);
 }
 

@@ -28,6 +28,7 @@ class PaintWidget : public QGraphicsView
 {
     friend class PaintWidgetPrivate;
     Q_OBJECT
+
 public:
     /*!
      * Constructs the widget that contains an image loaded from imagePath
@@ -40,36 +41,28 @@ public:
     ~PaintWidget();
 
     void setPaintTool(Tool *tool);
-
     void setImageOriginal(const QImage &image);
     void setImage(const QImage &image);
     QImage image() const;
-
     void onCursorChanged(QCursor cursor);
     void onSelectionChanged(QPolygon poly);
-
     void setImagePath(QString path);
     QString imagePath() const;
-
     void autoScale();
     void setScale(const QString &scale);
     float getScale();
-
     void undo();
     void redo();
     void revert();
-
     int undoCount();
     bool isUndoEnabled();
     bool isRedoEnabled();
     void clearUndoHistory();
-
     void setSelectionVisible(bool visible);
     QPolygon selection();
     bool isSelectionVisible();
     void setHotspotVisble(bool visible);
     void selectAll();
-
     void setImageModeIndexed(bool mode);
     void showProgressIndicator(bool visible);
     void showGrid(int width);
@@ -82,15 +75,14 @@ signals:
     void selectionChanged(bool visible);
 
 protected:
-//    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-//    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-//    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
+
 private:
     PaintWidgetPrivate *d;
     QList<QImage> historyList;
     int historyIndex;
     QProgressIndicator *progressIndicator;
+
 private slots:
     void onContentChanged();
     void init();
