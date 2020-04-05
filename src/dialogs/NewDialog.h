@@ -31,7 +31,7 @@ class NewDialog : public QDialog, QComboBoxEventsInterface
     Q_OBJECT
 
 public:
-    explicit NewDialog(QWidget *parent = 0);
+    explicit NewDialog(QWidget *parent = nullptr);
     ~NewDialog();
 
     /*!
@@ -41,35 +41,23 @@ public:
      */
     QSize newImageSize() const;
     void setImageSize(QSize size);
-
     QColor newImageBackgroundColor() const;
-
     QColor backgroundColor() const;
-
     bool backgroundColorEnabled();
-
     enum Mode {ResizeImage, ResizeCanvas, NewImage};
     void setMode(Mode mode);
     ImagePosition imagePosition();
-
     void onComboBoxPressed();
     //QComboBoxEventsInterface methods
     virtual void mousePressEvent(QComboBox* obj,QMouseEvent *e);
 private slots:
     void on_buttonBox_accepted();
-
     void on_imagePresetCombo_currentIndexChanged(int index);
-
     void on_imageResCombo_currentIndexChanged(int index);
-
     void on_imageWHcombo_currentIndexChanged(int index);
-
     void on_imageRvalue_valueChanged(double arg1);
-
     void on_imageHvalue_valueChanged(double arg1);
-
     void on_imageWvalue_valueChanged(double arg1);
-
     void writeSettings(QWidget* window);
     void readSettings(QWidget* window);
 

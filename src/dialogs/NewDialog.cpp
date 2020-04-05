@@ -19,14 +19,9 @@
 
 //#include <QDebug>
 
-#include <QTabWidget>
 #include <QWidget>
 #include <QImage>
-#include <QLabel>
 #include <QPixmap>
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QGraphicsPixmapItem>
 #include <QMouseEvent>
 #include <QColorDialog>
 #include <QSettings>
@@ -35,7 +30,6 @@
 #include "ui_NewDialog.h"
 
 #include "../Settings.h"
-#include "imagepositionwidget.h"
 
 enum {PPM, PPI};
 enum {PX, CM, IN};
@@ -71,11 +65,11 @@ NewDialog::NewDialog(QWidget *parent) :
         ui->backgroundColorComboBox->addItem(QString(), pixmap);
         ui->backgroundColorComboBox_NewFile->addItem(QString(), pixmap);
     }
-
+    // Click handlers
     ui->backgroundColorComboBox->setOnClickHandler(this);
     ui->backgroundColorComboBox_NewFile->setOnClickHandler(this);
     ui->backgroundColourEnabled->setChecked(true);
-
+    // Order for tabbing
     setTabOrder(ui->imageWvalue, ui->imageHvalue);
     ui->imageWvalue->setFocus();
 
