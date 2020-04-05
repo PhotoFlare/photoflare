@@ -33,7 +33,7 @@ class OuterFrameDialog : public QDialog, QComboBoxEventsInterface
     Q_OBJECT
 
 public:
-    explicit OuterFrameDialog(QWidget *parent = 0);
+    explicit OuterFrameDialog(QWidget *parent = nullptr);
     ~OuterFrameDialog();
 
     void mousePressEvent(QComboBox* obj, QMouseEvent *e);

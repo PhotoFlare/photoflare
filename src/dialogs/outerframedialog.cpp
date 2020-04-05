@@ -29,13 +29,14 @@ OuterFrameDialog::OuterFrameDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
+    // Populate colour boxes
     for(int i=Qt::white; i <= Qt::yellow; i++)
     {
         QPixmap pixmap(QSize(ui->colorComboBox->width(),ui->colorComboBox->height()));
         pixmap.fill(static_cast<Qt::GlobalColor>(i));
         ui->colorComboBox->addItem(QString(), pixmap);
     }
-
+    // Setup click handler
     ui->colorComboBox->setOnClickHandler(this);
 }
 

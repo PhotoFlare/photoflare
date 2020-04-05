@@ -18,7 +18,6 @@
 // Preferences dialog class.
 
 #include <QFileDialog>
-#include <QApplication>
 #include <QProcess>
 #include <QStandardPaths>
 

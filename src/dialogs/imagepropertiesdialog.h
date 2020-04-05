@@ -31,7 +31,7 @@ class imagePropertiesDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit imagePropertiesDialog(QWidget *parent = 0);
+    explicit imagePropertiesDialog(QWidget *parent = nullptr);
     ~imagePropertiesDialog();
 
     void setImageName(QString);

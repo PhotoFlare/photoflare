@@ -29,7 +29,7 @@ class PluginDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit PluginDialog(QWidget *parent = 0);
+    explicit PluginDialog(QWidget *parent = nullptr);
     ~PluginDialog();
 
 private:

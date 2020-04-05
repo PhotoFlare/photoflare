@@ -29,16 +29,16 @@ class textDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit textDialog(QWidget *parent = 0);
-    ~textDialog();
+    explicit textDialog(QWidget *parent = nullptr);
+    ~textDialog() override;
 
     QString text() {return currentText;}
     QFont font() {return currentFont;}
     QColor color() {return currentColor;}
     bool antialias() {return antialiasEnabled;}
     QString position() {return positionFont;}
-
     void editText(const QString &text, const QFont &font, const QColor &color);
+
 private slots:
     void updateFont();
     void on_fontComboBox_currentFontChanged(const QFont &f);
@@ -56,7 +56,6 @@ private slots:
     QColor getColorFromLabel(QWidget *colorLabel) const;
     void readSettings(QWidget* window);
     void writeSettings(QWidget* window);
-
     void on_alignleftButton_clicked();
     void on_aligncenterButton_clicked();
     void on_alignRightButton_clicked();
@@ -67,7 +66,6 @@ signals:
 
 private:
     Ui::textDialog *ui;
-
     QString currentText;
     QFont currentFont;
     QColor currentColor;

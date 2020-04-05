@@ -30,10 +30,9 @@ class HueDialog : public QDialog
 
 public:
     explicit HueDialog(QWidget *parent, QImage preview);
-    ~HueDialog();
+    ~HueDialog() override;
 
     bool eventFilter(QObject *obj, QEvent *event) override;
-
     void setPreviewImage(const QImage& image);
     QColor color() {return m_color;}
     int degrees() {return m_degrees;}

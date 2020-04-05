@@ -45,7 +45,6 @@ textDialog::textDialog(QWidget *parent) :
         //Read Dialog settings
         readSettings(this);
     }
-
     updateFont();
 }
 
