@@ -63,26 +63,26 @@ int main(int argc, char *argv[])
         // Set language based on System locale
         if(SETTINGS->getUserLanguage() == "notset")
         {
-            QString sysLanguage =  QLocale::languageToString(QLocale::system().language());
+            QString sysLanguage =  QLocale::countryToString(QLocale::system().country());
             QString lang;
 
-            if(sysLanguage == "English")
+            if(sysLanguage == "United States")
             {
                 lang = "en";
             }
-            else if(sysLanguage == "French")
+            else if(sysLanguage == "France")
             {
                 lang = "fr";
             }
-            else if(sysLanguage == "German")
+            else if(sysLanguage == "Germany")
             {
                 lang = "de";
             }
-            else if(sysLanguage == "Dutch")
+            else if(sysLanguage == "Netherlands")
             {
                 lang = "nl";
             }
-            else if(sysLanguage == "Chinese")
+            else if(sysLanguage == "China")
             {
                 lang = "zh_CN";
             }
@@ -90,11 +90,11 @@ int main(int argc, char *argv[])
             {
                 lang = "zh_TW";
             }
-            else if(sysLanguage == "Czech")
+            else if(sysLanguage == "Czech Republic")
             {
                 lang = "cs";
             }
-            else if(sysLanguage == "Portuguese")
+            else if(sysLanguage == "Portugal")
             {
                 lang = "pt_PT";
             }
