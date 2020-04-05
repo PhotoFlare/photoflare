@@ -385,6 +385,11 @@ void PaintWidget::setImage(const QImage &image)
     this->contentChanged();
 }
 
+void PaintWidget::setImageOriginal(const QImage &image)
+{
+    d->setImage(image);
+}
+
 QImage PaintWidget::image() const
 {
     return d->image;

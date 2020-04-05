@@ -32,15 +32,16 @@ public:
     /*!
      * Constructs the widget that contains an image loaded from imagePath
      */
-    PaintWidget(const QString &imagePath, QWidget *parent = 0);
+    PaintWidget(const QString &imagePath, QWidget *parent = nullptr);
     /*!
      * Constructs the widget that contains an empty image with passed size
      */
-    PaintWidget(const QSize &imageSize, const QColor &bgcolor, QWidget *parent = 0);
+    PaintWidget(const QSize &imageSize, const QColor &bgcolor, QWidget *parent = nullptr);
     ~PaintWidget();
 
     void setPaintTool(Tool *tool);
 
+    void setImageOriginal(const QImage &image);
     void setImage(const QImage &image);
     QImage image() const;
 

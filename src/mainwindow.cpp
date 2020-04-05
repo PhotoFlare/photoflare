@@ -1045,14 +1045,14 @@ void MainWindow::onTransparentRejected()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(origImage);
+        widget->setImageOriginal(origImage);
 }
 
 void MainWindow::onPreviewTransparent(QColor color, int tolerance)
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->floodFillOpacity(origImage, color, tolerance));
+        widget->setImageOriginal(FilterManager::instance()->floodFillOpacity(origImage, color, tolerance));
 }
 
 void MainWindow::on_TextTool_finished()
