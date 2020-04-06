@@ -26,8 +26,7 @@ class PaintBucketTool : public Tool
 {
     Q_OBJECT
 public:
-    explicit PaintBucketTool(QObject *parent = 0);
-    virtual ~PaintBucketTool();
+    explicit PaintBucketTool(QObject *parent = nullptr);
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     QCursor getCursor() override;

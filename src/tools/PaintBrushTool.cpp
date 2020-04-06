@@ -29,10 +29,6 @@ public:
         secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         antialiasing = false;
     }
-    ~PaintBrushToolPrivate()
-    {
-    }
-
     QPoint lastPos;
     QPen primaryPen;
     QPen secondaryPen;
@@ -43,9 +39,7 @@ public:
 
 PaintBrushTool::PaintBrushTool(QObject *parent)
     : Tool(parent)
-    , d(new PaintBrushToolPrivate)
-{
-}
+    , d(new PaintBrushToolPrivate){}
 
 PaintBrushTool::~PaintBrushTool()
 {
@@ -56,7 +50,6 @@ void PaintBrushTool::setWidth(int width)
 {
     d->primaryPen.setWidth(width);
     d->secondaryPen.setWidth(width);
-
     emit cursorChanged(getCursor());
 }
 
@@ -109,7 +102,6 @@ void PaintBrushTool::setCapStyle(Qt::PenCapStyle capStyle)
 {
     d->primaryPen.setCapStyle(capStyle);
     d->secondaryPen.setCapStyle(capStyle);
-
     emit cursorChanged(getCursor());
 }
 
@@ -207,10 +199,4 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
         d->lastPos = pos;
         emit painted(m_paintDevice);
     }
-}
-
-void PaintBrushTool::onMouseRelease(const QPoint &pos)
-{
-    Q_UNUSED(pos);
-    d->mouseButton = Qt::NoButton;
 }

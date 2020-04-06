@@ -25,8 +25,8 @@ class PaintBrushAdvToolPrivate;
 class PaintBrushAdvTool : public Tool
 {
 public:
-    PaintBrushAdvTool(QObject *parent = 0);
-    ~PaintBrushAdvTool();
+    PaintBrushAdvTool(QObject *parent = nullptr);
+    ~PaintBrushAdvTool() override;
 
     void setWidth(int width);
     int width() const;
@@ -38,14 +38,12 @@ public:
     QColor secondaryColor() const;
 
     void setBrushPixmap(QPixmap pixmap);
-
     void setCapStyle(Qt::PenCapStyle capStyle);
     void setPressure(int pressure);
     void setFade(bool fade);
     void setStep(int step);
 
     QCursor getCursor() override;
-
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
@@ -57,8 +55,6 @@ public slots:
 private:
     PaintBrushAdvToolPrivate *d;
 };
-
-
 
 #endif // PAINTBRUSHADVTOOL_H
 

@@ -46,9 +46,7 @@ public:
 
 PaintBrushAdvTool::PaintBrushAdvTool(QObject *parent)
     : Tool(parent)
-    , d(new PaintBrushAdvToolPrivate)
-{
-}
+    , d(new PaintBrushAdvToolPrivate){}
 
 PaintBrushAdvTool::~PaintBrushAdvTool()
 {
@@ -190,7 +188,6 @@ void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
 
         if(d->fade)
             d->opacity = d->opacity - 0.01f;
-
 
         d->lastPos = pos;
         emit painted(m_paintDevice);

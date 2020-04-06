@@ -22,13 +22,7 @@
 #include "../widgets/PaintWidget.h"
 
 PaintBucketTool::PaintBucketTool(QObject *parent)
-    : Tool(parent)
-{
-}
-
-PaintBucketTool::~PaintBucketTool()
-{
-}
+    : Tool(parent){}
 
 void PaintBucketTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
