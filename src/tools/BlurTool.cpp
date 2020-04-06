@@ -32,15 +32,9 @@ public:
         primaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
     }
-    ~BlurToolPrivate()
-    {
-
-    }
-
     QPoint lastPos;
     QPen primaryPen;
     QPen secondaryPen;
-    Qt::MouseButton mouseButton;
     int radius;
     int pressure;
     QImage origin;
@@ -48,10 +42,7 @@ public:
 
 BlurTool::BlurTool(QObject *parent)
     : Tool(parent)
-    , d(new BlurToolPrivate)
-{
-
-}
+    , d(new BlurToolPrivate){}
 
 BlurTool::~BlurTool()
 {
@@ -114,12 +105,9 @@ QCursor BlurTool::getCursor()
 void BlurTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     Q_UNUSED(button);
-
     d->lastPos = pos;
-    d->mouseButton = button;
     const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
     d->origin = *image;
-
     onMouseMove(pos);
 }
 
@@ -171,11 +159,4 @@ void BlurTool::onMouseMove(const QPoint &pos)
 
         emit painted(m_paintDevice);
     }
-}
-
-void BlurTool::onMouseRelease(const QPoint &pos)
-{
-    Q_UNUSED(pos);
-
-    d->mouseButton = Qt::NoButton;
 }

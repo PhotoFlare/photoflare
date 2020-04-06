@@ -25,8 +25,8 @@ class BlurToolPrivate;
 class BlurTool : public Tool
 {
 public:
-    BlurTool(QObject *parent = 0);
-    ~BlurTool();
+    BlurTool(QObject *parent = nullptr);
+    ~BlurTool() override;
 
     // This color is used when painting the left mouse button
     QColor primaryColor() const;
@@ -36,14 +36,10 @@ public:
 
     void setRadius(int radius);
     void setPressure(int pressure);
-
     QCursor getCursor() override;
-
     void setCapStyle(Qt::PenCapStyle capStyle);
-
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
-    void onMouseRelease(const QPoint &pos) override;
 
 public slots:
     void setPrimaryColor(const QColor &color);
