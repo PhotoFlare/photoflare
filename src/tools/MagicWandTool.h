@@ -27,14 +27,14 @@ class MagicWandTool : public Tool
 {
     Q_OBJECT
 public:
-    explicit MagicWandTool(QObject *parent = 0);
-    virtual ~MagicWandTool();
+    explicit MagicWandTool(QObject *parent = nullptr);
+    virtual ~MagicWandTool() override;
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
-
     void setSelection(const QPolygon& poly);
     void setTolerance(int tolerance);
     void setColor(bool color);
+
 signals:
     void selectPrimaryColor(const QPoint&,int,bool);
 

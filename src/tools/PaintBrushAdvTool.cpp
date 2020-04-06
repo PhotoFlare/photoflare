@@ -31,10 +31,6 @@ public:
         primaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
     }
-    ~PaintBrushAdvToolPrivate()
-    {
-    }
-
     QPoint lastPos;
     QPen primaryPen;
     QPen secondaryPen;
