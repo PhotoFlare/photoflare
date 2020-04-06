@@ -23,15 +23,6 @@
 class EraserToolPrivate
 {
 public:
-    EraserToolPrivate()
-    {
-
-    }
-    ~EraserToolPrivate()
-    {
-
-    }
-
     QPoint lastPos;
     QPen primaryPen;
     Qt::MouseButton mouseButton;
@@ -39,10 +30,7 @@ public:
 
 EraserTool::EraserTool(QObject *parent)
     : Tool(parent)
-    , d(new EraserToolPrivate)
-{
-
-}
+    , d(new EraserToolPrivate){}
 
 EraserTool::~EraserTool()
 {
@@ -82,16 +70,13 @@ int EraserTool::width() const
 void EraserTool::setWidth(int width)
 {
     d->primaryPen.setWidth(width);
-
     emit cursorChanged(getCursor());
 }
 
 void EraserTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     Q_UNUSED(button);
-
     d->lastPos = pos;
-    d->mouseButton = button;
 
     QPen pen;
     pen.setColor(Qt::white);
@@ -145,12 +130,12 @@ void EraserTool::onMouseMove(const QPoint &pos)
                 painter.drawRect(QRect(x - w/2, y - w/2, w, w));
             }
 
-        } else
+        }
+        else
         {
             painter.setPen(pen);
             painter.drawLine(d->lastPos, pos);
         }
-
         d->lastPos = pos;
         emit painted(m_paintDevice);
     }

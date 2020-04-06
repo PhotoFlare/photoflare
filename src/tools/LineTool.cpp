@@ -19,10 +19,7 @@
 
 #include "LineTool.h"
 
-#include <QApplication>
-#include <QClipboard>
 #include <QPainter>
-#include <QMenu>
 #include <QtMath>
 
 class LineToolPrivate
@@ -33,19 +30,13 @@ public:
         primaryPen = QPen(QBrush(), 1, Qt::DotLine, Qt::RoundCap, Qt::MiterJoin);
         secondaryPen = QPen(QBrush(), 1, Qt::DashDotLine, Qt::RoundCap, Qt::MiterJoin);
     }
-    ~LineToolPrivate()
-    {
-    }
-
     QPoint firstPos;
     QPoint secondPos;
     QPen primaryPen;
     QPen secondaryPen;
     Qt::MouseButton mouseButton;
-
     bool antialias;
     int opacity;
-
     bool oneWayArrow;
     bool twoWaysArrow;
 };

@@ -25,8 +25,8 @@ class EraserToolPrivate;
 class EraserTool : public Tool
 {
 public:
-    EraserTool(QObject *parent = 0);
-    ~EraserTool();
+    EraserTool(QObject *parent = nullptr);
+    ~EraserTool() override;
     void setWidth(int width);
     int width() const;
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
@@ -35,7 +35,6 @@ public:
 
 private:
     EraserToolPrivate *d;
-
 };
 
 #endif // ERASERTOOL_H

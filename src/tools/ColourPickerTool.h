@@ -27,11 +27,12 @@ class ColourPickerTool : public Tool
 {
     Q_OBJECT
 public:
-    explicit ColourPickerTool(QObject *parent = 0);
-    virtual ~ColourPickerTool();
+    explicit ColourPickerTool(QObject *parent = nullptr);
+    virtual ~ColourPickerTool() override;
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     QCursor getCursor() override;
+
 signals:
     void pickPrimaryColor(const QPoint&);
     void pickSecondaryColor(const QPoint&);

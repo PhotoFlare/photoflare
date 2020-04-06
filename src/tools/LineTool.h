@@ -26,14 +26,14 @@ class LineTool : public Tool
 {
     Q_OBJECT
 public:
-    LineTool(QObject *parent = 0);
-    ~LineTool();
+    LineTool(QObject *parent = nullptr);
+    ~LineTool() override;
 
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
-
     QCursor getCursor() override;
+
 public slots:
     void setPrimaryColor(const QColor &color);
     void setSecondaryColor(const QColor &color);
@@ -47,8 +47,6 @@ public slots:
 private:
     LineToolPrivate *d;
 };
-
-
 
 #endif // LINETOOL_H
 

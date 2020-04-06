@@ -24,22 +24,13 @@
 class ColourPickerToolPrivate
 {
 public:
-    ColourPickerToolPrivate()
-    {
-    }
-    ~ColourPickerToolPrivate()
-    {
-    }
-
     QPoint lastPos;
     Qt::MouseButton mouseButton;
 };
 
 ColourPickerTool::ColourPickerTool(QObject *parent)
     : Tool(parent)
-    , d(new ColourPickerToolPrivate)
-{
-}
+    , d(new ColourPickerToolPrivate){}
 
 ColourPickerTool::~ColourPickerTool()
 {
@@ -49,9 +40,7 @@ ColourPickerTool::~ColourPickerTool()
 void ColourPickerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     Q_UNUSED(button);
-
     d->lastPos = pos;
-    d->mouseButton = button;
 
     switch(button)
     {
