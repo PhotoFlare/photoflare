@@ -61,47 +61,10 @@ int main(int argc, char *argv[])
         }
 
         // Set language based on System locale
-        if(SETTINGS->getUserLanguage() == "notset")
+        if (SETTINGS->getUserLanguage() == "")
         {
-            QString sysLanguage =  QLocale::countryToString(QLocale::system().country());
-            QString lang;
-
-            if(sysLanguage == "United States")
-            {
-                lang = "en";
-            }
-            else if(sysLanguage == "France")
-            {
-                lang = "fr";
-            }
-            else if(sysLanguage == "Germany")
-            {
-                lang = "de";
-            }
-            else if(sysLanguage == "Netherlands")
-            {
-                lang = "nl";
-            }
-            else if(sysLanguage == "China")
-            {
-                lang = "zh_CN";
-            }
-            else if(sysLanguage == "Taiwan")
-            {
-                lang = "zh_TW";
-            }
-            else if(sysLanguage == "Czech Republic")
-            {
-                lang = "cs";
-            }
-            else if(sysLanguage == "Portugal")
-            {
-                lang = "pt_PT";
-            }
-            else if(sysLanguage == "Brazil")
-            {
-                lang = "pt_BR";
-            }
+            QStringList langs(QLocale::system().uiLanguages());
+            QString lang = langs.first().replace('-', '_');
             SETTINGS->setUserLanguage(lang);
         }
 
