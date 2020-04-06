@@ -31,15 +31,14 @@ class MagicWandSettingsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit MagicWandSettingsWidget(QWidget *parent = 0);
+    explicit MagicWandSettingsWidget(QWidget *parent = nullptr);
     ~MagicWandSettingsWidget();
 
     int tolerance() const;
     bool color() const;
+
 signals:
     void settingsChanged();
-
-private slots:
 
 private:
     Ui::MagicWandSettingsWidget *ui;

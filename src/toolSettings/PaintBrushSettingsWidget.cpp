@@ -28,7 +28,6 @@ PaintBrushSettingsWidget::PaintBrushSettingsWidget(QWidget *parent) :
 
     connect(ui->buttonRoundCap, &QToolButton::clicked, this, &PaintBrushSettingsWidget::settingsChanged);
     connect(ui->buttonSquareCap, &QToolButton::clicked, this, &PaintBrushSettingsWidget::settingsChanged);
-
     connect(ui->sliderRadius, &QSlider::valueChanged, this, &PaintBrushSettingsWidget::setLabelRadiusValue);
     connect(ui->sliderRadius, &QSlider::valueChanged, this, &PaintBrushSettingsWidget::settingsChanged);
     connect(ui->pressureSlider, &QSlider::valueChanged, this, &PaintBrushSettingsWidget::settingsChanged);

@@ -41,7 +41,7 @@ class ImagePositionWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ImagePositionWidget(QWidget *parent = 0);
+    explicit ImagePositionWidget(QWidget *parent = nullptr);
     ~ImagePositionWidget();
 
     ImagePosition imagePosition(){ return position; }

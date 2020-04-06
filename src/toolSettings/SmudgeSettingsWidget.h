@@ -31,7 +31,7 @@ class SmudgeSettingsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit SmudgeSettingsWidget(QWidget *parent = 0);
+    explicit SmudgeSettingsWidget(QWidget *parent = nullptr);
     ~SmudgeSettingsWidget();
 
     int radius() const;
@@ -39,8 +39,6 @@ public:
 
 signals:
     void settingsChanged();
-
-private slots:
 
 private:
     Ui::SmudgeSettingsWidget *ui;

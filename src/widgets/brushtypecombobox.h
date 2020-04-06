@@ -30,7 +30,7 @@ class BrushTypeComboBox : public QComboBox
 {
     Q_OBJECT
 public:
-    explicit BrushTypeComboBox(QWidget *parent = 0);
+    explicit BrushTypeComboBox(QWidget *parent = nullptr);
     ~BrushTypeComboBox();
 
     void setOnClickHandler(QComboBoxEventsInterface *handler);

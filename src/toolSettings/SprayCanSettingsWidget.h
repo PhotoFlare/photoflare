@@ -31,17 +31,16 @@ class SprayCanSettingsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit SprayCanSettingsWidget(QWidget *parent = 0);
+    explicit SprayCanSettingsWidget(QWidget *parent = nullptr);
     ~SprayCanSettingsWidget();
 
     int radius() const;
     int pressure() const;
     int dispersion() const;
     bool rainbow() const;
+
 signals:
     void settingsChanged();
-
-private slots:
 
 private:
     Ui::SprayCanSettingsWidget *ui;

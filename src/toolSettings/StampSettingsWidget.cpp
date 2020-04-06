@@ -35,7 +35,6 @@ StampSettingsWidget::StampSettingsWidget(QWidget *parent) :
     connect(ui->fixedCheckBox, &QCheckBox::clicked, this, &StampSettingsWidget::settingsChanged);
     connect(ui->preciseCheckBox, &QCheckBox::clicked, this, &StampSettingsWidget::settingsChanged);
     connect(ui->diffuseCheckBox, &QCheckBox::clicked, this, &StampSettingsWidget::settingsChanged);
-
     connect(ui->fixedCheckBox, &QCheckBox::clicked, this, &StampSettingsWidget::onFixedChanged);
 }
 

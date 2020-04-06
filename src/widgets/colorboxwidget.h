@@ -29,8 +29,8 @@ class ColorBoxWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ColorBoxWidget(QWidget *parent = 0);
-    ~ColorBoxWidget();
+    explicit ColorBoxWidget(QWidget *parent = nullptr);
+    ~ColorBoxWidget() override;
 
     QColor primaryColor() const;
     QColor secondaryColor() const;
@@ -46,11 +46,8 @@ signals:
 
 private slots:
     void on_swapColorButton_clicked();
-
     void on_prevPage_clicked();
-
     void on_nextPage_clicked();
-
     void on_colourManageButton_clicked();
 
 private:

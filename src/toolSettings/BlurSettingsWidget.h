@@ -31,15 +31,15 @@ class BlurSettingsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit BlurSettingsWidget(QWidget *parent = 0);
+    explicit BlurSettingsWidget(QWidget *parent = nullptr);
     ~BlurSettingsWidget();
 
     int radius() const;
     int pressure() const;
+
 signals:
     void settingsChanged();
 
-private slots:
 private:
     Ui::BlurSettingsWidget *ui;
 };

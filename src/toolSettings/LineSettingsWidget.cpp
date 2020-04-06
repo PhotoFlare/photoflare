@@ -28,6 +28,7 @@ LineSettingsWidget::LineSettingsWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Populate line styles
     for(int i=1; i <= 6; i++)
     {
         QPixmap pixmap = QPixmap (QString(":/lines/assets/lines/type_%1.png").arg(i));
@@ -38,7 +39,6 @@ LineSettingsWidget::LineSettingsWidget(QWidget *parent) :
     connect(ui->widthSpinBox, SIGNAL(valueChanged(int)), this, SIGNAL(settingsChanged()));
     connect(ui->opacitySpinBox, SIGNAL(valueChanged(int)), this, SIGNAL(settingsChanged()));
     connect(ui->antialiasCheckBox, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
-
     connect(ui->arrowCheckBox, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
     connect(ui->arrowCheckBox2, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
 }

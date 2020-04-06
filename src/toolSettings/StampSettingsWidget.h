@@ -31,7 +31,7 @@ class StampSettingsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit StampSettingsWidget(QWidget *parent = 0);
+    explicit StampSettingsWidget(QWidget *parent = nullptr);
     ~StampSettingsWidget();
 
     int radius() const;
@@ -40,11 +40,13 @@ public:
     bool fixed() const;
     bool diffuse() const;
     bool precise() const;
+
 signals:
     void settingsChanged();
 
 private slots:
     void onFixedChanged();
+
 private:
     Ui::StampSettingsWidget *ui;
 };

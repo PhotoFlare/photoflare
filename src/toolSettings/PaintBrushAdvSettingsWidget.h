@@ -31,7 +31,7 @@ class PaintBrushAdvSettingsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit PaintBrushAdvSettingsWidget(QWidget *parent = 0);
+    explicit PaintBrushAdvSettingsWidget(QWidget *parent = nullptr);
     ~PaintBrushAdvSettingsWidget();
 
     QPixmap brushPixmap();
@@ -39,13 +39,11 @@ public:
     int pressure() const;
     bool fade() const;
     int step() const;
+
 signals:
     void settingsChanged();
 
-private slots:
-
 private:
-
     Ui::PaintBrushAdvSettingsWidget *ui;
 };
 

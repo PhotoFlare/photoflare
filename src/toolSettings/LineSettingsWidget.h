@@ -31,7 +31,7 @@ class LineSettingsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit LineSettingsWidget(QWidget *parent = 0);
+    explicit LineSettingsWidget(QWidget *parent = nullptr);
     ~LineSettingsWidget();
 
     int width();
@@ -39,17 +39,15 @@ public:
     bool antialias();
     int style();
     int arrowStyle();
+
 signals:
     void settingsChanged();
 
 private slots:
-
     void on_arrowCheckBox_clicked(bool checked);
-
     void on_arrowCheckBox2_clicked(bool checked);
 
 private:
-
     Ui::LineSettingsWidget *ui;
 };
 

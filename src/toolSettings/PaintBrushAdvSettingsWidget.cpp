@@ -26,6 +26,7 @@ PaintBrushAdvSettingsWidget::PaintBrushAdvSettingsWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Populate brush styles
     for(int i=1; i < 10; i++)
     {
         QPixmap pixmap = QPixmap (QString(":/brushes/assets/brushes/type_%1.png").arg(i));

@@ -29,7 +29,7 @@ class PointerSettingsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit PointerSettingsWidget(QWidget *parent = 0);
+    explicit PointerSettingsWidget(QWidget *parent = nullptr);
     ~PointerSettingsWidget();
 
     bool stroke() const;
