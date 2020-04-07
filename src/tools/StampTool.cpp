@@ -22,11 +22,6 @@
 
 #include <QPainter>
 #include <QtMath>
-
-#include <QGraphicsEffect>
-#include <QGraphicsPixmapItem>
-#include <QLinearGradient>
-#include <QBitmap>
 #include <QMessageBox>
 
 class StampToolPrivate
@@ -36,17 +31,11 @@ public:
     {
         primaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
-
         selectMode = false;
         selectPos = QPoint(0,0);
         offset = QPoint(0,0);
         firstRun = true;
     }
-    ~StampToolPrivate()
-    {
-
-    }
-
     QPoint lastPos;
     QPen primaryPen;
     QPen secondaryPen;
@@ -67,10 +56,7 @@ public:
 
 StampTool::StampTool(QObject *parent)
     : Tool(parent)
-    , d(new StampToolPrivate)
-{
-
-}
+    , d(new StampToolPrivate){}
 
 StampTool::~StampTool()
 {
@@ -145,7 +131,6 @@ QCursor StampTool::getCursor()
     QPen pen = QPen(QBrush(), 1, Qt::DashLine);
     pen.setColor(Qt::gray);
     painter.setPen(pen);
-
     painter.drawEllipse(pixmap.rect());
     return QCursor(pixmap);
 }
@@ -162,7 +147,6 @@ void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     if(d->firstRun == false)
     {
         Q_UNUSED(button);
-
         d->lastPos = pos;
         d->mouseButton = button;
         d->opacity = d->pressure / 10.0f;
@@ -178,7 +162,6 @@ void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             else
                 d->selectPos = pos - d->offset;
 
-
             if (m_paintDevice) {
                 const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
                 d->origin = *image;
@@ -186,7 +169,6 @@ void StampTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             }
         }
     }
-
 }
 
 void StampTool::onMouseMove(const QPoint &pos)
@@ -202,7 +184,6 @@ void StampTool::onMouseMove(const QPoint &pos)
         QPen pen = QPen(QBrush(), 1, Qt::DashLine);
         pen.setColor(Qt::gray);
         cursor.setPen(pen);
-
         cursor.drawEllipse(pos - d->offset, 5, 5);
 
         if(d->fixed)
@@ -267,11 +248,9 @@ void StampTool::onMouseMove(const QPoint &pos)
                         painterPix.setOpacity(1.f);
                     }
                 }
-
                 painterPix.drawPoint(i+d->radius/2, j+d->radius/2);
             }
         }
-
         painter.drawPixmap(pos.x()-d->radius/2, pos.y()-d->radius/2, pixmap);
 
         emit painted(m_paintDevice);
@@ -282,7 +261,6 @@ void StampTool::onMouseMove(const QPoint &pos)
 void StampTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
-
     d->mouseButton = Qt::NoButton;
     if(!d->selectMode && !d->fixed)
         d->selectPos.setX(-1);

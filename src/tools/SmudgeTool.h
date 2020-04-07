@@ -26,14 +26,12 @@ class SmudgeTool : public Tool
 {
 
 public:
-    SmudgeTool(QObject *parent = 0);
-    ~SmudgeTool();
+    SmudgeTool(QObject *parent = nullptr);
+    ~SmudgeTool() override;
 
     QCursor getCursor() override;
-
     void setRadius(int radius);
     void setPressure(int pressure);
-
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;

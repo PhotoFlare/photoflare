@@ -18,9 +18,7 @@
 // TextTool - Put text on the image. Tool not present in the Toolpalette but launched from the TextDialog.
 
 #include "TextTool.h"
-
 #include <QPainter>
-#include <QMenu>
 
 class TextToolPrivate
 {
@@ -29,10 +27,6 @@ public:
     {
         textRect = QRect(0,0,0,0);
     }
-    ~TextToolPrivate()
-    {
-    }
-
     QPoint firstPos;
     QPoint secondPos;
     QRect textRect;
@@ -46,10 +40,7 @@ public:
 
 TextTool::TextTool(QObject *parent)
     : Tool(parent)
-    , d(new TextToolPrivate)
-{
-
-}
+    , d(new TextToolPrivate){}
 
 TextTool::~TextTool()
 {
@@ -80,7 +71,6 @@ void TextTool::setText(const QString &text, const QFont &font, const QColor &col
     {
         d->textRect.moveCenter(QPoint(image->width()-(d->textRect.width()/2),image->height()/2));
     }
-
     d->previewMode = true;
     previewText();
 }
@@ -99,16 +89,13 @@ void TextTool::previewText()
         pen.setColor(Qt::gray);
         painter.setPen(pen);
         painter.drawRect(d->textRect);
-
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.fillRect(d->textRect, Qt::gray);
         painter.setPen(d->color);
         painter.setFont(d->font);
         painter.setRenderHint(QPainter::Antialiasing, d->antialiasEnabled);
         painter.drawText(d->textRect, Qt::TextWordWrap, d->text);
-
         painter.end();
-
         emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_Difference);
     }
 }
@@ -123,7 +110,6 @@ void TextTool::drawText()
         painter.setRenderHint(QPainter::Antialiasing, d->antialiasEnabled);
         painter.drawText(d->textRect, d->text);
         painter.end();
-
         emit painted(m_paintDevice);
     }
 }
@@ -173,6 +159,3 @@ void TextTool::onMouseRelease(const QPoint &pos)
         emit editText(d->text, d->font, d->color);
     }
 }
-
-
-

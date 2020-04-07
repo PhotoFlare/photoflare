@@ -34,12 +34,11 @@ class Tool : public QObject
 {
     Q_OBJECT
 public:
-    explicit Tool(QObject *parent = 0);
+    explicit Tool(QObject *parent = nullptr);
     ~Tool();
 
     void setPaintDevice(QPaintDevice *paintDevice);
     QPaintDevice* paintDevice() const;
-
     void setScale(float scale);
     /*!
      * Use methods below to paint using painter()
@@ -49,20 +48,16 @@ public:
     virtual void onMouseRelease(const QPoint &pos);
     virtual void onKeyPressed(QKeyEvent *keyEvent);
     virtual void onKeyReleased(QKeyEvent *keyEvent);
-
     virtual void disconnect();
-
     virtual QCursor getCursor();
 
 signals:
-
     void cursorChanged(QCursor);
     void selectionChanged(QPolygon);
     /*!
      * This signal must be emitted after the tool completes any paint action
      */
     void painted(QPaintDevice *paintDevice);
-
     void overlaid(QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode);
 
 protected:
@@ -70,7 +65,4 @@ protected:
     float m_scale;
 };
 
-
-
 #endif // TOOL_H
-

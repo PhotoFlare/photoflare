@@ -25,8 +25,8 @@ class SprayCanToolPrivate;
 class SprayCanTool : public Tool
 {
 public:
-    SprayCanTool(QObject *parent = 0);
-    ~SprayCanTool();
+    SprayCanTool(QObject *parent = nullptr);
+    ~SprayCanTool() override;
 
     // This color is used when painting the left mouse button
     QColor primaryColor() const;
@@ -38,7 +38,6 @@ public:
     void setPressure(int pressure);
     void setDispersion(int dispersion);
     void setRainbow(bool rainbow);
-
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
@@ -51,11 +50,10 @@ public slots:
 private:
     void fillPattern();
     void timerEvent(QTimerEvent *event) override;
+
 private:
     SprayCanToolPrivate *d;
 };
-
-
 
 #endif // SPRAYCANTOOL_H
 

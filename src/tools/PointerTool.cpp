@@ -36,21 +36,15 @@ public:
     {
         selectionMode = SELECT;
     }
-    ~PointerToolPrivate()
-    {
-    }
-
     QPoint firstPos;
     QPoint secondPos;
     SelectionMode selectionMode;
     QImage image;
     QPoint imagePos;
-
     QRect topLeftCorner;
     QRect topRightCorner;
     QRect bottomRightCorner;
     QRect bottomLeftCorner;
-
     Corner corner;
 };
 
@@ -109,7 +103,6 @@ void PointerTool::onPaste()
 {
     emit paste();
 }
-
 
 void PointerTool::onUndo()
 {

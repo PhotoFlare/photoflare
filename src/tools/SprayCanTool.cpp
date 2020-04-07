@@ -18,7 +18,6 @@
 #include "SprayCanTool.h"
 
 #include <QPainter>
-#include <QBitmap>
 #include <QtMath>
 
 class SprayCanToolPrivate
@@ -31,11 +30,6 @@ public:
         pixmap = QPixmap(32,32);
         rainbowColor = QColor(255,0,0);
     }
-    ~SprayCanToolPrivate()
-    {
-
-    }
-
     QPoint lastPos;
     QPen primaryPen;
     QPen secondaryPen;
@@ -54,6 +48,7 @@ SprayCanTool::SprayCanTool(QObject *parent)
     : Tool(parent)
     , d(new SprayCanToolPrivate)
 {
+    // Timer required to change colour in rainbow mode
     startTimer(10);
 }
 
@@ -82,7 +77,6 @@ void SprayCanTool::timerEvent(QTimerEvent *event)
     }
 }
 
-
 void SprayCanTool::setPrimaryColor(const QColor &color)
 {
     d->primaryPen.setColor(color);
@@ -106,7 +100,6 @@ QColor SprayCanTool::secondaryColor() const
 void SprayCanTool::fillPattern()
 {
     QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
-
     QImage pattern(d->radius, d->radius, QImage::Format_ARGB32);
     pattern.fill(Qt::transparent);
     int w = pattern.width();
@@ -126,7 +119,6 @@ void SprayCanTool::fillPattern()
             }
         }
     }
-
     d->pixmap = d->pixmap.fromImage(pattern);
 }
 
@@ -154,11 +146,9 @@ void SprayCanTool::setRainbow(bool rainbow)
 void SprayCanTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     Q_UNUSED(button);
-
     d->lastPos = pos;
     d->mouseButton = button;
     d->opacity = d->pressure / 10.0f;
-
     fillPattern();
 }
 
@@ -196,7 +186,6 @@ QCursor SprayCanTool::getCursor()
     pen.setColor(Qt::gray);
     painter.setPen(pen);
     painter.drawEllipse(pixmap.rect());
-
     return QCursor(pixmap);
 }
 

@@ -26,11 +26,10 @@ class PointerTool : public Tool
 {
     Q_OBJECT
 public:
-    PointerTool(QObject *parent = 0);
-    ~PointerTool();
+    PointerTool(QObject *parent = nullptr);
+    ~PointerTool() override;
 
     void setOverlayImage(const QImage& image);
-
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
@@ -49,6 +48,7 @@ public slots:
     void onPaste();
     void onUndo();
     void onRedo();
+
 signals:
     void crop(const QRect&);
     void save();

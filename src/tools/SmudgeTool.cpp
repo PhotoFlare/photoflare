@@ -21,7 +21,6 @@
 #include "PaintWidget.h"
 
 #include <QPainter>
-#include <QBitmap>
 #include <QImage>
 #include <QtMath>
 
@@ -33,29 +32,18 @@ public:
         primaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         pixmap = QPixmap(32,32);
     }
-    ~SmudgeToolPrivate()
-    {
-
-    }
-
     int radius;
     int pressure;
-
     QPoint lastPos;
     QPen primaryPen;
-
     Qt::MouseButton mouseButton;
     QPixmap pixmap;
     QImage completeImage;
-
 };
 
 SmudgeTool::SmudgeTool(QObject *parent)
     : Tool(parent)
-    , d(new SmudgeToolPrivate)
-{
-
-}
+    , d(new SmudgeToolPrivate){}
 
 SmudgeTool::~SmudgeTool()
 {
@@ -92,7 +80,6 @@ void SmudgeTool::setPressure(int pressure)
 void SmudgeTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     Q_UNUSED(button);
-
     d->lastPos = pos;
     d->mouseButton = button;
     const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
@@ -122,7 +109,6 @@ void SmudgeTool::onMouseMove(const QPoint &pos)
         }
 
         QPainter painter(m_paintDevice);
-
         painter.drawPixmap(pos.x()-int(d->radius * pressure / 2), pos.y()-int(d->radius * pressure / 2), d->pixmap.fromImage(pattern));
 
         d->lastPos = pos;

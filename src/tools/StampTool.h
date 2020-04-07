@@ -25,8 +25,8 @@ class StampToolPrivate;
 class StampTool : public Tool
 {
 public:
-    StampTool(QObject *parent = 0);
-    ~StampTool();
+    StampTool(QObject *parent = nullptr);
+    ~StampTool() override;
 
     // This color is used when painting the left mouse button
     QColor primaryColor() const;
@@ -40,16 +40,14 @@ public:
     void setFixed(bool fixed);
     void setPrecise(bool precise);
     void setDiffuse(bool diffuse);
-
     QCursor getCursor() override;
-
     void setCapStyle(Qt::PenCapStyle capStyle);
-
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
     void onKeyPressed(QKeyEvent * keyEvent) override;
     void onKeyReleased(QKeyEvent * keyEvent) override;
+
 public slots:
     void setPrimaryColor(const QColor &color);
     void setSecondaryColor(const QColor &color);
@@ -58,7 +56,4 @@ private:
     StampToolPrivate *d;
 };
 
-
-
 #endif // STAMPTOOL_H
-

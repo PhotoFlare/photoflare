@@ -22,14 +22,10 @@
 
 Tool::Tool(QObject *parent)
     : QObject(parent)
-    , m_paintDevice(0)
-{
-
-}
+    , m_paintDevice(nullptr){}
 
 Tool::~Tool()
 {
-
 }
 
 void Tool::setPaintDevice(QPaintDevice *paintDevice)
@@ -83,4 +79,3 @@ QCursor Tool::getCursor()
 {
     return Qt::ArrowCursor;
 }
-
