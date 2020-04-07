@@ -57,11 +57,10 @@ public:
     SmudgeTool* smudgeTool() const;
 
 private:
-    explicit ToolManager(QObject *parent = 0);
+    explicit ToolManager(QObject *parent = nullptr);
     Q_DISABLE_COPY(ToolManager)
 
     ToolManagerPrivate *d;
-
     static ToolManager *m_instance;
 };
 

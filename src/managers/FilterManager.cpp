@@ -27,12 +27,7 @@
 #include <QApplication>
 #include <Magick++.h>
 #include <QBuffer>
-#include <QColor>
-#include <QPolygon>
-#include <QLinearGradient>
 #include <QPainter>
-#include <QMatrix>
-#include <QGraphicsEffect>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 
@@ -43,14 +38,6 @@
 class FilterManagerPrivate
 {
 public:
-    FilterManagerPrivate()
-    {
-    }
-
-    ~FilterManagerPrivate()
-    {
-    }
-
     Magick::Image* fromQtImage(const QImage &image) const
     {
         // TODO: May need to convert images pixel by pixel.
@@ -61,7 +48,7 @@ public:
 
         //Use raw format instead of JPG to avoid image format conversion and quality loss
         if (!image.save(&buffer, "PNG"))
-            return 0;
+            return nullptr;
 
         Magick::Blob blob(byteArray.data(), byteArray.length());
         return new Magick::Image(blob);
@@ -100,7 +87,7 @@ public:
     }
 };
 
-FilterManager* FilterManager::m_instance = 0;
+FilterManager* FilterManager::m_instance = nullptr;
 
 FilterManager::~FilterManager()
 {
@@ -137,17 +124,6 @@ QImage FilterManager::applyEffectToImage(QImage src, QGraphicsEffect *effect, in
 
 QImage FilterManager::colorize(const QImage &image, QColor color, double str, bool useContrast)
 {
-    // 16.04
-    /*
-        Magick::Image *magickImage = d->fromQtImage(image);
-        magickImage->modulate(100.0f, 0.0f, 1.0f);
-        magickImage->colorize(20, Magick::ColorRGB(color.redF(), color.greenF(), color.blueF()));
-
-        QImage modifiedImage = d->toQtImage(magickImage);
-        delete magickImage;
-        return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
-    */
-  
     QGraphicsColorizeEffect *e = new QGraphicsColorizeEffect;
     e->setColor(color);
     e->setStrength(str);
@@ -189,7 +165,6 @@ QImage FilterManager::dropShadow(const QImage &image, int radius, int padding, Q
     e->setColor(color);
     e->setOffset(offsetx,offsety);
     e->setBlurRadius(radius);
-
     QImage modifiedImage = applyEffectToImage(image, e, padding);
 
     return modifiedImage;
@@ -244,6 +219,7 @@ QImage FilterManager::swirl(const QImage &image)
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->swirl(90);
 
+    // Performance testing (filter speed/elapsed time)
     //QElapsedTimer timer;
     //timer.start();
     QImage modifiedImage = d->toQtImage(magickImage);
@@ -332,14 +308,12 @@ QImage FilterManager::grayscale(const QImage &image)
 QImage FilterManager::oldPhoto(const QImage &image)
 {
     QImage modifiedImage = grayscale(image);
-
     return colorize(modifiedImage,QColor(234, 227, 10),0.3, true);
 }
 
 QImage FilterManager::sepia(const QImage &image)
 {
     QImage modifiedImage = grayscale(image);
-
     return colorize(modifiedImage,QColor(255, 170, 0),0.3, true);
 }
 
@@ -350,16 +324,6 @@ QImage FilterManager::colorize(const QImage &image, QColor color)
 
 QImage FilterManager::hue(const QImage &image, int degrees)
 {
-  //16.04
-  /*
-        Magick::Image *magickImage = d->fromQtImage(image);
-        magickImage->modulate(100.0f, 100.0f, degrees*(float)200/(float)360 + 70);
-
-        QImage modifiedImage = d->toQtImage(magickImage);
-        delete magickImage;
-
-        return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
-  */
     QImage modifiedImage = image;
 
     for(int i=0; i<modifiedImage.width(); i++)
@@ -367,13 +331,11 @@ QImage FilterManager::hue(const QImage &image, int degrees)
         for(int j=0; j<modifiedImage.height(); j++)
         {
             QColor color = modifiedImage.pixelColor(i,j);
-
             // modify hue as you’d like and write back to the image
             color.setHsv(degrees, color.saturation(), color.value(), color.alpha());
             modifiedImage.setPixelColor(i, j, color);
         }
     }
-
     return modifiedImage;
 }
 
@@ -572,7 +534,6 @@ QImage FilterManager::trim(const QImage &image)
 QImage FilterManager::dustreduction(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-
     magickImage->reduceNoise();
 
     QImage modifiedImage = d->toQtImage(magickImage);

@@ -32,7 +32,7 @@
 #include "./EraserTool.h"
 #include "./SmudgeTool.h"
 
-ToolManager * ToolManager::m_instance = 0;
+ToolManager * ToolManager::m_instance = nullptr;
 
 class ToolManagerPrivate
 {
@@ -69,7 +69,6 @@ public:
         delete eraserTool;
         delete smudgeTool;
     }
-
     ColourPickerTool *colourPicker;
     PaintBrushTool *paintBrush;
     PaintBrushAdvTool *paintBrushAdv;
@@ -87,10 +86,7 @@ public:
 
 ToolManager::ToolManager(QObject *parent)
     : QObject(parent)
-    , d(new ToolManagerPrivate)
-{
-
-}
+    , d(new ToolManagerPrivate){}
 
 ToolManager::~ToolManager()
 {

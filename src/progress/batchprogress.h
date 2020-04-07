@@ -29,7 +29,7 @@ class BatchProgress : public QDialog
     Q_OBJECT
 
 public:
-    explicit BatchProgress(QWidget *parent = 0);
+    explicit BatchProgress(QWidget *parent = nullptr);
     ~BatchProgress();
 
 public slots:
