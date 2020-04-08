@@ -19,9 +19,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QSignalMapper>
 #include <QMdiArea>
-#include <QProcess>
 #include <QLabel>
 
 #include "dialogs/batchdialog.h"

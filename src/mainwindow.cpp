@@ -20,20 +20,15 @@
 //#include <QDebug>
 
 #include <QClipboard>
-#include <QSettings>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QMouseEvent>
 #include <QMdiSubWindow>
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
-#include <QShortcut>
-#include <QDateTime>
 #include <QThread>
 #include <QMimeData>
 #include <QDesktopServices>
 #include <QTimer>
-#include <QStandardPaths>
 #include <QImageReader>
 #include <QInputDialog>
 
@@ -62,12 +57,9 @@
 #include "./toolSettings/erasersettingswidget.h"
 #include "./toolSettings/SmudgeSettingsWidget.h"
 
-#include "managers/ToolManager.h"
 #include "Settings.h"
+#include "managers/ToolManager.h"
 #include "managers/FilterManager.h"
-
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
 
 #include "widgets/PaintWidget.h"
 #include "dialogs/NewDialog.h"
@@ -85,12 +77,13 @@
 #include "dialogs/plugindialog.h"
 #include "dialogs/checkupdatedialog.h"
 
-#include "workers/BatchProcessWorker.h"
 #include "progress/batchprogress.h"
+#include "workers/BatchProcessWorker.h"
 #include "workers/filterworker.h"
 #include "workers/filterworkermp.h"
 
-#include <omp.h>
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
@@ -108,7 +101,7 @@
 
 namespace
 {
-const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
+    const QString UNTITLED_TAB_NAME = QObject::tr("Untitled");
 }
 
 MainWindow::MainWindow() :
@@ -134,6 +127,8 @@ MainWindow::MainWindow() :
 
     // Setup some other defaults on startup
     setWindowSize();
+
+    // Update recents
     updateRecentFilesMenu();
 }
 
@@ -257,6 +252,7 @@ void MainWindow::connectTools()
 
     QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished()), this, SLOT(on_TextTool_finished()));
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));
+
     QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&,int,bool)), this, SLOT(onSelectPrimaryColor(const QPoint&,int,bool)));
 
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));

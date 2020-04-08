@@ -19,12 +19,9 @@
 
 //#include <QDebug>
 
-#include <QApplication>
-#include <QFileInfo>
 #include <QTranslator>
 #include <QtSingleApplication>
 #include <QStandardPaths>
-#include <QFileInfo>
 #include <QDir>
 
 #include "mainwindow.h"
