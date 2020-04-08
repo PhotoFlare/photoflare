@@ -381,14 +381,14 @@ void MainWindow::on_actionNew_triggered()
 void MainWindow::on_actionOpen_triggered()
 {
     const QStringList& fileName = QFileDialog::getOpenFileNames(this, tr("Open File"),
-    SETTINGS->getOpenFolder(), tr("All Files (*);;"
-                                "Image Files (*.png *.jpg *.jpeg *.gif);;"
+    SETTINGS->getOpenFolder(), tr("Image Files (*.png *.jpg *.jpeg *.gif *.tif *.tiff *.bmp *.ico);;"
                                 "PNG(*.png);;"
                                 "JPEG(*.jpg *.jpeg);;"
                                 "GIF(*.gif);;"
                                 "TIFF(*.tif *.tiff);;"
                                 "BMP(*.bmp);;"
-                                "ICO(*.ico)"));
+                                "ICO(*.ico);;"
+                                "All Files (*)"));
 /*
                                 "ARW (*.arw *.srf *.sr2);;"
                                 "BAY (*.bay);;"
