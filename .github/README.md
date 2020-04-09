@@ -50,5 +50,7 @@ Languages currently available:
 - Chinese (Simplified - zh_CN)
 - Chinese (Traditional - zh_TW)
 - Czech
+- Portuguese (pt_BR)
+- Portuguese (pt_PT)
 
 If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="https://photoflare.io/contributing/translations/">available here</a>
