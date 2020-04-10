@@ -48,7 +48,7 @@
             <li>Fixed transparent dialog incorrect window type preventing left click.</li>
             <li>Fixed canvas dialog not defaulting to current image size.</li>
             <li>Fixed pasted image visibility issue.</li>
-            <li>Added Portuguese translations (pt, pt_BR).</li>
+            <li>Added Portuguese translations (pt_PT, pt_BR).</li>
             <li>Cleanup of code and unused imports.</li>
           </ul>
         </description>
