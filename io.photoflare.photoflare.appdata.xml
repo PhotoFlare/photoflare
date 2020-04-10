@@ -38,14 +38,18 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
-    <release version="1.6.4" date="2020-04-04">
+    <release version="1.6.4" date="2020-04-10">
         <description>
           <ul>
+            <li>Fixed Open File dialog showing all files filter by default instead of image files.</li>
+            <li>Fixed Preview and Cancel creating undo steps in transparent dialog.</li>
+            <li>Fixed certain strings not translatable.</li>
             <li>Fixed transparent dialog not restoring previous tool.</li>
             <li>Fixed transparent dialog incorrect window type preventing left click.</li>
             <li>Fixed canvas dialog not defaulting to current image size.</li>
             <li>Fixed pasted image visibility issue.</li>
             <li>Added Portuguese translations (pt, pt_BR).</li>
+            <li>Cleanup of code and unused imports.</li>
           </ul>
         </description>
     </release>
