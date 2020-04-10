@@ -16,15 +16,16 @@ Information on current features and how to use the application will be
 ## Building
 
 ### Dependencies
-- G++/Clang on Linux, MSVC/Clang on Windows or Clang on MacOSX
-- libgraphicsmagick++-dev
-- libomp-dev
-- qt5-default (Ubuntu only)  
-**or**
+- g++ (G++/Clang on Linux, MSVC/Clang on Windows or Clang on MacOSX)
+- libgraphicsmagick++1-dev
+- libomp-9-dev
 - libc6-dev
-- libqt5core5a-dev
-- libqt5gui5-dev
-- libqt5widgets5-dev
+- libqt5core5a
+- libqt5gui5
+- libqt5widgets5
+
+Ubuntu (18.04)  
+`sudo apt-get install libgraphicsmagick++1-dev, libc6-dev, libqt5core5a, libqt5gui5, libqt5widgets5, libomp-9-dev, qtcreator`
 
 Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter. Full instructions for each platform <a href="https://photoflare.io/contributing/building-the-source/">available here</a>
 

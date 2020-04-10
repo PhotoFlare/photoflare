@@ -50,6 +50,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
         "<br>DE - Steffen Gunther"
         "<br>zh_TW - Coolshou"
         "<br>zh_CN - Nichts Hsu"
+        "<br>CS - Pafri"
         "<br>pt_BR - eltonfabricio10"
         "<br>pt_PT - eltonfabricio10")
     );

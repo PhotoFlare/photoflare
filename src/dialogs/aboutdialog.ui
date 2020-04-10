@@ -215,6 +215,9 @@
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="t_tab">
@@ -233,6 +236,9 @@
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="c_tab">
@@ -250,6 +256,9 @@
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
