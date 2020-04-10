@@ -27,7 +27,11 @@ Information on current features and how to use the application will be
 #### Ubuntu (18.04)  
 `sudo apt-get install libgraphicsmagick++1-dev, libc6-dev, libqt5core5a, libqt5gui5, libqt5widgets5, libomp-9-dev, qtcreator`
 
-Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter. Full instructions for each platform <a href="https://photoflare.io/contributing/building-the-source/">available here</a>
+Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter. 
+
+`qmake Photoflare.pro`
+
+Full instructions for each platform <a href="https://photoflare.io/contributing/building-the-source/">available here</a>
 
 ## Running
 
