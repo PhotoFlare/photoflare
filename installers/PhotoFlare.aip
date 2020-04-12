@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="12.8" version="16.8" Modules="simple" RootPath="." Language="en" Id="{5D06178B-435B-4E42-97DD-F876229286E7}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="12.8" version="16.9" Modules="professional" RootPath="." Language="en" Id="{5D06178B-435B-4E42-97DD-F876229286E7}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
-    <ROW Name="HiddenItems" Value="AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent"/>
+    <ROW Name="HiddenItems" Value="AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiXDiffComponent"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_RUN_AS_ADMIN" Value="0"/>
+    <ROW Property="AI_ThemeStyle" Value="aero" MsiKey="AI_ThemeStyle"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
-    <ROW Property="ARPURLINFOABOUT" Value="http://photoflare.io"/>
+    <ROW Property="ARPPRODUCTICON" Value="PhotoFlare_1.exe" Type="8"/>
+    <ROW Property="ARPURLINFOABOUT" Value="https://photoflare.io"/>
     <ROW Property="Manufacturer" Value="Photoflare.io"/>
-    <ROW Property="ProductCode" Value="1033:{0DD12846-5DE3-40ED-94B5-B0B45E431297} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{72628A35-343C-4A6E-9AF4-0B28B4B1014F} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Photoflare"/>
-    <ROW Property="ProductVersion" Value="1.6.3.0" Type="32" TargetFile="PhotoFlare.exe"/>
+    <ROW Property="ProductVersion" Value="1.6.4.0" Type="32" TargetFile="PhotoFlare.exe"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{5DFB1CEA-0740-4E8A-9CE9-D5A82084C960}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -322,13 +324,18 @@
     <ROW File="nl.qm" Component_="cs.qm" FileName="nl.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\nl.qm" SelfReg="false"/>
     <ROW File="zh_CN.qm" Component_="cs.qm" FileName="zh_CN.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\zh_CN.qm" SelfReg="false"/>
     <ROW File="zh_TW.qm" Component_="cs.qm" FileName="zh_TW.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\zh_TW.qm" SelfReg="false"/>
+    <ROW File="pt_BR.qm" Component_="cs.qm" FileName="pt_BR.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\pt_BR.qm" SelfReg="false"/>
+    <ROW File="pt_PT.qm" Component_="cs.qm" FileName="pt_PT.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\pt_PT.qm" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true" MsiPackageType="x64"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="1" Languages="en" InstallationType="4" UseLargeSchema="true" MsiPackageType="x64"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
     <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DigCertStoreComponent">
+    <ROW TimeStampUrl="http://timestamp.digicert.com" SignerDescription="[|ProductName]" SignOptions="7" SignTool="0" UseSha256="1" Thumbprint="e80d0a237f77d16f7c1e249095f31b210f67e941 Subject: Photoflare_2020-3-9_12-7-18&#10;Issuer: Photoflare_2020-3-9_12-7-18&#10;Valid from 03/09/2020 to 03/09/2021&#10;User\MY"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
     <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
