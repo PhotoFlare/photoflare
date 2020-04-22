@@ -45,7 +45,9 @@ macx {
   PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagick++.la
   PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagick.la
   PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagickWand.la
-  LIBS += -lbz2 -lxml2 -lz -lm
+  LIBS += -lbz2 -lxml2 -lz -lm -L /usr/local/lib /usr/local/lib/libomp.dylib
+  QMAKE_CXXFLAGS += -Xpreprocessor -fopenmp -lomp -I/usr/local/include
+  QMAKE_LFLAGS += -lomp
 }
 
 SOURCES += src/main.cpp \
