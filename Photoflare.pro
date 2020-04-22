@@ -36,15 +36,15 @@ linux|hurd {
 
 # Project settings for Mac OS. Adjust the paths as needed on your system.
 macx {
-  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.28/include/GraphicsMagick
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.28/lib/ -lGraphicsMagick++
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.28/lib/ -lGraphicsMagick
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.28/lib/ -lGraphicsMagickWand
-  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.28/include/GraphicsMagick
-  DEPENDPATH += /usr/local/Cellar/graphicsmagick/1.3.28/include/GraphicsMagick
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagick++.la
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagick.la
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.28/lib/libGraphicsMagickWand.la
+  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagick++
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagick
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagickWand
+  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
+  DEPENDPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagick++.la
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagick.la
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagickWand.la
   LIBS += -lbz2 -lxml2 -lz -lm -L /usr/local/lib /usr/local/lib/libomp.dylib
   QMAKE_CXXFLAGS += -Xpreprocessor -fopenmp -lomp -I/usr/local/include
   QMAKE_LFLAGS += -lomp
