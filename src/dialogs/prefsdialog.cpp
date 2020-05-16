@@ -85,7 +85,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->historySlider->setValue(SETTINGS->getHistoryLimit().toInt());
 
     //Startup tab
-    QStringList list(QStringList() << tr("English") << tr("French") << tr("Dutch") << tr("German") << tr("Chinese (CN)") << tr("Chinese (TW)") << tr("Czech Republic") << tr("Portuguese (PT)") << tr("Portuguese (BR)"));
+    QStringList list(QStringList() << tr("English") << tr("French") << tr("Dutch") << tr("German") << tr("Chinese (CN)") << tr("Chinese (TW)") << tr("Czech Republic") << tr("Portuguese (PT)") << tr("Portuguese (BR)") << tr("Sweden"));
     ui->comboBoxLanguage->addItems(list);
     ui->comboBoxLanguage->setItemIcon(0,QIcon(flagPath+"United-kingdom.png"));
     ui->comboBoxLanguage->setItemIcon(1,QIcon(flagPath+"France.png"));
@@ -96,6 +96,7 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->comboBoxLanguage->setItemIcon(6,QIcon(flagPath+"Czech-Republic.png"));
     ui->comboBoxLanguage->setItemIcon(7,QIcon(flagPath+"Portugal.png"));
     ui->comboBoxLanguage->setItemIcon(8,QIcon(flagPath+"Brazil.png"));
+    ui->comboBoxLanguage->setItemIcon(9,QIcon(flagPath+"Sweden.png"));
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
@@ -109,15 +110,17 @@ prefsDialog::prefsDialog(QWidget *parent) :
     else if(SETTINGS->getUserLanguage() == "de")
         ui->comboBoxLanguage->setCurrentIndex(3);
     else if(SETTINGS->getUserLanguage() == "zh_CN")
-            ui->comboBoxLanguage->setCurrentIndex(4);
+        ui->comboBoxLanguage->setCurrentIndex(4);
     else if(SETTINGS->getUserLanguage() == "zh_TW")
-            ui->comboBoxLanguage->setCurrentIndex(5);
+        ui->comboBoxLanguage->setCurrentIndex(5);
     else if(SETTINGS->getUserLanguage() == "cs")
-            ui->comboBoxLanguage->setCurrentIndex(6);
+        ui->comboBoxLanguage->setCurrentIndex(6);
     else if(SETTINGS->getUserLanguage() == "pt_PT")
-            ui->comboBoxLanguage->setCurrentIndex(7);
+        ui->comboBoxLanguage->setCurrentIndex(7);
     else if(SETTINGS->getUserLanguage() == "pt_BR")
-            ui->comboBoxLanguage->setCurrentIndex(8);
+        ui->comboBoxLanguage->setCurrentIndex(8);
+    else if(SETTINGS->getUserLanguage() == "sv")
+        ui->comboBoxLanguage->setCurrentIndex(9);
 
     ui->restartButton->hide();
 }
@@ -252,4 +255,6 @@ void prefsDialog::set_user_language()
         SETTINGS->setUserLanguage("pt_PT");
     else if(ui->comboBoxLanguage->currentIndex() == 8)
         SETTINGS->setUserLanguage("pt_BR");
+    else if(ui->comboBoxLanguage->currentIndex() == 9)
+        SETTINGS->setUserLanguage("sv");
 }
