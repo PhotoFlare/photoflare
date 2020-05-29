@@ -30,6 +30,8 @@ TransparentDialog::TransparentDialog(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
 
+    setColor(Qt::white);
+
     if(SETTINGS->getMemParamsEnabled())
     {
         readSettings(this);

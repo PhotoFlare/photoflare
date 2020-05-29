@@ -168,6 +168,9 @@ void MainWindow::setupWorkspace()
     // Center colorBox in tool palette.
     ui->verticalLayout->setAlignment(ui->colorBoxWidget, Qt::AlignCenter);
 
+    // Default the transparent dialog
+    transparentDialog = 0;
+
     // Default the colour mode
     ui->actionRGB_Mode->setChecked(true);
 
