@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     if(!app.isRunning())
     {
         app.setApplicationName(QObject::tr("photoflare"));
-        app.setApplicationVersion(QObject::tr("1.6.4"));
+        app.setApplicationVersion(QObject::tr("1.6.5"));
         app.setOrganizationDomain(QObject::tr("photoflare.io"));
 
         // Setup Default settings
@@ -112,12 +112,12 @@ int main(int argc, char *argv[])
         QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
         for(int i = 0;i < paths.length(); i++)
         {
-            //QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");  //for installers
-            QFileInfo check_file("languages/"+SETTINGS->getUserLanguage()+".qm");  //local builds
+            QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");  //for installers
+            //QFileInfo check_file("languages/"+SETTINGS->getUserLanguage()+".qm");  //local builds
             if(check_file.exists() && check_file.isFile())
             {
-                //translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/");  //for installers
-                translator.load(SETTINGS->getUserLanguage()+".qm", "languages/"); //local builds
+                translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/");  //for installers
+                //translator.load(SETTINGS->getUserLanguage()+".qm", "languages/"); //local builds
             }
         }
         MainWindow w;
