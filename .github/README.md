@@ -49,13 +49,14 @@ Full instructions for each platform <a href="https://photoflare.io/contributing/
 Languages currently available:
 
 - English
-- French
-- Dutch
-- German
+- French (fr)
+- Dutch (nl)
+- German (de)
 - Chinese (Simplified - zh_CN)
 - Chinese (Traditional - zh_TW)
-- Czech
+- Czech (cs)
 - Portuguese (pt_BR)
 - Portuguese (pt_PT)
+- Swedish (sv)
 
 If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="https://photoflare.io/contributing/translations/">available here</a>
