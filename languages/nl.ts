@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="nl">
+<TS version="2.0" language="nl">
 <context>
     <name>BatchProgress</name>
     <message>
@@ -58,7 +58,7 @@
     <message>
         <location filename="src/compressiondialog.ui" line="42"/>
         <source>Compression:</source>
-        <translation>Compressie</translation>
+        <translation>Compressie:</translation>
     </message>
     <message>
         <location filename="src/compressiondialog.ui" line="55"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="src/toolSettings/erasersettingswidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorm</translation>
     </message>
     <message>
         <location filename="src/toolSettings/erasersettingswidget.ui" line="26"/>
@@ -96,7 +96,7 @@
     <message>
         <location filename="src/toolSettings/erasersettingswidget.ui" line="73"/>
         <source>0</source>
-        <translation type="unfinished"></translation>
+        <translation>0</translation>
     </message>
 </context>
 <context>
@@ -130,7 +130,7 @@
         <location filename="src/gradientdialog.ui" line="277"/>
         <location filename="src/gradientdialog.ui" line="351"/>
         <source>Opacity:</source>
-        <translation>Matheid</translation>
+        <translation>Matheid:</translation>
     </message>
     <message>
         <location filename="src/gradientdialog.ui" line="290"/>
@@ -210,7 +210,7 @@
     <message>
         <location filename="src/LineSettingsWidget.ui" line="188"/>
         <source>Style:</source>
-        <translation>Stijl</translation>
+        <translation>Stijl:</translation>
     </message>
 </context>
 <context>
@@ -267,7 +267,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="145"/>
         <source>&amp;Mode</source>
-        <translation>Modus</translation>
+        <translation>&amp;Modus</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="152"/>
@@ -385,7 +385,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="992"/>
         <source>&amp;New...</source>
-        <translation>Nieuw...</translation>
+        <translation>&amp;Nieuw...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1007"/>
@@ -400,7 +400,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1029"/>
         <source>&amp;Save</source>
-        <translation>Opslaan</translation>
+        <translation>&amp;Opslaan</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1037"/>
@@ -480,12 +480,12 @@
     <message>
         <location filename="src/mainwindow.ui" line="1127"/>
         <source>Stroke and Fill...</source>
-        <translation>Omlijnen en vullen</translation>
+        <translation>Omlijnen en vullen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1132"/>
         <source>Optimized Clipping...</source>
-        <translation>Geoptimaliseerd knippen</translation>
+        <translation>Geoptimaliseerd knippen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1137"/>
@@ -530,17 +530,17 @@
     <message>
         <location filename="src/mainwindow.ui" line="1194"/>
         <source>Image Size...</source>
-        <translation>Afmetingen afbeelding</translation>
+        <translation>Afmetingen afbeelding...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1203"/>
         <source>Canvas Size...</source>
-        <translation>Afmetingen canvas</translation>
+        <translation>Afmetingen canvas...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1208"/>
         <source>Fit Image...</source>
-        <translation>Afbeelding passend maken</translation>
+        <translation>Afbeelding passend maken...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1213"/>
@@ -615,7 +615,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1301"/>
         <source>Manual Settings...</source>
-        <translation>Handmatig instellen</translation>
+        <translation>Handmatig instellen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1306"/>
@@ -720,7 +720,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1419"/>
         <source>Swap RGB Channel...</source>
-        <translation>RGB kanaal wisselen</translation>
+        <translation>RGB kanaal wisselen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1424"/>
@@ -795,7 +795,7 @@
     <message>
         <location filename="src/mainwindow.ui" line="1678"/>
         <source>Show Grid...</source>
-        <translation>Raster tonen</translation>
+        <translation>Raster tonen...</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="1521"/>
@@ -1147,12 +1147,12 @@
     <message>
         <location filename="src/mainwindow.ui" line="2050"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Matheid</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="2055"/>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugins</translation>
     </message>
     <message>
         <location filename="src/mainwindow.ui" line="2060"/>
@@ -1183,7 +1183,7 @@
     <message>
         <location filename="src/mainwindow.cpp" line="354"/>
         <source>Please open a valid image file</source>
-        <translation type="unfinished"></translation>
+        <translation>Open een geldig beeldbestand alstublieft</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="325"/>
@@ -1269,7 +1269,7 @@
     <message>
         <location filename="src/NewDialog.ui" line="137"/>
         <source>Preset Size:</source>
-        <translation>Vooraf ingestelde grootte</translation>
+        <translation>Vooraf ingestelde grootte:</translation>
     </message>
     <message>
         <location filename="src/dialogs/NewDialog.ui" line="392"/>
@@ -1344,7 +1344,7 @@
     <message>
         <location filename="src/NewDialog.ui" line="287"/>
         <source>Memory:</source>
-        <translation>Geheugen</translation>
+        <translation>Geheugen:</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="364"/>
@@ -1354,7 +1354,7 @@
     <message>
         <location filename="src/NewDialog.ui" line="428"/>
         <source>Position:</source>
-        <translation>Positie</translation>
+        <translation>Positie:</translation>
     </message>
     <message>
         <location filename="src/NewDialog.ui" line="442"/>
@@ -1372,12 +1372,12 @@
     <message>
         <location filename="src/outerframedialog.ui" line="52"/>
         <source>Width:</source>
-        <translation>Breedte</translation>
+        <translation>Breedte:</translation>
     </message>
     <message>
         <location filename="src/outerframedialog.ui" line="65"/>
         <source>Colour:</source>
-        <translation>Kleur</translation>
+        <translation>Kleur:</translation>
     </message>
 </context>
 <context>
@@ -1419,7 +1419,7 @@
     <message>
         <location filename="src/PaintBrushSettingsWidget.ui" line="97"/>
         <source>&amp;Radius:</source>
-        <translation>&amp;Straal</translation>
+        <translation>&amp;Straal:</translation>
     </message>
     <message>
         <location filename="src/PaintBrushSettingsWidget.ui" line="131"/>
@@ -1440,12 +1440,12 @@
     <message>
         <location filename="src/toolSettings/pointersettingswidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorm</translation>
     </message>
     <message>
         <location filename="src/toolSettings/pointersettingswidget.ui" line="26"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="src/toolSettings/pointersettingswidget.ui" line="55"/>
@@ -1463,22 +1463,22 @@
     <message>
         <location filename="src/tools/PointerTool.cpp" line="118"/>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>Bijsnijden</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="127"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="128"/>
         <source>Save as</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan als</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="129"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="src/tools/PointerTool.cpp" line="132"/>
@@ -1516,22 +1516,22 @@
     <message>
         <location filename="src/main.cpp" line="27"/>
         <source>PhotoFlare</source>
-        <translation type="unfinished"></translation>
+        <translation>PhotoFlare</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="28"/>
         <source>1.5.1</source>
-        <translation type="unfinished"></translation>
+        <translation>1.5.1</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="29"/>
         <source>photoflare.io</source>
-        <translation type="unfinished"></translation>
+        <translation>photoflare.io</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="30"/>
         <source>photoflare</source>
-        <translation type="unfinished"></translation>
+        <translation>photoflare</translation>
     </message>
     <message>
         <location filename="src/mainwindow.cpp" line="85"/>
@@ -1623,7 +1623,7 @@
     <message>
         <location filename="src/transparentdialog.ui" line="51"/>
         <source>Tolerance:</source>
-        <translation>Tolerantie</translation>
+        <translation>Tolerantie:</translation>
     </message>
     <message>
         <location filename="src/transparentdialog.ui" line="64"/>
@@ -2087,7 +2087,7 @@
     <message>
         <location filename="src/dialogs/batchdialog.cpp" line="67"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Matheid</translation>
     </message>
     <message>
         <location filename="src/dialogs/batchdialog.cpp" line="97"/>
@@ -2214,17 +2214,17 @@
     <message>
         <location filename="src/buydialog.ui" line="107"/>
         <source>Hello! Thanks for trying out PhotoFlare Studio. </source>
-        <translation>Hallo! Bedankt voor het uitproberen van PhotoFlare Studio</translation>
+        <translation>Hallo! Bedankt voor het uitproberen van PhotoFlare Studio.</translation>
     </message>
     <message>
         <location filename="src/buydialog.ui" line="126"/>
         <source>This program is an unlimited trial version but requires a license for continued usage. </source>
-        <translation>Dit programma is een ongelimiteerde proefversie maar een vergunning is vereist voor voortgezet gebruik</translation>
+        <translation>Dit programma is een ongelimiteerde proefversie maar een vergunning is vereist voor voortgezet gebruik.</translation>
     </message>
     <message>
         <location filename="src/buydialog.ui" line="145"/>
         <source>Please consider supporting the project by purchasing a license.</source>
-        <translation>Overweeg alstublieft de ondersteuning van dit project door de aankoop van een licentie</translation>
+        <translation>Overweeg alstublieft de ondersteuning van dit project door de aankoop van een licentie.</translation>
     </message>
 </context>
 <context>
@@ -2388,7 +2388,7 @@
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="344"/>
         <source>Pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Pixels</translation>
     </message>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="358"/>
@@ -2408,7 +2408,7 @@
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="414"/>
         <source>24</source>
-        <translation type="unfinished"></translation>
+        <translation>24</translation>
     </message>
     <message>
         <location filename="src/prefsdialog.ui" line="279"/>
@@ -2482,7 +2482,7 @@
     <message>
         <location filename="src/registerdialog.ui" line="36"/>
         <source>Enter your registration key below to unlock:</source>
-        <translation>Vul hieronder uw registraitesleutel in om te ontgrendelen</translation>
+        <translation>Vul hieronder uw registraitesleutel in om te ontgrendelen:</translation>
     </message>
     <message>
         <location filename="src/registerdialog.ui" line="55"/>
