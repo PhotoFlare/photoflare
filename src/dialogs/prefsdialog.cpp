@@ -85,18 +85,21 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->historySlider->setValue(SETTINGS->getHistoryLimit().toInt());
 
     //Startup tab
-    QStringList list(QStringList() << tr("English") << tr("French") << tr("Dutch") << tr("German") << tr("Chinese (CN)") << tr("Chinese (TW)") << tr("Czech Republic") << tr("Portuguese (PT)") << tr("Portuguese (BR)") << tr("Sweden"));
-    ui->comboBoxLanguage->addItems(list);
-    ui->comboBoxLanguage->setItemIcon(0,QIcon(flagPath+"United-kingdom.png"));
-    ui->comboBoxLanguage->setItemIcon(1,QIcon(flagPath+"France.png"));
-    ui->comboBoxLanguage->setItemIcon(2,QIcon(flagPath+"Netherlands.png"));
-    ui->comboBoxLanguage->setItemIcon(3,QIcon(flagPath+"Germany.png"));
-    ui->comboBoxLanguage->setItemIcon(4,QIcon(flagPath+"China.png"));
-    ui->comboBoxLanguage->setItemIcon(5,QIcon(flagPath+"Taiwan.png"));
-    ui->comboBoxLanguage->setItemIcon(6,QIcon(flagPath+"Czech-Republic.png"));
-    ui->comboBoxLanguage->setItemIcon(7,QIcon(flagPath+"Portugal.png"));
-    ui->comboBoxLanguage->setItemIcon(8,QIcon(flagPath+"Brazil.png"));
-    ui->comboBoxLanguage->setItemIcon(9,QIcon(flagPath+"Sweden.png"));
+    QStringList languages;
+    languages << tr("English")
+              << tr("French")
+              << tr("Dutch")
+              << tr("German")
+              << tr("Chinese (CN)")
+              << tr("Chinese (TW)")
+              << tr("Czech Republic")
+              << tr("Portuguese (PT)")
+              << tr("Portuguese (BR)")
+              << tr("Sweden")
+              << tr("Russian");
+
+    ui->comboBoxLanguage->addItems(languages);
+    addFlagIcons(languages.count());
 
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
@@ -121,6 +124,8 @@ prefsDialog::prefsDialog(QWidget *parent) :
         ui->comboBoxLanguage->setCurrentIndex(8);
     else if(SETTINGS->getUserLanguage() == "sv")
         ui->comboBoxLanguage->setCurrentIndex(9);
+    else if(SETTINGS->getUserLanguage() == "ru_RU")
+        ui->comboBoxLanguage->setCurrentIndex(10);
 
     ui->restartButton->hide();
 }
@@ -257,4 +262,26 @@ void prefsDialog::set_user_language()
         SETTINGS->setUserLanguage("pt_BR");
     else if(ui->comboBoxLanguage->currentIndex() == 9)
         SETTINGS->setUserLanguage("sv");
+    else if(ui->comboBoxLanguage->currentIndex() == 10)
+        SETTINGS->setUserLanguage("ru_RU");
+}
+
+void prefsDialog::addFlagIcons(int languages)
+{
+    QStringList files;
+    files << "United-kingdom"
+          << "France"
+          << "Netherlands"
+          << "Germany"
+          << "China"
+          << "Taiwan"
+          << "Czech-Republic"
+          << "Portugal"
+          << "Brazil"
+          << "Sweden"
+          << "Russia";
+
+    for (int i = 0; i < languages; ++i) {
+        ui->comboBoxLanguage->setItemIcon(i,QIcon(flagPath+files[i]+".png"));
+    }
 }
