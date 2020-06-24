@@ -58,5 +58,6 @@ Languages currently available:
 - Portuguese (pt_BR)
 - Portuguese (pt_PT)
 - Swedish (sv)
+- Russian (ru_RU)
 
 If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="https://photoflare.io/contributing/translations/">available here</a>
