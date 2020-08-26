@@ -678,7 +678,7 @@ QImage FilterManager::floodFill(const QImage &image, const QPoint &pos, const QC
     if(changeStartColor)
         magickImage->opaque(Magick::ColorRGB(0.01f, 0, 0), Magick::ColorRGB(0, 0, 0));
 
-    return d->toQtImage(magickImage.data());
+    return d->toQtImageTransparent(magickImage.data());
 }
 
 QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color)
