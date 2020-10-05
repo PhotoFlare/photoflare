@@ -2,12 +2,15 @@
 Name=PhotoFlare
 Name[pt]=PhotoFlare
 Name[pt_BR]=PhotoFlare
+Name[ru_RU]=PhotoFlare
 Comment=A simple but featureful image editor.
 Comment[pt]=Um editor de imagens simples, mas cheio de funcionalidades.
 Comment[pt_BR]=Um editor de imagens simples, mas cheio de recursos.
+Comment[ru_RU]=Простой, но самодостаточный редактор.
 GenericName=Image Editor
 GenericName[pt]=Editor de Imagem
 GenericName[pt_BR]=Editor de Imagem
+GenericName[ru_RU]=Графический редактор
 X-GNOME-FullName=PhotoFlare
 Exec=photoflare %f
 Icon=photoflare
