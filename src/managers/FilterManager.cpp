@@ -184,7 +184,7 @@ QImage FilterManager::blackwhite(const QImage &image)
 QImage FilterManager::colourthreshold(const QImage &image)
 {
     Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->adaptiveThreshold(400,300);
+    magickImage->adaptiveThreshold(image.width(),image.height());
 
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
