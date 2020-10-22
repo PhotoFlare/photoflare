@@ -1027,7 +1027,7 @@ void MainWindow::on_actionTransparent_colour_triggered()
 
 void MainWindow::onTransparentFinished()
 {
-    delete transparentDialog;
+    transparentDialog = 0;
     // Restore previous tool
     m_toolSelected = m_previousToolSelected;
     QTimer::singleShot(1000, this, SLOT(refreshTools()));
