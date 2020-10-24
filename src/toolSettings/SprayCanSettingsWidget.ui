@@ -44,6 +44,9 @@
          <height>24</height>
         </size>
        </property>
+       <property name="minimum">
+        <number>2</number>
+       </property>
        <property name="value">
         <number>32</number>
        </property>
