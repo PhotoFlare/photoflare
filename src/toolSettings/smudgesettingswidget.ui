@@ -76,6 +76,9 @@
      <height>26</height>
     </rect>
    </property>
+   <property name="minimum">
+    <number>2</number>
+   </property>
    <property name="value">
     <number>32</number>
    </property>
