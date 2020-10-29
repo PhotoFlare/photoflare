@@ -2219,8 +2219,16 @@ bool MainWindow::handleCloseChildWindow(QMdiSubWindow *subWindow)
             saveContent();
         }
     }
-
     subWindow->setWindowModified(false);
+
+    // Clear Undo History just before we close the tab
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        widget->clearUndoHistory();
+        ui->actionUndo->setEnabled(widget->isUndoEnabled());
+        ui->actionRedo->setEnabled(widget->isRedoEnabled());
+    }
     subWindow->close();
 
     clearStatusArea();
