@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>prefsDialog</class>
- <widget class="QDialog" name="prefsDialog">
+ <class>PrefsDialog</class>
+ <widget class="QDialog" name="PrefsDialog">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -521,7 +521,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>prefsDialog</receiver>
+   <receiver>PrefsDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -537,7 +537,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>prefsDialog</receiver>
+   <receiver>PrefsDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -43,6 +43,7 @@ class SmudgeSettingsWidget;
 class QComboBox;
 class PaintWidget;
 class TransparentDialog;
+class PrefsDialog;
 
 class MainWindow : public QMainWindow
 {
@@ -219,6 +220,8 @@ private slots:
     void getNextZoomFromScale(QString scaletext);
     void getPrevZoomFromScale(QString scaletext);
 
+    void onSafeQuitApp();
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
@@ -258,6 +261,7 @@ private:
     QComboBox *zoomCombo;
     QImage origImage;
     TransparentDialog *transparentDialog;
+    PrefsDialog *prefsDialog;
     QLabel *batchLbl;
     QLabel *imagesizeLbl;
 };

@@ -25,9 +25,9 @@
 #include "ui_prefsdialog.h"
 #include "../Settings.h"
 
-prefsDialog::prefsDialog(QWidget *parent) :
+PrefsDialog::PrefsDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::prefsDialog)
+    ui(new Ui::PrefsDialog)
 {
     ui->setupUi(this);
     setFixedSize(size());
@@ -130,12 +130,12 @@ prefsDialog::prefsDialog(QWidget *parent) :
     ui->restartButton->hide();
 }
 
-prefsDialog::~prefsDialog()
+PrefsDialog::~PrefsDialog()
 {
     delete ui;
 }
 
-void prefsDialog::on_buttonBox_accepted()
+void PrefsDialog::on_buttonBox_accepted()
 {
     //Folders tab
     SETTINGS->setOpenFolder(ui->openFolderLineEdit->text());
@@ -174,7 +174,7 @@ void prefsDialog::on_buttonBox_accepted()
     set_user_language();
 }
 
-void prefsDialog::on_buttonBox_rejected()
+void PrefsDialog::on_buttonBox_rejected()
 {
     // Setup Default settings
     QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare";
@@ -184,7 +184,7 @@ void prefsDialog::on_buttonBox_rejected()
     }
 }
 
-void prefsDialog::on_openFolderButton_clicked()
+void PrefsDialog::on_openFolderButton_clicked()
 {
     QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                  "/home",
@@ -193,7 +193,7 @@ void prefsDialog::on_openFolderButton_clicked()
     ui->openFolderLineEdit->setText(dir);
 }
 
-void prefsDialog::on_saveFolderButton_clicked()
+void PrefsDialog::on_saveFolderButton_clicked()
 {
     QString dir = QFileDialog::getExistingDirectory(this, tr("Save Directory"),
                                                  "/home",
@@ -202,45 +202,46 @@ void prefsDialog::on_saveFolderButton_clicked()
     ui->saveFolderLineEdit->setText(dir);
 }
 
-void prefsDialog::on_compressionSlider_sliderMoved(int position)
+void PrefsDialog::on_compressionSlider_sliderMoved(int position)
 {
     QString val = QString::number(position);
     ui->compressionValue->setText(val);
 }
 
-void prefsDialog::on_compressionSlider_valueChanged(int value)
+void PrefsDialog::on_compressionSlider_valueChanged(int value)
 {
     QString val = QString::number(value);
     ui->compressionValue->setText(val);
 }
 
-void prefsDialog::on_historySlider_sliderMoved(int position)
+void PrefsDialog::on_historySlider_sliderMoved(int position)
 {
     QString val = QString::number(position);
     ui->history_value->setText(val);
 }
 
-void prefsDialog::on_historySlider_valueChanged(int value)
+void PrefsDialog::on_historySlider_valueChanged(int value)
 {
     QString val = QString::number(value);
     ui->history_value->setText(val);
 }
 
-void prefsDialog::on_restartButton_clicked()
+void PrefsDialog::on_restartButton_clicked()
 {
     // Save language before we quit
     set_user_language();
 
-    qApp->quit();
+    // Use safe quit to allow saving/closing files before restarting
+    emit safeQuitApp();
     QProcess::startDetached(QCoreApplication::applicationFilePath());
 }
 
-void prefsDialog::on_comboBoxLanguage_currentIndexChanged()
+void PrefsDialog::on_comboBoxLanguage_currentIndexChanged()
 {
     ui->restartButton->show();
 }
 
-void prefsDialog::set_user_language()
+void PrefsDialog::set_user_language()
 {
     if(ui->comboBoxLanguage->currentIndex() == 0)
         SETTINGS->setUserLanguage("en");
@@ -266,7 +267,7 @@ void prefsDialog::set_user_language()
         SETTINGS->setUserLanguage("ru_RU");
 }
 
-void prefsDialog::addFlagIcons(int languages)
+void PrefsDialog::addFlagIcons(int languages)
 {
     QStringList files;
     files << "United-kingdom"

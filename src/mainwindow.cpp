@@ -1644,8 +1644,14 @@ void MainWindow::batchProcess_batchProgress(int index,int total)
 
 void MainWindow::on_actionPreferences_triggered()
 {
-    prefsDialog dialog(this);
-    dialog.exec();
+    prefsDialog = new PrefsDialog();
+    QObject::connect(prefsDialog, SIGNAL(safeQuitApp()), this, SLOT(onSafeQuitApp()));
+    prefsDialog->show();
+}
+
+void MainWindow::onSafeQuitApp()
+{
+    on_actionQuit_triggered();
 }
 
 void MainWindow::on_actionPlugins_triggered()

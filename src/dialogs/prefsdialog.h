@@ -21,16 +21,16 @@
 #include <QDialog>
 
 namespace Ui {
-class prefsDialog;
+class PrefsDialog;
 }
 
-class prefsDialog : public QDialog
+class PrefsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit prefsDialog(QWidget *parent = nullptr);
-    ~prefsDialog();
+    explicit PrefsDialog(QWidget *parent = nullptr);
+    ~PrefsDialog();
 
 private slots:
     void on_buttonBox_accepted();
@@ -46,8 +46,11 @@ private slots:
     void on_historySlider_valueChanged(int value);
     void addFlagIcons(int languages);
 
+signals:
+    void safeQuitApp();
+
 private:
-    Ui::prefsDialog *ui;
+    Ui::PrefsDialog *ui;
     QString flagPath;
 };
 
