@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Radius:</string>
+    <string>Size:</string>
    </property>
   </widget>
   <widget class="QSlider" name="radiusSlider">
