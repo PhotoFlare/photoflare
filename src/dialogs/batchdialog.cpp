@@ -148,20 +148,26 @@ void batchDialog::done(int r)
 
 void batchDialog::on_listWidget_2_doubleClicked(const QModelIndex &index)
 {
-    QListWidgetItem *item = ui->listWidget_2->item(index.row());
-    ui->listWidget_3->addItem(item->text());
-    d->filterList.append(item->text());
-    ui->listWidget_2->removeItemWidget(item);
-    delete item;
+    if(ui->listWidget_2->item(index.row()))
+    {
+        QListWidgetItem *item = ui->listWidget_2->item(index.row());
+        ui->listWidget_3->addItem(item->text());
+        d->filterList.append(item->text());
+        ui->listWidget_2->removeItemWidget(item);
+        delete item;
+    }
 }
 
 void batchDialog::on_listWidget_3_doubleClicked(const QModelIndex &index)
 {
-    QListWidgetItem *item = ui->listWidget_3->item(index.row());
-    ui->listWidget_2->addItem(item->text());
-    ui->listWidget_3->removeItemWidget(item);
-    d->filterList.removeOne(item->text());
-    delete item;
+    if(ui->listWidget_3->item(index.row()))
+    {
+        QListWidgetItem *item = ui->listWidget_3->item(index.row());
+        ui->listWidget_2->addItem(item->text());
+        ui->listWidget_3->removeItemWidget(item);
+        d->filterList.removeOne(item->text());
+        delete item;
+    }
 }
 
 QStringList batchDialog::fileList()
