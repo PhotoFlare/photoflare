@@ -56,26 +56,6 @@ public:
 
     QImage toQtImage(Magick::Image *image)
     {
-        int imagecols = image->columns();
-        int imagerows = image->rows();
-
-        QImage newQImage = QImage(imagecols, imagerows, QImage::Format_RGB32);
-        const Magick::PixelPacket *pixels;
-        Magick::ColorRGB rgb;
-        for (int y = 0; y < newQImage.height(); y++)
-        {
-            pixels = image->getConstPixels(0, y, newQImage.width(), 1);
-            for (int x = 0; x < newQImage.width(); x++)
-            {
-                rgb = (*(pixels + x));
-                newQImage.setPixel(x, y, QColor((int)(255 * rgb.red()), (int)(255 * rgb.green()), (int)(255 * rgb.blue())).rgb());
-            }
-        }
-        return newQImage;
-    }
-
-    QImage toQtImageTransparent(Magick::Image *image)
-    {
         Magick::Blob blob;
         image->write(&blob);
 
@@ -678,7 +658,7 @@ QImage FilterManager::floodFill(const QImage &image, const QPoint &pos, const QC
     if(changeStartColor)
         magickImage->opaque(Magick::ColorRGB(0.01f, 0, 0), Magick::ColorRGB(0, 0, 0));
 
-    return d->toQtImageTransparent(magickImage.data());
+    return d->toQtImage(magickImage.data());
 }
 
 QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color)
@@ -771,7 +751,7 @@ QImage FilterManager::floodFillOpacity(const QImage &image, const QColor &color,
             }
         }
     }
-    return d->toQtImageTransparent(magickImage.data());
+    return d->toQtImage(magickImage.data());
 }
 
 FilterManager::FilterManager()
