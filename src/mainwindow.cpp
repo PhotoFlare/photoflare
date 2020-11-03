@@ -233,6 +233,9 @@ void MainWindow::connectTools()
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, LINE_TOOL, &LineTool::setPrimaryColor);
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, LINE_TOOL, &LineTool::setSecondaryColor);
 
+    ERASER_TOOL->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
+    QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, ERASER_TOOL, &EraserTool::setSecondaryColor);
+
     // Connect PointerTool signals
     QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
     QObject::connect(MOUSE_POINTER, SIGNAL(save()), this, SLOT(on_actionSave_triggered()));
