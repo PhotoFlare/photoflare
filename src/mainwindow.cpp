@@ -428,6 +428,7 @@ bool MainWindow::fileTypeSupported(QList<QByteArray> formats, QString ext)
         if(formats[i] == ext)
         {
             status = true;
+            break;
         }
     }
     return status;
@@ -440,7 +441,8 @@ QString MainWindow::prepareFile(const QString& fileName)
     QImageReader reader(fileName);
     reader.setDecideFormatFromContent(true); // Autodetect file type without depending on extension
 
-    if(info.completeSuffix().toLower() != "jpg" && info.completeSuffix() != reader.format() && fileTypeSupported(reader.supportedImageFormats(),reader.format()))
+    // Show warning if file type is supported but extension does not match
+    if(info.completeSuffix().toLower() != "jpg" && info.completeSuffix().toLower() != reader.format() && fileTypeSupported(reader.supportedImageFormats(),reader.format()))
     {
         int ret = QMessageBox::warning(this,
                     tr("Incorrect file extension detected"),
