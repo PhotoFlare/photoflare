@@ -131,10 +131,21 @@ void batchDialog::done(int r)
             QDialog::done(r);
             return;
         }
-        else
+        else if(ui->listWidget->count() == 0)
         {
             QMessageBox msgBox;
-            msgBox.setText(tr("Please add files to the batch file list and set output folder."));
+            msgBox.setIcon(QMessageBox::Warning);
+            msgBox.setWindowTitle(tr("Batch files required"));
+            msgBox.setText(tr("Please add files to the batch list."));
+            msgBox.exec();
+            return;
+        }
+        else if(ui->outputDir->text().size() == 0)
+        {
+            QMessageBox msgBox;
+            msgBox.setIcon(QMessageBox::Warning);
+            msgBox.setWindowTitle(tr("Output directory required"));
+            msgBox.setText(tr("Please set the output folder."));
             msgBox.exec();
             return;
         }
