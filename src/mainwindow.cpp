@@ -387,22 +387,24 @@ void MainWindow::on_actionNew_triggered()
 void MainWindow::on_actionOpen_triggered()
 {
     const QStringList& fileName = QFileDialog::getOpenFileNames(this, tr("Open File"),
-    SETTINGS->getOpenFolder(), tr("Image Files (*.png *.jpg *.jpeg *.gif *.tif *.tiff *.bmp *.ico);;"
-                                "PNG(*.png);;"
-                                "JPEG(*.jpg *.jpeg);;"
-                                "GIF(*.gif);;"
-                                "TIFF(*.tif *.tiff);;"
-                                "BMP(*.bmp);;"
-                                "ICO(*.ico);;"
-                                "All Files (*)"));
+    SETTINGS->getOpenFolder(),
+    tr("Image Files")+"(*.png *.PNG *.jpg *.jpeg *.JPG *.JPEG *.gif *.GIF *.tif *.tiff *.TIF *.TIFF *.bmp *.BMP *.ico *.ICO);;"
+    "PNG(*.png *.PNG);;"
+    "JPEG(*.jpg *.jpeg *.JPG *.JPEG);;"
+    "GIF(*.gif *.GIF);;"
+    "TIFF(*.tif *.tiff *.TIF *.TIFF);;"
+    "BMP(*.bmp *.BMP);;"
+    "ICO(*.ico *.ICO);;"
+    +tr("All Files")+"(*)");
 /*
-                                "ARW (*.arw *.srf *.sr2);;"
-                                "BAY (*.bay);;"
-                                "CR2 (*.crw *.cr2);;"
-                                "DCS (*.dcs *.dcr *.drf *.k25 *.kdc);;"
-                                "MOS (*.mos);;"
-                                "NEF (*.nef *.nrw);;"
-                                "RAW (*.raw *.rw2)"));
+ *  Previously supported RAW formats
+    "ARW (*.arw *.srf *.sr2);;"
+    "BAY (*.bay);;"
+    "CR2 (*.crw *.cr2);;"
+    "DCS (*.dcs *.dcr *.drf *.k25 *.kdc);;"
+    "MOS (*.mos);;"
+    "NEF (*.nef *.nrw);;"
+    "RAW (*.raw *.rw2)"));
 */
 
     if(fileName.length()>0)
