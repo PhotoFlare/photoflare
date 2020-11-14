@@ -234,14 +234,14 @@ unix:!macx {
     }
     DEFINES += APP_PREFIX=\\\"$$PREFIX\\\"
 
-    target.path = $${BASEDIR}$${PREFIX}/bin/
-    qmfile.path = $${BASEDIR}$${PREFIX}/share/$${TARGET}/languages/
+    target.path = $${PREFIX}/bin/
+    qmfile.path = $${PREFIX}/share/$${TARGET}/languages/
     qmfile.files = $${TRANSLATIONS_FILES}
-    icon.path = $${BASEDIR}$${PREFIX}/share/icons/
+    icon.path = $${PREFIX}/share/icons/
     icon.files = installers/deb/DEBIAN/usr/share/icons/*
-    pixmaps.path = $${BASEDIR}$${PREFIX}/share/pixmaps/
+    pixmaps.path = $${PREFIX}/share/pixmaps/
     pixmaps.files = installers/deb/DEBIAN/usr/share/icons/hicolor/48x48/apps/photoflare.png
-    desktopentry.path = $${BASEDIR}$${PREFIX}/share/applications
+    desktopentry.path = $${PREFIX}/share/applications
     desktopentry.files = installers/deb/DEBIAN/usr/share/applications/$${TARGET}.desktop
     manpage.path = $${PREFIX}/share/man/man1/
     manpage.files = photoflare.1
