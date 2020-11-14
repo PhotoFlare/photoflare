@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="12.8" version="16.9" Modules="professional" RootPath="." Language="en" Id="{5D06178B-435B-4E42-97DD-F876229286E7}">
-  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
-    <ROW Name="HiddenItems" Value="AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiXDiffComponent"/>
-  </COMPONENT>
+<DOCUMENT Type="Advanced Installer" CreateVersion="12.8" version="17.6" Modules="professional" RootPath="." Language="en" Id="{5D06178B-435B-4E42-97DD-F876229286E7}">
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_RUN_AS_ADMIN" Value="0"/>
@@ -12,10 +9,10 @@
     <ROW Property="ARPPRODUCTICON" Value="PhotoFlare_1.exe" Type="8"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://photoflare.io"/>
     <ROW Property="Manufacturer" Value="Photoflare.io"/>
-    <ROW Property="ProductCode" Value="1033:{72628A35-343C-4A6E-9AF4-0B28B4B1014F} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{9FA3EAF1-248A-45D3-A34E-9BC7BBF7EAD2} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Photoflare"/>
-    <ROW Property="ProductVersion" Value="1.6.4.0" Type="32" TargetFile="PhotoFlare.exe"/>
+    <ROW Property="ProductVersion" Value="1.6.6.0" Type="32" TargetFile="PhotoFlare.exe"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{5DFB1CEA-0740-4E8A-9CE9-D5A82084C960}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -35,6 +32,7 @@
     <ROW Directory="languages_1_Dir" Directory_Parent="APPDIR" DefaultDir="LANGUA~1|languages"/>
     <ROW Directory="platforms_Dir" Directory_Parent="APPDIR" DefaultDir="PLATFO~1|platforms"/>
     <ROW Directory="printsupport_Dir" Directory_Parent="APPDIR" DefaultDir="PRINTS~1|printsupport"/>
+    <ROW Directory="styles_Dir" Directory_Parent="APPDIR" DefaultDir="styles"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="APPDIR" ComponentId="{980F1E1B-B0D1-427B-94F5-5CA53CF77636}" Directory_="APPDIR" Attributes="0"/>
@@ -174,6 +172,7 @@
     <ROW Component="qwbmp.dll" ComponentId="{A4197EF2-79E3-4AD0-A06E-F0BBE967F9AB}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwbmp.dll"/>
     <ROW Component="qwebp.dll" ComponentId="{54D6EFC0-1C85-4500-B07F-7C9275EA1AAF}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwebp.dll"/>
     <ROW Component="qwindows.dll" ComponentId="{5121C9C1-4980-4305-B917-25EFB28C38B9}" Directory_="platforms_Dir" Attributes="256" KeyPath="qwindows.dll"/>
+    <ROW Component="qwindowsvistastyle.dll" ComponentId="{D42420C2-4E47-48AF-91E2-1AD6A2FB86C2}" Directory_="styles_Dir" Attributes="256" KeyPath="qwindowsvistastyle.dll"/>
     <ROW Component="vcomp140.dll" ComponentId="{6A51B338-3E59-4E74-A07B-641357DEFB27}" Directory_="APPDIR" Attributes="256" KeyPath="vcomp140.dll"/>
     <ROW Component="windowsprintersupport.dll" ComponentId="{6A66529A-34FC-49E4-AF59-9C2350BEDF76}" Directory_="printsupport_Dir" Attributes="256" KeyPath="windowsprintersupport.dll"/>
   </COMPONENT>
@@ -326,6 +325,8 @@
     <ROW File="zh_TW.qm" Component_="cs.qm" FileName="zh_TW.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\zh_TW.qm" SelfReg="false"/>
     <ROW File="pt_BR.qm" Component_="cs.qm" FileName="pt_BR.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\pt_BR.qm" SelfReg="false"/>
     <ROW File="pt_PT.qm" Component_="cs.qm" FileName="pt_PT.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\pt_PT.qm" SelfReg="false"/>
+    <ROW File="sv.qm" Component_="cs.qm" FileName="sv.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\sv.qm" SelfReg="false"/>
+    <ROW File="qwindowsvistastyle.dll" Component_="qwindowsvistastyle.dll" FileName="QWINDO~1.DLL|qwindowsvistastyle.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\styles\qwindowsvistastyle.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
     <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="1" Languages="en" InstallationType="4" UseLargeSchema="true" MsiPackageType="x64"/>
@@ -600,6 +601,7 @@
     <ROW Feature_="MainFeature" Component_="windowsprintersupport.dll"/>
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
     <ROW Feature_="MainFeature" Component_="cs.qm"/>
+    <ROW Feature_="MainFeature" Component_="qwindowsvistastyle.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="PhotoFlare_1.exe" SourcePath="PhotoFlare_Win_AIP\logo.ico" Index="0"/>
