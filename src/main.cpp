@@ -39,9 +39,10 @@ int main(int argc, char *argv[])
 
     if(!app.isRunning())
     {
-        app.setApplicationName(QObject::tr("photoflare"));
-        app.setApplicationVersion(QObject::tr("1.6.6"));
-        app.setOrganizationDomain(QObject::tr("photoflare.io"));
+        // App details
+        app.setApplicationName("photoflare");
+        app.setApplicationVersion("1.6.6");
+        app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings
         QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
@@ -127,6 +128,7 @@ int main(int argc, char *argv[])
         MainWindow w;
         w.show();
 
+        // Pass filenames to be opened
         if(argc > 1)
         {
             for (int i = 1; i < argc; ++i)
