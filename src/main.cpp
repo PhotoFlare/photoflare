@@ -108,6 +108,14 @@ int main(int argc, char *argv[])
             {
                 lang = "ru_RU";
             }
+            else if(sysLanguage == "Indonesian")
+            {
+                lang = "id";
+            }
+            else if(sysLanguage == "Spanish")
+            {
+                lang = "es";
+            }
             SETTINGS->setUserLanguage(lang);
         }
 
