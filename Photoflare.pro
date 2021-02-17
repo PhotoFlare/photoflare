@@ -195,17 +195,18 @@ include (external/qt-solutions/qtsingleapplication/qtsingleapplication.pri)
 
 INCLUDEPATH += external/qt-solutions/qtsingleapplication
 
-TRANSLATIONS = languages/en.ts\
-               languages/fr.ts\
-               languages/nl.ts\
-               languages/de.ts\
+TRANSLATIONS = languages/en.ts \
+               languages/fr.ts \
+               languages/nl.ts \
+               languages/de.ts \
                languages/zh_TW.ts \
                languages/cs.ts \
                languages/zh_CN.ts \
                languages/pt_PT.ts \
                languages/pt_BR.ts \
                languages/sv.ts \
-               languages/ru_RU.ts
+               languages/id.ts \
+               languages/es.ts
 
 # Generate translations in build
 TRANSLATIONS_FILES =

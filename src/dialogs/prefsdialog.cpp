@@ -96,7 +96,9 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
               << tr("Portuguese (PT)")
               << tr("Portuguese (BR)")
               << tr("Sweden")
-              << tr("Russian");
+              << tr("Russian")
+              << tr("Indonesian")
+              << tr("Spanish");
 
     ui->comboBoxLanguage->addItems(languages);
     addFlagIcons(languages.count());
@@ -280,7 +282,9 @@ void PrefsDialog::addFlagIcons(int languages)
           << "Portugal"
           << "Brazil"
           << "Sweden"
-          << "Russia";
+          << "Russia"
+          << "Indonesia"
+          << "Spain";
 
     for (int i = 0; i < languages; ++i) {
         ui->comboBoxLanguage->setItemIcon(i,QIcon(flagPath+files[i]+".png"));
