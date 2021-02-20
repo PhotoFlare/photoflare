@@ -388,13 +388,18 @@ void MainWindow::on_actionOpen_triggered()
 {
     const QStringList& fileName = QFileDialog::getOpenFileNames(this, tr("Open File"),
     SETTINGS->getOpenFolder(),
-    tr("Image Files")+"(*.png *.PNG *.jpg *.jpeg *.JPG *.JPEG *.gif *.GIF *.tif *.tiff *.TIF *.TIFF *.bmp *.BMP *.ico *.ICO);;"
+    tr("Image Files")+
+    "(*.png *.PNG *.jpg *.jpeg *.JPG *.JPEG *.gif *.GIF *.tif *.tiff *.TIF *.TIFF *.bmp *.BMP *.ico *.ICO *.pbm *.PBM *.pgm *.PGM *.ppm *.PPM);;"
+
     "PNG(*.png *.PNG);;"
     "JPEG(*.jpg *.jpeg *.JPG *.JPEG);;"
     "GIF(*.gif *.GIF);;"
     "TIFF(*.tif *.tiff *.TIF *.TIFF);;"
     "BMP(*.bmp *.BMP);;"
     "ICO(*.ico *.ICO);;"
+    "PBM(*.pbm *.PBM);;"
+    "PGM(*.pgm *.PGM);;"
+    "PPM(*.ppm *.PPM);;"
     +tr("All Files")+"(*)");
 /*
  *  Previously supported RAW formats
