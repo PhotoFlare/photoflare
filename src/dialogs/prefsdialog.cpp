@@ -128,6 +128,10 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
         ui->comboBoxLanguage->setCurrentIndex(9);
     else if(SETTINGS->getUserLanguage() == "ru_RU")
         ui->comboBoxLanguage->setCurrentIndex(10);
+    else if(SETTINGS->getUserLanguage() == "id")
+        ui->comboBoxLanguage->setCurrentIndex(11);
+    else if(SETTINGS->getUserLanguage() == "es")
+        ui->comboBoxLanguage->setCurrentIndex(12);
 
     ui->restartButton->hide();
 }
@@ -267,6 +271,10 @@ void PrefsDialog::set_user_language()
         SETTINGS->setUserLanguage("sv");
     else if(ui->comboBoxLanguage->currentIndex() == 10)
         SETTINGS->setUserLanguage("ru_RU");
+    else if(ui->comboBoxLanguage->currentIndex() == 11)
+        SETTINGS->setUserLanguage("id");
+    else if(ui->comboBoxLanguage->currentIndex() == 12)
+        SETTINGS->setUserLanguage("es");
 }
 
 void PrefsDialog::addFlagIcons(int languages)
