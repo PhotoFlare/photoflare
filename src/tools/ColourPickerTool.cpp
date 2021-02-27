@@ -26,6 +26,7 @@ class ColourPickerToolPrivate
 public:
     QPoint lastPos;
     Qt::MouseButton mouseButton;
+    QCursor cursor = QCursor(QPixmap (QString(":/cursors/assets/cursors/color-picker.png")));
 };
 
 ColourPickerTool::ColourPickerTool(QObject *parent)
@@ -39,8 +40,8 @@ ColourPickerTool::~ColourPickerTool()
 
 void ColourPickerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
-    Q_UNUSED(button);
-    d->lastPos = pos;
+    QPoint newPos(pos.x()-1,pos.y()+1);
+    d->lastPos = newPos;
 
     switch(button)
     {
@@ -57,5 +58,5 @@ void ColourPickerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
 QCursor ColourPickerTool::getCursor()
 {
-    return QCursor(QPixmap (QString(":/cursors/assets/cursors/color-picker.png")));
+    return d->cursor;
 }
