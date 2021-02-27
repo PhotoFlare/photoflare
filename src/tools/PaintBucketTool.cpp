@@ -26,13 +26,14 @@ PaintBucketTool::PaintBucketTool(QObject *parent)
 
 void PaintBucketTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
+    QPoint newPos(pos.x()-1,pos.y()+1);
     switch(button)
     {
         case Qt::LeftButton:
-            emit floodFillPrimaryColor(pos);
+            emit floodFillPrimaryColor(newPos);
             break;
         case Qt::RightButton:
-            emit floodFillSecondaryColor(pos);
+            emit floodFillSecondaryColor(newPos);
             break;
         default:
             break;
