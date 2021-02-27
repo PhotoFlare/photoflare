@@ -32,6 +32,7 @@ imagePropertiesDialog::imagePropertiesDialog(QWidget *parent) :
     ui->fileSizeLabel->setText("<Not saved>");
     ui->dateLabel->setText("<Not saved>");
     ui->colorCountLabel->setText("1");
+    ui->fileTypeLabel->setText("<Not saved>");
 }
 
 imagePropertiesDialog::~imagePropertiesDialog()
@@ -104,4 +105,9 @@ void imagePropertiesDialog::setMemorySize(qint64 memorySize)
 void imagePropertiesDialog::setTotalSize(qint64 totalSize)
 {
     ui->totalSizeLabel->setText(sizeToString(totalSize));
+}
+
+void imagePropertiesDialog::setFileType(QString filetype)
+{
+    ui->fileTypeLabel->setText(filetype);
 }

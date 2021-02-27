@@ -448,26 +448,7 @@ QString MainWindow::prepareFile(const QString& fileName)
     QImageReader reader(fileName);
     reader.setDecideFormatFromContent(true); // Autodetect file type without depending on extension
 
-    // Show warning if file type is supported but extension does not match
-    if(info.completeSuffix().toLower() != "jpg" && info.completeSuffix().toLower() != reader.format() && fileTypeSupported(reader.supportedImageFormats(),reader.format()))
-    {
-        int ret = QMessageBox::warning(this,
-                    tr("Incorrect file extension detected"),
-                    tr("Do you want to update this extension?"),
-                    QMessageBox::Save,QMessageBox::Cancel);
-
-        if(ret == QMessageBox::Save)
-        {
-          newFileName = info.path()+QDir::separator()+info.baseName()+"."+reader.format();
-          QDir dir (info.baseName());
-          dir.rename(fileName,newFileName);
-        }
-        else if(ret == QMessageBox::Cancel)
-        {
-            newFileName = "";
-        }
-    }
-    else if(!fileTypeSupported(reader.supportedImageFormats(),reader.format()))
+    if(!fileTypeSupported(reader.supportedImageFormats(),reader.format()))
     {
         newFileName = "";
         showError(tr("Please open a valid image file"));
@@ -720,6 +701,9 @@ void MainWindow::on_actionImage_properties_triggered()
             dialog.setFolder(fileInfo.path());
             dialog.setFileSize(fileInfo.size());
             dialog.setDate(QString("%1").arg(fileInfo.lastModified().toString("dd/MM/yyyy hh:mm")));
+
+            QImageReader reader(widget->imagePath());
+            dialog.setFileType(reader.format());
         }
         dialog.setColorCount(widget->image());
         dialog.setSize(widget->image().size());

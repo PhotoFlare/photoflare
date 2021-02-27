@@ -44,6 +44,8 @@ public:
 
     void setMemorySize(qint64);
     void setTotalSize(qint64);
+
+    void setFileType(QString);
 private:
     Ui::imagePropertiesDialog *ui;
 };
