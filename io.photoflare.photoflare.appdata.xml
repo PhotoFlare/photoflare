@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2020 Dylan Coakley <info@photoflare.io> -->
+<!-- Copyright 2021 Dylan Coakley <info@photoflare.io> -->
 <component type="desktop-application">
   <id>io.photoflare.photoflare</id>
   <metadata_license>FSFAP</metadata_license>
@@ -38,6 +38,18 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.6.7" date="2021-03-07">
+        <description>
+          <ul>
+            <li>Fixed Paint Bucket tool not selecting colour from correct cursor position.</li>
+            <li>Fixed Colour Picker tool not selecting colour from correct cursor position.</li>
+            <li>Fixed the prepare file type code causing issues opening files.</li>
+            <li>Added FileType detected to the Image Properties dialog.</li>
+            <li>Added Spanish and Indonesian translations.</li>
+            <li>Fixed Russian translation missing files from Windows portable version.</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.6.6" date="2020-11-14">
         <description>
           <ul>
@@ -66,21 +78,6 @@
           <ul>
             <li>Fixed crash with colour picker.</li>
             <li>Full Swedish translation.</li>
-          </ul>
-        </description>
-    </release>
-    <release version="1.6.4" date="2020-04-10">
-        <description>
-          <ul>
-            <li>Fixed Open File dialog showing all files filter by default instead of image files.</li>
-            <li>Fixed Preview and Cancel creating undo steps in transparent dialog.</li>
-            <li>Fixed certain strings not translatable.</li>
-            <li>Fixed transparent dialog not restoring previous tool.</li>
-            <li>Fixed transparent dialog incorrect window type preventing left click.</li>
-            <li>Fixed canvas dialog not defaulting to current image size.</li>
-            <li>Fixed pasted image visibility issue.</li>
-            <li>Added Portuguese translations (pt_PT, pt_BR).</li>
-            <li>Cleanup of code and unused imports.</li>
           </ul>
         </description>
     </release>
