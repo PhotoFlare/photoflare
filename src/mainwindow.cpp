@@ -1187,7 +1187,7 @@ void MainWindow::on_actionOpacity_triggered()
     {
         bool ok;
         double d = QInputDialog::getDouble(this, tr("Set Image Opacity"),
-                                               tr("Opacity:"), 0.5, 0.0, 1.0, 2, &ok);
+                                               tr("Opacity:"), 0.5, 0.0, 1.0, 2, &ok, Qt::WindowFlags(), 0.1);
         if(ok)
         {
             applyThreadedFilter("setOpacity", d);
