@@ -205,6 +205,7 @@ TRANSLATIONS = languages/en.ts \
                languages/pt_PT.ts \
                languages/pt_BR.ts \
                languages/sv.ts \
+               languages/ru_RU.ts \
                languages/id.ts \
                languages/es.ts
 
