@@ -16,7 +16,7 @@
     <ROW Property="ProductCode" Value="1033:{2058A0EF-92C1-4FDC-A9D1-3A660DC8184B} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="PhotoFlare"/>
-    <ROW Property="ProductVersion" Value="1.6.7.0" Type="32" TargetFile="PhotoFlare.exe"/>
+    <ROW Property="ProductVersion" Value="1.6.7.1" Type="32" TargetFile="PhotoFlare.exe"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{5DFB1CEA-0740-4E8A-9CE9-D5A82084C960}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
