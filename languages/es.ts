@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es" sourcelanguage="en">
+<TS version="2.1" language="es" sourcelanguage="en">
 <context>
     <name>BatchProgress</name>
     <message>
@@ -356,7 +356,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="371"/>
         <source>&amp;Tools</source>
-        <translation>Herramien&amp;Tas</translation>
+        <translation>Herramien&amp;tas</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="383"/>
@@ -1905,7 +1905,7 @@
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="78"/>
         <source> Community Edition</source>
-        <translation>Edición de Comunidad</translation>
+        <translation> Edición de Comunidad</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="79"/>
@@ -2341,12 +2341,12 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="198"/>
         <source>Output folder: </source>
-        <translation>Carpeta de salida:</translation>
+        <translation>Carpeta de salida: </translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="200"/>
         <source>Filters: </source>
-        <translation>Filtros:</translation>
+        <translation>Filtros: </translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="211"/>
