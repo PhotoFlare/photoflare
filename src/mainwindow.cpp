@@ -31,6 +31,7 @@
 #include <QTimer>
 #include <QImageReader>
 #include <QInputDialog>
+#include <QSysInfo>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -2394,8 +2395,18 @@ void MainWindow::on_actionBrightminus_triggered()
 void MainWindow::on_actionContrastplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
+
     if (widget)
-        applyThreadedFilterMP("contrastplus");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("contrastplus");
+        }
+        else
+        {
+            applyThreadedFilterMP("contrastplus");
+        }
+    }
 }
 
 void MainWindow::on_actionContrastminus_triggered()
