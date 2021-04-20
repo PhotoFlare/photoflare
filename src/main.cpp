@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("1.6.7.1");
+        app.setApplicationVersion("1.6.8");
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings

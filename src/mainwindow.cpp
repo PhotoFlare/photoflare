@@ -1234,7 +1234,16 @@ void MainWindow::on_actionDustReduction_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("dustreduction");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("dustreduction");
+        }
+        else
+        {
+            applyThreadedFilterMP("dustreduction");
+        }
+    }
 }
 
 void MainWindow::on_actionDespeckle_triggered()
@@ -1255,21 +1264,48 @@ void MainWindow::on_actionImpulse_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("impulseNoise");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("impulseNoise");
+        }
+        else
+        {
+            applyThreadedFilterMP("impulseNoise");
+        }
+    }
 }
 
 void MainWindow::on_actionLaplacian_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("laplacianNoise");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("laplacianNoise");
+        }
+        else
+        {
+            applyThreadedFilterMP("laplacianNoise");
+        }
+    }
 }
 
 void MainWindow::on_actionPoisson_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("poissonNoise");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("poissonNoise");
+        }
+        else
+        {
+            applyThreadedFilterMP("poissonNoise");
+        }
+    }
 }
 
 void MainWindow::on_actionGrayScale_triggered()
@@ -1325,7 +1361,16 @@ void MainWindow::on_actionOil_Paint_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-    applyThreadedFilterMP("oil");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("oil");
+        }
+        else
+        {
+            applyThreadedFilterMP("oil");
+        }
+    }
 }
 
 void MainWindow::on_actionCharcoal_Drawing_triggered()
@@ -2413,35 +2458,80 @@ void MainWindow::on_actionContrastminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        applyThreadedFilterMP("contrastminus");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("contrastminus");
+        }
+        else
+        {
+            applyThreadedFilterMP("contrastminus");
+        }
+    }
 }
 
 void MainWindow::on_actionSaturationplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        applyThreadedFilterMP("saturationplus");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("saturationplus");
+        }
+        else
+        {
+            applyThreadedFilterMP("saturationplus");
+        }
+    }
 }
 
 void MainWindow::on_actionSaturationminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        applyThreadedFilterMP("saturationminus");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("saturationminus");
+        }
+        else
+        {
+            applyThreadedFilterMP("saturationminus");
+        }
+    }
 }
 
 void MainWindow::on_actionGammaCorrectplus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        applyThreadedFilterMP("gammacorrectplus");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("gammacorrectplus");
+        }
+        else
+        {
+            applyThreadedFilterMP("gammacorrectplus");
+        }
+    }
 }
 
 void MainWindow::on_actionGammaCorrectminus_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        applyThreadedFilterMP("gammacorrectminus");
+    {
+        if(QSysInfo::productType() == "windows")
+        {
+            applyThreadedFilter("gammacorrectminus");
+        }
+        else
+        {
+            applyThreadedFilterMP("gammacorrectminus");
+        }
+    }
 }
 
 void MainWindow::on_actionGradient_triggered()
