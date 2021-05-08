@@ -248,7 +248,7 @@ void MainWindow::connectTools()
     QObject::connect(MOUSE_POINTER, SIGNAL(canvasSize()), this, SLOT(on_actionCanvas_Size_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(undo()), this, SLOT(on_actionUndo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(redo()), this, SLOT(on_actionRedo_triggered()));
-    QObject::connect(MOUSE_POINTER, SIGNAL(showhotspots()), this, SLOT(on_show_hotspots_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(showhotspots()), this, SLOT(onShowHotspotsTriggered()));
 
     // Setup signals for more Tools
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
@@ -257,7 +257,7 @@ void MainWindow::connectTools()
     QObject::connect(PAINT_BUCKET, SIGNAL(floodFillPrimaryColor(const QPoint&)), this, SLOT(onFloodFillPrimaryColor(const QPoint&)));
     QObject::connect(PAINT_BUCKET, SIGNAL(floodFillSecondaryColor(const QPoint&)), this, SLOT(onFloodFillSecondaryColor(const QPoint&)));
 
-    QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished()), this, SLOT(on_TextTool_finished()));
+    QObject::connect(TEXT_TOOL, SIGNAL(editTextFinished()), this, SLOT(onTextToolFinished()));
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));
 
     QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&,int,bool)), this, SLOT(onSelectPrimaryColor(const QPoint&,int,bool)));
@@ -314,7 +314,7 @@ void MainWindow::addSettingsWidgets()
 
 */
 
-void MainWindow::on_image_filtered(QImage image)
+void MainWindow::onImageFiltered(QImage image)
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
@@ -337,7 +337,7 @@ void MainWindow::applyThreadedFilter(QString filterName, double dV)
     worker->moveToThread(thread);
 
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
-    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(on_image_filtered(QImage)));
+    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(onImageFiltered(QImage)));
     thread->start();
 
     batchLbl->setText(tr("Working..."));
@@ -357,7 +357,7 @@ void MainWindow::applyThreadedFilterMP(QString filterName, double dV)
     worker->moveToThread(thread);
 
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
-    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(on_image_filtered(QImage)));
+    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(onImageFiltered(QImage)));
     thread->start();
 
     batchLbl->setText(tr("Working..."));
@@ -1051,7 +1051,7 @@ void MainWindow::onPreviewTransparent(QColor color, int tolerance)
         widget->setImageOriginal(FilterManager::instance()->floodFillOpacity(origImage, color, tolerance));
 }
 
-void MainWindow::on_TextTool_finished()
+void MainWindow::onTextToolFinished()
 {
     m_toolSelected = m_previousToolSelected;
     QTimer::singleShot(1000, this, SLOT(refreshTools()));
@@ -2401,7 +2401,7 @@ PaintWidget* MainWindow::getCurrentPaintWidget()
     return widget;
 }
 
-void MainWindow::on_show_hotspots_triggered()
+void MainWindow::onShowHotspotsTriggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)

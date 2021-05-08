@@ -58,7 +58,7 @@ public:
 
 public slots:
     void handleMessage(const QString& message);
-    void on_image_filtered(QImage image);
+    void onImageFiltered(QImage image);
 
 private slots:
     void setupWorkspace();
@@ -121,7 +121,7 @@ private slots:
     void onZoomChanged(const QString&);
     void onSubWindowActivated(QMdiSubWindow*);
     void onEditText(const QString&,const QFont&, const QColor&);
-    void on_TextTool_finished();
+    void onTextToolFinished();
     void onMultiWindowModeChanged(bool);
     void on_actionSwirl_triggered();
     void on_actionGrayScale_triggered();
@@ -207,7 +207,7 @@ private slots:
     void on_actionPlugins_triggered();
     void on_actionCheck_for_updates_triggered();
 
-    void on_show_hotspots_triggered();
+    void onShowHotspotsTriggered();
     void on_actionSelect_all_triggered();
     void on_actionColour_Threshold_triggered();
     void on_actionClearHistory_triggered();
