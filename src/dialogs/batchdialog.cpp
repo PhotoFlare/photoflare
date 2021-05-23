@@ -51,14 +51,14 @@ batchDialog::batchDialog(QWidget *parent) :
 
     QStringList sourceFormats;
     sourceFormats << tr("All formats");
-    sourceFormats << tr(".png");
-    sourceFormats << tr(".jpg");
-    sourceFormats << tr(".gif");
+    sourceFormats << ".png";
+    sourceFormats << ".jpg";
+    sourceFormats << ".gif";
 
     QStringList outputformats;
-    outputformats << tr(".png");
-    outputformats << tr(".jpg");
-    outputformats << tr(".bmp");
+    outputformats << ".png";
+    outputformats << ".jpg";
+    outputformats << ".gif";
 
     ui->sourceFormat->addItems(sourceFormats);
     ui->outFormat->addItems(outputformats);
@@ -436,7 +436,7 @@ void batchDialog::on_addFilesButton_clicked()
         {
             ui->listWidget->clear();
 
-            for(QString file : d->fileList)
+            for(const QString &file : qAsConst(d->fileList))
             {
                 addItemToFileListWidget(file);
             }
