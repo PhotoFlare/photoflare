@@ -408,11 +408,11 @@ void batchDialog::on_flipCheckBox_clicked(bool checked)
 
 char batchDialog::rotate() const
 {
-    if(ui->rotate90radioButton->isChecked())
+    if(ui->rotateCheckBox->isChecked() && ui->rotate90radioButton->isChecked())
         return Rotate90CW;
-    else if(ui->rotate90ccwRadioButton->isChecked())
+    else if(ui->rotateCheckBox->isChecked() && ui->rotate90ccwRadioButton->isChecked())
         return Rotate90CCW;
-    else if(ui->rotate180RadioButton->isChecked())
+    else if(ui->rotateCheckBox->isChecked() && ui->rotate180RadioButton->isChecked())
         return Rotate180;
     else
         return 0;
@@ -420,9 +420,9 @@ char batchDialog::rotate() const
 
 char batchDialog::flip() const
 {
-    if(ui->flipVerticalRadioButton)
+    if(ui->flipCheckBox->isChecked() && ui->flipVerticalRadioButton->isChecked())
         return FlipVertical;
-    else if(ui->flipHorizontalRadioButton)
+    else if(ui->flipCheckBox->isChecked() && ui->flipHorizontalRadioButton->isChecked())
         return FlipHorizontal;
     else
         return 0;
