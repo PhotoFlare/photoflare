@@ -213,6 +213,74 @@ void batchDialog::on_tabWidget_currentChanged(int index)
         ui->plainTextEdit->insertPlainText("\n");
         ui->plainTextEdit->insertPlainText(tr("Output folder: ") + d->outDir + "\n");
         ui->plainTextEdit->insertPlainText("\n");
+        if(ui->imageSizeCheckBox->isChecked())
+        {
+            ui->plainTextEdit->insertPlainText(tr("Image size: ")
+            + QString::number(ui->imageWvalue->value()) +" x "+ QString::number(ui->imageHvalue->value()) + "\n");
+            ui->plainTextEdit->insertPlainText("\n");
+        }
+        if(ui->canvasSizeCheckBox->isChecked())
+        {
+            ui->plainTextEdit->insertPlainText(tr("Canvas size: ")
+            + QString::number(ui->canvasWvalue->value()) +" x "+ QString::number(ui->canvasHvalue->value()) + "\n");
+            ui->plainTextEdit->insertPlainText("\n");
+        }
+        if(ui->brightnessSlider->value() != 0)
+        {
+            ui->plainTextEdit->insertPlainText(tr("Brightness adjustment: ")
+            + QString::number(ui->brightnessSlider->value()) + "\n");
+            ui->plainTextEdit->insertPlainText("\n");
+        }
+        if(ui->contrastSlider->value() != 0)
+        {
+            ui->plainTextEdit->insertPlainText(tr("Contrast adjustment: ")
+            + QString::number(ui->contrastSlider->value()) + "\n");
+            ui->plainTextEdit->insertPlainText("\n");
+        }
+        if(ui->saturationSlider->value() != 0)
+        {
+            ui->plainTextEdit->insertPlainText(tr("Saturation adjustment: ")
+            + QString::number(ui->saturationSlider->value()) + "\n");
+            ui->plainTextEdit->insertPlainText("\n");
+        }
+        if(ui->gammaSlider->value() != 100)
+        {
+            ui->plainTextEdit->insertPlainText(tr("Gamma adjustment: ")
+            + QString::number(ui->gammaSlider->value()) + "\n");
+            ui->plainTextEdit->insertPlainText("\n");
+        }
+        if(ui->rotateCheckBox->isChecked())
+        {
+            QString rotateAmount = "";
+            if(ui->rotate90radioButton->isChecked())
+            {
+                rotateAmount = ui->rotate90radioButton->text();
+            }
+            else if(ui->rotate90ccwRadioButton->isChecked())
+            {
+                rotateAmount = ui->rotate90ccwRadioButton->text();
+            }
+            else if(ui->rotate180RadioButton->isChecked())
+            {
+                rotateAmount = ui->rotate180RadioButton->text();
+            }
+            ui->plainTextEdit->insertPlainText(tr("Rotate: ") + rotateAmount + "\n");
+            ui->plainTextEdit->insertPlainText("\n");
+        }
+        if(ui->flipCheckBox->isChecked())
+        {
+            QString flipDirection = "";
+            if(ui->flipHorizontalRadioButton->isChecked())
+            {
+                flipDirection = ui->flipHorizontalRadioButton->text();
+            }
+            else
+            {
+                flipDirection = ui->flipVerticalRadioButton->text();
+            }
+            ui->plainTextEdit->insertPlainText(tr("Flip: ") + flipDirection + "\n");
+            ui->plainTextEdit->insertPlainText("\n");
+        }
         ui->plainTextEdit->insertPlainText(tr("Filters: ") + "\n");
         foreach (QString filter, d->filterList) {
             ui->plainTextEdit->insertPlainText("  " + filter + "\n");
