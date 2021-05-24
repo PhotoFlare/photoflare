@@ -1480,10 +1480,12 @@ void MainWindow::on_actionToolpalette_triggered()
     if(ui->dockWidget_palette->isVisible())
     {
         ui->dockWidget_palette->hide();
+        ui->dockWidgetSettings->hide();
     }
     else
     {
         ui->dockWidget_palette->show();
+        ui->dockWidgetSettings->show();
     }
 }
 
