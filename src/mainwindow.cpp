@@ -1118,6 +1118,7 @@ void MainWindow::on_actionSelect_all_triggered()
 void MainWindow::onSelectionChanged(bool visible)
 {
     ui->actionCrop->setEnabled(ui->actionShow_selection->isChecked() && visible);
+    ui->actionShow_selection->setChecked(visible);
 }
 
 /*
