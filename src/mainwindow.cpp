@@ -1864,14 +1864,17 @@ void MainWindow::onPickPrimaryColor(const QPoint& pos)
     {
         const QImage& image = widget->image();
         const QColor& color = image.pixel(pos);
-
-        if(transparentDialog)
+        // Make sure we are inside the image area
+        if(pos.x() >= 0 && pos.x() < image.width() && pos.y() >= 0 && pos.y() < image.height())
         {
-            transparentDialog->setColor(color.rgb());
-        }
-        else
-        {
-            ui->colorBoxWidget->setPrimaryColor(color);
+            if(transparentDialog)
+            {
+                transparentDialog->setColor(color.rgb());
+            }
+            else
+            {
+                ui->colorBoxWidget->setPrimaryColor(color);
+            }
         }
     }
 }
@@ -1883,8 +1886,11 @@ void MainWindow::onPickSecondaryColor(const QPoint& pos)
     {
         const QImage& image = widget->image();
         const QColor& color = image.pixel(pos);
-
-        ui->colorBoxWidget->setSecondaryColor(color);
+        // Make sure we are inside the image area
+        if(pos.x() >= 0 && pos.x() < image.width() && pos.y() >= 0 && pos.y() < image.height())
+        {
+            ui->colorBoxWidget->setSecondaryColor(color);
+        }
     }
 }
 

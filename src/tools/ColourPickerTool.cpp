@@ -40,7 +40,8 @@ ColourPickerTool::~ColourPickerTool()
 
 void ColourPickerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
-    QPoint newPos(pos.x()-1,pos.y()+1);
+    // Offset for colour picker icon
+    QPoint newPos(pos.x()-3,pos.y()+2);
     d->lastPos = newPos;
 
     switch(button)
