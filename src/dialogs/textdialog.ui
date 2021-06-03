@@ -46,6 +46,9 @@
      </property>
     </widget>
     <widget class="QLabel" name="label">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>70</x>
@@ -231,6 +234,12 @@
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid black</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="text">
       <string/>
