@@ -72,12 +72,15 @@
     <rect>
      <x>20</x>
      <y>40</y>
-     <width>111</width>
-     <height>21</height>
+     <width>50</width>
+     <height>27</height>
     </rect>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid rgb(120,120,120)</string>
    </property>
    <property name="text">
     <string/>

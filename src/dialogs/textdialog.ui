@@ -228,7 +228,7 @@
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>51</width>
+       <width>50</width>
        <height>27</height>
       </rect>
      </property>
@@ -236,7 +236,7 @@
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 1px solid black</string>
+      <string notr="true">border: 1px solid rgb(120,120,120)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
