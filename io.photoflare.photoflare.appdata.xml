@@ -38,6 +38,20 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.6.9" date="2021-06-26">
+        <description>
+          <ul>
+            <li>Fixed TextDialog colour widget missing border around selected colour.</li>
+            <li>Fixed being able to select a colour outside image bounds.</li>
+            <li>Fixed show selection not enabled after dragging new selection area.</li>
+            <li>Fixed the canvas area blending into MdiArea if same bg colour used.</li>
+            <li>Fixed hiding the toolpalette should also hide the brush options.</li>
+            <li>Fixed incomplete batch summary information.</li>
+            <li>Fixed batch rotation incorrectly triggered.</li>
+            <li>Fixed QMetaObject runtime messages being output to terminal.</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.6.8" date="2021-05-05">
         <description>
           <ul>
@@ -54,37 +68,6 @@
             <li>Added FileType detected to the Image Properties dialog.</li>
             <li>Added Spanish and Indonesian translations.</li>
             <li>Fixed Russian translation missing files from Windows portable version.</li>
-          </ul>
-        </description>
-    </release>
-    <release version="1.6.6" date="2020-11-14">
-        <description>
-          <ul>
-            <li>Fixed warning dialog showing on uppercase image formats.</li>
-            <li>Fixed selecting Batch filters with no filter selected causes a crash.</li>
-            <li>Fixed Eraser Tool setting should not be called Radius.</li>
-            <li>Fixed Eraser Tool not making use of your secondary colour.</li>
-            <li>Fixed issue with semi opaque images and filters.</li>
-            <li>Fixed crash if restarting the app via Preferences dialog and files are still open.</li>
-            <li>Fixed Undo history not being cleared after closing a file.</li>
-            <li>Fixed SprayCan Tool allowing 1 pixel as radius value.</li>
-            <li>Fixed Smudge Tool allowing 1 pixel as radius value.</li>
-            <li>Fixed file preview limits too small on NewDialog.</li>
-            <li>Fixed text size of zero being allowed in the TextDialog.</li>
-            <li>Fixed crash when using color threshold filter on smaller images.</li>
-            <li>Fixed crash when closing the TransparentDialog.</li>
-            <li>Russian comment and Generic name added to Desktop file.</li>
-            <li>Fixed loading of local translation files.</li>
-            <li>Fixed flood fill not working with transparent image formats.</li>
-            <li>Full Russian translation.</li>
-          </ul>
-        </description>
-    </release>
-    <release version="1.6.5" date="2020-06-01">
-        <description>
-          <ul>
-            <li>Fixed crash with colour picker.</li>
-            <li>Full Swedish translation.</li>
           </ul>
         </description>
     </release>
