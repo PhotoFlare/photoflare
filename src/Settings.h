@@ -31,6 +31,8 @@ public:
     ~Settings();
     static Settings* instance();
     void setDefaultSettings();
+    void setSDKEnabled(bool enabled);
+    bool isSDKEnabled() const;
     void setMaximizeWindow(bool maximize);
     bool isMaximizeWindow() const;
     void setMultiWindowMode(bool multiWindowMode);

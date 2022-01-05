@@ -27,6 +27,7 @@ class SettingsPrivate
 public:
     SettingsPrivate()
     {
+        sdkEnabled = settings.value("sdkEnabled").toBool();
         maximizeWindow = settings.value("MaximizeOnStartup").toBool();
         geometry = settings.value("CustomWindowGeometry").toRect();
         recentFiles = settings.value("RecentFiles").toList();
@@ -55,7 +56,7 @@ public:
         settings.setValue(propertyName, value);
         settings.sync();
     }
-
+    bool sdkEnabled;
     bool maximizeWindow;
     bool multiWindowMode;
     QRect geometry;
@@ -103,6 +104,7 @@ Settings *Settings::instance()
 
 void Settings::setDefaultSettings()
 {
+    d->setValue("sdkEnabled", true);
     d->setValue("MaximizeOnStartup", false);
     d->setValue("OpenFolder", "");
     d->setValue("RecentFiles", "");
@@ -338,4 +340,14 @@ void Settings::setMemParamsEnabled(bool enabled)
 bool Settings::getMemParamsEnabled() const
 {
     return d->memDialogParams;
+}
+
+void Settings::setSDKEnabled(bool enabled)
+{
+    d->sdkEnabled = enabled;
+}
+
+bool Settings::isSDKEnabled() const
+{
+    return d->sdkEnabled;
 }

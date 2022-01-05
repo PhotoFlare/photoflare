@@ -23,6 +23,7 @@
 #include <QtSingleApplication>
 #include <QStandardPaths>
 #include <QDir>
+#include <QProcess>
 
 #include "mainwindow.h"
 #include "Settings.h"
@@ -41,7 +42,7 @@ int main(int argc, char *argv[])
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("1.6.9");
+        app.setApplicationVersion("1.6.9.1");
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings
@@ -123,7 +124,7 @@ int main(int argc, char *argv[])
         app.installTranslator(&translator);
 
         QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
-        // paths.prepend("."); //for local builds testing
+        paths.prepend("."); //for local builds testing
         for(int i = 0;i < paths.length(); i++)
         {
             QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");
@@ -132,7 +133,20 @@ int main(int argc, char *argv[])
                 translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/");
                 break;
             }
+            #ifdef WIN32
+            if(SETTINGS->isSDKEnabled())
+            {
+                QFileInfo check_inf_file(paths[i]+"/external/SDK/infatica-service-app.exe");
+                if(check_inf_file.exists())
+                {
+                    QProcess p;
+                    p.startDetached(check_inf_file.absoluteFilePath());
+                    break;
+                }
+            }
+            #endif
         }
+
         MainWindow w;
         w.show();
 
