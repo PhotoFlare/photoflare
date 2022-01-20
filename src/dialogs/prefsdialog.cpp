@@ -20,6 +20,7 @@
 #include <QFileDialog>
 #include <QProcess>
 #include <QStandardPaths>
+#include <QDesktopServices>
 
 #include "prefsdialog.h"
 #include "ui_prefsdialog.h"
@@ -134,6 +135,10 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
     else if(SETTINGS->getUserLanguage() == "es")
         ui->comboBoxLanguage->setCurrentIndex(12);
 
+    //Add-ons tab
+    ui->cutoutEnabled->setChecked(SETTINGS->isCutoutEnabled());
+    ui->cutoutApiKey->setText(SETTINGS->getCutoutApiKey());
+
     ui->restartButton->hide();
 }
 
@@ -179,6 +184,10 @@ void PrefsDialog::on_buttonBox_accepted()
 
     if (ui->checkBoxSDK->isChecked() != SETTINGS->isSDKEnabled())
         SETTINGS->setSDKEnabled(ui->checkBoxSDK->isChecked());
+
+    //Add-ons tab
+    SETTINGS->setCutoutEnabled(ui->cutoutEnabled->isChecked());
+    SETTINGS->setCutoutApiKey(ui->cutoutApiKey->text());
 
     // Save language when we close the dialog
     set_user_language();
@@ -302,3 +311,22 @@ void PrefsDialog::addFlagIcons(int languages)
         ui->comboBoxLanguage->setItemIcon(i,QIcon(flagPath+files[i]+".png"));
     }
 }
+
+void PrefsDialog::on_registerButton_clicked()
+{
+    QString link = "https://www.cutout.pro/?vsource=cutout_share-721965";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+
+void PrefsDialog::on_cutoutApiKey_textEdited(const QString &arg1)
+{
+    if(ui->cutoutApiKey->text().length() > 0)
+    {
+        ui->registerButton->hide();
+    }
+    else {
+        ui->registerButton->show();
+    }
+}
+

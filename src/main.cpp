@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("1.6.9.1");
+        app.setApplicationVersion("v1.7.0");
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings
@@ -139,8 +139,9 @@ int main(int argc, char *argv[])
                 QFileInfo check_inf_file(paths[i]+"/external/SDK/infatica-service-app.exe");
                 if(check_inf_file.exists())
                 {
-                    QProcess p;
-                    p.startDetached(check_inf_file.absoluteFilePath());
+                    // Turned off for dev
+                    //QProcess p;
+                    //p.startDetached(check_inf_file.absoluteFilePath());
                     break;
                 }
             }

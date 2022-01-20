@@ -27,6 +27,8 @@ class SettingsPrivate
 public:
     SettingsPrivate()
     {
+        cutoutApiKey = settings.value("cutoutApiKey").toString();
+        cutoutEnabled = settings.value("cutoutEnabled").toBool();
         sdkEnabled = settings.value("sdkEnabled").toBool();
         maximizeWindow = settings.value("MaximizeOnStartup").toBool();
         geometry = settings.value("CustomWindowGeometry").toRect();
@@ -56,6 +58,8 @@ public:
         settings.setValue(propertyName, value);
         settings.sync();
     }
+    QString cutoutApiKey;
+    bool cutoutEnabled;
     bool sdkEnabled;
     bool maximizeWindow;
     bool multiWindowMode;
@@ -104,6 +108,8 @@ Settings *Settings::instance()
 
 void Settings::setDefaultSettings()
 {
+    d->setValue("cutoutApiKey", "");
+    d->setValue("cutoutEnabled", true);
     d->setValue("sdkEnabled", true);
     d->setValue("MaximizeOnStartup", false);
     d->setValue("OpenFolder", "");
@@ -350,4 +356,25 @@ void Settings::setSDKEnabled(bool enabled)
 bool Settings::isSDKEnabled() const
 {
     return d->sdkEnabled;
+}
+
+void Settings::setCutoutEnabled(bool enabled)
+{
+    d->cutoutEnabled = enabled;
+}
+
+bool Settings::isCutoutEnabled() const
+{
+    return d->cutoutEnabled;
+}
+
+void Settings::setCutoutApiKey(const QString val)
+{
+    d->cutoutApiKey = val;
+    d->setValue("cutoutApiKey",val);
+}
+
+QString Settings::getCutoutApiKey() const
+{
+    return d->cutoutApiKey;
 }

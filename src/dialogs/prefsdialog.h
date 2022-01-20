@@ -46,6 +46,10 @@ private slots:
     void on_historySlider_valueChanged(int value);
     void addFlagIcons(int languages);
 
+    void on_registerButton_clicked();
+
+    void on_cutoutApiKey_textEdited(const QString &arg1);
+
 signals:
     void safeQuitApp();
 
