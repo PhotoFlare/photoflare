@@ -29,7 +29,6 @@ public:
     {
         cutoutApiKey = settings.value("cutoutApiKey").toString();
         cutoutEnabled = settings.value("cutoutEnabled").toBool();
-        sdkEnabled = settings.value("sdkEnabled").toBool();
         maximizeWindow = settings.value("MaximizeOnStartup").toBool();
         geometry = settings.value("CustomWindowGeometry").toRect();
         recentFiles = settings.value("RecentFiles").toList();
@@ -60,7 +59,6 @@ public:
     }
     QString cutoutApiKey;
     bool cutoutEnabled;
-    bool sdkEnabled;
     bool maximizeWindow;
     bool multiWindowMode;
     QRect geometry;
@@ -110,7 +108,6 @@ void Settings::setDefaultSettings()
 {
     d->setValue("cutoutApiKey", "");
     d->setValue("cutoutEnabled", true);
-    d->setValue("sdkEnabled", true);
     d->setValue("MaximizeOnStartup", false);
     d->setValue("OpenFolder", "");
     d->setValue("RecentFiles", "");
@@ -346,16 +343,6 @@ void Settings::setMemParamsEnabled(bool enabled)
 bool Settings::getMemParamsEnabled() const
 {
     return d->memDialogParams;
-}
-
-void Settings::setSDKEnabled(bool enabled)
-{
-    d->sdkEnabled = enabled;
-}
-
-bool Settings::isSDKEnabled() const
-{
-    return d->sdkEnabled;
 }
 
 void Settings::setCutoutEnabled(bool enabled)

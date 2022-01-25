@@ -133,19 +133,6 @@ int main(int argc, char *argv[])
                 translator.load(SETTINGS->getUserLanguage()+".qm", paths[i]+"/languages/");
                 break;
             }
-            #ifdef WIN32
-            if(SETTINGS->isSDKEnabled())
-            {
-                QFileInfo check_inf_file(paths[i]+"/external/SDK/infatica-service-app.exe");
-                if(check_inf_file.exists())
-                {
-                    // Turned off for dev
-                    //QProcess p;
-                    //p.startDetached(check_inf_file.absoluteFilePath());
-                    break;
-                }
-            }
-            #endif
         }
 
         MainWindow w;

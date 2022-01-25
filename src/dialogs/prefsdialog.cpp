@@ -104,7 +104,6 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
     ui->comboBoxLanguage->addItems(languages);
     addFlagIcons(languages.count());
 
-    ui->checkBoxSDK->setChecked(SETTINGS->isSDKEnabled());
     ui->checkBoxMaximize->setChecked(SETTINGS->isMaximizeWindow());
     ui->checkBox->setChecked(SETTINGS->isMultiWindowMode());
 
@@ -181,9 +180,6 @@ void PrefsDialog::on_buttonBox_accepted()
 
     if (ui->checkBox->isChecked() != SETTINGS->isMultiWindowMode())
         SETTINGS->setMultiWindowMode(ui->checkBox->isChecked());
-
-    if (ui->checkBoxSDK->isChecked() != SETTINGS->isSDKEnabled())
-        SETTINGS->setSDKEnabled(ui->checkBoxSDK->isChecked());
 
     //Add-ons tab
     SETTINGS->setCutoutEnabled(ui->cutoutEnabled->isChecked());
