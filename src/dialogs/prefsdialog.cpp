@@ -21,6 +21,12 @@
 #include <QProcess>
 #include <QStandardPaths>
 #include <QDesktopServices>
+#include <QNetworkAccessManager>
+#include <QUrl>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 #include "prefsdialog.h"
 #include "ui_prefsdialog.h"
@@ -139,11 +145,45 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
     ui->cutoutApiKey->setText(SETTINGS->getCutoutApiKey());
 
     ui->restartButton->hide();
+
+    getCutoutProCredits();
 }
 
 PrefsDialog::~PrefsDialog()
 {
     delete ui;
+}
+
+void PrefsDialog::getCutoutProCredits()
+{
+    if(SETTINGS->isCutoutEnabled() && SETTINGS->getCutoutApiKey().length() > 0)
+    {
+        QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+        connect(manager, SIGNAL(finished(QNetworkReply*)),
+                this, SLOT(replyFinished(QNetworkReply*)));
+
+        QNetworkRequest req(QUrl("https://www.cutout.pro/api/v1/mySubscription"));
+        req.setHeader( QNetworkRequest::ContentTypeHeader, "application/json");
+        req.setRawHeader("APIKEY", SETTINGS->getCutoutApiKey().toLocal8Bit());
+
+        manager->get(req);
+    }
+}
+
+void PrefsDialog::replyFinished(QNetworkReply* reply)
+{
+    QByteArray result = reply->readAll();
+    QJsonDocument jsonResponse = QJsonDocument::fromJson(result);
+    QJsonObject obj = jsonResponse.object();
+    QJsonObject finalObject = obj["data"].toObject();
+
+    double value = finalObject["imageBalance"].toDouble();
+    QString str = QString::number(value);
+    if(str.length() > 0)
+    {
+        ui->cutoutCredits->setText(str);
+    }
+    emit finished();
 }
 
 void PrefsDialog::on_buttonBox_accepted()

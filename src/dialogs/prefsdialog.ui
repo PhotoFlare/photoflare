@@ -570,6 +570,32 @@
       <string>Register</string>
      </property>
     </widget>
+    <widget class="QLabel" name="cutoutCreditsLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Credits Balance:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cutoutCredits">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>120</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>_______</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

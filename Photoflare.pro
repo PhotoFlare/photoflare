@@ -31,7 +31,7 @@ linux|hurd {
     INCLUDEPATH += /usr/include/GraphicsMagick
     LIBS += -lGraphicsMagick++
     QMAKE_CXXFLAGS += -fopenmp
-    LIBS += -fopenmp
+    LIBS += -fopenmp -lssl -lcrypto
 }
 
 # Project settings for Mac OS. Adjust the paths as needed on your system.
