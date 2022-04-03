@@ -21,6 +21,7 @@
 #include <QMainWindow>
 #include <QMdiArea>
 #include <QLabel>
+#include <QNetworkReply>
 
 #include "dialogs/batchdialog.h"
 
@@ -221,6 +222,12 @@ private slots:
     void getPrevZoomFromScale(QString scaletext);
 
     void onSafeQuitApp();
+
+    void ctRemoveBackground();
+    void ctRemoveBackgroundReplyFinished(QNetworkReply* reply);
+
+signals:
+        void finished_ct_remove_bg();
 
 protected:
     void closeEvent(QCloseEvent *event);

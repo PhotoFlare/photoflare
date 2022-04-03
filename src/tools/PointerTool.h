@@ -48,6 +48,7 @@ public slots:
     void onPaste();
     void onUndo();
     void onRedo();
+    void onCtRemoveBackground();
 
 signals:
     void crop(const QRect&);
@@ -61,6 +62,7 @@ signals:
     void undo();
     void redo();
     void showhotspots();
+    void ct_removebackground();
 
 private:
     PointerToolPrivate *d;

@@ -33,6 +33,14 @@
 #include <QInputDialog>
 #include <QSysInfo>
 
+#include <QNetworkAccessManager>
+#include <QUrl>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QHttpPart>
+
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
 #include "./tools/ColourPickerTool.h"
@@ -249,6 +257,7 @@ void MainWindow::connectTools()
     QObject::connect(MOUSE_POINTER, SIGNAL(undo()), this, SLOT(on_actionUndo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(redo()), this, SLOT(on_actionRedo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(showhotspots()), this, SLOT(onShowHotspotsTriggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(ct_removebackground()), this, SLOT(ctRemoveBackground()));
 
     // Setup signals for more Tools
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
@@ -2751,4 +2760,41 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionTransparency_mask->setEnabled(false);
         ui->actionValidate->setEnabled(false);
     }
+}
+
+void MainWindow::ctRemoveBackground()
+{
+    if(SETTINGS->isCutoutEnabled() && SETTINGS->getCutoutApiKey().length() > 0)
+    {
+        QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+
+        connect(manager, SIGNAL(finished_ct_remove_bg(QNetworkReply*)),
+                this, SLOT(ctRemoveBackgroundReplyFinished(QNetworkReply*)));
+
+        QNetworkRequest req(QUrl("https://www.cutout.pro/api/v1/matting?mattingType=6"));
+        req.setHeader( QNetworkRequest::ContentTypeHeader, QVariant("image/*"));
+        req.setRawHeader("APIKEY", SETTINGS->getCutoutApiKey().toLocal8Bit());
+
+        PaintWidget *widget = getCurrentPaintWidget();
+        QFile file(widget->imagePath());
+        QByteArray bits = file.readAll();
+        QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+        QHttpPart imageHttpPart;
+        imageHttpPart.setBody(bits);
+        multiPart->append(imageHttpPart);
+
+        manager->post(req, multiPart);
+    }
+}
+
+void MainWindow::ctRemoveBackgroundReplyFinished(QNetworkReply* reply)
+{
+    QByteArray result = reply->readAll();
+    QJsonDocument jsonResponse = QJsonDocument::fromJson(result);
+    QJsonObject obj = jsonResponse.object();
+    QJsonObject finalObject = obj["data"].toObject();
+
+    qDebug() << finalObject;
+
+    emit finished_ct_remove_bg();
 }
