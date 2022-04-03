@@ -7,7 +7,7 @@
 
 Photoflare is a cross-platform image editor with an aim to balance between powerful features and a very friendly graphical user interface. It suits a wide variety of different tasks and users who value a more nimble workflow. Features include basic image editing capabilities, paint brushes, image filters, colour adjustments and more advanced features such as Batch image processing.
 
-<img src="https://photoflare.io/wp-content/uploads/2018/03/CrossPlatform2.png">
+<img src="https://photoflare.io/wp-content/uploads/2022/03/crossplatform.png">
 
 ## Documentation
 Information on current features and how to use the application will be 
