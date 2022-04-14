@@ -58,11 +58,6 @@ public:
         q->setSceneRect(image.rect());
         canvas = addPixmap(QPixmap::fromImage(image));
         q->setStyleSheet("background-color: rgb(160, 160, 160);");
-
-        // Canvas drop shadow to separate from MdiArea colour
-        QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
-        effect->setBlurRadius(15);
-        canvas->setGraphicsEffect(effect);
     }
 
     void updateImageCanvas()
