@@ -903,6 +903,21 @@ void MainWindow::on_actionRotate_CW_triggered()
     applyThreadedFilter("rotateCW");
 }
 
+void MainWindow::on_actionFree_Rotate_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        bool ok;
+        double d = QInputDialog::getDouble(this, tr("Set Rotate Degrees"),
+                                               tr("Degrees:"), 1.00, 0.0, 360.00, 0, &ok, Qt::WindowFlags(), 1.0);
+        if(ok)
+        {
+            applyThreadedFilter("rotate", d);
+        }
+    }
+}
+
 void MainWindow::on_actionImage_Size_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -2798,3 +2813,4 @@ void MainWindow::ctRemoveBackgroundReplyFinished(QNetworkReply* reply)
 
     emit finished_ct_remove_bg();
 }
+

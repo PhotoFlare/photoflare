@@ -542,6 +542,11 @@ QImage FilterManager::rotateCW(const QImage &image)
     return image.transformed(QMatrix().rotate(90.0));
 }
 
+QImage FilterManager::rotate(const QImage &image, double degrees)
+{
+    return image.transformed(QMatrix().rotate(degrees));
+}
+
 QImage FilterManager::setBrightness(const QImage &image, int brightness)
 {
     Magick::Image *magickImage = d->fromQtImage(image);

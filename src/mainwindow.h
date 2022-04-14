@@ -226,6 +226,8 @@ private slots:
     void ctRemoveBackground();
     void ctRemoveBackgroundReplyFinished(QNetworkReply* reply);
 
+    void on_actionFree_Rotate_triggered();
+
 signals:
         void finished_ct_remove_bg();
 

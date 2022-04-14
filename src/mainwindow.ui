@@ -82,7 +82,7 @@ QScrollBar::handle {
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -171,6 +171,7 @@ QScrollBar::handle {
      <addaction name="separator"/>
      <addaction name="actionRotate_CCW"/>
      <addaction name="actionRotate_CW"/>
+     <addaction name="actionFree_Rotate"/>
      <addaction name="separator"/>
      <addaction name="actionSkew"/>
     </widget>
@@ -1094,7 +1095,7 @@ QToolButton:checked {
    <property name="minimumSize">
     <size>
      <width>150</width>
-     <height>35</height>
+     <height>38</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -2122,6 +2123,11 @@ QToolButton:checked {
   <action name="actionClearClipboard">
    <property name="text">
     <string>Clipboard</string>
+   </property>
+  </action>
+  <action name="actionFree_Rotate">
+   <property name="text">
+    <string>Free Rotate...</string>
    </property>
   </action>
  </widget>

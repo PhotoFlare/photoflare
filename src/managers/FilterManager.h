@@ -55,6 +55,7 @@ public:
     QImage flipVert(const QImage &image);
     QImage rotateCCW(const QImage &image);
     QImage rotateCW(const QImage &image);
+    QImage rotate(const QImage &image, double degrees);
     QImage setBrightness(const QImage &image, int brightness);
     QImage setSaturation(const QImage &image, int saturation);
     QImage setContrast(const QImage &image, int contrast);

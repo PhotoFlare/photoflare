@@ -93,6 +93,10 @@ void FilterWorker::process()
     {
         newImage = FilterManager::instance()->rotateCW(currentImage);
     }
+    else if(currentFilter == "rotate")
+    {
+        newImage = FilterManager::instance()->rotate(currentImage, currentDouble);
+    }
     else if(currentFilter == "trim")
     {
         newImage = FilterManager::instance()->trim(currentImage);
