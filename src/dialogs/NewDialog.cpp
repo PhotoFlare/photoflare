@@ -335,7 +335,7 @@ void NewDialog::setMode(Mode mode)
    }
    else
    {
-       ui->lockedRatioButton->setVisible(false);
+       ui->lockedRatioButton->setVisible(true);
        ui->imageRes->setVisible(false);
        ui->imageRvalue->setVisible(false);
        ui->imageResCombo->setVisible(false);
