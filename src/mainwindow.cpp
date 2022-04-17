@@ -2783,20 +2783,24 @@ void MainWindow::ctRemoveBackground()
     {
         QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 
-        connect(manager, SIGNAL(finished_ct_remove_bg(QNetworkReply*)),
+        connect(manager, SIGNAL(finished(QNetworkReply*)),
                 this, SLOT(ctRemoveBackgroundReplyFinished(QNetworkReply*)));
 
-        QNetworkRequest req(QUrl("https://www.cutout.pro/api/v1/matting?mattingType=6"));
-        req.setHeader( QNetworkRequest::ContentTypeHeader, QVariant("image/*"));
-        req.setRawHeader("APIKEY", SETTINGS->getCutoutApiKey().toLocal8Bit());
+        QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
         PaintWidget *widget = getCurrentPaintWidget();
-        QFile file(widget->imagePath());
-        QByteArray bits = file.readAll();
-        QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
-        QHttpPart imageHttpPart;
-        imageHttpPart.setBody(bits);
-        multiPart->append(imageHttpPart);
+        QFile *file = new QFile(widget->imagePath());
+        if(file->exists() && file->open(QIODevice::ReadOnly)) {
+            QHttpPart imageHttpPart;
+            imageHttpPart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/*"));
+            imageHttpPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\""));
+            imageHttpPart.setBodyDevice(file);
+            file->setParent(multiPart);
+
+            multiPart->append(imageHttpPart);
+        }
+        QNetworkRequest req(QUrl("https://www.cutout.pro/api/v1/matting?mattingType=6"));
+        req.setRawHeader("APIKEY", SETTINGS->getCutoutApiKey().toLocal8Bit());
 
         manager->post(req, multiPart);
     }
@@ -2805,12 +2809,17 @@ void MainWindow::ctRemoveBackground()
 void MainWindow::ctRemoveBackgroundReplyFinished(QNetworkReply* reply)
 {
     QByteArray result = reply->readAll();
+    qDebug() << result;
     QJsonDocument jsonResponse = QJsonDocument::fromJson(result);
+    qDebug() << jsonResponse;
     QJsonObject obj = jsonResponse.object();
+
+    qDebug() << obj;
+
     QJsonObject finalObject = obj["data"].toObject();
 
     qDebug() << finalObject;
 
-    emit finished_ct_remove_bg();
+    emit finished();
 }
 

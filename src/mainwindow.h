@@ -60,8 +60,11 @@ public:
 public slots:
     void handleMessage(const QString& message);
     void onImageFiltered(QImage image);
+    void ctRemoveBackgroundReplyFinished(QNetworkReply *reply);
 
 private slots:
+    //void ctRemoveBackgroundReplyFinished(QNetworkReply* reply);
+    void ctRemoveBackground();
     void setupWorkspace();
     void addZoomCombo();
     void connectTools();
@@ -130,6 +133,7 @@ private slots:
     void on_actionFlip_Horizontal_triggered();
     void on_actionRotate_CCW_triggered();
     void on_actionRotate_CW_triggered();
+    void on_actionFree_Rotate_triggered();
     void on_actionImage_Size_triggered();
     void on_actionFilterbar_triggered();
     void on_actionToolpalette_triggered();
@@ -223,13 +227,8 @@ private slots:
 
     void onSafeQuitApp();
 
-    void ctRemoveBackground();
-    void ctRemoveBackgroundReplyFinished(QNetworkReply* reply);
-
-    void on_actionFree_Rotate_triggered();
-
 signals:
-        void finished_ct_remove_bg();
+    void finished();
 
 protected:
     void closeEvent(QCloseEvent *event);
