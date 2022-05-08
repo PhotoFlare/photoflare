@@ -19,7 +19,6 @@
 #define PREFSDIALOG_H
 
 #include <QDialog>
-#include <QNetworkReply>
 
 namespace Ui {
 class PrefsDialog;
@@ -32,9 +31,6 @@ class PrefsDialog : public QDialog
 public:
     explicit PrefsDialog(QWidget *parent = nullptr);
     ~PrefsDialog();
-
-public slots:
-    void replyFinished(QNetworkReply *reply);
 
 private slots:
     void on_buttonBox_accepted();
@@ -49,13 +45,9 @@ private slots:
     void on_compressionSlider_valueChanged(int value);
     void on_historySlider_valueChanged(int value);
     void addFlagIcons(int languages);
-    void on_registerButton_clicked();
-    void on_cutoutApiKey_textEdited(const QString &arg1);
-    void getCutoutProCredits();
 
 signals:
     void safeQuitApp();
-    void finished();
 
 private:
     Ui::PrefsDialog *ui;

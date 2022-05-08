@@ -31,12 +31,6 @@ public:
     ~Settings();
     static Settings* instance();
     void setDefaultSettings();
-    void setCutoutApiKey(const QString val);
-    QString getCutoutApiKey() const;
-    void setCutoutEnabled(bool enabled);
-    bool isCutoutEnabled() const;
-    void setSDKEnabled(bool enabled);
-    bool isSDKEnabled() const;
     void setMaximizeWindow(bool maximize);
     bool isMaximizeWindow() const;
     void setMultiWindowMode(bool multiWindowMode);

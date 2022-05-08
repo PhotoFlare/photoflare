@@ -33,14 +33,6 @@
 #include <QInputDialog>
 #include <QSysInfo>
 
-#include <QNetworkAccessManager>
-#include <QUrl>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QHttpPart>
-
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
 #include "./tools/ColourPickerTool.h"
@@ -257,7 +249,6 @@ void MainWindow::connectTools()
     QObject::connect(MOUSE_POINTER, SIGNAL(undo()), this, SLOT(on_actionUndo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(redo()), this, SLOT(on_actionRedo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(showhotspots()), this, SLOT(onShowHotspotsTriggered()));
-    QObject::connect(MOUSE_POINTER, SIGNAL(ct_removebackground()), this, SLOT(ctRemoveBackground()));
 
     // Setup signals for more Tools
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
@@ -2776,50 +2767,3 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionValidate->setEnabled(false);
     }
 }
-
-void MainWindow::ctRemoveBackground()
-{
-    if(SETTINGS->isCutoutEnabled() && SETTINGS->getCutoutApiKey().length() > 0)
-    {
-        QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-
-        connect(manager, SIGNAL(finished(QNetworkReply*)),
-                this, SLOT(ctRemoveBackgroundReplyFinished(QNetworkReply*)));
-
-        QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
-
-        PaintWidget *widget = getCurrentPaintWidget();
-        QFile *file = new QFile(widget->imagePath());
-        if(file->exists() && file->open(QIODevice::ReadOnly)) {
-            QHttpPart imageHttpPart;
-            imageHttpPart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/*"));
-            imageHttpPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\""));
-            imageHttpPart.setBodyDevice(file);
-            file->setParent(multiPart);
-
-            multiPart->append(imageHttpPart);
-        }
-        QNetworkRequest req(QUrl("https://www.cutout.pro/api/v1/matting?mattingType=6"));
-        req.setRawHeader("APIKEY", SETTINGS->getCutoutApiKey().toLocal8Bit());
-
-        manager->post(req, multiPart);
-    }
-}
-
-void MainWindow::ctRemoveBackgroundReplyFinished(QNetworkReply* reply)
-{
-    QByteArray result = reply->readAll();
-    qDebug() << result;
-    QJsonDocument jsonResponse = QJsonDocument::fromJson(result);
-    qDebug() << jsonResponse;
-    QJsonObject obj = jsonResponse.object();
-
-    qDebug() << obj;
-
-    QJsonObject finalObject = obj["data"].toObject();
-
-    qDebug() << finalObject;
-
-    emit finished();
-}
-

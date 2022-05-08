@@ -21,12 +21,6 @@
 #include <QProcess>
 #include <QStandardPaths>
 #include <QDesktopServices>
-#include <QNetworkAccessManager>
-#include <QUrl>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QJsonDocument>
-#include <QJsonObject>
 
 #include "prefsdialog.h"
 #include "ui_prefsdialog.h"
@@ -140,50 +134,12 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
     else if(SETTINGS->getUserLanguage() == "es")
         ui->comboBoxLanguage->setCurrentIndex(12);
 
-    //Add-ons tab
-    ui->cutoutEnabled->setChecked(SETTINGS->isCutoutEnabled());
-    ui->cutoutApiKey->setText(SETTINGS->getCutoutApiKey());
-
     ui->restartButton->hide();
-
-    getCutoutProCredits();
 }
 
 PrefsDialog::~PrefsDialog()
 {
     delete ui;
-}
-
-void PrefsDialog::getCutoutProCredits()
-{
-    if(SETTINGS->isCutoutEnabled() && SETTINGS->getCutoutApiKey().length() > 0)
-    {
-        QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-        connect(manager, SIGNAL(finished(QNetworkReply*)),
-                this, SLOT(replyFinished(QNetworkReply*)));
-
-        QNetworkRequest req(QUrl("https://www.cutout.pro/api/v1/mySubscription"));
-        req.setHeader( QNetworkRequest::ContentTypeHeader, "application/json");
-        req.setRawHeader("APIKEY", SETTINGS->getCutoutApiKey().toLocal8Bit());
-
-        manager->get(req);
-    }
-}
-
-void PrefsDialog::replyFinished(QNetworkReply* reply)
-{
-    QByteArray result = reply->readAll();
-    QJsonDocument jsonResponse = QJsonDocument::fromJson(result);
-    QJsonObject obj = jsonResponse.object();
-    QJsonObject finalObject = obj["data"].toObject();
-
-    double value = finalObject["imageBalance"].toDouble();
-    QString str = QString::number(value);
-    if(str.length() > 0)
-    {
-        ui->cutoutCredits->setText(str);
-    }
-    emit finished();
 }
 
 void PrefsDialog::on_buttonBox_accepted()
@@ -220,10 +176,6 @@ void PrefsDialog::on_buttonBox_accepted()
 
     if (ui->checkBox->isChecked() != SETTINGS->isMultiWindowMode())
         SETTINGS->setMultiWindowMode(ui->checkBox->isChecked());
-
-    //Add-ons tab
-    SETTINGS->setCutoutEnabled(ui->cutoutEnabled->isChecked());
-    SETTINGS->setCutoutApiKey(ui->cutoutApiKey->text());
 
     // Save language when we close the dialog
     set_user_language();
@@ -347,22 +299,3 @@ void PrefsDialog::addFlagIcons(int languages)
         ui->comboBoxLanguage->setItemIcon(i,QIcon(flagPath+files[i]+".png"));
     }
 }
-
-void PrefsDialog::on_registerButton_clicked()
-{
-    QString link = "https://www.cutout.pro/?vsource=cutout_share-721965";
-    QDesktopServices::openUrl(QUrl(link));
-}
-
-
-void PrefsDialog::on_cutoutApiKey_textEdited(const QString &arg1)
-{
-    if(ui->cutoutApiKey->text().length() > 0)
-    {
-        ui->registerButton->hide();
-    }
-    else {
-        ui->registerButton->show();
-    }
-}
-

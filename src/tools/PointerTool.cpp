@@ -116,11 +116,6 @@ void PointerTool::onRedo()
     emit redo();
 }
 
-void PointerTool::onCtRemoveBackground()
-{
-    emit ct_removebackground();
-}
-
 void PointerTool::setOverlayImage(const QImage& image)
 {
     d->selectionMode = HAND;
@@ -431,15 +426,6 @@ void PointerTool::setupRightClickMenu(bool execute)
     connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
     connect(&undo, SIGNAL(triggered()), this, SLOT(onUndo()));
     connect(&redo, SIGNAL(triggered()), this, SLOT(onRedo()));
-
-    //if(SETTINGS->getCutoutApiKey().length() > 0 && SETTINGS->isCutoutEnabled())
-    //{
-        QAction ct_removebackground(tr("Remove Background"), this);
-        QAction ct1(this);
-        ct1.setSeparator(true);
-        contextMenu.addAction(&ct_removebackground);
-        connect(&ct_removebackground, SIGNAL(triggered()), this, SLOT(onCtRemoveBackground()));
-    //}
 
     if(execute)
     {

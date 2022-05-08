@@ -23,7 +23,6 @@
 #include <QtSingleApplication>
 #include <QStandardPaths>
 #include <QDir>
-#include <QProcess>
 
 #include "mainwindow.h"
 #include "Settings.h"
@@ -42,7 +41,7 @@ int main(int argc, char *argv[])
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("v1.7.0");
+        app.setApplicationVersion("v1.6.10");
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings

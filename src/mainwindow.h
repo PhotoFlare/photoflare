@@ -60,11 +60,8 @@ public:
 public slots:
     void handleMessage(const QString& message);
     void onImageFiltered(QImage image);
-    void ctRemoveBackgroundReplyFinished(QNetworkReply *reply);
 
 private slots:
-    //void ctRemoveBackgroundReplyFinished(QNetworkReply* reply);
-    void ctRemoveBackground();
     void setupWorkspace();
     void addZoomCombo();
     void connectTools();
@@ -226,9 +223,6 @@ private slots:
     void getPrevZoomFromScale(QString scaletext);
 
     void onSafeQuitApp();
-
-signals:
-    void finished();
 
 protected:
     void closeEvent(QCloseEvent *event);
