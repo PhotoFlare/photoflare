@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("v1.6.10");
+        app.setApplicationVersion("1.6.10");
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings
@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
         app.installTranslator(&translator);
 
         QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
-        paths.prepend("."); //for local builds testing
+        //paths.prepend("."); //for local builds testing
         for(int i = 0;i < paths.length(); i++)
         {
             QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");

@@ -78,7 +78,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
     QFont font;
     font.setPointSize(14);
     ui->appName->setFont(font);
-    ui->appVersion->setText(qApp->applicationVersion()+tr(" Community Edition"));
+    ui->appVersion->setText("v"+qApp->applicationVersion()+tr(" Community Edition"));
     ui->appDescription->setText(tr("A simple but featureful editor."));
     ui->appUrl->setText(tr("<a href='https://www.photoflare.io'>https://www.photoflare.io</a>"));
 }
