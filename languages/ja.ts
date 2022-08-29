@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="ja_JP" sourcelanguage="en">
+    <extra-po-header-language>ja_JP</extra-po-header-language>
+    <extra-po-header-language_team></extra-po-header-language_team>
+    <extra-po-header-last_translator>Takeshi Hamasaki &lt;hmatrjp@users.sourceforge.jp&gt;</extra-po-header-last_translator>
+    <extra-po-header-po_revision_date></extra-po-header-po_revision_date>
+    <extra-po-header-pot_creation_date></extra-po-header-pot_creation_date>
+    <extra-po-header-project_id_version></extra-po-header-project_id_version>
+    <extra-po-header-x_generator>Poedit 2.4.2</extra-po-header-x_generator>
+    <extra-po-headers>MIME-Version,Content-Type,Content-Transfer-Encoding,Plural-Forms,X-Language,X-Source-Language,X-Qt-Contexts,Project-Id-Version,POT-Creation-Date,PO-Revision-Date,Last-Translator,Language-Team,Language,X-Generator</extra-po-headers>
 <context>
     <name>BatchProgress</name>
     <message>
@@ -19,17 +27,17 @@
     <message>
         <location filename="../src/toolSettings/BlurSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/BlurSettingsWidget.ui" line="35"/>
         <source>Radius</source>
-        <translation type="unfinished"></translation>
+        <translation>半径</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/BlurSettingsWidget.ui" line="60"/>
         <source>Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation>圧力</translation>
     </message>
 </context>
 <context>
@@ -37,7 +45,7 @@
     <message>
         <location filename="../src/widgets/BrushTypeComboBox.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>フォーム</translation>
     </message>
 </context>
 <context>
@@ -45,12 +53,12 @@
     <message>
         <location filename="../src/widgets/ColorBoxWidget.ui" line="19354"/>
         <source>&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <location filename="../src/widgets/ColorBoxWidget.ui" line="19367"/>
         <source>&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;</translation>
     </message>
 </context>
 <context>
@@ -58,32 +66,32 @@
     <message>
         <location filename="../src/dialogs/compressiondialog.ui" line="17"/>
         <source>JPEG</source>
-        <translation type="unfinished"></translation>
+        <translation>JPEG</translation>
     </message>
     <message>
         <location filename="../src/dialogs/compressiondialog.ui" line="45"/>
         <source>Compression:</source>
-        <translation type="unfinished"></translation>
+        <translation>圧縮率:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/compressiondialog.ui" line="58"/>
         <source>90</source>
-        <translation type="unfinished"></translation>
+        <translation>90</translation>
     </message>
     <message>
         <location filename="../src/dialogs/compressiondialog.ui" line="99"/>
         <source>Low quality</source>
-        <translation type="unfinished"></translation>
+        <translation>低画質</translation>
     </message>
     <message>
         <location filename="../src/dialogs/compressiondialog.ui" line="112"/>
         <source>Best quality</source>
-        <translation type="unfinished"></translation>
+        <translation>高画質</translation>
     </message>
     <message>
         <location filename="../src/dialogs/compressiondialog.ui" line="128"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
 </context>
 <context>
@@ -91,17 +99,17 @@
     <message>
         <location filename="../src/toolSettings/erasersettingswidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/erasersettingswidget.ui" line="26"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ:</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/erasersettingswidget.ui" line="73"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
 </context>
 <context>
@@ -114,7 +122,7 @@
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="45"/>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>方向</translation>
     </message>
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="227"/>
@@ -141,7 +149,7 @@
         <location filename="../src/dialogs/gradientdialog.ui" line="293"/>
         <location filename="../src/dialogs/gradientdialog.ui" line="370"/>
         <source>0%</source>
-        <translation type="unfinished"></translation>
+        <translation>0%</translation>
     </message>
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="335"/>
@@ -159,12 +167,12 @@
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="45"/>
         <source>0°</source>
-        <translation type="unfinished"></translation>
+        <translation>0°</translation>
     </message>
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="61"/>
         <source>Color:</source>
-        <translation type="unfinished"></translation>
+        <translation>色:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="998"/>
@@ -182,7 +190,7 @@
     <message>
         <location filename="../src/widgets/imagepositionwidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>フォーム</translation>
     </message>
 </context>
 <context>
@@ -190,22 +198,22 @@
     <message>
         <location filename="../src/toolSettings/LineSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/LineSettingsWidget.ui" line="35"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>幅</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/LineSettingsWidget.ui" line="55"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>透明度</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/LineSettingsWidget.ui" line="83"/>
         <source>Antialias</source>
-        <translation type="unfinished"></translation>
+        <translation>アンチエイリアス</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/LineSettingsWidget.ui" line="103"/>
@@ -246,18 +254,18 @@
     <message>
         <location filename="../src/mainwindow.ui" line="96"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="100"/>
         <location filename="../src/mainwindow.ui" line="1149"/>
         <source>Recent Files</source>
-        <translation type="unfinished"></translation>
+        <translation>最近使用したファイル</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="121"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>編集(&amp;E)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="125"/>
@@ -267,34 +275,34 @@
     <message>
         <location filename="../src/mainwindow.ui" line="156"/>
         <source>&amp;Image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像(&amp;I)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="160"/>
         <source>&amp;Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>モード(&amp;M)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="167"/>
         <location filename="../src/mainwindow.ui" line="1276"/>
         <location filename="../src/mainwindow.ui" line="1450"/>
         <source>Transform</source>
-        <translation type="unfinished"></translation>
+        <translation>変換</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="201"/>
         <source>&amp;Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>選択(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="228"/>
         <source>&amp;Adjust</source>
-        <translation type="unfinished"></translation>
+        <translation>調整(&amp;A)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="255"/>
         <source>&amp;Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>フィルタ(&amp;F)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="259"/>
@@ -331,47 +339,47 @@
     <message>
         <location filename="../src/mainwindow.ui" line="302"/>
         <source>Noise</source>
-        <translation type="unfinished"></translation>
+        <translation>ノイズ</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="313"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>フレーム</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="321"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>色</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="333"/>
         <source>Visual Effect</source>
-        <translation type="unfinished"></translation>
+        <translation>視覚効果</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="357"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>表示(&amp;V)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="372"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>ツール(&amp;T)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="384"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>ヘルプ(&amp;H)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="412"/>
         <source>Main ToolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>メインツールバー</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="572"/>
         <source>Eraser Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>消しゴムツール</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="575"/>
@@ -387,32 +395,32 @@
         <location filename="../src/mainwindow.ui" line="952"/>
         <location filename="../src/mainwindow.ui" line="990"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="610"/>
         <source>Spray Can</source>
-        <translation type="unfinished"></translation>
+        <translation>スプレー缶</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="648"/>
         <source>Pointer Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>ポインターツール</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="692"/>
         <source>Line Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>線ツール</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="730"/>
         <source>Magic Wand</source>
-        <translation type="unfinished"></translation>
+        <translation>魔法の杖</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="768"/>
         <source>Paint Brush</source>
-        <translation type="unfinished"></translation>
+        <translation>ブラシ</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="806"/>
@@ -442,22 +450,22 @@
     <message>
         <location filename="../src/mainwindow.ui" line="987"/>
         <source>Colour Picker</source>
-        <translation type="unfinished"></translation>
+        <translation>スポイト</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1042"/>
         <source>Extra ToolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>拡張ツールバー</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1121"/>
         <source>&amp;New...</source>
-        <translation type="unfinished"></translation>
+        <translation>新規(&amp;N)...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1136"/>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>開く(&amp;O)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1144"/>
@@ -467,47 +475,47 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1158"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1166"/>
         <source>&amp;Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1171"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1176"/>
         <source>Close &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて閉じる(&amp;A)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1185"/>
         <source>Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>印刷...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1193"/>
         <source>Image Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>画像のプロパティ</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1198"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>終了(&amp;Q)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1207"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>取り消し</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1216"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>繰り返し</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1221"/>
@@ -517,17 +525,17 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1226"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>切り取り</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1231"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1236"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1241"/>
@@ -537,7 +545,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1246"/>
         <source>Paste As New Image</source>
-        <translation type="unfinished"></translation>
+        <translation>新規画像として貼り付け</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1251"/>
@@ -562,27 +570,27 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1271"/>
         <source>Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>オプション...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1281"/>
         <source>Define Pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>パターンを定義</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1286"/>
         <source>Fill With Pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>パターンで塗りつぶす</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1295"/>
         <source>Flip Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>垂直に反転</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1304"/>
         <source>Flip Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>水平に反転</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1309"/>
@@ -592,32 +600,32 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1318"/>
         <source>Image Size...</source>
-        <translation type="unfinished"></translation>
+        <translation>画像のサイズ...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1327"/>
         <source>Canvas Size...</source>
-        <translation type="unfinished"></translation>
+        <translation>キャンバスのサイズ...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1332"/>
         <source>Fit Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>画像のサイズに合わせる...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1337"/>
         <source>Duplicate</source>
-        <translation type="unfinished"></translation>
+        <translation>複製</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1342"/>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>切り抜き</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1347"/>
         <source>Automatic Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>自動切り抜き</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1352"/>
@@ -662,7 +670,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1410"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて選択</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1415"/>
@@ -747,12 +755,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1500"/>
         <source>Colour Balance...</source>
-        <translation type="unfinished"></translation>
+        <translation>色のバランス...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1505"/>
         <source>Gamma Correct...</source>
-        <translation type="unfinished"></translation>
+        <translation>ガンマ補正...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1514"/>
@@ -762,7 +770,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1523"/>
         <source>Auto Contrast</source>
-        <translation type="unfinished"></translation>
+        <translation>自動コントラスト</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1528"/>
@@ -777,7 +785,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1538"/>
         <source>Levels...</source>
-        <translation type="unfinished"></translation>
+        <translation>レベル...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1543"/>
@@ -787,7 +795,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1548"/>
         <source>Replace Colour...</source>
-        <translation type="unfinished"></translation>
+        <translation>色の置き換え...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1553"/>
@@ -807,7 +815,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1568"/>
         <source>Negative</source>
-        <translation type="unfinished"></translation>
+        <translation>反転</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1573"/>
@@ -842,52 +850,52 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1625"/>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>その他</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1633"/>
         <source>Filterbar</source>
-        <translation type="unfinished"></translation>
+        <translation>フィルタバー</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1641"/>
         <source>Toolpalette</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールパレット</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1649"/>
         <source>Show Grid...</source>
-        <translation type="unfinished"></translation>
+        <translation>グリッドを表示...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1654"/>
         <source>Snap To Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>グリッドに合わせる</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1659"/>
         <source>Zoom In</source>
-        <translation type="unfinished"></translation>
+        <translation>ズームイン</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1664"/>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>ズームアウト</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1669"/>
         <source>Original Size</source>
-        <translation type="unfinished"></translation>
+        <translation>元の大きさ</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1674"/>
         <source>Auto Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>自動ズーム</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1682"/>
         <source>Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>フルスクリーン</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1691"/>
@@ -897,27 +905,27 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1696"/>
         <source>Set Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>壁紙に設定</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1701"/>
         <source>Export As Icon...</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンとしてエクスポート...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1710"/>
         <source>&amp;Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>環境設定(&amp;P)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1715"/>
         <source>Information</source>
-        <translation type="unfinished"></translation>
+        <translation>情報</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1720"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>photoflareについて(&amp;A)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1729"/>
@@ -928,7 +936,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1747"/>
         <source>RGB Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>RGBモード</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1759"/>
@@ -1003,7 +1011,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1843"/>
         <source>Gamma Correct (-)</source>
-        <translation type="unfinished"></translation>
+        <translation>ガンマ補正 (-)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1852"/>
@@ -1013,18 +1021,18 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1855"/>
         <source>Gamma Correct (+)</source>
-        <translation type="unfinished"></translation>
+        <translation>ガンマ補正 (+)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1864"/>
         <location filename="../src/mainwindow.ui" line="1867"/>
         <source>Gray Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>グレースケール</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1876"/>
         <source>Old Photo</source>
-        <translation type="unfinished"></translation>
+        <translation>古い写真</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1879"/>
@@ -1062,17 +1070,17 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1936"/>
         <source>Rotate CCW</source>
-        <translation type="unfinished"></translation>
+        <translation>90°反時計回り</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1945"/>
         <source>Rotate CW</source>
-        <translation type="unfinished"></translation>
+        <translation>90°時計回り</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1950"/>
         <source>&amp;Oil Paint</source>
-        <translation type="unfinished"></translation>
+        <translation>油絵(&amp;O)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1955"/>
@@ -1082,7 +1090,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1960"/>
         <source>Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>渦巻き</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1965"/>
@@ -1184,7 +1192,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="2066"/>
         <source>Explode</source>
-        <translation type="unfinished"></translation>
+        <translation>爆発</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2071"/>
@@ -1194,194 +1202,194 @@
     <message>
         <location filename="../src/mainwindow.ui" line="2080"/>
         <source>Sepia</source>
-        <translation type="unfinished"></translation>
+        <translation>セピア</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2085"/>
         <source>Black and white</source>
-        <translation type="unfinished"></translation>
+        <translation>白黒</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2090"/>
         <source>Opacity...</source>
-        <translation type="unfinished"></translation>
+        <translation>透明度...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2095"/>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2100"/>
         <source>Check for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">更新を確認する...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2105"/>
         <source>Colour Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>色のしきい値</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2110"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2115"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2120"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2125"/>
         <source>Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>クリップボード</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2130"/>
         <source>Free Rotate...</source>
-        <translation type="unfinished"></translation>
+        <translation>回転...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="323"/>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>準備完了</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="343"/>
         <location filename="../src/mainwindow.cpp" line="363"/>
         <source>Working...</source>
-        <translation type="unfinished"></translation>
+        <translation>作業中...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="390"/>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを開く</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="392"/>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>画像ファイル</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="404"/>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてのファイル</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="455"/>
         <source>Please open a valid image file</source>
-        <translation type="unfinished"></translation>
+        <translation>有効な画像ファイルを開いてください</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="465"/>
         <source>Image does not exist at this file path</source>
-        <translation type="unfinished"></translation>
+        <translation>画像はこのパスに存在しません</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="542"/>
         <source>png (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>png (*.png)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="543"/>
         <source>jpg (*.jpg *.jpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>jpg (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="544"/>
         <source>bmp (*.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>bmp (*.bmp)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="545"/>
         <source>pbm (*.pbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>pbm (*.pbm)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="546"/>
         <source>pgm (*.pgm)</source>
-        <translation type="unfinished"></translation>
+        <translation>pgm (*.pgm)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="547"/>
         <source>ppm (*.ppm)</source>
-        <translation type="unfinished"></translation>
+        <translation>ppm (*.ppm)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="548"/>
         <source>ico (*.ico)</source>
-        <translation type="unfinished"></translation>
+        <translation>ico (*.ico)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="565"/>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを保存する</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="625"/>
         <source>Unable to save image.</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを保存できません。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="903"/>
         <source>Set Rotate Degrees</source>
-        <translation type="unfinished"></translation>
+        <translation>回転角度を指定する</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="904"/>
         <source>Degrees:</source>
-        <translation type="unfinished"></translation>
+        <translation>角度:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="919"/>
         <source>Resize Image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像サイズの変更</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="936"/>
         <source>Resize Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>キャンバスサイズの変更</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1206"/>
         <source>Set Image Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の透明度を設定</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1207"/>
         <source>Opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>透明度:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1518"/>
         <source>Set Grid size</source>
-        <translation type="unfinished"></translation>
+        <translation>グリッドサイズを指定</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1519"/>
         <source>Cell width</source>
-        <translation type="unfinished"></translation>
+        <translation>セルの幅</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="2282"/>
         <source>Unsaved Changes</source>
-        <translation type="unfinished"></translation>
+        <translation>保存されていない変更</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="2282"/>
         <source>Save changes before leaving?</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる前に変更を保存しますか?</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="2641"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>エラー</translation>
     </message>
 </context>
 <context>
@@ -1389,28 +1397,28 @@
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="22"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>新規</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="56"/>
         <location filename="../src/dialogs/NewDialog.ui" line="137"/>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>幅:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="98"/>
         <source>Pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>ピクセル</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="103"/>
         <source>Cm</source>
-        <translation type="unfinished"></translation>
+        <translation>cm</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="108"/>
         <source>Inches</source>
-        <translation type="unfinished"></translation>
+        <translation>インチ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="122"/>
@@ -1421,7 +1429,7 @@
         <location filename="../src/dialogs/NewDialog.ui" line="150"/>
         <location filename="../src/dialogs/NewDialog.ui" line="441"/>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>高さ:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="163"/>
@@ -1431,17 +1439,17 @@
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="258"/>
         <source>New Size</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいサイズ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="329"/>
         <source>Position:</source>
-        <translation type="unfinished"></translation>
+        <translation>位置:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="356"/>
         <source>(none)</source>
-        <translation type="unfinished"></translation>
+        <translation>(なし)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="361"/>
@@ -1501,7 +1509,7 @@
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="476"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>色</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="489"/>
@@ -1529,12 +1537,12 @@
     <message>
         <location filename="../src/dialogs/outerframedialog.ui" line="55"/>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>幅:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/outerframedialog.ui" line="68"/>
         <source>Colour:</source>
-        <translation type="unfinished"></translation>
+        <translation>色:</translation>
     </message>
 </context>
 <context>
@@ -1581,7 +1589,7 @@
     <message>
         <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="89"/>
         <source>0</source>
-        <translation type="unfinished"></translation>
+        <translation>0</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="109"/>
@@ -1591,7 +1599,7 @@
     <message>
         <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="116"/>
         <source>100</source>
-        <translation type="unfinished"></translation>
+        <translation>100</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="148"/>
@@ -1641,52 +1649,52 @@
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="376"/>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>切り抜き</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="385"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="386"/>
         <source>Save as</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="387"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="390"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="391"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="399"/>
         <source>Image size</source>
-        <translation type="unfinished"></translation>
+        <translation>画像サイズ</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="400"/>
         <source>Canvas size</source>
-        <translation type="unfinished"></translation>
+        <translation>キャンバスサイズ</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="403"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>取り消し</translation>
     </message>
     <message>
         <location filename="../src/tools/PointerTool.cpp" line="404"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>繰り返し</translation>
     </message>
 </context>
 <context>
@@ -1694,38 +1702,38 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="17"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>環境設定</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="49"/>
         <source>&amp;Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダ(&amp;F)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="61"/>
         <source>Opening folder</source>
-        <translation type="unfinished"></translation>
+        <translation>開くフォルダ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="84"/>
         <location filename="../src/dialogs/prefsdialog.ui" line="120"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="107"/>
         <source>Saving folder</source>
-        <translation type="unfinished"></translation>
+        <translation>保存フォルダ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="133"/>
         <source>Remember previous opened folder</source>
-        <translation type="unfinished"></translation>
+        <translation>開くフォルダを記憶する</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="146"/>
         <source>Remember previous save folder</source>
-        <translation type="unfinished"></translation>
+        <translation>保存フォルダを記憶する</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="152"/>
@@ -1740,12 +1748,12 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="180"/>
         <source>&amp;Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>圧縮(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="192"/>
         <source>Always show dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>常にダイアログを表示</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="211"/>
@@ -1755,17 +1763,17 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="261"/>
         <source>Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>圧縮</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="274"/>
         <source>90</source>
-        <translation type="unfinished"></translation>
+        <translation>90</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="280"/>
         <source>&amp;Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>レイアウト(&amp;L)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="292"/>
@@ -1795,17 +1803,17 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="370"/>
         <source>Pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>ピクセル</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="375"/>
         <source>CM</source>
-        <translation type="unfinished"></translation>
+        <translation>cm</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="380"/>
         <source>Inches</source>
-        <translation type="unfinished"></translation>
+        <translation>インチ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="394"/>
@@ -1815,7 +1823,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="400"/>
         <source>&amp;History</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴(&amp;H)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="412"/>
@@ -1825,12 +1833,12 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="450"/>
         <source>24</source>
-        <translation type="unfinished"></translation>
+        <translation>24</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="456"/>
         <source>&amp;Startup</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="468"/>
@@ -1840,22 +1848,22 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="491"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>言語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="510"/>
         <source>Restart to apply</source>
-        <translation type="unfinished"></translation>
+        <translation>再起動して適用</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="52"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>右</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="52"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>左</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="60"/>
@@ -1870,112 +1878,112 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="73"/>
         <source>png (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>png (*.png)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="74"/>
         <source>jpg (*.jpg *.jpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>jpg (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="75"/>
         <source>bmp (*.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>bmp (*.bmp)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="76"/>
         <source>pbm (*.pbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>pbm (*.pbm)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="77"/>
         <source>pgm (*.pgm)</source>
-        <translation type="unfinished"></translation>
+        <translation>pgm (*.pgm)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="78"/>
         <source>ppm (*.ppm)</source>
-        <translation type="unfinished"></translation>
+        <translation>ppm (*.ppm)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="79"/>
         <source>ico (*.ico)</source>
-        <translation type="unfinished"></translation>
+        <translation>ico (*.ico)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="90"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>英語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="91"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>フランス語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="92"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>オランダ語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="93"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>ドイツ語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="94"/>
         <source>Chinese (CN)</source>
-        <translation type="unfinished"></translation>
+        <translation>中国語（繁体字）</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="95"/>
         <source>Chinese (TW)</source>
-        <translation type="unfinished"></translation>
+        <translation>中国語（簡体字）</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="96"/>
         <source>Czech Republic</source>
-        <translation type="unfinished"></translation>
+        <translation>チェコ語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="97"/>
         <source>Portuguese (PT)</source>
-        <translation type="unfinished"></translation>
+        <translation>ポルトガル語（ポルトガル）</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="98"/>
         <source>Portuguese (BR)</source>
-        <translation type="unfinished"></translation>
+        <translation>ポルトガル語（ブラジル）</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="99"/>
         <source>Sweden</source>
-        <translation type="unfinished"></translation>
+        <translation>スウェーデン語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="100"/>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
+        <translation>ロシア語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="101"/>
         <source>Indonesian</source>
-        <translation type="unfinished"></translation>
+        <translation>インドネシア語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="102"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>スペイン語</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="196"/>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>ディレクトリを開く</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="205"/>
         <source>Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>ディレクトリを保存</translation>
     </message>
 </context>
 <context>
@@ -1983,7 +1991,19 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="105"/>
         <source>Untitled</source>
-        <translation type="unfinished"></translation>
+        <translation>無題</translation>
+    </message>
+    <message>
+        <source>photoflare</source>
+        <translation type="vanished">photoflare</translation>
+    </message>
+    <message>
+        <source>1.6.4</source>
+        <translation type="vanished">1.6.4</translation>
+    </message>
+    <message>
+        <source>photoflare.io</source>
+        <translation type="vanished">photoflare.io</translation>
     </message>
 </context>
 <context>
@@ -2085,27 +2105,27 @@
     <message>
         <location filename="../src/dialogs/transparentdialog.ui" line="67"/>
         <source>0</source>
-        <translation type="unfinished"></translation>
+        <translation>0</translation>
     </message>
     <message>
         <location filename="../src/dialogs/transparentdialog.ui" line="99"/>
         <source>Color:</source>
-        <translation type="unfinished"></translation>
+        <translation>色:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/transparentdialog.ui" line="115"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>プレビュー</translation>
     </message>
     <message>
         <location filename="../src/dialogs/transparentdialog.ui" line="128"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../src/dialogs/transparentdialog.ui" line="141"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>キャンセル</translation>
     </message>
 </context>
 <context>
@@ -2113,12 +2133,12 @@
     <message>
         <location filename="../src/dialogs/aboutdialog.ui" line="25"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Photoflareについて</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.ui" line="37"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.ui" line="56"/>
@@ -2135,27 +2155,27 @@
     <message>
         <location filename="../src/dialogs/aboutdialog.ui" line="163"/>
         <source>C&amp;redits</source>
-        <translation type="unfinished"></translation>
+        <translation>クレジット(&amp;R)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.ui" line="180"/>
         <source>Developers</source>
-        <translation type="unfinished"></translation>
+        <translation>開発者</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.ui" line="210"/>
         <source>Graphics</source>
-        <translation type="unfinished"></translation>
+        <translation>画像</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.ui" line="231"/>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>翻訳者</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.ui" line="252"/>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>貢献者</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="31"/>
@@ -2185,7 +2205,7 @@
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="82"/>
         <source>A simple but featureful editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>シンプルで機能豊富な画像エディタです。</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="83"/>
@@ -2203,7 +2223,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="52"/>
         <source>Files</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="92"/>
@@ -2233,59 +2253,59 @@
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="189"/>
         <source>Image Size</source>
-        <translation type="unfinished"></translation>
+        <translation>画像サイズ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="201"/>
         <source>Image size</source>
-        <translation type="unfinished"></translation>
+        <translation>画像サイズ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="217"/>
         <location filename="../src/dialogs/batchdialog.ui" line="359"/>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>高さ:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="286"/>
         <location filename="../src/dialogs/batchdialog.ui" line="343"/>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>幅:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="302"/>
         <source>Preserve aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>アスペクト比を保存</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="372"/>
         <source>Canvas size</source>
-        <translation type="unfinished"></translation>
+        <translation>キャンバスサイズ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="420"/>
         <source>Pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>ピクセル</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="425"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="442"/>
         <source>Unit:</source>
-        <translation type="unfinished"></translation>
+        <translation>単位:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="471"/>
         <source>Background:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="500"/>
         <source>Position:</source>
-        <translation type="unfinished"></translation>
+        <translation>位置:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="506"/>
@@ -2306,7 +2326,7 @@
         <location filename="../src/dialogs/batchdialog.ui" line="723"/>
         <location filename="../src/dialogs/batchdialog.ui" line="768"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>赤</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="638"/>
@@ -2314,7 +2334,7 @@
         <location filename="../src/dialogs/batchdialog.ui" line="728"/>
         <location filename="../src/dialogs/batchdialog.ui" line="773"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>緑</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="643"/>
@@ -2322,7 +2342,7 @@
         <location filename="../src/dialogs/batchdialog.ui" line="733"/>
         <location filename="../src/dialogs/batchdialog.ui" line="778"/>
         <source>Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>青</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="648"/>
@@ -2330,7 +2350,7 @@
         <location filename="../src/dialogs/batchdialog.ui" line="738"/>
         <location filename="../src/dialogs/batchdialog.ui" line="783"/>
         <source>Cyan</source>
-        <translation type="unfinished"></translation>
+        <translation>シアン</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="653"/>
@@ -2338,7 +2358,7 @@
         <location filename="../src/dialogs/batchdialog.ui" line="743"/>
         <location filename="../src/dialogs/batchdialog.ui" line="788"/>
         <source>Magenta</source>
-        <translation type="unfinished"></translation>
+        <translation>マゼンタ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="658"/>
@@ -2346,17 +2366,17 @@
         <location filename="../src/dialogs/batchdialog.ui" line="748"/>
         <location filename="../src/dialogs/batchdialog.ui" line="793"/>
         <source>Yellow</source>
-        <translation type="unfinished"></translation>
+        <translation>黄</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="807"/>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>明度</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="820"/>
         <source>Contrast</source>
-        <translation type="unfinished"></translation>
+        <translation>コントラスト</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="833"/>
@@ -2366,89 +2386,89 @@
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="846"/>
         <source>Gamma correct</source>
-        <translation type="unfinished"></translation>
+        <translation>ガンマ補正</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="859"/>
         <source>Channel</source>
-        <translation type="unfinished"></translation>
+        <translation>チャネル</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="872"/>
         <location filename="../src/dialogs/batchdialog.ui" line="885"/>
         <location filename="../src/dialogs/batchdialog.ui" line="898"/>
         <source>0%</source>
-        <translation type="unfinished"></translation>
+        <translation>0%</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="911"/>
         <source>1.00</source>
-        <translation type="unfinished"></translation>
+        <translation>1.00</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="917"/>
         <source>Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>フィルタ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="929"/>
         <source>Available</source>
-        <translation type="unfinished"></translation>
+        <translation>利用可能</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="952"/>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>有効</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="978"/>
         <source>&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="994"/>
         <source>&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1000"/>
         <source>Transform</source>
-        <translation type="unfinished"></translation>
+        <translation>変換</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1027"/>
         <source>Rotate 90° CCW</source>
-        <translation type="unfinished"></translation>
+        <translation>90°反時計回り</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1043"/>
         <source>Rotate 180°</source>
-        <translation type="unfinished"></translation>
+        <translation>180°回転</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1056"/>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>回転</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1072"/>
         <source>Rotate 90° CW</source>
-        <translation type="unfinished"></translation>
+        <translation>90°時計回り</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1104"/>
         <source>Flip vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>垂直に反転</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1123"/>
         <source>Flip horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>水平に反転</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1136"/>
         <source>Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>反転</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1143"/>
@@ -2458,12 +2478,12 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="53"/>
         <source>All formats</source>
-        <translation type="unfinished"></translation>
+        <translation>すべての形式</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="67"/>
         <source>Oil</source>
-        <translation type="unfinished"></translation>
+        <translation>油絵</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="68"/>
@@ -2473,7 +2493,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="69"/>
         <source>Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>渦巻き</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="70"/>
@@ -2514,32 +2534,32 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="77"/>
         <source>Grayscale</source>
-        <translation type="unfinished"></translation>
+        <translation>グレースケール</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="78"/>
         <source>Old Photo</source>
-        <translation type="unfinished"></translation>
+        <translation>古い写真</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="79"/>
         <source>Sepia</source>
-        <translation type="unfinished"></translation>
+        <translation>セピア</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="81"/>
         <source>Explode</source>
-        <translation type="unfinished"></translation>
+        <translation>爆発</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="82"/>
         <source>Simple Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>シンプルなフレーム</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="83"/>
         <source>3D Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>3Dフレーム</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="84"/>
@@ -2569,7 +2589,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="89"/>
         <source>Gaussian noise</source>
-        <translation type="unfinished"></translation>
+        <translation>ガウシアンノイズ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="90"/>
@@ -2579,7 +2599,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="91"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>透明度</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="138"/>
@@ -2604,12 +2624,12 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="209"/>
         <source>Input files:</source>
-        <translation type="unfinished"></translation>
+        <translation>入力ファイル:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="214"/>
         <source>Output folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>出力先フォルダ: </translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="218"/>
@@ -2654,22 +2674,26 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="284"/>
         <source>Filters: </source>
-        <translation type="unfinished"></translation>
+        <translation>フィルタ: </translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="295"/>
         <source>Batch processing finished successfully !</source>
-        <translation type="unfinished"></translation>
+        <translation>バッチ処理が成功しました!</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="501"/>
         <source>Select Files</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル選択</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="501"/>
         <source>Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>画像ファイル (*.png *.jpg *.jpeg *.gif);;すべてのファイル (*)</translation>
+    </message>
+    <message>
+        <source>Please add files to the batch file list and set output folder.</source>
+        <translation type="vanished">バッチ処理の対象にファイルを追加し、出力先フォルダを指定してください。</translation>
     </message>
 </context>
 <context>
@@ -2677,32 +2701,32 @@
     <message>
         <location filename="../src/dialogs/checkupdatedialog.ui" line="17"/>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/dialogs/checkupdatedialog.ui" line="29"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <location filename="../src/dialogs/checkupdatedialog.ui" line="42"/>
         <source>Checking for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>更新を確認しています...</translation>
     </message>
     <message>
         <location filename="../src/dialogs/checkupdatedialog.ui" line="55"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロード</translation>
     </message>
     <message>
         <location filename="../src/dialogs/checkupdatedialog.cpp" line="64"/>
         <source>New version available</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいバージョンがあります</translation>
     </message>
     <message>
         <location filename="../src/dialogs/checkupdatedialog.cpp" line="69"/>
         <source>No updates available</source>
-        <translation type="unfinished"></translation>
+        <translation>最新バージョンを使用中です</translation>
     </message>
 </context>
 <context>
@@ -2710,12 +2734,12 @@
     <message>
         <location filename="../src/dialogs/colourmanagerdialog.ui" line="17"/>
         <source>Colour palettes</source>
-        <translation type="unfinished"></translation>
+        <translation>カラーパレット</translation>
     </message>
     <message>
         <location filename="../src/dialogs/colourmanagerdialog.ui" line="76"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -2738,17 +2762,17 @@
     <message>
         <location filename="../src/dialogs/dropshadowdialog.ui" line="71"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>色</translation>
     </message>
     <message>
         <location filename="../src/dialogs/dropshadowdialog.ui" line="114"/>
         <source>Offset x</source>
-        <translation type="unfinished"></translation>
+        <translation>x方向のオフセット</translation>
     </message>
     <message>
         <location filename="../src/dialogs/dropshadowdialog.ui" line="127"/>
         <source>Offset y</source>
-        <translation type="unfinished"></translation>
+        <translation>y方向のオフセット </translation>
     </message>
     <message>
         <location filename="../src/dialogs/dropshadowdialog.ui" line="160"/>
@@ -2761,22 +2785,22 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="17"/>
         <source>Image Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>画像のプロパティ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="45"/>
         <source>Image name:</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の名前:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="64"/>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダ:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="77"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="90"/>
@@ -2786,22 +2810,22 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="103"/>
         <source>File size:</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルサイズ:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="116"/>
         <source>Date:</source>
-        <translation type="unfinished"></translation>
+        <translation>日付：</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="129"/>
         <source>Memory size:</source>
-        <translation type="unfinished"></translation>
+        <translation>メモリサイズ:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="142"/>
         <source>Undo Cache Size</source>
-        <translation type="unfinished"></translation>
+        <translation>取り消しキャッシュのサイズ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="155"/>
@@ -2824,7 +2848,7 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.cpp" line="30"/>
         <source>Untitled</source>
-        <translation type="unfinished"></translation>
+        <translation>無題</translation>
     </message>
 </context>
 <context>
@@ -2832,32 +2856,32 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="17"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>文字</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="36"/>
         <source>&amp;Text</source>
-        <translation type="unfinished"></translation>
+        <translation>文字(&amp;T)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="61"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>フォント</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="74"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="103"/>
         <source>Text Input</source>
-        <translation type="unfinished"></translation>
+        <translation>文字入力</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="126"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>プレビュー</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="154"/>
@@ -2867,32 +2891,32 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="171"/>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>太字</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="184"/>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>斜体</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="197"/>
         <source>Strike out</source>
-        <translation type="unfinished"></translation>
+        <translation>打消し</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="210"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>下線</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="223"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>色</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="258"/>
         <source>Antialias</source>
-        <translation type="unfinished"></translation>
+        <translation>アンチエイリアス</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="281"/>
