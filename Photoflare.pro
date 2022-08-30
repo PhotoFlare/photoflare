@@ -207,7 +207,8 @@ TRANSLATIONS = languages/en.ts \
                languages/sv.ts \
                languages/ru_RU.ts \
                languages/id.ts \
-               languages/es.ts
+               languages/es.ts \
+               languages/ja.ts
 
 # Generate translations in build
 TRANSLATIONS_FILES =

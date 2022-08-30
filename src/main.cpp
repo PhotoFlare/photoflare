@@ -116,6 +116,10 @@ int main(int argc, char *argv[])
             {
                 lang = "es";
             }
+            else if(sysLanguage == "Japan")
+            {
+                lang = "ja";
+            }
             SETTINGS->setUserLanguage(lang);
         }
 
