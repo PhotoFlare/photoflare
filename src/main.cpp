@@ -120,6 +120,10 @@ int main(int argc, char *argv[])
             {
                 lang = "ja";
             }
+            else if(sysLanguage == "Turkey")
+            {
+                lang = "tr";
+            }
             SETTINGS->setUserLanguage(lang);
         }
 

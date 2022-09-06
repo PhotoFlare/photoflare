@@ -100,7 +100,8 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
               << tr("Russian")
               << tr("Indonesian")
               << tr("Spanish")
-              << tr("Japanese");
+              << tr("Japanese")
+              << tr("Turkish");
 
     ui->comboBoxLanguage->addItems(languages);
     addFlagIcons(languages.count());
@@ -136,6 +137,8 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
         ui->comboBoxLanguage->setCurrentIndex(12);
     else if(SETTINGS->getUserLanguage() == "ja")
         ui->comboBoxLanguage->setCurrentIndex(13);
+    else if(SETTINGS->getUserLanguage() == "tr")
+        ui->comboBoxLanguage->setCurrentIndex(14);
 
     ui->restartButton->hide();
 }
@@ -281,6 +284,8 @@ void PrefsDialog::set_user_language()
         SETTINGS->setUserLanguage("es");
     else if(ui->comboBoxLanguage->currentIndex() == 13)
         SETTINGS->setUserLanguage("ja");
+    else if(ui->comboBoxLanguage->currentIndex() == 14)
+        SETTINGS->setUserLanguage("tr");
 }
 
 void PrefsDialog::addFlagIcons(int languages)
@@ -299,7 +304,8 @@ void PrefsDialog::addFlagIcons(int languages)
           << "Russia"
           << "Indonesia"
           << "Spain"
-          << "Japan";
+          << "Japan"
+          << "Turkey";
 
     for (int i = 0; i < languages; ++i) {
         ui->comboBoxLanguage->setItemIcon(i,QIcon(flagPath+files[i]+".png"));
