@@ -246,7 +246,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="96"/>
         <source>&amp;File</source>
-        <translation>Archivo (&amp;F)</translation>
+        <translation>&amp;Archivo</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="100"/>
