@@ -57,6 +57,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
         "<br>RU - Alex K."
         "<br>ID - triyanwn"
         "<br>ES - darkshram"
+        "<br>JA - hmatrjp"
         "<br>TR - sabriunal")
     );
     ui->contribTextArea->setText(tr(
