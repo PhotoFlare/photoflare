@@ -61,6 +61,7 @@ Languages currently available:
 - Russian (ru_RU)
 - Indonesian (id)
 - Spanish (es)
+- Japanese (ja)
 - Turkish (tr)
 
 If you would like to add to this list then get in touch. Instructions on adding a translation is <a href="https://photoflare.io/contributing/translations/">available here</a>
