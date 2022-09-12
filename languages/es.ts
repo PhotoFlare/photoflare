@@ -246,7 +246,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="96"/>
         <source>&amp;File</source>
-        <translation>Archivo</translation>
+        <translation>&amp;Archivo</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="100"/>
@@ -361,7 +361,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="383"/>
         <source>&amp;Help</source>
-        <translation>Ayuda</translation>
+        <translation>&amp;Ayuda</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="411"/>
@@ -457,7 +457,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1135"/>
         <source>&amp;Open...</source>
-        <translation>Abrir</translation>
+        <translation>&amp;Abrir...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1143"/>
@@ -467,12 +467,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1157"/>
         <source>&amp;Save</source>
-        <translation>Guardar</translation>
+        <translation>&amp;Guardar</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1165"/>
         <source>&amp;Save As...</source>
-        <translation>Guardar como...</translation>
+        <translation>&amp;Guardar como...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1170"/>
@@ -482,7 +482,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1175"/>
         <source>Close &amp;All</source>
-        <translation>Cerr&amp;Ar Todo</translation>
+        <translation>Cerr&amp;ar Todo</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1184"/>
@@ -497,7 +497,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1197"/>
         <source>&amp;Quit</source>
-        <translation>Salir</translation>
+        <translation>&amp;Salir</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1206"/>
@@ -1095,7 +1095,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1964"/>
         <source>Donate</source>
-        <translation>DOnar</translation>
+        <translation>Donar</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1969"/>
@@ -2519,7 +2519,7 @@
         <location filename="../src/dialogs/prefsdialog.ui" line="49"/>
         <source>&amp;Folders</source>
         <translatorcomment>There is no valid spanish translation for &apos;folders&apos; that use &apos;F&apos;.</translatorcomment>
-        <translation>Carpetas</translation>
+        <translation>&amp;Carpetas</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="61"/>
@@ -2585,7 +2585,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="280"/>
         <source>&amp;Layout</source>
-        <translation>Diseño</translation>
+        <translation>&amp;Diseño</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="292"/>
@@ -2650,7 +2650,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="456"/>
         <source>&amp;Startup</source>
-        <translation>Inicio</translation>
+        <translation>&amp;Inicio</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="468"/>
