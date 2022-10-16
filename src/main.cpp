@@ -41,13 +41,14 @@ int main(int argc, char *argv[])
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("1.6.10");
+        app.setApplicationVersion("1.6.11");
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings
         QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
         if(!QDir(loc).exists())
         {
+            QDir().mkdir(loc);
             SETTINGS->setDefaultSettings();
         }
 

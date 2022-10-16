@@ -189,12 +189,7 @@ void PrefsDialog::on_buttonBox_accepted()
 
 void PrefsDialog::on_buttonBox_rejected()
 {
-    // Setup Default settings
-    QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare";
-    if(QDir(loc).exists() == false)
-    {
-        SETTINGS->setDefaultSettings();
-    }
+    close();
 }
 
 void PrefsDialog::on_openFolderButton_clicked()
