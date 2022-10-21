@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="12.8" version="18.5" Modules="enterprise" RootPath="." Language="en" Id="{5D06178B-435B-4E42-97DD-F876229286E7}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="12.8" version="19.9" Modules="enterprise" RootPath="." Language="en" Id="{5D06178B-435B-4E42-97DD-F876229286E7}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="ActSyncAppComponent;CPLAppletComponent;AutorunComponent;GameUxComponent;SilverlightSlnComponent;SharePointSlnComponent;AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
-    <ROW Property="AI_CURRENT_YEAR" Value="2021" ValueLocId="-"/>
+    <ROW Property="AI_CURRENT_YEAR" Value="2022" ValueLocId="-"/>
     <ROW Property="AI_EXTERNALUIUNINSTALLERNAME" MultiBuildValue="DefaultBuild:aiui"/>
     <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
     <ROW Property="AI_FrameBtnsColor" Value="powderblue" MultiBuildValue="DefaultBuild:aquamarine" MsiKey="AI_FrameBtnsColor"/>
     <ROW Property="AI_FrameColor" Value="powderblue" MultiBuildValue="DefaultBuild:aquamarine" MsiKey="AI_FrameColor"/>
     <ROW Property="AI_ImagesColor" Value="powderblue" MultiBuildValue="DefaultBuild:aquamarine" MsiKey="AI_ImagesColor"/>
-    <ROW Property="AI_PRODUCTNAME_ARP" Value="PhotoFlare"/>
+    <ROW Property="AI_PACKAGING_TOOL" Value="Advanced Installer 19.9 build de6d6401" ValueLocId="-"/>
+    <ROW Property="AI_PRODUCTNAME_ARP" Value="[|ProductName]"/>
     <ROW Property="AI_ThemeColor" Value="powderblue" MultiBuildValue="DefaultBuild:aquamarine" MsiKey="AI_ThemeColor"/>
     <ROW Property="AI_ThemeStyle" Value="head" MultiBuildValue="DefaultBuild:nohead" MsiKey="AI_ThemeStyle"/>
     <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
@@ -16,13 +20,12 @@
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPNOREPAIR" Value="1" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
-    <ROW Property="ARPURLINFOABOUT" Value="http://photoflare.io"/>
-    <ROW Property="CHECKBOX_1_PROP" Value="CheckBox" Type="4"/>
-    <ROW Property="Manufacturer" Value="PhotoFlare.io"/>
-    <ROW Property="ProductCode" Value="1033:{2058A0EF-92C1-4FDC-A9D1-3A660DC8184B} " Type="16"/>
+    <ROW Property="ARPURLINFOABOUT" Value="https://photoflare.io"/>
+    <ROW Property="Manufacturer" Value="Photoflare.io"/>
+    <ROW Property="ProductCode" Value="1033:{88BD42D5-8EA1-48B3-B685-FBC8CB736993} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
-    <ROW Property="ProductName" Value="PhotoFlare"/>
-    <ROW Property="ProductVersion" Value="1.6.9.0" Type="32" TargetFile="PhotoFlare.exe"/>
+    <ROW Property="ProductName" Value="Photoflare"/>
+    <ROW Property="ProductVersion" Value="1.6.11.0" Options="16"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{5DFB1CEA-0740-4E8A-9CE9-D5A82084C960}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -39,15 +42,11 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
     <ROW Directory="ProductCode_Dir" Directory_Parent="TempFolder" DefaultDir="{2058A~1|[|ProductCode]"/>
-    <ROW Directory="SDK_Dir" Directory_Parent="external_Dir" DefaultDir="SDK"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
     <ROW Directory="Spring.742DA8B7_Dir" Directory_Parent="ProductCode_Dir" DefaultDir="SPRING~1.742|Spring.742DA8B7" DefaultDirLocId="-"/>
-    <ROW Directory="StartupFolder" Directory_Parent="TARGETDIR" DefaultDir="STARTU~1|StartupFolder" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="TempFolder" Directory_Parent="TARGETDIR" DefaultDir="TEMPFO~1|TempFolder" IsPseudoRoot="1"/>
-    <ROW Directory="bearer_Dir" Directory_Parent="SDK_Dir" DefaultDir="bearer"/>
     <ROW Directory="data_Dir" Directory_Parent="APPDIR" DefaultDir="data"/>
-    <ROW Directory="external_Dir" Directory_Parent="APPDIR" DefaultDir="external"/>
     <ROW Directory="imageformats_Dir" Directory_Parent="APPDIR" DefaultDir="IMAGEF~1|imageformats"/>
     <ROW Directory="languages_Dir" Directory_Parent="data_Dir" DefaultDir="LANGUA~1|languages"/>
     <ROW Directory="platforms_Dir" Directory_Parent="APPDIR" DefaultDir="PLATFO~1|platforms"/>
@@ -57,7 +56,7 @@
     <ROW Directory="styles_Dir" Directory_Parent="APPDIR" DefaultDir="styles"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="AI_CustomARPName" ComponentId="{BAF787D7-995F-4418-AC5F-D8F3CB575544}" Directory_="APPDIR" Attributes="260" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_CustomARPName" ComponentId="{E5AD7748-8D18-4017-8401-AE294A2775D7}" Directory_="APPDIR" Attributes="260" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{20811206-F99D-4480-8E4A-7971E4080AB2}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{BA24B923-A951-4FC2-BBB7-7D4FB10913BF}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="CORE_RL_Magick_.dll" ComponentId="{C4F82B72-FA73-4B50-83AD-4EE1C5A3F699}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_Magick_.dll_1"/>
@@ -179,22 +178,12 @@
     <ROW Component="PhotoFlare.exe" ComponentId="{CE99A836-A332-41B7-8CEA-B64304A84B03}" Directory_="APPDIR" Attributes="256" KeyPath="PhotoFlare.exe"/>
     <ROW Component="ProductInformation" ComponentId="{1D65AC3D-F912-4D07-86A8-9BC9D948D9E9}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
     <ROW Component="Qt5Core.dll" ComponentId="{8E80789F-5524-41FC-B938-346E637F7924}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5Core.dll"/>
-    <ROW Component="Qt5Core.dll_1" ComponentId="{EF281D85-10FA-4D4B-9846-F1564739DEF2}" Directory_="SDK_Dir" Attributes="0" KeyPath="Qt5Core.dll_1"/>
     <ROW Component="Qt5Gui.dll" ComponentId="{BBC92AA9-EC05-455D-AA49-443D7AFFFFEF}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5Gui.dll"/>
     <ROW Component="Qt5Network.dll" ComponentId="{E0F6A1DC-217B-4723-BAE1-3C14580DF378}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5Network.dll"/>
-    <ROW Component="Qt5Network.dll_1" ComponentId="{D09F873E-E1C4-472E-BB74-303BDD5F3477}" Directory_="SDK_Dir" Attributes="0" KeyPath="Qt5Network.dll_1"/>
     <ROW Component="Qt5PrintSupport.dll" ComponentId="{87D368C3-FC22-42EB-8920-0B8FF2B6B50C}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5PrintSupport.dll"/>
     <ROW Component="Qt5Widgets.dll" ComponentId="{07B075E8-B7DA-4A33-9C84-519A9EDC925B}" Directory_="APPDIR" Attributes="256" KeyPath="Qt5Widgets.dll"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{202F0FB9-770D-44E5-8361-5F049171728D}" Directory_="SHORTCUTDIR" Attributes="0"/>
-    <ROW Component="concrt140.dll" ComponentId="{1884969F-0994-4B13-97CE-C47F1281C966}" Directory_="SDK_Dir" Attributes="0" KeyPath="concrt140.dll"/>
-    <ROW Component="config.dat" ComponentId="{F8D589C6-6B03-4024-96D1-500615E23DFE}" Directory_="SDK_Dir" Attributes="0" KeyPath="config.dat" Type="0"/>
     <ROW Component="de.qm" ComponentId="{CACBDBC9-72E0-4426-9D7C-808AE0E1DBBF}" Directory_="languages_Dir" Attributes="0" KeyPath="de.qm" Type="0"/>
-    <ROW Component="infaticaservice.dll" ComponentId="{B7F4CBCE-FFEF-4FE4-A9A7-DD81E32A6216}" Directory_="SDK_Dir" Attributes="0" KeyPath="infaticaservice.dll"/>
-    <ROW Component="infaticaserviceapp.exe" ComponentId="{A073CCA6-AFA3-4091-9148-6110E6E8EBCE}" Directory_="SDK_Dir" Attributes="0" KeyPath="infaticaserviceapp.exe"/>
-    <ROW Component="msvcp140.dll" ComponentId="{A573E9D0-A94B-4F47-8E37-9F072D0CE3E9}" Directory_="SDK_Dir" Attributes="0" KeyPath="msvcp140.dll"/>
-    <ROW Component="msvcp140_1.dll" ComponentId="{526ABF62-3FA1-4E7A-B411-A0CF76E53703}" Directory_="SDK_Dir" Attributes="0" KeyPath="msvcp140_1.dll"/>
-    <ROW Component="msvcp140_2.dll" ComponentId="{EA393C90-9D89-4CBE-A95E-CAACD28E7BB2}" Directory_="SDK_Dir" Attributes="0" KeyPath="msvcp140_2.dll"/>
-    <ROW Component="qgenericbearer.dll" ComponentId="{59880B50-D94F-4FDE-9C13-E04CA6681976}" Directory_="bearer_Dir" Attributes="0" KeyPath="qgenericbearer.dll"/>
     <ROW Component="qgif.dll" ComponentId="{18BC4281-B02D-41E2-BB0C-2E83D0FC38ED}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qgif.dll"/>
     <ROW Component="qicns.dll" ComponentId="{73491785-C752-4CD1-B122-EF8AE35D1AAB}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qicns.dll"/>
     <ROW Component="qico.dll" ComponentId="{2EA6A2C1-408F-4B5D-A418-0EE0ABB279CC}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qico.dll"/>
@@ -207,9 +196,7 @@
     <ROW Component="qwebp.dll" ComponentId="{54D6EFC0-1C85-4500-B07F-7C9275EA1AAF}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwebp.dll"/>
     <ROW Component="qwindows.dll" ComponentId="{5121C9C1-4980-4305-B917-25EFB28C38B9}" Directory_="platforms_Dir" Attributes="256" KeyPath="qwindows.dll"/>
     <ROW Component="qwindowsvistastyle.dll" ComponentId="{EE71A219-4628-4703-80DD-3588D2154F1D}" Directory_="styles_Dir" Attributes="256" KeyPath="qwindowsvistastyle.dll"/>
-    <ROW Component="vccorlib140.dll" ComponentId="{0AC57149-0A17-482F-B993-8AA57F63F604}" Directory_="SDK_Dir" Attributes="0" KeyPath="vccorlib140.dll"/>
     <ROW Component="vcomp140.dll" ComponentId="{6A51B338-3E59-4E74-A07B-641357DEFB27}" Directory_="APPDIR" Attributes="256" KeyPath="vcomp140.dll"/>
-    <ROW Component="vcruntime140.dll" ComponentId="{D1C8D518-9EE6-42A1-B0C5-37ED8A6A5A98}" Directory_="SDK_Dir" Attributes="0" KeyPath="vcruntime140.dll"/>
     <ROW Component="vcruntime140_1.dll" ComponentId="{FC2E1E26-CCF8-4B49-86E1-B37CE27D2C9C}" Directory_="APPDIR" Attributes="256" KeyPath="vcruntime140_1.dll"/>
     <ROW Component="windowsprintersupport.dll" ComponentId="{6A66529A-34FC-49E4-AF59-9C2350BEDF76}" Directory_="printsupport_Dir" Attributes="256" KeyPath="windowsprintersupport.dll"/>
   </COMPONENT>
@@ -353,7 +340,6 @@
     <ROW File="IM_MOD_RL_xwd_.dll" Component_="IM_MOD_RL_xwd_.dll" FileName="IM_M~101.DLL|IM_MOD_RL_xwd_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_xwd_.dll" SelfReg="false"/>
     <ROW File="IM_MOD_RL_yuv_.dll" Component_="IM_MOD_RL_yuv_.dll" FileName="IM_M~102.DLL|IM_MOD_RL_yuv_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_yuv_.dll" SelfReg="false"/>
     <ROW File="de.qm" Component_="de.qm" FileName="de.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\de.qm" SelfReg="false"/>
-    <ROW File="diffing_tool.py" Component_="de.qm" FileName="DIFFIN~1.PY|diffing_tool.py" Attributes="0" SourcePath="PhotoFlare_Win_AIP\DATA\languages\diffing_tool.py" SelfReg="false"/>
     <ROW File="en.qm" Component_="de.qm" FileName="en.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\en.qm" SelfReg="false"/>
     <ROW File="fr.qm" Component_="de.qm" FileName="fr.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\fr.qm" SelfReg="false"/>
     <ROW File="nl.qm" Component_="de.qm" FileName="nl.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\nl.qm" SelfReg="false"/>
@@ -369,18 +355,6 @@
     <ROW File="zh_TW.qm" Component_="de.qm" FileName="zh_TW.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\zh_TW.qm" SelfReg="false"/>
     <ROW File="qwindowsvistastyle.dll" Component_="qwindowsvistastyle.dll" FileName="QWINDO~1.DLL|qwindowsvistastyle.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\styles\qwindowsvistastyle.dll" SelfReg="false"/>
     <ROW File="vcruntime140_1.dll" Component_="vcruntime140_1.dll" FileName="VCRUNT~1.DLL|vcruntime140_1.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\vcruntime140_1.dll" SelfReg="false"/>
-    <ROW File="qgenericbearer.dll" Component_="qgenericbearer.dll" FileName="QGENER~1.DLL|qgenericbearer.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\bearer\qgenericbearer.dll" SelfReg="false"/>
-    <ROW File="concrt140.dll" Component_="concrt140.dll" FileName="CONCRT~1.DLL|concrt140.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\concrt140.dll" SelfReg="false"/>
-    <ROW File="config.dat" Component_="config.dat" FileName="config.dat" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\config.dat" SelfReg="false"/>
-    <ROW File="infaticaserviceapp.exe" Component_="infaticaserviceapp.exe" FileName="INFATI~1.EXE|infatica-service-app.exe" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\infatica-service-app.exe" SelfReg="false"/>
-    <ROW File="infaticaservice.dll" Component_="infaticaservice.dll" FileName="INFATI~1.DLL|infatica-service.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\infatica-service.dll" SelfReg="false"/>
-    <ROW File="msvcp140.dll" Component_="msvcp140.dll" FileName="msvcp140.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\msvcp140.dll" SelfReg="false"/>
-    <ROW File="msvcp140_1.dll" Component_="msvcp140_1.dll" FileName="MSVCP1~1.DLL|msvcp140_1.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\msvcp140_1.dll" SelfReg="false"/>
-    <ROW File="msvcp140_2.dll" Component_="msvcp140_2.dll" FileName="MSVCP1~2.DLL|msvcp140_2.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\msvcp140_2.dll" SelfReg="false"/>
-    <ROW File="Qt5Core.dll_1" Component_="Qt5Core.dll_1" FileName="Qt5Core.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\Qt5Core.dll" SelfReg="false"/>
-    <ROW File="Qt5Network.dll_1" Component_="Qt5Network.dll_1" FileName="QT5NET~1.DLL|Qt5Network.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\Qt5Network.dll" SelfReg="false"/>
-    <ROW File="vccorlib140.dll" Component_="vccorlib140.dll" FileName="VCCORL~1.DLL|vccorlib140.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\vccorlib140.dll" SelfReg="false"/>
-    <ROW File="vcruntime140.dll" Component_="vcruntime140.dll" FileName="VCRUNT~1.DLL|vcruntime140.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\external\SDK\vcruntime140.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
     <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" MsiPackageType="x64"/>
@@ -391,6 +365,9 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DigCertStoreComponent">
     <ROW TimeStampUrl="http://timestamp.digicert.com" SignerDescription="[|ProductName]" SignOptions="0" SignTool="0" UseSha256="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DynamicPropertyComponent">
+    <ROW Property="ProductVersion" Type="2" SourcePath="PhotoFlare.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
     <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
@@ -403,6 +380,7 @@
     <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
     <ROW Fragment="SetupTypeDlg.aip" Path="&lt;AI_THEMES&gt;spring\fragments\SetupTypeDlg.aip"/>
     <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
     <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;spring\fragments\UI.aip"/>
     <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
     <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;spring\fragments\VerifyRemoveDlg.aip"/>
@@ -423,14 +401,69 @@
     <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="cutout_pro_partner.png" SourcePath="PhotoFlare_Win_AIP\DATA\cutout_pro_partner.png"/>
     <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
     <ROW Name="tempFiles.dll" SourcePath="&lt;AI_CUSTACTS&gt;tempFiles.dll"/>
   </COMPONENT>
-  <COMPONENT cid="caphyon.advinst.msicomp.MsiCheckBoxComponent">
-    <ROW Property="CHECKBOX_1_PROP" Value="CheckBox"/>
-  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
-    <ROW Dialog_="LicenseAgreementDlg" Control="AgreementText" Type="ScrollableText" X="45" Y="118" Width="360" Height="166" Attributes="3" Property="EulaRead" Text="PhotoFlare_Win_AIP\gplv3eula.rtf" Order="800" MsiKey="LicenseAgreementDlg#AgreementText"/>
+    <ROW Dialog_="AdminWelcomeDlg" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196611" Text="Welcome to the [ProductName] [Wizard]" TextStyle="TitleFont" Order="400" TextLocId="Control.Text.AdminWelcomeDlg#Title" MsiKey="AdminWelcomeDlg#Title"/>
+    <ROW Dialog_="AdminWelcomeDlg" Control="Description" Type="Text" X="45" Y="55" Width="360" Height="60" Attributes="196611" Text="The [Wizard] will create a server image of [ProductName], at a specified network location.  Click [Text_Next] to continue or close the window to exit the [Wizard]." Order="500" TextLocId="Control.Text.AdminWelcomeDlg#DescriptionNoClose" MsiKey="AdminWelcomeDlg#Description"/>
+    <ROW Dialog_="AdminWelcomeDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="600" TextLocId="-" MsiKey="AdminWelcomeDlg#Back" Options="1"/>
+    <ROW Dialog_="CustomizeDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" TextLocId="-" MsiKey="CustomizeDlg#Cancel" Options="1"/>
+    <ROW Dialog_="CustomizeDlg" Control="Title" Type="Text" X="45" Y="17" Width="380" Height="20" Attributes="196610" Text="Custom Setup" TextStyle="TitleFont" Order="400" TextLocId="Control.Text.CustomizeDlg#Title" MsiKey="CustomizeDlg#Title"/>
+    <ROW Dialog_="CustomizeDlg" Control="Text" Type="Text" X="45" Y="55" Width="360" Height="23" Attributes="196610" Text="Select which components of [ProductName] will be installed" Order="500" TextLocId="Azure.Control.Text.CustomizeDlg#Text" MsiKey="CustomizeDlg#Text"/>
+    <ROW Dialog_="CustomizeDlg" Control="QuickSelectionTree" Type="QuickSelectionTree" X="45" Y="85" Width="360" Height="183" Attributes="3" Property="_BrowseProperty" Text="QuickSelectionTree" Order="600" MsiKey="CustomizeDlg#QuickSelectionTree" ExtType="QuickSelectionTree"/>
+    <ROW Dialog_="CustomizeDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="700" TextLocId="-" MsiKey="CustomizeDlg#Back" Options="1"/>
+    <ROW Dialog_="CustomizeDlg" Control="Next" Type="PushButton" X="350" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Next]" TextStyle="Buttons" Order="800" TextLocId="-" MsiKey="CustomizeDlg#Next" Options="1"/>
+    <ROW Dialog_="FatalError" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" TextLocId="-" MsiKey="FatalError#Cancel" Options="1"/>
+    <ROW Dialog_="FatalError" Control="Description2" Type="Text" X="45" Y="300" Width="220" Height="20" Attributes="196610" Text="Click the &quot;Finish&quot; button to exit the [Wizard]." Order="400" TextLocId="Control.Text.FatalError#Description2" MsiKey="FatalError#Description2"/>
+    <ROW Dialog_="FatalError" Control="Description1" Type="Text" X="45" Y="110" Width="350" Height="40" Attributes="196610" Text="[ProductName] setup ended prematurely because of an error.  Your system has not been modified.  To install this program at a later time, please run the installation again." Order="500" TextLocId="Control.Text.FatalError#Description1" MsiKey="FatalError#Description1"/>
+    <ROW Dialog_="FatalError" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196610" Text="The [ProductName] [Wizard] ended prematurely" TextStyle="TitleFont" Order="600" TextLocId="Control.Text.FatalError#Title" MsiKey="FatalError#Title"/>
+    <ROW Dialog_="FatalError" Control="LogCheckBox" Type="CheckBox" X="45" Y="158" Width="10" Height="10" Attributes="2" Property="AI_LOG_CHECKBOX" Order="700" MsiKey="FatalError#LogCheckBox"/>
+    <ROW Dialog_="FatalError" Control="LogCheckBoxLabel" Type="Text" X="58" Y="158" Width="75" Height="12" Attributes="65538" Property="AI_LOG_CHECKBOX_TEXT" Text="Show log" Order="800" TextLocId="Control.Text.FatalError#LogCheckBox" MsiKey="FatalError#LogCheckBoxLabel"/>
+    <ROW Dialog_="FatalError" Control="Finish" Type="PushButton" X="350" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Finish]" TextStyle="Buttons" Order="900" TextLocId="-" MsiKey="FatalError#Finish" Options="1"/>
+    <ROW Dialog_="FatalError" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="1000" TextLocId="-" MsiKey="FatalError#Back" Options="1"/>
+    <ROW Dialog_="FolderDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="400" TextLocId="-" MsiKey="FolderDlg#Cancel" Options="1"/>
+    <ROW Dialog_="FolderDlg" Control="Browse" Type="PushButton" X="340" Y="141" Width="70" Height="18" Attributes="3" Text="[ButtonText_Browse]" Help="|" Order="500" TextLocId="-" HelpLocId="Control.Help.FolderDlg#Browse" MsiKey="FolderDlg#Browse"/>
+    <ROW Dialog_="FolderDlg" Control="FolderEdit" Type="PathEdit" X="45" Y="141" Width="284" Height="18" Attributes="7" Property="APPDIR" Help="|" Order="600" HelpLocId="Control.Help.FolderDlg#FolderEdit" MsiKey="FolderDlg#FolderEdit"/>
+    <ROW Dialog_="FolderDlg" Control="Title" Type="Text" X="45" Y="17" Width="380" Height="23" Attributes="196610" Text="Choose a file location" TextStyle="TitleFont" Order="700" TextLocId="Azure.Control.Text.FolderDlg#Title" MsiKey="FolderDlg#Title"/>
+    <ROW Dialog_="FolderDlg" Control="Text" Type="Text" X="45" Y="55" Width="360" Height="50" Attributes="65538" Text="To install in this folder, click &quot;[Text_Next]&quot;. To install to a different folder, enter it below or click &quot;Browse&quot;." Order="800" TextLocId="Control.Text.FolderDlg#Text" MsiKey="FolderDlg#Text"/>
+    <ROW Dialog_="FolderDlg" Control="TotalSpaceText" Type="Text" X="210" Y="195" Width="120" Height="13" Attributes="589826" Property="PrimaryVolumeSpaceRequired" Text="[PrimaryVolumeSpaceRequired]" Order="900" TextLocId="Azure.Control.Text.FolderDlg#TotalSpaceText" MsiKey="FolderDlg#TotalSpaceText"/>
+    <ROW Dialog_="FolderDlg" Control="AvailableSpaceText" Type="Text" X="210" Y="210" Width="120" Height="13" Attributes="589826" Property="PrimaryVolumeSpaceAvailable" Text="[PrimaryVolumeSpaceAvailable]" Order="1000" TextLocId="Azure.Control.Text.FolderDlg#AvailableSpaceText" MsiKey="FolderDlg#AvailableSpaceText"/>
+    <ROW Dialog_="FolderDlg" Control="RemainingSpaceText" Type="Text" X="210" Y="225" Width="120" Height="13" Attributes="589826" Property="PrimaryVolumeSpaceRemaining" Text="[PrimaryVolumeSpaceRemaining]" Order="1100" TextLocId="Azure.Control.Text.FolderDlg#RemainingSpaceText" MsiKey="FolderDlg#RemainingSpaceText"/>
+    <ROW Dialog_="FolderDlg" Control="RemainingSpaceLabel" Type="Text" X="45" Y="225" Width="160" Height="13" Attributes="196610" Property="REMAINING_SPACE_LABEL_PROP" Text="Remaining free space on drive: " Order="1200" TextLocId="Azure.Control.Text.FolderDlg#RemainingSpaceLabel" MsiKey="FolderDlg#RemainingSpaceLabel"/>
+    <ROW Dialog_="FolderDlg" Control="AvailableSpaceLabel" Type="Text" X="45" Y="210" Width="160" Height="13" Attributes="196610" Property="AVAILABLE_SPACE_LABEL_PROP" Text="Space available on drive: " Order="1300" TextLocId="Azure.Control.Text.FolderDlg#AvailableSpaceLabel" MsiKey="FolderDlg#AvailableSpaceLabel"/>
+    <ROW Dialog_="FolderDlg" Control="TotalSpaceLabel" Type="Text" X="45" Y="195" Width="160" Height="13" Attributes="196610" Property="TOTAL_SPACE_LABEL_PROP" Text="Total space required on drive:" Order="1400" TextLocId="Azure.Control.Text.FolderDlg#TotalSpaceLabel" MsiKey="FolderDlg#TotalSpaceLabel"/>
+    <ROW Dialog_="FolderDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="1500" TextLocId="-" MsiKey="FolderDlg#Back" Options="1"/>
+    <ROW Dialog_="InstallDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="400" TextLocId="-" MsiKey="InstallDlg#Cancel" Options="1"/>
+    <ROW Dialog_="InstallDlg" Control="CheckBox" Type="CheckBox" X="45" Y="300" Width="340" Height="12" Attributes="3" Property="IAgreeInstall" Text="I agree to the License terms and conditions." Order="500" TextLocId="Metro.Control.Text.WelcomeDlg.AgreeToLicense" MsiKey="InstallDlg#CheckBox"/>
+    <ROW Dialog_="InstallDlg" Control="FolderEdit" Type="PathEdit" X="45" Y="141" Width="284" Height="18" Attributes="7" Property="APPDIR" Help="|" Order="600" HelpLocId="Control.Help.FolderDlg#FolderEdit" MsiKey="InstallDlg#FolderEdit"/>
+    <ROW Dialog_="InstallDlg" Control="Browse" Type="PushButton" X="340" Y="141" Width="70" Height="18" Attributes="3" Text="[ButtonText_Browse]" Help="|" Order="700" TextLocId="-" HelpLocId="Control.Help.FolderDlg#Browse" MsiKey="InstallDlg#Browse"/>
+    <ROW Dialog_="InstallDlg" Control="Hyperlink" Type="Hyperlink" X="45" Y="278" Width="395" Height="23" Attributes="65539" Property="HYPERLINK_1_PROP" Text="You must agree to the &lt;a href=&quot;&quot;&gt;Licenses terms and conditions&lt;/a&gt; before you can install [ProductName]." Order="800" TextLocId="Metro.Control.Text.WelcomeDlg#YouMustAgreeCtrl" MsiKey="InstallDlg#Hyperlink"/>
+    <ROW Dialog_="InstallDlg" Control="Title" Type="Text" X="45" Y="17" Width="380" Height="23" Attributes="196610" Text="File Location and License Terms" TextStyle="TitleFont" Order="900" TextLocId="Control.Text.InstallDlg#Title" MsiKey="InstallDlg#Title"/>
+    <ROW Dialog_="InstallDlg" Control="Text" Type="Text" X="45" Y="55" Width="360" Height="50" Attributes="65538" Text="[ProductName] will be installed on your computer. To install to a different location, enter it below or click &quot;Browse&quot;." Order="1000" TextLocId="Control.Text.FolderDlg#TextNoNext" MsiKey="InstallDlg#Text"/>
+    <ROW Dialog_="InstallDlg" Control="TotalSpaceText" Type="Text" X="210" Y="195" Width="120" Height="13" Attributes="589826" Property="PrimaryVolumeSpaceRequired" Text="[PrimaryVolumeSpaceRequired]" Order="1100" TextLocId="Azure.Control.Text.FolderDlg#TotalSpaceText" MsiKey="InstallDlg#TotalSpaceText"/>
+    <ROW Dialog_="InstallDlg" Control="AvailableSpaceText" Type="Text" X="210" Y="210" Width="120" Height="13" Attributes="589826" Property="PrimaryVolumeSpaceAvailable" Text="[PrimaryVolumeSpaceAvailable]" Order="1200" TextLocId="Azure.Control.Text.FolderDlg#AvailableSpaceText" MsiKey="InstallDlg#AvailableSpaceText"/>
+    <ROW Dialog_="InstallDlg" Control="RemainingSpaceText" Type="Text" X="210" Y="225" Width="120" Height="13" Attributes="589826" Property="PrimaryVolumeSpaceRemaining" Text="[PrimaryVolumeSpaceRemaining]" Order="1300" TextLocId="Azure.Control.Text.FolderDlg#RemainingSpaceText" MsiKey="InstallDlg#RemainingSpaceText"/>
+    <ROW Dialog_="InstallDlg" Control="RemainingSpaceLabel" Type="Text" X="45" Y="225" Width="160" Height="13" Attributes="196610" Property="REMAINING_SPACE_LABEL_PROP" Text="Remaining free space on drive: " Order="1400" TextLocId="Azure.Control.Text.FolderDlg#RemainingSpaceLabel" MsiKey="InstallDlg#RemainingSpaceLabel"/>
+    <ROW Dialog_="InstallDlg" Control="AvailableSpaceLabel" Type="Text" X="45" Y="210" Width="160" Height="13" Attributes="196610" Property="AVAILABLE_SPACE_LABEL_PROP" Text="Space available on drive: " Order="1500" TextLocId="Azure.Control.Text.FolderDlg#AvailableSpaceLabel" MsiKey="InstallDlg#AvailableSpaceLabel"/>
+    <ROW Dialog_="InstallDlg" Control="TotalSpaceLabel" Type="Text" X="45" Y="195" Width="160" Height="13" Attributes="196610" Property="TOTAL_SPACE_LABEL_PROP" Text="Total space required on drive:" Order="1600" TextLocId="Azure.Control.Text.FolderDlg#TotalSpaceLabel" MsiKey="InstallDlg#TotalSpaceLabel"/>
+    <ROW Dialog_="InstallDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="1700" TextLocId="-" MsiKey="InstallDlg#Back" Options="1"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control="Title" Type="Text" X="45" Y="17" Width="378" Height="21" Attributes="196610" Text="Read the [Manufacturer] License Terms" TextStyle="TitleFont" Order="500" TextLocId="Azure.Control.Text.LicenseAgreementDlg#Title" MsiKey="LicenseAgreementDlg#Title"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control="Description" Type="Text" X="45" Y="76" Width="329" Height="42" Attributes="196610" Text="To continue you must read and accept the terms of this agreement. If you do not want to accept the [Manufacturer] License Terms, close this window to cancel the installation." Order="600" TextLocId="Azure.Control.Text.LicenseAgreementDlg#Description" MsiKey="LicenseAgreementDlg#Description"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control="AgreementText" Type="ScrollableText" X="45" Y="118" Width="360" Height="166" Attributes="3" Property="EulaRead" Text="PhotoFlare_Win_AIP\gplv3eula.rtf" Order="700" MsiKey="LicenseAgreementDlg#AgreementText"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control="PrintButton" Type="PushButton" X="378" Y="76" Width="28" Height="28" Attributes="4718594" Text="[PrintIcon]" Order="800" MsiKey="LicenseAgreementDlg#PrintButton" AssociatedCtrl="AgreementText"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control="EulaAgreeCheckBox" Type="CheckBox" X="45" Y="300" Width="230" Height="13" Attributes="2" Property="IAgree" Text="I &amp;accept the terms of this agreement." Order="900" TextLocId="Azure.Control.Text.LicenseAgreementDlg#EulaAgreeCheckBox" MsiKey="LicenseAgreementDlg#EulaAgreeCheckBox"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="1000" TextLocId="-" MsiKey="LicenseAgreementDlg#Back" Options="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="900" TextLocId="-" MsiKey="MaintenanceTypeDlg#Cancel" Options="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control="ChangeText" Type="Text" X="110" Y="113" Width="280" Height="20" Attributes="65538" Text="Allows users to change the way features are installed." Order="1000" TextLocId="Control.Text.MaintenanceTypeDlg#ChangeText" MsiKey="MaintenanceTypeDlg#ChangeText"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196610" Text="Change your installation of [ProductName]" TextStyle="TitleFont" Order="1100" TextLocId="Azure.Control.Text.MaintenanceTypeDlg#Title" MsiKey="MaintenanceTypeDlg#Title"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control="RepairText" Type="Text" X="110" Y="172" Width="280" Height="30" Attributes="65538" Text="Repairs errors in the most recent installation state - fixes missing or corrupt files, shortcuts and registry entries." Order="1200" TextLocId="Control.Text.MaintenanceTypeDlg#RepairText" MsiKey="MaintenanceTypeDlg#RepairText"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control="RemoveText" Type="Text" X="110" Y="231" Width="280" Height="20" Attributes="65538" Text="Removes [ProductName] from your computer." Order="1300" TextLocId="Control.Text.MaintenanceTypeDlg#RemoveText" MsiKey="MaintenanceTypeDlg#RemoveText"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="1400" TextLocId="-" MsiKey="MaintenanceTypeDlg#Back" Options="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="Title" Type="Text" X="45" Y="32" Width="380" Height="40" Attributes="196610" Text="Welcome to the [ProductName] [Wizard]" TextStyle="TitleFont" Order="500" TextLocId="Control.Text.MaintenanceWelcomeDlg#Title" MsiKey="MaintenanceWelcomeDlg#Title"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="Description" Type="Text" X="45" Y="55" Width="360" Height="60" Attributes="196610" Text="The [Wizard] will allow you to change the way [ProductName] features are installed on your computer or even to remove [ProductName] from your computer.  Click [Text_Next] to continue or close the window to exit the [Wizard]." Order="600" TextLocId="Control.Text.MaintenanceWelcomeDlg#DescriptionNoClose" MsiKey="MaintenanceWelcomeDlg#Description"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="700" TextLocId="-" MsiKey="MaintenanceWelcomeDlg#Back" Options="1"/>
     <ROW Dialog_="NewDialog" Control="Bitmap" Type="Bitmap" X="0" Y="0" Width="450" Height="360" Attributes="1048577" Text="[DialogBitmap]" Order="100"/>
     <ROW Dialog_="NewDialog" Control="Next" Type="ImageButton" X="350" Y="323" Width="54" Height="27" Attributes="3" Text="[ButtonImage]" TextStyle="[ButtonTextStyle]" Order="200" ExtType="ImageButton" ExtData="[ButtonText_Next]" ExtDataLocId="-"/>
     <ROW Dialog_="NewDialog" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" Options="1"/>
@@ -442,9 +475,50 @@
     <ROW Dialog_="OptionalDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" Options="1"/>
     <ROW Dialog_="OptionalDlg" Control="Back" Type="ImageButton" X="45" Y="323" Width="54" Height="27" Attributes="3" Text="[ButtonImage]" TextStyle="[ButtonTextStyle]" Order="400" ExtType="ImageButton" ExtData="[ButtonText_Back]" ExtDataLocId="-"/>
     <ROW Dialog_="OptionalDlg" Control="Title" Type="Text" X="45" Y="17" Width="200" Height="15" Attributes="196611" Text="Support Us" TextStyle="TitleFont" Order="500"/>
-    <ROW Dialog_="OptionalDlg" Control="Text_1" Type="Text" X="45" Y="47" Width="359" Height="29" Attributes="65539" Property="TEXT_1_PROP" Text="Please support Photoflare development by becoming a peer on a trusted peer-to-peer (P2P) network. Some of your idle bandwidth resources can be shared with this network." Order="600"/>
-    <ROW Dialog_="OptionalDlg" Control="Text_2" Type="Text" X="45" Y="86" Width="359" Height="51" Attributes="65539" Property="TEXT_2_PROP" Text="The P2P network routes it&apos;s traffic through millions of idle peers and therefore has minimal effect on your total bandwidth consumption. Please note - none of your personal information is accessed and no user data is collected. IP region location data is the only data shared with the network and this data is not shared with any third party." Order="700"/>
-    <ROW Dialog_="OptionalDlg" Control="CheckBox_1" Type="CheckBox" X="45" Y="150" Width="200" Height="13" Attributes="3" Property="CHECKBOX_1_PROP" Text="Join Infatica peer-to-business network" Order="800"/>
+    <ROW Dialog_="OptionalDlg" Control="Text_1" Type="Text" X="45" Y="39" Width="359" Height="36" Attributes="65539" Property="TEXT_1_PROP" Text="Please support Photoflare development by creating an account with Cutout.pro.  Cutout.pro leverages the power of artificial intelligence and computer vision to deliver a wide range of products that make your life much easier and your work more productive." Order="600"/>
+    <ROW Dialog_="OptionalDlg" Control="more_info" Type="Hyperlink" X="45" Y="75" Width="71" Height="13" Attributes="65539" Property="HYPERLINK_1_PROP_1" Text="&lt;a href=&quot;https://photoflare.io/add-ons/&quot;&gt;More Information&lt;/a&gt;" Order="700"/>
+    <ROW Dialog_="OptionalDlg" Control="Bitmap_1" Type="Bitmap" X="45" Y="98" Width="359" Height="209" Attributes="1" Text="cutout_pro_partner.png" Order="800"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196611" Text="Welcome to the [ProductName] Patch [Wizard]" TextStyle="TitleFont" Order="400" TextLocId="Control.Text.PatchWelcomeDlg#Title" MsiKey="PatchWelcomeDlg#Title"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="Description" Type="Text" X="45" Y="55" Width="360" Height="60" Attributes="196611" Text="The [Wizard] will install the Patch for [ProductName] on your computer.  Click [Text_Next] to continue or close the window to exit the Patch [Wizard]." Order="500" TextLocId="Control.Text.PatchWelcomeDlg#DescriptionNoClose" MsiKey="PatchWelcomeDlg#Description"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="600" TextLocId="-" MsiKey="PatchWelcomeDlg#Back" Options="1"/>
+    <ROW Dialog_="PrepareDlg" Control="Next" Type="PushButton" X="350" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Next]" TextStyle="Buttons" Order="400" TextLocId="-" MsiKey="PrepareDlg#Next" Options="1"/>
+    <ROW Dialog_="PrepareDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="500" TextLocId="-" MsiKey="PrepareDlg#Back" Options="1"/>
+    <ROW Dialog_="ProgressDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" TextLocId="-" MsiKey="ProgressDlg#Cancel" Options="1"/>
+    <ROW Dialog_="ProgressDlg" Control="Title" Type="Text" X="45" Y="17" Width="378" Height="21" Attributes="196610" Text="Installation Progress" TextStyle="TitleFont" Order="400" TextLocId="Azure.Control.Text.ProgressDlg#Title" MsiKey="ProgressDlg#Title"/>
+    <ROW Dialog_="ProgressDlg" Control="ProgressBar" Type="ProgressBar" X="45" Y="160" Width="360" Height="14" Attributes="65536" Text="Progress done" Order="500" TextLocId="Control.Text.ProgressDlg#ProgressBar" MsiKey="ProgressDlg#ProgressBar"/>
+    <ROW Dialog_="ProgressDlg" Control="Description" Type="Text" X="45" Y="55" Width="330" Height="11" Attributes="65538" Text="[Progress1] [ProductName]..." Order="600" TextLocId="Azure.Control.Text.ProgressDlg#Description" MsiKey="ProgressDlg#Description"/>
+    <ROW Dialog_="ProgressDlg" Control="ActionText" Type="Text" X="45" Y="135" Width="330" Height="11" Attributes="65538" Order="700" MsiKey="ProgressDlg#ActionText"/>
+    <ROW Dialog_="ProgressDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="800" TextLocId="-" MsiKey="ProgressDlg#Back" Options="1"/>
+    <ROW Dialog_="ProgressDlg" Control="Next" Type="PushButton" X="350" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Next]" TextStyle="Buttons" Order="900" TextLocId="-" MsiKey="ProgressDlg#Next" Options="1"/>
+    <ROW Dialog_="ResumeDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" TextLocId="-" MsiKey="ResumeDlg#Cancel" Options="1"/>
+    <ROW Dialog_="ResumeDlg" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196610" Text="Resuming the [ProductName] [Wizard]" TextStyle="TitleFont" Order="400" TextLocId="Control.Text.ResumeDlg#Title" MsiKey="ResumeDlg#Title"/>
+    <ROW Dialog_="ResumeDlg" Control="Description" Type="Text" X="45" Y="55" Width="360" Height="60" Attributes="196610" Text="The [Wizard] will complete the installation of [ProductName] on your computer.  Click Install to continue or close the window to exit the [Wizard]." Order="500" TextLocId="Control.Text.ResumeDlg#DescriptionNoClose" MsiKey="ResumeDlg#Description"/>
+    <ROW Dialog_="ResumeDlg" Control="Install" Type="PushButton" X="350" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Install]" TextStyle="Buttons" Order="600" TextLocId="-" MsiKey="ResumeDlg#Install" Options="1"/>
+    <ROW Dialog_="ResumeDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="700" TextLocId="-" MsiKey="ResumeDlg#Back" Options="1"/>
+    <ROW Dialog_="SetupTypeDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="1100" TextLocId="-" MsiKey="SetupTypeDlg#Back" Options="1"/>
+    <ROW Dialog_="UserExit" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" TextLocId="-" MsiKey="UserExit#Cancel" Options="1"/>
+    <ROW Dialog_="UserExit" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196610" Text="The [ProductName] [Wizard] was interrupted" TextStyle="TitleFont" Order="400" TextLocId="Control.Text.UserExit#Title" MsiKey="UserExit#Title"/>
+    <ROW Dialog_="UserExit" Control="Description2" Type="Text" X="45" Y="300" Width="220" Height="20" Attributes="196610" Text="Click the &quot;Finish&quot; button to exit the [Wizard]." Order="500" TextLocId="Control.Text.UserExit#Description2" MsiKey="UserExit#Description2"/>
+    <ROW Dialog_="UserExit" Control="Description1" Type="Text" X="45" Y="110" Width="350" Height="40" Attributes="196610" Text="[ProductName] setup was interrupted.  Your system has not been modified.  To install this program at a later time, please run the installation again." Order="600" TextLocId="Control.Text.UserExit#Description1" MsiKey="UserExit#Description1"/>
+    <ROW Dialog_="UserExit" Control="Finish" Type="PushButton" X="350" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Finish]" TextStyle="Buttons" Order="700" TextLocId="-" MsiKey="UserExit#Finish" Options="1"/>
+    <ROW Dialog_="UserExit" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="800" TextLocId="-" MsiKey="UserExit#Back" Options="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" TextLocId="-" MsiKey="VerifyReadyDlg#Cancel" Options="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Text" Type="Text" X="45" Y="55" Width="380" Height="40" Attributes="65538" Text="Click Install to begin the installation.  If you want to review or change any of your installation settings, click Back.  Close the window to exit the wizard." Order="400" TextLocId="Control.Text.VerifyReadyDlg#TextNoClose" MsiKey="VerifyReadyDlg#Text"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196610" Text="Begin installation of [ProductName]" TextStyle="TitleFont" Order="500" TextLocId="Azure.Control.Text.VerifyReadyDlg#Title" MsiKey="VerifyReadyDlg#Title"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Install" Type="PushButton" X="350" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Install]" TextStyle="Buttons" Order="600" TextLocId="-" MsiKey="VerifyReadyDlg#Install" Options="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="700" TextLocId="-" MsiKey="VerifyReadyDlg#Back" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Remove" Type="PushButton" X="350" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Remove]" Order="300" TextLocId="-" MsiKey="VerifyRemoveDlg#Remove" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="400" TextLocId="-" MsiKey="VerifyRemoveDlg#Cancel" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196610" Text="Begin remove of [ProductName]" TextStyle="TitleFont" Order="500" TextLocId="Azure.Control.Text.VerifyRemoveDlg#Title" MsiKey="VerifyRemoveDlg#Title"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Text" Type="Text" X="45" Y="55" Width="380" Height="60" Attributes="65538" Text="Click Remove to remove [ProductName] from your computer.  If you want to review or change any of your installation settings, click Back.  Close the window to exit the wizard." Order="600" TextLocId="Control.Text.VerifyRemoveDlg#TextNoClose" MsiKey="VerifyRemoveDlg#Text"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="700" TextLocId="-" MsiKey="VerifyRemoveDlg#Back" Options="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196610" Text="Begin repair of [ProductName]" TextStyle="TitleFont" Order="500" TextLocId="Azure.Control.Text.VerifyRepairDlg#Title" MsiKey="VerifyRepairDlg#Title"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Text" Type="Text" X="45" Y="55" Width="380" Height="60" Attributes="65538" Text="Click Repair to repair the installation of [ProductName].  If you want to review or change any of your installation settings, click Back.  Close the window to exit the wizard." Order="600" TextLocId="Control.Text.VerifyRepairDlg#TextNoClose" MsiKey="VerifyRepairDlg#Text"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="700" TextLocId="-" MsiKey="VerifyRepairDlg#Back" Options="1"/>
+    <ROW Dialog_="WelcomeDlg" Control="Title" Type="Text" X="45" Y="17" Width="382" Height="30" Attributes="196610" Text="Welcome to the [ProductName] [Wizard]" TextStyle="TitleFont" Order="500" TextLocId="Control.Text.WelcomeDlg#Title" MsiKey="WelcomeDlg#Title"/>
+    <ROW Dialog_="WelcomeDlg" Control="Description" Type="Text" X="45" Y="55" Width="360" Height="60" Attributes="196610" Text="The [Wizard] will install [ProductName] on your computer. Click [Text_Next] to continue or close the window to exit the [Wizard]." Order="600" TextLocId="Control.Text.WelcomeDlg#DescriptionNoClose" MsiKey="WelcomeDlg#Description"/>
+    <ROW Dialog_="WelcomeDlg" Control="DialogIcon" Type="Icon" X="177" Y="112" Width="96" Height="96" Attributes="1" Text="[AppLogoIcon_1]" Order="700" MsiKey="WelcomeDlg#DialogIcon"/>
+    <ROW Dialog_="WelcomeDlg" Control="Back" Type="PushButton" X="45" Y="323" Width="56" Height="28" Attributes="2" Text="[ButtonText_Back]" TextStyle="Buttons" Order="800" TextLocId="-" MsiKey="WelcomeDlg#Back" Options="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
     <ROW Dialog_="FatalError" Control_="Finish" Event="DoAction" Argument="AI_RemoveTempFiles" Condition="1" Ordering="102"/>
@@ -691,18 +765,6 @@
     <ROW Feature_="MainProgram" Component_="AI_CustomARPName"/>
     <ROW Feature_="MainProgram" Component_="qwindowsvistastyle.dll"/>
     <ROW Feature_="MainProgram" Component_="vcruntime140_1.dll"/>
-    <ROW Feature_="MainProgram" Component_="qgenericbearer.dll"/>
-    <ROW Feature_="MainProgram" Component_="concrt140.dll"/>
-    <ROW Feature_="MainProgram" Component_="config.dat"/>
-    <ROW Feature_="MainProgram" Component_="infaticaserviceapp.exe"/>
-    <ROW Feature_="MainProgram" Component_="infaticaservice.dll"/>
-    <ROW Feature_="MainProgram" Component_="msvcp140.dll"/>
-    <ROW Feature_="MainProgram" Component_="msvcp140_1.dll"/>
-    <ROW Feature_="MainProgram" Component_="msvcp140_2.dll"/>
-    <ROW Feature_="MainProgram" Component_="Qt5Core.dll_1"/>
-    <ROW Feature_="MainProgram" Component_="Qt5Network.dll_1"/>
-    <ROW Feature_="MainProgram" Component_="vccorlib140.dll"/>
-    <ROW Feature_="MainProgram" Component_="vcruntime140.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="PhotoFlare_1.exe" SourcePath="PhotoFlare_Win_AIP\logo.ico" Index="0"/>
@@ -755,8 +817,11 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
     <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="AdvancedInstaller" Root="-1" Key="Software\Caphyon\Advanced Installer" Name="\"/>
+    <ROW Registry="Caphyon" Root="-1" Key="Software\Caphyon" Name="\"/>
     <ROW Registry="Comments" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Comments" Value="[ARPCOMMENTS]" Component_="AI_CustomARPName"/>
     <ROW Registry="Contact" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Contact" Value="[ARPCONTACT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="CurrentVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion" Name="\"/>
     <ROW Registry="DisplayIcon" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayIcon" Value="[ARP_ICON_PATH]" Component_="AI_CustomARPName"/>
     <ROW Registry="DisplayName" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayName" Value="[AI_PRODUCTNAME_ARP]" Component_="AI_CustomARPName"/>
     <ROW Registry="DisplayVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayVersion" Value="[ProductVersion]" Component_="AI_CustomARPName"/>
@@ -764,23 +829,31 @@
     <ROW Registry="HelpLink" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpLink" Value="[ARPHELPLINK]" Component_="AI_CustomARPName"/>
     <ROW Registry="HelpTelephone" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpTelephone" Value="[ARPHELPTELEPHONE]" Component_="AI_CustomARPName"/>
     <ROW Registry="InstallLocation" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="InstallLocation" Value="[APPDIR]" Component_="AI_CustomARPName"/>
+    <ROW Registry="LZMA" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA" Name="\"/>
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Microsoft" Root="-1" Key="Software\Microsoft" Name="\"/>
     <ROW Registry="ModifyPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="ModifyPath" Value="[AI_UNINSTALLER] /i [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
     <ROW Registry="NoRepair" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="NoRepair" Value="#1" Component_="AI_CustomARPName" VirtualValue="#"/>
     <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="ProductCode" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]" Name="\"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="ProductNameProductVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="\"/>
+    <ROW Registry="ProductVersion" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="\"/>
     <ROW Registry="Publisher" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Publisher" Value="[Manufacturer]" Component_="AI_CustomARPName"/>
     <ROW Registry="Readme" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Readme" Value="[ARPREADME]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
     <ROW Registry="URLInfoAbout" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLInfoAbout" Value="[ARPURLINFOABOUT]" Component_="AI_CustomARPName"/>
     <ROW Registry="URLUpdateInfo" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLUpdateInfo" Value="[ARPURLUPDATEINFO]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Uninstall" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall" Name="\"/>
     <ROW Registry="UninstallPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallPath" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
     <ROW Registry="UninstallString" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallString" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
     <ROW Registry="VersionMajor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMajor" Value="#1" Component_="AI_CustomARPName" VirtualValue="#"/>
     <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#6" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="Windows" Root="-1" Key="Software\Microsoft\Windows" Name="\"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="PhotoFiltreLX" Directory_="SHORTCUTDIR" Name="PHOTOF~1|PhotoFlare" Component_="PhotoFlare.exe" Target="[APPDIR]\PhotoFlare" Arguments="Your Arguments" Description="Simple but powerful image editor" Hotkey="0" Icon_="PhotoFlare_1.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
-    <ROW Shortcut="infaticaserviceapp" Directory_="SDK_Dir" Name="INFATI~1|infatica-service-app" Component_="infaticaserviceapp.exe" Target="[#infaticaserviceapp.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="SDK_Dir"/>
-    <ROW Shortcut="infaticaserviceapp_1" Directory_="StartupFolder" Name="INFATI~1|infatica-service-app" Component_="infaticaserviceapp.exe" Target="[#infaticaserviceapp.exe]" Description="Infatica.io SDK" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="SDK_Dir"/>
+    <ROW Shortcut="PhotoFiltreLX" Directory_="SHORTCUTDIR" Name="PHOTOF~2|Photoflare" Component_="PhotoFlare.exe" Target="[APPDIR]\Photoflare" Arguments="Your Arguments" Description="Simple but powerful image editor" Hotkey="0" Icon_="PhotoFlare_1.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="spring"/>
