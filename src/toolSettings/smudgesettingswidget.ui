@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>151</width>
+    <width>169</width>
     <height>300</height>
    </rect>
   </property>
@@ -82,6 +82,21 @@
    <property name="value">
     <number>32</number>
    </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>160</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+   </layout>
   </widget>
  </widget>
  <resources/>
