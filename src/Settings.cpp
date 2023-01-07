@@ -19,6 +19,8 @@
 
 #include <QSettings>
 #include <QRect>
+#include <QStandardPaths>
+#include <QDir>
 
 #include "Settings.h"
 
@@ -95,8 +97,9 @@ Settings::~Settings()
 
 Settings *Settings::instance()
 {
+    QString loc = QStandardPaths::locate(QStandardPaths::GenericConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
     if (!m_instance)
-        m_instance = new Settings;
+        m_instance = new Settings(QDir(loc), QSettings::IniFormat);
 
     return m_instance;
 }
