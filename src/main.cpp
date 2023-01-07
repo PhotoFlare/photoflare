@@ -45,14 +45,15 @@ int main(int argc, char *argv[])
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings
-        if(SETTINGS->getDockLayout().isEmpty())
+        QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
+        if(!QDir(loc).exists())
         {
+            QDir().mkdir(loc);
             SETTINGS->setDefaultSettings();
         }
 
         // Setup plugins folder if needed
-        QString loc = QStandardPaths::locate(QStandardPaths::GenericConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
-        QString pluginLoc = loc+"photoflare.io/plugins";
+        QString pluginLoc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io/plugins";
         if(!QDir(pluginLoc).exists())
         {
             QDir().mkdir(pluginLoc);

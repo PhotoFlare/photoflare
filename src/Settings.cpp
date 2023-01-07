@@ -99,7 +99,7 @@ Settings *Settings::instance()
 {
     QString loc = QStandardPaths::locate(QStandardPaths::GenericConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
     if (!m_instance)
-        m_instance = new Settings(QDir(loc), QSettings::IniFormat);
+        m_instance = new Settings;
 
     return m_instance;
 }
