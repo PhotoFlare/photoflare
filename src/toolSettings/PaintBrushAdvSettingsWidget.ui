@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>134</width>
-    <height>199</height>
+    <height>198</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,6 @@
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
-     <property name="topMargin">
-      <number>10</number>
-     </property>
      <item>
       <spacer name="verticalSpacer">
        <property name="orientation">
@@ -33,7 +30,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="BrushTypeComboBox" name="comboBox" native="true">
+      <widget class="BrushTypeComboBox" name="comboBox">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -57,7 +54,7 @@
          <kerning>false</kerning>
         </font>
        </property>
-       <property name="iconSize" stdset="0">
+       <property name="iconSize">
         <size>
          <width>32</width>
          <height>32</height>
@@ -151,9 +148,8 @@
  <customwidgets>
   <customwidget>
    <class>BrushTypeComboBox</class>
-   <extends>QWidget</extends>
+   <extends>QComboBox</extends>
    <header>brushtypecombobox.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

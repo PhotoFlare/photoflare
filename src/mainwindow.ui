@@ -82,7 +82,7 @@ QScrollBar::handle {
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>23</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -1095,7 +1095,7 @@ QToolButton:checked {
    <property name="minimumSize">
     <size>
      <width>150</width>
-     <height>43</height>
+     <height>38</height>
     </size>
    </property>
    <property name="maximumSize">
