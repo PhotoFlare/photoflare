@@ -7,33 +7,34 @@
     <x>0</x>
     <y>0</y>
     <width>134</width>
-    <height>209</height>
+    <height>213</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QToolButton" name="buttonRoundCap">
+   <item row="4" column="2">
+    <widget class="QLabel" name="labelPressureValue">
      <property name="text">
-      <string>...</string>
+      <string>100</string>
      </property>
-     <property name="icon">
-      <iconset resource="../../Icons.qrc">
-       <normaloff>:/brushes/assets/brushes/circle.png</normaloff>:/brushes/assets/brushes/circle.png</iconset>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLabel" name="labelRadiusValue">
+     <property name="text">
+      <string>0</string>
      </property>
-     <property name="iconSize">
-      <size>
-       <width>32</width>
-       <height>32</height>
-      </size>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLabel" name="labelRadius">
+     <property name="text">
+      <string>&amp;Radius:</string>
      </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
+     <property name="buddy">
+      <cstring>sliderRadius</cstring>
      </property>
     </widget>
    </item>
@@ -50,47 +51,21 @@
      </property>
     </spacer>
    </item>
-   <item row="0" column="2">
-    <widget class="QToolButton" name="buttonSquareCap">
+   <item row="4" column="0" colspan="2">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string>...</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../../Icons.qrc">
-       <normaloff>:/brushes/assets/brushes/square.png</normaloff>:/brushes/assets/brushes/square.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>32</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="checked">
-      <bool>false</bool>
+      <string>Pressure</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="QLabel" name="labelRadius">
+   <item row="6" column="0" colspan="3">
+    <widget class="QCheckBox" name="cbAntialias">
      <property name="text">
-      <string>&amp;Radius:</string>
-     </property>
-     <property name="buddy">
-      <cstring>sliderRadius</cstring>
+      <string>&amp;Anti-aliasing</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="2">
-    <widget class="QLabel" name="labelRadiusValue">
-     <property name="text">
-      <string>0</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="3">
+   <item row="3" column="0" colspan="3">
     <widget class="QSlider" name="sliderRadius">
      <property name="minimum">
       <number>1</number>
@@ -103,21 +78,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Pressure</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="2">
-    <widget class="QLabel" name="labelPressureValue">
-     <property name="text">
-      <string>100</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0" colspan="3">
+   <item row="5" column="0" colspan="3">
     <widget class="QSlider" name="pressureSlider">
      <property name="minimum">
       <number>10</number>
@@ -142,10 +103,49 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0" colspan="3">
-    <widget class="QCheckBox" name="cbAntialias">
+   <item row="1" column="0">
+    <widget class="QToolButton" name="buttonRoundCap">
      <property name="text">
-      <string>&amp;Anti-aliasing</string>
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../Icons.qrc">
+       <normaloff>:/brushes/assets/brushes/circle.png</normaloff>:/brushes/assets/brushes/circle.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QToolButton" name="buttonSquareCap">
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../Icons.qrc">
+       <normaloff>:/brushes/assets/brushes/square.png</normaloff>:/brushes/assets/brushes/square.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
      </property>
     </widget>
    </item>
