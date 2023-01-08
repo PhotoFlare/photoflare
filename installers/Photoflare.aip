@@ -25,7 +25,7 @@
     <ROW Property="ProductCode" Value="1033:{88BD42D5-8EA1-48B3-B685-FBC8CB736993} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Photoflare"/>
-    <ROW Property="ProductVersion" Value="1.6.11.0" Options="16"/>
+    <ROW Property="ProductVersion" Value="1.6.12.0" Options="16"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{5DFB1CEA-0740-4E8A-9CE9-D5A82084C960}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
