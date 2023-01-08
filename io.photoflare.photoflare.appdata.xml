@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2021 Dylan Coakley <info@photoflare.io> -->
+<!-- Copyright 2023 Dylan Coakley <info@photoflare.io> -->
 <component type="desktop-application">
   <id>io.photoflare.photoflare</id>
   <metadata_license>FSFAP</metadata_license>
@@ -26,7 +26,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Main Window</caption>
-      <image>http://photoflare.io/wp-content/uploads/2015/04/CrossPlatform.png</image>
+      <image>https://camo.githubusercontent.com/28db92d817505c0641dc531b57eb92ed207148b141505752f4aedeb7ccfc6573/68747470733a2f2f70686f746f666c6172652e696f2f77702d636f6e74656e742f75706c6f6164732f323032322f30332f63726f7373706c6174666f726d2e706e67</image>
     </screenshot>
   </screenshots>
 
@@ -38,6 +38,26 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.6.12" date="2023-01-08">
+        <description>
+          <ul>
+            <li>Revert toolsettings spacing change.</li>
+            <li>Minor spacing update for toolsettings.</li>
+          </ul>
+        </description>
+    </release>
+    <release version="1.6.11" date="2022-10-22">
+        <description>
+          <ul>
+            <li>Fixed settings overwrite by application restart.</li>
+            <li>Fixed tool settings layout for top spacing.</li>
+            <li>Add Japanese Translation by @hmatrjp.</li>
+            <li>Add Turkish translation by @libreajans.</li>
+            <li>Update readme and about dialog by @libreajans.</li>
+            <li>Update spanish translation by @darkshram.</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.6.10" date="2022-05-08">
         <description>
           <ul>
@@ -60,25 +80,6 @@
             <li>Fixed incomplete batch summary information.</li>
             <li>Fixed batch rotation incorrectly triggered.</li>
             <li>Fixed QMetaObject runtime messages being output to terminal.</li>
-          </ul>
-        </description>
-    </release>
-    <release version="1.6.8" date="2021-05-05">
-        <description>
-          <ul>
-            <li>Fixed stripes appearing in filters that use openMP on Windows.</li>
-          </ul>
-        </description>
-    </release>
-    <release version="1.6.7.1" date="2021-03-25">
-        <description>
-          <ul>
-            <li>Fixed Paint Bucket tool not selecting colour from correct cursor position.</li>
-            <li>Fixed Colour Picker tool not selecting colour from correct cursor position.</li>
-            <li>Fixed the prepare file type code causing issues opening files.</li>
-            <li>Added FileType detected to the Image Properties dialog.</li>
-            <li>Added Spanish and Indonesian translations.</li>
-            <li>Fixed Russian translation missing files from Windows portable version.</li>
           </ul>
         </description>
     </release>
