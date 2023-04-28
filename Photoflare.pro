@@ -1,8 +1,8 @@
-lessThan(QT_MAJOR_VERSION, 5) {
-    error("This project requires Qt 5.6.0 or later")
+lessThan(QT_MAJOR_VERSION, 6) {
+    error("This project requires Qt 6.5.0 or later")
 }
-isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 6) {
-    error("This project requires Qt 5.6.0 or later")
+isEqual(QT_MAJOR_VERSION, 6) : lessThan(QT_MINOR_VERSION, 5) {
+    error("This project requires Qt 6.5.0 or later")
 }
 
 QT += core gui widgets printsupport

@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
     // Remove WhatIsThis from Window Controls (Windows only)
     #ifdef WIN32
-        app.setAttribute(Qt::AA_DisableWindowContextHelpButton); //required in newer Qt versions
+        //app.setAttribute(Qt::AA_DisableWindowContextHelpButton); //required in newer Qt versions
     #endif
 
     if(!app.isRunning())
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
         QTranslator translator;
         app.installTranslator(&translator);
 
-        QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+        QStringList paths = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation);
         //paths.prepend("."); //for local builds testing
         for(int i = 0;i < paths.length(); i++)
         {
