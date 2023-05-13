@@ -476,20 +476,18 @@ void PaintWidget::showProgressIndicator(bool visible)
 
 void PaintWidget::wheelEvent(QWheelEvent *event)
 {
-    QPointF pos = event->position();
-    const QPointF p0scene = mapToScene(pos.toPoint());
+    const QPointF p0scene = mapToScene(QPoint(event->position().x(), event->position().y()));
     float scaleFactor = 1.1f;
-    bool zoomDirection = false;
-    //QPointF delta = event->pixelDelta();
+    bool zoomDirection;
 
     // Zoom in or out depending on user preference
     if(SETTINGS->getZoomDirection()=="0")
     {
-        zoomDirection = true; //delta > 0;
+        zoomDirection = event->angleDelta().y() > 0;
     }
     else
     {
-        zoomDirection = false; //delta < 0;
+        zoomDirection = event->angleDelta().y() < 0;
     }
 
     if(zoomDirection)
