@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// PointerTool - Selection and cropping.
+// PointerTool - Selection and cropping, filling Rectangle
 
 #include "PointerTool.h"
 
@@ -37,6 +37,7 @@ public:
     PointerToolPrivate()
     {
         selectionMode = SELECT;
+        fillColor = Qt::white;
     }
     QPoint firstPos;
     QPoint secondPos;
@@ -48,6 +49,7 @@ public:
     QRect bottomRightCorner;
     QRect bottomLeftCorner;
     Corner corner;
+    QColor fillColor;
 };
 
 PointerTool::PointerTool(QObject *parent)
@@ -70,6 +72,21 @@ void PointerTool::onCrop()
     emit selectionChanged(QPolygon());
     emit crop(rect);
 }
+
+void PointerTool::onFillRect()
+{
+    const QRect &rect = QRect(d->firstPos, d->secondPos);
+    const QColor &fillColor = d->fillColor;
+    d->secondPos = d->firstPos;
+    emit selectionChanged(QPolygon());
+    emit fillRect(rect, fillColor);
+}
+
+void PointerTool::setFillColor(const QColor &color)
+{
+    d->fillColor=color;
+}
+
 
 void PointerTool::onSave()
 {
@@ -380,6 +397,13 @@ void PointerTool::setupRightClickMenu(bool execute)
     {
         crop.setDisabled(false);
     }
+    QAction fillRect(tr("Fill Rectangle"), this);
+    contextMenu.addAction(&fillRect);
+    fillRect.setDisabled(true);
+    if(d->firstPos != d->secondPos)
+    {
+        fillRect.setDisabled(false);
+    }
     QAction sep0(this);
     sep0.setSeparator(true);
     QAction save(tr("Save"), this);
@@ -417,6 +441,7 @@ void PointerTool::setupRightClickMenu(bool execute)
     contextMenu.addAction(&redo);
 
     connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
+    connect(&fillRect, SIGNAL(triggered()), this, SLOT(onFillRect()));
     connect(&save, SIGNAL(triggered()), this, SLOT(onSave()));
     connect(&saveAs, SIGNAL(triggered()), this, SLOT(onSaveAs()));
     connect(&close, SIGNAL(triggered()), this, SLOT(onClose()));
