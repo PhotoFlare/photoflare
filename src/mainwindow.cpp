@@ -237,8 +237,12 @@ void MainWindow::connectTools()
     ERASER_TOOL->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::secondaryColorChanged, ERASER_TOOL, &EraserTool::setSecondaryColor);
 
+    MOUSE_POINTER->setFillColor(ui->colorBoxWidget->primaryColor());
+    QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, MOUSE_POINTER, &PointerTool::setFillColor);
+
     // Connect PointerTool signals
     QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
+    QObject::connect(MOUSE_POINTER, SIGNAL(fillRect(const QRect&, const QColor&)), this, SLOT(onFillRect(const QRect&, const QColor&)));
     QObject::connect(MOUSE_POINTER, SIGNAL(save()), this, SLOT(on_actionSave_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(saveAs()), this, SLOT(on_actionSave_As_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(close()), this, SLOT(on_actionClose_triggered()));
@@ -1118,6 +1122,7 @@ void MainWindow::on_actionShow_selection_triggered(bool checked)
     {
         widget->setSelectionVisible(checked);
         ui->actionCrop->setEnabled(checked && widget->isSelectionVisible());
+        ui->actionFill_Rect->setEnabled(checked && widget->isSelectionVisible());
     }
 }
 
@@ -1133,6 +1138,7 @@ void MainWindow::on_actionSelect_all_triggered()
 void MainWindow::onSelectionChanged(bool visible)
 {
     ui->actionCrop->setEnabled(ui->actionShow_selection->isChecked() && visible);
+    ui->actionFill_Rect->setEnabled(ui->actionShow_selection->isChecked() && visible);
     ui->actionShow_selection->setChecked(visible);
 }
 
@@ -1862,6 +1868,37 @@ void MainWindow::onCrop(const QRect& rect)
     }
 }
 
+void MainWindow::on_actionFill_Rect_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        MOUSE_POINTER->onFillRect();
+        widget->onSelectionChanged(QPolygon());
+    }
+}
+
+void MainWindow::onFillRect(const QRect& rect, const QColor& fillColor)
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+    	QPainter painter;
+    	QImage tmpImage = widget->image();
+    	if (!painter.begin(&tmpImage))     	// set image to painter
+    	{
+    		qWarning("Failed to begin QPainter");
+    		return;
+    	}
+
+        QRect fillRect = tmpImage.rect().intersected(rect);
+        painter.fillRect(fillRect, fillColor);
+        painter.end();
+        widget->setImage(tmpImage);
+        
+        // updateStatusArea(widget->image().width(),widget->image().height());
+    }
+}
 void MainWindow::on_toolButtonDropper_clicked()
 {
     clearToolpalette();
@@ -2377,6 +2414,7 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionDuplicate->setShortcut(QString("Ctrl+U"));
     ui->actionImage_Size->setShortcut(QString("Ctrl+H"));
     ui->actionCrop->setShortcut(QString("Ctrl+Shift+H"));
+    ui->actionFill_Rect->setShortcut(QString("Ctrl+B"));
     // Selection Menu
     ui->actionSelect_all->setShortcut(QString("Ctrl+A"));
     //View Menu

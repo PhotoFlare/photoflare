@@ -116,6 +116,7 @@ private slots:
     void onFloodFillSecondaryColor(const QPoint&);
     void onSelectPrimaryColor(const QPoint&,int,bool);
     void onCrop(const QRect&);
+    void onFillRect(const QRect&, const QColor&);
     void onCopy();
     void onPaste();
     void on_actionPaste_as_new_image_triggered();
@@ -191,6 +192,7 @@ private slots:
     void onTransparentRejected();
     void on_actionGradient_triggered();
     void on_actionCrop_triggered();
+    void on_actionFill_Rect_triggered();
     void onSelectionChanged(bool visible);
     void on_actionPaste_triggered();
     void on_actionCopy_triggered();

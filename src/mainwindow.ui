@@ -188,6 +188,7 @@ QScrollBar::handle {
     <addaction name="actionAutomatic_Crop"/>
     <addaction name="actionOutside_frame"/>
     <addaction name="actionOutside_drop_shadow"/>
+    <addaction name="actionFill_Rect"/>
     <addaction name="separator"/>
     <addaction name="actionTransparent_colour"/>
     <addaction name="actionAutomatic_transparency"/>
@@ -1355,6 +1356,11 @@ QToolButton:checked {
   <action name="actionOutside_drop_shadow">
    <property name="text">
     <string>Outside Drop Shadow...</string>
+   </property>
+  </action>
+  <action name="actionFill_Rect">
+   <property name="text">
+    <string>Fill_Rect</string>
    </property>
   </action>
   <action name="actionTransparent_colour">

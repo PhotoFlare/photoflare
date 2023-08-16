@@ -36,9 +36,11 @@ public:
     void onKeyPressed(QKeyEvent *keyEvent) override;
     void setStroke(bool enabled);
     void setFill(bool enabled);
+    void setFillColor(const QColor &color);
 
 public slots:
     void onCrop();
+    void onFillRect();
     void onSave();
     void onSaveAs();
     void onClose();
@@ -51,6 +53,7 @@ public slots:
 
 signals:
     void crop(const QRect&);
+    void fillRect(const QRect&, const QColor&);
     void save();
     void saveAs();
     void close();
