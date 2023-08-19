@@ -42,6 +42,8 @@ public:
     QPoint firstPos;
     QPoint secondPos;
     SelectionMode selectionMode;
+    bool fillEnabled;
+    bool strokeEnabled;
     QImage image;
     QPoint imagePos;
     QRect topLeftCorner;
@@ -326,6 +328,9 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             d->topRightCorner = QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize);
             d->bottomRightCorner = QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize);
             d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize);
+            if(d->fillEnabled) {
+                onFillRect();
+            }
         }
         emit painted(m_paintDevice);
     }
@@ -371,18 +376,12 @@ void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
 
 void PointerTool::setStroke(bool enabled)
 {
-    if(enabled)
-    {
-        d->selectionMode = STROKE;
-    }
+    d->strokeEnabled = enabled;
 }
 
 void PointerTool::setFill(bool enabled)
 {
-    if(enabled)
-    {
-        d->selectionMode = FILL;
-    }
+    d->fillEnabled = enabled;
 }
 
 void PointerTool::setupRightClickMenu(bool execute)
@@ -396,13 +395,6 @@ void PointerTool::setupRightClickMenu(bool execute)
     if(d->firstPos != d->secondPos)
     {
         crop.setDisabled(false);
-    }
-    QAction fillRect(tr("Fill Rectangle"), this);
-    contextMenu.addAction(&fillRect);
-    fillRect.setDisabled(true);
-    if(d->firstPos != d->secondPos)
-    {
-        fillRect.setDisabled(false);
     }
     QAction sep0(this);
     sep0.setSeparator(true);
@@ -441,7 +433,6 @@ void PointerTool::setupRightClickMenu(bool execute)
     contextMenu.addAction(&redo);
 
     connect(&crop, SIGNAL(triggered()), this, SLOT(onCrop()));
-    connect(&fillRect, SIGNAL(triggered()), this, SLOT(onFillRect()));
     connect(&save, SIGNAL(triggered()), this, SLOT(onSave()));
     connect(&saveAs, SIGNAL(triggered()), this, SLOT(onSaveAs()));
     connect(&close, SIGNAL(triggered()), this, SLOT(onClose()));
