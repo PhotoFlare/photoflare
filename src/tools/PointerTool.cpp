@@ -52,6 +52,7 @@ public:
     QRect bottomLeftCorner;
     Corner corner;
     QColor fillColor;
+    QColor strokeColor;
 };
 
 PointerTool::PointerTool(QObject *parent)
@@ -75,6 +76,15 @@ void PointerTool::onCrop()
     emit crop(rect);
 }
 
+void PointerTool::onStrokeRect()
+{
+    const QRect &rect = QRect(d->firstPos, d->secondPos);
+    const QColor &strokeColor = d->strokeColor;
+    d->secondPos = d->firstPos;
+    emit selectionChanged(QPolygon());
+    emit strokeRect(rect, strokeColor);
+}
+
 void PointerTool::onFillRect()
 {
     const QRect &rect = QRect(d->firstPos, d->secondPos);
@@ -88,7 +98,6 @@ void PointerTool::setFillColor(const QColor &color)
 {
     d->fillColor=color;
 }
-
 
 void PointerTool::onSave()
 {
@@ -330,6 +339,9 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize);
             if(d->fillEnabled) {
                 onFillRect();
+            }
+            if(d->strokeEnabled) {
+                onStrokeRect();
             }
         }
         emit painted(m_paintDevice);

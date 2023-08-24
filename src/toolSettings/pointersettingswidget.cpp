@@ -27,7 +27,6 @@ PointerSettingsWidget::PointerSettingsWidget(QWidget *parent) :
     connect(ui->checkBoxStroke, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
     connect(ui->checkBoxFill, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
 
-    ui->checkBoxStroke->setHidden(true);
     ui->square_sel->setHidden(true); // Hide until we have more selection types available
     ui->circle_sel->setHidden(true);
 }

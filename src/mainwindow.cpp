@@ -242,6 +242,7 @@ void MainWindow::connectTools()
 
     // Connect PointerTool signals
     QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
+    QObject::connect(MOUSE_POINTER, SIGNAL(strokeRect(const QRect&, const QColor&)), this, SLOT(onStrokeRect(const QRect&, const QColor&)));
     QObject::connect(MOUSE_POINTER, SIGNAL(fillRect(const QRect&, const QColor&)), this, SLOT(onFillRect(const QRect&, const QColor&)));
     QObject::connect(MOUSE_POINTER, SIGNAL(save()), this, SLOT(on_actionSave_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(saveAs()), this, SLOT(on_actionSave_As_triggered()));
@@ -1883,22 +1884,51 @@ void MainWindow::onFillRect(const QRect& rect, const QColor& fillColor)
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
-    	QPainter painter;
-    	QImage tmpImage = widget->image();
-    	if (!painter.begin(&tmpImage))     	// set image to painter
-    	{
-    		qWarning("Failed to begin QPainter");
-    		return;
-    	}
+        QPainter painter;
+        QImage tmpImage = widget->image();
+        if (!painter.begin(&tmpImage))     	// set image to painter
+        {
+            qWarning("Failed to begin QPainter");
+            return;
+        }
 
         QRect fillRect = tmpImage.rect().intersected(rect);
         painter.fillRect(fillRect, fillColor);
         painter.end();
         widget->setImage(tmpImage);
-        
-        // updateStatusArea(widget->image().width(),widget->image().height());
     }
 }
+
+void MainWindow::on_actionStroke_Rect_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        MOUSE_POINTER->onFillRect();
+        widget->onSelectionChanged(QPolygon());
+    }
+}
+
+void MainWindow::onStrokeRect(const QRect& rect, const QColor& fillColor)
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        QPainter painter;
+        QImage tmpImage = widget->image();
+        if (!painter.begin(&tmpImage))     	// set image to painter
+        {
+            qWarning("Failed to begin QPainter");
+            return;
+        }
+
+        QRect fillRect = tmpImage.rect().intersected(rect);
+        painter.fillRect(fillRect, fillColor);
+        painter.end();
+        widget->setImage(tmpImage);
+    }
+}
+
 void MainWindow::on_toolButtonDropper_clicked()
 {
     clearToolpalette();
