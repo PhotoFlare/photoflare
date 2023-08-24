@@ -62,6 +62,7 @@
 #include "managers/ToolManager.h"
 #include "managers/FilterManager.h"
 
+#include "qpainterpath.h"
 #include "widgets/PaintWidget.h"
 #include "dialogs/NewDialog.h"
 #include "dialogs/aboutdialog.h"
@@ -1886,7 +1887,7 @@ void MainWindow::onFillRect(const QRect& rect, const QColor& fillColor)
     {
         QPainter painter;
         QImage tmpImage = widget->image();
-        if (!painter.begin(&tmpImage))     	// set image to painter
+        if (!painter.begin(&tmpImage))
         {
             qWarning("Failed to begin QPainter");
             return;
@@ -1904,7 +1905,7 @@ void MainWindow::on_actionStroke_Rect_triggered()
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
-        MOUSE_POINTER->onFillRect();
+        MOUSE_POINTER->onStrokeRect();
         widget->onSelectionChanged(QPolygon());
     }
 }
@@ -1916,14 +1917,16 @@ void MainWindow::onStrokeRect(const QRect& rect, const QColor& fillColor)
     {
         QPainter painter;
         QImage tmpImage = widget->image();
-        if (!painter.begin(&tmpImage))     	// set image to painter
+        if (!painter.begin(&tmpImage))
         {
             qWarning("Failed to begin QPainter");
             return;
         }
-
         QRect fillRect = tmpImage.rect().intersected(rect);
-        painter.fillRect(fillRect, fillColor);
+        QPainterPath path;
+        path.addRect(fillRect);
+        QPen strokePen(fillColor, 5);
+        painter.strokePath(path, strokePen);
         painter.end();
         widget->setImage(tmpImage);
     }
