@@ -79,7 +79,7 @@ void PointerTool::onCrop()
 void PointerTool::onStrokeRect()
 {
     const QRect &rect = QRect(d->firstPos, d->secondPos);
-    const QColor &strokeColor = d->strokeColor;
+    const QColor &strokeColor = d->fillColor;
     d->secondPos = d->firstPos;
     emit selectionChanged(QPolygon());
     emit strokeRect(rect, strokeColor);

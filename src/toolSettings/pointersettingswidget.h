@@ -42,6 +42,10 @@ private slots:
     void on_square_sel_clicked(bool checked);
     void on_circle_sel_clicked(bool checked);
 
+    void on_checkBoxStroke_clicked(bool checked);
+
+    void on_checkBoxFill_clicked(bool checked);
+
 private:
     Ui::PointerSettingsWidget *ui;
 };

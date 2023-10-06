@@ -38,6 +38,15 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.6.13" date="2023-10-08">
+        <description>
+          <ul>
+            <li>More Japanese translations.</li>
+            <li>Added fill rect to selection tool.</li>
+            <li>Added stroke path to selection tool.</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.6.12" date="2023-01-08">
         <description>
           <ul>

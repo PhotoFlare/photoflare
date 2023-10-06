@@ -63,3 +63,21 @@ void PointerSettingsWidget::on_circle_sel_clicked(bool checked)
         ui->circle_sel->setChecked(true);
     }
 }
+
+void PointerSettingsWidget::on_checkBoxStroke_clicked(bool checked)
+{
+    if(checked)
+    {
+        ui->checkBoxFill->setChecked(false);
+    }
+}
+
+
+void PointerSettingsWidget::on_checkBoxFill_clicked(bool checked)
+{
+    if(checked)
+    {
+        ui->checkBoxStroke->setChecked(false);
+    }
+}
+
