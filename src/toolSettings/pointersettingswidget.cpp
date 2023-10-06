@@ -80,4 +80,3 @@ void PointerSettingsWidget::on_checkBoxFill_clicked(bool checked)
         ui->checkBoxStroke->setChecked(false);
     }
 }
-
