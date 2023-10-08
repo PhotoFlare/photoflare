@@ -24,6 +24,7 @@ PointerSettingsWidget::PointerSettingsWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    connect(ui->strokeWidth, SIGNAL(changed()), this, SIGNAL(settingsChanged()));
     connect(ui->checkBoxStroke, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
     connect(ui->checkBoxFill, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
 
@@ -80,3 +81,15 @@ void PointerSettingsWidget::on_checkBoxFill_clicked(bool checked)
         ui->checkBoxStroke->setChecked(false);
     }
 }
+
+int PointerSettingsWidget::strokeWidth() const
+{
+    return ui->strokeWidth->value();
+}
+
+
+void PointerSettingsWidget::on_strokeWidth_valueChanged(int width)
+{
+    //stroke width changed;
+}
+

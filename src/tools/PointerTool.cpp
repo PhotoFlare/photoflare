@@ -42,8 +42,9 @@ public:
     QPoint firstPos;
     QPoint secondPos;
     SelectionMode selectionMode;
-    bool fillEnabled;
-    bool strokeEnabled;
+    bool fillEnabled = false;
+    bool strokeEnabled = false;
+    int strokeWidth = 1;
     QImage image;
     QPoint imagePos;
     QRect topLeftCorner;
@@ -80,9 +81,10 @@ void PointerTool::onStrokeRect()
 {
     const QRect &rect = QRect(d->firstPos, d->secondPos);
     const QColor &strokeColor = d->fillColor;
+    const int &strokeWidth = d->strokeWidth;
     d->secondPos = d->firstPos;
     emit selectionChanged(QPolygon());
-    emit strokeRect(rect, strokeColor);
+    emit strokeRect(rect, strokeColor, strokeWidth);
 }
 
 void PointerTool::onFillRect()
@@ -389,6 +391,11 @@ void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
 void PointerTool::setStroke(bool enabled)
 {
     d->strokeEnabled = enabled;
+}
+
+void PointerTool::setStrokeWidth(int width)
+{
+    d->strokeWidth = width;
 }
 
 void PointerTool::setFill(bool enabled)

@@ -243,7 +243,7 @@ void MainWindow::connectTools()
 
     // Connect PointerTool signals
     QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
-    QObject::connect(MOUSE_POINTER, SIGNAL(strokeRect(const QRect&, const QColor&)), this, SLOT(onStrokeRect(const QRect&, const QColor&)));
+    QObject::connect(MOUSE_POINTER, SIGNAL(strokeRect(const QRect&, const QColor&, const int&)), this, SLOT(onStrokeRect(const QRect&, const QColor&, const int&)));
     QObject::connect(MOUSE_POINTER, SIGNAL(fillRect(const QRect&, const QColor&)), this, SLOT(onFillRect(const QRect&, const QColor&)));
     QObject::connect(MOUSE_POINTER, SIGNAL(save()), this, SLOT(on_actionSave_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(saveAs()), this, SLOT(on_actionSave_As_triggered()));
@@ -1910,7 +1910,7 @@ void MainWindow::on_actionStroke_Rect_triggered()
     }
 }
 
-void MainWindow::onStrokeRect(const QRect& rect, const QColor& fillColor)
+void MainWindow::onStrokeRect(const QRect& rect, const QColor& fillColor, const int& strokeWidth)
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
@@ -1925,7 +1925,7 @@ void MainWindow::onStrokeRect(const QRect& rect, const QColor& fillColor)
         QRect fillRect = tmpImage.rect().intersected(rect);
         QPainterPath path;
         path.addRect(fillRect);
-        QPen strokePen(fillColor, 5);
+        QPen strokePen(fillColor, strokeWidth);
         painter.strokePath(path, strokePen);
         painter.end();
         widget->setImage(tmpImage);
@@ -2136,6 +2136,7 @@ void MainWindow::on_toolButtonSmudge_clicked()
 
 void MainWindow::onPointerToolSettingsChanged()
 {
+    MOUSE_POINTER->setStrokeWidth(m_ptSettingsWidget->strokeWidth());
     MOUSE_POINTER->setStroke(m_ptSettingsWidget->stroke());
     MOUSE_POINTER->setFill(m_ptSettingsWidget->fill());
 }

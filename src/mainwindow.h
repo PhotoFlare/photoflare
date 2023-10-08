@@ -116,7 +116,7 @@ private slots:
     void onFloodFillSecondaryColor(const QPoint&);
     void onSelectPrimaryColor(const QPoint&,int,bool);
     void onCrop(const QRect&);
-    void onStrokeRect(const QRect&, const QColor&);
+    void onStrokeRect(const QRect&, const QColor&, const int&);
     void onFillRect(const QRect&, const QColor&);
     void onCopy();
     void onPaste();

@@ -97,6 +97,9 @@
      <height>25</height>
     </rect>
    </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
