@@ -108,6 +108,7 @@
         <file>assets/pixmaps/flags/Spain.png</file>
         <file>assets/pixmaps/flags/Japan.png</file>
         <file>assets/pixmaps/flags/Turkey.png</file>
+        <file>assets/pixmaps/flags/South-Korea.png</file>
     </qresource>
     <qresource prefix="/cursors">
         <file>assets/cursors/color-picker.png</file>

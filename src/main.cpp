@@ -125,6 +125,10 @@ int main(int argc, char *argv[])
             {
                 lang = "tr";
             }
+            else if(sysLanguage == "Korean")
+            {
+                lang = "ko";
+            }
             SETTINGS->setUserLanguage(lang);
         }
 
