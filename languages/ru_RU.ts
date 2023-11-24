@@ -81,7 +81,7 @@
         <translation>Лучшее качество</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/compressiondialog.ui" line="125"/>
+        <location filename="../src/dialogs/compressiondialog.ui" line="128"/>
         <source>%</source>
         <translation></translation>
     </message>
@@ -95,8 +95,12 @@
     </message>
     <message>
         <location filename="../src/toolSettings/erasersettingswidget.ui" line="26"/>
+        <source>Size:</source>
+        <translation>Размер:</translation>
+    </message>
+    <message>
         <source>Radius:</source>
-        <translation>Радиус:</translation>
+        <translation type="vanished">Радиус:</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/erasersettingswidget.ui" line="73"/>
@@ -250,7 +254,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="100"/>
-        <location filename="../src/mainwindow.ui" line="1148"/>
+        <location filename="../src/mainwindow.ui" line="1150"/>
         <source>Recent Files</source>
         <translation>Недавние файлы</translation>
     </message>
@@ -262,7 +266,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="125"/>
         <source>Purge</source>
-        <translation>Чистка</translation>
+        <translation>Очистка</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="156"/>
@@ -276,1100 +280,1127 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="167"/>
-        <location filename="../src/mainwindow.ui" line="1275"/>
-        <location filename="../src/mainwindow.ui" line="1449"/>
+        <location filename="../src/mainwindow.ui" line="1277"/>
+        <location filename="../src/mainwindow.ui" line="1456"/>
         <source>Transform</source>
         <translation>Трансформация</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="200"/>
+        <location filename="../src/mainwindow.ui" line="202"/>
         <source>&amp;Selection</source>
-        <translation>&amp;Выделение</translation>
+        <translation>&amp;Выбор</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="227"/>
+        <location filename="../src/mainwindow.ui" line="229"/>
         <source>&amp;Adjust</source>
         <translation>&amp;Настройка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="254"/>
+        <location filename="../src/mainwindow.ui" line="256"/>
         <source>&amp;Filter</source>
         <translation>Ф&amp;ильтр</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="258"/>
+        <location filename="../src/mainwindow.ui" line="260"/>
         <source>Deform</source>
         <translation>Искажение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="267"/>
+        <location filename="../src/mainwindow.ui" line="269"/>
         <source>Artistic</source>
         <translation>Художественный</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="275"/>
-        <location filename="../src/mainwindow.ui" line="1590"/>
+        <location filename="../src/mainwindow.ui" line="277"/>
+        <location filename="../src/mainwindow.ui" line="1597"/>
         <source>Soften</source>
         <translation>Мягкость</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="282"/>
-        <location filename="../src/mainwindow.ui" line="1599"/>
+        <location filename="../src/mainwindow.ui" line="284"/>
+        <location filename="../src/mainwindow.ui" line="1606"/>
         <source>Sharpen</source>
         <translation>Резкозть</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="289"/>
+        <location filename="../src/mainwindow.ui" line="291"/>
         <source>Flatten</source>
         <translation>Стиль</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="295"/>
+        <location filename="../src/mainwindow.ui" line="297"/>
         <source>Edges</source>
         <translation>Грани</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="301"/>
+        <location filename="../src/mainwindow.ui" line="303"/>
         <source>Noise</source>
         <translation>Шум</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="312"/>
+        <location filename="../src/mainwindow.ui" line="314"/>
         <source>Frame</source>
         <translation>Рамка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="320"/>
+        <location filename="../src/mainwindow.ui" line="322"/>
         <source>Colour</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="332"/>
+        <location filename="../src/mainwindow.ui" line="334"/>
         <source>Visual Effect</source>
         <translation>Визуальный эффект</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="356"/>
+        <location filename="../src/mainwindow.ui" line="358"/>
         <source>&amp;View</source>
         <translation>Пр&amp;осмотр</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="371"/>
+        <location filename="../src/mainwindow.ui" line="373"/>
         <source>&amp;Tools</source>
         <translation>И&amp;нструменты</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="383"/>
+        <location filename="../src/mainwindow.ui" line="385"/>
         <source>&amp;Help</source>
         <translation>По&amp;мощь</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="411"/>
+        <location filename="../src/mainwindow.ui" line="413"/>
         <source>Main ToolBar</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="571"/>
+        <location filename="../src/mainwindow.ui" line="573"/>
         <source>Eraser Tool</source>
         <translation>Ластик</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="574"/>
-        <location filename="../src/mainwindow.ui" line="612"/>
-        <location filename="../src/mainwindow.ui" line="656"/>
-        <location filename="../src/mainwindow.ui" line="694"/>
-        <location filename="../src/mainwindow.ui" line="732"/>
-        <location filename="../src/mainwindow.ui" line="770"/>
-        <location filename="../src/mainwindow.ui" line="808"/>
-        <location filename="../src/mainwindow.ui" line="846"/>
-        <location filename="../src/mainwindow.ui" line="875"/>
-        <location filename="../src/mainwindow.ui" line="913"/>
-        <location filename="../src/mainwindow.ui" line="951"/>
-        <location filename="../src/mainwindow.ui" line="989"/>
+        <location filename="../src/mainwindow.ui" line="576"/>
+        <location filename="../src/mainwindow.ui" line="614"/>
+        <location filename="../src/mainwindow.ui" line="658"/>
+        <location filename="../src/mainwindow.ui" line="696"/>
+        <location filename="../src/mainwindow.ui" line="734"/>
+        <location filename="../src/mainwindow.ui" line="772"/>
+        <location filename="../src/mainwindow.ui" line="810"/>
+        <location filename="../src/mainwindow.ui" line="848"/>
+        <location filename="../src/mainwindow.ui" line="877"/>
+        <location filename="../src/mainwindow.ui" line="915"/>
+        <location filename="../src/mainwindow.ui" line="953"/>
+        <location filename="../src/mainwindow.ui" line="991"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="609"/>
+        <location filename="../src/mainwindow.ui" line="611"/>
         <source>Spray Can</source>
         <translation>Аэрозоль</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="647"/>
+        <location filename="../src/mainwindow.ui" line="649"/>
         <source>Pointer Tool</source>
-        <translation>Выделение</translation>
+        <translation>Выбор</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="691"/>
+        <location filename="../src/mainwindow.ui" line="693"/>
         <source>Line Tool</source>
         <translation>Линия</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="729"/>
+        <location filename="../src/mainwindow.ui" line="731"/>
         <source>Magic Wand</source>
         <translation>Волшебная палочка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="767"/>
+        <location filename="../src/mainwindow.ui" line="769"/>
         <source>Paint Brush</source>
         <translation>Кисть</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="805"/>
+        <location filename="../src/mainwindow.ui" line="807"/>
         <source>Advanced Paint Brush</source>
         <translation>Графическая кисть</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="843"/>
+        <location filename="../src/mainwindow.ui" line="845"/>
         <source>Blur Tool</source>
         <translation>Размытие</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="872"/>
+        <location filename="../src/mainwindow.ui" line="874"/>
         <source>Smudge Tool</source>
         <translation>Смазывание</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="910"/>
+        <location filename="../src/mainwindow.ui" line="912"/>
         <source>Clone Stamp</source>
         <translation>Штамп</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="948"/>
+        <location filename="../src/mainwindow.ui" line="950"/>
         <source>Paint Bucket</source>
         <translation>Заливка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="986"/>
+        <location filename="../src/mainwindow.ui" line="988"/>
         <source>Colour Picker</source>
         <translation>Пипетка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1041"/>
+        <location filename="../src/mainwindow.ui" line="1043"/>
         <source>Extra ToolBar</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1120"/>
+        <location filename="../src/mainwindow.ui" line="1122"/>
         <source>&amp;New...</source>
         <translation>&amp;Новый...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1135"/>
+        <location filename="../src/mainwindow.ui" line="1137"/>
         <source>&amp;Open...</source>
         <translation>&amp;Открыть...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1143"/>
+        <location filename="../src/mainwindow.ui" line="1145"/>
         <source>Revert</source>
         <translation>Вернуть</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1157"/>
+        <location filename="../src/mainwindow.ui" line="1159"/>
         <source>&amp;Save</source>
         <translation>&amp;Сохранить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1165"/>
+        <location filename="../src/mainwindow.ui" line="1167"/>
         <source>&amp;Save As...</source>
         <translation>С&amp;охранить как...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1170"/>
+        <location filename="../src/mainwindow.ui" line="1172"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1175"/>
+        <location filename="../src/mainwindow.ui" line="1177"/>
         <source>Close &amp;All</source>
         <translation>Закрыть &amp;все</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1184"/>
+        <location filename="../src/mainwindow.ui" line="1186"/>
         <source>Print...</source>
         <translation>Печать...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1192"/>
+        <location filename="../src/mainwindow.ui" line="1194"/>
         <source>Image Properties</source>
         <translation>Свойства изображения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1197"/>
+        <location filename="../src/mainwindow.ui" line="1199"/>
         <source>&amp;Quit</source>
         <translation>&amp;Выход</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1206"/>
+        <location filename="../src/mainwindow.ui" line="1208"/>
         <source>Undo</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1215"/>
+        <location filename="../src/mainwindow.ui" line="1217"/>
         <source>Redo</source>
         <translation>Повторить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1220"/>
+        <location filename="../src/mainwindow.ui" line="1222"/>
         <source>Fade</source>
         <translation>Бледно</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1225"/>
+        <location filename="../src/mainwindow.ui" line="1227"/>
         <source>Cut</source>
         <translation>Вырезать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1230"/>
+        <location filename="../src/mainwindow.ui" line="1232"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1235"/>
+        <location filename="../src/mainwindow.ui" line="1237"/>
         <source>Paste</source>
         <translation>Вставить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1240"/>
+        <location filename="../src/mainwindow.ui" line="1242"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1245"/>
+        <location filename="../src/mainwindow.ui" line="1247"/>
         <source>Paste As New Image</source>
         <translation>Вставить как новое изображение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1250"/>
+        <location filename="../src/mainwindow.ui" line="1252"/>
         <source>Paste Special</source>
         <translation>Специальная вставка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1255"/>
+        <location filename="../src/mainwindow.ui" line="1257"/>
         <source>Stroke and Fill...</source>
         <translation>Обводка и заливка...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1260"/>
+        <location filename="../src/mainwindow.ui" line="1262"/>
         <source>Optimized Clipping...</source>
         <translation>Оптимизированная обрезка...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1265"/>
+        <location filename="../src/mainwindow.ui" line="1267"/>
         <source>Validate</source>
         <translation>Подтвердить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1270"/>
+        <location filename="../src/mainwindow.ui" line="1272"/>
         <source>Options...</source>
         <translation>Опции...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1280"/>
+        <location filename="../src/mainwindow.ui" line="1282"/>
         <source>Define Pattern</source>
         <translation>Назначить узор</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1285"/>
+        <location filename="../src/mainwindow.ui" line="1287"/>
         <source>Fill With Pattern</source>
         <translation>Заливка с рисунком</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1294"/>
+        <location filename="../src/mainwindow.ui" line="1296"/>
         <source>Flip Vertical</source>
         <translation>Отразить по вертикали</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1303"/>
+        <location filename="../src/mainwindow.ui" line="1305"/>
         <source>Flip Horizontal</source>
         <translation>Отразить по горизонтали</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1308"/>
+        <location filename="../src/mainwindow.ui" line="1310"/>
         <source>Skew...</source>
         <translation>Скос...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1317"/>
+        <location filename="../src/mainwindow.ui" line="1319"/>
         <source>Image Size...</source>
         <translation>Размер изображения...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1326"/>
+        <location filename="../src/mainwindow.ui" line="1328"/>
         <source>Canvas Size...</source>
         <translation>Размер холста...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1331"/>
+        <location filename="../src/mainwindow.ui" line="1333"/>
         <source>Fit Image...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1336"/>
+        <location filename="../src/mainwindow.ui" line="1338"/>
         <source>Duplicate</source>
         <translation>Дубликат</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1341"/>
+        <location filename="../src/mainwindow.ui" line="1343"/>
         <source>Crop</source>
         <translation>Урезать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1346"/>
+        <location filename="../src/mainwindow.ui" line="1348"/>
         <source>Automatic Crop</source>
         <translation>Урезать автоматически</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1351"/>
+        <location filename="../src/mainwindow.ui" line="1353"/>
         <source>Outside Frame...</source>
         <translation>Внешняя рамка...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1356"/>
+        <location filename="../src/mainwindow.ui" line="1358"/>
         <source>Outside Drop Shadow...</source>
         <translation>Тень...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1365"/>
+        <location filename="../src/mainwindow.ui" line="1363"/>
+        <source>Fill_Rect</source>
+        <translation>Залить прямоугольник</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1372"/>
         <source>Transparent Colour...</source>
         <translation>Прозрачный цвет...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1370"/>
+        <location filename="../src/mainwindow.ui" line="1377"/>
         <source>Automatic Transparency</source>
-        <translation>Авто прозрачность</translation>
+        <translation>Автопрозрачность</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1375"/>
+        <location filename="../src/mainwindow.ui" line="1382"/>
         <source>Transparency Mask...</source>
         <translation>Маска прозрачности...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1384"/>
+        <location filename="../src/mainwindow.ui" line="1391"/>
         <source>Text...</source>
         <translation>Текст...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1389"/>
+        <location filename="../src/mainwindow.ui" line="1396"/>
         <source>Copyright...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1404"/>
+        <location filename="../src/mainwindow.ui" line="1411"/>
         <source>Show Selection</source>
         <translation>Показать выбор</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1409"/>
+        <location filename="../src/mainwindow.ui" line="1416"/>
         <source>Select All</source>
         <translation>Выбрать все</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1414"/>
+        <location filename="../src/mainwindow.ui" line="1421"/>
         <source>Set Shape</source>
         <translation>Задать форму</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1419"/>
+        <location filename="../src/mainwindow.ui" line="1426"/>
         <source>Invert</source>
         <translation>Инвертировать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1424"/>
+        <location filename="../src/mainwindow.ui" line="1431"/>
         <source>Manual Settings...</source>
         <translation>Ручная настройка...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1429"/>
+        <location filename="../src/mainwindow.ui" line="1436"/>
         <source>Center</source>
         <translation>Центр</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1434"/>
+        <location filename="../src/mainwindow.ui" line="1441"/>
         <source>Fit Ratio</source>
         <translation>Коэффициент подгонки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1439"/>
+        <location filename="../src/mainwindow.ui" line="1446"/>
         <source>Contract...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1444"/>
+        <location filename="../src/mainwindow.ui" line="1451"/>
         <source>Expand...</source>
         <translation>Расширить...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1454"/>
+        <location filename="../src/mainwindow.ui" line="1461"/>
         <source>Antialiasing</source>
         <translation>Сглаживание</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1459"/>
+        <location filename="../src/mainwindow.ui" line="1466"/>
         <source>Bounding Box</source>
         <translation>Ограничивающий прямоугольник</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1464"/>
+        <location filename="../src/mainwindow.ui" line="1471"/>
         <source>Paste and Text Bounding Box</source>
         <translation>Вставить текст в прямоугольнике</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1469"/>
+        <location filename="../src/mainwindow.ui" line="1476"/>
         <source>Copy Shape</source>
         <translation>Копировать форму</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1474"/>
+        <location filename="../src/mainwindow.ui" line="1481"/>
         <source>Paste Shape</source>
         <translation>Вставить форму</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1479"/>
+        <location filename="../src/mainwindow.ui" line="1486"/>
         <source>Load Shape</source>
         <translation>Загрузить форму</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1484"/>
+        <location filename="../src/mainwindow.ui" line="1491"/>
         <source>Save Shape</source>
         <translation>Сохранить форму</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1489"/>
+        <location filename="../src/mainwindow.ui" line="1496"/>
         <source>Bright/Contrast...</source>
         <translation>Яркость/Контраст...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1494"/>
+        <location filename="../src/mainwindow.ui" line="1501"/>
         <source>Hue/Saturation...</source>
         <translation>Оттенок/Насыщенность...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1499"/>
+        <location filename="../src/mainwindow.ui" line="1506"/>
         <source>Colour Balance...</source>
         <translation>Цветовой баланс...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1504"/>
+        <location filename="../src/mainwindow.ui" line="1511"/>
         <source>Gamma Correct...</source>
         <translation>Корректировка гаммы...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1513"/>
+        <location filename="../src/mainwindow.ui" line="1520"/>
         <source>Auto Levels</source>
-        <translation>Авто уровни</translation>
+        <translation>Автоуровни</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1522"/>
+        <location filename="../src/mainwindow.ui" line="1529"/>
         <source>Auto Contrast</source>
-        <translation>Авто контраст</translation>
+        <translation>Автоконтраст</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1527"/>
+        <location filename="../src/mainwindow.ui" line="1534"/>
         <source>More Shadows</source>
         <translation>Другие тени</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1532"/>
+        <location filename="../src/mainwindow.ui" line="1539"/>
         <source>More Highlights</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1537"/>
+        <location filename="../src/mainwindow.ui" line="1544"/>
         <source>Levels...</source>
         <translation>Уровни...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1542"/>
+        <location filename="../src/mainwindow.ui" line="1549"/>
         <source>Swap RGB Channel...</source>
         <translation>Поменять местами RGB-канал...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1547"/>
+        <location filename="../src/mainwindow.ui" line="1554"/>
         <source>Replace Colour...</source>
         <translation>Заменить цвет...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1552"/>
+        <location filename="../src/mainwindow.ui" line="1559"/>
         <source>Replace Colour Range...</source>
         <translation>Заменить цветовой ряд...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1557"/>
+        <location filename="../src/mainwindow.ui" line="1564"/>
         <source>Duotone...</source>
         <translation>Два тона...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1562"/>
+        <location filename="../src/mainwindow.ui" line="1569"/>
         <source>Dithering</source>
         <translation>Сглаживание</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1567"/>
+        <location filename="../src/mainwindow.ui" line="1574"/>
         <source>Negative</source>
         <translation>Негатив</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1572"/>
+        <location filename="../src/mainwindow.ui" line="1579"/>
         <source>Posterize...</source>
         <translation>Постеризация...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1581"/>
+        <location filename="../src/mainwindow.ui" line="1588"/>
         <source>Hue Variation...</source>
         <translation>Изменение оттенка...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1604"/>
+        <location filename="../src/mainwindow.ui" line="1611"/>
         <source>Relief</source>
         <translation>Рельеф</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1609"/>
+        <location filename="../src/mainwindow.ui" line="1616"/>
         <source>Stylize</source>
         <translation>Стилизация</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1614"/>
+        <location filename="../src/mainwindow.ui" line="1621"/>
         <source>Aged Effect</source>
         <translation>Эффект старения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1619"/>
+        <location filename="../src/mainwindow.ui" line="1626"/>
         <source>Texture</source>
         <translation>Текстура</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1624"/>
+        <location filename="../src/mainwindow.ui" line="1631"/>
         <source>Other</source>
         <translation>Другое</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1632"/>
+        <location filename="../src/mainwindow.ui" line="1639"/>
         <source>Filterbar</source>
         <translation>Фильтры</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1640"/>
+        <location filename="../src/mainwindow.ui" line="1647"/>
         <source>Toolpalette</source>
         <translation>Инструменты</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1648"/>
+        <location filename="../src/mainwindow.ui" line="1655"/>
         <source>Show Grid...</source>
         <translation>Показать сетку...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1653"/>
+        <location filename="../src/mainwindow.ui" line="1660"/>
         <source>Snap To Grid</source>
         <translation>Привязать к сетке</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1658"/>
+        <location filename="../src/mainwindow.ui" line="1665"/>
         <source>Zoom In</source>
         <translation>Увеличить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1663"/>
+        <location filename="../src/mainwindow.ui" line="1670"/>
         <source>Zoom Out</source>
         <translation>Уменьшить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1668"/>
+        <location filename="../src/mainwindow.ui" line="1675"/>
         <source>Original Size</source>
         <translation>Оригинальный размер</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1673"/>
+        <location filename="../src/mainwindow.ui" line="1680"/>
         <source>Auto Zoom</source>
-        <translation>Авто масштабирование</translation>
+        <translation>Автомасштабирование</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1681"/>
+        <location filename="../src/mainwindow.ui" line="1688"/>
         <source>Full Screen</source>
         <translation>Полноэкранный режим</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1690"/>
+        <location filename="../src/mainwindow.ui" line="1697"/>
         <source>Automate/Batch...</source>
         <translation>Авто/Пакетная обработка...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1695"/>
+        <location filename="../src/mainwindow.ui" line="1702"/>
         <source>Set Wallpaper</source>
         <translation>Установить обои</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1700"/>
+        <location filename="../src/mainwindow.ui" line="1707"/>
         <source>Export As Icon...</source>
         <translation>Экспорт в виде значка...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1709"/>
+        <location filename="../src/mainwindow.ui" line="1716"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Настройки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1714"/>
+        <location filename="../src/mainwindow.ui" line="1721"/>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1719"/>
+        <location filename="../src/mainwindow.ui" line="1726"/>
         <source>&amp;About</source>
         <translation>&amp;О программе</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1728"/>
-        <location filename="../src/mainwindow.ui" line="1731"/>
+        <location filename="../src/mainwindow.ui" line="1735"/>
+        <location filename="../src/mainwindow.ui" line="1738"/>
         <source>Scan</source>
         <translation>Сканировать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1746"/>
+        <location filename="../src/mainwindow.ui" line="1753"/>
         <source>RGB Mode</source>
         <translation>Режим RGB</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1758"/>
+        <location filename="../src/mainwindow.ui" line="1765"/>
         <source>Indexed Mode</source>
         <translation>Индексированный</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1767"/>
+        <location filename="../src/mainwindow.ui" line="1774"/>
         <source>brightminus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1770"/>
+        <location filename="../src/mainwindow.ui" line="1777"/>
         <source>Brightness (-)</source>
         <translation>Яркость (-)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1779"/>
+        <location filename="../src/mainwindow.ui" line="1786"/>
         <source>Brightplus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1782"/>
+        <location filename="../src/mainwindow.ui" line="1789"/>
         <source>Brightness (+)</source>
         <translation>Яркость (+)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1791"/>
+        <location filename="../src/mainwindow.ui" line="1798"/>
         <source>contrastminus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1794"/>
+        <location filename="../src/mainwindow.ui" line="1801"/>
         <source>Contrast (-)</source>
         <translation>Контраст (-)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1803"/>
+        <location filename="../src/mainwindow.ui" line="1810"/>
         <source>contrastplus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1806"/>
+        <location filename="../src/mainwindow.ui" line="1813"/>
         <source>Contrast (+)</source>
         <translation>Контраст (+)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1815"/>
+        <location filename="../src/mainwindow.ui" line="1822"/>
         <source>saturationminus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1818"/>
+        <location filename="../src/mainwindow.ui" line="1825"/>
         <source>Saturation (-)</source>
         <translation>Насыщенность (-)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1827"/>
+        <location filename="../src/mainwindow.ui" line="1834"/>
         <source>saturationplus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1830"/>
+        <location filename="../src/mainwindow.ui" line="1837"/>
         <source>Saturation (+)</source>
         <translation>Насыщенность (+)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1839"/>
+        <location filename="../src/mainwindow.ui" line="1846"/>
         <source>gammaCorrectminus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1842"/>
+        <location filename="../src/mainwindow.ui" line="1849"/>
         <source>Gamma Correct (-)</source>
         <translation>Гамма (-)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1851"/>
+        <location filename="../src/mainwindow.ui" line="1858"/>
         <source>gammaCorrectplus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1854"/>
+        <location filename="../src/mainwindow.ui" line="1861"/>
         <source>Gamma Correct (+)</source>
         <translation>Гамма (+)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1863"/>
-        <location filename="../src/mainwindow.ui" line="1866"/>
+        <location filename="../src/mainwindow.ui" line="1870"/>
+        <location filename="../src/mainwindow.ui" line="1873"/>
         <source>Gray Scale</source>
         <translation>Оттенки серого</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1875"/>
+        <location filename="../src/mainwindow.ui" line="1882"/>
         <source>Old Photo</source>
         <translation>Старое фото</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1878"/>
+        <location filename="../src/mainwindow.ui" line="1885"/>
         <source>Old Photography</source>
         <translation>Старая фотография</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1887"/>
-        <location filename="../src/mainwindow.ui" line="1890"/>
+        <location filename="../src/mainwindow.ui" line="1894"/>
+        <location filename="../src/mainwindow.ui" line="1897"/>
         <source>Dust Reduction</source>
         <translation>Устранить шум</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1899"/>
-        <location filename="../src/mainwindow.ui" line="1902"/>
+        <location filename="../src/mainwindow.ui" line="1906"/>
+        <location filename="../src/mainwindow.ui" line="1909"/>
         <source>Blur</source>
         <translation>Размытость</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1911"/>
-        <location filename="../src/mainwindow.ui" line="1914"/>
+        <location filename="../src/mainwindow.ui" line="1918"/>
+        <location filename="../src/mainwindow.ui" line="1921"/>
         <source>Reinforce</source>
         <translation>Усилить резкозть</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1923"/>
+        <location filename="../src/mainwindow.ui" line="1930"/>
         <source>gradient</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1926"/>
+        <location filename="../src/mainwindow.ui" line="1933"/>
         <source>Gradient</source>
         <translation>Градиент</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1935"/>
+        <location filename="../src/mainwindow.ui" line="1942"/>
         <source>Rotate CCW</source>
         <translation>Вращать против часовой стрелки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1944"/>
+        <location filename="../src/mainwindow.ui" line="1951"/>
         <source>Rotate CW</source>
         <translation>Вращать по часовой стрелке</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1949"/>
+        <location filename="../src/mainwindow.ui" line="1956"/>
         <source>&amp;Oil Paint</source>
         <translation>&amp;Рисунок маслом</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1954"/>
+        <location filename="../src/mainwindow.ui" line="1961"/>
         <source>&amp;Charcoal Drawing</source>
         <translation>Ри&amp;сунок углем</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1959"/>
+        <location filename="../src/mainwindow.ui" line="1966"/>
         <source>Swirl</source>
         <translation>Вращение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1964"/>
+        <location filename="../src/mainwindow.ui" line="1971"/>
         <source>Donate</source>
         <translation>Поблагодарить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1969"/>
+        <location filename="../src/mainwindow.ui" line="1976"/>
         <source>Acquire image...</source>
         <translation>Приобрестие изображение...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1974"/>
+        <location filename="../src/mainwindow.ui" line="1981"/>
         <source>Select source...</source>
         <translation>Выбор источника...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1979"/>
+        <location filename="../src/mainwindow.ui" line="1986"/>
         <source>Solarize</source>
         <translation>Соляризация</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1984"/>
+        <location filename="../src/mainwindow.ui" line="1991"/>
         <source>Wave</source>
         <translation>Волна</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1989"/>
+        <location filename="../src/mainwindow.ui" line="1996"/>
         <source>Implode</source>
         <translation>Втягивание</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1994"/>
+        <location filename="../src/mainwindow.ui" line="2001"/>
         <source>Emboss</source>
         <translation>Чеканка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="1999"/>
+        <location filename="../src/mainwindow.ui" line="2006"/>
         <source>Trim</source>
         <translation>Подрезка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2004"/>
+        <location filename="../src/mainwindow.ui" line="2011"/>
         <source>Gaussian</source>
         <translation>Гауссовский</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2009"/>
+        <location filename="../src/mainwindow.ui" line="2016"/>
         <source>Impulse</source>
         <translation>Импульсный</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2014"/>
+        <location filename="../src/mainwindow.ui" line="2021"/>
         <source>Laplacian</source>
         <translation>Лапласовский</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2019"/>
+        <location filename="../src/mainwindow.ui" line="2026"/>
         <source>Poisson</source>
         <translation>Пуассоновский</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2024"/>
+        <location filename="../src/mainwindow.ui" line="2031"/>
         <source>MonoChromatic</source>
         <translation>Монохроматические</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2029"/>
+        <location filename="../src/mainwindow.ui" line="2036"/>
         <source>Equalize</source>
         <translation>Уравнять</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2034"/>
-        <location filename="../src/mainwindow.ui" line="2037"/>
+        <location filename="../src/mainwindow.ui" line="2041"/>
+        <location filename="../src/mainwindow.ui" line="2044"/>
         <source>Crop center</source>
         <translation>Урезать по центру</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2042"/>
-        <location filename="../src/mainwindow.ui" line="2045"/>
+        <location filename="../src/mainwindow.ui" line="2049"/>
+        <location filename="../src/mainwindow.ui" line="2052"/>
         <source>Simple frame</source>
         <translation>Простая рамка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2050"/>
+        <location filename="../src/mainwindow.ui" line="2057"/>
         <source>Motion blur</source>
         <translation>Эффект движения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2055"/>
+        <location filename="../src/mainwindow.ui" line="2062"/>
         <source>Normalize</source>
         <translation>Нормализация</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2060"/>
+        <location filename="../src/mainwindow.ui" line="2067"/>
         <source>3D frame</source>
         <translation>3D-рамка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2065"/>
+        <location filename="../src/mainwindow.ui" line="2072"/>
         <source>Explode</source>
         <translation>Взрыв</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2070"/>
+        <location filename="../src/mainwindow.ui" line="2077"/>
         <source>Despeckle</source>
         <translation>Ретушь</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2079"/>
+        <location filename="../src/mainwindow.ui" line="2086"/>
         <source>Sepia</source>
         <translation>Сепия</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2084"/>
+        <location filename="../src/mainwindow.ui" line="2091"/>
         <source>Black and white</source>
         <translation>Черное и белое</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2089"/>
+        <location filename="../src/mainwindow.ui" line="2096"/>
         <source>Opacity...</source>
         <translation>Непрозрачность...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2094"/>
+        <location filename="../src/mainwindow.ui" line="2101"/>
         <source>Plugins</source>
         <translation>Плагины</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2099"/>
+        <location filename="../src/mainwindow.ui" line="2106"/>
         <source>Check for updates...</source>
         <translation>Проверить обновления...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2104"/>
+        <location filename="../src/mainwindow.ui" line="2111"/>
         <source>Colour Threshold</source>
         <translation>Порог цвета</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2109"/>
+        <location filename="../src/mainwindow.ui" line="2116"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2114"/>
+        <location filename="../src/mainwindow.ui" line="2121"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2119"/>
+        <location filename="../src/mainwindow.ui" line="2126"/>
         <source>History</source>
         <translation>История</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2124"/>
+        <location filename="../src/mainwindow.ui" line="2131"/>
         <source>Clipboard</source>
         <translation>Буфер обмена</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="187"/>
-        <location filename="../src/mainwindow.cpp" line="324"/>
+        <location filename="../src/mainwindow.ui" line="2136"/>
+        <source>Free Rotate...</source>
+        <translation>Свободное вращение</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="183"/>
+        <location filename="../src/mainwindow.cpp" line="329"/>
         <source>Ready</source>
         <translation>Готов</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="344"/>
-        <location filename="../src/mainwindow.cpp" line="364"/>
+        <location filename="../src/mainwindow.cpp" line="349"/>
+        <location filename="../src/mainwindow.cpp" line="369"/>
         <source>Working...</source>
         <translation>Работаю...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="391"/>
+        <location filename="../src/mainwindow.cpp" line="396"/>
         <source>Open File</source>
         <translation>Открыть файл</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="392"/>
         <source>All Files (*);;Image Files (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</source>
-        <translation>Все файлы (*);;Изображения (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</translation>
+        <translation type="vanished">Все файлы (*);;Изображения (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="448"/>
         <source>Incorrect file extension detected</source>
-        <translation>Обнаружено неправильное расширение файла</translation>
+        <translation type="vanished">Обнаружено неправильное расширение файла</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="449"/>
         <source>Do you want to update this extension?</source>
-        <translation>Хотите обновить это расширение?</translation>
+        <translation type="vanished">Хотите обновить это расширение?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="466"/>
+        <location filename="../src/mainwindow.cpp" line="398"/>
+        <source>Image Files</source>
+        <translation>Файлы изображений</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="410"/>
+        <source>All Files</source>
+        <translation>Все файлы</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="461"/>
         <source>Please open a valid image file</source>
         <translation>Пожалуйста, откройте допустимый файл изображения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="476"/>
+        <location filename="../src/mainwindow.cpp" line="471"/>
         <source>Image does not exist at this file path</source>
         <translation>Изображение не существует в этом пути к файлу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="553"/>
+        <location filename="../src/mainwindow.cpp" line="548"/>
         <source>png (*.png)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="554"/>
+        <location filename="../src/mainwindow.cpp" line="549"/>
         <source>jpg (*.jpg *.jpeg)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="555"/>
+        <location filename="../src/mainwindow.cpp" line="550"/>
         <source>bmp (*.bmp)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="556"/>
+        <location filename="../src/mainwindow.cpp" line="551"/>
         <source>pbm (*.pbm)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="557"/>
+        <location filename="../src/mainwindow.cpp" line="552"/>
         <source>pgm (*.pgm)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="558"/>
+        <location filename="../src/mainwindow.cpp" line="553"/>
         <source>ppm (*.ppm)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="559"/>
+        <location filename="../src/mainwindow.cpp" line="554"/>
         <source>ico (*.ico)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="576"/>
+        <location filename="../src/mainwindow.cpp" line="571"/>
         <source>Save File</source>
         <translation>Сохранить файл</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="636"/>
+        <location filename="../src/mainwindow.cpp" line="631"/>
         <source>Unable to save image.</source>
         <translation>Невозможно сохранить изображение.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="912"/>
+        <location filename="../src/mainwindow.cpp" line="909"/>
+        <source>Set Rotate Degrees</source>
+        <translation>Угол поворота</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="910"/>
+        <source>Degrees:</source>
+        <translation>Градусы:</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="925"/>
         <source>Resize Image</source>
         <translation>Изменить размер изображения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="929"/>
+        <location filename="../src/mainwindow.cpp" line="942"/>
         <source>Resize Canvas</source>
         <translation>Изменить размер холста</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1198"/>
+        <location filename="../src/mainwindow.cpp" line="1214"/>
         <source>Set Image Opacity</source>
         <translation>Установить непрозрачность изображения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1199"/>
+        <location filename="../src/mainwindow.cpp" line="1215"/>
         <source>Opacity:</source>
         <translation>Непрозрачность:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1463"/>
+        <location filename="../src/mainwindow.cpp" line="1526"/>
         <source>Set Grid size</source>
         <translation>Установить размер сетки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1464"/>
+        <location filename="../src/mainwindow.cpp" line="1527"/>
         <source>Cell width</source>
         <translation>Ширина ячейки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2215"/>
+        <location filename="../src/mainwindow.cpp" line="2353"/>
         <source>Unsaved Changes</source>
-        <translation>Не сохраненные изменения</translation>
+        <translation>Подтверждение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2215"/>
+        <location filename="../src/mainwindow.cpp" line="2353"/>
         <source>Save changes before leaving?</source>
         <translation>Сохранить изменения?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2525"/>
+        <location filename="../src/mainwindow.cpp" line="2713"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -1558,33 +1589,33 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="20"/>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="56"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="109"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="132"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="79"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="34"/>
         <source>&amp;Radius:</source>
         <translation>&amp;Радиус:</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="89"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="27"/>
         <source>0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="109"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="57"/>
         <source>Pressure</source>
         <translation>Давление</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="116"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="20"/>
         <source>100</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="148"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="64"/>
         <source>&amp;Anti-aliasing</source>
         <translation>&amp;Сглаживание</translation>
     </message>
@@ -1625,79 +1656,368 @@
         <source>Fill</source>
         <translation>Заливка</translation>
     </message>
+    <message>
+        <location filename="../src/toolSettings/pointersettingswidget.ui" line="114"/>
+        <source>Stroke Width</source>
+        <translation>Шир. обводки</translation>
+    </message>
 </context>
 <context>
     <name>PointerTool</name>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="381"/>
+        <location filename="../src/tools/PointerTool.cpp" line="411"/>
         <source>Crop</source>
         <translation>Урезать</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="390"/>
+        <location filename="../src/tools/PointerTool.cpp" line="420"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="391"/>
+        <location filename="../src/tools/PointerTool.cpp" line="421"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="392"/>
+        <location filename="../src/tools/PointerTool.cpp" line="422"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="395"/>
+        <location filename="../src/tools/PointerTool.cpp" line="425"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="396"/>
+        <location filename="../src/tools/PointerTool.cpp" line="426"/>
         <source>Paste</source>
         <translation>Вставить</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="404"/>
+        <location filename="../src/tools/PointerTool.cpp" line="434"/>
         <source>Image size</source>
         <translation>Размер изображения</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="405"/>
+        <location filename="../src/tools/PointerTool.cpp" line="435"/>
         <source>Canvas size</source>
         <translation>Размер холста</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="408"/>
+        <location filename="../src/tools/PointerTool.cpp" line="438"/>
         <source>Undo</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="409"/>
+        <location filename="../src/tools/PointerTool.cpp" line="439"/>
         <source>Redo</source>
         <translation>Повторить</translation>
     </message>
 </context>
 <context>
+    <name>PrefsDialog</name>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="17"/>
+        <source>Preferences</source>
+        <translation>Предпочтения</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="49"/>
+        <source>&amp;Folders</source>
+        <translation>&amp;Папки</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="61"/>
+        <source>Opening folder</source>
+        <translation>Начальная папка</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="84"/>
+        <location filename="../src/dialogs/prefsdialog.ui" line="120"/>
+        <source>...</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="107"/>
+        <source>Saving folder</source>
+        <translation>Папка сохранения</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="133"/>
+        <source>Remember previous opened folder</source>
+        <translation>Запомнить предыдущую открытую папку</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="146"/>
+        <source>Remember previous save folder</source>
+        <translation>Запомнить предыдущую папку сохранения</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="152"/>
+        <source>S&amp;aving</source>
+        <translation>С&amp;охранение</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="164"/>
+        <source>Default file format</source>
+        <translation>Формат по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="180"/>
+        <source>&amp;Compression</source>
+        <translation>&amp;Сжатие</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="192"/>
+        <source>Always show dialog</source>
+        <translation>Всегда показывать диалог</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="211"/>
+        <source>Set default compression</source>
+        <translation>Установить сжатие по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="261"/>
+        <source>Compression</source>
+        <translation>Сжатие</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="274"/>
+        <source>90</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="280"/>
+        <source>&amp;Layout</source>
+        <translation>&amp;Расположение</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="292"/>
+        <source>Multi-Window Mode</source>
+        <translation>Многооконный режим</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="305"/>
+        <source>Default Toolpalette Location</source>
+        <translation>Расположение палитры</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="328"/>
+        <source>Zoom direction</source>
+        <translation>Масштабирование</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="344"/>
+        <source>&amp;Default Values</source>
+        <translation>&amp;Значения по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="356"/>
+        <source>Default Units</source>
+        <translation>Единицы измерения</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="370"/>
+        <source>Pixels</source>
+        <translation>Пиксели</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="375"/>
+        <source>CM</source>
+        <translation>Сантиметры</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="380"/>
+        <source>Inches</source>
+        <translation>Дюймы</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="394"/>
+        <source>Memorize parameters</source>
+        <translation>Запоминать параметры</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="400"/>
+        <source>&amp;History</source>
+        <translation>&amp;История</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="412"/>
+        <source>Image History Size</source>
+        <translation>Размер истории</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="450"/>
+        <source>24</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="456"/>
+        <source>&amp;Startup</source>
+        <translation>З&amp;апуск</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="468"/>
+        <source>Maximize on Startup</source>
+        <translation>Развернуть при запуске</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="491"/>
+        <source>Language</source>
+        <translation>Язык</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="510"/>
+        <source>Restart to apply</source>
+        <translation>Перезапуск для применения</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="52"/>
+        <source>Right</source>
+        <translation>Справа</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="52"/>
+        <source>Left</source>
+        <translation>Слева</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="60"/>
+        <source>Default</source>
+        <translation>По умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="60"/>
+        <source>Inverted</source>
+        <translation>Перевернутый</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="73"/>
+        <source>png (*.png)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="74"/>
+        <source>jpg (*.jpg *.jpeg)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="75"/>
+        <source>bmp (*.bmp)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="76"/>
+        <source>pbm (*.pbm)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="77"/>
+        <source>pgm (*.pgm)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="78"/>
+        <source>ppm (*.ppm)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="79"/>
+        <source>ico (*.ico)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="90"/>
+        <source>English</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="91"/>
+        <source>French</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="92"/>
+        <source>Dutch</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="93"/>
+        <source>German</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="94"/>
+        <source>Chinese (CN)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="95"/>
+        <source>Chinese (TW)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="96"/>
+        <source>Czech Republic</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="97"/>
+        <source>Portuguese (PT)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="98"/>
+        <source>Portuguese (BR)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="99"/>
+        <source>Sweden</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="100"/>
+        <source>Russian</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="101"/>
+        <source>Indonesian</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="102"/>
+        <source>Spanish</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="103"/>
+        <source>Japanese</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="104"/>
+        <source>Turkish</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="197"/>
+        <source>Open Directory</source>
+        <translation>Открыть каталог</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="206"/>
+        <source>Save Directory</source>
+        <translation>Сохранить каталог</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="45"/>
-        <source>photoflare</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/main.cpp" line="46"/>
-        <source>1.6.4</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/main.cpp" line="47"/>
-        <source>photoflare.io</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.cpp" line="111"/>
+        <location filename="../src/mainwindow.cpp" line="106"/>
         <source>Untitled</source>
         <translation>Без названия</translation>
     </message>
@@ -1733,17 +2053,17 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="60"/>
+        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="63"/>
         <source>Pressure</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="94"/>
+        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="97"/>
         <source>Dispersion</source>
         <translation>Дисперсия</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="127"/>
+        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="130"/>
         <source>Rainbow</source>
         <translation>Радуга</translation>
     </message>
@@ -1804,22 +2124,22 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/transparentdialog.ui" line="96"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="99"/>
         <source>Color:</source>
         <translation>Цвет:</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/transparentdialog.ui" line="112"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="115"/>
         <source>Preview</source>
         <translation>Просмотр</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/transparentdialog.ui" line="125"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="128"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/transparentdialog.ui" line="138"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="141"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
@@ -1837,74 +2157,74 @@
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.ui" line="50"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="56"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.ui" line="69"/>
-        <location filename="../src/dialogs/aboutdialog.ui" line="85"/>
-        <location filename="../src/dialogs/aboutdialog.ui" line="101"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="75"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="91"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="107"/>
         <source>TextLabel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.ui" line="157"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="163"/>
         <source>C&amp;redits</source>
         <translation>С&amp;ведения</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.ui" line="174"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="180"/>
         <source>Developers</source>
         <translation>Разработчики</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.ui" line="204"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="210"/>
         <source>Graphics</source>
         <translation>Графика</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.ui" line="222"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="231"/>
         <source>Translators</source>
         <translation>Переводчики</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.ui" line="240"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="252"/>
         <source>Contributors</source>
         <translation>Контрибуторы</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="34"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="31"/>
         <source>Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Marek Mosna&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;Debian package - Dylan Aïssi&lt;br&gt;AppImage package - probonopd</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="42"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="39"/>
         <source>Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;Art Designer - Catherine Hegedusich&lt;br&gt;Advertising - Don Murphy</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="50"/>
-        <source>FR - Ludovic, Nerdouille&lt;br&gt;NL - Freek Pol&lt;br&gt;DE - Steffen Gunther&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts Hsu&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10</source>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="47"/>
+        <source>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G.&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram&lt;br&gt;JA - hmatrjp&lt;br&gt;TR - sabriunal</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="59"/>
-        <source>AngryPenguinPL - Code&lt;br&gt;Carlo Vaccari - Code&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="63"/>
+        <source>eltonfabricio10 - Code&lt;br&gt;AngryPenguinPL - Code&lt;br&gt;Carlo Vaccari - Code&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="78"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="83"/>
         <source> Community Edition</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="79"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="84"/>
         <source>A simple but featureful editor.</source>
         <translation>Простой, но самодостаточный редактор.</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="80"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
         <source>&lt;a href=&apos;https://www.photoflare.io&apos;&gt;https://www.photoflare.io&lt;/a&gt;</source>
         <translation></translation>
     </message>
@@ -2134,7 +2454,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1027"/>
         <source>Rotate 90° CCW</source>
-        <translation>Поворот на 90° против часовой стрелки</translation>
+        <translation>90° против часовой</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1043"/>
@@ -2149,7 +2469,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1072"/>
         <source>Rotate 90° CW</source>
-        <translation>Поворот 90° по часовой стрелке</translation>
+        <translation>90° по часовой</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.ui" line="1104"/>
@@ -2172,185 +2492,222 @@
         <translation>Сводка</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="54"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="53"/>
         <source>All formats</source>
         <translation>Все форматы</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="55"/>
-        <location filename="../src/dialogs/batchdialog.cpp" line="60"/>
-        <source>.png</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="56"/>
-        <location filename="../src/dialogs/batchdialog.cpp" line="61"/>
-        <source>.jpg</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="57"/>
-        <source>.gif</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="62"/>
-        <source>.bmp</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="68"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="67"/>
         <source>Oil</source>
         <translation>Масло</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="69"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="68"/>
         <source>Charcoal</source>
         <translation>Уголь</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="70"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="69"/>
         <source>Swirl</source>
         <translation>Вращение</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="71"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="70"/>
         <source>Solarize</source>
         <translation>Соляризация</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="72"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="71"/>
         <source>Wave</source>
         <translation>Волна</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="73"/>
-        <location filename="../src/dialogs/batchdialog.cpp" line="81"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="72"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="80"/>
         <source>Implode</source>
         <translation>Втягивание</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="74"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="73"/>
         <source>Soften</source>
         <translation>Смягчение</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="75"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="74"/>
         <source>Blur</source>
         <translation>Размывание</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="76"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="75"/>
         <source>Sharpen</source>
         <translation>Обострение</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="77"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="76"/>
         <source>Reinforce</source>
         <translation>Усилить</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="78"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="77"/>
         <source>Grayscale</source>
         <translation>Оттенки серого</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="79"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="78"/>
         <source>Old Photo</source>
         <translation>Старое фото</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="80"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="79"/>
         <source>Sepia</source>
         <translation>Сепия</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="82"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="81"/>
         <source>Explode</source>
         <translation>Взрыв</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="83"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="82"/>
         <source>Simple Frame</source>
         <translation>Простая рамка</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="84"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="83"/>
         <source>3D Frame</source>
         <translation>3D-рамка</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="85"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="84"/>
         <source>Normalize</source>
         <translation>Нормализация</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="86"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="85"/>
         <source>Motion Blur</source>
         <translation>Эффект движения</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="87"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="86"/>
         <source>Crop to center</source>
         <translation>Урезать по центру</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="88"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="87"/>
         <source>Equalize colours</source>
         <translation>Выровнять цвета</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="89"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="88"/>
         <source>Monochrome edges</source>
         <translation>Монохромные края</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="90"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="89"/>
         <source>Gaussian noise</source>
         <translation>Гауссовский шум</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="91"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="90"/>
         <source>Drop shadow</source>
         <translation>Тень</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="92"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="91"/>
         <source>Opacity</source>
         <translation>Непрозрачность</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="138"/>
-        <source>Please add files to the batch file list and set output folder.</source>
-        <translation>Пожалуйста, добавьте файлы в список пакетных файлов и установите выходную папку.</translation>
+        <source>Batch files required</source>
+        <translation>Требуются пакетные файлы</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="193"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="139"/>
+        <source>Please add files to the batch list.</source>
+        <translation>Пожалуйста, добавьте файлы в пакетный список.</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="147"/>
+        <source>Output directory required</source>
+        <translation>Требуется выходной каталог</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="148"/>
+        <source>Please set the output folder.</source>
+        <translation>Пожалуйста, установите выходную папку.</translation>
+    </message>
+    <message>
+        <source>Please add files to the batch file list and set output folder.</source>
+        <translation type="vanished">Пожалуйста, добавьте файлы в список пакетных файлов и установите выходную папку.</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="209"/>
         <source>Input files:</source>
         <translation>Входные файлы:</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="198"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="214"/>
         <source>Output folder: </source>
         <translation>Выходная папка: </translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="200"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="218"/>
+        <source>Image size: </source>
+        <translation>Размер изображения: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="224"/>
+        <source>Canvas size: </source>
+        <translation>Размер холста: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="230"/>
+        <source>Brightness adjustment: </source>
+        <translation>Яркость: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="236"/>
+        <source>Contrast adjustment: </source>
+        <translation>Контрастность: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="242"/>
+        <source>Saturation adjustment: </source>
+        <translation>Насыщенность: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="248"/>
+        <source>Gamma adjustment: </source>
+        <translation>Гамма: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="267"/>
+        <source>Rotate: </source>
+        <translation>Поворот: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="281"/>
+        <source>Flip: </source>
+        <translation>Отражение: </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="284"/>
         <source>Filters: </source>
         <translation>Фильтры: </translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="211"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="295"/>
         <source>Batch processing finished successfully !</source>
         <translation>Пакетная обработка успешно завершена!</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="417"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="501"/>
         <source>Select Files</source>
         <translation>Выбрать файлы</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/batchdialog.cpp" line="417"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="501"/>
         <source>Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)</source>
         <translation>Файлы изображений (*.png *.jpg *.jpeg *.gif);;All Files (*)</translation>
     </message>
@@ -2449,7 +2806,7 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="45"/>
         <source>Image name:</source>
-        <translation>Название файла:</translation>
+        <translation>Название:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="64"/>
@@ -2464,12 +2821,12 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="90"/>
         <source>Color count:</source>
-        <translation>Количество цветов:</translation>
+        <translation>Цветов:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="103"/>
         <source>File size:</source>
-        <translation>Размер файла:</translation>
+        <translation>Размер:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="116"/>
@@ -2495,277 +2852,158 @@
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="220"/>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="233"/>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="246"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="272"/>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="259"/>
+        <source>File type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/imagepropertiesdialog.cpp" line="30"/>
+        <source>Untitled</source>
+        <translation>Без названия</translation>
     </message>
 </context>
 <context>
     <name>prefsDialog</name>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="17"/>
         <source>Preferences</source>
-        <translation>Предпочтения</translation>
+        <translation type="vanished">Предпочтения</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="49"/>
         <source>&amp;Folders</source>
-        <translation>&amp;Папки</translation>
+        <translation type="vanished">&amp;Папки</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="61"/>
         <source>Opening folder</source>
-        <translation>Начальная папка</translation>
+        <translation type="vanished">Начальная папка</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="84"/>
-        <location filename="../src/dialogs/prefsdialog.ui" line="120"/>
-        <source>...</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="107"/>
         <source>Saving folder</source>
-        <translation>Папка сохранения</translation>
+        <translation type="vanished">Папка сохранения</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="133"/>
         <source>Remember previous opened folder</source>
-        <translation>Запомнить предыдущую открытую папку</translation>
+        <translation type="vanished">Запомнить предыдущую открытую папку</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="146"/>
         <source>Remember previous save folder</source>
-        <translation>Запомнить предыдущую папку сохранения</translation>
+        <translation type="vanished">Запомнить предыдущую папку сохранения</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="152"/>
         <source>S&amp;aving</source>
-        <translation>С&amp;охранение</translation>
+        <translation type="vanished">С&amp;охранение</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="164"/>
         <source>Default file format</source>
-        <translation>Формат по умолчанию</translation>
+        <translation type="vanished">Формат по умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="180"/>
         <source>&amp;Compression</source>
-        <translation>&amp;Сжатие</translation>
+        <translation type="vanished">&amp;Сжатие</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="192"/>
         <source>Always show dialog</source>
-        <translation>Всегда показывать диалог</translation>
+        <translation type="vanished">Всегда показывать диалог</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="211"/>
         <source>Set default compression</source>
-        <translation>Установить сжатие по умолчанию</translation>
+        <translation type="vanished">Установить сжатие по умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="261"/>
         <source>Compression</source>
-        <translation>Сжатие</translation>
+        <translation type="vanished">Сжатие</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="274"/>
-        <source>90</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="280"/>
         <source>&amp;Layout</source>
-        <translation>&amp;Расположение</translation>
+        <translation type="vanished">&amp;Расположение</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="292"/>
         <source>Multi-Window Mode</source>
-        <translation>Многооконный режим</translation>
+        <translation type="vanished">Многооконный режим</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="305"/>
         <source>Default Toolpalette Location</source>
-        <translation>Расположение палитры</translation>
+        <translation type="vanished">Расположение палитры</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="328"/>
         <source>Zoom direction</source>
-        <translation>Масштабирование</translation>
+        <translation type="vanished">Масштабирование</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="344"/>
         <source>&amp;Default Values</source>
-        <translation>&amp;Значения по умолчанию</translation>
+        <translation type="vanished">&amp;Значения по умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="356"/>
         <source>Default Units</source>
-        <translation>Единицы измерения</translation>
+        <translation type="vanished">Единицы измерения</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="370"/>
         <source>Pixels</source>
-        <translation>Пиксели</translation>
+        <translation type="vanished">Пиксели</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="375"/>
         <source>CM</source>
-        <translation>Сантиметры</translation>
+        <translation type="vanished">Сантиметры</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="380"/>
         <source>Inches</source>
-        <translation>Дюймы</translation>
+        <translation type="vanished">Дюймы</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="394"/>
         <source>Memorize parameters</source>
-        <translation>Запоминать параметры</translation>
+        <translation type="vanished">Запоминать параметры</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="400"/>
         <source>&amp;History</source>
-        <translation>&amp;История</translation>
+        <translation type="vanished">&amp;История</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="412"/>
         <source>Image History Size</source>
-        <translation>Размер истории</translation>
+        <translation type="vanished">Размер истории</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="450"/>
-        <source>24</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="456"/>
         <source>&amp;Startup</source>
-        <translation>З&amp;апуск</translation>
+        <translation type="vanished">З&amp;апуск</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="468"/>
         <source>Maximize on Startup</source>
-        <translation>Развернуть при запуске</translation>
+        <translation type="vanished">Развернуть при запуске</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="491"/>
         <source>Language</source>
-        <translation>Язык</translation>
+        <translation type="vanished">Язык</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.ui" line="510"/>
         <source>Restart to apply</source>
-        <translation>Перезапуск для применения</translation>
+        <translation type="vanished">Перезапуск для применения</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="52"/>
         <source>Right</source>
-        <translation>Справа</translation>
+        <translation type="vanished">Справа</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="52"/>
         <source>Left</source>
-        <translation>Слева</translation>
+        <translation type="vanished">Слева</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="60"/>
         <source>Default</source>
-        <translation>По умолчанию</translation>
+        <translation type="vanished">По умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="60"/>
         <source>Inverted</source>
-        <translation>Перевернутый</translation>
+        <translation type="vanished">Перевернутый</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="73"/>
-        <source>png (*.png)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="74"/>
-        <source>jpg (*.jpg *.jpeg)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="75"/>
-        <source>bmp (*.bmp)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="76"/>
-        <source>pbm (*.pbm)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="77"/>
-        <source>pgm (*.pgm)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="78"/>
-        <source>ppm (*.ppm)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="79"/>
-        <source>ico (*.ico)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>English</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>French</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>Dutch</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>German</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>Chinese (CN)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>Chinese (TW)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>Czech Republic</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>Portuguese (PT)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="89"/>
-        <source>Portuguese (BR)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="182"/>
         <source>Open Directory</source>
-        <translation>Открыть каталог</translation>
+        <translation type="vanished">Открыть каталог</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="191"/>
         <source>Save Directory</source>
-        <translation>Сохранить каталог</translation>
+        <translation type="vanished">Сохранить каталог</translation>
     </message>
 </context>
 <context>
@@ -2781,62 +3019,62 @@
         <translation>&amp;Текст</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="58"/>
+        <location filename="../src/dialogs/textdialog.ui" line="61"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="71"/>
+        <location filename="../src/dialogs/textdialog.ui" line="74"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="97"/>
+        <location filename="../src/dialogs/textdialog.ui" line="103"/>
         <source>Text Input</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="120"/>
+        <location filename="../src/dialogs/textdialog.ui" line="126"/>
         <source>Preview</source>
         <translation>Просмотр</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="148"/>
+        <location filename="../src/dialogs/textdialog.ui" line="154"/>
         <source>AbYz</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="165"/>
+        <location filename="../src/dialogs/textdialog.ui" line="171"/>
         <source>Bold</source>
         <translation>Жирный</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="178"/>
+        <location filename="../src/dialogs/textdialog.ui" line="184"/>
         <source>Italic</source>
         <translation>Наклонный</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="191"/>
+        <location filename="../src/dialogs/textdialog.ui" line="197"/>
         <source>Strike out</source>
         <translation>Зачеркнутый</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="204"/>
+        <location filename="../src/dialogs/textdialog.ui" line="210"/>
         <source>Underline</source>
         <translation>Подчеркнутый</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="217"/>
+        <location filename="../src/dialogs/textdialog.ui" line="223"/>
         <source>Colour</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="246"/>
+        <location filename="../src/dialogs/textdialog.ui" line="258"/>
         <source>Antialias</source>
         <translation>Сглаживание</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/textdialog.ui" line="269"/>
+        <location filename="../src/dialogs/textdialog.ui" line="281"/>
         <source>Enter some text to continue</source>
         <translation>Введите некоторый текст для продолжения</translation>
     </message>
