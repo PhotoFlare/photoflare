@@ -35,10 +35,14 @@ public:
     void onMouseRelease(const QPoint &pos) override;
     void onKeyPressed(QKeyEvent *keyEvent) override;
     void setStroke(bool enabled);
+    void setStrokeWidth(int width);
     void setFill(bool enabled);
+    void setFillColor(const QColor &color);
 
 public slots:
     void onCrop();
+    void onStrokeRect();
+    void onFillRect();
     void onSave();
     void onSaveAs();
     void onClose();
@@ -51,6 +55,8 @@ public slots:
 
 signals:
     void crop(const QRect&);
+    void strokeRect(const QRect&, const QColor&, const int&);
+    void fillRect(const QRect&, const QColor&);
     void save();
     void saveAs();
     void close();

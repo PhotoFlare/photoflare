@@ -94,6 +94,7 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
               << tr("Chinese (CN)")
               << tr("Chinese (TW)")
               << tr("Czech Republic")
+              << tr("Korean")
               << tr("Portuguese (PT)")
               << tr("Portuguese (BR)")
               << tr("Sweden")
@@ -123,22 +124,24 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
         ui->comboBoxLanguage->setCurrentIndex(5);
     else if(SETTINGS->getUserLanguage() == "cs")
         ui->comboBoxLanguage->setCurrentIndex(6);
-    else if(SETTINGS->getUserLanguage() == "pt_PT")
+    else if(SETTINGS->getUserLanguage() == "ko")
         ui->comboBoxLanguage->setCurrentIndex(7);
-    else if(SETTINGS->getUserLanguage() == "pt_BR")
+    else if(SETTINGS->getUserLanguage() == "pt_PT")
         ui->comboBoxLanguage->setCurrentIndex(8);
-    else if(SETTINGS->getUserLanguage() == "sv")
+    else if(SETTINGS->getUserLanguage() == "pt_BR")
         ui->comboBoxLanguage->setCurrentIndex(9);
-    else if(SETTINGS->getUserLanguage() == "ru_RU")
+    else if(SETTINGS->getUserLanguage() == "sv")
         ui->comboBoxLanguage->setCurrentIndex(10);
-    else if(SETTINGS->getUserLanguage() == "id")
+    else if(SETTINGS->getUserLanguage() == "ru_RU")
         ui->comboBoxLanguage->setCurrentIndex(11);
-    else if(SETTINGS->getUserLanguage() == "es")
+    else if(SETTINGS->getUserLanguage() == "id")
         ui->comboBoxLanguage->setCurrentIndex(12);
-    else if(SETTINGS->getUserLanguage() == "ja")
+    else if(SETTINGS->getUserLanguage() == "es")
         ui->comboBoxLanguage->setCurrentIndex(13);
-    else if(SETTINGS->getUserLanguage() == "tr")
+    else if(SETTINGS->getUserLanguage() == "ja")
         ui->comboBoxLanguage->setCurrentIndex(14);
+    else if(SETTINGS->getUserLanguage() == "tr")
+        ui->comboBoxLanguage->setCurrentIndex(15);
 
     ui->restartButton->hide();
 }
@@ -266,20 +269,22 @@ void PrefsDialog::set_user_language()
     else if(ui->comboBoxLanguage->currentIndex() == 6)
         SETTINGS->setUserLanguage("cs");
     else if(ui->comboBoxLanguage->currentIndex() == 7)
-        SETTINGS->setUserLanguage("pt_PT");
+        SETTINGS->setUserLanguage("ko");
     else if(ui->comboBoxLanguage->currentIndex() == 8)
-        SETTINGS->setUserLanguage("pt_BR");
+        SETTINGS->setUserLanguage("pt_PT");
     else if(ui->comboBoxLanguage->currentIndex() == 9)
-        SETTINGS->setUserLanguage("sv");
+        SETTINGS->setUserLanguage("pt_BR");
     else if(ui->comboBoxLanguage->currentIndex() == 10)
-        SETTINGS->setUserLanguage("ru_RU");
+        SETTINGS->setUserLanguage("sv");
     else if(ui->comboBoxLanguage->currentIndex() == 11)
-        SETTINGS->setUserLanguage("id");
+        SETTINGS->setUserLanguage("ru_RU");
     else if(ui->comboBoxLanguage->currentIndex() == 12)
-        SETTINGS->setUserLanguage("es");
+        SETTINGS->setUserLanguage("id");
     else if(ui->comboBoxLanguage->currentIndex() == 13)
-        SETTINGS->setUserLanguage("ja");
+        SETTINGS->setUserLanguage("es");
     else if(ui->comboBoxLanguage->currentIndex() == 14)
+        SETTINGS->setUserLanguage("ja");
+    else if(ui->comboBoxLanguage->currentIndex() == 15)
         SETTINGS->setUserLanguage("tr");
 }
 
@@ -293,6 +298,7 @@ void PrefsDialog::addFlagIcons(int languages)
           << "China"
           << "Taiwan"
           << "Czech-Republic"
+          << "South-Korea"
           << "Portugal"
           << "Brazil"
           << "Sweden"
