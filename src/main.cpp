@@ -32,11 +32,6 @@ int main(int argc, char *argv[])
 {
     QtSingleApplication app("Photoflare", argc, argv);
 
-    // Remove WhatIsThis from Window Controls (Windows only)
-    #ifdef WIN32
-        app.setAttribute(Qt::AA_DisableWindowContextHelpButton); //required in newer Qt versions
-    #endif
-
     if(!app.isRunning())
     {
         // App details
