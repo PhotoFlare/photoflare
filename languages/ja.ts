@@ -7,8 +7,8 @@
     <extra-po-header-po_revision_date></extra-po-header-po_revision_date>
     <extra-po-header-pot_creation_date></extra-po-header-pot_creation_date>
     <extra-po-header-project_id_version></extra-po-header-project_id_version>
-    <extra-po-header-x_generator>Poedit 2.4.2</extra-po-header-x_generator>
-    <extra-po-headers>MIME-Version,Content-Type,Content-Transfer-Encoding,Plural-Forms,X-Language,X-Source-Language,X-Qt-Contexts,Project-Id-Version,POT-Creation-Date,PO-Revision-Date,Last-Translator,Language-Team,Language,X-Generator</extra-po-headers>
+    <extra-po-header-x_generator>Poedit 3.2.2</extra-po-header-x_generator>
+    <extra-po-headers>Project-Id-Version,POT-Creation-Date,PO-Revision-Date,Last-Translator,Language-Team,Language,MIME-Version,Content-Type,Content-Transfer-Encoding,Plural-Forms,X-Language,X-Source-Language,X-Qt-Contexts,X-Generator</extra-po-headers>
 <context>
     <name>BatchProgress</name>
     <message>
@@ -127,23 +127,23 @@
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="227"/>
         <source>Duotone</source>
-        <translation type="unfinished"></translation>
+        <translation>2色</translation>
     </message>
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="243"/>
         <source>Monochromatic</source>
-        <translation type="unfinished"></translation>
+        <translation>単色</translation>
     </message>
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="258"/>
         <source>Color 1</source>
-        <translation type="unfinished"></translation>
+        <translation>色1</translation>
     </message>
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="280"/>
         <location filename="../src/dialogs/gradientdialog.ui" line="357"/>
         <source>Opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>透明度:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="293"/>
@@ -154,7 +154,7 @@
     <message>
         <location filename="../src/dialogs/gradientdialog.ui" line="335"/>
         <source>Color 2</source>
-        <translation type="unfinished"></translation>
+        <translation>色2</translation>
     </message>
 </context>
 <context>
@@ -162,7 +162,7 @@
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="17"/>
         <source>Hue variation</source>
-        <translation type="unfinished"></translation>
+        <translation>色の選択</translation>
     </message>
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="45"/>
@@ -177,12 +177,12 @@
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="998"/>
         <source>Method1 / Colorize</source>
-        <translation type="unfinished"></translation>
+        <translation>方法1 / 色付け</translation>
     </message>
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="1014"/>
         <source>Method2 / Hue</source>
-        <translation type="unfinished"></translation>
+        <translation>方法2 / 色彩</translation>
     </message>
 </context>
 <context>
@@ -218,12 +218,12 @@
     <message>
         <location filename="../src/toolSettings/LineSettingsWidget.ui" line="103"/>
         <source>Arrow</source>
-        <translation type="unfinished"></translation>
+        <translation>端の矢印</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/LineSettingsWidget.ui" line="188"/>
         <source>Style:</source>
-        <translation type="unfinished"></translation>
+        <translation>先の種類:</translation>
     </message>
 </context>
 <context>
@@ -231,7 +231,7 @@
     <message>
         <location filename="../src/toolSettings/MagicWandSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/MagicWandSettingsWidget.ui" line="35"/>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../src/toolSettings/MagicWandSettingsWidget.ui" line="72"/>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>色</translation>
     </message>
 </context>
 <context>
@@ -324,7 +324,7 @@
         <location filename="../src/mainwindow.ui" line="283"/>
         <location filename="../src/mainwindow.ui" line="1600"/>
         <source>Sharpen</source>
-        <translation type="unfinished"></translation>
+        <translation>鋭く</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="290"/>
@@ -435,12 +435,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="873"/>
         <source>Smudge Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>にじみツール</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="911"/>
         <source>Clone Stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>転写</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="949"/>
@@ -745,12 +745,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1490"/>
         <source>Bright/Contrast...</source>
-        <translation type="unfinished"></translation>
+        <translation>明るさ/コントラスト...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1495"/>
         <source>Hue/Saturation...</source>
-        <translation type="unfinished"></translation>
+        <translation>色彩/彩度...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1500"/>
@@ -775,12 +775,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1528"/>
         <source>More Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>もっと影を</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1533"/>
         <source>More Highlights</source>
-        <translation type="unfinished"></translation>
+        <translation>もっと照らす</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1538"/>
@@ -790,7 +790,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1543"/>
         <source>Swap RGB Channel...</source>
-        <translation type="unfinished"></translation>
+        <translation>RGBチャネルを入れ替え...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1548"/>
@@ -800,12 +800,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1553"/>
         <source>Replace Colour Range...</source>
-        <translation type="unfinished"></translation>
+        <translation>色の範囲を置き換える...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1558"/>
         <source>Duotone...</source>
-        <translation type="unfinished"></translation>
+        <translation>2色...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1563"/>
@@ -825,7 +825,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1582"/>
         <source>Hue Variation...</source>
-        <translation type="unfinished"></translation>
+        <translation>色の選択...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1605"/>
@@ -1085,7 +1085,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1955"/>
         <source>&amp;Charcoal Drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>木炭画(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1960"/>
@@ -1095,7 +1095,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1965"/>
         <source>Donate</source>
-        <translation>寄付</translation>
+        <translation>寄付する</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1970"/>
@@ -1550,12 +1550,12 @@
     <message>
         <location filename="../src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="73"/>
         <source>Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">圧力</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="107"/>
@@ -1565,7 +1565,7 @@
     <message>
         <location filename="../src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="140"/>
         <source>Fade</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フェード</translation>
     </message>
 </context>
 <context>
@@ -1573,38 +1573,38 @@
     <message>
         <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォーム</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="20"/>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="56"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="109"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="132"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="79"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="34"/>
         <source>&amp;Radius:</source>
-        <translation type="unfinished"></translation>
+        <translation>半径(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="89"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="27"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="109"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="57"/>
         <source>Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">圧力</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="116"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="20"/>
         <source>100</source>
         <translation>100</translation>
     </message>
     <message>
-        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="148"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="64"/>
         <source>&amp;Anti-aliasing</source>
-        <translation type="unfinished"></translation>
+        <translation>アンチエイリアス(&amp;A)</translation>
     </message>
 </context>
 <context>
@@ -1625,13 +1625,13 @@
     <message>
         <location filename="../src/toolSettings/pointersettingswidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/pointersettingswidget.ui" line="26"/>
         <location filename="../src/toolSettings/pointersettingswidget.ui" line="81"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/pointersettingswidget.ui" line="55"/>
@@ -1976,12 +1976,22 @@
         <translation>スペイン語</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="196"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="103"/>
+        <source>Japanese</source>
+        <translation>日本語</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="104"/>
+        <source>Turkish</source>
+        <translation>トルコ語</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="197"/>
         <source>Open Directory</source>
         <translation>ディレクトリを開く</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="205"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="206"/>
         <source>Save Directory</source>
         <translation>ディレクトリを保存</translation>
     </message>
@@ -2011,7 +2021,7 @@
     <message>
         <location filename="../src/toolSettings/smudgesettingswidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/smudgesettingswidget.ui" line="26"/>
@@ -2029,7 +2039,7 @@
     <message>
         <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="35"/>
@@ -2044,12 +2054,12 @@
     <message>
         <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="97"/>
         <source>Dispersion</source>
-        <translation type="unfinished"></translation>
+        <translation>散乱</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="130"/>
         <source>Rainbow</source>
-        <translation type="unfinished"></translation>
+        <translation>虹</translation>
     </message>
 </context>
 <context>
@@ -2057,7 +2067,7 @@
     <message>
         <location filename="../src/toolSettings/StampSettingsWidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォーム</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/StampSettingsWidget.ui" line="35"/>
@@ -2072,22 +2082,22 @@
     <message>
         <location filename="../src/toolSettings/StampSettingsWidget.ui" line="94"/>
         <source>Step</source>
-        <translation type="unfinished"></translation>
+        <translation>間隔</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/StampSettingsWidget.ui" line="127"/>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>固定</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/StampSettingsWidget.ui" line="134"/>
         <source>Precise</source>
-        <translation type="unfinished"></translation>
+        <translation>精度</translation>
     </message>
     <message>
         <location filename="../src/toolSettings/StampSettingsWidget.ui" line="141"/>
         <source>Diffuse</source>
-        <translation type="unfinished"></translation>
+        <translation>拡散</translation>
     </message>
 </context>
 <context>
@@ -2180,35 +2190,35 @@
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="31"/>
         <source>Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Marek Mosna&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;Debian package - Dylan Aïssi&lt;br&gt;AppImage package - probonopd</source>
-        <translation type="unfinished"></translation>
+        <translation>商品化 - ICS&lt;br&gt;リーダー - Dylan Coakley&lt;br&gt;開発者 - Marek Mosna&lt;br&gt;開発者 - Dmitry Vasilenko&lt;br&gt;Debian パッケージ - Dylan Aïssi&lt;br&gt;AppImage パッケージ - probonopd</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="39"/>
         <source>Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;Art Designer - Catherine Hegedusich&lt;br&gt;Advertising - Don Murphy</source>
-        <translation type="unfinished"></translation>
+        <translation>メインアイコン - Robert BM&lt;br&gt;ウェブサイトのグラフィックス - Raqasa&lt;br&gt;アプリケーションアイコン - Attari B&lt;br&gt;アートデザイナー - Catherine Hegedusich&lt;br&gt;広告 - Don Murphy</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="47"/>
-        <source>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G.&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram</source>
+        <source>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G.&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram&lt;br&gt;JA - hmatrjp&lt;br&gt;TR - sabriunal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="61"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="63"/>
         <source>eltonfabricio10 - Code&lt;br&gt;AngryPenguinPL - Code&lt;br&gt;Carlo Vaccari - Code&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
-        <translation type="unfinished"></translation>
+        <translation>eltonfabricio10 - コード&lt;br&gt;AngryPenguinPL - コード&lt;br&gt;Carlo Vaccari - コード&lt;br&gt;Duzy Chan - コード&lt;br&gt;Samuel Cowen - コード&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - コード&lt;br&gt;Michael Sheppard - コード&lt;br&gt;Helene Levernieux - プロジェクトアイコン&lt;br&gt;&lt;br&gt;&lt;b&gt;特別な感謝を&lt;/b&gt;&lt;br&gt;Samanthaへ。究極の宝石のような人でい続けていることに感謝します。 あなたが私の人生を照らしています、あなたを見つけることができて本当に良かったです。</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="81"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="83"/>
         <source> Community Edition</source>
         <translation>コミュニティーエディション</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="82"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="84"/>
         <source>A simple but featureful editor.</source>
         <translation>シンプルで機能豊富な画像エディタです。</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/aboutdialog.cpp" line="83"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
         <source>&lt;a href=&apos;https://www.photoflare.io&apos;&gt;https://www.photoflare.io&lt;/a&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2488,7 +2498,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="68"/>
         <source>Charcoal</source>
-        <translation type="unfinished"></translation>
+        <translation>木炭</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="69"/>
@@ -2524,7 +2534,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="75"/>
         <source>Sharpen</source>
-        <translation type="unfinished"></translation>
+        <translation>鋭く</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="76"/>

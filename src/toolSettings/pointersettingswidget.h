@@ -34,6 +34,7 @@ public:
 
     bool stroke() const;
     bool fill() const;
+    int strokeWidth() const;
 
 signals:
     void settingsChanged();
@@ -41,6 +42,9 @@ signals:
 private slots:
     void on_square_sel_clicked(bool checked);
     void on_circle_sel_clicked(bool checked);
+    void on_checkBoxStroke_clicked(bool checked);
+    void on_checkBoxFill_clicked(bool checked);
+    void on_strokeWidth_valueChanged(int width);
 
 private:
     Ui::PointerSettingsWidget *ui;

@@ -58,7 +58,8 @@ aboutDialog::aboutDialog(QWidget *parent) :
         "<br>ID - triyanwn"
         "<br>ES - darkshram"
         "<br>JA - hmatrjp"
-        "<br>TR - sabriunal")
+        "<br>TR - sabriunal"
+        "<br>KO - VenusGirl")
     );
     ui->contribTextArea->setText(tr(
         "eltonfabricio10 - Code"

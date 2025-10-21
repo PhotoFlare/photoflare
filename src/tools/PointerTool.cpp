@@ -15,7 +15,7 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// PointerTool - Selection and cropping.
+// PointerTool - Selection and cropping, filling Rectangle
 
 #include "PointerTool.h"
 
@@ -37,10 +37,14 @@ public:
     PointerToolPrivate()
     {
         selectionMode = SELECT;
+        fillColor = Qt::white;
     }
     QPoint firstPos;
     QPoint secondPos;
     SelectionMode selectionMode;
+    bool fillEnabled = false;
+    bool strokeEnabled = false;
+    int strokeWidth = 1;
     QImage image;
     QPoint imagePos;
     QRect topLeftCorner;
@@ -48,6 +52,8 @@ public:
     QRect bottomRightCorner;
     QRect bottomLeftCorner;
     Corner corner;
+    QColor fillColor;
+    QColor strokeColor;
 };
 
 PointerTool::PointerTool(QObject *parent)
@@ -69,6 +75,30 @@ void PointerTool::onCrop()
     d->secondPos = d->firstPos;
     emit selectionChanged(QPolygon());
     emit crop(rect);
+}
+
+void PointerTool::onStrokeRect()
+{
+    const QRect &rect = QRect(d->firstPos, d->secondPos);
+    const QColor &strokeColor = d->fillColor;
+    const int &strokeWidth = d->strokeWidth;
+    d->secondPos = d->firstPos;
+    emit selectionChanged(QPolygon());
+    emit strokeRect(rect, strokeColor, strokeWidth);
+}
+
+void PointerTool::onFillRect()
+{
+    const QRect &rect = QRect(d->firstPos, d->secondPos);
+    const QColor &fillColor = d->fillColor;
+    d->secondPos = d->firstPos;
+    emit selectionChanged(QPolygon());
+    emit fillRect(rect, fillColor);
+}
+
+void PointerTool::setFillColor(const QColor &color)
+{
+    d->fillColor=color;
 }
 
 void PointerTool::onSave()
@@ -309,6 +339,12 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             d->topRightCorner = QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize);
             d->bottomRightCorner = QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize);
             d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize);
+            if(d->fillEnabled) {
+                onFillRect();
+            }
+            if(d->strokeEnabled) {
+                onStrokeRect();
+            }
         }
         emit painted(m_paintDevice);
     }
@@ -354,18 +390,17 @@ void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
 
 void PointerTool::setStroke(bool enabled)
 {
-    if(enabled)
-    {
-        d->selectionMode = STROKE;
-    }
+    d->strokeEnabled = enabled;
+}
+
+void PointerTool::setStrokeWidth(int width)
+{
+    d->strokeWidth = width;
 }
 
 void PointerTool::setFill(bool enabled)
 {
-    if(enabled)
-    {
-        d->selectionMode = FILL;
-    }
+    d->fillEnabled = enabled;
 }
 
 void PointerTool::setupRightClickMenu(bool execute)
