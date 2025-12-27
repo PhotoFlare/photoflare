@@ -17,12 +17,15 @@ Information on current features and how to use the application will be
 ### Dependencies
 - g++ (G++/Clang on Linux, MSVC/Clang on Windows or Clang on MacOSX)
 - libgraphicsmagick++1-dev
-- libomp-dev
+- libomp-15-dev
 - libc6-dev
-- qtbase5-dev (Qt5 core, gui and widgets)
+- libqt6core
+- libqt6gui6
+- libqt6widgets6
+- libqt6-base-dev
 
-#### Ubuntu (24.04)  
-`sudo apt-get install libc6-dev libgraphicsmagick++1-dev libomp-dev qtbase5-dev qtcreator`
+#### Ubuntu (22.04)  
+`sudo apt-get install libgraphicsmagick++1-dev, libc6-dev, libqt6core6, libqt6gui6, libqt6widgets6, libomp-15-dev, qtcreator`
 
 Compile using either by opening the .pro file with Qt Creator or use qmake passing the .pro file as a parameter. 
 
@@ -34,13 +37,13 @@ Full instructions for each platform <a href="https://photoflare.io/contributing/
 
 ### Dependencies
 - libc6
-- libgraphicsmagick++
-- libqt5core
-- libqt5gui
-- libqt5widgets
-- libqt5printsupport
-- libomp
-- qt5-image-formats-plugins (Optional - Extra file format support)
+- libgraphicsmagick++-q16-12
+- libqt6core6
+- libqt6gui6
+- libqt6widgets6
+- libqt6printsupport6
+- libomp5
+- qt6-image-formats-plugins (Optional - Extra file format support)
 
 ## Translations
 Languages currently available:

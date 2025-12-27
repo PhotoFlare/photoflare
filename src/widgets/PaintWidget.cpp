@@ -428,7 +428,7 @@ void PaintWidget::autoScale()
     if(scaleFactor < 1)
     {
         d->scale = scaleFactor;
-        resetMatrix();
+        resetTransform();
         scale(d->scale, d->scale);
     }
 
@@ -440,7 +440,7 @@ void PaintWidget::autoScale()
 
 void PaintWidget::setScale(const QString &rate)
 {
-    resetMatrix();
+    resetTransform();
     d->scale = (rate.mid(0,rate.lastIndexOf("%"))).toFloat() / 100.0f;
     scale(d->scale, d->scale);
 
@@ -476,18 +476,18 @@ void PaintWidget::showProgressIndicator(bool visible)
 
 void PaintWidget::wheelEvent(QWheelEvent *event)
 {
-    const QPointF p0scene = mapToScene(event->pos());
+    const QPointF p0scene = mapToScene(QPoint(event->position().x(), event->position().y()));
     float scaleFactor = 1.1f;
     bool zoomDirection;
 
     // Zoom in or out depending on user preference
     if(SETTINGS->getZoomDirection()=="0")
     {
-        zoomDirection = event->delta() > 0;
+        zoomDirection = event->angleDelta().y() > 0;
     }
     else
     {
-        zoomDirection = event->delta() < 0;
+        zoomDirection = event->angleDelta().y() < 0;
     }
 
     if(zoomDirection)
@@ -501,7 +501,7 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
        d->scale = (d->scale > 8) ? 8 : d->scale;
     }
 
-    resetMatrix();
+    resetTransform();
     scale(d->scale, d->scale);
     emit zoomChanged(d->scale);
 
@@ -509,7 +509,7 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
         d->currentTool->setScale(d->scale);
 
     const QPointF p1mouse = mapFromScene(p0scene);
-    const QPointF move = p1mouse - event->pos();
+    const QPointF move = p1mouse - event->position();
     horizontalScrollBar()->setValue(move.x() + horizontalScrollBar()->value());
     verticalScrollBar()->setValue(move.y() + verticalScrollBar()->value());
 }

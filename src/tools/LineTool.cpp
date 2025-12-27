@@ -253,7 +253,6 @@ void LineTool::onMouseRelease(const QPoint &pos)
         if (d->antialias)
         {
             painter.setRenderHint(QPainter::Antialiasing);
-            painter.setRenderHint(QPainter::HighQualityAntialiasing);
         }
         painter.setOpacity((float)d->opacity / 100.0f);
         painter.setPen(pen);

@@ -32,16 +32,11 @@ int main(int argc, char *argv[])
 {
     QtSingleApplication app("Photoflare", argc, argv);
 
-    // Remove WhatIsThis from Window Controls (Windows only)
-    #ifdef WIN32
-        app.setAttribute(Qt::AA_DisableWindowContextHelpButton); //required in newer Qt versions
-    #endif
-
     if(!app.isRunning())
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("1.6.14");
+        app.setApplicationVersion("1.7.0");
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings
@@ -135,7 +130,7 @@ int main(int argc, char *argv[])
         QTranslator translator;
         app.installTranslator(&translator);
 
-        QStringList paths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+        QStringList paths = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
         //paths.prepend("."); //for local builds testing
         for(int i = 0;i < paths.length(); i++)
         {
