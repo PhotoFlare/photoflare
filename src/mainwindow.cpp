@@ -1845,8 +1845,10 @@ void MainWindow::on_toolButtonPointer_clicked()
     ui->toolButtonPointer->setChecked(true);
     m_ptSettingsWidget->setVisible(true);
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
+    if (widget) {
         widget->setPaintTool(MOUSE_POINTER);
+        MOUSE_POINTER->restoreSelection(widget->selection());
+    }
 }
 
 void MainWindow::on_actionCrop_triggered()
@@ -2278,6 +2280,12 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
         {
             ui->actionShow_grid->setChecked(false);
         }
+
+        // Set view selection checked status
+        bool selectionVisible = widget->isSelectionVisible() && !widget->selection().isEmpty();
+        ui->actionShow_selection->setChecked(selectionVisible);
+        ui->actionCrop->setEnabled(selectionVisible);
+        ui->actionFill_Rect->setEnabled(selectionVisible);
 
         // Set view toolbar checked status
         if(ui->toolBar->isVisible())

@@ -101,6 +101,27 @@ void PointerTool::setFillColor(const QColor &color)
     d->fillColor=color;
 }
 
+void PointerTool::restoreSelection(const QPolygon &poly)
+{
+    const int cornerSize = 50;
+    if (poly.size() == 4) {
+        d->firstPos = poly.at(0);
+        d->secondPos = poly.at(2);
+        d->topLeftCorner     = QRect(poly.at(0).x(),              poly.at(0).y(),              cornerSize, cornerSize);
+        d->topRightCorner    = QRect(poly.at(1).x() - cornerSize, poly.at(1).y(),              cornerSize, cornerSize);
+        d->bottomRightCorner = QRect(poly.at(2).x() - cornerSize, poly.at(2).y() - cornerSize, cornerSize, cornerSize);
+        d->bottomLeftCorner  = QRect(poly.at(3).x(),              poly.at(3).y() - cornerSize, cornerSize, cornerSize);
+    } else {
+        d->firstPos          = QPoint();
+        d->secondPos         = QPoint();
+        d->topLeftCorner     = QRect();
+        d->topRightCorner    = QRect();
+        d->bottomRightCorner = QRect();
+        d->bottomLeftCorner  = QRect();
+    }
+    d->selectionMode = SELECT;
+}
+
 void PointerTool::onSave()
 {
     emit save();
@@ -158,6 +179,19 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     switch(button) {
         case Qt::LeftButton:
+            // Rebuild corner hit-test rects from the current selection bounds
+            // before firstPos/secondPos are overwritten. This keeps them in
+            // sync regardless of how the selection was last set.
+            {
+                const int cornerSize = 50;
+                QPolygon sel(QRect(d->firstPos, d->secondPos).normalized());
+                if (sel.size() == 4) {
+                    d->topLeftCorner     = QRect(sel.at(0).x(),              sel.at(0).y(),              cornerSize, cornerSize);
+                    d->topRightCorner    = QRect(sel.at(1).x() - cornerSize, sel.at(1).y(),              cornerSize, cornerSize);
+                    d->bottomRightCorner = QRect(sel.at(2).x() - cornerSize, sel.at(2).y() - cornerSize, cornerSize, cornerSize);
+                    d->bottomLeftCorner  = QRect(sel.at(3).x(),              sel.at(3).y() - cornerSize, cornerSize, cornerSize);
+                }
+            }
             d->firstPos = pos;
             d->secondPos = pos;
 

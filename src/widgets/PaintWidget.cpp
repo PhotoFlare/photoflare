@@ -344,7 +344,6 @@ void PaintWidget::setPaintTool(Tool *tool)
 {
     if (d->currentTool)
     {
-        d->currentTool->disconnect();
         d->disconnectLastTool();
     }
 
@@ -352,6 +351,13 @@ void PaintWidget::setPaintTool(Tool *tool)
 
     if (d->currentTool)
     {
+        // Tools are singletons shared across all tabs. Disconnect these widget-facing signals
+        // from whichever widget they were previously connected to before wiring up this one.
+        disconnect(d->currentTool, &Tool::painted,          nullptr, nullptr);
+        disconnect(d->currentTool, &Tool::overlaid,         nullptr, nullptr);
+        disconnect(d->currentTool, &Tool::cursorChanged,    nullptr, nullptr);
+        disconnect(d->currentTool, &Tool::selectionChanged, nullptr, nullptr);
+
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
             if (&d->image == paintDevice)
             {

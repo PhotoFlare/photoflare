@@ -38,6 +38,7 @@ public:
     void setStrokeWidth(int width);
     void setFill(bool enabled);
     void setFillColor(const QColor &color);
+    void restoreSelection(const QPolygon &poly);
 
 public slots:
     void onCrop();
