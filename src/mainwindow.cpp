@@ -1676,6 +1676,7 @@ void MainWindow::on_actionAutomate_Batch_triggered()
 
         BatchProgress *progress = new BatchProgress(this);
         connect(worker, SIGNAL(batchProgress(int,int)), progress, SLOT(progress(int,int)));
+        connect(progress, SIGNAL(cancelled()), worker, SLOT(cancel()), Qt::DirectConnection);
         progress->show();
 
         thread->start();

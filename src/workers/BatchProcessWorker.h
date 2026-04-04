@@ -19,6 +19,7 @@
 #define BATCHPROCESSWORKER_H
 
 #include <QObject>
+#include <atomic>
 
 #include "batchdialog.h"
 #include "../mainwindow.h"
@@ -34,6 +35,7 @@ public:
 
 public slots:
     void process();
+    void cancel();
 
 signals:
     void fileProcessFinished(QString file, QImage image);
@@ -42,6 +44,7 @@ signals:
 private:
     batchDialog* m_params;
     MainWindow* m_parent;
+    std::atomic<bool> m_cancelled;
 };
 
 #endif // BATCHPROCESSWORKER_H

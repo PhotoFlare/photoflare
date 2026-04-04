@@ -41,3 +41,10 @@ void BatchProgress::on_hideButton_clicked()
 {
     hide();
 }
+
+void BatchProgress::on_cancelButton_clicked()
+{
+    emit cancelled();
+    hide();
+}
+

@@ -24,14 +24,21 @@
 #include "PaintWidget.h"
 #include "FilterManager.h"
 
-BatchProcessWorker::BatchProcessWorker(QObject *parent) : QObject(parent)
+BatchProcessWorker::BatchProcessWorker(QObject *parent) : QObject(parent), m_cancelled(false)
 {
+}
+
+void BatchProcessWorker::cancel()
+{
+    m_cancelled = true;
 }
 
 void BatchProcessWorker:: process()
 {
     int i = 0;
     foreach (QString file, m_params->fileList()) {
+        if (m_cancelled)
+            break;
         QImage image(file);
         if(m_params->changeImageSize())
         {

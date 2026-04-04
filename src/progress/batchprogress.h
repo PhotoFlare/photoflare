@@ -37,6 +37,10 @@ public slots:
 
 private slots:
     void on_hideButton_clicked();
+    void on_cancelButton_clicked();
+
+signals:
+    void cancelled();
 
 private:
     Ui::BatchProgress *ui;
