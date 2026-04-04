@@ -18,6 +18,7 @@
 // PaintBrushTool - Paint using basic styles.
 
 #include <QPainter>
+#include <QApplication>
 #include "PaintBrushTool.h"
 
 class PaintBrushToolPrivate
@@ -28,11 +29,13 @@ public:
         primaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         antialiasing = false;
+        hasLastPos = false;
     }
     QPoint lastPos;
     QPen primaryPen;
     QPen secondaryPen;
     bool antialiasing;
+    bool hasLastPos;
     Qt::MouseButton mouseButton;
     int pressure = 100;
 };
@@ -132,18 +135,62 @@ QCursor PaintBrushTool::getCursor()
 
 void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
-    d->lastPos = pos;
     d->mouseButton = button;
 
     QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
-
-    QPainter painter(m_paintDevice);
-    painter.setPen(pen);
     // Cast int to double for setting opacity
     double realVal = double(d->pressure / double(100.0));
-    painter.setOpacity(realVal);
-    painter.drawPoint(pos.x(), pos.y());
-    painter.end();
+
+    if (d->hasLastPos && (QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
+        // Shift+click: draw a straight line from the last painted position to here
+        QPainter painter(m_paintDevice);
+        if (d->antialiasing)
+            painter.setRenderHint(QPainter::Antialiasing);
+        painter.setOpacity(realVal);
+
+        int w = pen.width();
+        if (pen.capStyle() == Qt::SquareCap && w > 1) {
+            painter.setPen(QPen(pen.color()));
+            QBrush brush(pen.color());
+            painter.setBrush(brush);
+
+            int x1 = d->lastPos.x();
+            int x2 = pos.x();
+            int y1 = d->lastPos.y();
+            int y2 = pos.y();
+
+            if (x1 > x2) {
+                int temp = x1; x1 = x2; x2 = temp;
+                temp = y1; y1 = y2; y2 = temp;
+            }
+            for (int y, x = x1; x < x2; x += w/2) {
+                y = (x - x1)*(y2 - y1)/(x2 - x1) + y1;
+                painter.drawRect(QRect(x - w/2, y - w/2, w, w));
+            }
+
+            if (y1 > y2) {
+                int temp = x1; x1 = x2; x2 = temp;
+                temp = y1; y1 = y2; y2 = temp;
+            }
+            for (int x, y = y1; y < y2; y += w/2) {
+                x = (y - y1)*(x2 - x1)/(y2 - y1) + x1;
+                painter.drawRect(QRect(x - w/2, y - w/2, w, w));
+            }
+        } else {
+            painter.setPen(pen);
+            painter.drawLine(d->lastPos, pos);
+        }
+        painter.end();
+    } else {
+        QPainter painter(m_paintDevice);
+        painter.setPen(pen);
+        painter.setOpacity(realVal);
+        painter.drawPoint(pos.x(), pos.y());
+        painter.end();
+    }
+
+    d->lastPos = pos;
+    d->hasLastPos = true;
     emit painted(m_paintDevice);
 }
 
