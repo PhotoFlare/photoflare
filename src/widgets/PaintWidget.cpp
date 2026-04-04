@@ -187,13 +187,15 @@ public:
 
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     {
-        if(event->buttons() != Qt::LeftButton && event->buttons() != Qt::RightButton)
-            return;
-
         if (currentTool)
         {
             int s_x = static_cast<int>(event->scenePos().x());
             int s_y = static_cast<int>(event->scenePos().y());
+            if(event->buttons() != Qt::LeftButton && event->buttons() != Qt::RightButton)
+            {
+                currentTool->onHover(QPoint(s_x, s_y));
+                return;
+            }
             currentTool->onMouseMove(QPoint(s_x, s_y));
         }
     }
@@ -332,6 +334,7 @@ void PaintWidget::init()
     historyIndex = 0;
     historyList.clear();
     historyList.append(d->image);
+    viewport()->setMouseTracking(true);
 }
 
 PaintWidget::~PaintWidget()

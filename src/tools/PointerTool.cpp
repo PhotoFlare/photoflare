@@ -103,7 +103,7 @@ void PointerTool::setFillColor(const QColor &color)
 
 void PointerTool::restoreSelection(const QPolygon &poly)
 {
-    const int cornerSize = 50;
+    const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
     if (poly.size() == 4) {
         d->firstPos = poly.at(0);
         d->secondPos = poly.at(2);
@@ -183,7 +183,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             // before firstPos/secondPos are overwritten. This keeps them in
             // sync regardless of how the selection was last set.
             {
-                const int cornerSize = 50;
+                const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
                 QPolygon sel(QRect(d->firstPos, d->secondPos).normalized());
                 if (sel.size() == 4) {
                     d->topLeftCorner     = QRect(sel.at(0).x(),              sel.at(0).y(),              cornerSize, cornerSize);
@@ -199,25 +199,25 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             {
                 d->corner = TOP_LEFT;
                 d->selectionMode = RESIZE;
-                emit cursorChanged(Qt::ClosedHandCursor);
+                emit cursorChanged(Qt::SizeFDiagCursor);
             }
             else if(d->topRightCorner.contains(pos))
             {
                 d->corner = TOP_RIGHT;
                 d->selectionMode = RESIZE;
-                emit cursorChanged(Qt::ClosedHandCursor);
+                emit cursorChanged(Qt::SizeBDiagCursor);
             }
             else if(d->bottomLeftCorner.contains(pos))
             {
                 d->corner = BOTTOM_LEFT;
                 d->selectionMode = RESIZE;
-                emit cursorChanged(Qt::ClosedHandCursor);
+                emit cursorChanged(Qt::SizeBDiagCursor);
             }
             else if(d->bottomRightCorner.contains(pos))
             {
                 d->corner = BOTTOM_RIGHT;
                 d->selectionMode = RESIZE;
-                emit cursorChanged(Qt::ClosedHandCursor);
+                emit cursorChanged(Qt::SizeFDiagCursor);
             }
 
             if(d->selectionMode == SELECT)
@@ -367,7 +367,7 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             QPolygon selection = QPolygon(QRect(topLeft, bottomRight));
             emit selectionChanged(selection);
 
-            int cornerSize = 50;
+            const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
 
             d->topLeftCorner = QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize);
             d->topRightCorner = QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize);
@@ -391,8 +391,26 @@ void PointerTool::onMouseRelease(const QPoint &pos)
     }
 }
 
-void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
+void PointerTool::onHover(const QPoint &pos)
 {
+    if (d->selectionMode != SELECT || d->topLeftCorner.isNull())
+    {
+        emit cursorChanged(Qt::ArrowCursor);
+        return;
+    }
+    if (d->topLeftCorner.contains(pos))
+        emit cursorChanged(Qt::SizeFDiagCursor);
+    else if (d->topRightCorner.contains(pos))
+        emit cursorChanged(Qt::SizeBDiagCursor);
+    else if (d->bottomRightCorner.contains(pos))
+        emit cursorChanged(Qt::SizeFDiagCursor);
+    else if (d->bottomLeftCorner.contains(pos))
+        emit cursorChanged(Qt::SizeBDiagCursor);
+    else
+        emit cursorChanged(Qt::ArrowCursor);
+}
+
+void PointerTool::onKeyPressed(QKeyEvent *keyEvent){
     Q_UNUSED(keyEvent);
     /*
     QRect rect(d->firstPos,d->secondPos);

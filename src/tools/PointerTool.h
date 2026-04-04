@@ -33,6 +33,7 @@ public:
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
+    void onHover(const QPoint &pos) override;
     void onKeyPressed(QKeyEvent *keyEvent) override;
     void setStroke(bool enabled);
     void setStrokeWidth(int width);
