@@ -320,15 +320,6 @@ void MainWindow::addSettingsWidgets()
 
 */
 
-void MainWindow::onImageFiltered(QImage image)
-{
-    PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-        widget->setImage(image);
-
-    batchLbl->setText(tr("Ready"));
-}
-
 void MainWindow::applyThreadedFilter(QString filterName, double dV)
 {
     QThread *thread = new QThread();
@@ -343,7 +334,11 @@ void MainWindow::applyThreadedFilter(QString filterName, double dV)
     worker->moveToThread(thread);
 
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
-    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(onImageFiltered(QImage)));
+    connect(worker, &FilterWorker::filterProcessFinished, this, [this, widget](QImage image) {
+        if (widget)
+            widget->setImage(image);
+        batchLbl->setText(tr("Ready"));
+    });
     thread->start();
 
     batchLbl->setText(tr("Working..."));
@@ -363,7 +358,11 @@ void MainWindow::applyThreadedFilterMP(QString filterName, double dV)
     worker->moveToThread(thread);
 
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
-    connect(worker, SIGNAL(filterProcessFinished(QImage)), this, SLOT(onImageFiltered(QImage)));
+    connect(worker, &FilterWorkerMP::filterProcessFinished, this, [this, widget](QImage image) {
+        if (widget)
+            widget->setImage(image);
+        batchLbl->setText(tr("Ready"));
+    });
     thread->start();
 
     batchLbl->setText(tr("Working..."));

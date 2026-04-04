@@ -59,7 +59,6 @@ public:
 
 public slots:
     void handleMessage(const QString& message);
-    void onImageFiltered(QImage image);
 
 private slots:
     void setupWorkspace();
