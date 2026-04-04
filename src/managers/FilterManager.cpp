@@ -30,6 +30,7 @@
 #include <QPainter>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <QColorSpace>
 
 //#include <QElapsedTimer>
 
@@ -46,8 +47,15 @@ public:
         QBuffer buffer(&byteArray);
         buffer.open(QIODevice::WriteOnly);
 
-        //Use raw format instead of JPG to avoid image format conversion and quality loss
-        if (!image.save(&buffer, "PNG"))
+        // Strip the Qt color space profile before saving to PNG. Qt 6 embeds an
+        // sRGB ICC chunk which causes GraphicsMagick to read the image as
+        // sRGBColorspace. Multi-step filters like charcoal then attempt an
+        // internal colorspace conversion that fails with the prebuilt lib.
+        // With no profile, GraphicsMagick reads the PNG as plain RGBColorspace.
+        QImage stripped = image;
+        stripped.setColorSpace(QColorSpace());
+
+        if (!stripped.save(&buffer, "PNG"))
             return nullptr;
 
         Magick::Blob blob(byteArray.data(), byteArray.length());
@@ -185,13 +193,19 @@ QImage FilterManager::oilPaint(const QImage &image)
 
 QImage FilterManager::charcoal(const QImage &image)
 {
-    Magick::Image *magickImage = d->fromQtImage(image);
-    magickImage->charcoal();
-
-    QImage modifiedImage = d->toQtImage(magickImage);
-    delete magickImage;
-
-    return modifiedImage;
+    Magick::Image *magickImage = nullptr;
+    try {
+        magickImage = d->fromQtImage(image);
+        if (!magickImage)
+            return image;
+        magickImage->charcoal();
+        QImage modifiedImage = d->toQtImage(magickImage);
+        delete magickImage;
+        return modifiedImage;
+    } catch (...) {
+        delete magickImage;
+        return image;
+    }
 }
 
 QImage FilterManager::swirl(const QImage &image)

@@ -45,6 +45,8 @@ void FilterWorker::process()
 {
     QImage newImage;
 
+    try {
+
     if(currentFilter == "gammacorrectminus")
     {
         newImage = FilterManager::instance()->setGamma(currentImage, 0.9);
@@ -241,5 +243,10 @@ void FilterWorker::process()
     {
         newImage = FilterManager::instance()->colourthreshold(currentImage);
     }
+
+    } catch (...) {
+        newImage = currentImage;
+    }
+
     emit filterProcessFinished(newImage);
 }

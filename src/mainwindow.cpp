@@ -110,6 +110,11 @@ MainWindow::MainWindow() :
     QMainWindow(),
     ui(new Ui::MainWindow)
 {
+    // Ensure GraphicsMagick is initialized on the main thread before any
+    // worker thread uses it. Without this, the first Magick call happens in
+    // a worker thread which can crash on multi-step filters like charcoal.
+    FilterManager::instance();
+
     ui->setupUi(this);
 
     // Add Settings Widgets to the Dock
