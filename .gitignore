@@ -14,3 +14,7 @@ stage/
 external/GraphicsMagick-1.3.28
 build
 *.code-workspace
+.github/copilot-instructions.md
+.github/instructions/
+.github/prompts/
+.github/agents/
