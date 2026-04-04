@@ -28,7 +28,7 @@
 
 //#include <QDebug>
 
-enum SelectionMode {SELECT, HAND, RESIZE, STROKE, FILL};
+enum SelectionMode {SELECT, HAND, RESIZE, STROKE, FILL, MOVE};
 enum Corner {TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT};
 
 class PointerToolPrivate
@@ -41,6 +41,9 @@ public:
     }
     QPoint firstPos;
     QPoint secondPos;
+    QPoint dragAnchor;
+    QPoint moveStartFirst;
+    QPoint moveStartSecond;
     SelectionMode selectionMode;
     bool fillEnabled = false;
     bool strokeEnabled = false;
@@ -179,6 +182,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     switch(button) {
         case Qt::LeftButton:
+        {
             // Rebuild corner hit-test rects from the current selection bounds
             // before firstPos/secondPos are overwritten. This keeps them in
             // sync regardless of how the selection was last set.
@@ -192,6 +196,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                     d->bottomLeftCorner  = QRect(sel.at(3).x(),              sel.at(3).y() - cornerSize, cornerSize, cornerSize);
                 }
             }
+            const QRect selectionRect = QRect(d->firstPos, d->secondPos).normalized();
             d->firstPos = pos;
             d->secondPos = pos;
 
@@ -220,6 +225,17 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                 emit cursorChanged(Qt::SizeFDiagCursor);
             }
 
+            if(d->selectionMode == SELECT && !selectionRect.isEmpty() && selectionRect.contains(pos))
+            {
+                d->selectionMode = MOVE;
+                d->moveStartFirst = selectionRect.topLeft();
+                d->moveStartSecond = selectionRect.bottomRight();
+                d->dragAnchor = pos;
+                d->firstPos = d->moveStartFirst;
+                d->secondPos = d->moveStartSecond;
+                emit cursorChanged(Qt::SizeAllCursor);
+            }
+
             if(d->selectionMode == SELECT)
             {
                 emit painted(m_paintDevice);
@@ -244,6 +260,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                     emit cursorChanged(Qt::OpenHandCursor);
                 }
             }
+        }
         break;
         case Qt::RightButton:
         {
@@ -335,6 +352,12 @@ void PointerTool::onMouseMove(const QPoint &pos)
             QPoint bottomRight(d->secondPos);
             emit selectionChanged(QRect(topLeft,bottomRight));
         }
+        else if(d->selectionMode == MOVE)
+        {
+            const QPoint delta = pos - d->dragAnchor;
+            emit selectionChanged(QRect(d->moveStartFirst + delta, d->moveStartSecond + delta));
+            emit painted(m_paintDevice);
+        }
     }
 }
 
@@ -389,6 +412,21 @@ void PointerTool::onMouseRelease(const QPoint &pos)
         d->selectionMode = SELECT;
         emit painted(m_paintDevice);
     }
+    else if(d->selectionMode == MOVE)
+    {
+        const QPoint delta = d->secondPos - d->dragAnchor;
+        d->firstPos = d->moveStartFirst + delta;
+        d->secondPos = d->moveStartSecond + delta;
+        const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
+        QPolygon selection = QPolygon(QRect(d->firstPos, d->secondPos).normalized());
+        emit selectionChanged(selection);
+        d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
+        d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
+        d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
+        d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
+        d->selectionMode = SELECT;
+        emit painted(m_paintDevice);
+    }
 }
 
 void PointerTool::onHover(const QPoint &pos)
@@ -406,38 +444,38 @@ void PointerTool::onHover(const QPoint &pos)
         emit cursorChanged(Qt::SizeFDiagCursor);
     else if (d->bottomLeftCorner.contains(pos))
         emit cursorChanged(Qt::SizeBDiagCursor);
+    else if (!QRect(d->firstPos, d->secondPos).normalized().isEmpty()
+             && QRect(d->firstPos, d->secondPos).normalized().contains(pos))
+        emit cursorChanged(Qt::SizeAllCursor);
     else
         emit cursorChanged(Qt::ArrowCursor);
 }
 
-void PointerTool::onKeyPressed(QKeyEvent *keyEvent){
-    Q_UNUSED(keyEvent);
-    /*
-    QRect rect(d->firstPos,d->secondPos);
+void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
+{
+    if (d->firstPos == d->secondPos)
+        return;
 
-    if(keyEvent->key() == Qt::Key_Left)
-    {
-        x_pos = rect.x()-2;
-        y_pos = rect.y();
+    QPoint delta;
+    switch (keyEvent->key()) {
+        case Qt::Key_Left:  delta = QPoint(-1, 0); break;
+        case Qt::Key_Right: delta = QPoint( 1, 0); break;
+        case Qt::Key_Up:    delta = QPoint( 0,-1); break;
+        case Qt::Key_Down:  delta = QPoint( 0, 1); break;
+        default: return;
     }
-    else if(keyEvent->key() == Qt::Key_Right)
-    {
-        x_pos = rect.x()+2;
-        y_pos = rect.y();
-    }
-    else if(keyEvent->key() == Qt::Key_Up)
-    {
-        x_pos = rect.x();
-        y_pos = rect.y()-2;
-    }
-    else if(keyEvent->key() == Qt::Key_Down)
-    {
-        x_pos = rect.x();
-        y_pos = rect.y()+2;
-    }
-    rect.moveTo(QPoint(x_pos,y_pos));
-    emit selectionChanged(rect);
-    */
+
+    d->firstPos  += delta;
+    d->secondPos += delta;
+
+    const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
+    QPolygon selection = QPolygon(QRect(d->firstPos, d->secondPos).normalized());
+    emit selectionChanged(selection);
+    d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
+    d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
+    d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
+    d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
+    emit painted(m_paintDevice);
 }
 
 void PointerTool::setStroke(bool enabled)
