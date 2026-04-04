@@ -73,17 +73,17 @@ public:
         painter.drawImage(0, 0, image);
         if(isSelectionVisible)
         {
-            float scaledVal = 2.00;
+            // Keep screen-visible line width at ~2px regardless of zoom by
+            // compensating: image-space width = desired_screen_px / scale.
+            float scaledVal = qBound(1.0f, 2.0f / scale, 20.0f);
             int cornerSize = 50;
 
             if(scale < 0.5)
             {
                 cornerSize = 100;
-                scaledVal = 5.00;
             }
             else if(scale > 1) {
                 cornerSize = 20;
-                scaledVal = 1.00;
             }
 
             //Draw the selection hotspots
