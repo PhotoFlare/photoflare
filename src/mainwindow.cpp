@@ -1432,6 +1432,41 @@ void MainWindow::on_actionSolarize_triggered()
     applyThreadedFilter("solarize");
 }
 
+void MainWindow::on_actionPixelate_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    applyThreadedFilter("pixelate");
+}
+
+void MainWindow::on_actionVignette_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    applyThreadedFilter("vignette");
+}
+
+void MainWindow::on_actionPosterize_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    applyThreadedFilter("posterize");
+}
+
+void MainWindow::on_actionPixel_Scatter_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    applyThreadedFilter("pixelScatter");
+}
+
+void MainWindow::on_actionSketch_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    applyThreadedFilter("sketch");
+}
+
 void MainWindow::on_actionMotion_blur_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -2819,7 +2854,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionPaste_and_text_bounding_box->setVisible(false);
         ui->actionPaste_shape->setVisible(false);
         ui->actionPaste_special->setVisible(false);
-        ui->actionPosterize->setVisible(false);
         ui->actionRelief->setVisible(false);
         ui->actionReplace_colour->setVisible(false);
         ui->actionReplace_colour_range->setVisible(false);
@@ -2876,7 +2910,6 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionPaste_and_text_bounding_box->setEnabled(false);
         ui->actionPaste_shape->setEnabled(false);
         ui->actionPaste_special->setEnabled(false);
-        ui->actionPosterize->setEnabled(false);
         ui->actionRelief->setEnabled(false);
         ui->actionReplace_colour->setEnabled(false);
         ui->actionReplace_colour_range->setEnabled(false);

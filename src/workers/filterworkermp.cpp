@@ -212,6 +212,26 @@ void FilterWorkerMP::process()
         {
             newImageSlice = FilterManager::instance()->solarize(currentImageSlice);
         }
+        else if(currentFilter == "pixelate")
+        {
+            newImageSlice = FilterManager::instance()->pixelate(currentImageSlice);
+        }
+        else if(currentFilter == "vignette")
+        {
+            newImageSlice = FilterManager::instance()->vignette(currentImageSlice);
+        }
+        else if(currentFilter == "posterize")
+        {
+            newImageSlice = FilterManager::instance()->posterize(currentImageSlice);
+        }
+        else if(currentFilter == "pixelScatter")
+        {
+            newImageSlice = FilterManager::instance()->pixelScatter(currentImageSlice);
+        }
+        else if(currentFilter == "sketch")
+        {
+            newImageSlice = FilterManager::instance()->sketch(currentImageSlice);
+        }
         else if(currentFilter == "motionBlur")
         {
             newImageSlice = FilterManager::instance()->motionBlur(currentImageSlice);

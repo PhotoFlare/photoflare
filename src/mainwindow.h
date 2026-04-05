@@ -90,6 +90,11 @@ private slots:
     void on_actionQuit_triggered();
     void on_actionOil_Paint_triggered();
     void on_actionCharcoal_Drawing_triggered();
+    void on_actionPixelate_triggered();
+    void on_actionVignette_triggered();
+    void on_actionPosterize_triggered();
+    void on_actionPixel_Scatter_triggered();
+    void on_actionSketch_triggered();
     void on_actionClose_triggered();
     void on_actionClose_all_triggered();
     void refreshTools();

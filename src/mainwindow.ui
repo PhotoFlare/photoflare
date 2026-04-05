@@ -263,6 +263,7 @@ QScrollBar::handle {
      <addaction name="actionWave"/>
      <addaction name="actionImplode"/>
      <addaction name="actionExplode"/>
+     <addaction name="actionPixel_Scatter"/>
     </widget>
     <widget class="QMenu" name="menuArtistic">
      <property name="title">
@@ -271,6 +272,8 @@ QScrollBar::handle {
      <addaction name="actionOil_Paint"/>
      <addaction name="actionCharcoal_Drawing"/>
      <addaction name="actionSolarize"/>
+     <addaction name="actionPixelate"/>
+     <addaction name="actionSketch"/>
     </widget>
     <widget class="QMenu" name="menuSoften">
      <property name="title">
@@ -316,6 +319,7 @@ QScrollBar::handle {
      <addaction name="actionCrop_To_Center"/>
      <addaction name="actionAdd_Simple_Frame"/>
      <addaction name="action3D_frame"/>
+     <addaction name="actionVignette"/>
     </widget>
     <widget class="QMenu" name="menuColour">
      <property name="title">
@@ -1576,7 +1580,7 @@ QToolButton:checked {
   </action>
   <action name="actionPosterize">
    <property name="text">
-    <string>Posterize...</string>
+    <string>Posterize</string>
    </property>
   </action>
   <action name="actionHue_variation">
@@ -1959,6 +1963,26 @@ QToolButton:checked {
   <action name="actionCharcoal_Drawing">
    <property name="text">
     <string>&amp;Charcoal Drawing</string>
+   </property>
+  </action>
+  <action name="actionPixelate">
+   <property name="text">
+    <string>Pixelate</string>
+   </property>
+  </action>
+  <action name="actionVignette">
+   <property name="text">
+    <string>Vignette</string>
+   </property>
+  </action>
+  <action name="actionPixel_Scatter">
+   <property name="text">
+    <string>Pixel Scatter</string>
+   </property>
+  </action>
+  <action name="actionSketch">
+   <property name="text">
+    <string>Sketch</string>
    </property>
   </action>
   <action name="actionSwirl">

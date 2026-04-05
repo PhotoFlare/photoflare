@@ -84,6 +84,11 @@ public:
     QPolygon selectArea(const QImage &image, const QPoint &pos, int tolerance, bool color);
     QImage floodFillOpacity(const QImage &image, const QColor &color, int opacity);
     QImage negative(const QImage &image);
+    QImage pixelate(const QImage &image);
+    QImage vignette(const QImage &image);
+    QImage posterize(const QImage &image);
+    QImage pixelScatter(const QImage &image);
+    QImage sketch(const QImage &image);
     // Qt GraphicsEffect methods
     QImage dropShadow(const QImage &image, int radius, int padding, QColor color, int offsetx, int offsety);
     QImage setOpacity(const QImage &image, double dV);

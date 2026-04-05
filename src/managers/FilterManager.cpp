@@ -773,6 +773,73 @@ QImage FilterManager::floodFillOpacity(const QImage &image, const QColor &color,
     return d->toQtImage(magickImage.data());
 }
 
+QImage FilterManager::pixelate(const QImage &image)
+{
+    if (image.isNull())
+        return image;
+    const int blockSize = 12;
+    QImage small = image.scaled(
+        qMax(1, image.width() / blockSize),
+        qMax(1, image.height() / blockSize),
+        Qt::IgnoreAspectRatio, Qt::FastTransformation);
+    return small.scaled(image.width(), image.height(),
+                        Qt::IgnoreAspectRatio, Qt::FastTransformation);
+}
+
+QImage FilterManager::vignette(const QImage &image)
+{
+    if (image.isNull())
+        return image;
+    QImage result = image.convertToFormat(QImage::Format_ARGB32);
+    QPainter painter(&result);
+    painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
+    QRadialGradient gradient(QPointF(result.width() / 2.0, result.height() / 2.0),
+                             qMin(result.width(), result.height()) * 0.7);
+    gradient.setColorAt(0.0, QColor(0, 0, 0, 0));
+    gradient.setColorAt(1.0, QColor(0, 0, 0, 200));
+    painter.fillRect(result.rect(), gradient);
+    return result;
+}
+
+QImage FilterManager::posterize(const QImage &image)
+{
+    if (image.isNull())
+        return image;
+    QImage result = image.convertToFormat(QImage::Format_ARGB32);
+    const int levels = 4;
+    const float step = 255.0f / (levels - 1);
+    for (int y = 0; y < result.height(); ++y) {
+        QRgb *line = reinterpret_cast<QRgb *>(result.scanLine(y));
+        for (int x = 0; x < result.width(); ++x) {
+            QRgb px = line[x];
+            int r = qBound(0, qRound(qRound(qRed(px)   / step) * step), 255);
+            int g = qBound(0, qRound(qRound(qGreen(px) / step) * step), 255);
+            int b = qBound(0, qRound(qRound(qBlue(px)  / step) * step), 255);
+            line[x] = qRgba(r, g, b, qAlpha(px));
+        }
+    }
+    return result;
+}
+
+QImage FilterManager::pixelScatter(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->spread(5);
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+    return modifiedImage;
+}
+
+QImage FilterManager::sketch(const QImage &image)
+{
+    Magick::Image *magickImage = d->fromQtImage(image);
+    magickImage->edge(1.0);
+    magickImage->negate();
+    QImage modifiedImage = d->toQtImage(magickImage);
+    delete magickImage;
+    return modifiedImage;
+}
+
 FilterManager::FilterManager()
     : d(new FilterManagerPrivate)
 {

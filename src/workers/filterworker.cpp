@@ -199,6 +199,26 @@ void FilterWorker::process()
     {
         newImage = FilterManager::instance()->solarize(currentImage);
     }
+    else if(currentFilter == "pixelate")
+    {
+        newImage = FilterManager::instance()->pixelate(currentImage);
+    }
+    else if(currentFilter == "vignette")
+    {
+        newImage = FilterManager::instance()->vignette(currentImage);
+    }
+    else if(currentFilter == "posterize")
+    {
+        newImage = FilterManager::instance()->posterize(currentImage);
+    }
+    else if(currentFilter == "pixelScatter")
+    {
+        newImage = FilterManager::instance()->pixelScatter(currentImage);
+    }
+    else if(currentFilter == "sketch")
+    {
+        newImage = FilterManager::instance()->sketch(currentImage);
+    }
     else if(currentFilter == "motionBlur")
     {
         newImage = FilterManager::instance()->motionBlur(currentImage);
