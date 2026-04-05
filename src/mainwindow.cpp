@@ -2312,6 +2312,10 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
             ui->actionToolpalette->setChecked(false);
         }
     }
+    else
+    {
+        updateStatusArea(0, 0);
+    }
 }
 
 void MainWindow::setWindowSize()
