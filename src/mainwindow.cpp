@@ -2183,7 +2183,8 @@ void MainWindow::onPointerToolSettingsChanged()
     MOUSE_POINTER->setStrokeWidth(m_ptSettingsWidget->strokeWidth());
     MOUSE_POINTER->setStroke(m_ptSettingsWidget->stroke());
     MOUSE_POINTER->setFill(m_ptSettingsWidget->fill());
-    MOUSE_POINTER->setSelectionShape(m_ptSettingsWidget->selectionIsEllipse());
+    MOUSE_POINTER->setSelectionShape(
+        m_ptSettingsWidget->selectionIsEllipse() ? PointerTool::ELLIPSE : PointerTool::RECT);
 }
 
 void MainWindow::onPaintBrushSettingsChanged()

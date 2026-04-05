@@ -38,8 +38,10 @@ public:
     void setStroke(bool enabled);
     void setStrokeWidth(int width);
     void setFill(bool enabled);
+    enum SelectionShape { RECT, ELLIPSE };
+
     void setFillColor(const QColor &color);
-    void setSelectionShape(bool isEllipse);
+    void setSelectionShape(SelectionShape shape);
     void restoreSelection(const QPolygon &poly);
 
 public slots:
