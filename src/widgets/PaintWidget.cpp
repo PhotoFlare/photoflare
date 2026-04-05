@@ -54,9 +54,25 @@ public:
 
     void initialize(const QImage &image)
     {
-        this->image = image;
-        q->setSceneRect(image.rect());
-        canvas = addPixmap(QPixmap::fromImage(image));
+        QImage img = image;
+        if (img.hasAlphaChannel()) {
+            // Convert to RGB32 if no pixel is actually transparent so that
+            // format-based checks (e.g. eraser transparency) behave correctly.
+            const QImage argb = img.convertToFormat(QImage::Format_ARGB32);
+            bool actuallyTransparent = false;
+            for (int y = 0; y < argb.height() && !actuallyTransparent; ++y) {
+                const QRgb *line = reinterpret_cast<const QRgb *>(argb.constScanLine(y));
+                for (int x = 0; x < argb.width() && !actuallyTransparent; ++x) {
+                    if (qAlpha(line[x]) < 255)
+                        actuallyTransparent = true;
+                }
+            }
+            if (!actuallyTransparent)
+                img = img.convertToFormat(QImage::Format_RGB32);
+        }
+        this->image = img;
+        q->setSceneRect(img.rect());
+        canvas = addPixmap(QPixmap::fromImage(img));
         q->setStyleSheet("background-color: rgb(160, 160, 160);");
     }
 
@@ -322,7 +338,7 @@ PaintWidget::PaintWidget(const QSize &imageSize, const QColor &bgcolor, QWidget 
     , d(new PaintWidgetPrivate(this))
     , progressIndicator(nullptr)
 {
-    QImage image(imageSize, QImage::Format_ARGB32_Premultiplied);
+    QImage image(imageSize, bgcolor.alpha() < 255 ? QImage::Format_ARGB32_Premultiplied : QImage::Format_RGB32);
     image.fill(bgcolor);
 
     d->initialize(image);

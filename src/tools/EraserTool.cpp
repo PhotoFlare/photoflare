@@ -92,6 +92,8 @@ void EraserTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     pen.setWidth(d->primaryPen.width());
 
     QPainter painter(m_paintDevice);
+    if (static_cast<QImage*>(m_paintDevice)->hasAlphaChannel())
+        painter.setCompositionMode(QPainter::CompositionMode_Clear);
     painter.setPen(pen);
     painter.drawPoint(pos.x(), pos.y());
     painter.end();
@@ -105,6 +107,9 @@ void EraserTool::onMouseMove(const QPoint &pos)
 
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
         pen.setWidth(d->primaryPen.width());
+
+        if (static_cast<QImage*>(m_paintDevice)->hasAlphaChannel())
+            painter.setCompositionMode(QPainter::CompositionMode_Clear);
 
         int w = pen.width();
         if(pen.capStyle() == Qt::SquareCap && w > 1)
