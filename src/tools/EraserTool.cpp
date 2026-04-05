@@ -85,10 +85,13 @@ void EraserTool::setSecondaryColor(const QColor &color)
 
 void EraserTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
+    if (button != Qt::LeftButton)
+        return;
+
     d->mouseButton = button;
     d->lastPos = pos;
 
-    QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+    QPen pen = d->primaryPen;
     pen.setWidth(d->primaryPen.width());
 
     QPainter painter(m_paintDevice);
@@ -102,10 +105,10 @@ void EraserTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
 void EraserTool::onMouseMove(const QPoint &pos)
 {
-    if (m_paintDevice) {
+    if (m_paintDevice && d->mouseButton == Qt::LeftButton) {
         QPainter painter(m_paintDevice);
 
-        QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+        QPen pen = d->primaryPen;
         pen.setWidth(d->primaryPen.width());
 
         if (static_cast<QImage*>(m_paintDevice)->hasAlphaChannel())
