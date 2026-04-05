@@ -35,6 +35,7 @@ public:
     bool stroke() const;
     bool fill() const;
     int strokeWidth() const;
+    bool selectionIsEllipse() const;
 
 signals:
     void settingsChanged();

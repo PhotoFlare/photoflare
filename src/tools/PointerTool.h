@@ -39,6 +39,7 @@ public:
     void setStrokeWidth(int width);
     void setFill(bool enabled);
     void setFillColor(const QColor &color);
+    void setSelectionShape(bool isEllipse);
     void restoreSelection(const QPolygon &poly);
 
 public slots:
@@ -56,9 +57,9 @@ public slots:
     void onRedo();
 
 signals:
-    void crop(const QRect&);
-    void strokeRect(const QRect&, const QColor&, const int&);
-    void fillRect(const QRect&, const QColor&);
+    void crop(const QRect&, const QPolygon&);
+    void strokeRect(const QRect&, const QColor&, const int&, const QPolygon&);
+    void fillRect(const QRect&, const QColor&, const QPolygon&);
     void save();
     void saveAs();
     void close();

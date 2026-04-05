@@ -24,12 +24,9 @@ PointerSettingsWidget::PointerSettingsWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->strokeWidth, SIGNAL(changed()), this, SIGNAL(settingsChanged()));
+    connect(ui->strokeWidth, SIGNAL(valueChanged(int)), this, SIGNAL(settingsChanged()));
     connect(ui->checkBoxStroke, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
     connect(ui->checkBoxFill, SIGNAL(clicked()), this, SIGNAL(settingsChanged()));
-
-    ui->square_sel->setHidden(true); // Hide until we have more selection types available
-    ui->circle_sel->setHidden(true);
 }
 
 PointerSettingsWidget::~PointerSettingsWidget()
@@ -47,12 +44,18 @@ bool PointerSettingsWidget::fill() const
     return ui->checkBoxFill->isChecked();
 }
 
+bool PointerSettingsWidget::selectionIsEllipse() const
+{
+    return ui->circle_sel->isChecked();
+}
+
 void PointerSettingsWidget::on_square_sel_clicked(bool checked)
 {
     if(checked)
     {
         ui->square_sel->setChecked(true);
         ui->circle_sel->setChecked(false);
+        emit settingsChanged();
     }
 }
 
@@ -62,6 +65,7 @@ void PointerSettingsWidget::on_circle_sel_clicked(bool checked)
     {
         ui->square_sel->setChecked(false);
         ui->circle_sel->setChecked(true);
+        emit settingsChanged();
     }
 }
 
@@ -90,6 +94,6 @@ int PointerSettingsWidget::strokeWidth() const
 
 void PointerSettingsWidget::on_strokeWidth_valueChanged(int width)
 {
-    //stroke width changed;
+    Q_UNUSED(width)
 }
 

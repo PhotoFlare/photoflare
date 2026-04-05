@@ -23,6 +23,7 @@
 #include <QClipboard>
 #include <QPainter>
 #include <QMenu>
+#include <QtMath>
 
 #include "../Settings.h"
 
@@ -57,7 +58,25 @@ public:
     Corner corner;
     QColor fillColor;
     QColor strokeColor;
+    bool isEllipseSelect = false;
 };
+
+static QPolygon makeEllipsePolygon(const QPoint &topLeft, const QPoint &bottomRight, int steps = 64)
+{
+    QRect bounds = QRect(topLeft, bottomRight).normalized();
+    QPolygon poly;
+    poly.reserve(steps);
+    double cx = bounds.center().x();
+    double cy = bounds.center().y();
+    double rx = bounds.width()  / 2.0;
+    double ry = bounds.height() / 2.0;
+    for (int i = 0; i < steps; ++i) {
+        double angle = 2.0 * M_PI * i / steps;
+        poly << QPoint(qRound(cx + rx * qCos(angle)),
+                       qRound(cy + ry * qSin(angle)));
+    }
+    return poly;
+}
 
 PointerTool::PointerTool(QObject *parent)
     : Tool(parent)
@@ -74,29 +93,38 @@ PointerTool::~PointerTool()
 
 void PointerTool::onCrop()
 {
-    const QRect &rect = QRect(d->firstPos, d->secondPos);
+    const QRect rect = QRect(d->firstPos, d->secondPos).normalized();
+    const QPolygon maskPoly = d->isEllipseSelect
+        ? makeEllipsePolygon(d->firstPos, d->secondPos)
+        : QPolygon();
     d->secondPos = d->firstPos;
     emit selectionChanged(QPolygon());
-    emit crop(rect);
+    emit crop(rect, maskPoly);
 }
 
 void PointerTool::onStrokeRect()
 {
-    const QRect &rect = QRect(d->firstPos, d->secondPos);
-    const QColor &strokeColor = d->fillColor;
-    const int &strokeWidth = d->strokeWidth;
+    const QRect rect = QRect(d->firstPos, d->secondPos).normalized();
+    const QColor strokeColor = d->fillColor;
+    const int strokeWidth = d->strokeWidth;
+    const QPolygon maskPoly = d->isEllipseSelect
+        ? makeEllipsePolygon(d->firstPos, d->secondPos)
+        : QPolygon();
     d->secondPos = d->firstPos;
     emit selectionChanged(QPolygon());
-    emit strokeRect(rect, strokeColor, strokeWidth);
+    emit strokeRect(rect, strokeColor, strokeWidth, maskPoly);
 }
 
 void PointerTool::onFillRect()
 {
-    const QRect &rect = QRect(d->firstPos, d->secondPos);
-    const QColor &fillColor = d->fillColor;
+    const QRect rect = QRect(d->firstPos, d->secondPos).normalized();
+    const QColor fillColor = d->fillColor;
+    const QPolygon maskPoly = d->isEllipseSelect
+        ? makeEllipsePolygon(d->firstPos, d->secondPos)
+        : QPolygon();
     d->secondPos = d->firstPos;
     emit selectionChanged(QPolygon());
-    emit fillRect(rect, fillColor);
+    emit fillRect(rect, fillColor, maskPoly);
 }
 
 void PointerTool::setFillColor(const QColor &color)
@@ -200,29 +228,32 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             d->firstPos = pos;
             d->secondPos = pos;
 
-            if(d->topLeftCorner.contains(pos))
+            if(!d->isEllipseSelect)
             {
-                d->corner = TOP_LEFT;
-                d->selectionMode = RESIZE;
-                emit cursorChanged(Qt::SizeFDiagCursor);
-            }
-            else if(d->topRightCorner.contains(pos))
-            {
-                d->corner = TOP_RIGHT;
-                d->selectionMode = RESIZE;
-                emit cursorChanged(Qt::SizeBDiagCursor);
-            }
-            else if(d->bottomLeftCorner.contains(pos))
-            {
-                d->corner = BOTTOM_LEFT;
-                d->selectionMode = RESIZE;
-                emit cursorChanged(Qt::SizeBDiagCursor);
-            }
-            else if(d->bottomRightCorner.contains(pos))
-            {
-                d->corner = BOTTOM_RIGHT;
-                d->selectionMode = RESIZE;
-                emit cursorChanged(Qt::SizeFDiagCursor);
+                if(d->topLeftCorner.contains(pos))
+                {
+                    d->corner = TOP_LEFT;
+                    d->selectionMode = RESIZE;
+                    emit cursorChanged(Qt::SizeFDiagCursor);
+                }
+                else if(d->topRightCorner.contains(pos))
+                {
+                    d->corner = TOP_RIGHT;
+                    d->selectionMode = RESIZE;
+                    emit cursorChanged(Qt::SizeBDiagCursor);
+                }
+                else if(d->bottomLeftCorner.contains(pos))
+                {
+                    d->corner = BOTTOM_LEFT;
+                    d->selectionMode = RESIZE;
+                    emit cursorChanged(Qt::SizeBDiagCursor);
+                }
+                else if(d->bottomRightCorner.contains(pos))
+                {
+                    d->corner = BOTTOM_RIGHT;
+                    d->selectionMode = RESIZE;
+                    emit cursorChanged(Qt::SizeFDiagCursor);
+                }
             }
 
             if(d->selectionMode == SELECT && !selectionRect.isEmpty() && selectionRect.contains(pos))
@@ -312,7 +343,10 @@ void PointerTool::onMouseMove(const QPoint &pos)
             QPoint topLeft(d->firstPos);
             QPoint bottomRight(d->secondPos);
 
-            emit selectionChanged(QRect(topLeft,bottomRight));
+            if (d->isEllipseSelect)
+                emit selectionChanged(makeEllipsePolygon(topLeft, bottomRight));
+            else
+                emit selectionChanged(QRect(topLeft, bottomRight));
             emit painted(m_paintDevice);
         }
         else if(d->selectionMode == RESIZE)
@@ -355,7 +389,10 @@ void PointerTool::onMouseMove(const QPoint &pos)
         else if(d->selectionMode == MOVE)
         {
             const QPoint delta = pos - d->dragAnchor;
-            emit selectionChanged(QRect(d->moveStartFirst + delta, d->moveStartSecond + delta));
+            if (d->isEllipseSelect)
+                emit selectionChanged(makeEllipsePolygon(d->moveStartFirst + delta, d->moveStartSecond + delta));
+            else
+                emit selectionChanged(QRect(d->moveStartFirst + delta, d->moveStartSecond + delta));
             emit painted(m_paintDevice);
         }
     }
@@ -387,15 +424,24 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             int temp;
             if(topLeft.x() > bottomRight.x()) {temp = topLeft.x();topLeft.setX(bottomRight.x());bottomRight.setX(temp);}
             if(topLeft.y() > bottomRight.y()) {temp = topLeft.y();topLeft.setY(bottomRight.y());bottomRight.setY(temp);}
-            QPolygon selection = QPolygon(QRect(topLeft, bottomRight));
-            emit selectionChanged(selection);
 
             const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
+            QPolygon selection;
+            if (d->isEllipseSelect) {
+                selection = makeEllipsePolygon(topLeft, bottomRight);
+                d->topLeftCorner     = QRect();
+                d->topRightCorner    = QRect();
+                d->bottomRightCorner = QRect();
+                d->bottomLeftCorner  = QRect();
+            } else {
+                selection = QPolygon(QRect(topLeft, bottomRight));
+                d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
+                d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
+                d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
+                d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
+            }
+            emit selectionChanged(selection);
 
-            d->topLeftCorner = QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize);
-            d->topRightCorner = QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize);
-            d->bottomRightCorner = QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize);
-            d->bottomLeftCorner = QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize);
             if(d->fillEnabled) {
                 onFillRect();
             }
@@ -418,12 +464,21 @@ void PointerTool::onMouseRelease(const QPoint &pos)
         d->firstPos = d->moveStartFirst + delta;
         d->secondPos = d->moveStartSecond + delta;
         const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
-        QPolygon selection = QPolygon(QRect(d->firstPos, d->secondPos).normalized());
+        QPolygon selection;
+        if (d->isEllipseSelect) {
+            selection = makeEllipsePolygon(d->firstPos, d->secondPos);
+            d->topLeftCorner     = QRect();
+            d->topRightCorner    = QRect();
+            d->bottomRightCorner = QRect();
+            d->bottomLeftCorner  = QRect();
+        } else {
+            selection = QPolygon(QRect(d->firstPos, d->secondPos).normalized());
+            d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
+            d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
+            d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
+            d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
+        }
         emit selectionChanged(selection);
-        d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
-        d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
-        d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
-        d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
         d->selectionMode = SELECT;
         emit painted(m_paintDevice);
     }
@@ -431,21 +486,24 @@ void PointerTool::onMouseRelease(const QPoint &pos)
 
 void PointerTool::onHover(const QPoint &pos)
 {
-    if (d->selectionMode != SELECT || d->topLeftCorner.isNull())
+    if (d->selectionMode != SELECT)
     {
         emit cursorChanged(Qt::ArrowCursor);
         return;
     }
-    if (d->topLeftCorner.contains(pos))
-        emit cursorChanged(Qt::SizeFDiagCursor);
-    else if (d->topRightCorner.contains(pos))
-        emit cursorChanged(Qt::SizeBDiagCursor);
-    else if (d->bottomRightCorner.contains(pos))
-        emit cursorChanged(Qt::SizeFDiagCursor);
-    else if (d->bottomLeftCorner.contains(pos))
-        emit cursorChanged(Qt::SizeBDiagCursor);
-    else if (!QRect(d->firstPos, d->secondPos).normalized().isEmpty()
-             && QRect(d->firstPos, d->secondPos).normalized().contains(pos))
+    const QRect selRect = QRect(d->firstPos, d->secondPos).normalized();
+    if (!d->topLeftCorner.isNull())
+    {
+        if (d->topLeftCorner.contains(pos))
+            { emit cursorChanged(Qt::SizeFDiagCursor); return; }
+        if (d->topRightCorner.contains(pos))
+            { emit cursorChanged(Qt::SizeBDiagCursor); return; }
+        if (d->bottomRightCorner.contains(pos))
+            { emit cursorChanged(Qt::SizeFDiagCursor); return; }
+        if (d->bottomLeftCorner.contains(pos))
+            { emit cursorChanged(Qt::SizeBDiagCursor); return; }
+    }
+    if (!selRect.isEmpty() && selRect.contains(pos))
         emit cursorChanged(Qt::SizeAllCursor);
     else
         emit cursorChanged(Qt::ArrowCursor);
@@ -469,12 +527,21 @@ void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
     d->secondPos += delta;
 
     const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
-    QPolygon selection = QPolygon(QRect(d->firstPos, d->secondPos).normalized());
+    QPolygon selection;
+    if (d->isEllipseSelect) {
+        selection = makeEllipsePolygon(d->firstPos, d->secondPos);
+        d->topLeftCorner     = QRect();
+        d->topRightCorner    = QRect();
+        d->bottomRightCorner = QRect();
+        d->bottomLeftCorner  = QRect();
+    } else {
+        selection = QPolygon(QRect(d->firstPos, d->secondPos).normalized());
+        d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
+        d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
+        d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
+        d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
+    }
     emit selectionChanged(selection);
-    d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
-    d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
-    d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
-    d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
     emit painted(m_paintDevice);
 }
 
@@ -491,6 +558,11 @@ void PointerTool::setStrokeWidth(int width)
 void PointerTool::setFill(bool enabled)
 {
     d->fillEnabled = enabled;
+}
+
+void PointerTool::setSelectionShape(bool isEllipse)
+{
+    d->isEllipseSelect = isEllipse;
 }
 
 void PointerTool::setupRightClickMenu(bool execute)

@@ -23,6 +23,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QMdiSubWindow>
+#include <QPainterPath>
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 #include <QThread>
@@ -247,9 +248,9 @@ void MainWindow::connectTools()
     QObject::connect(ui->colorBoxWidget, &ColorBoxWidget::primaryColorChanged, MOUSE_POINTER, &PointerTool::setFillColor);
 
     // Connect PointerTool signals
-    QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&)), this, SLOT(onCrop(const QRect&)));
-    QObject::connect(MOUSE_POINTER, SIGNAL(strokeRect(const QRect&, const QColor&, const int&)), this, SLOT(onStrokeRect(const QRect&, const QColor&, const int&)));
-    QObject::connect(MOUSE_POINTER, SIGNAL(fillRect(const QRect&, const QColor&)), this, SLOT(onFillRect(const QRect&, const QColor&)));
+    QObject::connect(MOUSE_POINTER, SIGNAL(crop(const QRect&, const QPolygon&)), this, SLOT(onCrop(const QRect&, const QPolygon&)));
+    QObject::connect(MOUSE_POINTER, SIGNAL(strokeRect(const QRect&, const QColor&, const int&, const QPolygon&)), this, SLOT(onStrokeRect(const QRect&, const QColor&, const int&, const QPolygon&)));
+    QObject::connect(MOUSE_POINTER, SIGNAL(fillRect(const QRect&, const QColor&, const QPolygon&)), this, SLOT(onFillRect(const QRect&, const QColor&, const QPolygon&)));
     QObject::connect(MOUSE_POINTER, SIGNAL(save()), this, SLOT(on_actionSave_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(saveAs()), this, SLOT(on_actionSave_As_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(close()), this, SLOT(on_actionClose_triggered()));
@@ -766,10 +767,26 @@ void MainWindow::onCopy()
     if (widget)
     {
         QClipboard *clipboard = QApplication::clipboard();
-        QImage cpy = widget->selection().isEmpty()
-            ? widget->image()
-            : widget->image().copy(widget->selection().boundingRect());
-        clipboard->setImage(cpy);
+        const QPolygon sel = widget->selection();
+        if (sel.isEmpty()) {
+            clipboard->setImage(widget->image());
+        } else {
+            const QRect boundRect = sel.boundingRect();
+            QImage src = widget->image().copy(boundRect);
+            if (sel.size() > 4) {
+                QImage masked(src.size(), QImage::Format_ARGB32_Premultiplied);
+                masked.fill(Qt::transparent);
+                QPainter p(&masked);
+                QPainterPath path;
+                path.addPolygon(QPolygon(sel).translated(-boundRect.topLeft()));
+                p.setClipPath(path);
+                p.drawImage(0, 0, src);
+                p.end();
+                clipboard->setImage(masked);
+            } else {
+                clipboard->setImage(src);
+            }
+        }
     }
 }
 
@@ -1866,13 +1883,25 @@ void MainWindow::on_actionCrop_triggered()
     }
 }
 
-void MainWindow::onCrop(const QRect& rect)
+void MainWindow::onCrop(const QRect& rect, const QPolygon& maskPoly)
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
     {
         QRect crop = widget->image().rect().intersected(rect);
-        widget->setImage(widget->image().copy(crop));
+        QImage result = widget->image().copy(crop);
+        if (!maskPoly.isEmpty()) {
+            QImage masked(result.size(), QImage::Format_ARGB32_Premultiplied);
+            masked.fill(Qt::transparent);
+            QPainter p(&masked);
+            QPainterPath path;
+            path.addPolygon(QPolygon(maskPoly).translated(-crop.topLeft()));
+            p.setClipPath(path);
+            p.drawImage(0, 0, result);
+            p.end();
+            result = masked;
+        }
+        widget->setImage(result);
         updateStatusArea(widget->image().width(),widget->image().height());
     }
 }
@@ -1887,7 +1916,7 @@ void MainWindow::on_actionFill_Rect_triggered()
     }
 }
 
-void MainWindow::onFillRect(const QRect& rect, const QColor& fillColor)
+void MainWindow::onFillRect(const QRect& rect, const QColor& fillColor, const QPolygon& maskPoly)
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
@@ -1899,8 +1928,12 @@ void MainWindow::onFillRect(const QRect& rect, const QColor& fillColor)
             qWarning("Failed to begin QPainter");
             return;
         }
-
         QRect fillRect = tmpImage.rect().intersected(rect);
+        if (!maskPoly.isEmpty()) {
+            QPainterPath path;
+            path.addPolygon(maskPoly);
+            painter.setClipPath(path);
+        }
         painter.fillRect(fillRect, fillColor);
         painter.end();
         widget->setImage(tmpImage);
@@ -1917,7 +1950,7 @@ void MainWindow::on_actionStroke_Rect_triggered()
     }
 }
 
-void MainWindow::onStrokeRect(const QRect& rect, const QColor& fillColor, const int& strokeWidth)
+void MainWindow::onStrokeRect(const QRect& rect, const QColor& fillColor, const int& strokeWidth, const QPolygon& maskPoly)
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
@@ -1931,7 +1964,11 @@ void MainWindow::onStrokeRect(const QRect& rect, const QColor& fillColor, const 
         }
         QRect fillRect = tmpImage.rect().intersected(rect);
         QPainterPath path;
-        path.addRect(fillRect);
+        if (!maskPoly.isEmpty()) {
+            path.addPolygon(maskPoly);
+        } else {
+            path.addRect(fillRect);
+        }
         QPen strokePen(fillColor, strokeWidth);
         painter.strokePath(path, strokePen);
         painter.end();
@@ -2146,6 +2183,7 @@ void MainWindow::onPointerToolSettingsChanged()
     MOUSE_POINTER->setStrokeWidth(m_ptSettingsWidget->strokeWidth());
     MOUSE_POINTER->setStroke(m_ptSettingsWidget->stroke());
     MOUSE_POINTER->setFill(m_ptSettingsWidget->fill());
+    MOUSE_POINTER->setSelectionShape(m_ptSettingsWidget->selectionIsEllipse());
 }
 
 void MainWindow::onPaintBrushSettingsChanged()
