@@ -165,12 +165,34 @@ public:
 
     void setImage(const QImage &image)
     {
-        if(this->image.size() != image.size())
+        bool sizeChanged = (this->image.size() != image.size());
+        if(sizeChanged)
         {
             q->setSceneRect(image.rect());
         }
         this->image = image;
         this->updateImageCanvas();
+        // Adjust the grid if the image size changed and the grid is currently enabled
+        if(sizeChanged && showGridEnabled)
+        {
+            for (int i = 0; i < lines.length(); i++)
+            {
+                q->scene()->removeItem(lines[i]);
+            }
+            lines.clear();
+            QPen pen = QPen(QBrush(), 0.1, Qt::SolidLine);
+            pen.setColor(Qt::gray);
+            for (int x = 0; x <= image.width(); x += gridWidth)
+            {
+                xline = q->scene()->addLine(x, 0, x, image.height(), pen);
+                lines.append(xline);
+            }
+            for (int y = 0; y <= image.height(); y += gridWidth)
+            {
+                yline = q->scene()->addLine(0, y, image.width(), y, pen);
+                lines.append(yline);
+            }
+        }
     }
 
     void disconnectLastTool()
@@ -245,10 +267,12 @@ public:
             {
                 q->scene()->removeItem(lines[i]);
             }
+            lines.clear();
             showGridEnabled = false;
         }
         else if(width > 0)
         {
+            gridWidth = width;
             QPen pen = QPen(QBrush(), 0.1, Qt::SolidLine);
             pen.setColor(Qt::gray);
             for (int x=0; x<=image.width(); x+=width)
@@ -281,6 +305,7 @@ public:
     bool isSelectionVisible;
     bool hotspotVisible;
     bool showGridEnabled = false;
+    int gridWidth = 1;
     QGraphicsLineItem *xline;
     QGraphicsLineItem *yline;
     QVector<QGraphicsLineItem*> lines;
