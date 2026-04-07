@@ -180,8 +180,8 @@ public:
                 q->scene()->removeItem(lines[i]);
             }
             lines.clear();
-            QPen pen = QPen(QBrush(), 0.1, Qt::SolidLine);
-            pen.setColor(Qt::gray);
+            QPen pen(Qt::gray);
+            pen.setCosmetic(true);
             for (int x = 0; x <= image.width(); x += gridWidth)
             {
                 xline = q->scene()->addLine(x, 0, x, image.height(), pen);
@@ -273,8 +273,9 @@ public:
         else if(width > 0)
         {
             gridWidth = width;
-            QPen pen = QPen(QBrush(), 0.1, Qt::SolidLine);
-            pen.setColor(Qt::gray);
+            // Costmetic pen ensures the line width stays consistent regardless of zoom level and device pixel ratio
+            QPen pen(Qt::gray);
+            pen.setCosmetic(true);
             for (int x=0; x<=image.width(); x+=width)
             {
                 xline = q->scene()->addLine(x,0,x,image.height(), pen);
