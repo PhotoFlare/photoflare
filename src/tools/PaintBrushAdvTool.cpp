@@ -30,6 +30,7 @@ public:
     {
         primaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
+        mouseButton = Qt::NoButton;
     }
     QPoint lastPos;
     QPen primaryPen;
@@ -120,6 +121,8 @@ QCursor PaintBrushAdvTool::getCursor()
 
 void PaintBrushAdvTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
+    if (d->mouseButton != Qt::NoButton)
+        return;
     d->lastPos = pos;
     d->mouseButton = button;
 
@@ -142,7 +145,7 @@ void PaintBrushAdvTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
 void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
 {
-    if (m_paintDevice)
+    if (m_paintDevice && d->mouseButton != Qt::NoButton)
     {
         int x1 = d->lastPos.x();
         int x2 = pos.x();

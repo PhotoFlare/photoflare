@@ -30,6 +30,7 @@ public:
         secondaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
         antialiasing = false;
         hasLastPos = false;
+        mouseButton = Qt::NoButton;
     }
     QPoint lastPos;
     QPen primaryPen;
@@ -136,6 +137,8 @@ QCursor PaintBrushTool::getCursor()
 
 void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
+    if (d->mouseButton != Qt::NoButton)
+        return;
     d->mouseButton = button;
 
     QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
@@ -195,9 +198,16 @@ void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     emit painted(m_paintDevice);
 }
 
+void PaintBrushTool::onMouseRelease(const QPoint &pos)
+{
+    Q_UNUSED(pos);
+    d->mouseButton = Qt::NoButton;
+    d->hasLastPos = false;
+}
+
 void PaintBrushTool::onMouseMove(const QPoint &pos)
 {
-    if (m_paintDevice) {
+    if (m_paintDevice && d->mouseButton != Qt::NoButton) {
         QPainter painter(m_paintDevice);
 
         if (d->antialiasing)
