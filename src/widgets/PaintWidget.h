@@ -75,6 +75,7 @@ signals:
 
 protected:
     void wheelEvent(QWheelEvent *event);
+    void drawForeground(QPainter *painter, const QRectF &rect) override;
 
 private:
     PaintWidgetPrivate *d;

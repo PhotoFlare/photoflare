@@ -377,6 +377,20 @@ PaintWidget::~PaintWidget()
     delete d;
 }
 
+void PaintWidget::drawForeground(QPainter *painter, const QRectF &rect)
+{
+    // Lightweight method to draw a border around the image to visually separate it from the workspace
+    Q_UNUSED(rect)
+    QGraphicsView::drawForeground(painter, rect);
+    painter->save();
+    painter->resetTransform();
+    QRect borderRect = mapFromScene(sceneRect()).boundingRect().adjusted(-1, -1, 0, 0);
+    painter->setPen(QPen(QColor(80, 80, 80, 160), 1));
+    painter->setBrush(Qt::NoBrush);
+    painter->drawRect(borderRect);
+    painter->restore();
+}
+
 void PaintWidget::setPaintTool(Tool *tool)
 {
     if (d->currentTool)
