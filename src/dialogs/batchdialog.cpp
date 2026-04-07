@@ -99,6 +99,7 @@ batchDialog::batchDialog(QWidget *parent) :
     }
 
     ui->backgroundColorComboBox->setOnClickHandler(this);
+    ui->listWidget->setIconSize(QSize(64,64));
 
     if(SETTINGS->getMemParamsEnabled() == true)
     {
@@ -648,8 +649,12 @@ void batchDialog::addItemToFileListWidget(QString filePath)
 {
     QListWidgetItem *itm = new QListWidgetItem(QFileInfo(filePath).fileName() + "\r\n" + filePath);
     itm->setSizeHint(QSize(64,70));
-    itm->setIcon(QIcon(filePath));
-    ui->listWidget->setIconSize(QSize(64,64));
+    // Load the image and set it as the icon for the list item,
+    // scaling it to fit within a 64x64 pixel area while maintaining the aspect ratio
+    QImage img(filePath);
+    if (!img.isNull()) {
+        itm->setIcon(QIcon(QPixmap::fromImage(img.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation))));
+    }
     ui->listWidget->addItem(itm);
 }
 
