@@ -275,6 +275,7 @@ private:
     PrefsDialog *prefsDialog;
     QLabel *batchLbl;
     QLabel *imagesizeLbl;
+    QLabel *selectionLbl;
 };
 
 #endif // MAINWINDOW_H

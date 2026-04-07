@@ -193,6 +193,10 @@ void MainWindow::setupWorkspace()
     batchLbl->setStyleSheet("margin:0 100 0 0");
     ui->statusBar->addWidget(batchLbl);
 
+    selectionLbl = new QLabel();
+    selectionLbl->setStyleSheet("margin:0 0 0 10");
+    ui->statusBar->addWidget(selectionLbl);
+
     // Disable undo/redo buttons on startup
     ui->actionUndo->setEnabled(false);
     ui->actionRedo->setEnabled(false);
@@ -1213,6 +1217,17 @@ void MainWindow::onSelectionChanged(bool visible)
     ui->actionCrop->setEnabled(ui->actionShow_selection->isChecked() && visible);
     ui->actionFill_Rect->setEnabled(ui->actionShow_selection->isChecked() && visible);
     ui->actionShow_selection->setChecked(visible);
+    // Update selection information in status bar
+    if (visible) {
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget && !widget->selection().isEmpty()) {
+            const QRect r = widget->selection().boundingRect();
+            selectionLbl->setText(tr("(%1, %2) (%3 x %4 pixels)")
+                .arg(r.x()).arg(r.y()).arg(r.width()).arg(r.height()));
+        }
+    } else {
+        selectionLbl->setText(QString());
+    }
 }
 
 /*
