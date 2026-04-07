@@ -39,6 +39,13 @@ public:
     bool hasLastPos;
     Qt::MouseButton mouseButton;
     int pressure = 100;
+    // Soft-brush stroke accumulation buffers (used when pressure < 100).
+    // strokeLayer holds the current stroke drawn at full opacity; baseSnapshot
+    // is the canvas state before the stroke began. On every move event the
+    // canvas is restored from baseSnapshot and strokeLayer is composited at the
+    // configured opacity, preventing endpoint caps from accumulating colour.
+    QImage strokeLayer;
+    QImage baseSnapshot;
 };
 
 PaintBrushTool::PaintBrushTool(QObject *parent)
@@ -146,7 +153,10 @@ void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     double realVal = double(d->pressure / double(100.0));
 
     if (d->hasLastPos && (QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
-        // Shift+click: draw a straight line from the last painted position to here
+        // Shift+click: draw a straight line from the last painted position to here.
+        // This is a single committed segment, so draw it directly at the configured
+        // opacity (no accumulation issue with one segment), then refresh the base
+        // snapshot so a subsequent drag won't erase it.
         QPainter painter(m_paintDevice);
         if (d->antialiasing)
             painter.setRenderHint(QPainter::Antialiasing);
@@ -185,12 +195,44 @@ void PaintBrushTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             painter.drawLine(d->lastPos, pos);
         }
         painter.end();
+
+        if (d->pressure < 100) {
+            // Snapshot the post-shift-click canvas so a subsequent drag starts clean.
+            QImage *canvas = static_cast<QImage*>(m_paintDevice);
+            d->baseSnapshot = canvas->copy();
+            d->strokeLayer = QImage(canvas->size(), QImage::Format_ARGB32_Premultiplied);
+            d->strokeLayer.fill(Qt::transparent);
+        }
     } else {
-        QPainter painter(m_paintDevice);
-        painter.setPen(pen);
-        painter.setOpacity(realVal);
-        painter.drawPoint(pos.x(), pos.y());
-        painter.end();
+        if (d->pressure < 100) {
+            // Soft-brush: initialise the stroke layer and draw the seed point onto it.
+            // The composite (baseSnapshot + strokeLayer @ opacity) is written back to
+            // m_paintDevice so the display is immediately correct.
+            QImage *canvas = static_cast<QImage*>(m_paintDevice);
+            d->baseSnapshot = canvas->copy();
+            d->strokeLayer = QImage(canvas->size(), QImage::Format_ARGB32_Premultiplied);
+            d->strokeLayer.fill(Qt::transparent);
+
+            QPainter strokePainter(&d->strokeLayer);
+            if (d->antialiasing)
+                strokePainter.setRenderHint(QPainter::Antialiasing);
+            strokePainter.setPen(pen);
+            strokePainter.drawPoint(pos.x(), pos.y());
+            strokePainter.end();
+
+            QPainter canvasPainter(canvas);
+            canvasPainter.setCompositionMode(QPainter::CompositionMode_Source);
+            canvasPainter.drawImage(0, 0, d->baseSnapshot);
+            canvasPainter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+            canvasPainter.setOpacity(realVal);
+            canvasPainter.drawImage(0, 0, d->strokeLayer);
+            canvasPainter.end();
+        } else {
+            QPainter painter(m_paintDevice);
+            painter.setPen(pen);
+            painter.drawPoint(pos.x(), pos.y());
+            painter.end();
+        }
     }
 
     d->lastPos = pos;
@@ -203,57 +245,117 @@ void PaintBrushTool::onMouseRelease(const QPoint &pos)
     Q_UNUSED(pos);
     d->mouseButton = Qt::NoButton;
     d->hasLastPos = false;
+    // Release soft-brush buffers so they don't hold onto large image data
+    // between strokes.
+    d->strokeLayer = QImage();
+    d->baseSnapshot = QImage();
 }
 
 void PaintBrushTool::onMouseMove(const QPoint &pos)
 {
     if (m_paintDevice && d->mouseButton != Qt::NoButton) {
-        QPainter painter(m_paintDevice);
-
-        if (d->antialiasing)
-            painter.setRenderHint(QPainter::Antialiasing);
-
-        // Cast int to double for setting opacity
-        double realVal = double(d->pressure / double(100.0));
-        painter.setOpacity(realVal);
-
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
         int w = pen.width();
+        double realVal = double(d->pressure / double(100.0));
 
-        if(pen.capStyle() == Qt::SquareCap && w > 1)
-        {
-            painter.setPen(QPen(pen.color()));
-            QBrush brush(pen.color());
-            painter.setBrush(brush);
+        if (d->pressure < 100 && !d->strokeLayer.isNull()) {
+            // Soft-brush path: append the new segment to strokeLayer (at full opacity),
+            // then restore the canvas from baseSnapshot and composite the whole
+            // accumulated stroke at the configured pressure opacity.  This prevents
+            // consecutive segment endpoints from being painted twice, which is what
+            // caused the visible darker circles when pressure was below 100 %.
+            QPainter strokePainter(&d->strokeLayer);
+            if (d->antialiasing)
+                strokePainter.setRenderHint(QPainter::Antialiasing);
 
-            int x1 = d->lastPos.x();
-            int x2 = pos.x();
-            int y1 = d->lastPos.y();
-            int y2 = pos.y();
+            if (pen.capStyle() == Qt::SquareCap && w > 1) {
+                strokePainter.setPen(QPen(pen.color()));
+                QBrush brush(pen.color());
+                strokePainter.setBrush(brush);
 
-            if(x1 > x2) {
-                int temp = x1; x1 = x2; x2 = temp;
-                temp = y1; y1 = y2; y2 = temp;
+                int x1 = d->lastPos.x();
+                int x2 = pos.x();
+                int y1 = d->lastPos.y();
+                int y2 = pos.y();
+
+                if (x1 > x2) {
+                    int temp = x1; x1 = x2; x2 = temp;
+                    temp = y1; y1 = y2; y2 = temp;
+                }
+                for (int y, x = x1; x < x2; x += w/2) {
+                    y = (x - x1)*(y2 - y1)/(x2 - x1) + y1;
+                    strokePainter.drawRect(QRect(x - w/2, y - w/2, w, w));
+                }
+
+                if (y1 > y2) {
+                    int temp = x1; x1 = x2; x2 = temp;
+                    temp = y1; y1 = y2; y2 = temp;
+                }
+                for (int x, y = y1; y < y2; y += w/2) {
+                    x = (y - y1)*(x2 - x1)/(y2 - y1) + x1;
+                    strokePainter.drawRect(QRect(x - w/2, y - w/2, w, w));
+                }
+            } else {
+                strokePainter.setPen(pen);
+                strokePainter.drawLine(d->lastPos, pos);
             }
-            for(int y, x = x1; x < x2; x += w/2) {
-                y = (x - x1)*(y2 - y1)/(x2 - x1) + y1;
-                painter.drawRect(QRect(x - w/2, y - w/2, w, w));
-            }
+            strokePainter.end();
 
-            if(y1 > y2) {
-                int temp = x1; x1 = x2; x2 = temp;
-                temp = y1; y1 = y2; y2 = temp;
+            // Composite: restore canvas to pre-stroke state, then paint the full
+            // accumulated stroke at the configured opacity in one pass.
+            QImage *canvas = static_cast<QImage*>(m_paintDevice);
+            QPainter canvasPainter(canvas);
+            canvasPainter.setCompositionMode(QPainter::CompositionMode_Source);
+            canvasPainter.drawImage(0, 0, d->baseSnapshot);
+            canvasPainter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+            canvasPainter.setOpacity(realVal);
+            canvasPainter.drawImage(0, 0, d->strokeLayer);
+            canvasPainter.end();
+        } else {
+            // Full-opacity path: paint directly onto the canvas (existing behaviour).
+            QPainter painter(m_paintDevice);
+
+            if (d->antialiasing)
+                painter.setRenderHint(QPainter::Antialiasing);
+
+            painter.setOpacity(realVal);
+
+            if(pen.capStyle() == Qt::SquareCap && w > 1)
+            {
+                painter.setPen(QPen(pen.color()));
+                QBrush brush(pen.color());
+                painter.setBrush(brush);
+
+                int x1 = d->lastPos.x();
+                int x2 = pos.x();
+                int y1 = d->lastPos.y();
+                int y2 = pos.y();
+
+                if(x1 > x2) {
+                    int temp = x1; x1 = x2; x2 = temp;
+                    temp = y1; y1 = y2; y2 = temp;
+                }
+                for(int y, x = x1; x < x2; x += w/2) {
+                    y = (x - x1)*(y2 - y1)/(x2 - x1) + y1;
+                    painter.drawRect(QRect(x - w/2, y - w/2, w, w));
+                }
+
+                if(y1 > y2) {
+                    int temp = x1; x1 = x2; x2 = temp;
+                    temp = y1; y1 = y2; y2 = temp;
+                }
+                for(int x, y = y1; y < y2; y += w/2) {
+                    x = (y - y1)*(x2 - x1)/(y2 - y1) + x1;
+                    painter.drawRect(QRect(x - w/2, y - w/2, w, w));
+                }
             }
-            for(int x, y = y1; y < y2; y += w/2) {
-                x = (y - y1)*(x2 - x1)/(y2 - y1) + x1;
-                painter.drawRect(QRect(x - w/2, y - w/2, w, w));
+            else
+            {
+                painter.setPen(pen);
+                painter.drawLine(d->lastPos, pos);
             }
         }
-        else
-        {
-            painter.setPen(pen);
-            painter.drawLine(d->lastPos, pos);
-        }
+
         d->lastPos = pos;
         emit painted(m_paintDevice);
     }
