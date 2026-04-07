@@ -165,6 +165,9 @@ void MainWindow::setupWorkspace()
     {
         ui->mdiArea->setViewMode(QMdiArea::TabbedView);
     }
+    // Set tab height based on the system DPI, with a minimum of 30px.
+    const int tabHeight = qMax(30, qRound(30.0 * ui->mdiArea->logicalDpiY() / 96.0));
+    ui->mdiArea->setStyleSheet(QString("QTabBar::tab { height: %1px; }").arg(tabHeight));
 
     // Set dock layout
     if(SETTINGS->getDockLayout() == "1")
@@ -2412,7 +2415,6 @@ void MainWindow::addChildWindow(PaintWidget *widget)
 {
     ui->mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     ui->mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-
     QMdiSubWindow *mdiSubWindow = ui->mdiArea->addSubWindow(widget);
     QString title = widget->imagePath().isEmpty() ? UNTITLED_TAB_NAME : widget->imagePath();
     title = title + " [*]";
