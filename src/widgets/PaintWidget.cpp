@@ -27,6 +27,7 @@
 #include <QGraphicsProxyWidget>
 #include <QGraphicsEffect>
 #include <QImageReader>
+#include <QTimer>
 
 #include "../Settings.h"
 #include "PaintWidget.h"
@@ -47,6 +48,11 @@ public:
 
         isSelectionVisible = true;
         hotspotVisible = false;
+
+        updateTimer = new QTimer(this);
+        updateTimer->setSingleShot(true);
+        updateTimer->setInterval(0);
+        connect(updateTimer, &QTimer::timeout, [this]() { flushPendingUpdate(); });
     }
     ~PaintWidgetPrivate()
     {
@@ -76,8 +82,78 @@ public:
         q->setStyleSheet("background-color: rgb(160, 160, 160);");
     }
 
+    void drawSelection(QPainter &painter)
+    {
+        // Keep screen-visible line width at ~2px regardless of zoom and
+        // device pixel ratio: image-space width = desired_screen_px / (scale * dpr).
+        float dpr = q->devicePixelRatioF();
+        float effectiveScale = scale * dpr;
+        float scaledVal = qBound(1.0f, 2.0f / effectiveScale, 20.0f);
+        int cornerSize = 50;
+
+        if(effectiveScale < 0.5)
+        {
+            cornerSize = 100;
+        }
+        else if(effectiveScale > 1) {
+            cornerSize = 20;
+        }
+
+        //Draw the selection hotspots
+        if(selection.size() == 4)
+        {
+            QRect rect(selection.at(0),selection.at(3));
+            if(rect.topLeft() != rect.bottomLeft() && hotspotVisible)
+            {
+                QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
+                penbg.setColor(Qt::white);
+                painter.setPen(penbg);
+                painter.setBrush(QBrush());
+                painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
+                painter.drawPolygon(QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize));
+                painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
+                painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
+
+                QPen cornerpen = QPen(QBrush(), scaledVal, Qt::DashLine);
+                cornerpen.setColor(Qt::gray);
+                painter.setPen(cornerpen);
+                painter.setBrush(QBrush());
+                painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
+                painter.drawPolygon(QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize));
+                painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
+                painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
+            }
+        }
+        //Grey and white dashed line for visibility no matter the background colours
+        QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
+        penbg.setColor(Qt::white);
+        painter.setPen(penbg);
+        painter.setBrush(QBrush());
+        painter.drawPolygon(selection, Qt::WindingFill);
+
+        QPen pen = QPen(QBrush(), scaledVal, Qt::DashLine);
+        pen.setColor(Qt::gray);
+        painter.setPen(pen);
+        painter.setBrush(QBrush());
+        painter.drawPolygon(selection, Qt::WindingFill);
+    }
+
     void updateImageCanvas()
     {
+        // Fast path: fully opaque image — skip checkers compositing entirely.
+        if (image.format() == QImage::Format_RGB32) {
+            if (isSelectionVisible && !selection.isEmpty()) {
+                QImage surface = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+                QPainter painter(&surface);
+                drawSelection(painter);
+                painter.end();
+                canvas->setPixmap(QPixmap::fromImage(surface));
+            } else {
+                canvas->setPixmap(QPixmap::fromImage(image));
+            }
+            return;
+        }
+
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
         QBrush brush;
@@ -89,58 +165,7 @@ public:
         painter.drawImage(0, 0, image);
         if(isSelectionVisible)
         {
-            // Keep screen-visible line width at ~2px regardless of zoom and
-            // device pixel ratio: image-space width = desired_screen_px / (scale * dpr).
-            float dpr = q->devicePixelRatioF();
-            float effectiveScale = scale * dpr;
-            float scaledVal = qBound(1.0f, 2.0f / effectiveScale, 20.0f);
-            int cornerSize = 50;
-
-            if(effectiveScale < 0.5)
-            {
-                cornerSize = 100;
-            }
-            else if(effectiveScale > 1) {
-                cornerSize = 20;
-            }
-
-            //Draw the selection hotspots
-            if(selection.size() == 4)
-            {
-                QRect rect(selection.at(0),selection.at(3));
-                if(rect.topLeft() != rect.bottomLeft() && hotspotVisible)
-                {
-                    QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
-                    penbg.setColor(Qt::white);
-                    painter.setPen(penbg);
-                    painter.setBrush(QBrush());
-                    painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
-                    painter.drawPolygon(QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize));
-                    painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
-                    painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
-
-                    QPen cornerpen = QPen(QBrush(), scaledVal, Qt::DashLine);
-                    cornerpen.setColor(Qt::gray);
-                    painter.setPen(cornerpen);
-                    painter.setBrush(QBrush());
-                    painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
-                    painter.drawPolygon(QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize));
-                    painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
-                    painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
-                }
-            }
-            //Grey and white dashed line for visibility no matter the background colours
-            QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
-            penbg.setColor(Qt::white);
-            painter.setPen(penbg);
-            painter.setBrush(QBrush());
-            painter.drawPolygon(selection, Qt::WindingFill);
-
-            QPen pen = QPen(QBrush(), scaledVal, Qt::DashLine);
-            pen.setColor(Qt::gray);
-            painter.setPen(pen);
-            painter.setBrush(QBrush());
-            painter.drawPolygon(selection, Qt::WindingFill);
+            drawSelection(painter);
         }
         painter.end();
         canvas->setPixmap(QPixmap::fromImage(surface));
@@ -148,6 +173,17 @@ public:
 
     void updateImageCanvasWithOverlay(const QImage &overlayImage, QPainter::CompositionMode mode)
     {
+        // Fast path: fully opaque image with SourceOver overlay — no need for checkers.
+        if (image.format() == QImage::Format_RGB32 && mode == QPainter::CompositionMode_SourceOver) {
+            QImage surface = image.copy();
+            QPainter painter(&surface);
+            painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+            painter.drawImage(0, 0, overlayImage);
+            painter.end();
+            canvas->setPixmap(QPixmap::fromImage(surface));
+            return;
+        }
+
         QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
         QPainter painter(&surface);
         QBrush brush;
@@ -163,8 +199,44 @@ public:
         canvas->setPixmap(QPixmap::fromImage(surface));
     }
 
+    void scheduleCanvasUpdate()
+    {
+        pendingOverlayUpdate = false;
+        pendingCanvasUpdate = true;
+        if (!updateTimer->isActive())
+            updateTimer->start();
+    }
+
+    void scheduleOverlayUpdate(const QImage &overlay, QPainter::CompositionMode mode)
+    {
+        pendingOverlayImage = overlay;
+        pendingOverlayMode = mode;
+        pendingOverlayUpdate = true;
+        if (!updateTimer->isActive())
+            updateTimer->start();
+    }
+
+    void flushPendingUpdate()
+    {
+        if (pendingOverlayUpdate) {
+            pendingOverlayUpdate = false;
+            updateImageCanvasWithOverlay(pendingOverlayImage, pendingOverlayMode);
+        } else if (pendingCanvasUpdate) {
+            pendingCanvasUpdate = false;
+            updateImageCanvas();
+        }
+    }
+
+    void resetPendingUpdates()
+    {
+        updateTimer->stop();
+        pendingCanvasUpdate = false;
+        pendingOverlayUpdate = false;
+    }
+
     void setImage(const QImage &image)
     {
+        resetPendingUpdates();
         bool sizeChanged = (this->image.size() != image.size());
         if(sizeChanged)
         {
@@ -310,6 +382,11 @@ public:
     QGraphicsLineItem *xline;
     QGraphicsLineItem *yline;
     QVector<QGraphicsLineItem*> lines;
+    QTimer *updateTimer;
+    bool pendingCanvasUpdate = false;
+    bool pendingOverlayUpdate = false;
+    QImage pendingOverlayImage;
+    QPainter::CompositionMode pendingOverlayMode = QPainter::CompositionMode_SourceOver;
 
     PaintWidget *q;
 };
@@ -415,7 +492,7 @@ void PaintWidget::setPaintTool(Tool *tool)
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
             if (&d->image == paintDevice)
             {
-                d->updateImageCanvas();
+                d->scheduleCanvasUpdate();
                 this->contentChanged();
                 d->imageChanged = true;
             }
@@ -423,7 +500,7 @@ void PaintWidget::setPaintTool(Tool *tool)
         d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode) {
             if (&d->image == paintDevice)
             {
-                d->updateImageCanvasWithOverlay(overlayImage, mode);
+                d->scheduleOverlayUpdate(overlayImage, mode);
             }
         });
 
