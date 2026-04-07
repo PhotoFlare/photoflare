@@ -140,11 +140,18 @@ QImage FilterManager::blurImage(const QImage &image, int radius)
 
 QImage FilterManager::setOpacity(const QImage &image, double dV)
 {
-    QGraphicsOpacityEffect *e = new QGraphicsOpacityEffect;
-    e->setOpacity(dV);
-    QImage modifiedImage = applyEffectToImage(image, e);
-
-    return modifiedImage;
+    QImage result = image.convertToFormat(QImage::Format_ARGB32);
+    const int newAlpha = qRound(dV * 255);
+    for (int y = 0; y < result.height(); ++y) {
+        QRgb *line = reinterpret_cast<QRgb *>(result.scanLine(y));
+        for (int x = 0; x < result.width(); ++x) {
+            const QRgb pixel = line[x];
+            if (qAlpha(pixel) > 0) {
+                line[x] = qRgba(qRed(pixel), qGreen(pixel), qBlue(pixel), newAlpha);
+            }
+        }
+    }
+    return result;
 }
 
 QImage FilterManager::dropShadow(const QImage &image, int radius, int padding, QColor color, int offsetx, int offsety)
