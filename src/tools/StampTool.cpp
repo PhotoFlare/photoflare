@@ -132,6 +132,7 @@ QCursor StampTool::getCursor()
     pen.setColor(Qt::gray);
     painter.setPen(pen);
     painter.drawEllipse(pixmap.rect());
+    pixmap.setDevicePixelRatio(qApp->devicePixelRatio());
     return QCursor(pixmap);
 }
 

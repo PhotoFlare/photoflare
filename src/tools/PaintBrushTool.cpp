@@ -130,6 +130,7 @@ QCursor PaintBrushTool::getCursor()
         painter.setPen(pen);
         painter.drawEllipse(pixmap.rect());
     }
+    pixmap.setDevicePixelRatio(qApp->devicePixelRatio());
     return QCursor(pixmap);
 }
 

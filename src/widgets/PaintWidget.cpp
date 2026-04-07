@@ -89,16 +89,18 @@ public:
         painter.drawImage(0, 0, image);
         if(isSelectionVisible)
         {
-            // Keep screen-visible line width at ~2px regardless of zoom by
-            // compensating: image-space width = desired_screen_px / scale.
-            float scaledVal = qBound(1.0f, 2.0f / scale, 20.0f);
+            // Keep screen-visible line width at ~2px regardless of zoom and
+            // device pixel ratio: image-space width = desired_screen_px / (scale * dpr).
+            float dpr = q->devicePixelRatioF();
+            float effectiveScale = scale * dpr;
+            float scaledVal = qBound(1.0f, 2.0f / effectiveScale, 20.0f);
             int cornerSize = 50;
 
-            if(scale < 0.5)
+            if(effectiveScale < 0.5)
             {
                 cornerSize = 100;
             }
-            else if(scale > 1) {
+            else if(effectiveScale > 1) {
                 cornerSize = 20;
             }
 

@@ -30,6 +30,7 @@
 
 int main(int argc, char *argv[])
 {
+    QApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
     QtSingleApplication app("Photoflare", argc, argv);
 
     if(!app.isRunning())
