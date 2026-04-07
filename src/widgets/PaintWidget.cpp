@@ -395,6 +395,8 @@ void PaintWidget::setPaintTool(Tool *tool)
 {
     if (d->currentTool)
     {
+        // If we have a pending change we apply it before changing tools
+        d->currentTool->onDeactivated();
         d->disconnectLastTool();
     }
 

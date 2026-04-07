@@ -30,6 +30,7 @@ public:
     ~PointerTool() override;
 
     void setOverlayImage(const QImage& image);
+    void onDeactivated() override;
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;

@@ -51,6 +51,7 @@ public:
     virtual void onKeyReleased(QKeyEvent *keyEvent);
     virtual void disconnect();
     virtual QCursor getCursor();
+    virtual void onDeactivated() {}
 
 signals:
     void cursorChanged(QCursor);

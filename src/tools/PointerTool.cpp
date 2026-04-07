@@ -206,6 +206,19 @@ void PointerTool::setOverlayImage(const QImage& image)
     emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
 }
 
+void PointerTool::onDeactivated()
+{
+    if (d->selectionMode == HAND && m_paintDevice && !d->image.isNull())
+    {
+        QPainter painter(m_paintDevice);
+        painter.drawImage(d->imagePos.x(), d->imagePos.y(), d->image);
+        painter.end();
+        d->image = QImage();
+        d->selectionMode = SELECT;
+        emit painted(m_paintDevice);
+    }
+}
+
 void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 {
     switch(button) {
