@@ -37,6 +37,7 @@ public:
 
 signals:
     void selectPrimaryColor(const QPoint&,int,bool);
+    void rightClicked();
 
 private:
     MagicWandToolPrivate *d;

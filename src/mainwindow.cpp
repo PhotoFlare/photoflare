@@ -276,6 +276,13 @@ void MainWindow::connectTools()
     QObject::connect(TEXT_TOOL, SIGNAL(editText(const QString&,const QFont&, const QColor&)), this, SLOT(onEditText(const QString&,const QFont&, const QColor&)));
 
     QObject::connect(MAGIC_WAND, SIGNAL(selectPrimaryColor(const QPoint&,int,bool)), this, SLOT(onSelectPrimaryColor(const QPoint&,int,bool)));
+    // Allow right click menu for wand tool
+    QObject::connect(MAGIC_WAND, &MagicWandTool::rightClicked, this, [this]() {
+        PaintWidget *widget = getCurrentPaintWidget();
+        if (widget && !widget->selection().isEmpty())
+            MOUSE_POINTER->restoreSelection(QPolygon(widget->selection().boundingRect()));
+        MOUSE_POINTER->showContextMenu();
+    });
 
     QObject::connect(SETTINGS, SIGNAL(multiWindowModeChanged(bool)), this, SLOT(onMultiWindowModeChanged(bool)));
 }
@@ -329,7 +336,7 @@ void MainWindow::addSettingsWidgets()
 
 */
 
-void MainWindow::applyThreadedFilter(QString filterName, double dV)
+void MainWindow::applyThreadedFilter(QString filterName, double dV, std::function<void(PaintWidget*)> postProcess)
 {
     QThread *thread = new QThread();
     FilterWorker *worker = new FilterWorker();
@@ -343,9 +350,12 @@ void MainWindow::applyThreadedFilter(QString filterName, double dV)
     worker->moveToThread(thread);
 
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
-    connect(worker, &FilterWorker::filterProcessFinished, this, [this, widget](QImage image) {
-        if (widget)
+    connect(worker, &FilterWorker::filterProcessFinished, this, [this, widget, postProcess](QImage image) {
+        if (widget) {
             widget->setImage(image);
+            if (postProcess)
+                postProcess(widget);
+        }
         batchLbl->setText(tr("Ready"));
     });
     thread->start();
@@ -921,15 +931,41 @@ void MainWindow::on_actionFlip_Vertical_triggered()
 void MainWindow::on_actionRotate_CCW_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-    applyThreadedFilter("rotateCCW");
+    if (!widget)
+        return;
+    // Restore selection after rotation by applying the same transformation to the selection points
+    const QSize size = widget->image().size();
+    const QPolygon sel = widget->selection();
+    applyThreadedFilter("rotateCCW", 0.0, [size, sel](PaintWidget *w) {
+        if (sel.isEmpty())
+            return;
+        QPolygon transformed;
+        transformed.reserve(sel.size());
+        for (const QPoint &pt : sel)
+            transformed << QPoint(pt.y(), size.width() - 1 - pt.x());
+        w->onSelectionChanged(transformed);
+        MOUSE_POINTER->restoreSelection(transformed);
+    });
 }
 
 void MainWindow::on_actionRotate_CW_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-    applyThreadedFilter("rotateCW");
+    if (!widget)
+        return;
+    // Restore selection after rotation by applying the same transformation to the selection points
+    const QSize size = widget->image().size();
+    const QPolygon sel = widget->selection();
+    applyThreadedFilter("rotateCW", 0.0, [size, sel](PaintWidget *w) {
+        if (sel.isEmpty())
+            return;
+        QPolygon transformed;
+        transformed.reserve(sel.size());
+        for (const QPoint &pt : sel)
+            transformed << QPoint(size.height() - 1 - pt.y(), pt.x());
+        w->onSelectionChanged(transformed);
+        MOUSE_POINTER->restoreSelection(transformed);
+    });
 }
 
 void MainWindow::on_actionFree_Rotate_triggered()
@@ -942,7 +978,10 @@ void MainWindow::on_actionFree_Rotate_triggered()
                                                tr("Degrees:"), 1.00, 0.0, 360.00, 0, &ok, Qt::WindowFlags(), 1.0);
         if(ok)
         {
-            applyThreadedFilter("rotate", d);
+            applyThreadedFilter("rotate", d, [](PaintWidget *w) {
+                w->onSelectionChanged(QPolygon());
+                MOUSE_POINTER->restoreSelection(QPolygon());
+            });
         }
     }
 }

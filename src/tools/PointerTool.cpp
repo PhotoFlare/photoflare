@@ -578,6 +578,11 @@ void PointerTool::setSelectionShape(PointerTool::SelectionShape shape)
     d->selectionShape = shape;
 }
 
+void PointerTool::showContextMenu()
+{
+    setupRightClickMenu(true);
+}
+
 void PointerTool::setupRightClickMenu(bool execute)
 {
     QClipboard *clipboard = QApplication::clipboard();

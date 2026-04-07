@@ -22,6 +22,7 @@
 #include <QMdiArea>
 #include <QLabel>
 #include <QNetworkReply>
+#include <functional>
 
 #include "dialogs/batchdialog.h"
 
@@ -252,7 +253,7 @@ private:
     void updateStatusArea(int width, int height);
     void clearStatusArea();
 
-    void applyThreadedFilter(QString filterName, double doubleVal = 0.0);
+    void applyThreadedFilter(QString filterName, double doubleVal = 0.0, std::function<void(PaintWidget*)> postProcess = nullptr);
     void applyThreadedFilterMP(QString filterName, double doubleVal = 0.0);
 
     Ui::MainWindow *ui;

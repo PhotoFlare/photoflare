@@ -50,6 +50,7 @@ void MagicWandTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             emit selectPrimaryColor(pos, d->tolerance, d->color);
             break;
         case Qt::RightButton:
+            emit rightClicked();
             break;
         default:
             break;

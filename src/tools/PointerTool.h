@@ -46,6 +46,7 @@ public:
     void restoreSelection(const QPolygon &poly);
 
 public slots:
+    void showContextMenu();
     void onCrop();
     void onStrokeRect();
     void onFillRect();
