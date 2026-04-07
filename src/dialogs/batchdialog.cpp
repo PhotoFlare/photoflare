@@ -498,17 +498,27 @@ char batchDialog::flip() const
 
 void batchDialog::on_addFilesButton_clicked()
 {
-        d->fileList = QFileDialog::getOpenFileNames(this, tr("Select Files"),d->openDir, tr("Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)"));
+    QStringList selected = QFileDialog::getOpenFileNames(this, tr("Select Files"), d->openDir, tr("Image Files (*.png *.jpg *.jpeg *.gif)"));
 
-        if(d->fileList.length()>0)
-        {
-            ui->listWidget->clear();
-
-            for(const QString &file : qAsConst(d->fileList))
-            {
-                addItemToFileListWidget(file);
-            }
+    if (selected.isEmpty())
+        return;
+    // Validate selected files to ensure they are of supported image types
+    QMimeDatabase db;
+    static const QStringList validMimeTypes = { "image/png", "image/jpeg", "image/gif" };
+    QStringList validFiles;
+    for (const QString &file : qAsConst(selected)) {
+        QMimeType mime = db.mimeTypeForFile(file, QMimeDatabase::MatchContent);
+        if (validMimeTypes.contains(mime.name()))
+            validFiles.append(file);
+    }
+    // If there are valid files, update the file list
+    if (!validFiles.isEmpty()) {
+        d->fileList = validFiles;
+        ui->listWidget->clear();
+        for (const QString &file : qAsConst(d->fileList)) {
+            addItemToFileListWidget(file);
         }
+    }
 }
 
 void batchDialog::on_outFolderPushButton_clicked()
@@ -618,7 +628,7 @@ void batchDialog::on_sourceFormat_currentIndexChanged(int index)
             for(int i=0;i<original_list.length();i++)
             {
                 QMimeDatabase db;
-                QMimeType mime = db.mimeTypeForFile(original_list[i]);
+                QMimeType mime = db.mimeTypeForFile(original_list[i], QMimeDatabase::MatchContent);
 
                 if(mime.name() == filterMIMEType)
                 {
