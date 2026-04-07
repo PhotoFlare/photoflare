@@ -247,7 +247,7 @@ void LineTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
 
-    if (m_paintDevice)
+    if (m_paintDevice && d->firstPos != d->secondPos)
     {
         QPainter painter(m_paintDevice);
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
