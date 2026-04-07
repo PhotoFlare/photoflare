@@ -169,15 +169,7 @@ public:
         {
             q->setSceneRect(image.rect());
         }
-
-        if(indexedMode)
-        {
-            this->image = image.convertToFormat(QImage::Format_Indexed8);
-        }
-        else
-        {
-            this->image = image;
-        }
+        this->image = image;
         this->updateImageCanvas();
     }
 
@@ -288,7 +280,6 @@ public:
     QPolygon selection;
     bool isSelectionVisible;
     bool hotspotVisible;
-    bool indexedMode = false;
     bool showGridEnabled = false;
     QGraphicsLineItem *xline;
     QGraphicsLineItem *yline;
@@ -637,10 +628,7 @@ void PaintWidget::selectAll()
     emit selectionChanged(true);
 }
 
-void PaintWidget::setImageModeIndexed(bool mode)
-{
-    d->indexedMode = mode;
-}
+
 
 void PaintWidget::showGrid(int width)
 {

@@ -63,7 +63,6 @@ public:
     bool isSelectionVisible();
     void setHotspotVisble(bool visible);
     void selectAll();
-    void setImageModeIndexed(bool mode);
     void showProgressIndicator(bool visible);
     void showGrid(int width);
     bool isGridEnabled();

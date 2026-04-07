@@ -859,12 +859,16 @@ void MainWindow::on_actionClearClipboard_triggered()
 void MainWindow::on_actionRGB_Mode_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if(widget)
+    if (widget)
     {
         ui->actionIndexed_Mode->setChecked(false);
-        widget->setImageModeIndexed(false);
+        if (widget->image().format() == QImage::Format_Indexed8)
+        {
+            widget->setImage(widget->image().convertToFormat(QImage::Format_ARGB32));
+        }
     }
-    else {
+    else
+    {
         ui->actionRGB_Mode->setChecked(false);
     }
 }
@@ -872,12 +876,16 @@ void MainWindow::on_actionRGB_Mode_triggered()
 void MainWindow::on_actionIndexed_Mode_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
-    if(widget)
+    if (widget)
     {
         ui->actionRGB_Mode->setChecked(false);
-        widget->setImageModeIndexed(true);
+        if (widget->image().format() != QImage::Format_Indexed8)
+        {
+            widget->setImage(widget->image().convertToFormat(QImage::Format_Indexed8));
+        }
     }
-    else {
+    else
+    {
         ui->actionIndexed_Mode->setChecked(false);
     }
 }
@@ -2368,6 +2376,11 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
         ui->actionShow_selection->setChecked(selectionVisible);
         ui->actionCrop->setEnabled(selectionVisible);
         ui->actionFill_Rect->setEnabled(selectionVisible);
+
+        // Set image mode checked status
+        bool isIndexed = widget->image().format() == QImage::Format_Indexed8;
+        ui->actionIndexed_Mode->setChecked(isIndexed);
+        ui->actionRGB_Mode->setChecked(!isIndexed);
 
         // Set view toolbar checked status
         if(ui->toolBar->isVisible())
