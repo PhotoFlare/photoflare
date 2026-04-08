@@ -356,7 +356,17 @@ void PaintBrushTool::onMouseMove(const QPoint &pos)
             }
         }
 
+        QPoint prevPos = d->lastPos;
         d->lastPos = pos;
-        emit painted(m_paintDevice);
+        // Soft-brush path composites the whole stroke layer, so the dirty region
+        // is the entire image. Full-opacity path only touches the stroke segment.
+        if (d->pressure < 100 && !d->strokeLayer.isNull()) {
+            emit painted(m_paintDevice);
+        } else {
+            int w = pen.width();
+            int half = w / 2 + 1;
+            QRect dirty = QRect(prevPos, pos).normalized().adjusted(-half, -half, half, half);
+            emit painted(m_paintDevice, dirty);
+        }
     }
 }

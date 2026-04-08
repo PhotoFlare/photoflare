@@ -158,6 +158,7 @@ void BlurTool::onMouseMove(const QPoint &pos)
         painter.setOpacity((float)d->pressure / 20.f);
         painter.drawPixmap(pos.x()-d->radius/2, pos.y()-d->radius/2, pixmap);
 
-        emit painted(m_paintDevice);
+        int half = d->radius / 2 + 1;
+        emit painted(m_paintDevice, QRect(pos, pos).adjusted(-half, -half, half, half));
     }
 }

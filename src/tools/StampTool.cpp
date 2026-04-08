@@ -254,8 +254,12 @@ void StampTool::onMouseMove(const QPoint &pos)
         }
         painter.drawPixmap(pos.x()-d->radius/2, pos.y()-d->radius/2, pixmap);
 
-        emit painted(m_paintDevice);
-        emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
+        {
+            int half = d->radius / 2 + 1;
+            QRect dirty = QRect(pos, pos).adjusted(-half, -half, half, half);
+            emit painted(m_paintDevice, dirty);
+            emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver, dirty);
+        }
     }
 }
 

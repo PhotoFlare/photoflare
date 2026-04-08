@@ -29,9 +29,90 @@
 #include <QImageReader>
 #include <QTimer>
 
+#include <functional>
+
+#include <QGraphicsItem>
+#include <QStyleOptionGraphicsItem>
+
 #include "../Settings.h"
 #include "PaintWidget.h"
 #include "./Tool.h"
+
+// ---------------------------------------------------------------------------
+// ImageCanvasItem — custom QGraphicsItem that paints directly from a QImage*,
+// compositing checkers only for the exposed (dirty) region.  Zero extra copies.
+// ---------------------------------------------------------------------------
+class ImageCanvasItem : public QGraphicsItem
+{
+public:
+    // Pointers into PaintWidgetPrivate — never own these.
+    const QImage *m_image        = nullptr;
+    // Optional overlay (e.g. tool preview line).  Null size = no overlay.
+    QImage        m_overlay;
+    QPainter::CompositionMode m_overlayMode = QPainter::CompositionMode_SourceOver;
+    bool          m_hasOverlay   = false;
+
+    // Selection polygon to paint on top (may be empty).
+    const QPolygon *m_selection          = nullptr;
+    bool            m_selectionVisible   = false;
+    bool            m_hotspotVisible     = false;
+
+    // drawSelection callback — we call it via a std::function so we don't need
+    // to duplicate the selection drawing logic.
+    std::function<void(QPainter &)> drawSelectionFn;
+
+    QRectF boundingRect() const override
+    {
+        return m_image ? QRectF(m_image->rect()) : QRectF();
+    }
+
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *) override
+    {
+        if (!m_image) return;
+
+        const QRect exposed = option->exposedRect.toAlignedRect().intersected(m_image->rect());
+        if (exposed.isEmpty()) return;
+
+        const bool opaque = (m_image->format() == QImage::Format_RGB32);
+
+        if (opaque && !m_hasOverlay && (!m_selectionVisible || !m_selection || m_selection->isEmpty())) {
+            // Fastest path: fully opaque, no overlay, no selection.
+            painter->drawImage(exposed, *m_image, exposed);
+            return;
+        }
+
+        // Composite into a small temporary surface covering only the exposed rect.
+        QImage tile(exposed.size(), QImage::Format_ARGB32_Premultiplied);
+        QPainter p(&tile);
+
+        if (opaque) {
+            // Base layer: image (no checkers needed).
+            p.drawImage(QPoint(0, 0), *m_image, exposed);
+        } else {
+            // Base layer: checkers then image.
+            QBrush brush;
+            brush.setTextureImage(QImage(":/pixmaps/assets/pixmaps/checkers.png"));
+            p.setCompositionMode(QPainter::CompositionMode_Source);
+            p.fillRect(tile.rect(), brush);
+            p.setCompositionMode(QPainter::CompositionMode_SourceOver);
+            p.drawImage(QPoint(0, 0), *m_image, exposed);
+        }
+
+        if (m_hasOverlay && !m_overlay.isNull()) {
+            p.setCompositionMode(m_overlayMode);
+            p.drawImage(QPoint(0, 0), m_overlay, exposed);
+        }
+
+        p.end();
+
+        // Draw the composited tile, then paint selection on top (in image coords).
+        painter->drawImage(exposed.topLeft(), tile);
+
+        if (m_selectionVisible && m_selection && !m_selection->isEmpty() && drawSelectionFn) {
+            drawSelectionFn(*painter);
+        }
+    }
+};
 
 #include "QProgressIndicator.h"
 
@@ -78,7 +159,14 @@ public:
         }
         this->image = img;
         q->setSceneRect(img.rect());
-        canvas = addPixmap(QPixmap::fromImage(img));
+
+        canvas = new ImageCanvasItem();
+        canvas->m_image = &this->image;
+        canvas->m_selection = &this->selection;
+        canvas->m_selectionVisible = this->isSelectionVisible;
+        canvas->drawSelectionFn = [this](QPainter &painter){ drawSelection(painter); };
+        addItem(canvas);
+
         q->setStyleSheet("background-color: rgb(160, 160, 160);");
     }
 
@@ -138,92 +226,67 @@ public:
         painter.drawPolygon(selection, Qt::WindingFill);
     }
 
-    void updateImageCanvas()
+    // Invalidate the canvas item for the given region (or fully if null).
+    // The item's paint() will composite checkers/overlay/selection on demand,
+    // touching only the pixels Qt actually needs to redraw.
+    void updateImageCanvas(const QRect &region = QRect())
     {
-        // Fast path: fully opaque image — skip checkers compositing entirely.
-        if (image.format() == QImage::Format_RGB32) {
-            if (isSelectionVisible && !selection.isEmpty()) {
-                QImage surface = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
-                QPainter painter(&surface);
-                drawSelection(painter);
-                painter.end();
-                canvas->setPixmap(QPixmap::fromImage(surface));
-            } else {
-                canvas->setPixmap(QPixmap::fromImage(image));
-            }
-            return;
-        }
-
-        QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
-        QPainter painter(&surface);
-        QBrush brush;
-        brush.setTextureImage(QImage(":/pixmaps/assets/pixmaps/checkers.png"));
-        painter.setBrush(brush);
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.fillRect(surface.rect(), brush);
-        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-        painter.drawImage(0, 0, image);
-        if(isSelectionVisible)
-        {
-            drawSelection(painter);
-        }
-        painter.end();
-        canvas->setPixmap(QPixmap::fromImage(surface));
+        canvas->m_hasOverlay = false;
+        canvas->m_selectionVisible = isSelectionVisible;
+        if (region.isNull())
+            canvas->update();
+        else
+            canvas->update(QRectF(region));
     }
 
-    void updateImageCanvasWithOverlay(const QImage &overlayImage, QPainter::CompositionMode mode)
+    void updateImageCanvasWithOverlay(const QImage &overlayImage, QPainter::CompositionMode mode, const QRect &region = QRect())
     {
-        // Fast path: fully opaque image with SourceOver overlay — no need for checkers.
-        if (image.format() == QImage::Format_RGB32 && mode == QPainter::CompositionMode_SourceOver) {
-            QImage surface = image.copy();
-            QPainter painter(&surface);
-            painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-            painter.drawImage(0, 0, overlayImage);
-            painter.end();
-            canvas->setPixmap(QPixmap::fromImage(surface));
-            return;
-        }
-
-        QImage surface = QImage(image.size(), QImage::Format_ARGB32_Premultiplied);
-        QPainter painter(&surface);
-        QBrush brush;
-        brush.setTextureImage(QImage(":/pixmaps/assets/pixmaps/checkers.png"));
-        painter.setBrush(brush);
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.fillRect(surface.rect(), brush);
-        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-        painter.drawImage(0, 0, image);
-        painter.setCompositionMode(mode);
-        painter.drawImage(0, 0, overlayImage);
-        painter.end();
-        canvas->setPixmap(QPixmap::fromImage(surface));
+        canvas->m_overlay      = overlayImage;
+        canvas->m_overlayMode  = mode;
+        canvas->m_hasOverlay   = true;
+        canvas->m_selectionVisible = isSelectionVisible;
+        if (region.isNull())
+            canvas->update();
+        else
+            canvas->update(QRectF(region));
     }
 
-    void scheduleCanvasUpdate()
+    void scheduleCanvasUpdate(const QRect &dirty = QRect())
     {
         pendingOverlayUpdate = false;
         pendingCanvasUpdate = true;
+        // Accumulate dirty rects: null means full image
+        if (dirty.isNull() || pendingDirtyRect.isNull())
+            pendingDirtyRect = QRect();
+        else
+            pendingDirtyRect = pendingDirtyRect.united(dirty);
         if (!updateTimer->isActive())
             updateTimer->start();
     }
 
-    void scheduleOverlayUpdate(const QImage &overlay, QPainter::CompositionMode mode)
+    void scheduleOverlayUpdate(const QImage &overlay, QPainter::CompositionMode mode, const QRect &dirty = QRect())
     {
         pendingOverlayImage = overlay;
         pendingOverlayMode = mode;
         pendingOverlayUpdate = true;
+        if (dirty.isNull() || pendingDirtyRect.isNull())
+            pendingDirtyRect = QRect();
+        else
+            pendingDirtyRect = pendingDirtyRect.united(dirty);
         if (!updateTimer->isActive())
             updateTimer->start();
     }
 
     void flushPendingUpdate()
     {
+        QRect dirty = pendingDirtyRect;
+        pendingDirtyRect = QRect();
         if (pendingOverlayUpdate) {
             pendingOverlayUpdate = false;
-            updateImageCanvasWithOverlay(pendingOverlayImage, pendingOverlayMode);
+            updateImageCanvasWithOverlay(pendingOverlayImage, pendingOverlayMode, dirty);
         } else if (pendingCanvasUpdate) {
             pendingCanvasUpdate = false;
-            updateImageCanvas();
+            updateImageCanvas(dirty);
         }
     }
 
@@ -232,6 +295,7 @@ public:
         updateTimer->stop();
         pendingCanvasUpdate = false;
         pendingOverlayUpdate = false;
+        pendingDirtyRect = QRect();
     }
 
     void setImage(const QImage &image)
@@ -371,7 +435,7 @@ public:
     QMetaObject::Connection lastOverlayConnection;
     QMetaObject::Connection cursorConnection;
     QMetaObject::Connection selectionConnection;
-    QGraphicsPixmapItem *canvas;
+    ImageCanvasItem *canvas;
     float scale;
     bool imageChanged;
     QPolygon selection;
@@ -387,6 +451,7 @@ public:
     bool pendingOverlayUpdate = false;
     QImage pendingOverlayImage;
     QPainter::CompositionMode pendingOverlayMode = QPainter::CompositionMode_SourceOver;
+    QRect pendingDirtyRect;
 
     PaintWidget *q;
 };
@@ -489,18 +554,18 @@ void PaintWidget::setPaintTool(Tool *tool)
         disconnect(d->currentTool, &Tool::cursorChanged,    nullptr, nullptr);
         disconnect(d->currentTool, &Tool::selectionChanged, nullptr, nullptr);
 
-        d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice) {
+        d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice, QRect dirtyRect) {
             if (&d->image == paintDevice)
             {
-                d->scheduleCanvasUpdate();
+                d->scheduleCanvasUpdate(dirtyRect);
                 this->contentChanged();
                 d->imageChanged = true;
             }
         });
-        d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode) {
+        d->lastOverlayConnection = connect(d->currentTool, &Tool::overlaid, [this] (QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode, QRect dirtyRect) {
             if (&d->image == paintDevice)
             {
-                d->scheduleOverlayUpdate(overlayImage, mode);
+                d->scheduleOverlayUpdate(overlayImage, mode, dirtyRect);
             }
         });
 

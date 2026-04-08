@@ -20,6 +20,7 @@
 
 #include <QObject>
 #include <QPoint>
+#include <QRect>
 #include <QImage>
 #include <QPainter>
 #include <QCursor>
@@ -57,10 +58,12 @@ signals:
     void cursorChanged(QCursor);
     void selectionChanged(QPolygon);
     /*!
-     * This signal must be emitted after the tool completes any paint action
+     * This signal must be emitted after the tool completes any paint action.
+     * When dirtyRect is provided, only that region of the canvas needs refreshing.
+     * Pass a null QRect() to indicate the entire image was modified.
      */
-    void painted(QPaintDevice *paintDevice);
-    void overlaid(QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode);
+    void painted(QPaintDevice *paintDevice, QRect dirtyRect = QRect());
+    void overlaid(QPaintDevice *paintDevice, const QImage &overlayImage, QPainter::CompositionMode mode, QRect dirtyRect = QRect());
 
 protected:
     QPaintDevice *m_paintDevice;
