@@ -1,9 +1,9 @@
 Package: photoflare
-Version: 1.6.12~jammy1
+Version: 1.7.0~noble1
 Architecture: amd64
 Maintainer: Dylan Coakley <info@photoflare.io>
 Installed-Size: 5000
-Depends: libc6,libgraphicsmagick++-q16-12,libqt5gui5,libqt5core5a,libqt5widgets5,libqt5printsupport5,qt5-image-formats-plugins, libomp5
+Depends: libc6,libgraphicsmagick++-q16-12t64,libqt6gui6t64,libqt6core6t64,libqt6widgets6t64,libqt6printsupport6t64,qt6-image-formats-plugins, libomp5
 Section: graphics
 Priority: optional
 Homepage: https://www.photoflare.io
