@@ -94,7 +94,10 @@ void TextTool::previewText()
         painter.setPen(d->color);
         painter.setFont(d->font);
         painter.setRenderHint(QPainter::TextAntialiasing, d->antialiasEnabled);
-        painter.drawText(d->textRect, Qt::TextWordWrap, d->text);
+        Qt::AlignmentFlag alignFlag = Qt::AlignLeft;
+        if (d->position == "center") alignFlag = Qt::AlignHCenter;
+        else if (d->position == "right") alignFlag = Qt::AlignRight;
+        painter.drawText(d->textRect, Qt::TextWordWrap | alignFlag, d->text);
         painter.end();
         emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
     }
@@ -108,7 +111,10 @@ void TextTool::drawText()
         painter.setPen(d->color);
         painter.setFont(d->font);
         painter.setRenderHint(QPainter::TextAntialiasing, d->antialiasEnabled);
-        painter.drawText(d->textRect, d->text);
+        Qt::AlignmentFlag alignFlag = Qt::AlignLeft;
+        if (d->position == "center") alignFlag = Qt::AlignHCenter;
+        else if (d->position == "right") alignFlag = Qt::AlignRight;
+        painter.drawText(d->textRect, alignFlag, d->text);
         painter.end();
         emit painted(m_paintDevice);
     }
