@@ -106,40 +106,70 @@ void BatchProcessWorker:: process()
                 image = FilterManager::instance()->wave(image);
             if(filter.contains("Implode"))
                 image = FilterManager::instance()->implode(image);
+            if(filter.contains("Explode"))
+                image = FilterManager::instance()->explode(image);
             if(filter.contains("Soften"))
                 image = FilterManager::instance()->soften(image);
-            if(filter.contains("Blur"))
+            if(filter == "Blur")
                 image = FilterManager::instance()->blur(image);
+            if(filter.contains("Motion Blur"))
+                image = FilterManager::instance()->motionBlur(image);
             if(filter.contains("Sharpen"))
                 image = FilterManager::instance()->sharpen(image);
             if(filter.contains("Reinforce"))
                 image = FilterManager::instance()->reinforce(image);
+            if(filter.contains("Emboss"))
+                image = FilterManager::instance()->emboss(image);
+            if(filter.contains("Sketch"))
+                image = FilterManager::instance()->sketch(image);
             if(filter.contains("Grayscale"))
                 image = FilterManager::instance()->grayscale(image);
+            if(filter.contains("Black and white"))
+                image = FilterManager::instance()->blackwhite(image);
             if(filter.contains("Old Photo"))
                 image = FilterManager::instance()->oldPhoto(image);
             if(filter.contains("Sepia"))
                 image = FilterManager::instance()->sepia(image);
-            if(filter.contains("Implode"))
-                image = FilterManager::instance()->implode(image);
-            if(filter.contains("Explode"))
-                image = FilterManager::instance()->explode(image);
+            if(filter.contains("Negative"))
+                image = FilterManager::instance()->negative(image);
             if(filter.contains("Simple Frame"))
                 image = FilterManager::instance()->simpleFrame(image);
             if(filter.contains("3D Frame"))
                 image = FilterManager::instance()->advFrame(image);
             if(filter.contains("Normalize"))
                 image = FilterManager::instance()->normalize(image);
-            if(filter.contains("Motion Blur"))
-                image = FilterManager::instance()->motionBlur(image);
+            if(filter.contains("Auto levels"))
+                image = FilterManager::instance()->autoLevels(image);
+            if(filter.contains("Auto contrast"))
+                image = FilterManager::instance()->autoContrast(image);
             if(filter.contains("Crop to center"))
                 image = FilterManager::instance()->cropToCenter(image);
             if(filter.contains("Equalize colours"))
                 image = FilterManager::instance()->equalizeColours(image);
             if(filter.contains("Monochrome edges"))
                 image = FilterManager::instance()->monoChromeEdges(image);
+            if(filter.contains("Pixelate"))
+                image = FilterManager::instance()->pixelate(image);
+            if(filter.contains("Vignette"))
+                image = FilterManager::instance()->vignette(image);
+            if(filter.contains("Posterize"))
+                image = FilterManager::instance()->posterize(image);
+            if(filter.contains("Pixel Scatter"))
+                image = FilterManager::instance()->pixelScatter(image);
             if(filter.contains("Gaussian noise"))
                 image = FilterManager::instance()->gaussianNoise(image);
+            if(filter.contains("Impulse noise"))
+                image = FilterManager::instance()->impulseNoise(image);
+            if(filter.contains("Laplacian noise"))
+                image = FilterManager::instance()->laplacianNoise(image);
+            if(filter.contains("Poisson noise"))
+                image = FilterManager::instance()->poissonNoise(image);
+            if(filter.contains("Dust Reduction"))
+                image = FilterManager::instance()->dustreduction(image);
+            if(filter.contains("Despeckle"))
+                image = FilterManager::instance()->deSpeckle(image);
+            if(filter.contains("Trim"))
+                image = FilterManager::instance()->trim(image);
             if(filter.contains("Drop shadow"))
                 image = FilterManager::instance()->dropShadow(image,5,40,Qt::black,0,10);
             if(filter.contains("Opacity"))
