@@ -203,7 +203,29 @@ void PointerTool::setOverlayImage(const QImage& image)
     d->selectionMode = HAND;
     d->image = image;
     d->imagePos = QPoint(0,0);
-    emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
+    emit cursorChanged(Qt::DragCopyCursor);
+    const QImage *paintImage = dynamic_cast<QImage*>(m_paintDevice);
+    if (paintImage) {
+        float scaledVal = 2.00;
+        if (m_scale < 0.5)
+            scaledVal = 5.00;
+        else if (m_scale > 1)
+            scaledVal = 1.00;
+        QImage surface = QImage(paintImage->size(), QImage::Format_ARGB32_Premultiplied);
+        QPainter painter(&surface);
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.fillRect(surface.rect(), Qt::transparent);
+        QPen pen = QPen(QBrush(), scaledVal, Qt::DashLine);
+        pen.setColor(QColor(0x00, 0xad, 0xee));
+        painter.setPen(pen);
+        const QRect rect = QRect(0, 0, d->image.width(), d->image.height());
+        painter.drawImage(rect, d->image);
+        painter.drawRect(rect);
+        painter.end();
+        emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
+    } else {
+        emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
+    }
 }
 
 void PointerTool::onDeactivated()
@@ -340,7 +362,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
             painter.setCompositionMode(QPainter::CompositionMode_Source);
             painter.fillRect(surface.rect(), Qt::transparent);
             QPen pen = QPen(QBrush(), (scaledVal), Qt::DashLine);
-            pen.setColor(Qt::red);
+            pen.setColor(QColor(0x00, 0xad, 0xee));
             painter.setPen(pen);
 
             QRect rect = QRect(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y(),
@@ -350,6 +372,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
             painter.end();
 
             emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
+            emit cursorChanged(Qt::ClosedHandCursor);
         }
         else if(d->selectionMode == SELECT)
         {
@@ -413,7 +436,6 @@ void PointerTool::onMouseMove(const QPoint &pos)
 
 void PointerTool::onMouseRelease(const QPoint &pos)
 {
-    Q_UNUSED(pos);
     emit cursorChanged(Qt::ArrowCursor);
     emit showhotspots();
 
@@ -422,7 +444,11 @@ void PointerTool::onMouseRelease(const QPoint &pos)
         d->imagePos = QPoint(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y());
         d->firstPos = d->secondPos;
 
-        emit cursorChanged(Qt::ArrowCursor);
+        const QRect newRect = QRect(d->imagePos, d->image.size());
+        if (newRect.contains(pos))
+            emit cursorChanged(Qt::OpenHandCursor);
+        else
+            emit cursorChanged(Qt::DragCopyCursor);
     }
     else if(d->selectionMode == SELECT)
     {
@@ -499,6 +525,15 @@ void PointerTool::onMouseRelease(const QPoint &pos)
 
 void PointerTool::onHover(const QPoint &pos)
 {
+    if (d->selectionMode == HAND)
+    {
+        const QRect imageRect = QRect(d->imagePos, d->image.size());
+        if (imageRect.contains(pos))
+            emit cursorChanged(Qt::OpenHandCursor);
+        else
+            emit cursorChanged(Qt::DragCopyCursor);
+        return;
+    }
     if (d->selectionMode != SELECT)
     {
         emit cursorChanged(Qt::ArrowCursor);
