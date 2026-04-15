@@ -47,11 +47,14 @@ NewDialog::NewDialog(QWidget *parent) :
     // Set default values
     original_width_px = 0;
     original_height_px = 0;
+    width_px = 640.0f;
+    height_px = 480.0f;
+    currentMode = NewImage;
     currentUnit = SETTINGS->getUnit();
     ui->imageResCombo->setCurrentIndex(PPI);
-    ui->imageWHcombo->setCurrentIndex(currentUnit);
-    // Standard PPI
+    // Standard PPI - must be set before imageWHcombo so unit conversions don't divide by zero
     ui->imageRvalue->setValue(96.0);
+    ui->imageWHcombo->setCurrentIndex(currentUnit);
     ui->pixelWvalue->setValue(width_px);
     ui->pixelHvalue->setValue(height_px);
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
@@ -72,12 +75,7 @@ NewDialog::NewDialog(QWidget *parent) :
     // Order for tabbing
     setTabOrder(ui->imageWvalue, ui->imageHvalue);
     ui->imageWvalue->setFocus();
-
-    if(SETTINGS->getMemParamsEnabled() && ResizeImage != 1)
-    {
-        //Read Dialog settings
-        readSettings(this);
-    }
+    // readSettings is deferred to setMode() so the mode is known when settings are restored
 }
 
 NewDialog::~NewDialog()
@@ -120,9 +118,11 @@ void NewDialog::on_buttonBox_accepted()
     m_chosenSize.setWidth(width_px);
     m_chosenSize.setHeight(height_px);
 
-    if(SETTINGS->getMemParamsEnabled() && ResizeImage != 1)
+    SETTINGS->setUnit(currentUnit);
+
+    if(SETTINGS->getMemParamsEnabled() && currentMode != ResizeImage)
     {
-        //Read Dialog settings
+        //Write Dialog settings
         writeSettings(this);
     }
 }
@@ -308,6 +308,7 @@ void NewDialog::on_imageWvalue_valueChanged(double value)
 
 void NewDialog::setMode(Mode mode)
 {
+   currentMode = mode;
    if(mode == ResizeImage)
    {
         ui->lockedRatioButton->setVisible(true);
@@ -349,6 +350,11 @@ void NewDialog::setMode(Mode mode)
        ui->positionLabel->setVisible(true);
        ui->positionWidget->setVisible(true);
        ui->backgroundColourEnabled->setVisible(false);
+   }
+
+   if(SETTINGS->getMemParamsEnabled() && mode != ResizeImage)
+   {
+       readSettings(this);
    }
 }
 
@@ -431,8 +437,10 @@ void NewDialog::readSettings(QWidget* window)
     if (!value.isNull())
     {
         window->move(settings.value("pos").toPoint());
-        ui->imageWvalue->setValue(settings.value("width").toFloat());
-        ui->imageHvalue->setValue(height_px = settings.value("height").toFloat());
+        // Set pixel values directly, then update the display for the current unit
+        width_px = settings.value("width").toFloat();
+        height_px = settings.value("height").toFloat();
+        on_imageWHcombo_currentIndexChanged(currentUnit);
     }
     settings.endGroup();
 }

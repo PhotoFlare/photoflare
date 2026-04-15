@@ -72,6 +72,7 @@ private:
     float original_width_px;
     float original_height_px;
     int currentUnit;
+    Mode currentMode;
 };
 
 #endif // NEWDIALOG_H
