@@ -239,7 +239,14 @@ void LineTool::onMouseMove(const QPoint &pos)
         painter.setPen(pen);
 
         painter.drawLine(firstPos, secondPos);
-        emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
+        {
+            QPen linePen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+            int expansion = linePen.width() / 2 + 1;
+            if (d->oneWayArrow || d->twoWaysArrow)
+                expansion += 20 + linePen.width() * 2; // arrow heads
+            QRect dirty = QRect(d->firstPos, d->secondPos).normalized().adjusted(-expansion, -expansion, expansion, expansion);
+            emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver, dirty);
+        }
     }
 }
 
@@ -280,7 +287,14 @@ void LineTool::onMouseRelease(const QPoint &pos)
 
         painter.drawLine(firstPos, secondPos);
 
-        emit painted(m_paintDevice);
+        {
+            QPen linePen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+            int expansion = linePen.width() / 2 + 1;
+            if (d->oneWayArrow || d->twoWaysArrow)
+                expansion += 20 + linePen.width() * 2;
+            QRect dirty = QRect(d->firstPos, d->secondPos).normalized().adjusted(-expansion, -expansion, expansion, expansion);
+            emit painted(m_paintDevice, dirty);
+        }
     }
 
     d->mouseButton = Qt::NoButton;

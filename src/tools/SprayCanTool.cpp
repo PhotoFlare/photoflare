@@ -73,7 +73,8 @@ void SprayCanTool::timerEvent(QTimerEvent *event)
         painter.setOpacity(d->opacity);
         fillPattern();
         painter.drawPixmap(d->lastPos.x() - d->pixmap.width()/2, d->lastPos.y() - d->pixmap.height()/2, d->pixmap);
-        emit painted(m_paintDevice);
+        int half = d->radius / 2 + 1;
+        emit painted(m_paintDevice, QRect(d->lastPos, d->lastPos).adjusted(-half, -half, half, half));
     }
 }
 
@@ -163,8 +164,9 @@ void SprayCanTool::onMouseMove(const QPoint &pos)
         painter.drawPixmap(pos.x() - w/2, pos.y() - w/2, d->pixmap);
         d->lastStep = pos;
 
+        int half = w / 2 + 1;
         d->lastPos = pos;
-        emit painted(m_paintDevice);
+        emit painted(m_paintDevice, QRect(pos, pos).adjusted(-half, -half, half, half));
     }
 }
 

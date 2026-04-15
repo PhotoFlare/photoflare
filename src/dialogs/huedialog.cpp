@@ -37,11 +37,16 @@ HueDialog::HueDialog(QWidget *parent, QImage preview) :
                                     stop: 0.48 cyan, stop: 0.64 blue, stop: 0.8 magenta, stop: 1 red);");
     ui->colorLabel->installEventFilter(this);
 
+    if (!preview.isNull()) {
+        const QImage src = preview.convertToFormat(
+            preview.hasAlphaChannel() ? QImage::Format_ARGB32 : QImage::Format_RGB32);
+        m_preview = src.scaled(240, 180, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    }
+
     if(SETTINGS->getMemParamsEnabled())
     {
         readSettings(this);
     }
-    m_preview = preview.scaled(240,180);
     setPreviewImage(m_preview);
 }
 

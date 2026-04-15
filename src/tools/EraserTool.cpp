@@ -101,7 +101,10 @@ void EraserTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     painter.setPen(pen);
     painter.drawPoint(pos.x(), pos.y());
     painter.end();
-    emit painted(m_paintDevice);
+    {
+        int half = pen.width() / 2 + 1;
+        emit painted(m_paintDevice, QRect(pos, pos).adjusted(-half, -half, half, half));
+    }
 }
 
 void EraserTool::onMouseMove(const QPoint &pos)
@@ -153,7 +156,9 @@ void EraserTool::onMouseMove(const QPoint &pos)
             painter.setPen(pen);
             painter.drawLine(d->lastPos, pos);
         }
+        int half = pen.width() / 2 + 1;
+        QPoint prevPos = d->lastPos;
         d->lastPos = pos;
-        emit painted(m_paintDevice);
+        emit painted(m_paintDevice, QRect(prevPos, pos).normalized().adjusted(-half, -half, half, half));
     }
 }

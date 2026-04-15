@@ -140,7 +140,8 @@ void PaintBrushAdvTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     QPainter painter(m_paintDevice);
     painter.setOpacity(d->opacity);
     painter.drawPixmap(pos.x() - w/2, pos.y() - w/2, d->pixmap);
-    emit painted(m_paintDevice);
+    int half = w / 2 + 1;
+    emit painted(m_paintDevice, QRect(pos, pos).adjusted(-half, -half, half, half));
 }
 
 void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
@@ -193,8 +194,11 @@ void PaintBrushAdvTool::onMouseMove(const QPoint &pos)
         if(d->fade)
             d->opacity = d->opacity - 0.01f;
 
+        int w = d->primaryPen.width();
+        int half = w / 2 + 1;
+        QPoint prevPos = d->lastPos;
         d->lastPos = pos;
-        emit painted(m_paintDevice);
+        emit painted(m_paintDevice, QRect(prevPos, pos).normalized().adjusted(-half, -half, half, half));
     }
 }
 

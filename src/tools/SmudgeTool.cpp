@@ -110,10 +110,13 @@ void SmudgeTool::onMouseMove(const QPoint &pos)
         }
 
         QPainter painter(m_paintDevice);
-        painter.drawPixmap(pos.x()-int(d->radius * pressure / 2), pos.y()-int(d->radius * pressure / 2), d->pixmap.fromImage(pattern));
+        float drawRadius = d->radius * pressure / 2;
+        painter.drawPixmap(pos.x()-int(drawRadius), pos.y()-int(drawRadius), d->pixmap.fromImage(pattern));
 
+        int half = int(drawRadius) + 1;
+        QPoint prevPos = d->lastPos;
         d->lastPos = pos;
-        emit painted(m_paintDevice);
+        emit painted(m_paintDevice, QRect(prevPos, pos).normalized().adjusted(-half, -half, half, half));
 
         const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
         d->completeImage = *image;
