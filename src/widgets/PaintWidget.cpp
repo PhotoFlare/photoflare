@@ -22,6 +22,7 @@
 #include <QLabel>
 #include <QPainter>
 #include <QPainterPath>
+#include <QMouseEvent>
 #include <QScrollBar>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
@@ -640,7 +641,31 @@ QImage PaintWidget::image() const
 
 void PaintWidget::onCursorChanged(QCursor cursor)
 {
-    setCursor(cursor);
+    viewport()->setCursor(cursor);
+}
+
+void PaintWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    QGraphicsView::mouseMoveEvent(event);
+    if (d->currentTool) {
+        if (sceneRect().contains(mapToScene(event->pos())))
+            viewport()->setCursor(d->currentTool->getCursor());
+        else
+            viewport()->unsetCursor();
+    }
+}
+
+void PaintWidget::leaveEvent(QEvent *event)
+{
+    QGraphicsView::leaveEvent(event);
+    viewport()->unsetCursor();
+}
+
+void PaintWidget::enterEvent(QEnterEvent *event)
+{
+    QGraphicsView::enterEvent(event);
+    if (d->currentTool)
+        viewport()->setCursor(d->currentTool->getCursor());
 }
 
 void PaintWidget::onSelectionChanged(QPolygon poly)
