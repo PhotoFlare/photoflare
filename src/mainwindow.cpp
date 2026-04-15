@@ -732,7 +732,11 @@ void MainWindow::on_actionPrint_triggered()
             PaintWidget *widget = getCurrentPaintWidget();
             if (widget)
             {
-                painter.drawImage(0,0,widget->image());
+                QImage image = widget->image();
+                QRect pageRect = printer.pageRect(QPrinter::DevicePixel).toRect();
+                QSize scaled = image.size().scaled(pageRect.size(), Qt::KeepAspectRatio);
+                QRect destRect(pageRect.topLeft(), scaled);
+                painter.drawImage(destRect, image);
             }
             painter.end();
         }
