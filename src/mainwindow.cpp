@@ -28,6 +28,8 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QThread>
 #include <QMimeData>
+#include <QDragEnterEvent>
+#include <QDropEvent>
 #include <QDesktopServices>
 #include <QTimer>
 #include <QImageReader>
@@ -138,6 +140,9 @@ MainWindow::MainWindow() :
 
     // Update recents
     updateRecentFilesMenu();
+
+    // Enable drag-and-drop of image files onto the main window
+    setAcceptDrops(true);
 }
 
 MainWindow::~MainWindow()
@@ -510,6 +515,20 @@ void MainWindow::handleMessage(const QString& message)
     QFileInfo fileInfo(message);
     if(fileInfo.exists())
         openFile(QString(fileInfo.absoluteFilePath()));
+}
+
+void MainWindow::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasUrls())
+        event->acceptProposedAction();
+}
+
+void MainWindow::dropEvent(QDropEvent *event)
+{
+    for (const QUrl &url : event->mimeData()->urls()) {
+        if (url.isLocalFile())
+            openFile(url.toLocalFile());
+    }
 }
 
 void MainWindow::on_actionRevert_triggered()

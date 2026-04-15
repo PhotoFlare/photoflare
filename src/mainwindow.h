@@ -236,6 +236,8 @@ private slots:
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject * obj, QEvent * e);
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
 
 private:
     PaintWidget* createPaintWidget(const QString &imagePath) const;
