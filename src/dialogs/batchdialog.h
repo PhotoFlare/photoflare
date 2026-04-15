@@ -103,7 +103,13 @@ private slots:
     void on_addFilterButton_clicked();
     void on_removeFilterButton_clicked();
 
+protected:
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+
 private:
+    void addFilesToList(const QStringList &files);
+
     Ui::batchDialog *ui;
     BatchDialogPrivate *d;
 

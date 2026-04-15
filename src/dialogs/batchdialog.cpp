@@ -22,6 +22,9 @@
 #include <QColorDialog>
 #include <QMessageBox>
 #include <QMimeDatabase>
+#include <QMimeData>
+#include <QDragEnterEvent>
+#include <QDropEvent>
 #include <QSettings>
 
 #include "batchdialog.h"
@@ -100,6 +103,7 @@ batchDialog::batchDialog(QWidget *parent) :
 
     ui->backgroundColorComboBox->setOnClickHandler(this);
     ui->listWidget->setIconSize(QSize(64,64));
+    setAcceptDrops(true);
 
     if(SETTINGS->getMemParamsEnabled() == true)
     {
@@ -503,23 +507,8 @@ void batchDialog::on_addFilesButton_clicked()
 
     if (selected.isEmpty())
         return;
-    // Validate selected files to ensure they are of supported image types
-    QMimeDatabase db;
-    static const QStringList validMimeTypes = { "image/png", "image/jpeg", "image/gif" };
-    QStringList validFiles;
-    for (const QString &file : qAsConst(selected)) {
-        QMimeType mime = db.mimeTypeForFile(file, QMimeDatabase::MatchContent);
-        if (validMimeTypes.contains(mime.name()))
-            validFiles.append(file);
-    }
-    // If there are valid files, update the file list
-    if (!validFiles.isEmpty()) {
-        d->fileList = validFiles;
-        ui->listWidget->clear();
-        for (const QString &file : qAsConst(d->fileList)) {
-            addItemToFileListWidget(file);
-        }
-    }
+
+    addFilesToList(selected);
 }
 
 void batchDialog::on_outFolderPushButton_clicked()
@@ -666,4 +655,55 @@ void batchDialog::on_addFilterButton_clicked()
 void batchDialog::on_removeFilterButton_clicked()
 {
     on_listWidget_3_doubleClicked(ui->listWidget_3->currentIndex());
+}
+
+void batchDialog::addFilesToList(const QStringList &files)
+{
+    QMimeDatabase db;
+    static const QStringList validMimeTypes = { "image/png", "image/jpeg", "image/gif" };
+
+    // Determine which list to check for duplicates: the full unfiltered list when
+    // a source-format filter is active, otherwise the current file list.
+    const QStringList *base = original_list.isEmpty() ? &d->fileList : &original_list;
+
+    QStringList newFiles;
+    for (const QString &file : files) {
+        if (base->contains(file))
+            continue;
+        QMimeType mime = db.mimeTypeForFile(file, QMimeDatabase::MatchContent);
+        if (!validMimeTypes.contains(mime.name()))
+            continue;
+        newFiles.append(file);
+    }
+
+    if (newFiles.isEmpty())
+        return;
+
+    if (!original_list.isEmpty()) {
+        // A source-format filter is active. Append to the full list then re-apply
+        // the filter so the widget stays consistent.
+        original_list.append(newFiles);
+        on_sourceFormat_currentIndexChanged(ui->sourceFormat->currentIndex());
+    } else {
+        for (const QString &file : newFiles) {
+            d->fileList.append(file);
+            addItemToFileListWidget(file);
+        }
+    }
+}
+
+void batchDialog::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasUrls())
+        event->acceptProposedAction();
+}
+
+void batchDialog::dropEvent(QDropEvent *event)
+{
+    QStringList files;
+    for (const QUrl &url : event->mimeData()->urls()) {
+        if (url.isLocalFile())
+            files.append(url.toLocalFile());
+    }
+    addFilesToList(files);
 }
