@@ -137,7 +137,10 @@ void BlurTool::onMouseMove(const QPoint &pos)
 
                 if(i*i + j*j > d->radius*d->radius/4)
                     continue;
-                pen.setColor(image->pixel(pos.x() + i, pos.y() + j));
+                QRgb pixelColor = image->pixel(pos.x() + i, pos.y() + j);
+                if(qAlpha(pixelColor) == 0)
+                    continue;
+                pen.setColor(QColor(pixelColor));
                 painterPix.setPen(pen);
                 painterPix.setOpacity(((float)1 - ((float)(i*i + j*j) / (float)(d->radius*d->radius/4))));
                 painterPix.drawPoint(i+d->radius/2, j+d->radius/2);
