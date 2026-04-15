@@ -86,6 +86,7 @@
 #include "workers/BatchProcessWorker.h"
 #include "workers/filterworker.h"
 #include "workers/filterworkermp.h"
+#include "workers/FloodFillWorker.h"
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -2204,12 +2205,23 @@ void MainWindow::on_toolButtonPaintBucket_clicked()
 
 void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
 {
-    const QColor& color = ui->colorBoxWidget->primaryColor();
+    const QColor color = ui->colorBoxWidget->primaryColor();
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
-        QImage snapshot = widget->image();
-        QImage filled = FilterManager::instance()->floodFill(snapshot, pos, color);
-        const QPolygon sel = widget->selection();
+    if (!widget)
+        return;
+
+    const QImage snapshot = widget->image();
+    const QPolygon sel = widget->selection();
+
+    QThread *thread = new QThread();
+    FloodFillWorker *worker = new FloodFillWorker();
+    worker->setImage(snapshot);
+    worker->setPos(pos);
+    worker->setColor(color);
+    worker->moveToThread(thread);
+
+    connect(thread, &QThread::started, worker, &FloodFillWorker::process);
+    connect(worker, &FloodFillWorker::finished, this, [this, widget, snapshot, sel](QImage filled) {
         if (!sel.isEmpty()) {
             QPainterPath inside;
             inside.addPolygon(sel);
@@ -2222,17 +2234,35 @@ void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
             filled = result;
         }
         widget->setImage(filled);
-    }
+        batchLbl->setText(tr("Ready"));
+    });
+    connect(worker, &FloodFillWorker::finished, thread, &QThread::quit);
+    connect(thread, &QThread::finished, worker, &QObject::deleteLater);
+    connect(thread, &QThread::finished, thread, &QObject::deleteLater);
+    thread->start();
+
+    batchLbl->setText(tr("Working..."));
 }
 
 void MainWindow::onFloodFillSecondaryColor(const QPoint& pos)
 {
-    const QColor& color = ui->colorBoxWidget->secondaryColor();
+    const QColor color = ui->colorBoxWidget->secondaryColor();
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget) {
-        QImage snapshot = widget->image();
-        QImage filled = FilterManager::instance()->floodFill(snapshot, pos, color);
-        const QPolygon sel = widget->selection();
+    if (!widget)
+        return;
+
+    const QImage snapshot = widget->image();
+    const QPolygon sel = widget->selection();
+
+    QThread *thread = new QThread();
+    FloodFillWorker *worker = new FloodFillWorker();
+    worker->setImage(snapshot);
+    worker->setPos(pos);
+    worker->setColor(color);
+    worker->moveToThread(thread);
+
+    connect(thread, &QThread::started, worker, &FloodFillWorker::process);
+    connect(worker, &FloodFillWorker::finished, this, [this, widget, snapshot, sel](QImage filled) {
         if (!sel.isEmpty()) {
             QPainterPath inside;
             inside.addPolygon(sel);
@@ -2245,7 +2275,14 @@ void MainWindow::onFloodFillSecondaryColor(const QPoint& pos)
             filled = result;
         }
         widget->setImage(filled);
-    }
+        batchLbl->setText(tr("Ready"));
+    });
+    connect(worker, &FloodFillWorker::finished, thread, &QThread::quit);
+    connect(thread, &QThread::finished, worker, &QObject::deleteLater);
+    connect(thread, &QThread::finished, thread, &QObject::deleteLater);
+    thread->start();
+
+    batchLbl->setText(tr("Working..."));
 }
 
 void MainWindow::on_toolButtonSprayCan_clicked()
