@@ -679,18 +679,6 @@ void MainWindow::on_actionSave_As_triggered()
         // Save image with the selected quality value
         if (saveImage(fileName, quality))
         {
-            PaintWidget *widget = getCurrentPaintWidget();
-            if (widget)
-                widget->setImage(QImage(fileName));
-
-            // Update tab label
-            ui->mdiArea->currentSubWindow()->setWindowModified(false);
-            ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
-
-            // Update image path so the file properties dialog will show all file details
-            QDir d = QFileInfo(fileName).absoluteDir();
-            widget->setImagePath(d.absolutePath());
-
             // Update recents
             SETTINGS->addRecentFile(fileName);
             updateRecentFilesMenu();
