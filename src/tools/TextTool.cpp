@@ -30,6 +30,7 @@ public:
     QPoint firstPos;
     QPoint secondPos;
     QRect textRect;
+    QPoint dragOffset;
     QString text;
     QFont font;
     QColor color;
@@ -86,17 +87,16 @@ void TextTool::previewText()
         painter.setCompositionMode(QPainter::CompositionMode_Source);
         painter.fillRect(surface.rect(), Qt::transparent);
         QPen pen = QPen(QBrush(), 1, Qt::DashLine);
-        pen.setColor(Qt::gray);
+        pen.setColor(QColor(0x00, 0xad, 0xee));
         painter.setPen(pen);
         painter.drawRect(d->textRect);
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-        painter.fillRect(d->textRect, Qt::gray);
         painter.setPen(d->color);
         painter.setFont(d->font);
         painter.setRenderHint(QPainter::Antialiasing, d->antialiasEnabled);
         painter.drawText(d->textRect, Qt::TextWordWrap, d->text);
         painter.end();
-        emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_Difference);
+        emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
     }
 }
 
@@ -134,6 +134,8 @@ void TextTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             d->secondPos = pos;
             if(!d->textRect.contains(pos))
                 disconnect();
+            else
+                d->dragOffset = pos - d->textRect.topLeft();
             break;
         case Qt::RightButton:
             break;
@@ -147,7 +149,7 @@ void TextTool::onMouseMove(const QPoint &pos)
     d->secondPos = pos;
     if(d->previewMode)
     {
-        d->textRect.moveTo(pos);
+        d->textRect.moveTo(pos - d->dragOffset);
         previewText();
     }
 }
