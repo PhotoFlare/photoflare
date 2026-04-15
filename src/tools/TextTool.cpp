@@ -93,7 +93,7 @@ void TextTool::previewText()
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.setPen(d->color);
         painter.setFont(d->font);
-        painter.setRenderHint(QPainter::Antialiasing, d->antialiasEnabled);
+        painter.setRenderHint(QPainter::TextAntialiasing, d->antialiasEnabled);
         painter.drawText(d->textRect, Qt::TextWordWrap, d->text);
         painter.end();
         emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
@@ -107,7 +107,7 @@ void TextTool::drawText()
         QPainter painter(m_paintDevice);
         painter.setPen(d->color);
         painter.setFont(d->font);
-        painter.setRenderHint(QPainter::Antialiasing, d->antialiasEnabled);
+        painter.setRenderHint(QPainter::TextAntialiasing, d->antialiasEnabled);
         painter.drawText(d->textRect, d->text);
         painter.end();
         emit painted(m_paintDevice);
