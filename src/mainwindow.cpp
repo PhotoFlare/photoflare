@@ -173,6 +173,11 @@ void MainWindow::setupWorkspace()
     // Set tab height based on the system DPI, with a minimum of 30px.
     const int tabHeight = qMax(30, qRound(30.0 * ui->mdiArea->logicalDpiY() / 96.0));
     ui->mdiArea->setStyleSheet(QString("QTabBar::tab { height: %1px; }").arg(tabHeight));
+    // Disable the left/right scroll arrow buttons on the tab bar — they overlap the tab labels.
+    // Tabs are still navigable via the mouse wheel over the tab bar.
+    if (QTabBar *tabBar = ui->mdiArea->findChild<QTabBar*>()) {
+        tabBar->setUsesScrollButtons(false);
+    }
 
     // Set dock layout
     if(SETTINGS->getDockLayout() == "1")
