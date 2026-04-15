@@ -256,36 +256,47 @@ void LineTool::onMouseRelease(const QPoint &pos)
 
     if (m_paintDevice && d->firstPos != d->secondPos)
     {
-        QPainter painter(m_paintDevice);
         QPen pen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
+
+        // Draw the arrow head(s) and line onto a transparent intermediate image at
+        // full opacity first, then composite onto the destination in a single pass at
+        // the desired opacity. This prevents double-blending where the arrowhead and
+        // line endpoint overlap, which would otherwise produce a visible seam.
+        QImage tempImage(m_paintDevice->width(), m_paintDevice->height(), QImage::Format_ARGB32);
+        tempImage.fill(Qt::transparent);
+        {
+            QPainter tempPainter(&tempImage);
+            if (d->antialias)
+                tempPainter.setRenderHint(QPainter::Antialiasing);
+
+            QBrush brush = QBrush(pen.color(), Qt::SolidPattern);
+            tempPainter.setBrush(brush);
+
+            Qt::PenStyle penStyle = pen.style();
+            pen.setStyle(Qt::SolidLine);
+            tempPainter.setPen(pen);
+
+            QPoint firstPos = d->firstPos;
+            QPoint secondPos = d->secondPos;
+            if (d->oneWayArrow)
+                drawArrow(tempPainter, d->firstPos, d->secondPos, secondPos);
+
+            if (d->twoWaysArrow)
+            {
+                drawArrow(tempPainter, d->firstPos, d->secondPos, secondPos);
+                drawArrow(tempPainter, d->secondPos, d->firstPos, firstPos);
+            }
+
+            pen.setStyle(penStyle);
+            tempPainter.setPen(pen);
+            tempPainter.drawLine(firstPos, secondPos);
+        }
+
+        QPainter painter(m_paintDevice);
         if (d->antialias)
-        {
             painter.setRenderHint(QPainter::Antialiasing);
-        }
         painter.setOpacity((float)d->opacity / 100.0f);
-        painter.setPen(pen);
-        QBrush brush = QBrush(pen.color(), Qt::SolidPattern);
-        painter.setBrush(brush);
-
-        Qt::PenStyle penStyle = pen.style();
-        pen.setStyle(Qt::SolidLine);
-        painter.setPen(pen);
-
-        QPoint firstPos = d->firstPos;
-        QPoint secondPos = d->secondPos;
-        if(d->oneWayArrow)
-            drawArrow(painter, d->firstPos, d->secondPos, secondPos);
-
-        if(d->twoWaysArrow)
-        {
-            drawArrow(painter, d->firstPos, d->secondPos, secondPos);
-            drawArrow(painter, d->secondPos, d->firstPos, firstPos);
-        }
-
-        pen.setStyle(penStyle);
-        painter.setPen(pen);
-
-        painter.drawLine(firstPos, secondPos);
+        painter.drawImage(QPoint(0, 0), tempImage);
 
         {
             QPen linePen = d->mouseButton == Qt::LeftButton ? d->primaryPen : d->secondaryPen;
