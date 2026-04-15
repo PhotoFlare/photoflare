@@ -257,6 +257,9 @@ private:
 
     void applyThreadedFilter(QString filterName, double doubleVal = 0.0, std::function<void(PaintWidget*)> postProcess = nullptr);
     void applyThreadedFilterMP(QString filterName, double doubleVal = 0.0);
+    // Apply a filtered image to a widget, compositing inside the active
+    // selection only when the result has the same dimensions as the original.
+    void applyFilteredImage(PaintWidget *widget, const QImage &original, const QImage &filtered);
 
     Ui::MainWindow *ui;
     QString m_toolSelected;

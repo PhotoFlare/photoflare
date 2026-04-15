@@ -363,10 +363,11 @@ void MainWindow::applyThreadedFilter(QString filterName, double dV, std::functio
     worker->setParent(this);
     worker->moveToThread(thread);
 
+    const QImage original = widget ? widget->image() : QImage();
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
-    connect(worker, &FilterWorker::filterProcessFinished, this, [this, widget, postProcess](QImage image) {
+    connect(worker, &FilterWorker::filterProcessFinished, this, [this, widget, postProcess, original](QImage image) {
         if (widget) {
-            widget->setImage(image);
+            applyFilteredImage(widget, original, image);
             if (postProcess)
                 postProcess(widget);
         }
@@ -390,15 +391,36 @@ void MainWindow::applyThreadedFilterMP(QString filterName, double dV)
     worker->setParent(this);
     worker->moveToThread(thread);
 
+    const QImage original = widget ? widget->image() : QImage();
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
-    connect(worker, &FilterWorkerMP::filterProcessFinished, this, [this, widget](QImage image) {
+    connect(worker, &FilterWorkerMP::filterProcessFinished, this, [this, widget, original](QImage image) {
         if (widget)
-            widget->setImage(image);
+            applyFilteredImage(widget, original, image);
         batchLbl->setText(tr("Ready"));
     });
     thread->start();
 
     batchLbl->setText(tr("Working..."));
+}
+
+void MainWindow::applyFilteredImage(PaintWidget *widget, const QImage &original, const QImage &filtered)
+{
+    // If the result has the same dimensions and a selection is active, only
+    // apply the filtered pixels inside the selection; leave the rest unchanged.
+    const QPolygon sel = widget->selection();
+    if (!sel.isEmpty() && filtered.size() == original.size()) {
+        QPainterPath inside;
+        inside.addPolygon(sel);
+        inside.closeSubpath();
+        QImage result = original;
+        QPainter p(&result);
+        p.setCompositionMode(QPainter::CompositionMode_Source);
+        p.setClipPath(inside);
+        p.drawImage(0, 0, filtered);
+        widget->setImage(result);
+    } else {
+        widget->setImage(filtered);
+    }
 }
 
 /*
@@ -1275,11 +1297,11 @@ void MainWindow::on_actionHue_variation_triggered()
         {
             if(dlg.isColorizeMethod())
             {
-                widget->setImage(FilterManager::instance()->colorize(widget->image(), dlg.color()));
+                applyFilteredImage(widget, widget->image(), FilterManager::instance()->colorize(widget->image(), dlg.color()));
             }
             else
             {
-                widget->setImage(FilterManager::instance()->hue(widget->image(), dlg.degrees()));
+                applyFilteredImage(widget, widget->image(), FilterManager::instance()->hue(widget->image(), dlg.degrees()));
             }
         }
     }
@@ -2196,16 +2218,46 @@ void MainWindow::onFloodFillPrimaryColor(const QPoint& pos)
 {
     const QColor& color = ui->colorBoxWidget->primaryColor();
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-        widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
+    if (widget) {
+        QImage snapshot = widget->image();
+        QImage filled = FilterManager::instance()->floodFill(snapshot, pos, color);
+        const QPolygon sel = widget->selection();
+        if (!sel.isEmpty()) {
+            QPainterPath inside;
+            inside.addPolygon(sel);
+            inside.closeSubpath();
+            QImage result = snapshot;
+            QPainter p(&result);
+            p.setCompositionMode(QPainter::CompositionMode_Source);
+            p.setClipPath(inside);
+            p.drawImage(0, 0, filled);
+            filled = result;
+        }
+        widget->setImage(filled);
+    }
 }
 
 void MainWindow::onFloodFillSecondaryColor(const QPoint& pos)
 {
     const QColor& color = ui->colorBoxWidget->secondaryColor();
     PaintWidget *widget = getCurrentPaintWidget();
-    if (widget)
-        widget->setImage(FilterManager::instance()->floodFill(widget->image(), pos, color));
+    if (widget) {
+        QImage snapshot = widget->image();
+        QImage filled = FilterManager::instance()->floodFill(snapshot, pos, color);
+        const QPolygon sel = widget->selection();
+        if (!sel.isEmpty()) {
+            QPainterPath inside;
+            inside.addPolygon(sel);
+            inside.closeSubpath();
+            QImage result = snapshot;
+            QPainter p(&result);
+            p.setCompositionMode(QPainter::CompositionMode_Source);
+            p.setClipPath(inside);
+            p.drawImage(0, 0, filled);
+            filled = result;
+        }
+        widget->setImage(filled);
+    }
 }
 
 void MainWindow::on_toolButtonSprayCan_clicked()
@@ -2863,7 +2915,7 @@ void MainWindow::on_actionGradient_triggered()
                     stopPoint.setX(image.width());stopPoint.setY(image.height());
                     break;
                 }
-                widget->setImage(FilterManager::instance()->gradient(image, startPoint, stopPoint, dlg.startColor(), dlg.stopColor()));
+                applyFilteredImage(widget, image, FilterManager::instance()->gradient(image, startPoint, stopPoint, dlg.startColor(), dlg.stopColor()));
         }
     }
 }

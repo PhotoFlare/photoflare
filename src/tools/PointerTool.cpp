@@ -304,7 +304,10 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
 
             if(d->selectionMode == SELECT)
             {
-                emit painted(m_paintDevice);
+                // Nothing is painted here; the canvas will repaint via
+                // selectionChanged → setSelectionVisible → updateImageCanvas.
+                // Emitting painted() would set imageChanged=true and create
+                // a spurious undo step even though no pixels were modified.
             }
             else if(d->selectionMode == HAND)
             {

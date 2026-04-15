@@ -21,6 +21,7 @@
 
 #include <QLabel>
 #include <QPainter>
+#include <QPainterPath>
 #include <QScrollBar>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
@@ -279,6 +280,22 @@ public:
 
     void flushPendingUpdate()
     {
+        // Apply selection mask now — all tool QPainter scopes have unwound by
+        // the time this timer callback fires, so it is safe to replace d->image.
+        if (pendingSelectionMask) {
+            pendingSelectionMask = false;
+            if (!selection.isEmpty() && !preStrokeSnapshot.isNull()) {
+                QPainterPath inside;
+                inside.addPolygon(selection);
+                inside.closeSubpath();
+                QImage result = preStrokeSnapshot;
+                QPainter p(&result);
+                p.setCompositionMode(QPainter::CompositionMode_Source);
+                p.setClipPath(inside);
+                p.drawImage(0, 0, image);
+                image = result;
+            }
+        }
         QRect dirty = pendingDirtyRect;
         pendingDirtyRect = QRect();
         if (pendingOverlayUpdate) {
@@ -295,6 +312,7 @@ public:
         updateTimer->stop();
         pendingCanvasUpdate = false;
         pendingOverlayUpdate = false;
+        pendingSelectionMask = false;
         pendingDirtyRect = QRect();
     }
 
@@ -347,6 +365,12 @@ public:
             // Set current image to the tool when we start painting.
             currentTool->setPaintDevice(&image);
             imageChanged = false;
+            // Snapshot the image before the stroke so we can mask tool painting
+            // to the active selection on every subsequent paint event.
+            if (!selection.isEmpty())
+                preStrokeSnapshot = image;
+            else
+                preStrokeSnapshot = QImage();
             int s_x = static_cast<int>(event->scenePos().x());
             int s_y = static_cast<int>(event->scenePos().y());
             currentTool->onMousePress(QPoint(s_x, s_y) , event->button());
@@ -375,7 +399,14 @@ public:
             int s_x = static_cast<int>(event->scenePos().x());
             int s_y = static_cast<int>(event->scenePos().y());
             currentTool->onMouseRelease(QPoint(s_x, s_y));
-            if(q->selection().size()==0 && imageChanged)
+            // Guard against tools that emit painted() without actually modifying
+            // pixels (e.g. PointerTool selection/resize/move operations).
+            // QImage::cacheKey() is O(1): it changes only when the image data is
+            // detached, which happens when a QPainter begins on it. Pure signal
+            // emissions without an open QPainter leave the key unchanged.
+            const bool pixelsActuallyChanged = q->historyList.isEmpty() ||
+                (image.cacheKey() != q->historyList.at(q->historyIndex).cacheKey());
+            if(q->selection().size()==0 && imageChanged && pixelsActuallyChanged)
             {
                 q->onContentChanged();
                 q->contentChanged();
@@ -449,9 +480,13 @@ public:
     QTimer *updateTimer;
     bool pendingCanvasUpdate = false;
     bool pendingOverlayUpdate = false;
+    bool pendingSelectionMask = false;
     QImage pendingOverlayImage;
     QPainter::CompositionMode pendingOverlayMode = QPainter::CompositionMode_SourceOver;
     QRect pendingDirtyRect;
+    // Snapshot taken at the start of each stroke when a selection is active.
+    // Used to confine tool changes to the selected region.
+    QImage preStrokeSnapshot;
 
     PaintWidget *q;
 };
@@ -557,6 +592,13 @@ void PaintWidget::setPaintTool(Tool *tool)
         d->lastConnection = connect(d->currentTool, &Tool::painted, [this] (QPaintDevice *paintDevice, QRect dirtyRect) {
             if (&d->image == paintDevice)
             {
+                // Mark that selection masking is needed.  The actual image
+                // modification happens in flushPendingUpdate() (timer callback)
+                // so that no tool QPainter is still open on d->image when we
+                // do the assignment — modifying an image under an active
+                // QPainter is undefined behaviour and causes crashes.
+                if (!d->selection.isEmpty() && !d->preStrokeSnapshot.isNull())
+                    d->pendingSelectionMask = true;
                 d->scheduleCanvasUpdate(dirtyRect);
                 this->contentChanged();
                 d->imageChanged = true;
