@@ -30,15 +30,13 @@ public:
     SmudgeToolPrivate()
     {
         primaryPen = QPen(QBrush(), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
-        pixmap = QPixmap(32,32);
     }
     int radius;
     int pressure;
     QPoint lastPos;
     QPen primaryPen;
     Qt::MouseButton mouseButton;
-    QPixmap pixmap;
-    QImage completeImage;
+    QImage smudgeBuffer; // colours "carried" by the brush tip
 };
 
 SmudgeTool::SmudgeTool(QObject *parent)
@@ -84,49 +82,98 @@ void SmudgeTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
     d->lastPos = pos;
     d->mouseButton = button;
     const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
-    d->completeImage = *image;
+    if (!image) return;
+    // Seed the smudge buffer with the pixels directly under the cursor.
+    int half = d->radius / 2;
+    d->smudgeBuffer = image->copy(pos.x() - half, pos.y() - half, d->radius, d->radius)
+                           .convertToFormat(QImage::Format_ARGB32);
 }
 
 void SmudgeTool::onMouseMove(const QPoint &pos)
 {
-    if (m_paintDevice)
-    {
-        float pressure = d->pressure / 20.0f;
-        QImage lastImage = d->completeImage.copy(d->lastPos.x() - d->radius/2, d->lastPos.y() - d->radius/2, d->radius, d->radius);
-        QImage currImage = lastImage.scaled(int(d->radius * pressure), int(d->radius * pressure));
-        QImage pattern(int(d->radius * pressure), int(d->radius * pressure), QImage::Format_ARGB32);
-        pattern.fill(Qt::transparent);
-        int w = pattern.width();
-        for(int i=0; i<w; i++)
-        {
-            for(int j=0; j<w; j++)
-            {
-                float l = qSqrt( qPow(i-w/2, 2) + qPow(j-w/2, 2) );
-                if(l <= w/2)
-                {
-                    pattern.setPixel(i, j, currImage.pixel(i, j));
-                }
-            }
+    if (!m_paintDevice || d->smudgeBuffer.isNull()) return;
+
+    QImage *image = dynamic_cast<QImage*>(m_paintDevice);
+    if (!image) return;
+
+    const int r    = d->radius;
+    const int half = r / 2;
+    // strength: pressure 1-10 → 0.10 – 1.00
+    const float strength = d->pressure / 10.0f;
+
+    const int destX = pos.x() - half;
+    const int destY = pos.y() - half;
+
+    // Current pixels under the new cursor position (same size as smudge buffer)
+    QImage currentPatch = image->copy(destX, destY, r, r)
+                               .convertToFormat(QImage::Format_ARGB32);
+
+    // Ensure smudge buffer matches expected dimensions
+    if (d->smudgeBuffer.width() != r || d->smudgeBuffer.height() != r)
+        d->smudgeBuffer = d->smudgeBuffer.scaled(r, r);
+
+    // Build the blended patch: smudge buffer painted over current pixels,
+    // modulated by a circular falloff mask so edges are smooth.
+    QImage blended = currentPatch.copy();
+
+    for (int y = 0; y < r; ++y) {
+        for (int x = 0; x < r; ++x) {
+            const float dx   = x - half;
+            const float dy   = y - half;
+            const float dist = qSqrt(dx * dx + dy * dy);
+            if (dist > half) continue;
+
+            // Smooth quadratic falloff (full strength at centre, zero at edge)
+            const float t = 1.0f - (dist / half);
+            const float alpha = strength * t * t;
+
+            const QRgb src = d->smudgeBuffer.pixel(x, y);
+            const QRgb dst = (x < currentPatch.width() && y < currentPatch.height())
+                             ? currentPatch.pixel(x, y)
+                             : src;
+
+            const int nr = int(qRed(src)   * alpha + qRed(dst)   * (1.0f - alpha));
+            const int ng = int(qGreen(src) * alpha + qGreen(dst) * (1.0f - alpha));
+            const int nb = int(qBlue(src)  * alpha + qBlue(dst)  * (1.0f - alpha));
+            const int na = int(qAlpha(src) * alpha + qAlpha(dst) * (1.0f - alpha));
+            blended.setPixel(x, y, qRgba(nr, ng, nb, na));
         }
-
-        QPainter painter(m_paintDevice);
-        float drawRadius = d->radius * pressure / 2;
-        painter.drawPixmap(pos.x()-int(drawRadius), pos.y()-int(drawRadius), d->pixmap.fromImage(pattern));
-
-        int half = int(drawRadius) + 1;
-        QPoint prevPos = d->lastPos;
-        d->lastPos = pos;
-        emit painted(m_paintDevice, QRect(prevPos, pos).normalized().adjusted(-half, -half, half, half));
-
-        const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
-        d->completeImage = *image;
     }
+
+    // Commit blended patch to canvas
+    QPainter painter(image);
+    painter.drawImage(destX, destY, blended);
+    painter.end();
+
+    // Update smudge buffer: gradually absorb the destination pixels so the
+    // smear fades naturally the further the brush travels.
+    const float pickup = strength * 0.4f;
+    for (int y = 0; y < r; ++y) {
+        for (int x = 0; x < r; ++x) {
+            const QRgb buf = d->smudgeBuffer.pixel(x, y);
+            const QRgb cur = (x < currentPatch.width() && y < currentPatch.height())
+                             ? currentPatch.pixel(x, y)
+                             : buf;
+
+            const int nr = int(qRed(buf)   * (1.0f - pickup) + qRed(cur)   * pickup);
+            const int ng = int(qGreen(buf) * (1.0f - pickup) + qGreen(cur) * pickup);
+            const int nb = int(qBlue(buf)  * (1.0f - pickup) + qBlue(cur)  * pickup);
+            const int na = int(qAlpha(buf) * (1.0f - pickup) + qAlpha(cur) * pickup);
+            d->smudgeBuffer.setPixel(x, y, qRgba(nr, ng, nb, na));
+        }
+    }
+
+    const int updateHalf = half + 1;
+    const QPoint prevPos = d->lastPos;
+    d->lastPos = pos;
+    emit painted(m_paintDevice,
+                 QRect(prevPos, pos).normalized().adjusted(-updateHalf, -updateHalf, updateHalf, updateHalf));
 }
 
 void SmudgeTool::onMouseRelease(const QPoint &pos)
 {
     Q_UNUSED(pos);
     d->mouseButton = Qt::NoButton;
-    d->completeImage = QImage();
+    d->smudgeBuffer = QImage();
 }
 
