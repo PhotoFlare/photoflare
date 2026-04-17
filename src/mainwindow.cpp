@@ -21,6 +21,8 @@
 
 #include <QClipboard>
 #include <QFileDialog>
+#include <QGridLayout>
+#include <QFrame>
 #include <QMessageBox>
 #include <QVBoxLayout>
 #include <QMdiSubWindow>
@@ -466,21 +468,19 @@ void MainWindow::on_actionNew_triggered()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    const QStringList& fileName = QFileDialog::getOpenFileNames(this, tr("Open File"),
-    SETTINGS->getOpenFolder(),
-    tr("Image Files")+
-    "(*.png *.PNG *.jpg *.jpeg *.JPG *.JPEG *.gif *.GIF *.tif *.tiff *.TIF *.TIFF *.bmp *.BMP *.ico *.ICO *.pbm *.PBM *.pgm *.PGM *.ppm *.PPM);;"
-
-    "PNG(*.png *.PNG);;"
-    "JPEG(*.jpg *.jpeg *.JPG *.JPEG);;"
-    "GIF(*.gif *.GIF);;"
-    "TIFF(*.tif *.tiff *.TIF *.TIFF);;"
-    "BMP(*.bmp *.BMP);;"
-    "ICO(*.ico *.ICO);;"
-    "PBM(*.pbm *.PBM);;"
-    "PGM(*.pgm *.PGM);;"
-    "PPM(*.ppm *.PPM);;"
-    +tr("All Files")+"(*)");
+    const QString filters =
+        tr("Image Files") +
+        "(*.png *.PNG *.jpg *.jpeg *.JPG *.JPEG *.gif *.GIF *.tif *.tiff *.TIF *.TIFF *.bmp *.BMP *.ico *.ICO *.pbm *.PBM *.pgm *.PGM *.ppm *.PPM);;"
+        "PNG(*.png *.PNG);;"
+        "JPEG(*.jpg *.jpeg *.JPG *.JPEG);;"
+        "GIF(*.gif *.GIF);;"
+        "TIFF(*.tif *.tiff *.TIF *.TIFF);;"
+        "BMP(*.bmp *.BMP);;"
+        "ICO(*.ico *.ICO);;"
+        "PBM(*.pbm *.PBM);;"
+        "PGM(*.pgm *.PGM);;"
+        "PPM(*.ppm *.PPM);;" +
+        tr("All Files") + "(*)";
 /*
  *  Previously supported RAW formats
     "ARW (*.arw *.srf *.sr2);;"
@@ -492,14 +492,54 @@ void MainWindow::on_actionOpen_triggered()
     "RAW (*.raw *.rw2)"));
 */
 
-    if(fileName.length()>0)
+    QFileDialog dialog(this, tr("Open File"), SETTINGS->getOpenFolder(), filters);
+    dialog.setFileMode(QFileDialog::ExistingFiles);
+    dialog.setOption(QFileDialog::DontUseNativeDialog, true);
+
+    // Add an image preview panel to the right side of the dialog layout
+    QLabel *previewLabel = new QLabel(tr("No Preview"), &dialog);
+    previewLabel->setAlignment(Qt::AlignCenter);
+    previewLabel->setMinimumSize(200, 200);
+    previewLabel->setFixedWidth(200);
+    previewLabel->setWordWrap(true);
+    previewLabel->setFrameShape(QFrame::StyledPanel);
+    previewLabel->setFrameShadow(QFrame::Sunken);
+
+    QGridLayout *gridLayout = qobject_cast<QGridLayout *>(dialog.layout());
+    if (gridLayout) {
+        const int rows = gridLayout->rowCount();
+        gridLayout->addWidget(previewLabel, 0, gridLayout->columnCount(), rows, 1);
+    }
+
+    connect(&dialog, &QFileDialog::currentChanged, previewLabel, [previewLabel](const QString &path) {
+        QFileInfo info(path);
+        if (!info.isFile()) {
+            previewLabel->clear();
+            previewLabel->setText(QObject::tr("No Preview"));
+            return;
+        }
+        QPixmap pixmap(path);
+        if (!pixmap.isNull()) {
+            previewLabel->setPixmap(
+                pixmap.scaled(previewLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        } else {
+            previewLabel->clear();
+            previewLabel->setText(QObject::tr("No Preview"));
+        }
+    });
+
+    if (dialog.exec() != QDialog::Accepted)
+        return;
+
+    const QStringList fileName = dialog.selectedFiles();
+    if (fileName.length() > 0)
     {
-        for(int i=0;i<fileName.length();i++)
+        for (int i = 0; i < fileName.length(); i++)
         {
             openFile(fileName[i]);
         }
 
-        if(SETTINGS->getPreviouslyOpened() == true)
+        if (SETTINGS->getPreviouslyOpened() == true)
         {
             QDir d = QFileInfo(fileName[0]).absoluteDir();
             SETTINGS->setOpenFolder(d.absolutePath());
