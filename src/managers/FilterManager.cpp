@@ -534,12 +534,87 @@ QImage FilterManager::trim(const QImage &image)
 
 QImage FilterManager::dustreduction(const QImage &image)
 {
+    const int w = image.width();
+    const int h = image.height();
+
+    // Auto-detect a uniform frame border by scanning from each edge inward.
+    // A frame added by outsideFrame() is a solid-colour rectangle; we use the
+    // top-left corner pixel as the reference colour and a small tolerance to
+    // handle slight JPEG compression artifacts.
+    QImage img = image.convertToFormat(QImage::Format_ARGB32);
+    const QRgb cornerColor = img.pixel(0, 0);
+    const int cr = qRed(cornerColor), cg = qGreen(cornerColor), cb = qBlue(cornerColor);
+    const int tolerance = 10;
+
+    auto matchesFrame = [&](QRgb px) {
+        return qAbs(qRed(px)   - cr) <= tolerance &&
+               qAbs(qGreen(px) - cg) <= tolerance &&
+               qAbs(qBlue(px)  - cb) <= tolerance;
+    };
+
+    int top = 0;
+    for (int y = 0; y < h; ++y) {
+        const QRgb *line = reinterpret_cast<const QRgb *>(img.constScanLine(y));
+        bool uniform = true;
+        for (int x = 0; x < w; ++x)
+            if (!matchesFrame(line[x])) { uniform = false; break; }
+        if (uniform) ++top; else break;
+    }
+    int bottom = 0;
+    for (int y = h - 1; y >= top; --y) {
+        const QRgb *line = reinterpret_cast<const QRgb *>(img.constScanLine(y));
+        bool uniform = true;
+        for (int x = 0; x < w; ++x)
+            if (!matchesFrame(line[x])) { uniform = false; break; }
+        if (uniform) ++bottom; else break;
+    }
+    int left = 0;
+    for (int x = 0; x < w; ++x) {
+        bool uniform = true;
+        for (int y = top; y < h - bottom; ++y) {
+            const QRgb *line = reinterpret_cast<const QRgb *>(img.constScanLine(y));
+            if (!matchesFrame(line[x])) { uniform = false; break; }
+        }
+        if (uniform) ++left; else break;
+    }
+    int right = 0;
+    for (int x = w - 1; x >= left; --x) {
+        bool uniform = true;
+        for (int y = top; y < h - bottom; ++y) {
+            const QRgb *line = reinterpret_cast<const QRgb *>(img.constScanLine(y));
+            if (!matchesFrame(line[x])) { uniform = false; break; }
+        }
+        if (uniform) ++right; else break;
+    }
+
+    const int contentX = left;
+    const int contentY = top;
+    const int contentW  = w - left - right;
+    const int contentH  = h - top - bottom;
+
+    // Only skip the frame if all four sides have a detected border (the expected
+    // shape for outsideFrame()), and the remaining content area is valid.
+    if (top > 0 && bottom > 0 && left > 0 && right > 0 && contentW > 0 && contentH > 0) {
+        // Filter only the content area; the frame is left completely untouched.
+        QImage content = image.copy(contentX, contentY, contentW, contentH);
+        Magick::Image *magickImage = d->fromQtImage(content);
+        magickImage->reduceNoise();
+        QImage filteredContent = d->toQtImage(magickImage);
+        delete magickImage;
+
+        QImage result = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+        QPainter painter(&result);
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.drawImage(contentX, contentY, filteredContent);
+        painter.end();
+        return result;
+    }
+
+    // No frame detected — apply to the whole image.
     Magick::Image *magickImage = d->fromQtImage(image);
     magickImage->reduceNoise();
-
     QImage modifiedImage = d->toQtImage(magickImage);
     delete magickImage;
-
     return modifiedImage.convertToFormat(QImage::Format_ARGB32_Premultiplied);
 }
 
