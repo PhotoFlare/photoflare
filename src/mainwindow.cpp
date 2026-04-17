@@ -22,6 +22,7 @@
 #include <QClipboard>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QVBoxLayout>
 #include <QMdiSubWindow>
 #include <QPainterPath>
 #include <QtPrintSupport/QPrinter>
@@ -304,45 +305,53 @@ void MainWindow::connectTools()
 
 void MainWindow::addSettingsWidgets()
 {
-    m_ptSettingsWidget = new PointerSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_ptSettingsWidget);
+    // Create a proper vertical layout on the dock's content widget so settings
+    // widgets stack correctly and don't overlap inside QDockWidgetLayout.
+    QVBoxLayout *layout = new QVBoxLayout(ui->dockWidgetContents);
+    layout->setContentsMargins(4, 4, 4, 4);
+    layout->setSpacing(2);
+
+    m_ptSettingsWidget = new PointerSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_ptSettingsWidget);
     connect(m_ptSettingsWidget, &PointerSettingsWidget::settingsChanged, this, &MainWindow::onPointerToolSettingsChanged);
 
-    m_pbSettingsWidget = new PaintBrushSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_pbSettingsWidget);
+    m_pbSettingsWidget = new PaintBrushSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_pbSettingsWidget);
     connect(m_pbSettingsWidget, &PaintBrushSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushSettingsChanged);
 
-    m_pbAdvSettingsWidget = new PaintBrushAdvSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_pbAdvSettingsWidget);
+    m_pbAdvSettingsWidget = new PaintBrushAdvSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_pbAdvSettingsWidget);
     connect(m_pbAdvSettingsWidget, &PaintBrushAdvSettingsWidget::settingsChanged, this, &MainWindow::onPaintBrushAdvSettingsChanged);
 
-    m_scSettingsWidget = new SprayCanSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_scSettingsWidget);
+    m_scSettingsWidget = new SprayCanSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_scSettingsWidget);
     connect(m_scSettingsWidget, &SprayCanSettingsWidget::settingsChanged, this, &MainWindow::onSprayCanSettingsChanged);
 
-    m_lineSettingsWidget = new LineSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_lineSettingsWidget);
+    m_lineSettingsWidget = new LineSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_lineSettingsWidget);
     connect(m_lineSettingsWidget, &LineSettingsWidget::settingsChanged, this, &MainWindow::onLineSettingsChanged);
 
-    m_magicWandSettingsWidget = new MagicWandSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_magicWandSettingsWidget);
+    m_magicWandSettingsWidget = new MagicWandSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_magicWandSettingsWidget);
     connect(m_magicWandSettingsWidget, &MagicWandSettingsWidget::settingsChanged, this, &MainWindow::onMagicWandSettingsChanged);
 
-    m_stampSettingsWidget = new StampSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_stampSettingsWidget);
+    m_stampSettingsWidget = new StampSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_stampSettingsWidget);
     connect(m_stampSettingsWidget, &StampSettingsWidget::settingsChanged, this, &MainWindow::onStampSettingsChanged);
 
-    m_blurSettingsWidget = new BlurSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_blurSettingsWidget);
+    m_blurSettingsWidget = new BlurSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_blurSettingsWidget);
     connect(m_blurSettingsWidget, &BlurSettingsWidget::settingsChanged, this, &MainWindow::onBlurSettingsChanged);
 
-    m_eraserSettingsWidget = new EraserSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_eraserSettingsWidget);
+    m_eraserSettingsWidget = new EraserSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_eraserSettingsWidget);
     connect(m_eraserSettingsWidget, &EraserSettingsWidget::settingsChanged, this, &MainWindow::onEraserSettingsChanged);
 
-    m_smudgeSettingsWidget = new SmudgeSettingsWidget;
-    ui->dockWidgetSettings->layout()->addWidget(m_smudgeSettingsWidget);
+    m_smudgeSettingsWidget = new SmudgeSettingsWidget(ui->dockWidgetContents);
+    layout->addWidget(m_smudgeSettingsWidget);
     connect(m_smudgeSettingsWidget, &SmudgeSettingsWidget::settingsChanged, this, &MainWindow::onSmudgeSettingsChanged);
+
+    layout->addStretch();
 }
 
 /*
@@ -2507,9 +2516,15 @@ void MainWindow::onMultiWindowModeChanged(bool multiWindowMode)
 
 void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
 {
-    Q_UNUSED(window);
     // Reset clone stamp position so it doesn't carry over between workspaces
     STAMP_TOOL->reset();
+    // Only refresh tools when a real subwindow is activated. When window is
+    // null (e.g. focus moved to a dock widget or toolbar), calling refreshTools()
+    // triggers clearToolpalette() which hides the focused settings widget, causing
+    // Qt to propagate focus back into the MDI area and auto-activate the first
+    // subwindow instead of keeping the user's selection.
+    if (!window)
+        return;
     // Set the previously selected tool as active
     refreshTools();
 
