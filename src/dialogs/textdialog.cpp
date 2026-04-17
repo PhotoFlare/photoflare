@@ -200,6 +200,7 @@ void textDialog::readSettings(QWidget* window)
         ui->fontComboBox->setCurrentIndex(settings.value("fontselected").toInt());
         ui->textColour->setPalette(settings.value("fontcolour").value<QColor>());
         setFontPosition(settings.value("fontposition").toString());
+        ui->plainTextEdit->setPlainText(settings.value("lasttext").toString());
     }
     settings.endGroup();
 }
@@ -219,6 +220,7 @@ void textDialog::writeSettings(QWidget* window)
     settings.setValue("fontselected", ui->fontComboBox->currentIndex());
     settings.setValue("fontcolour", ui->textColour->palette().color(QPalette::Window).name());
     settings.setValue("fontposition", positionFont);
+    settings.setValue("lasttext", ui->plainTextEdit->toPlainText());
     settings.endGroup();
 }
 
