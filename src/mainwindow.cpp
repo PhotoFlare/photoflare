@@ -235,7 +235,9 @@ void MainWindow::addZoomCombo()
     zoomCombo->insertSeparator(8);
     zoomCombo->insertSeparator(10);
     ui->mainToolBar->addWidget(zoomCombo);
-    connect(zoomCombo, SIGNAL(activated(const QString&)), this, SLOT(onZoomChanged(const QString&)));
+    connect(zoomCombo, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
+        onZoomChanged(zoomCombo->itemText(index));
+    });
     connect(ui->mdiArea, &QMdiArea::subWindowActivated, this, &MainWindow::onSubWindowActivated);
 }
 
@@ -2138,7 +2140,7 @@ void MainWindow::onFillRect(const QRect& rect, const QColor& fillColor, const QP
     }
 }
 
-void MainWindow::on_actionStroke_Rect_triggered()
+void MainWindow::on_actionStroke_and_fill_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)

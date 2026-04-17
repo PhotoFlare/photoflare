@@ -198,7 +198,7 @@ private slots:
     void onTransparentRejected();
     void on_actionGradient_triggered();
     void on_actionCrop_triggered();
-    void on_actionStroke_Rect_triggered();
+    void on_actionStroke_and_fill_triggered();
     void on_actionFill_Rect_triggered();
     void onSelectionChanged(bool visible);
     void on_actionPaste_triggered();
