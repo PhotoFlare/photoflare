@@ -701,7 +701,7 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
     if(changeStartColor)
         magickImage->opaque(Magick::ColorRGB(0, 0, 0), Magick::ColorRGB(0.01f, 0, 0));
 
-    magickImage->colorFuzz(tolerance);
+    magickImage->colorFuzz((double)tolerance / 100.0 * MaxRGBDouble);
     magickImage->floodFillColor(pos.x(), pos.y(), Magick::ColorRGB(0,0,0));
 
     QPolygon polygon;
@@ -757,7 +757,7 @@ QImage FilterManager::floodFillOpacity(const QImage &image, const QColor &color,
     if(targetColor.alpha() == 1.0f)
         return image;
 
-    magickImage->colorFuzz(tolerance);
+    magickImage->colorFuzz((double)tolerance / 100.0 * MaxRGBDouble);
     for(unsigned int j=0; j<magickImage->rows(); j++)
     {
         for(unsigned int i=0; i<magickImage->columns(); i++)
