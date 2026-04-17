@@ -18,6 +18,7 @@
 #include "SprayCanTool.h"
 
 #include <QPainter>
+#include <QRandomGenerator>
 #include <QtMath>
 
 class SprayCanToolPrivate
@@ -40,7 +41,6 @@ public:
     bool rainbow;
     QColor rainbowColor;
     float opacity;
-    QPoint lastStep;
     Qt::MouseButton mouseButton;
 };
 
@@ -108,7 +108,7 @@ void SprayCanTool::fillPattern()
     {
         for(int j=0; j<w; j++) 
         {
-            float rnd = (float)rand()/(float)RAND_MAX;
+            float rnd = QRandomGenerator::global()->generateDouble();
             float l = qSqrt( qPow(i-w/2, 2) + qPow(j-w/2, 2) );
             if(rnd > (float)d->dispersion/51 && l <= w/2) 
             {
@@ -158,15 +158,24 @@ void SprayCanTool::onMouseMove(const QPoint &pos)
     if (m_paintDevice)
     {
         QPainter painter(m_paintDevice);
-        int w = d->pixmap.width();
-        fillPattern();
         painter.setOpacity(d->opacity);
-        painter.drawPixmap(pos.x() - w/2, pos.y() - w/2, d->pixmap);
-        d->lastStep = pos;
-
+        int w = d->pixmap.width();
         int half = w / 2 + 1;
+
+        // Interpolate between lastPos and pos to avoid gaps when moving quickly
+        QPoint delta = pos - d->lastPos;
+        float dist = qSqrt((float)(delta.x() * delta.x() + delta.y() * delta.y()));
+        int steps = qMax(1, qRound(dist / qMax(1, d->radius / 4)));
+        for (int step = 1; step <= steps; step++) {
+            QPoint p = d->lastPos + QPoint(qRound(delta.x() * (float)step / steps),
+                                           qRound(delta.y() * (float)step / steps));
+            fillPattern();
+            painter.drawPixmap(p.x() - w/2, p.y() - w/2, d->pixmap);
+        }
+
+        QRect dirtyRect = QRect(d->lastPos, pos).normalized().adjusted(-half, -half, half, half);
         d->lastPos = pos;
-        emit painted(m_paintDevice, QRect(pos, pos).adjusted(-half, -half, half, half));
+        emit painted(m_paintDevice, dirtyRect);
     }
 }
 
