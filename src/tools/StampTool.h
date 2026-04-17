@@ -42,6 +42,7 @@ public:
     void setDiffuse(bool diffuse);
     QCursor getCursor() override;
     void setCapStyle(Qt::PenCapStyle capStyle);
+    void reset();
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;

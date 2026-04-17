@@ -2508,6 +2508,8 @@ void MainWindow::onMultiWindowModeChanged(bool multiWindowMode)
 void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
 {
     Q_UNUSED(window);
+    // Reset clone stamp position so it doesn't carry over between workspaces
+    STAMP_TOOL->reset();
     // Set the previously selected tool as active
     refreshTools();
 

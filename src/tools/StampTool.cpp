@@ -120,6 +120,15 @@ void StampTool::setCapStyle(Qt::PenCapStyle capStyle)
     d->secondaryPen.setCapStyle(capStyle);
 }
 
+void StampTool::reset()
+{
+    d->selectMode = false;
+    d->selectPos = QPoint(0, 0);
+    d->offset = QPoint(0, 0);
+    d->firstRun = true;
+    d->origin = QImage();
+}
+
 QCursor StampTool::getCursor()
 {
     int width = d->radius * m_scale;
