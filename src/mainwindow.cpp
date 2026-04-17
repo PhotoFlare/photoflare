@@ -277,6 +277,7 @@ void MainWindow::connectTools()
     QObject::connect(MOUSE_POINTER, SIGNAL(close()), this, SLOT(on_actionClose_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(copy()), this, SLOT(on_actionCopy_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(paste()), this, SLOT(on_actionPaste_triggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(pasteAsNewImage()), this, SLOT(on_actionPaste_as_new_image_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(imageSize()), this, SLOT(on_actionImage_Size_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(canvasSize()), this, SLOT(on_actionCanvas_Size_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(undo()), this, SLOT(on_actionUndo_triggered()));

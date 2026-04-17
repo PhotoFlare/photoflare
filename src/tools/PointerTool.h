@@ -57,6 +57,7 @@ public slots:
     void onCanvasSize();
     void onCopy();
     void onPaste();
+    void onPasteAsNewImage();
     void onUndo();
     void onRedo();
 
@@ -71,6 +72,7 @@ signals:
     void canvasSize();
     void copy();
     void paste();
+    void pasteAsNewImage();
     void undo();
     void redo();
     void showhotspots();

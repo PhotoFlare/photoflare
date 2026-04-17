@@ -188,6 +188,11 @@ void PointerTool::onPaste()
     emit paste();
 }
 
+void PointerTool::onPasteAsNewImage()
+{
+    emit pasteAsNewImage();
+}
+
 void PointerTool::onUndo()
 {
     emit undo();
@@ -643,9 +648,12 @@ void PointerTool::setupRightClickMenu(bool execute)
     QAction copy(tr("Copy"), this);
     QAction paste(tr("Paste"), this);
     paste.setDisabled(true);
+    QAction pasteAsNew(tr("Paste as new image"), this);
+    pasteAsNew.setDisabled(true);
     if(!clipboard->image().isNull())
     {
         paste.setDisabled(false);
+        pasteAsNew.setDisabled(false);
     }
     QAction sep2(this);
     sep2.setSeparator(true);
@@ -665,6 +673,7 @@ void PointerTool::setupRightClickMenu(bool execute)
     contextMenu.addAction(&sep2);
     contextMenu.addAction(&copy);
     contextMenu.addAction(&paste);
+    contextMenu.addAction(&pasteAsNew);
     contextMenu.addAction(&sep3);
     contextMenu.addAction(&undo);
     contextMenu.addAction(&redo);
@@ -677,6 +686,7 @@ void PointerTool::setupRightClickMenu(bool execute)
     connect(&canvasSize, SIGNAL(triggered()), this, SLOT(onCanvasSize()));
     connect(&copy, SIGNAL(triggered()), this, SLOT(onCopy()));
     connect(&paste, SIGNAL(triggered()), this, SLOT(onPaste()));
+    connect(&pasteAsNew, SIGNAL(triggered()), this, SLOT(onPasteAsNewImage()));
     connect(&undo, SIGNAL(triggered()), this, SLOT(onUndo()));
     connect(&redo, SIGNAL(triggered()), this, SLOT(onRedo()));
 
