@@ -793,13 +793,12 @@ void PaintWidget::onContentChanged()
 
     historyList.append(d->image);
     historyIndex++;
-/*
+
     if(historyIndex > SETTINGS->getHistoryLimit().toInt())
     {
         historyList.removeFirst();
         historyIndex--;
     }
-*/
 }
 
 void PaintWidget::revert()
@@ -848,6 +847,7 @@ void PaintWidget::clearUndoHistory()
 {
     historyIndex = 0;
     historyList.clear();
+    historyList.append(d->image);
 }
 
 void PaintWidget::setSelectionVisible(bool visible)
