@@ -255,6 +255,12 @@ unix:!macx {
     appstream.path = $${PREFIX}/share/metainfo/
     appstream.files = io.photoflare.photoflare.appdata.xml
 
+    # Do not strip data files (icons, pixmaps, translations, etc.) during install.
+    # qmake applies $(STRIP) to all INSTALLS targets; clearing QMAKE_STRIP here
+    # prevents it from being called on non-binary files. Packagers can handle binary
+    # stripping independently.
+    QMAKE_STRIP =
+
      INSTALLS += target \
         qmfile \
         icon \
