@@ -90,14 +90,13 @@ void textDialog::setColor(const QColor &color, QWidget *colorLabel)
 
 void textDialog::on_fontComboBox_currentFontChanged(const QFont &f)
 {
-    currentFont = f;
-    currentFont.setPixelSize(ui->fontSizeSpinner->value());
-    ui->textPreview->setFont(currentFont);
+    Q_UNUSED(f);
+    updateFont();
 }
 
 void textDialog::updateFont()
 {
-    currentFont = ui->fontComboBox->font();
+    currentFont = ui->fontComboBox->currentFont();
     currentFont.setPixelSize(ui->fontSizeSpinner->value());
     currentFont.setBold(ui->checkBoxBold->isChecked());
     currentFont.setItalic(ui->checkBoxItalic->isChecked());

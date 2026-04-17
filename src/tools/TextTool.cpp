@@ -86,7 +86,8 @@ void TextTool::previewText()
         QPainter painter(&surface);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
         painter.fillRect(surface.rect(), Qt::transparent);
-        QPen pen = QPen(QBrush(), 1, Qt::DashLine);
+        const float penWidth = (m_scale > 0.0f) ? (1.0f / m_scale) : 1.0f;
+        QPen pen = QPen(QBrush(), penWidth, Qt::DashLine);
         pen.setColor(QColor(0x00, 0xad, 0xee));
         painter.setPen(pen);
         painter.drawRect(d->textRect);
