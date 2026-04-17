@@ -365,12 +365,16 @@ void MainWindow::applyThreadedFilter(QString filterName, double dV, std::functio
     worker->moveToThread(thread);
 
     const QImage original = widget ? widget->image() : QImage();
+    // Disable canvas editing while filters in progress. Re-enable when finished.
+    if (widget)
+        widget->setEnabled(false);
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
     connect(worker, &FilterWorker::filterProcessFinished, this, [this, widget, postProcess, original](QImage image) {
         if (widget) {
             applyFilteredImage(widget, original, image);
             if (postProcess)
                 postProcess(widget);
+            widget->setEnabled(true);
         }
         batchLbl->setText(tr("Ready"));
     });
@@ -393,10 +397,15 @@ void MainWindow::applyThreadedFilterMP(QString filterName, double dV)
     worker->moveToThread(thread);
 
     const QImage original = widget ? widget->image() : QImage();
+    // Disable canvas editing while filters in progress. Re-enable when finished.
+    if (widget)
+        widget->setEnabled(false);
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
     connect(worker, &FilterWorkerMP::filterProcessFinished, this, [this, widget, original](QImage image) {
-        if (widget)
+        if (widget) {
             applyFilteredImage(widget, original, image);
+            widget->setEnabled(true);
+        }
         batchLbl->setText(tr("Ready"));
     });
     thread->start();
