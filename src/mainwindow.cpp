@@ -68,6 +68,10 @@
 #include "managers/ToolManager.h"
 #include "managers/FilterManager.h"
 
+#include <Magick++.h>
+#include <QBuffer>
+#include <QColorSpace>
+
 #include "qpainterpath.h"
 #include "widgets/PaintWidget.h"
 #include "dialogs/NewDialog.h"
@@ -771,8 +775,50 @@ bool MainWindow::saveImage(const QString &fileName, int quality)
         return false;
 
     PaintWidget *widget = getCurrentPaintWidget();
+    if (!widget)
+        return false;
 
-    return widget ? widget->image().save(fileName,nullptr,quality) : false;
+    // For JPEG and TIFF, go through GraphicsMagick so the stored EXIF profile
+    // is written back into the file.  All other formats fall back to Qt.
+    const QString suffix = QFileInfo(fileName).suffix().toLower();
+    const bool exifFormat = (suffix == QLatin1String("jpg")  ||
+                              suffix == QLatin1String("jpeg") ||
+                              suffix == QLatin1String("png")  ||
+                              suffix == QLatin1String("tif")  ||
+                              suffix == QLatin1String("tiff"));
+    const QByteArray exif = widget->exifBlob();
+
+    if (exifFormat && !exif.isEmpty()) {
+        try {
+            // Convert the current QImage to a GM image via a PNG buffer
+            // (same approach used by FilterManager::fromQtImage).
+            QByteArray pngBuf;
+            QBuffer buffer(&pngBuf);
+            buffer.open(QIODevice::WriteOnly);
+            QImage stripped = widget->image();
+            stripped.setColorSpace(QColorSpace());
+            if (!stripped.save(&buffer, "PNG"))
+                return false;
+
+            Magick::Blob pngBlob(pngBuf.constData(), static_cast<size_t>(pngBuf.size()));
+            Magick::Image gmImage(pngBlob);
+
+            // Re-attach the original EXIF profile
+            Magick::Blob exifBlob(exif.constData(), static_cast<size_t>(exif.size()));
+            gmImage.profile("EXIF", exifBlob);
+
+            // Set JPEG quality if provided
+            if (quality >= 0)
+                gmImage.quality(static_cast<size_t>(quality));
+
+            gmImage.write(fileName.toStdString());
+            return true;
+        } catch (Magick::Exception &) {
+            // Fall through to Qt save on GM failure
+        }
+    }
+
+    return widget->image().save(fileName, nullptr, quality);
 }
 
 void MainWindow::on_actionClose_triggered()
@@ -839,6 +885,7 @@ void MainWindow::on_actionImage_properties_triggered()
         int size = widget->image().width() * widget->image().height() * 3;
         dialog.setMemorySize(size);
         dialog.setTotalSize((widget->undoCount()+1)*size);
+        dialog.setExifData(widget->exifString());
         dialog.exec();
     }
 }

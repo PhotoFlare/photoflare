@@ -20,12 +20,14 @@
 #include "imagepropertiesdialog.h"
 #include "ui_imagepropertiesdialog.h"
 
+#include <QTableWidgetItem>
+#include <QHeaderView>
+
 imagePropertiesDialog::imagePropertiesDialog(QWidget *parent) :
     QDialog(parent)
   , ui(new Ui::imagePropertiesDialog)
 {
     ui->setupUi(this);
-    setFixedSize(size());
 
     ui->imageNameLabel->setText(tr("Untitled"));
     ui->folderLabel->setText("<Not saved>");
@@ -110,4 +112,42 @@ void imagePropertiesDialog::setTotalSize(qint64 totalSize)
 void imagePropertiesDialog::setFileType(QString filetype)
 {
     ui->fileTypeLabel->setText(filetype);
+}
+
+void imagePropertiesDialog::setExifData(const QString &exifAttributeString)
+{
+    QTableWidget *table = ui->exifTable;
+    table->setRowCount(0);
+
+    if (exifAttributeString.isEmpty()) {
+        // Show a placeholder row when no EXIF data is present
+        table->insertRow(0);
+        QTableWidgetItem *item = new QTableWidgetItem(tr("No EXIF data available"));
+        item->setTextAlignment(Qt::AlignCenter);
+        table->setItem(0, 0, item);
+        table->setSpan(0, 0, 1, 2);
+        return;
+    }
+
+    // Parse "EXIF:Key=Value\nEXIF:Key2=Value2\n..." format produced by GM's EXIF:* attribute
+    const QStringList lines = exifAttributeString.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
+    for (const QString &line : lines) {
+        // Strip leading "EXIF:" prefix, then split on first '='
+        QString stripped = line.startsWith(QLatin1String("EXIF:")) ? line.mid(5) : line;
+        const int eq = stripped.indexOf(QLatin1Char('='));
+        if (eq < 0)
+            continue;
+        const QString key   = stripped.left(eq).trimmed();
+        const QString value = stripped.mid(eq + 1).trimmed();
+        if (key.isEmpty())
+            continue;
+
+        const int row = table->rowCount();
+        table->insertRow(row);
+        table->setItem(row, 0, new QTableWidgetItem(key));
+        table->setItem(row, 1, new QTableWidgetItem(value));
+    }
+
+    table->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
+    table->horizontalHeader()->setStretchLastSection(true);
 }

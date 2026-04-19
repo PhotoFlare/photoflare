@@ -48,6 +48,8 @@ public:
     void onSelectionChanged(QPolygon poly);
     void setImagePath(QString path);
     QString imagePath() const;
+    QByteArray exifBlob() const;
+    QString exifString() const;
     void autoScale();
     void setScale(const QString &scale);
     float getScale();

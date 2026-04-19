@@ -31,6 +31,8 @@
 #include <QImageReader>
 #include <QTimer>
 
+#include <Magick++.h>
+
 #include <functional>
 
 #include <QGraphicsItem>
@@ -460,6 +462,8 @@ public:
     }
 
     QString imagePath;
+    QByteArray exifBlob;    // raw EXIF profile bytes preserved for save
+    QString exifString;     // parsed EXIF key=value pairs for display
     QLabel *imageLabel;
     QImage image;
     Tool *currentTool;
@@ -527,6 +531,23 @@ PaintWidget::PaintWidget(const QString &imagePath, QWidget *parent)
         d->initialize(QImage(imagePath));
     }
     d->imagePath = imagePath;
+
+    // Read and store EXIF data from the original file so it can be preserved on save.
+    try {
+        Magick::Image gmImage(imagePath.toStdString());
+        Magick::Blob exifProfile = gmImage.profile("EXIF");
+        if (exifProfile.length() > 0) {
+            d->exifBlob = QByteArray(static_cast<const char *>(exifProfile.data()),
+                                     static_cast<int>(exifProfile.length()));
+        }
+        std::string exifAttr = gmImage.attribute("EXIF:*");
+        if (!exifAttr.empty()) {
+            d->exifString = QString::fromStdString(exifAttr);
+        }
+    } catch (Magick::Exception &) {
+        // File format may not support EXIF — silently ignore
+    }
+
     this->init();
 }
 
@@ -685,6 +706,16 @@ void PaintWidget::setImagePath(QString path)
 QString PaintWidget::imagePath() const
 {
     return d->imagePath;
+}
+
+QByteArray PaintWidget::exifBlob() const
+{
+    return d->exifBlob;
+}
+
+QString PaintWidget::exifString() const
+{
+    return d->exifString;
 }
 
 void PaintWidget::autoScale()

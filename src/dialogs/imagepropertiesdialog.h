@@ -20,8 +20,6 @@
 
 #include <QDialog>
 
-class ImagePropertiesPrivate;
-
 namespace Ui {
 class imagePropertiesDialog;
 }
@@ -46,6 +44,8 @@ public:
     void setTotalSize(qint64);
 
     void setFileType(QString);
+    void setExifData(const QString &exifAttributeString);
+
 private:
     Ui::imagePropertiesDialog *ui;
 };
