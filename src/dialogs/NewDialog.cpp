@@ -32,7 +32,7 @@
 #include "../Settings.h"
 
 enum {PPM, PPI};
-enum {PX, CM, IN};
+enum {PX, CM, IN, PCT};
 enum {x0y0, x100y100, x640y480, x800y600, x1024y768, x1366y768, x1600y900, x1920y1080, x2560y1440, x3840y2160};
 
 #define CM_IN_INCH 2.54f
@@ -47,10 +47,15 @@ NewDialog::NewDialog(QWidget *parent) :
     // Set default values
     original_width_px = 0;
     original_height_px = 0;
+    base_width_px = 0;
+    base_height_px = 0;
     width_px = 640.0f;
     height_px = 480.0f;
     currentMode = NewImage;
     currentUnit = SETTINGS->getUnit();
+    // PCT is only valid in ResizeImage mode; fall back to PX for other modes
+    if(currentUnit == PCT)
+        currentUnit = PX;
     ui->imageResCombo->setCurrentIndex(PPI);
     // Standard PPI - must be set before imageWHcombo so unit conversions don't divide by zero
     ui->imageRvalue->setValue(96.0);
@@ -97,9 +102,29 @@ QColor NewDialog::newImageBackgroundColor() const
 void NewDialog::setImageSize(QSize size)
 {
     original_width_px = size.width();
-    original_height_px =size.height();
-    ui->imageWvalue->setValue(size.width());
-    ui->imageHvalue->setValue(size.height());
+    original_height_px = size.height();
+    width_px = size.width();
+    height_px = size.height();
+
+    if (currentUnit == PCT) {
+        // Base must be updated before the spinboxes so valueChanged uses the right base
+        base_width_px  = size.width();
+        base_height_px = size.height();
+        ui->imageWvalue->blockSignals(true);
+        ui->imageHvalue->blockSignals(true);
+        ui->imageWvalue->setValue(100.0);
+        ui->imageHvalue->setValue(100.0);
+        ui->imageWvalue->blockSignals(false);
+        ui->imageHvalue->blockSignals(false);
+        width_px  = base_width_px;
+        height_px = base_height_px;
+        ui->pixelWvalue->setValue(width_px);
+        ui->pixelHvalue->setValue(height_px);
+        ui->memoryValue->setValue((((width_px * height_px) * 3) / 1024) / 1024);
+    } else {
+        ui->imageWvalue->setValue(size.width());
+        ui->imageHvalue->setValue(size.height());
+    }
 }
 
 QColor NewDialog::backgroundColor() const
@@ -118,12 +143,20 @@ void NewDialog::on_buttonBox_accepted()
     m_chosenSize.setWidth(width_px);
     m_chosenSize.setHeight(height_px);
 
-    SETTINGS->setUnit(currentUnit);
+    // Don't persist Percent as the shared unit — it is only meaningful for ResizeImage
+    if(currentUnit != PCT)
+        SETTINGS->setUnit(currentUnit);
 
     if(SETTINGS->getMemParamsEnabled() && currentMode != ResizeImage)
     {
         //Write Dialog settings
         writeSettings(this);
+    }
+    else if(currentMode == ResizeImage)
+    {
+        // Save the unit choice (including PCT) specifically for the resize dialog
+        QSettings settings;
+        settings.setValue("NewDialog/resizeUnit", currentUnit);
     }
 }
 
@@ -224,6 +257,16 @@ void NewDialog::on_imageWHcombo_currentIndexChanged(int index)
         ui->imageWvalue->setValue(width_px / resoulution_in);
         ui->imageHvalue->setValue(height_px / resoulution_in);
     }
+    else if(index == PCT)
+    {
+        currentUnit = index;
+        ui->imageWvalue->setDecimals(2);
+        ui->imageHvalue->setDecimals(2);
+        base_width_px  = original_width_px  > 0 ? original_width_px  : width_px;
+        base_height_px = original_height_px > 0 ? original_height_px : height_px;
+        ui->imageWvalue->setValue(base_width_px  > 0 ? width_px  / base_width_px  * 100.0f : 100.0f);
+        ui->imageHvalue->setValue(base_height_px > 0 ? height_px / base_height_px * 100.0f : 100.0f);
+    }
 }
 
 void NewDialog::on_imageRvalue_valueChanged(double value)
@@ -259,6 +302,10 @@ void NewDialog::on_imageHvalue_valueChanged(double value)
     {
         height_px = ui->imageHvalue->value() * resoulution_in;
     }
+    else if(currentUnit == PCT)
+    {
+        height_px = base_height_px > 0 ? ui->imageHvalue->value() * base_height_px / 100.0f : ui->imageHvalue->value();
+    }
 
     ui->pixelHvalue->setValue(height_px);
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
@@ -266,7 +313,12 @@ void NewDialog::on_imageHvalue_valueChanged(double value)
     if(ui->lockedRatioButton->isChecked())
     {
         if(ui->imageHvalue->hasFocus())
-            ui->imageWvalue->setValue(ui->imageHvalue->value() * imageRatio); //width = height * imageRatio
+        {
+            if(currentUnit == PCT)
+                ui->imageWvalue->setValue(ui->imageHvalue->value());
+            else
+                ui->imageWvalue->setValue(ui->imageHvalue->value() * imageRatio); //width = height * imageRatio
+        }
     }
 }
 
@@ -297,18 +349,43 @@ void NewDialog::on_imageWvalue_valueChanged(double value)
     {
         width_px = ui->imageWvalue->value() * resoulution_in;
     }
+    else if(currentUnit == PCT)
+    {
+        width_px = base_width_px > 0 ? ui->imageWvalue->value() * base_width_px / 100.0f : ui->imageWvalue->value();
+    }
     ui->pixelWvalue->setValue(width_px);
     ui->memoryValue->setValue((((width_px * height_px) * 3)/1024)/1024);
 
     if(ui->lockedRatioButton->isChecked()) {
         if(ui->imageWvalue->hasFocus())
-            ui->imageHvalue->setValue(ui->imageWvalue->value() / imageRatio); //height = width / imageRatio
+        {
+            if(currentUnit == PCT)
+                ui->imageHvalue->setValue(ui->imageWvalue->value());
+            else
+                ui->imageHvalue->setValue(ui->imageWvalue->value() / imageRatio); //height = width / imageRatio
+        }
     }
 }
 
 void NewDialog::setMode(Mode mode)
 {
    currentMode = mode;
+
+   // Add/remove Percent option depending on mode
+   int pctIndex = ui->imageWHcombo->findText(tr("Percent"));
+   if(mode == ResizeImage) {
+       if(pctIndex == -1)
+           ui->imageWHcombo->addItem(tr("Percent"));
+   } else {
+       if(pctIndex != -1) {
+           // If currently in PCT mode, fall back to PX before removing
+           if(currentUnit == PCT) {
+               ui->imageWHcombo->setCurrentIndex(PX);
+           }
+           ui->imageWHcombo->removeItem(pctIndex);
+       }
+   }
+
    if(mode == ResizeImage)
    {
         ui->lockedRatioButton->setVisible(true);
@@ -355,6 +432,16 @@ void NewDialog::setMode(Mode mode)
    if(SETTINGS->getMemParamsEnabled() && mode != ResizeImage)
    {
        readSettings(this);
+   }
+   else if(mode == ResizeImage)
+   {
+       // Restore the unit choice (including PCT) for the resize dialog
+       QSettings settings;
+       int savedUnit = settings.value("NewDialog/resizeUnit", PX).toInt();
+       // Clamp to valid range; PCT (3) is valid here
+       if(savedUnit < PX || savedUnit > PCT)
+           savedUnit = PX;
+       ui->imageWHcombo->setCurrentIndex(savedUnit);
    }
 }
 

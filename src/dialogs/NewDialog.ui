@@ -108,6 +108,11 @@
      <string>Inches</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>Percent</string>
+    </property>
+   </item>
   </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
