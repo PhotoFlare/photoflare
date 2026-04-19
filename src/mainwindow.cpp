@@ -596,6 +596,16 @@ void MainWindow::openFile(const QString& fileName)
 
         if (!updatedFileName.isEmpty())
         {
+            QImageReader reader(updatedFileName);
+            reader.setDecideFormatFromContent(true);
+            const int frameCount = reader.imageCount();
+            if (frameCount > 1 || (frameCount == 0 && reader.supportsAnimation())) {
+                const QString countStr = frameCount > 1 ? QString::number(frameCount) : tr("multiple");
+                QMessageBox::warning(this, tr("Animated GIF"),
+                    tr("This GIF contains %1 frames. Only the first frame will be opened for editing. "
+                       "Animation is not supported in this version.").arg(countStr));
+            }
+
             addPaintWidget(createPaintWidget(updatedFileName));
             SETTINGS->addRecentFile(updatedFileName);
             updateRecentFilesMenu();
