@@ -366,6 +366,7 @@ QScrollBar::handle {
     <addaction name="separator"/>
     <addaction name="actionShow_grid"/>
     <addaction name="actionSnap_to_grid"/>
+    <addaction name="actionShow_rulers"/>
     <addaction name="separator"/>
     <addaction name="actionZoom_in"/>
     <addaction name="actionZoom_out"/>
@@ -1657,6 +1658,17 @@ QToolButton:checked {
    </property>
    <property name="text">
     <string>Show Grid...</string>
+   </property>
+  </action>
+  <action name="actionShow_rulers">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Rulers</string>
    </property>
   </action>
   <action name="actionSnap_to_grid">

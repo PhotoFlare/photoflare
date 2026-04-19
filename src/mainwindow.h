@@ -225,6 +225,7 @@ private slots:
     void on_actionClearClipboard_triggered();
     void on_actionDuplicate_triggered();
     void on_actionShow_grid_triggered();
+    void on_actionShow_rulers_triggered();
 
     QString prepareFile(const QString& fileName);
     bool fileTypeSupported(QList<QByteArray> formats, QString ext);

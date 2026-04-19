@@ -20,6 +20,8 @@
 
 #include <QGraphicsView>
 
+#include "RulerWidget.h"
+
 class PaintWidgetPrivate;
 class QProgressIndicator;
 class Tool;
@@ -68,6 +70,9 @@ public:
     void showProgressIndicator(bool visible);
     void showGrid(int width);
     bool isGridEnabled();
+    void showRulers(bool visible);
+    bool isRulersVisible() const;
+    void setRulerUnit(RulerWidget::Unit unit);
 signals:
     // Temporary signal to inform UI that user painted something.
     void contentChanged();
@@ -81,12 +86,19 @@ protected:
     void drawForeground(QPainter *painter, const QRectF &rect) override;
     void leaveEvent(QEvent *event) override;
     void enterEvent(QEnterEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
+    void scrollContentsBy(int dx, int dy) override;
 
 private:
     PaintWidgetPrivate *d;
     QList<QImage> historyList;
     int historyIndex;
     QProgressIndicator *progressIndicator;
+    RulerWidget *m_hRuler  = nullptr;
+    RulerWidget *m_vRuler  = nullptr;
+    QWidget     *m_rulerCorner = nullptr;
+
+    void updateRulers();
 
 private slots:
     void onContentChanged();

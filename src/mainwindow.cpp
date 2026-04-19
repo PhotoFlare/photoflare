@@ -1815,6 +1815,18 @@ void MainWindow::on_actionShow_grid_triggered()
     }
 }
 
+void MainWindow::on_actionShow_rulers_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget) {
+        bool visible = !widget->isRulersVisible();
+        widget->showRulers(visible);
+        ui->actionShow_rulers->setChecked(visible);
+    } else {
+        ui->actionShow_rulers->setChecked(false);
+    }
+}
+
 void MainWindow::getPrevZoomFromScale(QString scaletext)
 {
     int count = this->zoomCombo->count();
@@ -2645,6 +2657,9 @@ void MainWindow::onSubWindowActivated(QMdiSubWindow *window)
         {
             ui->actionShow_grid->setChecked(false);
         }
+
+        // Set view rulers checked status
+        ui->actionShow_rulers->setChecked(widget->isRulersVisible());
 
         // Set view selection checked status
         bool selectionVisible = widget->isSelectionVisible() && !widget->selection().isEmpty();

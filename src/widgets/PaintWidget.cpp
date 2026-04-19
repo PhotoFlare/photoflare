@@ -41,6 +41,7 @@
 #include "../Settings.h"
 #include "PaintWidget.h"
 #include "./Tool.h"
+#include "RulerWidget.h"
 
 // ---------------------------------------------------------------------------
 // ImageCanvasItem — custom QGraphicsItem that paints directly from a QImage*,
@@ -569,6 +570,26 @@ void PaintWidget::init()
     historyList.clear();
     historyList.append(d->image);
     viewport()->setMouseTracking(true);
+
+    // Create ruler widgets and corner square
+    m_rulerCorner = new QWidget(this);
+    m_rulerCorner->setStyleSheet("background-color: rgb(210,210,210);");
+
+    m_hRuler = new RulerWidget(RulerWidget::Orientation::Horizontal, this);
+    m_vRuler = new RulerWidget(RulerWidget::Orientation::Vertical, this);
+
+    // Sync unit changes between the two rulers
+    connect(m_hRuler, &RulerWidget::unitChanged, m_vRuler, &RulerWidget::setUnit);
+    connect(m_vRuler, &RulerWidget::unitChanged, m_hRuler, &RulerWidget::setUnit);
+
+    // Update DPI from image metadata (dotsPerMeterX/Y → DPI)
+    float dpiX = d->image.dotsPerMeterX() * 0.0254f;
+    float dpiY = d->image.dotsPerMeterY() * 0.0254f;
+    if (dpiX > 0.0f) m_hRuler->setDpi(dpiX);
+    if (dpiY > 0.0f) m_vRuler->setDpi(dpiY);
+
+    setViewportMargins(RulerWidget::THICKNESS, RulerWidget::THICKNESS, 0, 0);
+    updateRulers();
 }
 
 PaintWidget::~PaintWidget()
@@ -645,6 +666,7 @@ void PaintWidget::setPaintTool(Tool *tool)
 void PaintWidget::setImage(const QImage &image)
 {
     d->setImage(image);
+    updateRulers();
     onContentChanged();
     this->contentChanged();
 }
@@ -653,6 +675,7 @@ void PaintWidget::setImageOriginal(const QImage &image)
 {
     // Replace the image without creating any undo steps
     d->setImage(image);
+    updateRulers();
 }
 
 QImage PaintWidget::image() const
@@ -674,12 +697,18 @@ void PaintWidget::mouseMoveEvent(QMouseEvent *event)
         else
             viewport()->unsetCursor();
     }
+    if (m_hRuler && m_hRuler->isVisible())
+        m_hRuler->setMousePos(event->pos().x());
+    if (m_vRuler && m_vRuler->isVisible())
+        m_vRuler->setMousePos(event->pos().y());
 }
 
 void PaintWidget::leaveEvent(QEvent *event)
 {
     QGraphicsView::leaveEvent(event);
     viewport()->unsetCursor();
+    if (m_hRuler) m_hRuler->clearMousePos();
+    if (m_vRuler) m_vRuler->clearMousePos();
 }
 
 void PaintWidget::enterEvent(QEnterEvent *event)
@@ -687,6 +716,59 @@ void PaintWidget::enterEvent(QEnterEvent *event)
     QGraphicsView::enterEvent(event);
     if (d->currentTool)
         viewport()->setCursor(d->currentTool->getCursor());
+}
+
+void PaintWidget::resizeEvent(QResizeEvent *event)
+{
+    QGraphicsView::resizeEvent(event);
+    updateRulers();
+}
+
+void PaintWidget::scrollContentsBy(int dx, int dy)
+{
+    QGraphicsView::scrollContentsBy(dx, dy);
+    updateRulers();
+}
+
+void PaintWidget::updateRulers()
+{
+    if (!m_hRuler || !m_vRuler || !m_rulerCorner)
+        return;
+
+    const int t = RulerWidget::THICKNESS;
+    // Position corner square, horizontal ruler, and vertical ruler inside
+    // the QAbstractScrollArea frame (outside the viewport).
+    m_rulerCorner->setGeometry(0, 0, t, t);
+    m_hRuler->setGeometry(t, 0, qMax(0, width() - t), t);
+    m_vRuler->setGeometry(0, t, t, qMax(0, height() - t));
+
+    // Compute the scene coordinate visible at screen position 0
+    QPointF topLeft = mapToScene(QPoint(0, 0));
+    m_hRuler->setOrigin(static_cast<float>(topLeft.x()));
+    m_vRuler->setOrigin(static_cast<float>(topLeft.y()));
+    m_hRuler->setScale(d->scale);
+    m_vRuler->setScale(d->scale);
+}
+
+void PaintWidget::showRulers(bool visible)
+{
+    if (m_hRuler)     m_hRuler->setVisible(visible);
+    if (m_vRuler)     m_vRuler->setVisible(visible);
+    if (m_rulerCorner) m_rulerCorner->setVisible(visible);
+    setViewportMargins(visible ? RulerWidget::THICKNESS : 0,
+                       visible ? RulerWidget::THICKNESS : 0, 0, 0);
+    updateRulers();
+}
+
+bool PaintWidget::isRulersVisible() const
+{
+    return m_hRuler && m_hRuler->isVisible();
+}
+
+void PaintWidget::setRulerUnit(RulerWidget::Unit unit)
+{
+    if (m_hRuler) m_hRuler->setUnit(unit);
+    if (m_vRuler) m_vRuler->setUnit(unit);
 }
 
 void PaintWidget::onSelectionChanged(QPolygon poly)
@@ -736,6 +818,8 @@ void PaintWidget::autoScale()
 
     if(d->currentTool)
         d->currentTool->setScale(d->scale);
+
+    updateRulers();
 }
 
 void PaintWidget::setScale(const QString &rate)
@@ -746,6 +830,8 @@ void PaintWidget::setScale(const QString &rate)
 
     if(d->currentTool)
         d->currentTool->setScale(d->scale);
+
+    updateRulers();
 }
 
 float PaintWidget::getScale()
@@ -812,6 +898,7 @@ void PaintWidget::wheelEvent(QWheelEvent *event)
     const QPointF move = p1mouse - event->position();
     horizontalScrollBar()->setValue(move.x() + horizontalScrollBar()->value());
     verticalScrollBar()->setValue(move.y() + verticalScrollBar()->value());
+    updateRulers();
 }
 
 void PaintWidget::onContentChanged()
@@ -836,6 +923,7 @@ void PaintWidget::revert()
 {
     historyIndex = 0;
     d->setImage(historyList.at(historyIndex));
+    updateRulers();
     this->contentChanged();
 }
 
@@ -845,6 +933,7 @@ void PaintWidget::undo()
     {
         historyIndex--;
         d->setImage(historyList.at(historyIndex));
+        updateRulers();
         this->contentChanged();
     }
 }
@@ -855,6 +944,7 @@ void PaintWidget::redo()
     {
         historyIndex++;
         d->setImage(historyList.at(historyIndex));
+        updateRulers();
         this->contentChanged();
     }
 }
