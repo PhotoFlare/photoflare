@@ -19,6 +19,9 @@
 
 #include "imagepositionwidget.h"
 #include "ui_imagepositionwidget.h"
+#include <QApplication>
+#include <QPalette>
+#include "../Settings.h"
 //#include <QDebug>
 
 ImagePositionWidget::ImagePositionWidget(QWidget *parent) :
@@ -26,8 +29,14 @@ ImagePositionWidget::ImagePositionWidget(QWidget *parent) :
     ui(new Ui::ImagePositionWidget)
 {
     ui->setupUi(this);
-    iconSepia = ":/icons/assets/icons/toolbar2/sepia.png";
-    iconGray = ":/icons/assets/icons/toolbar2/grayscale.png";
+    const QString theme = SETTINGS->getIconTheme();
+    const bool dark = (theme == QLatin1String("dark")) ||
+                      (theme == QLatin1String("auto") &&
+                       qApp->palette().color(QPalette::Window).lightness() < 128);
+    iconSepia = dark ? ":/icons-dark/assets/icons/toolbar2/sepia.png"
+                     : ":/icons/assets/icons/toolbar2/sepia.png";
+    iconGray  = dark ? ":/icons-dark/assets/icons/toolbar2/grayscale.png"
+                     : ":/icons/assets/icons/toolbar2/grayscale.png";
     on_pushButton_5_clicked();
 }
 

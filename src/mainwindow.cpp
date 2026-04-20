@@ -127,6 +127,7 @@ MainWindow::MainWindow() :
     FilterManager::instance();
 
     ui->setupUi(this);
+    applyIconTheme();
 
     // Add Settings Widgets to the Dock
     addSettingsWidgets();
@@ -2005,6 +2006,7 @@ void MainWindow::on_actionPreferences_triggered()
 {
     prefsDialog = new PrefsDialog();
     QObject::connect(prefsDialog, SIGNAL(safeQuitApp()), this, SLOT(onSafeQuitApp()));
+    QObject::connect(prefsDialog, SIGNAL(iconThemeChanged()), this, SLOT(applyIconTheme()));
     prefsDialog->show();
 }
 
@@ -3242,4 +3244,94 @@ void MainWindow::disableUnimplementedActions(bool hide)
         ui->actionTransparency_mask->setEnabled(false);
         ui->actionValidate->setEnabled(false);
     }
+}
+
+static QString iconPath(const QString &lightPath, bool dark)
+{
+    if (!dark)
+        return lightPath;
+    QString p = lightPath;
+    p.replace(QLatin1String(":/icons/"),       QLatin1String(":/icons-dark/"));
+    p.replace(QLatin1String(":/toolpalette/"), QLatin1String(":/toolpalette-dark/"));
+    p.replace(QLatin1String(":/pixmaps/"),     QLatin1String(":/pixmaps-dark/"));
+    p.replace(QLatin1String(":/brushes/"),     QLatin1String(":/brushes-dark/"));
+    p.replace(QLatin1String(":/lines/"),       QLatin1String(":/lines-dark/"));
+    p.replace(QLatin1String(":/cursors/"),     QLatin1String(":/cursors-dark/"));
+    return p;
+}
+
+void MainWindow::applyIconTheme()
+{
+    const QString theme = SETTINGS->getIconTheme();
+    const bool dark = (theme == QLatin1String("dark")) ||
+                      (theme == QLatin1String("auto") &&
+                       qApp->palette().color(QPalette::Window).lightness() < 128);
+
+    // Toolpalette checked/hover style
+    if (dark) {
+        ui->dockWidgetContentsToolpalette->setStyleSheet(
+            "QToolButton { border: none; }"
+            "QToolButton:hover   { background: #555; border-radius:4px; border: 1px solid #666; }"
+            "QToolButton:checked { background: #555; border-radius:4px; border: 1px solid #444; }");
+    } else {
+        ui->dockWidgetContentsToolpalette->setStyleSheet(
+            "QToolButton { border: none; }"
+            "QToolButton:hover   { background: #ddd; border-radius:4px; border: 1px solid #eee; }"
+            "QToolButton:checked { background: #ddd; border-radius:4px; border: 1px solid #c0c2c2; }");
+    }
+    // Toolbar 1 actions
+    ui->actionNew->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/new.png", dark)));
+    ui->actionOpen->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/open.png", dark)));
+    ui->actionSave->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/save.png", dark)));
+    ui->actionPrint->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/print.png", dark)));
+    ui->actionUndo->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/undo.png", dark)));
+    ui->actionRedo->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/redo.png", dark)));
+    ui->actionImage_Size->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/imgsize.png", dark)));
+    ui->actionCanvas_Size->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/cansize.png", dark)));
+    ui->actionTransparent_colour->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/trans.png", dark)));
+    ui->actionText->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/text.png", dark)));
+    ui->actionShow_selection->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/show.png", dark)));
+    ui->actionAutomate_Batch->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/batch.png", dark)));
+    ui->actionPreferences->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/pref.png", dark)));
+    ui->actionScan->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/scan.png", dark)));
+    ui->actionRGB_Mode->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/rgb.png", dark)));
+    ui->actionIndexed_Mode->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/index.png", dark)));
+    // Toolbar 2 actions
+    ui->actionFlip_Vertical->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/flipV.png", dark)));
+    ui->actionFlip_Horizontal->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/flipH.png", dark)));
+    ui->actionAuto_levels->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/autolevel.png", dark)));
+    ui->actionAuto_contrast->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/autobright.png", dark)));
+    ui->actionHue_variation->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/hue.png", dark)));
+    ui->actionSoften->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/soften.png", dark)));
+    ui->actionSharpen->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/sharpen.png", dark)));
+    ui->actionBrightminus->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/brightness-.png", dark)));
+    ui->actionBrightplus->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/brightness+.png", dark)));
+    ui->actionContrastminus->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/contrast-.png", dark)));
+    ui->actionContrastplus->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/contrast+.png", dark)));
+    ui->actionSaturationminus->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/saturation-.png", dark)));
+    ui->actionSaturationplus->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/saturation+.png", dark)));
+    ui->actionGammaCorrectminus->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/gammacorrect-.png", dark)));
+    ui->actionGammaCorrectplus->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/gammacorrect+.png", dark)));
+    ui->actionGrayScale->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/grayscale.png", dark)));
+    ui->actionOldPhoto->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/old_photo.png", dark)));
+    ui->actionDustReduction->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/dustreduction.png", dark)));
+    ui->actionBlur->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/blur.png", dark)));
+    ui->actionReinforce->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/reinforce.png", dark)));
+    ui->actionGradient->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/gradient.png", dark)));
+    ui->actionRotate_CCW->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/rotateCCW.png", dark)));
+    ui->actionRotate_CW->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/rotateCW.png", dark)));
+    ui->actionSepia->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar2/sepia.png", dark)));
+    // Tool palette buttons
+    ui->toolButtonEraser->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Eraser.png", dark)));
+    ui->toolButtonSprayCan->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Spraycan.png", dark)));
+    ui->toolButtonPointer->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Pointer.png", dark)));
+    ui->toolButtonLine->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Line.png", dark)));
+    ui->toolButtonWand->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Wand.png", dark)));
+    ui->toolButtonPaintBrush->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/PaintBrush.png", dark)));
+    ui->toolButtonPaintBrushAdv->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/PaintBrush-Plus.png", dark)));
+    ui->toolButtonBlur->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Blur.png", dark)));
+    ui->toolButtonSmudge->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Smudge.png", dark)));
+    ui->toolButtonStamp->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Stamp.png", dark)));
+    ui->toolButtonPaintBucket->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/Bucket.png", dark)));
+    ui->toolButtonDropper->setIcon(QIcon(iconPath(":/toolpalette/assets/toolpalette_icons/ColourPicker.png", dark)));
 }

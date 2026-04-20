@@ -338,6 +338,29 @@
       </rect>
      </property>
     </widget>
+    <widget class="QLabel" name="labelIconTheme">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>210</y>
+       <width>191</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Icon theme</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="iconThemeCBox">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>191</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_5">
     <attribute name="title">

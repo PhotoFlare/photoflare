@@ -128,7 +128,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>:/toolpalette_icons/icons/swap.png</normaloff>:/toolpalette_icons/icons/swap.png</iconset>
+     <normaloff>:/toolpalette/assets/icons/swap.png</normaloff>:/toolpalette/assets/icons/swap.png</iconset>
    </property>
    <property name="flat">
     <bool>true</bool>

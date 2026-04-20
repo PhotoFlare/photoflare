@@ -64,6 +64,15 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
         ui->zoomDirection->setCurrentIndex(1);
     }
 
+    QStringList iconThemes(QStringList() << tr("Auto") << tr("Light") << tr("Dark"));
+    ui->iconThemeCBox->addItems(iconThemes);
+    {
+        const QString t = SETTINGS->getIconTheme();
+        if (t == "light")     ui->iconThemeCBox->setCurrentIndex(1);
+        else if (t == "dark") ui->iconThemeCBox->setCurrentIndex(2);
+        else                  ui->iconThemeCBox->setCurrentIndex(0);
+    }
+
     //Default values tab
     ui->memorizeParams->setChecked(SETTINGS->getMemParamsEnabled());
     ui->unitsCBox->setCurrentIndex(SETTINGS->getUnit());
@@ -163,6 +172,11 @@ void PrefsDialog::on_buttonBox_accepted()
     //Layout tab
     SETTINGS->setDockLayout(QString::number(ui->toolPaletteLocation->currentIndex()));
     SETTINGS->setZoomDirection(QString::number(ui->zoomDirection->currentIndex()));
+    {
+        static const char* themeKeys[] = {"auto", "light", "dark"};
+        SETTINGS->setIconTheme(QLatin1String(themeKeys[ui->iconThemeCBox->currentIndex()]));
+        emit iconThemeChanged();
+    }
 
     //Default values tab
     SETTINGS->setMemParamsEnabled(ui->memorizeParams->isChecked());

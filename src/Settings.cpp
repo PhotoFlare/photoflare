@@ -45,6 +45,7 @@ public:
         zoomDirection = settings.value("zoomDirection").toString();
         memDialogParams = settings.value("memorizeParamsEnabled").toBool();
         unit = settings.value("unit").toInt();
+        iconTheme = settings.value("iconTheme", "auto").toString();
     }
 
     ~SettingsPrivate()
@@ -77,6 +78,7 @@ public:
     QString zoomDirection;
     bool memDialogParams;
     int unit;
+    QString iconTheme;
     QSettings settings;
 };
 
@@ -123,6 +125,7 @@ void Settings::setDefaultSettings()
     d->setValue("prevOpenedSave", false);
     d->setValue("saveFormatEnabled", false);
     d->setValue("unit", 0);
+    d->setValue("iconTheme", "auto");
 }
 
 void Settings::setUnit(int unitcode)
@@ -134,6 +137,17 @@ void Settings::setUnit(int unitcode)
 int Settings::getUnit() const
 {
     return d->unit;
+}
+
+void Settings::setIconTheme(const QString &theme)
+{
+    d->iconTheme = theme;
+    d->setValue("iconTheme", theme);
+}
+
+QString Settings::getIconTheme() const
+{
+    return d->iconTheme;
 }
 
 void Settings::setMaximizeWindow(bool maximize)

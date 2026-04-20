@@ -69,6 +69,8 @@ public:
     bool getMemParamsEnabled() const;
     void setUnit(int);
     int getUnit() const;
+    void setIconTheme(const QString &theme);
+    QString getIconTheme() const;
 
 private:
     explicit Settings(QObject *parent = 0);

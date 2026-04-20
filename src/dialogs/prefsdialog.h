@@ -48,6 +48,7 @@ private slots:
 
 signals:
     void safeQuitApp();
+    void iconThemeChanged();
 
 private:
     Ui::PrefsDialog *ui;

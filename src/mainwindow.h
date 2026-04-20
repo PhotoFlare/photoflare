@@ -60,6 +60,7 @@ public:
 
 public slots:
     void handleMessage(const QString& message);
+    void applyIconTheme();
 
 private slots:
     void setupWorkspace();

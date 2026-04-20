@@ -23,7 +23,7 @@ INCLUDEPATH += ./src/widgets \
 win32 {
     INCLUDEPATH +=  $$PWD/external/GraphicsMagick-1.3.28/Magick++/lib
     LIBS += -L$$PWD/external/GraphicsMagick-1.3.28/VisualMagick/lib -lCORE_RL_Magick++_
-    RC_ICONS += assets/pixmaps/logo.ico
+    RC_ICONS += assets/light/pixmaps/logo.ico
 }
 
 # Project settings for Linux and Hurd. Adjust the paths as needed on your system.
@@ -193,7 +193,8 @@ FORMS += src/mainwindow.ui \
     src/dialogs/dropshadowdialog.ui
 
 RESOURCES += \
-    Icons.qrc
+    Icons.qrc \
+    IconsDark.qrc
 
 include (external/qt-solutions/qtsingleapplication/qtsingleapplication.pri)
 
