@@ -226,82 +226,116 @@ void batchDialog::on_tabWidget_currentChanged(int index)
     if(index == 5)
     {
         ui->plainTextEdit->clear();
-        ui->plainTextEdit->insertPlainText(tr("Input files:") + "\n");
+
+        // --- Input files ---
+        ui->plainTextEdit->insertPlainText(
+            tr("Input files (%1):").arg(d->fileList.size()) + "\n");
         foreach (QString file, d->fileList) {
             ui->plainTextEdit->insertPlainText("  " + file + "\n");
         }
         ui->plainTextEdit->insertPlainText("\n");
-        ui->plainTextEdit->insertPlainText(tr("Output folder: ") + d->outDir + "\n");
+
+        // --- Output ---
+        ui->plainTextEdit->insertPlainText(tr("Output") + "\n");
+        ui->plainTextEdit->insertPlainText("  " + tr("Folder:").leftJustified(22) + d->outDir + "\n");
+        ui->plainTextEdit->insertPlainText("  " + tr("Format:").leftJustified(22) + ui->outFormat->currentText() + "\n");
+        if(ui->sourceFormat->currentIndex() != 0)
+        {
+            ui->plainTextEdit->insertPlainText("  " + tr("Source filter:").leftJustified(22) + ui->sourceFormat->currentText() + "\n");
+        }
         ui->plainTextEdit->insertPlainText("\n");
-        if(ui->imageSizeCheckBox->isChecked())
+
+        // --- Resize ---
+        if(ui->imageSizeCheckBox->isChecked() || ui->canvasSizeCheckBox->isChecked())
         {
-            ui->plainTextEdit->insertPlainText(tr("Image size: ")
-            + QString::number(ui->imageWvalue->value()) +" x "+ QString::number(ui->imageHvalue->value()) + "\n");
-            ui->plainTextEdit->insertPlainText("\n");
-        }
-        if(ui->canvasSizeCheckBox->isChecked())
-        {
-            ui->plainTextEdit->insertPlainText(tr("Canvas size: ")
-            + QString::number(ui->canvasWvalue->value()) +" x "+ QString::number(ui->canvasHvalue->value()) + "\n");
-            ui->plainTextEdit->insertPlainText("\n");
-        }
-        if(ui->brightnessSlider->value() != 0)
-        {
-            ui->plainTextEdit->insertPlainText(tr("Brightness adjustment: ")
-            + QString::number(ui->brightnessSlider->value()) + "\n");
-            ui->plainTextEdit->insertPlainText("\n");
-        }
-        if(ui->contrastSlider->value() != 0)
-        {
-            ui->plainTextEdit->insertPlainText(tr("Contrast adjustment: ")
-            + QString::number(ui->contrastSlider->value()) + "\n");
-            ui->plainTextEdit->insertPlainText("\n");
-        }
-        if(ui->saturationSlider->value() != 0)
-        {
-            ui->plainTextEdit->insertPlainText(tr("Saturation adjustment: ")
-            + QString::number(ui->saturationSlider->value()) + "\n");
-            ui->plainTextEdit->insertPlainText("\n");
-        }
-        if(ui->gammaSlider->value() != 100)
-        {
-            ui->plainTextEdit->insertPlainText(tr("Gamma adjustment: ")
-            + QString::number(ui->gammaSlider->value()) + "\n");
-            ui->plainTextEdit->insertPlainText("\n");
-        }
-        if(ui->rotateCheckBox->isChecked())
-        {
-            QString rotateAmount = "";
-            if(ui->rotate90radioButton->isChecked())
+            ui->plainTextEdit->insertPlainText(tr("Resize") + "\n");
+            if(ui->imageSizeCheckBox->isChecked())
             {
-                rotateAmount = ui->rotate90radioButton->text();
+                QString size = QString::number(ui->imageWvalue->value()) + " x "
+                               + QString::number(ui->imageHvalue->value())
+                               + " " + ui->imageWHcombo->currentText();
+                ui->plainTextEdit->insertPlainText("  " + tr("Image size:").leftJustified(22) + size + "\n");
             }
-            else if(ui->rotate90ccwRadioButton->isChecked())
+            if(ui->canvasSizeCheckBox->isChecked())
             {
-                rotateAmount = ui->rotate90ccwRadioButton->text();
+                QString size = QString::number(ui->canvasWvalue->value()) + " x "
+                               + QString::number(ui->canvasHvalue->value());
+                ui->plainTextEdit->insertPlainText("  " + tr("Canvas size:").leftJustified(22) + size + "\n");
+                ui->plainTextEdit->insertPlainText("  " + tr("Background color:").leftJustified(22) + backgroundColor().name() + "\n");
+                const QStringList positionNames = {
+                    tr("Top Left"),    tr("Top Center"),    tr("Top Right"),
+                    tr("Center Left"), tr("Center"),        tr("Center Right"),
+                    tr("Bottom Left"), tr("Bottom Center"), tr("Bottom Right")
+                };
+                int pos = static_cast<int>(ui->positionWidget->imagePosition());
+                QString posName = (pos >= 0 && pos < positionNames.size()) ? positionNames.at(pos) : QString::number(pos);
+                ui->plainTextEdit->insertPlainText("  " + tr("Image position:").leftJustified(22) + posName + "\n");
             }
-            else if(ui->rotate180RadioButton->isChecked())
-            {
-                rotateAmount = ui->rotate180RadioButton->text();
-            }
-            ui->plainTextEdit->insertPlainText(tr("Rotate: ") + rotateAmount + "\n");
             ui->plainTextEdit->insertPlainText("\n");
         }
-        if(ui->flipCheckBox->isChecked())
+
+        // --- Adjustments ---
+        bool hasAdjustments = ui->brightnessSlider->value() != 0
+                              || ui->contrastSlider->value() != 0
+                              || ui->saturationSlider->value() != 0
+                              || ui->gammaSlider->value() != 100;
+        if(hasAdjustments)
         {
-            QString flipDirection = "";
-            if(ui->flipHorizontalRadioButton->isChecked())
+            ui->plainTextEdit->insertPlainText(tr("Adjustments") + "\n");
+            if(ui->brightnessSlider->value() != 0)
             {
-                flipDirection = ui->flipHorizontalRadioButton->text();
+                ui->plainTextEdit->insertPlainText("  " + tr("Brightness:").leftJustified(22)
+                    + QString::number(ui->brightnessSlider->value())
+                    + " (" + ui->brightnessChannel->currentText() + ")\n");
             }
-            else
+            if(ui->contrastSlider->value() != 0)
             {
-                flipDirection = ui->flipVerticalRadioButton->text();
+                ui->plainTextEdit->insertPlainText("  " + tr("Contrast:").leftJustified(22)
+                    + QString::number(ui->contrastSlider->value())
+                    + " (" + ui->contrastChannel->currentText() + ")\n");
             }
-            ui->plainTextEdit->insertPlainText(tr("Flip: ") + flipDirection + "\n");
+            if(ui->saturationSlider->value() != 0)
+            {
+                ui->plainTextEdit->insertPlainText("  " + tr("Saturation:").leftJustified(22)
+                    + QString::number(ui->saturationSlider->value())
+                    + " (" + ui->SaturationChannel->currentText() + ")\n");
+            }
+            if(ui->gammaSlider->value() != 100)
+            {
+                ui->plainTextEdit->insertPlainText("  " + tr("Gamma:").leftJustified(22)
+                    + QString::number(ui->gammaSlider->value())
+                    + " (" + ui->gammaChannel->currentText() + ")\n");
+            }
             ui->plainTextEdit->insertPlainText("\n");
         }
-        ui->plainTextEdit->insertPlainText(tr("Filters: ") + "\n");
+
+        // --- Transform ---
+        if(ui->rotateCheckBox->isChecked() || ui->flipCheckBox->isChecked())
+        {
+            ui->plainTextEdit->insertPlainText(tr("Transform") + "\n");
+            if(ui->rotateCheckBox->isChecked())
+            {
+                QString rotateAmount;
+                if(ui->rotate90radioButton->isChecked())
+                    rotateAmount = ui->rotate90radioButton->text();
+                else if(ui->rotate90ccwRadioButton->isChecked())
+                    rotateAmount = ui->rotate90ccwRadioButton->text();
+                else if(ui->rotate180RadioButton->isChecked())
+                    rotateAmount = ui->rotate180RadioButton->text();
+                ui->plainTextEdit->insertPlainText("  " + tr("Rotate:").leftJustified(22) + rotateAmount + "\n");
+            }
+            if(ui->flipCheckBox->isChecked())
+            {
+                QString flipDirection = ui->flipHorizontalRadioButton->isChecked()
+                    ? ui->flipHorizontalRadioButton->text()
+                    : ui->flipVerticalRadioButton->text();
+                ui->plainTextEdit->insertPlainText("  " + tr("Flip:").leftJustified(22) + flipDirection + "\n");
+            }
+            ui->plainTextEdit->insertPlainText("\n");
+        }
+
+        // --- Filters ---
+        ui->plainTextEdit->insertPlainText(tr("Filters (%1)").arg(d->filterList.size()) + "\n");
         foreach (QString filter, d->filterList) {
             ui->plainTextEdit->insertPlainText("  " + filter + "\n");
         }
