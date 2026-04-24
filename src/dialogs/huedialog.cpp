@@ -18,6 +18,7 @@
 // Hue dialog class for the Photoflare application.
 
 #include <QMouseEvent>
+#include <QShowEvent>
 #include <QColorDialog>
 #include <QSettings>
 
@@ -91,6 +92,16 @@ void HueDialog::showColorDialog(QWidget *colorLabel)
     QColor selectedColor = QColorDialog::getColor(getColorFromLabel(colorLabel), this);
     if (selectedColor.isValid()) {
         setColor(selectedColor, colorLabel);
+    }
+}
+
+void HueDialog::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+    if (ui->method1->isChecked()) {
+        emit huePreviewChanged(m_preview, true, m_color, 0);
+    } else {
+        on_horizontalSlider_valueChanged(ui->horizontalSlider->value());
     }
 }
 

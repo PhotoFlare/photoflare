@@ -33,6 +33,7 @@ public:
     ~HueDialog() override;
 
     bool eventFilter(QObject *obj, QEvent *event) override;
+    void showEvent(QShowEvent *event) override;
     void setPreviewImage(const QImage& image);
     QColor color() {return m_color;}
     int degrees() {return m_degrees;}
