@@ -27,7 +27,8 @@
 
 HueDialog::HueDialog(QWidget *parent, QImage preview) :
     QDialog(parent),
-    ui(new Ui::HueDialog)
+    ui(new Ui::HueDialog),
+    m_degrees(0)
 {
     ui->setupUi(this);
     setFixedSize(size());
@@ -63,11 +64,21 @@ void HueDialog::setColor(const QColor &color, QWidget *colorLabel)
 
     m_color = color;
 
-    // Hide degrees as we don't know how to convert a color to a degree value
-    ui->horizontalSlider->setValue(0);
-    ui->valueLabel->setText("");
-
-    emit huePreviewChanged(m_preview, ui->method1->isChecked(), color, 0);
+    if (ui->method1->isChecked()) {
+        // Colorize mode: no meaningful degree for an arbitrary colour
+        ui->horizontalSlider->blockSignals(true);
+        ui->horizontalSlider->setValue(0);
+        ui->horizontalSlider->blockSignals(false);
+        m_degrees = 0;
+        ui->valueLabel->setText("");
+        emit huePreviewChanged(m_preview, true, color, 0);
+    } else {
+        // Hue mode: map the colour's HSV hue to the slider degree.
+        // on_horizontalSlider_valueChanged will update m_color, m_degrees and emit.
+        int hue = color.hsvHue();
+        if (hue < 0) hue = 0; // hsvHue() returns -1 for achromatic colours
+        ui->horizontalSlider->setValue(hue);
+    }
 }
 
 QColor HueDialog::getColorFromLabel(QWidget *colorLabel) const
@@ -87,7 +98,9 @@ bool HueDialog::eventFilter(QObject *obj, QEvent *event)
 {
     if(obj == ui->spectrumLabel)
     {
-        QMouseEvent *mevent = (QMouseEvent*)event;
+        if(event->type() != QEvent::MouseButtonPress && event->type() != QEvent::MouseButtonRelease)
+            return QWidget::eventFilter(obj, event);
+        QMouseEvent *mevent = static_cast<QMouseEvent*>(event);
         if(mevent->button() == Qt::LeftButton)
         {
             QLabel* label = (QLabel*)obj;

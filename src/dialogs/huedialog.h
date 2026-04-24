@@ -53,7 +53,7 @@ private:
     Ui::HueDialog *ui;
     QImage m_preview;
     QColor m_color;
-    int m_degrees;
+    int m_degrees = 0;
 };
 
 #endif // HUEDIALOG_H
