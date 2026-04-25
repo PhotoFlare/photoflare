@@ -19,9 +19,9 @@ Information on current features and how to use the application will be
 - libgraphicsmagick++1-dev
 - libomp-dev
 - libc6-dev
-- libqt6core6t64
-- libqt6gui6t64
-- libqt6widgets6t64
+- libqt6core6
+- libqt6gui6
+- libqt6widgets6
 - qt6-base-dev
 
 #### Ubuntu (24.04)  
@@ -40,12 +40,12 @@ Full instructions for each platform <a href="https://photoflare.io/contributing/
 
 ### Dependencies
 - libc6
-- libgraphicsmagick++-q16-12t64
-- libqt6core6t64
-- libqt6gui6t64
-- libqt6widgets6t64
-- libqt6printsupport6t64
-- libomp5-15t64
+- libgraphicsmagick++
+- libqt6core6
+- libqt6gui6
+- libqt6widgets6
+- libqt6printsupport6
+- libomp
 - qt6-image-formats-plugins (Optional - Extra file format support)
 
 ## Translations
