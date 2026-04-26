@@ -460,7 +460,7 @@ void MainWindow::applyFilteredImage(PaintWidget *widget, const QImage &original,
 
 void MainWindow::on_actionNew_triggered()
 {
-    NewDialog dialog;
+    NewDialog dialog(this);
     dialog.setMode(NewDialog::NewImage);
     if (dialog.exec())
     {
@@ -1154,7 +1154,7 @@ void MainWindow::on_actionImage_Size_triggered()
     if (!widget)
         return;
 
-    NewDialog dialog;
+    NewDialog dialog(this);
     dialog.setWindowTitle(tr("Resize Image"));
     dialog.setMode(NewDialog::ResizeImage);
     dialog.setImageSize(widget->image().size());
@@ -1171,7 +1171,7 @@ void MainWindow::on_actionCanvas_Size_triggered()
     if (!widget)
         return;
 
-    NewDialog dialog;
+    NewDialog dialog(this);
     dialog.setWindowTitle(tr("Resize Canvas"));
     dialog.setMode(NewDialog::ResizeCanvas);
     dialog.setImageSize(widget->image().size());
@@ -2004,7 +2004,7 @@ void MainWindow::batchProcess_batchProgress(int index,int total)
 
 void MainWindow::on_actionPreferences_triggered()
 {
-    prefsDialog = new PrefsDialog();
+    prefsDialog = new PrefsDialog(this);
     QObject::connect(prefsDialog, SIGNAL(safeQuitApp()), this, SLOT(onSafeQuitApp()));
     QObject::connect(prefsDialog, SIGNAL(iconThemeChanged()), this, SLOT(applyIconTheme()));
     prefsDialog->show();
@@ -2029,7 +2029,7 @@ void MainWindow::on_actionPlugins_triggered()
 
 void MainWindow::on_actionCheck_for_updates_triggered()
 {
-    checkupdateDialog cud;
+    checkupdateDialog cud(this);
     cud.exec();
 }
 
