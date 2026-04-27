@@ -494,6 +494,10 @@ public:
     // Used to confine tool changes to the selected region.
     QImage preStrokeSnapshot;
 
+    // Middle-mouse-button pan state
+    bool isPanning = false;
+    QPoint panLastPos;
+
     PaintWidget *q;
 };
 
@@ -688,8 +692,42 @@ void PaintWidget::onCursorChanged(QCursor cursor)
     viewport()->setCursor(cursor);
 }
 
+void PaintWidget::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::MiddleButton) {
+        d->isPanning = true;
+        d->panLastPos = event->pos();
+        viewport()->setCursor(Qt::ClosedHandCursor);
+        event->accept();
+        return;
+    }
+    QGraphicsView::mousePressEvent(event);
+}
+
+void PaintWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::MiddleButton && d->isPanning) {
+        d->isPanning = false;
+        if (d->currentTool)
+            viewport()->setCursor(d->currentTool->getCursor());
+        else
+            viewport()->unsetCursor();
+        event->accept();
+        return;
+    }
+    QGraphicsView::mouseReleaseEvent(event);
+}
+
 void PaintWidget::mouseMoveEvent(QMouseEvent *event)
 {
+    if (d->isPanning) {
+        const QPoint delta = event->pos() - d->panLastPos;
+        d->panLastPos = event->pos();
+        horizontalScrollBar()->setValue(horizontalScrollBar()->value() - delta.x());
+        verticalScrollBar()->setValue(verticalScrollBar()->value() - delta.y());
+        event->accept();
+        return;
+    }
     QGraphicsView::mouseMoveEvent(event);
     if (d->currentTool) {
         if (sceneRect().contains(mapToScene(event->pos())))

@@ -82,6 +82,8 @@ signals:
 
 protected:
     void wheelEvent(QWheelEvent *event);
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void drawForeground(QPainter *painter, const QRectF &rect) override;
     void leaveEvent(QEvent *event) override;
