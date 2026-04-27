@@ -31,6 +31,7 @@
 
 enum SelectionMode {SELECT, HAND, RESIZE, STROKE, FILL, MOVE};
 enum Corner {TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT};
+enum OverlayHandle { OV_NONE, OV_BODY, OV_CORNER_TL, OV_CORNER_TR, OV_CORNER_BR, OV_CORNER_BL, OV_ROTATE };
 
 class PointerToolPrivate
 {
@@ -59,6 +60,15 @@ public:
     QColor fillColor;
     QColor strokeColor;
     PointerTool::SelectionShape selectionShape = PointerTool::RECT;
+    // Paste overlay transform state
+    int    overlayRotation = 0;      // degrees
+    double overlayScale    = 1.0;
+    OverlayHandle activeHandle = OV_NONE;
+    QPointF dragStartImagePos;
+    double  dragStartScale    = 1.0;
+    int     dragStartRotation = 0;
+    QPointF dragStartCanvasPos;
+    bool overlayJustCommitted = false; // suppress selection clear on the paired MouseRelease
 };
 
 static QPolygon makeEllipsePolygon(const QPoint &topLeft, const QPoint &bottomRight, int steps = 64)
@@ -76,6 +86,137 @@ static QPolygon makeEllipsePolygon(const QPoint &topLeft, const QPoint &bottomRi
                        qRound(cy + ry * qSin(angle)));
     }
     return poly;
+}
+
+// Returns the canvas-space centre of the pasted overlay (after scale, before rotation it's
+// still the same — rotation is around this point).
+static QPointF overlayCenter(const QPoint &imagePos, const QImage &image)
+{
+    return QPointF(imagePos.x() + image.width()  / 2.0,
+                   imagePos.y() + image.height() / 2.0);
+}
+
+// Build the full transform that maps local image coords -> canvas coords.
+static QTransform overlayTransform(const QPoint &imagePos, const QImage &image,
+                                    int rotation, double scale)
+{
+    const QPointF c = overlayCenter(imagePos, image);
+    QTransform t;
+    t.translate(c.x(), c.y());
+    t.rotate(rotation);
+    t.scale(scale, scale);
+    return t;
+}
+
+// Canvas-space positions of the four corners and the rotate handle.
+struct OverlayHandles {
+    QPointF tl, tr, br, bl, rot;
+};
+
+// handleRadius: half-size of handles in canvas pixels. Scale-dependent — caller computes:
+//   (m_scale > 1.0f) ? 10 : (m_scale < 0.5f ? 40 : 20)
+static OverlayHandles computeHandles(const QPoint &imagePos, const QImage &image,
+                                      int rotation, double scale, int handleRadius)
+{
+    const double hw = image.width()  / 2.0;
+    const double hh = image.height() / 2.0;
+    // Rotate handle sits above the top edge; keep a comfortable gap regardless of overlayScale
+    const double rotGap = qMax(24.0, handleRadius / qMax(scale, 0.01));
+    const double rotOffset = hh + rotGap + handleRadius / qMax(scale, 0.01);
+
+    QTransform t = overlayTransform(imagePos, image, rotation, scale);
+    OverlayHandles h;
+    h.tl  = t.map(QPointF(-hw, -hh));
+    h.tr  = t.map(QPointF( hw, -hh));
+    h.br  = t.map(QPointF( hw,  hh));
+    h.bl  = t.map(QPointF(-hw,  hh));
+    h.rot = t.map(QPointF(  0, -rotOffset));
+    return h;
+}
+
+static bool hitHandle(const QPointF &pos, const QPointF &handle, int handleRadius)
+{
+    return (pos - handle).manhattanLength() < handleRadius * 1.5;
+}
+
+static OverlayHandle hitTestOverlay(const QPoint &pos, const QPoint &imagePos,
+                                     const QImage &image, int rotation, double scale,
+                                     int handleRadius)
+{
+    const OverlayHandles h = computeHandles(imagePos, image, rotation, scale, handleRadius);
+    const QPointF p(pos);
+    if (hitHandle(p, h.rot, handleRadius)) return OV_ROTATE;
+    if (hitHandle(p, h.tl,  handleRadius)) return OV_CORNER_TL;
+    if (hitHandle(p, h.tr,  handleRadius)) return OV_CORNER_TR;
+    if (hitHandle(p, h.br,  handleRadius)) return OV_CORNER_BR;
+    if (hitHandle(p, h.bl,  handleRadius)) return OV_CORNER_BL;
+    // Check if inside image body using inverse transform
+    QTransform t = overlayTransform(imagePos, image, rotation, scale);
+    bool ok = false;
+    QTransform inv = t.inverted(&ok);
+    if (ok) {
+        QPointF local = inv.map(p);
+        const double hw = image.width()  / 2.0;
+        const double hh = image.height() / 2.0;
+        if (local.x() >= -hw && local.x() <= hw &&
+            local.y() >= -hh && local.y() <= hh)
+            return OV_BODY;
+    }
+    return OV_NONE;
+}
+
+static QImage buildOverlaySurface(const QImage &src, const QPoint &imagePos,
+                                   int rotation, double scale,
+                                   const QSize &canvasSize, float dashWidth,
+                                   int handleRadius)
+{
+    QImage surface(canvasSize, QImage::Format_ARGB32_Premultiplied);
+    QPainter p(&surface);
+    p.setCompositionMode(QPainter::CompositionMode_Source);
+    p.fillRect(surface.rect(), Qt::transparent);
+
+    // Draw image with transform
+    p.save();
+    p.setRenderHint(QPainter::SmoothPixmapTransform);
+    QTransform t = overlayTransform(imagePos, src, rotation, scale);
+    p.setTransform(t);
+    p.drawImage(-src.width() / 2, -src.height() / 2, src);
+    p.restore();
+
+    // Draw dashed border
+    p.save();
+    p.setRenderHint(QPainter::Antialiasing);
+    p.setTransform(t);
+    QPen borderPen(QBrush(), dashWidth, Qt::DashLine);
+    borderPen.setColor(QColor(0x00, 0xad, 0xee));
+    p.setPen(borderPen);
+    p.setBrush(Qt::NoBrush);
+    p.drawRect(QRectF(-src.width() / 2.0, -src.height() / 2.0, src.width(), src.height()));
+    p.restore();
+
+    // Draw handles in canvas space (after computing their canvas positions)
+    const OverlayHandles h = computeHandles(imagePos, src, rotation, scale, handleRadius);
+    p.setRenderHint(QPainter::Antialiasing);
+    const int r = handleRadius;
+
+    // Draw line from top-centre to rotate handle
+    const QPointF topCentre = overlayTransform(imagePos, src, rotation, scale).map(QPointF(0, -src.height() / 2.0));
+    p.setPen(QPen(QColor(0x00, 0xad, 0xee), 1));
+    p.drawLine(topCentre, h.rot);
+
+    // Corner scale handles (white fill, blue border)
+    p.setPen(QPen(QColor(0x00, 0xad, 0xee), 1.5));
+    p.setBrush(Qt::white);
+    const QPointF corners[4] = { h.tl, h.tr, h.br, h.bl };
+    for (const QPointF &c : corners)
+        p.drawRect(QRectF(c.x() - r, c.y() - r, r * 2, r * 2));
+
+    // Rotate handle (circle)
+    p.setBrush(QColor(0x00, 0xad, 0xee));
+    p.drawEllipse(h.rot, r, r);
+
+    p.end();
+    return surface;
 }
 
 PointerTool::PointerTool(QObject *parent)
@@ -207,26 +348,18 @@ void PointerTool::setOverlayImage(const QImage& image)
 {
     d->selectionMode = HAND;
     d->image = image;
-    d->imagePos = QPoint(0,0);
+    d->imagePos = QPoint(0, 0);
+    d->overlayRotation = 0;
+    d->overlayScale    = 1.0;
+    d->activeHandle    = OV_NONE;
     emit cursorChanged(Qt::DragCopyCursor);
     const QImage *paintImage = dynamic_cast<QImage*>(m_paintDevice);
     if (paintImage) {
-        float scaledVal = 2.00;
-        if (m_scale < 0.5)
-            scaledVal = 5.00;
-        else if (m_scale > 1)
-            scaledVal = 1.00;
-        QImage surface = QImage(paintImage->size(), QImage::Format_ARGB32_Premultiplied);
-        QPainter painter(&surface);
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.fillRect(surface.rect(), Qt::transparent);
-        QPen pen = QPen(QBrush(), scaledVal, Qt::DashLine);
-        pen.setColor(QColor(0x00, 0xad, 0xee));
-        painter.setPen(pen);
-        const QRect rect = QRect(0, 0, d->image.width(), d->image.height());
-        painter.drawImage(rect, d->image);
-        painter.drawRect(rect);
-        painter.end();
+        float dashW    = (m_scale < 0.5f) ? 5.0f : (m_scale > 1.0f) ? 1.0f : 2.0f;
+        int   handleR  = (m_scale > 1.0f) ? 10 : (m_scale < 0.5f ? 40 : 20);
+        QImage surface = buildOverlaySurface(d->image, d->imagePos,
+                                              d->overlayRotation, d->overlayScale,
+                                              paintImage->size(), dashW, handleR);
         emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
     } else {
         emit overlaid(m_paintDevice, d->image, QPainter::CompositionMode_SourceOver);
@@ -237,8 +370,13 @@ void PointerTool::onDeactivated()
 {
     if (d->selectionMode == HAND && m_paintDevice && !d->image.isNull())
     {
+        const QPointF c = overlayCenter(d->imagePos, d->image);
         QPainter painter(m_paintDevice);
-        painter.drawImage(d->imagePos.x(), d->imagePos.y(), d->image);
+        painter.setRenderHint(QPainter::SmoothPixmapTransform);
+        painter.translate(c.x(), c.y());
+        if (d->overlayRotation != 0) painter.rotate(d->overlayRotation);
+        if (d->overlayScale != 1.0)  painter.scale(d->overlayScale, d->overlayScale);
+        painter.drawImage(-d->image.width() / 2, -d->image.height() / 2, d->image);
         painter.end();
         d->image = QImage();
         d->selectionMode = SELECT;
@@ -316,22 +454,49 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             }
             else if(d->selectionMode == HAND)
             {
-                QRect rect = QRect(d->imagePos.x(), d->imagePos.y(), d->image.width(), d->image.height());
-                if(!rect.contains(pos))
+                const int handleR = (m_scale > 1.0f) ? 10 : (m_scale < 0.5f ? 40 : 20);
+                const OverlayHandle hit = hitTestOverlay(pos, d->imagePos, d->image,
+                                                          d->overlayRotation, d->overlayScale,
+                                                          handleR);
+                if (hit == OV_NONE)
                 {
+                    // Click outside overlay — commit it
                     d->selectionMode = SELECT;
+                    d->overlayJustCommitted = true;
+                    // Clear selection so no stale corner rects remain.
+                    d->firstPos  = pos;
+                    d->secondPos = pos;
+                    d->topLeftCorner = d->topRightCorner = d->bottomLeftCorner = d->bottomRightCorner = QRect();
+                    emit selectionChanged(QPolygon());
                     if (m_paintDevice)
                     {
+                        // Clear the selection stroke snapshot BEFORE drawing so that
+                        // PaintWidget's selection mask does not revert the paste.
+                        emit overlayCommitted();
+                        const QPointF c = overlayCenter(d->imagePos, d->image);
                         QPainter painter(m_paintDevice);
-                        painter.drawImage(d->imagePos.x(), d->imagePos.y(), d->image);
+                        painter.setRenderHint(QPainter::SmoothPixmapTransform);
+                        painter.translate(c.x(), c.y());
+                        if (d->overlayRotation != 0) painter.rotate(d->overlayRotation);
+                        if (d->overlayScale != 1.0)  painter.scale(d->overlayScale, d->overlayScale);
+                        painter.drawImage(-d->image.width() / 2, -d->image.height() / 2, d->image);
                         painter.end();
-
                         emit painted(m_paintDevice);
                     }
                 }
                 else
                 {
-                    emit cursorChanged(Qt::OpenHandCursor);
+                    d->activeHandle        = hit;
+                    d->dragStartImagePos   = QPointF(d->imagePos);
+                    d->dragStartScale      = d->overlayScale;
+                    d->dragStartRotation   = d->overlayRotation;
+                    d->dragStartCanvasPos  = QPointF(pos);
+                    if (hit == OV_BODY)
+                        emit cursorChanged(Qt::OpenHandCursor);
+                    else if (hit == OV_ROTATE)
+                        emit cursorChanged(Qt::CrossCursor);
+                    else
+                        emit cursorChanged(Qt::SizeFDiagCursor);
                 }
             }
         }
@@ -354,33 +519,50 @@ void PointerTool::onMouseMove(const QPoint &pos)
     {
         if(d->selectionMode == HAND)
         {
-            float scaledVal = 2.00;
-
-            if(m_scale < 0.5)
+            if (d->activeHandle == OV_NONE)
             {
-                scaledVal = 5.00;
+                // No button held — just hovering, nothing to update
             }
-            else if(m_scale > 1) {
-                scaledVal = 1.00;
+            else if (d->activeHandle == OV_BODY)
+            {
+                // Move
+                const QPointF delta = QPointF(pos) - d->dragStartCanvasPos;
+                d->imagePos = QPoint(qRound(d->dragStartImagePos.x() + delta.x()),
+                                     qRound(d->dragStartImagePos.y() + delta.y()));
+                emit cursorChanged(Qt::ClosedHandCursor);
+            }
+            else if (d->activeHandle == OV_ROTATE)
+            {
+                // Rotate: angle from image centre to current mouse position
+                const QPointF c = overlayCenter(QPoint(qRound(d->dragStartImagePos.x()),
+                                                        qRound(d->dragStartImagePos.y())),
+                                                 d->image);
+                const double angle = qAtan2(pos.y() - c.y(), pos.x() - c.x()) * 180.0 / M_PI + 90.0;
+                d->overlayRotation = qRound(angle);
+                emit cursorChanged(Qt::CrossCursor);
+            }
+            else
+            {
+                // Scale corner: distance from image centre determines scale
+                const QPointF c = overlayCenter(QPoint(qRound(d->dragStartImagePos.x()),
+                                                        qRound(d->dragStartImagePos.y())),
+                                                 d->image);
+                const double origDist = (d->dragStartCanvasPos - c).manhattanLength();
+                const double currDist = (QPointF(pos) - c).manhattanLength();
+                if (origDist > 1.0)
+                    d->overlayScale = qMax(0.05, d->dragStartScale * (currDist / origDist));
+                emit cursorChanged(Qt::SizeFDiagCursor);
             }
 
-            const QImage *image = dynamic_cast<QImage*>(m_paintDevice);
-            QImage surface = QImage(image->size(), QImage::Format_ARGB32_Premultiplied);
-            QPainter painter(&surface);
-            painter.setCompositionMode(QPainter::CompositionMode_Source);
-            painter.fillRect(surface.rect(), Qt::transparent);
-            QPen pen = QPen(QBrush(), (scaledVal), Qt::DashLine);
-            pen.setColor(QColor(0x00, 0xad, 0xee));
-            painter.setPen(pen);
-
-            QRect rect = QRect(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y(),
-                               d->image.width(), d->image.height());
-            painter.drawImage(rect, d->image);
-            painter.drawRect(rect);
-            painter.end();
-
-            emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
-            emit cursorChanged(Qt::ClosedHandCursor);
+            const QImage *paintImage = dynamic_cast<QImage*>(m_paintDevice);
+            if (paintImage) {
+                float dashW   = (m_scale < 0.5f) ? 5.0f : (m_scale > 1.0f) ? 1.0f : 2.0f;
+                int   handleR = (m_scale > 1.0f) ? 10 : (m_scale < 0.5f ? 40 : 20);
+                QImage surface = buildOverlaySurface(d->image, d->imagePos,
+                                                      d->overlayRotation, d->overlayScale,
+                                                      paintImage->size(), dashW, handleR);
+                emit overlaid(m_paintDevice, surface, QPainter::CompositionMode_SourceOver);
+            }
         }
         else if(d->selectionMode == SELECT)
         {
@@ -449,17 +631,29 @@ void PointerTool::onMouseRelease(const QPoint &pos)
 
     if(d->selectionMode == HAND)
     {
-        d->imagePos = QPoint(d->imagePos.x() + d->secondPos.x() - d->firstPos.x(), d->imagePos.y() + d->secondPos.y() - d->firstPos.y());
-        d->firstPos = d->secondPos;
+        if (d->activeHandle == OV_BODY) {
+            // imagePos was already updated live in onMouseMove, nothing more to do
+        }
+        d->activeHandle = OV_NONE;
 
-        const QRect newRect = QRect(d->imagePos, d->image.size());
-        if (newRect.contains(pos))
-            emit cursorChanged(Qt::OpenHandCursor);
-        else
-            emit cursorChanged(Qt::DragCopyCursor);
+        // Refresh cursor based on where mouse ended up
+        const int handleR = (m_scale > 1.0f) ? 10 : (m_scale < 0.5f ? 40 : 20);
+        const OverlayHandle hit = hitTestOverlay(pos, d->imagePos, d->image,
+                                                  d->overlayRotation, d->overlayScale, handleR);
+        if (hit == OV_BODY)        emit cursorChanged(Qt::OpenHandCursor);
+        else if (hit == OV_ROTATE) emit cursorChanged(Qt::CrossCursor);
+        else if (hit != OV_NONE)   emit cursorChanged(Qt::SizeFDiagCursor);
+        else                       emit cursorChanged(Qt::DragCopyCursor);
     }
     else if(d->selectionMode == SELECT)
     {
+        if (d->overlayJustCommitted) {
+            // The overlay was just committed on the paired MousePress — don't
+            // treat this release as a zero-size selection click that would
+            // wipe the pre-existing selection marquee.
+            d->overlayJustCommitted = false;
+            return;
+        }
         if(d->firstPos == d->secondPos)
         {
             emit selectionChanged(QPolygon());
@@ -535,11 +729,13 @@ void PointerTool::onHover(const QPoint &pos)
 {
     if (d->selectionMode == HAND)
     {
-        const QRect imageRect = QRect(d->imagePos, d->image.size());
-        if (imageRect.contains(pos))
-            emit cursorChanged(Qt::OpenHandCursor);
-        else
-            emit cursorChanged(Qt::DragCopyCursor);
+        const int handleR = (m_scale > 1.0f) ? 10 : (m_scale < 0.5f ? 40 : 20);
+        const OverlayHandle hit = hitTestOverlay(pos, d->imagePos, d->image,
+                                                  d->overlayRotation, d->overlayScale, handleR);
+        if      (hit == OV_BODY)   emit cursorChanged(Qt::OpenHandCursor);
+        else if (hit == OV_ROTATE) emit cursorChanged(Qt::CrossCursor);
+        else if (hit != OV_NONE)   emit cursorChanged(Qt::SizeFDiagCursor);
+        else                       emit cursorChanged(Qt::DragCopyCursor);
         return;
     }
     if (d->selectionMode != SELECT)

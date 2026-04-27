@@ -76,6 +76,7 @@ signals:
     void undo();
     void redo();
     void showhotspots();
+    void overlayCommitted();
 
 private:
     PointerToolPrivate *d;

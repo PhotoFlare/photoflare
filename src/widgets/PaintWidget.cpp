@@ -1031,6 +1031,11 @@ void PaintWidget::setHotspotVisble(bool visible)
     d->hotspotVisible = visible;
 }
 
+void PaintWidget::clearStrokeSnapshot()
+{
+    d->preStrokeSnapshot = QImage();
+}
+
 void PaintWidget::selectAll()
 {
     d->selection = d->image.rect();

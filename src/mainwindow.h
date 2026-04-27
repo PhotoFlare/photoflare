@@ -220,6 +220,7 @@ private slots:
     void on_actionCheck_for_updates_triggered();
 
     void onShowHotspotsTriggered();
+    void onOverlayCommitted();
     void on_actionSelect_all_triggered();
     void on_actionColour_Threshold_triggered();
     void on_actionClearHistory_triggered();

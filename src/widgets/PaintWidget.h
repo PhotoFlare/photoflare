@@ -66,6 +66,7 @@ public:
     QPolygon selection();
     bool isSelectionVisible();
     void setHotspotVisble(bool visible);
+    void clearStrokeSnapshot();
     void selectAll();
     void showProgressIndicator(bool visible);
     void showGrid(int width);

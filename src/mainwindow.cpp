@@ -290,6 +290,7 @@ void MainWindow::connectTools()
     QObject::connect(MOUSE_POINTER, SIGNAL(undo()), this, SLOT(on_actionUndo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(redo()), this, SLOT(on_actionRedo_triggered()));
     QObject::connect(MOUSE_POINTER, SIGNAL(showhotspots()), this, SLOT(onShowHotspotsTriggered()));
+    QObject::connect(MOUSE_POINTER, SIGNAL(overlayCommitted()), this, SLOT(onOverlayCommitted()));
 
     // Setup signals for more Tools
     QObject::connect(COLOUR_PICKER, SIGNAL(pickPrimaryColor(const QPoint&)), this, SLOT(onPickPrimaryColor(const QPoint&)));
@@ -2912,6 +2913,13 @@ void MainWindow::onShowHotspotsTriggered()
     {
         widget->setHotspotVisble(true);
     }
+}
+
+void MainWindow::onOverlayCommitted()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+        widget->clearStrokeSnapshot();
 }
 
 /*
