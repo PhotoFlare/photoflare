@@ -107,6 +107,9 @@ SOURCES += src/main.cpp \
     src/dialogs/dropshadowdialog.cpp
 
 HEADERS += src/mainwindow.h \
+    src/plugins/AppContext.h \
+    src/plugins/IPhotoflarePlugin.h \
+    src/plugins/PluginManager.h \
     src/dialogs/aboutdialog.h \
     src/dialogs/NewDialog.h \
     src/dialogs/textdialog.h \

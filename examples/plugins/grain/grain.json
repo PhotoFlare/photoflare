@@ -1,0 +1,6 @@
+{
+    "id":          "org.photoflare.filters.grain",
+    "name":        "Film Grain",
+    "version":     "1.0.0",
+    "description": "Adds photographic film grain / noise to an image."
+}

@@ -20,6 +20,10 @@
 
 #include <QDialog>
 
+#include "../plugins/IPhotoflarePlugin.h"
+
+class PluginManager;
+
 namespace Ui {
 class PluginDialog;
 }
@@ -29,11 +33,23 @@ class PluginDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit PluginDialog(QWidget *parent = nullptr);
+    explicit PluginDialog(PluginManager* manager, QWidget *parent = nullptr);
     ~PluginDialog();
 
+signals:
+    void filterRequested(IFilterPlugin* plugin);
+
+private slots:
+    void onSelectionChanged();
+    void onApply();
+    void onOpenFolder();
+    void onRescan();
+
 private:
+    void populateList();
     Ui::PluginDialog *ui;
+    PluginManager* m_manager;
+    QList<IPhotoflarePlugin*> m_plugins;  // parallel to list items
 };
 
 #endif // PLUGINDIALOG_H

@@ -22,9 +22,13 @@
 #include <QMdiArea>
 #include <QLabel>
 #include <QNetworkReply>
+#include <QHash>
+#include <QSettings>
 #include <functional>
 
 #include "dialogs/batchdialog.h"
+#include "plugins/AppContext.h"
+#include "plugins/IPhotoflarePlugin.h"
 
 namespace Ui {
 class MainWindow;
@@ -47,7 +51,9 @@ class PaintWidget;
 class TransparentDialog;
 class PrefsDialog;
 
-class MainWindow : public QMainWindow
+class PluginManager;
+
+class MainWindow : public QMainWindow, public AppContext
 {
     Q_OBJECT
 
@@ -57,6 +63,17 @@ public:
 
     PaintWidget* getCurrentPaintWidget();
     void openFile(const QString& fileName);
+
+    // AppContext implementation
+    QImage*    currentImage()                                       override;
+    void       markCanvasDirty()                                    override;
+    void       pushUndoState(const QString& label)                  override;
+    void       registerMenuAction(const QString& path, QAction* a)  override;
+    void       registerDockPanel(const QString& title, QWidget* w)  override;
+    void       showStatusMessage(const QString& msg, int ms = 3000) override;
+    QSettings& pluginSettings(const QString& id)                    override;
+    QWidget*   mainWindow()                                         override { return this; }
+    QString    appVersion() const                                   override { return "2.1.0"; }
 
 public slots:
     void handleMessage(const QString& message);
@@ -267,6 +284,12 @@ private:
     // selection only when the result has the same dimensions as the original.
     void applyFilteredImage(PaintWidget *widget, const QImage &original, const QImage &filtered);
 
+    void loadPlugins();
+    void showFilterDialog(IFilterPlugin* plugin);
+    QMenu* ensureMenuPath(const QString& path);
+    QVariantMap collectParams(IFilterPlugin* plugin,
+                              const QHash<QString, QWidget*>& widgets);
+
     Ui::MainWindow *ui;
     QString m_toolSelected;
     QString m_previousToolSelected;
@@ -287,6 +310,10 @@ private:
     QLabel *batchLbl;
     QLabel *imagesizeLbl;
     QLabel *selectionLbl;
+
+    PluginManager* m_pluginManager = nullptr;
+    QImage         m_pluginImageCache;
+    QHash<QString, QSettings*> m_pluginSettings;
 };
 
 #endif // MAINWINDOW_H
