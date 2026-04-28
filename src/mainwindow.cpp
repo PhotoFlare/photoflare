@@ -232,6 +232,8 @@ void MainWindow::addZoomCombo()
 {
     zoomCombo = new QComboBox;
     zoomCombo->setFocusPolicy( Qt::NoFocus );
+    zoomCombo->setMinimumContentsLength(6);
+    zoomCombo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
     // FIXME: String below should probably be localized.
     QStringList list(QStringList() << "" << "10%" << "25%" << "33%" << "50%" << "66%" << "75%" << "100%" << "200%" << "300%" << "400%" << "500%" << "600%" << "800%");
     zoomCombo->addItems(list);
