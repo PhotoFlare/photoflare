@@ -41,6 +41,7 @@
 #include <QProcess>
 #include <QTemporaryFile>
 #include <QDir>
+#include <QStandardPaths>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -1893,13 +1894,23 @@ void MainWindow::on_actionGmicQt_triggered()
     // Output temp file
     const QString outputPath = inputPath + "_out.png";
 
-    // Locate gmic_qt.exe next to the application executable
-    const QString gmicBin = QDir(QCoreApplication::applicationDirPath()).filePath("gmic_qt.exe");
+    // Locate gmic_qt binary: first check next to the application executable,
+    // then fall back to PATH (common on Linux/macOS where it may be system-installed).
+#ifdef Q_OS_WIN
+    const QString gmicBinName = "gmic_qt.exe";
+#else
+    const QString gmicBinName = "gmic_qt";
+#endif
+    QString gmicBin = QDir(QCoreApplication::applicationDirPath()).filePath(gmicBinName);
     if (!QFile::exists(gmicBin)) {
-        QMessageBox::warning(this, tr("G'MIC-Qt"),
-            tr("gmic_qt.exe not found at:\n%1\n\nPlease copy gmic_qt.exe and its Qt DLLs next to photoflare.exe.").arg(gmicBin));
-        QFile::remove(inputPath);
-        return;
+        // Try PATH
+        gmicBin = gmicBinName;
+        if (QStandardPaths::findExecutable(gmicBinName).isEmpty()) {
+            QMessageBox::warning(this, tr("G'MIC-Qt"),
+                tr("gmic_qt not found. Please install G'MIC-Qt or place the gmic_qt binary next to photoflare."));
+            QFile::remove(inputPath);
+            return;
+        }
     }
 
     // Launch gmic_qt with the input image; options must come before the input file
