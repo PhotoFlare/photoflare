@@ -453,6 +453,7 @@ QScrollBar::handle {
    <addaction name="actionImage_Size"/>
    <addaction name="actionCanvas_Size"/>
    <addaction name="actionShow_selection"/>
+   <addaction name="actionGrid_settings"/>
    <addaction name="actionText"/>
    <addaction name="separator"/>
    <addaction name="actionAutomate_Batch"/>
@@ -1677,6 +1678,18 @@ QToolButton:checked {
    </property>
    <property name="text">
     <string>Show Grid...</string>
+   </property>
+  </action>
+  <action name="actionGrid_settings">
+   <property name="text">
+    <string>Grid Settings...</string>
+   </property>
+   <property name="toolTip">
+    <string>Grid Settings</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/assets/icons/toolbar1/grid.png</normaloff>:/icons/assets/icons/toolbar1/grid.png</iconset>
    </property>
   </action>
   <action name="actionShow_rulers">

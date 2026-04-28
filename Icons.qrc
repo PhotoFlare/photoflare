@@ -49,6 +49,7 @@
         <file alias="assets/icons/toolbar1/undo.png">assets/light/icons/toolbar1/undo.png</file>
         <file alias="assets/icons/toolbar1/zoomin.png">assets/light/icons/toolbar1/zoomin.png</file>
         <file alias="assets/icons/toolbar1/zoomout.png">assets/light/icons/toolbar1/zoomout.png</file>
+        <file alias="assets/icons/toolbar1/grid.png">assets/light/icons/toolbar1/grid.png</file>
         <file alias="assets/icons/toolbar2/autobright.png">assets/light/icons/toolbar2/autobright.png</file>
         <file alias="assets/icons/toolbar2/autolevel.png">assets/light/icons/toolbar2/autolevel.png</file>
         <file alias="assets/icons/toolbar2/blur.png">assets/light/icons/toolbar2/blur.png</file>

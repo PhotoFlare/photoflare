@@ -1054,3 +1054,8 @@ bool PaintWidget::isGridEnabled()
 {
     return d->showGridEnabled;
 }
+
+int PaintWidget::gridWidth() const
+{
+    return d->gridWidth;
+}

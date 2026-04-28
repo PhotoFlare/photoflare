@@ -71,6 +71,7 @@ public:
     void showProgressIndicator(bool visible);
     void showGrid(int width);
     bool isGridEnabled();
+    int gridWidth() const;
     void showRulers(bool visible);
     bool isRulersVisible() const;
     void setRulerUnit(RulerWidget::Unit unit);

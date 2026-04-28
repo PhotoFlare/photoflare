@@ -1834,6 +1834,26 @@ void MainWindow::on_actionShow_grid_triggered()
     }
 }
 
+void MainWindow::on_actionGrid_settings_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (!widget)
+        return;
+
+    bool ok;
+    int currentSize = widget->isGridEnabled() ? widget->gridWidth() : 1;
+    int i = QInputDialog::getInt(this, tr("Grid Settings"),
+                                 tr("Cell width"), currentSize, 1, 999, 1, &ok);
+    if (ok)
+    {
+        // If grid is already shown, turn it off so showGrid() can re-enable it with new size
+        if (widget->isGridEnabled())
+            widget->showGrid(0);
+        widget->showGrid(i);
+        ui->actionShow_grid->setChecked(true);
+    }
+}
+
 void MainWindow::on_actionShow_rulers_triggered()
 {
     PaintWidget *widget = getCurrentPaintWidget();
@@ -3340,6 +3360,7 @@ void MainWindow::applyIconTheme()
     ui->actionTransparent_colour->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/trans.png", dark)));
     ui->actionText->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/text.png", dark)));
     ui->actionShow_selection->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/show.png", dark)));
+    ui->actionGrid_settings->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/grid.png", dark)));
     ui->actionAutomate_Batch->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/batch.png", dark)));
     ui->actionPreferences->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/pref.png", dark)));
     ui->actionScan->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/scan.png", dark)));
