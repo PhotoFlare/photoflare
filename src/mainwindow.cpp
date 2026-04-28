@@ -2729,8 +2729,12 @@ void MainWindow::setWindowSize()
     // Restore toolbar and dock widget positions/configuration.
     // This supersedes the manual dock-layout fallback in setupWorkspace().
     QByteArray state = SETTINGS->mainWindowState();
-    if (!state.isEmpty())
+    if (!state.isEmpty()) {
         this->restoreState(state);
+        // Sync menu checkmarks with actual visibility after restore.
+        ui->actionFilterbar->setChecked(ui->toolBar->isVisible());
+        ui->actionToolpalette->setChecked(ui->dockWidget_palette->isVisible());
+    }
 }
 
 void MainWindow::addChildWindow(PaintWidget *widget)
