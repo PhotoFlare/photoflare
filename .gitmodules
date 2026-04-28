@@ -1,0 +1,6 @@
+[submodule "external/gmic-qt"]
+	path = external/gmic-qt
+	url = https://github.com/c-koi/gmic-qt.git
+[submodule "external/gmic"]
+	path = external/gmic
+	url = https://github.com/GreycLab/gmic.git

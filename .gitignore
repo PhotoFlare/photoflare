@@ -13,6 +13,8 @@ snap/.snapcraft/
 stage/
 external/GraphicsMagick-1.3.28
 build
+external/gmic-qt-build/
+external/configure_gmic_qt.bat
 *.code-workspace
 .github/copilot-instructions.md
 .github/instructions/

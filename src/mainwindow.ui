@@ -356,6 +356,8 @@ QScrollBar::handle {
     <addaction name="menuEdges"/>
     <addaction name="actionTexture"/>
     <addaction name="actionOther"/>
+    <addaction name="separator"/>
+    <addaction name="actionGmicQt"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -1654,6 +1656,11 @@ QToolButton:checked {
   <action name="actionOther">
    <property name="text">
     <string>Other</string>
+   </property>
+  </action>
+  <action name="actionGmicQt">
+   <property name="text">
+    <string>G'MIC-Qt...</string>
    </property>
   </action>
   <action name="actionFilterbar">
