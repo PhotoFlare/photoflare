@@ -19,6 +19,7 @@
 
 #include "BlurSettingsWidget.h"
 #include "ui_BlurSettingsWidget.h"
+#include "../Settings.h"
 
 BlurSettingsWidget::BlurSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -43,4 +44,16 @@ int BlurSettingsWidget::radius() const
 int BlurSettingsWidget::pressure() const
 {
     return ui->pressureSlider->value();
+}
+
+void BlurSettingsWidget::saveSettings() const
+{
+    SETTINGS->setValue("toolSettings/blur/radius", radius());
+    SETTINGS->setValue("toolSettings/blur/pressure", pressure());
+}
+
+void BlurSettingsWidget::loadSettings()
+{
+    ui->radiusSpinBox->setValue(SETTINGS->value("toolSettings/blur/radius", 10).toInt());
+    ui->pressureSlider->setValue(SETTINGS->value("toolSettings/blur/pressure", 50).toInt());
 }

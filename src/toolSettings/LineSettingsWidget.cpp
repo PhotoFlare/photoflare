@@ -21,6 +21,7 @@
 
 #include "LineSettingsWidget.h"
 #include "ui_LineSettingsWidget.h"
+#include "../Settings.h"
 
 LineSettingsWidget::LineSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -88,4 +89,24 @@ void LineSettingsWidget::on_arrowCheckBox2_clicked(bool checked)
 {
     Q_UNUSED(checked);
     ui->arrowCheckBox->setChecked(false);
+}
+
+void LineSettingsWidget::saveSettings()
+{
+    SETTINGS->setValue("toolSettings/line/width", width());
+    SETTINGS->setValue("toolSettings/line/opacity", opacity());
+    SETTINGS->setValue("toolSettings/line/antialias", antialias());
+    SETTINGS->setValue("toolSettings/line/style", style());
+    SETTINGS->setValue("toolSettings/line/arrowStyle", arrowStyle());
+}
+
+void LineSettingsWidget::loadSettings()
+{
+    ui->widthSpinBox->setValue(SETTINGS->value("toolSettings/line/width", 1).toInt());
+    ui->opacitySpinBox->setValue(SETTINGS->value("toolSettings/line/opacity", 100).toInt());
+    ui->antialiasCheckBox->setChecked(SETTINGS->value("toolSettings/line/antialias", false).toBool());
+    ui->styleComboBox->setCurrentIndex(SETTINGS->value("toolSettings/line/style", 0).toInt());
+    const int arrow = SETTINGS->value("toolSettings/line/arrowStyle", 0).toInt();
+    ui->arrowCheckBox->setChecked(arrow == 1);
+    ui->arrowCheckBox2->setChecked(arrow == 2);
 }

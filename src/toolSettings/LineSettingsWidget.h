@@ -39,6 +39,8 @@ public:
     bool antialias();
     int style();
     int arrowStyle();
+    void saveSettings();
+    void loadSettings();
 
 signals:
     void settingsChanged();

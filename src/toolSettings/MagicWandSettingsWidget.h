@@ -36,6 +36,8 @@ public:
 
     int tolerance() const;
     bool color() const;
+    void saveSettings() const;
+    void loadSettings();
 
 signals:
     void settingsChanged();

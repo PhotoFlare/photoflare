@@ -17,6 +17,7 @@
 
 #include "pointersettingswidget.h"
 #include "ui_pointersettingswidget.h"
+#include "../Settings.h"
 
 PointerSettingsWidget::PointerSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -115,3 +116,22 @@ void PointerSettingsWidget::on_strokeWidth_valueChanged(int width)
     Q_UNUSED(width)
 }
 
+void PointerSettingsWidget::saveSettings() const
+{
+    SETTINGS->setValue("toolSettings/pointer/stroke", stroke());
+    SETTINGS->setValue("toolSettings/pointer/fill", fill());
+    SETTINGS->setValue("toolSettings/pointer/strokeWidth", strokeWidth());
+    const QString sel = selectionIsLasso() ? "lasso" : selectionIsEllipse() ? "ellipse" : "rect";
+    SETTINGS->setValue("toolSettings/pointer/selection", sel);
+}
+
+void PointerSettingsWidget::loadSettings()
+{
+    ui->checkBoxStroke->setChecked(SETTINGS->value("toolSettings/pointer/stroke", true).toBool());
+    ui->checkBoxFill->setChecked(SETTINGS->value("toolSettings/pointer/fill", false).toBool());
+    ui->strokeWidth->setValue(SETTINGS->value("toolSettings/pointer/strokeWidth", 1).toInt());
+    const QString sel = SETTINGS->value("toolSettings/pointer/selection", "rect").toString();
+    ui->square_sel->setChecked(sel == "rect");
+    ui->circle_sel->setChecked(sel == "ellipse");
+    ui->lasso_sel->setChecked(sel == "lasso");
+}

@@ -39,6 +39,8 @@ public:
     int pressure() const;
     bool fade() const;
     int step() const;
+    void saveSettings() const;
+    void loadSettings();
 
 signals:
     void settingsChanged();

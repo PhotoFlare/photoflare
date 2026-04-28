@@ -40,6 +40,8 @@ public:
     int brushWidth() const;
     int brushPressure() const;
     Qt::PenCapStyle brushCapStyle();
+    void saveSettings();
+    void loadSettings();
 
 signals:
     void settingsChanged();

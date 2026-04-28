@@ -40,6 +40,8 @@ public:
     bool fixed() const;
     bool diffuse() const;
     bool precise() const;
+    void saveSettings() const;
+    void loadSettings();
 
 signals:
     void settingsChanged();

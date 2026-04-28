@@ -19,6 +19,7 @@
 
 #include "MagicWandSettingsWidget.h"
 #include "ui_MagicWandSettingsWidget.h"
+#include "../Settings.h"
 
 MagicWandSettingsWidget::MagicWandSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -43,4 +44,16 @@ int MagicWandSettingsWidget::tolerance() const
 bool MagicWandSettingsWidget::color() const
 {
     return ui->colorCheckBox->isChecked();
+}
+
+void MagicWandSettingsWidget::saveSettings() const
+{
+    SETTINGS->setValue("toolSettings/magicWand/tolerance", tolerance());
+    SETTINGS->setValue("toolSettings/magicWand/color", color());
+}
+
+void MagicWandSettingsWidget::loadSettings()
+{
+    ui->toleranceSpinBox->setValue(SETTINGS->value("toolSettings/magicWand/tolerance", 15).toInt());
+    ui->colorCheckBox->setChecked(SETTINGS->value("toolSettings/magicWand/color", false).toBool());
 }

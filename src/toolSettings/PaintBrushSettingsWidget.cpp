@@ -19,6 +19,7 @@
 
 #include "PaintBrushSettingsWidget.h"
 #include "ui_PaintBrushSettingsWidget.h"
+#include "../Settings.h"
 
 PaintBrushSettingsWidget::PaintBrushSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -93,4 +94,22 @@ void PaintBrushSettingsWidget::on_pressureSlider_valueChanged(int value)
 int PaintBrushSettingsWidget::brushPressure() const
 {
     return ui->pressureSlider->value();
+}
+
+void PaintBrushSettingsWidget::saveSettings()
+{
+    SETTINGS->setValue("toolSettings/paintBrush/width", brushWidth());
+    SETTINGS->setValue("toolSettings/paintBrush/pressure", brushPressure());
+    SETTINGS->setValue("toolSettings/paintBrush/antialiasing", antialiasing());
+    SETTINGS->setValue("toolSettings/paintBrush/roundCap", brushCapStyle() == Qt::RoundCap);
+}
+
+void PaintBrushSettingsWidget::loadSettings()
+{
+    ui->sliderRadius->setValue(SETTINGS->value("toolSettings/paintBrush/width", 5).toInt());
+    ui->pressureSlider->setValue(SETTINGS->value("toolSettings/paintBrush/pressure", 50).toInt());
+    ui->cbAntialias->setChecked(SETTINGS->value("toolSettings/paintBrush/antialiasing", false).toBool());
+    const bool roundCap = SETTINGS->value("toolSettings/paintBrush/roundCap", true).toBool();
+    ui->buttonRoundCap->setChecked(roundCap);
+    ui->buttonSquareCap->setChecked(!roundCap);
 }

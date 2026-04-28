@@ -2781,6 +2781,29 @@ void MainWindow::setWindowSize()
     ui->colorBoxWidget->setPrimaryColor(SETTINGS->getPrimaryColor());
     ui->colorBoxWidget->setSecondaryColor(SETTINGS->getSecondaryColor());
 
+    // Restore tool settings panel state.
+    m_ptSettingsWidget->loadSettings();
+    m_pbSettingsWidget->loadSettings();
+    m_pbAdvSettingsWidget->loadSettings();
+    m_scSettingsWidget->loadSettings();
+    m_lineSettingsWidget->loadSettings();
+    m_magicWandSettingsWidget->loadSettings();
+    m_stampSettingsWidget->loadSettings();
+    m_blurSettingsWidget->loadSettings();
+    m_eraserSettingsWidget->loadSettings();
+    m_smudgeSettingsWidget->loadSettings();
+    // Apply loaded settings to all tools (checkboxes don't trigger settingsChanged on setChecked).
+    onPointerToolSettingsChanged();
+    onPaintBrushSettingsChanged();
+    onPaintBrushAdvSettingsChanged();
+    onSprayCanSettingsChanged();
+    onLineSettingsChanged();
+    onMagicWandSettingsChanged();
+    onStampSettingsChanged();
+    onBlurSettingsChanged();
+    onEraserSettingsChanged();
+    onSmudgeSettingsChanged();
+
     // Restore selected tool.
     m_toolSelected = SETTINGS->getSelectedTool();
     refreshTools();
@@ -2889,6 +2912,18 @@ void MainWindow::saveGeometryState()
 
     // Save selected tool.
     SETTINGS->setSelectedTool(m_toolSelected);
+
+    // Save tool settings panel state.
+    m_ptSettingsWidget->saveSettings();
+    m_pbSettingsWidget->saveSettings();
+    m_pbAdvSettingsWidget->saveSettings();
+    m_scSettingsWidget->saveSettings();
+    m_lineSettingsWidget->saveSettings();
+    m_magicWandSettingsWidget->saveSettings();
+    m_stampSettingsWidget->saveSettings();
+    m_blurSettingsWidget->saveSettings();
+    m_eraserSettingsWidget->saveSettings();
+    m_smudgeSettingsWidget->saveSettings();
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

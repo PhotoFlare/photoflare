@@ -37,6 +37,8 @@ public:
     int strokeWidth() const;
     bool selectionIsEllipse() const;
     bool selectionIsLasso() const;
+    void saveSettings() const;
+    void loadSettings();
 
 signals:
     void settingsChanged();

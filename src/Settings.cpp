@@ -402,6 +402,16 @@ QString Settings::getSelectedTool() const
     return d->selectedTool;
 }
 
+QVariant Settings::value(const QString &key, const QVariant &defaultValue) const
+{
+    return d->settings->value(key, defaultValue);
+}
+
+void Settings::setValue(const QString &key, const QVariant &value)
+{
+    d->setValue(key, value);
+}
+
 void Settings::setZoomDirection(const QString val)
 {
     d->zoomDirection = val;

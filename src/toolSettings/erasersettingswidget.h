@@ -33,6 +33,8 @@ public:
     ~EraserSettingsWidget();
 
     int radius() const;
+    void saveSettings() const;
+    void loadSettings();
 
 signals:
     void settingsChanged();

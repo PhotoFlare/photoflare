@@ -19,6 +19,7 @@
 
 #include "SmudgeSettingsWidget.h"
 #include "ui_smudgesettingswidget.h"
+#include "../Settings.h"
 
 SmudgeSettingsWidget::SmudgeSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -43,4 +44,16 @@ int SmudgeSettingsWidget::radius() const
 int SmudgeSettingsWidget::pressure() const
 {
     return ui->pressureSlider->value();
+}
+
+void SmudgeSettingsWidget::saveSettings() const
+{
+    SETTINGS->setValue("toolSettings/smudge/radius", radius());
+    SETTINGS->setValue("toolSettings/smudge/pressure", pressure());
+}
+
+void SmudgeSettingsWidget::loadSettings()
+{
+    ui->radiusSpinBox->setValue(SETTINGS->value("toolSettings/smudge/radius", 10).toInt());
+    ui->pressureSlider->setValue(SETTINGS->value("toolSettings/smudge/pressure", 50).toInt());
 }

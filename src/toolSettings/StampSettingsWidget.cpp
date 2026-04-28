@@ -19,6 +19,7 @@
 
 #include "StampSettingsWidget.h"
 #include "ui_StampSettingsWidget.h"
+#include "../Settings.h"
 
 StampSettingsWidget::StampSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -76,4 +77,25 @@ bool StampSettingsWidget::precise() const
 void StampSettingsWidget::onFixedChanged()
 {
     ui->stepSlider->setEnabled(ui->fixedCheckBox->isChecked());
+}
+
+void StampSettingsWidget::saveSettings() const
+{
+    SETTINGS->setValue("toolSettings/stamp/radius", radius());
+    SETTINGS->setValue("toolSettings/stamp/pressure", pressure());
+    SETTINGS->setValue("toolSettings/stamp/step", step());
+    SETTINGS->setValue("toolSettings/stamp/fixed", fixed());
+    SETTINGS->setValue("toolSettings/stamp/diffuse", diffuse());
+    SETTINGS->setValue("toolSettings/stamp/precise", precise());
+}
+
+void StampSettingsWidget::loadSettings()
+{
+    ui->radiusSpinBox->setValue(SETTINGS->value("toolSettings/stamp/radius", 10).toInt());
+    ui->pressureSlider->setValue(SETTINGS->value("toolSettings/stamp/pressure", 50).toInt());
+    ui->fixedCheckBox->setChecked(SETTINGS->value("toolSettings/stamp/fixed", false).toBool());
+    ui->stepSlider->setValue(SETTINGS->value("toolSettings/stamp/step", 1).toInt());
+    ui->stepSlider->setEnabled(ui->fixedCheckBox->isChecked());
+    ui->diffuseCheckBox->setChecked(SETTINGS->value("toolSettings/stamp/diffuse", false).toBool());
+    ui->preciseCheckBox->setChecked(SETTINGS->value("toolSettings/stamp/precise", false).toBool());
 }

@@ -19,6 +19,7 @@
 
 #include "SprayCanSettingsWidget.h"
 #include "ui_SprayCanSettingsWidget.h"
+#include "../Settings.h"
 
 SprayCanSettingsWidget::SprayCanSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -55,4 +56,20 @@ int SprayCanSettingsWidget::dispersion() const
 bool SprayCanSettingsWidget::rainbow() const
 {
     return ui->rainbowCheckBox->isChecked();
+}
+
+void SprayCanSettingsWidget::saveSettings() const
+{
+    SETTINGS->setValue("toolSettings/sprayCan/radius", radius());
+    SETTINGS->setValue("toolSettings/sprayCan/pressure", pressure());
+    SETTINGS->setValue("toolSettings/sprayCan/dispersion", dispersion());
+    SETTINGS->setValue("toolSettings/sprayCan/rainbow", rainbow());
+}
+
+void SprayCanSettingsWidget::loadSettings()
+{
+    ui->radiusSpinBox->setValue(SETTINGS->value("toolSettings/sprayCan/radius", 10).toInt());
+    ui->pressureSlider->setValue(SETTINGS->value("toolSettings/sprayCan/pressure", 50).toInt());
+    ui->dispersionSlider->setValue(SETTINGS->value("toolSettings/sprayCan/dispersion", 50).toInt());
+    ui->rainbowCheckBox->setChecked(SETTINGS->value("toolSettings/sprayCan/rainbow", false).toBool());
 }

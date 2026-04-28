@@ -38,6 +38,8 @@ public:
     int pressure() const;
     int dispersion() const;
     bool rainbow() const;
+    void saveSettings() const;
+    void loadSettings();
 
 signals:
     void settingsChanged();

@@ -19,6 +19,7 @@
 
 #include "PaintBrushAdvSettingsWidget.h"
 #include "ui_PaintBrushAdvSettingsWidget.h"
+#include "../Settings.h"
 
 PaintBrushAdvSettingsWidget::PaintBrushAdvSettingsWidget(QWidget *parent) :
     QWidget(parent),
@@ -67,4 +68,20 @@ bool PaintBrushAdvSettingsWidget::fade() const
 int PaintBrushAdvSettingsWidget::step() const
 {
     return ui->stepSlider->value();
+}
+
+void PaintBrushAdvSettingsWidget::saveSettings() const
+{
+    SETTINGS->setValue("toolSettings/paintBrushAdv/brushType", ui->comboBox->currentIndex());
+    SETTINGS->setValue("toolSettings/paintBrushAdv/pressure", pressure());
+    SETTINGS->setValue("toolSettings/paintBrushAdv/fade", fade());
+    SETTINGS->setValue("toolSettings/paintBrushAdv/step", step());
+}
+
+void PaintBrushAdvSettingsWidget::loadSettings()
+{
+    ui->comboBox->setCurrentIndex(SETTINGS->value("toolSettings/paintBrushAdv/brushType", 0).toInt());
+    ui->pressureSlider->setValue(SETTINGS->value("toolSettings/paintBrushAdv/pressure", 50).toInt());
+    ui->fadeCheckBox->setChecked(SETTINGS->value("toolSettings/paintBrushAdv/fade", false).toBool());
+    ui->stepSlider->setValue(SETTINGS->value("toolSettings/paintBrushAdv/step", 1).toInt());
 }

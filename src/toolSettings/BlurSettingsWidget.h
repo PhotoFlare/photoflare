@@ -36,6 +36,8 @@ public:
 
     int radius() const;
     int pressure() const;
+    void saveSettings() const;
+    void loadSettings();
 
 signals:
     void settingsChanged();
