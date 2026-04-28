@@ -127,6 +127,10 @@ int main(int argc, char *argv[])
             {
                 lang = "ko";
             }
+            else
+            {
+                lang = "en";
+            }
             SETTINGS->setUserLanguage(lang);
         }
 
@@ -134,7 +138,7 @@ int main(int argc, char *argv[])
         app.installTranslator(&translator);
 
         QStringList paths = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
-        //paths.prepend("."); //for local builds testing
+        paths.prepend(QCoreApplication::applicationDirPath());
         for(int i = 0;i < paths.length(); i++)
         {
             QFileInfo check_file(paths[i]+"/languages/"+SETTINGS->getUserLanguage()+".qm");

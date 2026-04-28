@@ -2295,7 +2295,7 @@
     </message>
 </context>
 <context>
-    <name>prefsDialog</name>
+    <name>PrefsDialog</name>
     <message>
         <location filename="src/dialogs/prefsdialog.ui" line="14"/>
         <source>Preferences</source>
