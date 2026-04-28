@@ -13,24 +13,14 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="BrushTypeComboBox" name="comboBox">
+      <widget class="BrushTypeComboBox" name="comboBox" native="true">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -54,7 +44,7 @@
          <kerning>false</kerning>
         </font>
        </property>
-       <property name="iconSize">
+       <property name="iconSize" stdset="0">
         <size>
          <width>32</width>
          <height>32</height>
@@ -89,10 +79,10 @@
           <number>10</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="tickPosition">
-          <enum>QSlider::TicksBelow</enum>
+          <enum>QSlider::TickPosition::TicksBelow</enum>
          </property>
         </widget>
        </item>
@@ -123,10 +113,10 @@
             <number>5</number>
            </property>
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
            <property name="tickPosition">
-            <enum>QSlider::TicksBelow</enum>
+            <enum>QSlider::TickPosition::TicksBelow</enum>
            </property>
           </widget>
          </item>
@@ -148,8 +138,9 @@
  <customwidgets>
   <customwidget>
    <class>BrushTypeComboBox</class>
-   <extends>QComboBox</extends>
+   <extends>QWidget</extends>
    <header>brushtypecombobox.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
