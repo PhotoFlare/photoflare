@@ -442,6 +442,10 @@ QScrollBar::handle {
    <addaction name="actionUndo"/>
    <addaction name="actionRedo"/>
    <addaction name="separator"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionPaste"/>
+   <addaction name="actionPaste_as_new_image"/>
+   <addaction name="separator"/>
    <addaction name="actionRGB_Mode"/>
    <addaction name="actionIndexed_Mode"/>
    <addaction name="actionTransparent_colour"/>
@@ -1236,10 +1240,18 @@ QToolButton:checked {
    <property name="text">
     <string>Copy</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/assets/icons/toolbar1/copy.png</normaloff>:/icons/assets/icons/toolbar1/copy.png</iconset>
+   </property>
   </action>
   <action name="actionPaste">
    <property name="text">
     <string>Paste</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/assets/icons/toolbar1/paste.png</normaloff>:/icons/assets/icons/toolbar1/paste.png</iconset>
    </property>
   </action>
   <action name="actionClear">
@@ -1250,6 +1262,13 @@ QToolButton:checked {
   <action name="actionPaste_as_new_image">
    <property name="text">
     <string>Paste As New Image</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/assets/icons/toolbar1/pasteasnew.png</normaloff>:/icons/assets/icons/toolbar1/pasteasnew.png</iconset>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+V</string>
    </property>
   </action>
   <action name="actionPaste_special">

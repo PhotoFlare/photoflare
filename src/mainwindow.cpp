@@ -3310,6 +3310,9 @@ void MainWindow::applyIconTheme()
     ui->actionPrint->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/print.png", dark)));
     ui->actionUndo->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/undo.png", dark)));
     ui->actionRedo->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/redo.png", dark)));
+    ui->actionCopy->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/copy.png", dark)));
+    ui->actionPaste->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/paste.png", dark)));
+    ui->actionPaste_as_new_image->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/pasteasnew.png", dark)));
     ui->actionImage_Size->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/imgsize.png", dark)));
     ui->actionCanvas_Size->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/cansize.png", dark)));
     ui->actionTransparent_colour->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/trans.png", dark)));

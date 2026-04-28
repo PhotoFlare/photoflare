@@ -28,6 +28,9 @@
         <file alias="assets/icons/unlinked.png">assets/light/icons/unlinked.png</file>
         <file alias="assets/icons/toolbar1/batch.png">assets/light/icons/toolbar1/batch.png</file>
         <file alias="assets/icons/toolbar1/cansize.png">assets/light/icons/toolbar1/cansize.png</file>
+        <file alias="assets/icons/toolbar1/copy.png">assets/light/icons/toolbar1/copy.png</file>
+        <file alias="assets/icons/toolbar1/paste.png">assets/light/icons/toolbar1/paste.png</file>
+        <file alias="assets/icons/toolbar1/pasteasnew.png">assets/light/icons/toolbar1/pasteasnew.png</file>
         <file alias="assets/icons/toolbar1/imgsize.png">assets/light/icons/toolbar1/imgsize.png</file>
         <file alias="assets/icons/toolbar1/index.png">assets/light/icons/toolbar1/index.png</file>
         <file alias="assets/icons/toolbar1/new.png">assets/light/icons/toolbar1/new.png</file>
