@@ -2725,6 +2725,12 @@ void MainWindow::setWindowSize()
         if (geometry.isValid())
             this->setGeometry(geometry);
     }
+
+    // Restore toolbar and dock widget positions/configuration.
+    // This supersedes the manual dock-layout fallback in setupWorkspace().
+    QByteArray state = SETTINGS->mainWindowState();
+    if (!state.isEmpty())
+        this->restoreState(state);
 }
 
 void MainWindow::addChildWindow(PaintWidget *widget)
@@ -2821,6 +2827,8 @@ void MainWindow::saveGeometryState()
     {
         SETTINGS->setCustomWindowGeometry(this->geometry());
     }
+    // Save toolbar and dock widget positions/configuration.
+    SETTINGS->setMainWindowState(this->saveState());
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

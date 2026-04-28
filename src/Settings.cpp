@@ -42,6 +42,7 @@ public:
         compressionDefaultValue = settings.value("compressionDefaultValue").toString();
         historyLimit = settings.value("historyLimit").toString();
         dockLayout = settings.value("dockLayout").toString();
+        mainWindowState = settings.value("mainWindowState").toByteArray();
         zoomDirection = settings.value("zoomDirection").toString();
         memDialogParams = settings.value("memorizeParamsEnabled").toBool();
         unit = settings.value("unit").toInt();
@@ -75,6 +76,7 @@ public:
     QString compressionDefaultValue;
     QString historyLimit;
     QString dockLayout;
+    QByteArray mainWindowState;
     QString zoomDirection;
     bool memDialogParams;
     int unit;
@@ -333,6 +335,17 @@ void Settings::setDockLayout(const QString val)
 QString Settings::getDockLayout() const
 {
     return d->dockLayout;
+}
+
+void Settings::setMainWindowState(const QByteArray &state)
+{
+    d->mainWindowState = state;
+    d->setValue("mainWindowState", state);
+}
+
+QByteArray Settings::mainWindowState() const
+{
+    return d->mainWindowState;
 }
 
 void Settings::setZoomDirection(const QString val)

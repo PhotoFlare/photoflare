@@ -71,6 +71,8 @@ public:
     int getUnit() const;
     void setIconTheme(const QString &theme);
     QString getIconTheme() const;
+    void setMainWindowState(const QByteArray &state);
+    QByteArray mainWindowState() const;
 
 private:
     explicit Settings(QObject *parent = 0);
