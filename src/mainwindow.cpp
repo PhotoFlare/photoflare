@@ -225,6 +225,7 @@ void MainWindow::setupWorkspace()
     ui->actionToolpalette->setChecked(true);
 
     // Pointer tool selected by default
+    // (overridden in restoreGeometryState if a saved tool exists)
     on_toolButtonPointer_clicked();
 }
 
@@ -2775,6 +2776,14 @@ void MainWindow::setWindowSize()
         ui->actionFilterbar->setChecked(ui->toolBar->isVisible());
         ui->actionToolpalette->setChecked(ui->dockWidget_palette->isVisible());
     }
+
+    // Restore primary and secondary colours.
+    ui->colorBoxWidget->setPrimaryColor(SETTINGS->getPrimaryColor());
+    ui->colorBoxWidget->setSecondaryColor(SETTINGS->getSecondaryColor());
+
+    // Restore selected tool.
+    m_toolSelected = SETTINGS->getSelectedTool();
+    refreshTools();
 }
 
 void MainWindow::addChildWindow(PaintWidget *widget)
@@ -2873,6 +2882,13 @@ void MainWindow::saveGeometryState()
     }
     // Save toolbar and dock widget positions/configuration.
     SETTINGS->setMainWindowState(this->saveState());
+
+    // Save primary and secondary colours.
+    SETTINGS->setPrimaryColor(ui->colorBoxWidget->primaryColor());
+    SETTINGS->setSecondaryColor(ui->colorBoxWidget->secondaryColor());
+
+    // Save selected tool.
+    SETTINGS->setSelectedTool(m_toolSelected);
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

@@ -59,6 +59,9 @@ public:
         memDialogParams = settings->value("memorizeParamsEnabled").toBool();
         unit = settings->value("unit").toInt();
         iconTheme = settings->value("iconTheme", "auto").toString();
+        primaryColor = QColor(settings->value("primaryColor", "#000000").toString());
+        secondaryColor = QColor(settings->value("secondaryColor", "#ff0000").toString());
+        selectedTool = settings->value("selectedTool", "pointer").toString();
     }
 
     ~SettingsPrivate()
@@ -93,6 +96,9 @@ public:
     bool memDialogParams;
     int unit;
     QString iconTheme;
+    QColor primaryColor;
+    QColor secondaryColor;
+    QString selectedTool;
     QSettings *settings;
 };
 
@@ -361,6 +367,39 @@ void Settings::setMainWindowState(const QByteArray &state)
 QByteArray Settings::mainWindowState() const
 {
     return d->mainWindowState;
+}
+
+void Settings::setPrimaryColor(const QColor &color)
+{
+    d->primaryColor = color;
+    d->setValue("primaryColor", color.name());
+}
+
+QColor Settings::getPrimaryColor() const
+{
+    return d->primaryColor;
+}
+
+void Settings::setSecondaryColor(const QColor &color)
+{
+    d->secondaryColor = color;
+    d->setValue("secondaryColor", color.name());
+}
+
+QColor Settings::getSecondaryColor() const
+{
+    return d->secondaryColor;
+}
+
+void Settings::setSelectedTool(const QString &tool)
+{
+    d->selectedTool = tool;
+    d->setValue("selectedTool", tool);
+}
+
+QString Settings::getSelectedTool() const
+{
+    return d->selectedTool;
 }
 
 void Settings::setZoomDirection(const QString val)

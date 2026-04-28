@@ -18,6 +18,7 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#include <QColor>
 #include <QObject>
 
 #define SETTINGS Settings::instance()
@@ -74,6 +75,12 @@ public:
     QString getIconTheme() const;
     void setMainWindowState(const QByteArray &state);
     QByteArray mainWindowState() const;
+    void setPrimaryColor(const QColor &color);
+    QColor getPrimaryColor() const;
+    void setSecondaryColor(const QColor &color);
+    QColor getSecondaryColor() const;
+    void setSelectedTool(const QString &tool);
+    QString getSelectedTool() const;
 
 private:
     explicit Settings(QObject *parent = 0);

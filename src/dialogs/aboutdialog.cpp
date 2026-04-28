@@ -39,6 +39,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
     ui->graphicsTextArea->setText(tr(
         "Main icon - Robert BM"
         "<br>Website graphics - Raqasa"
+        "<br>Application icons - Imerion"
         "<br>Application icons - Attari B"
         "<br>Art Designer - Catherine Hegedusich"
         "<br>Advertising - Don Murphy")
