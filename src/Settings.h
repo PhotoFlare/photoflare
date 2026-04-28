@@ -30,6 +30,7 @@ class Settings : public QObject
 public:
     ~Settings();
     static Settings* instance();
+    static bool isPortableMode();
     void setDefaultSettings();
     void setMaximizeWindow(bool maximize);
     bool isMaximizeWindow() const;

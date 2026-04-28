@@ -21,43 +21,55 @@
 #include <QRect>
 #include <QStandardPaths>
 #include <QDir>
+#include <QCoreApplication>
+#include <QFile>
 
 #include "Settings.h"
+
+static bool detectPortableMode()
+{
+    return QFile::exists(QCoreApplication::applicationDirPath() + "/portable");
+}
 
 class SettingsPrivate
 {
 public:
     SettingsPrivate()
     {
-        maximizeWindow = settings.value("MaximizeOnStartup").toBool();
-        geometry = settings.value("CustomWindowGeometry").toRect();
-        recentFiles = settings.value("RecentFiles").toList();
-        multiWindowMode = settings.value("MultiWindowMode").toBool();
-        userLanguage = settings.value("UserLanguage").toString();
-        openFolder = settings.value("OpenFolder").toString();
-        saveFolder = settings.value("SaveFolder").toString();
-        saveFormat = settings.value("SaveFormat").toString();
-        saveFormatEnabled = settings.value("SaveFormatEnabled").toBool();
-        compressionDialogEnabled = settings.value("compressionDialogEnabled").toBool();
-        compressionDefaultValue = settings.value("compressionDefaultValue").toString();
-        historyLimit = settings.value("historyLimit").toString();
-        dockLayout = settings.value("dockLayout").toString();
-        mainWindowState = settings.value("mainWindowState").toByteArray();
-        zoomDirection = settings.value("zoomDirection").toString();
-        memDialogParams = settings.value("memorizeParamsEnabled").toBool();
-        unit = settings.value("unit").toInt();
-        iconTheme = settings.value("iconTheme", "auto").toString();
+        if (detectPortableMode())
+            settings = new QSettings(QCoreApplication::applicationDirPath() + "/photoflare.ini", QSettings::IniFormat);
+        else
+            settings = new QSettings();
+
+        maximizeWindow = settings->value("MaximizeOnStartup").toBool();
+        geometry = settings->value("CustomWindowGeometry").toRect();
+        recentFiles = settings->value("RecentFiles").toList();
+        multiWindowMode = settings->value("MultiWindowMode").toBool();
+        userLanguage = settings->value("UserLanguage").toString();
+        openFolder = settings->value("OpenFolder").toString();
+        saveFolder = settings->value("SaveFolder").toString();
+        saveFormat = settings->value("SaveFormat").toString();
+        saveFormatEnabled = settings->value("SaveFormatEnabled").toBool();
+        compressionDialogEnabled = settings->value("compressionDialogEnabled").toBool();
+        compressionDefaultValue = settings->value("compressionDefaultValue").toString();
+        historyLimit = settings->value("historyLimit").toString();
+        dockLayout = settings->value("dockLayout").toString();
+        mainWindowState = settings->value("mainWindowState").toByteArray();
+        zoomDirection = settings->value("zoomDirection").toString();
+        memDialogParams = settings->value("memorizeParamsEnabled").toBool();
+        unit = settings->value("unit").toInt();
+        iconTheme = settings->value("iconTheme", "auto").toString();
     }
 
     ~SettingsPrivate()
     {
-
+        delete settings;
     }
 
     void setValue(const QString &propertyName, const QVariant &value)
     {
-        settings.setValue(propertyName, value);
-        settings.sync();
+        settings->setValue(propertyName, value);
+        settings->sync();
     }
     bool cutoutEnabled;
     bool maximizeWindow;
@@ -81,7 +93,7 @@ public:
     bool memDialogParams;
     int unit;
     QString iconTheme;
-    QSettings settings;
+    QSettings *settings;
 };
 
 Settings* Settings::m_instance = 0;
@@ -101,11 +113,14 @@ Settings::~Settings()
 
 Settings *Settings::instance()
 {
-    QString loc = QStandardPaths::locate(QStandardPaths::GenericConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
     if (!m_instance)
         m_instance = new Settings;
-
     return m_instance;
+}
+
+bool Settings::isPortableMode()
+{
+    return detectPortableMode();
 }
 
 void Settings::setDefaultSettings()

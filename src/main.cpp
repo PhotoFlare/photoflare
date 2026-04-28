@@ -23,6 +23,7 @@
 #include <QtSingleApplication>
 #include <QStandardPaths>
 #include <QDir>
+#include <QFile>
 
 #include "mainwindow.h"
 #include "Settings.h"
@@ -43,15 +44,29 @@ int main(int argc, char *argv[])
         app.setOrganizationDomain("photoflare.io");
 
         // Setup Default settings
-        QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
-        if(!QDir(loc).exists())
-        {
-            QDir().mkdir(loc);
-            SETTINGS->setDefaultSettings();
+        if (Settings::isPortableMode()) {
+            // Portable mode: settings go to photoflare.ini next to the executable.
+            // Treat a missing ini file as first run.
+            const QString iniPath = QCoreApplication::applicationDirPath() + "/photoflare.ini";
+            if (!QFile::exists(iniPath)) {
+                SETTINGS->setDefaultSettings();
+            }
+        } else {
+            QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
+            if(!QDir(loc).exists())
+            {
+                QDir().mkdir(loc);
+                SETTINGS->setDefaultSettings();
+            }
         }
 
         // Setup plugins folder if needed
-        QString pluginLoc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io/plugins";
+        QString pluginLoc;
+        if (Settings::isPortableMode()) {
+            pluginLoc = QCoreApplication::applicationDirPath() + "/plugins";
+        } else {
+            pluginLoc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io/plugins";
+        }
         if(!QDir(pluginLoc).exists())
         {
             QDir().mkdir(pluginLoc);

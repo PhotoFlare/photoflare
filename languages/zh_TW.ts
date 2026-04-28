@@ -1275,7 +1275,7 @@
     <message>
         <location filename="src/dialogs/NewDialog.ui" line="110"/>
         <source>Size in Pixels/Memory</source>
-        <translation type="unfinished">像素/記憶體</translation>
+        <translation>像素/記憶體</translation>
     </message>
     <message>
         <location filename="src/dialogs/NewDialog.ui" line="138"/>
@@ -1477,7 +1477,7 @@
     <message>
         <location filename="src/toolSettings/pointersettingswidget.ui" line="55"/>
         <source>Stroke</source>
-        <translation type="unfinished">筆劃</translation>
+        <translation>筆劃</translation>
     </message>
     <message>
         <location filename="src/toolSettings/pointersettingswidget.ui" line="68"/>

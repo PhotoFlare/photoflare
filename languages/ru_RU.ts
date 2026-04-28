@@ -606,7 +606,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1333"/>
         <source>Fit Image...</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1338"/>
@@ -661,7 +661,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1396"/>
         <source>Copyright...</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1411"/>
@@ -701,7 +701,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1446"/>
         <source>Contract...</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1451"/>
@@ -781,7 +781,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1539"/>
         <source>More Highlights</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1544"/>
