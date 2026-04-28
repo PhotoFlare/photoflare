@@ -38,6 +38,9 @@
 #include <QImageReader>
 #include <QInputDialog>
 #include <QSysInfo>
+#include <QProcess>
+#include <QTemporaryFile>
+#include <QDir>
 
 #include "./tools/PaintBrushTool.h"
 #include "./tools/PaintBrushAdvTool.h"
@@ -1865,6 +1868,72 @@ void MainWindow::on_actionShow_rulers_triggered()
     } else {
         ui->actionShow_rulers->setChecked(false);
     }
+}
+
+void MainWindow::on_actionGmicQt_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (!widget) return;
+
+    // Save current canvas to a temp PNG file
+    QTemporaryFile inputFile(QDir::tempPath() + "/photoflare_gmic_in_XXXXXX.png");
+    inputFile.setAutoRemove(false);
+    if (!inputFile.open()) {
+        QMessageBox::warning(this, tr("G'MIC-Qt"), tr("Failed to create temporary input file."));
+        return;
+    }
+    const QString inputPath = inputFile.fileName();
+    inputFile.close();
+    if (!widget->image().save(inputPath, "PNG")) {
+        QFile::remove(inputPath);
+        QMessageBox::warning(this, tr("G'MIC-Qt"), tr("Failed to save image for G'MIC-Qt."));
+        return;
+    }
+
+    // Output temp file
+    const QString outputPath = inputPath + "_out.png";
+
+    // Locate gmic_qt.exe next to the application executable
+    const QString gmicBin = QDir(QCoreApplication::applicationDirPath()).filePath("gmic_qt.exe");
+    if (!QFile::exists(gmicBin)) {
+        QMessageBox::warning(this, tr("G'MIC-Qt"),
+            tr("gmic_qt.exe not found at:\n%1\n\nPlease copy gmic_qt.exe and its Qt DLLs next to photoflare.exe.").arg(gmicBin));
+        QFile::remove(inputPath);
+        return;
+    }
+
+    // Launch gmic_qt with the input image; options must come before the input file
+    // because the standalone host's arg parser greedily consumes all remaining
+    // positional args once it sees the first non-option argument.
+    QProcess proc;
+    proc.start(gmicBin, {"-o", outputPath, inputPath});
+    proc.waitForFinished(-1);
+
+    if (proc.exitCode() != 0) {
+        // Non-zero exit = actual failure (bad args, crash, etc.)
+        QMessageBox::warning(this, tr("G'MIC-Qt"),
+            tr("gmic_qt.exe failed (exit code %1):\n%2")
+            .arg(proc.exitCode())
+            .arg(QString::fromLocal8Bit(proc.readAllStandardError())));
+        QFile::remove(inputPath);
+        QFile::remove(outputPath);
+        return;
+    }
+
+    if (!QFile::exists(outputPath)) {
+        // User cancelled the G'MIC dialog — nothing to do
+        QFile::remove(inputPath);
+        return;
+    }
+
+    // Load result and apply via undo-aware helper
+    QImage result(outputPath);
+    if (!result.isNull()) {
+        applyFilteredImage(widget, widget->image(), result);
+    }
+
+    QFile::remove(inputPath);
+    QFile::remove(outputPath);
 }
 
 void MainWindow::getPrevZoomFromScale(QString scaletext)

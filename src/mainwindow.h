@@ -230,6 +230,7 @@ private slots:
     void on_actionShow_grid_triggered();
     void on_actionGrid_settings_triggered();
     void on_actionShow_rulers_triggered();
+    void on_actionGmicQt_triggered();
 
     QString prepareFile(const QString& fileName);
     bool fileTypeSupported(QList<QByteArray> formats, QString ext);
