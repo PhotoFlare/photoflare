@@ -39,7 +39,7 @@ public:
     void setStroke(bool enabled);
     void setStrokeWidth(int width);
     void setFill(bool enabled);
-    enum SelectionShape { RECT, ELLIPSE };
+    enum SelectionShape { RECT, ELLIPSE, LASSO };
 
     void setFillColor(const QColor &color);
     void setSelectionShape(SelectionShape shape);

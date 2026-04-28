@@ -68,6 +68,7 @@
         <file alias="assets/icons/toolbar2/soften.png">assets/dark/icons/toolbar2/soften.png</file>
         <file alias="assets/icons/selections/circle_sel.png">assets/dark/icons/selections/circle_sel.png</file>
         <file alias="assets/icons/selections/square_sel.png">assets/dark/icons/selections/square_sel.png</file>
+        <file alias="assets/icons/selections/lasso_sel.png">assets/dark/icons/selections/lasso_sel.png</file>
     </qresource>
     <qresource prefix="/brushes-dark">
         <file alias="assets/brushes/circle.png">assets/dark/brushes/circle.png</file>

@@ -49,12 +49,18 @@ bool PointerSettingsWidget::selectionIsEllipse() const
     return ui->circle_sel->isChecked();
 }
 
+bool PointerSettingsWidget::selectionIsLasso() const
+{
+    return ui->lasso_sel->isChecked();
+}
+
 void PointerSettingsWidget::on_square_sel_clicked(bool checked)
 {
     if(checked)
     {
         ui->square_sel->setChecked(true);
         ui->circle_sel->setChecked(false);
+        ui->lasso_sel->setChecked(false);
         emit settingsChanged();
     }
 }
@@ -65,6 +71,18 @@ void PointerSettingsWidget::on_circle_sel_clicked(bool checked)
     {
         ui->square_sel->setChecked(false);
         ui->circle_sel->setChecked(true);
+        ui->lasso_sel->setChecked(false);
+        emit settingsChanged();
+    }
+}
+
+void PointerSettingsWidget::on_lasso_sel_clicked(bool checked)
+{
+    if(checked)
+    {
+        ui->square_sel->setChecked(false);
+        ui->circle_sel->setChecked(false);
+        ui->lasso_sel->setChecked(true);
         emit settingsChanged();
     }
 }
