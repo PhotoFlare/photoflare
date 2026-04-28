@@ -204,10 +204,13 @@ static QImage buildOverlaySurface(const QImage &src, const QPoint &imagePos,
     p.setPen(QPen(QColor(0x00, 0xad, 0xee), 1));
     p.drawLine(topCentre, h.rot);
 
-    // Corner scale handles (white fill, blue border)
-    p.setPen(QPen(QColor(0x00, 0xad, 0xee), 1.5));
-    p.setBrush(Qt::white);
+    // Corner scale handles — white solid then gray dashed, matching selection hotspots
     const QPointF corners[4] = { h.tl, h.tr, h.br, h.bl };
+    p.setBrush(Qt::NoBrush);
+    p.setPen(QPen(Qt::white, 1.5, Qt::SolidLine));
+    for (const QPointF &c : corners)
+        p.drawRect(QRectF(c.x() - r, c.y() - r, r * 2, r * 2));
+    p.setPen(QPen(Qt::gray, 1.5, Qt::DashLine));
     for (const QPointF &c : corners)
         p.drawRect(QRectF(c.x() - r, c.y() - r, r * 2, r * 2));
 
@@ -352,6 +355,8 @@ void PointerTool::setOverlayImage(const QImage& image)
     d->overlayRotation = 0;
     d->overlayScale    = 1.0;
     d->activeHandle    = OV_NONE;
+    // Hide any existing selection marquee while the paste overlay is active.
+    emit selectionChanged(QPolygon());
     emit cursorChanged(Qt::DragCopyCursor);
     const QImage *paintImage = dynamic_cast<QImage*>(m_paintDevice);
     if (paintImage) {
