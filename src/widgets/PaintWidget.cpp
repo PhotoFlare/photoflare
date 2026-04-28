@@ -647,7 +647,6 @@ void PaintWidget::setPaintTool(Tool *tool)
                 if (!d->selection.isEmpty() && !d->preStrokeSnapshot.isNull())
                     d->pendingSelectionMask = true;
                 d->scheduleCanvasUpdate(dirtyRect);
-                this->contentChanged();
                 d->imageChanged = true;
             }
         });
@@ -950,7 +949,8 @@ void PaintWidget::onContentChanged()
     historyList.append(d->image);
     historyIndex++;
 
-    if(historyIndex > SETTINGS->getHistoryLimit().toInt())
+    const int historyLimit = qMax(1, SETTINGS->getHistoryLimit().toInt());
+    if(historyIndex > historyLimit)
     {
         historyList.removeFirst();
         historyIndex--;

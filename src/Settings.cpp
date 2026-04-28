@@ -344,7 +344,7 @@ void Settings::setHistoryLimit(const QString val)
 
 QString Settings::getHistoryLimit() const
 {
-    return d->historyLimit;
+    return d->historyLimit.isEmpty() ? "24" : d->historyLimit;
 }
 
 void Settings::setDockLayout(const QString val)
