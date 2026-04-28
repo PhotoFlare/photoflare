@@ -149,6 +149,7 @@ private slots:
     void on_actionPrint_triggered();
     void on_actionFull_screen_triggered();
     void on_actionOriginal_size_triggered();
+    void on_actionAuto_zoom_triggered();
     void on_actionSolarize_triggered();
     void on_actionWave_triggered();
     void on_actionImplode_triggered();

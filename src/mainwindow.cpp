@@ -240,6 +240,11 @@ void MainWindow::addZoomCombo()
     zoomCombo->insertSeparator(8);
     zoomCombo->insertSeparator(10);
     ui->mainToolBar->addWidget(zoomCombo);
+    ui->mainToolBar->addSeparator();
+    ui->mainToolBar->addAction(ui->actionZoom_in);
+    ui->mainToolBar->addAction(ui->actionZoom_out);
+    ui->mainToolBar->addAction(ui->actionOriginal_size);
+    ui->mainToolBar->addAction(ui->actionAuto_zoom);
     connect(zoomCombo, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
         onZoomChanged(zoomCombo->itemText(index));
     });
@@ -1931,6 +1936,15 @@ void MainWindow::on_actionOriginal_size_triggered()
     }
 }
 
+void MainWindow::on_actionAuto_zoom_triggered()
+{
+    PaintWidget *widget = getCurrentPaintWidget();
+    if (widget)
+    {
+        widget->autoScale();
+    }
+}
+
 void MainWindow::on_actionFull_screen_triggered()
 {
     if(this->isFullScreen())
@@ -2881,6 +2895,7 @@ void MainWindow::createKeyboardShortcuts()
     ui->actionZoom_in->setShortcut(QKeySequence::ZoomIn);
     ui->actionZoom_out->setShortcut(QKeySequence::ZoomOut);
     ui->actionOriginal_size->setShortcut(QString("Ctrl+0"));
+    ui->actionAuto_zoom->setShortcut(QString("Ctrl+Shift+0"));
     ui->actionFull_screen->setShortcut(QString("Ctrl+F"));
 }
 
@@ -3313,6 +3328,11 @@ void MainWindow::applyIconTheme()
     ui->actionCopy->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/copy.png", dark)));
     ui->actionPaste->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/paste.png", dark)));
     ui->actionPaste_as_new_image->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/pasteasnew.png", dark)));
+    ui->actionZoom_in->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/zoomin.png", dark)));
+    ui->actionZoom_out->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/zoomout.png", dark)));
+    ui->actionOriginal_size->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/originalsize.png", dark)));
+    ui->actionAuto_zoom->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/autozoom.png", dark)));
+    ui->actionAuto_zoom->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/autozoom.png", dark)));
     ui->actionImage_Size->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/imgsize.png", dark)));
     ui->actionCanvas_Size->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/cansize.png", dark)));
     ui->actionTransparent_colour->setIcon(QIcon(iconPath(":/icons/assets/icons/toolbar1/trans.png", dark)));

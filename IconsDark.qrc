@@ -27,6 +27,7 @@
         <file alias="assets/icons/aligntext_right.png">assets/dark/icons/aligntext_right.png</file>
         <file alias="assets/icons/unlinked.png">assets/dark/icons/unlinked.png</file>
         <file alias="assets/icons/toolbar1/batch.png">assets/dark/icons/toolbar1/batch.png</file>
+        <file alias="assets/icons/toolbar1/autozoom.png">assets/dark/icons/toolbar1/autozoom.png</file>
         <file alias="assets/icons/toolbar1/cansize.png">assets/dark/icons/toolbar1/cansize.png</file>
         <file alias="assets/icons/toolbar1/copy.png">assets/dark/icons/toolbar1/copy.png</file>
         <file alias="assets/icons/toolbar1/paste.png">assets/dark/icons/toolbar1/paste.png</file>
@@ -34,6 +35,7 @@
         <file alias="assets/icons/toolbar1/imgsize.png">assets/dark/icons/toolbar1/imgsize.png</file>
         <file alias="assets/icons/toolbar1/index.png">assets/dark/icons/toolbar1/index.png</file>
         <file alias="assets/icons/toolbar1/new.png">assets/dark/icons/toolbar1/new.png</file>
+        <file alias="assets/icons/toolbar1/originalsize.png">assets/dark/icons/toolbar1/originalsize.png</file>
         <file alias="assets/icons/toolbar1/open.png">assets/dark/icons/toolbar1/open.png</file>
         <file alias="assets/icons/toolbar1/pref.png">assets/dark/icons/toolbar1/pref.png</file>
         <file alias="assets/icons/toolbar1/print.png">assets/dark/icons/toolbar1/print.png</file>
@@ -45,6 +47,8 @@
         <file alias="assets/icons/toolbar1/text.png">assets/dark/icons/toolbar1/text.png</file>
         <file alias="assets/icons/toolbar1/trans.png">assets/dark/icons/toolbar1/trans.png</file>
         <file alias="assets/icons/toolbar1/undo.png">assets/dark/icons/toolbar1/undo.png</file>
+        <file alias="assets/icons/toolbar1/zoomin.png">assets/dark/icons/toolbar1/zoomin.png</file>
+        <file alias="assets/icons/toolbar1/zoomout.png">assets/dark/icons/toolbar1/zoomout.png</file>
         <file alias="assets/icons/toolbar2/autobright.png">assets/dark/icons/toolbar2/autobright.png</file>
         <file alias="assets/icons/toolbar2/autolevel.png">assets/dark/icons/toolbar2/autolevel.png</file>
         <file alias="assets/icons/toolbar2/blur.png">assets/dark/icons/toolbar2/blur.png</file>

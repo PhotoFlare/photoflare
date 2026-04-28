@@ -1699,20 +1699,36 @@ QToolButton:checked {
    <property name="text">
     <string>Zoom In</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/assets/icons/toolbar1/zoomin.png</normaloff>:/icons/assets/icons/toolbar1/zoomin.png</iconset>
+   </property>
   </action>
   <action name="actionZoom_out">
    <property name="text">
     <string>Zoom Out</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/assets/icons/toolbar1/zoomout.png</normaloff>:/icons/assets/icons/toolbar1/zoomout.png</iconset>
    </property>
   </action>
   <action name="actionOriginal_size">
    <property name="text">
     <string>Original Size</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/assets/icons/toolbar1/originalsize.png</normaloff>:/icons/assets/icons/toolbar1/originalsize.png</iconset>
+   </property>
   </action>
   <action name="actionAuto_zoom">
    <property name="text">
     <string>Auto Zoom</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/assets/icons/toolbar1/autozoom.png</normaloff>:/icons/assets/icons/toolbar1/autozoom.png</iconset>
    </property>
   </action>
   <action name="actionFull_screen">
