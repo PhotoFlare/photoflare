@@ -1,0 +1,259 @@
+---
+layout: default
+---
+<body>
+
+<h2><a name="plugins">Plugin system</a></h2>
+<p>
+	Photoflare supports a plugin system that allows third-party developers to extend the application with new image filters and file format exporters.
+	Plugins are compiled as shared libraries (<code>.dll</code> on Windows, <code>.so</code> on Linux, <code>.dylib</code> on macOS) and
+	loaded at startup from a <code>plugins/</code> folder alongside the Photoflare executable.
+</p>
+
+<h3>Installing plugins</h3>
+<p>
+	Copy the plugin shared library into the <code>plugins/</code> folder next to the Photoflare executable, then launch Photoflare.
+	To reload plugins without restarting, open <strong>Edit &rarr; Plugins&hellip;</strong> and click <strong>Rescan</strong>.
+</p>
+
+<h3>Plugin Manager dialog</h3>
+<p>
+	Open <strong>Edit &rarr; Plugins&hellip;</strong> to view all loaded plugins.
+	Filter plugins can also be applied from this dialog by selecting one and clicking <strong>Apply</strong>.
+	Click <strong>Open Folder</strong> to open the plugins directory in your file manager.
+</p>
+
+<hr/>
+
+<h2><a name="developing">Developing a plugin</a></h2>
+<p>
+	Plugins are Qt 6 C++ shared libraries that implement one of the plugin interfaces defined in the Photoflare SDK headers.
+	Example plugins are provided in the <code>examples/plugins/</code> directory of the source repository.
+</p>
+
+<h3>Requirements</h3>
+<ul>
+	<li>Qt 6.5 or later (same major version as the Photoflare build you are targeting)</li>
+	<li>A C++17 compatible compiler (MSVC 2019+, GCC 10+, Clang 12+)</li>
+	<li>The three SDK headers from <code>src/plugins/</code>: <code>IPhotoflarePlugin.h</code>, <code>AppContext.h</code></li>
+</ul>
+
+<h3>SDK headers</h3>
+<p>Copy or reference these two headers into your plugin project — no linking against Photoflare itself is required.</p>
+<ul>
+	<li><strong>IPhotoflarePlugin.h</strong> — defines <code>IPhotoflarePlugin</code>, <code>IFilterPlugin</code>, <code>IExporterPlugin</code>, and <code>PluginParam</code></li>
+	<li><strong>AppContext.h</strong> — defines the <code>AppContext</code> API surface passed to <code>initialise()</code></li>
+</ul>
+
+<h3>Plugin types</h3>
+<table>
+	<thead><tr><th>Interface</th><th>What it does</th><th>Where it appears</th></tr></thead>
+	<tbody>
+		<tr>
+			<td><code>IFilterPlugin</code></td>
+			<td>Transforms a <code>QImage</code> and returns a new one</td>
+			<td><strong>Plugin Filters</strong> menu &amp; Plugin Manager dialog</td>
+		</tr>
+		<tr>
+			<td><code>IExporterPlugin</code></td>
+			<td>Writes a <code>QImage</code> to a file in a custom format</td>
+			<td><strong>File &rarr; Save As</strong> format list</td>
+		</tr>
+	</tbody>
+</table>
+
+<hr/>
+
+<h2><a name="filter-plugin">Creating a filter plugin</a></h2>
+<p>
+	A filter plugin receives the current canvas image, applies a transformation, and returns the result.
+	The host runs <code>apply()</code> on a background thread automatically, so the UI stays responsive.
+</p>
+
+<h3>Minimal example</h3>
+<pre><code>#include &lt;QObject&gt;
+#include &lt;QtPlugin&gt;
+#include &lt;QImage&gt;
+#include "IPhotoflarePlugin.h"
+#include "AppContext.h"
+
+class MyFilterPlugin : public QObject, public IFilterPlugin
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.photoflare.FilterPlugin/1.0" FILE "myplugin.json")
+    Q_INTERFACES(IPhotoflarePlugin IFilterPlugin)
+public:
+    QString pluginId()    const override { return "com.example.myplugin"; }
+    QString displayName() const override { return "My Filter"; }
+    QString version()     const override { return "1.0.0"; }
+    QString author()      const override { return "Your Name"; }
+    QString menuPath()    const override { return "Filters/My Plugins"; }
+
+    void initialise(AppContext* ctx) override { m_ctx = ctx; }
+
+    QList&lt;PluginParam&gt; parameters() const override
+    {
+        return {
+            { "strength", "Strength", PluginParam::Float, 0.5, 0.0, 1.0, {} },
+        };
+    }
+
+    QImage apply(const QImage&amp; input, const QVariantMap&amp; params) const override
+    {
+        const float strength = params.value("strength", 0.5f).toFloat();
+        // ... transform the image ...
+        return input; // replace with your result
+    }
+
+private:
+    AppContext* m_ctx = nullptr;
+};
+
+#include "MyFilterPlugin.moc"
+</code></pre>
+
+<h3>Parameter types</h3>
+<p>
+	The <code>PluginParam</code> struct describes each parameter. The host auto-generates a dialog from your <code>parameters()</code> list.
+</p>
+<table>
+	<thead><tr><th>Type</th><th>Widget shown</th><th>Value in QVariantMap</th></tr></thead>
+	<tbody>
+		<tr><td><code>PluginParam::Float</code></td><td>Slider (uses minValue / maxValue)</td><td><code>toFloat()</code></td></tr>
+		<tr><td><code>PluginParam::Int</code></td><td>Slider (integer steps)</td><td><code>toInt()</code></td></tr>
+		<tr><td><code>PluginParam::Bool</code></td><td>Check box</td><td><code>toBool()</code></td></tr>
+	</tbody>
+</table>
+
+<h3>menuPath</h3>
+<p>
+	The <code>menuPath()</code> return value determines the submenu structure under <strong>Plugin Filters</strong>.
+	The first segment is always replaced with "Plugin Filters" by the host, so <code>"Filters/Noise"</code>
+	and <code>"Plugin Filters/Noise"</code> both produce the same result: <strong>Plugin Filters &rarr; Noise &rarr; My Filter</strong>.
+	Return a single word (e.g. <code>"Filters"</code>) to place the action directly under <strong>Plugin Filters</strong> with no submenu.
+</p>
+
+<h3>Threading in apply()</h3>
+<p>
+	<code>apply()</code> is always called on a background <code>QThread</code> — never on the main thread.
+	Do not access any Qt UI objects inside <code>apply()</code>.
+	For additional parallelism you can use <code>QtConcurrent::blockingMap</code> to distribute row-level work across CPU cores.
+	See <code>examples/plugins/grain/GrainFilterPlugin.cpp</code> for a worked example.
+</p>
+
+<hr/>
+
+<h2><a name="exporter-plugin">Creating an exporter plugin</a></h2>
+<p>
+	An exporter plugin adds a new file format to <strong>File &rarr; Save As</strong>.
+</p>
+
+<h3>Minimal example</h3>
+<pre><code>#include &lt;QObject&gt;
+#include &lt;QtPlugin&gt;
+#include &lt;QImage&gt;
+#include &lt;QImageWriter&gt;
+#include "IPhotoflarePlugin.h"
+#include "AppContext.h"
+
+class MyExporterPlugin : public QObject, public IExporterPlugin
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.photoflare.ExporterPlugin/1.0" FILE "myexporter.json")
+    Q_INTERFACES(IPhotoflarePlugin IExporterPlugin)
+public:
+    QString     pluginId()    const override { return "com.example.myexporter"; }
+    QString     displayName() const override { return "My Format Exporter"; }
+    QString     version()     const override { return "1.0.0"; }
+    QString     author()      const override { return "Your Name"; }
+    QString     formatName()  const override { return "My Format"; }
+    QStringList supportedExtensions() const override { return { "myf" }; }
+
+    void initialise(AppContext* ctx) override { m_ctx = ctx; }
+
+    bool exportImage(const QImage&amp;      image,
+                     const QString&amp;     filePath,
+                     const QVariantMap&amp; settings,
+                     QString&amp;           errorMessage) const override
+    {
+        // write image to filePath; return false and set errorMessage on failure
+        if (!image.save(filePath)) {
+            errorMessage = "Failed to save image.";
+            return false;
+        }
+        return true;
+    }
+
+private:
+    AppContext* m_ctx = nullptr;
+};
+
+#include "MyExporterPlugin.moc"
+</code></pre>
+
+<h3>Optional settings widget</h3>
+<p>
+	Override <code>settingsWidget(QWidget* parent)</code> to return a widget shown in the export dialog.
+	Use <code>QObject::setObjectName()</code> on child widgets — their object names become the keys in the
+	<code>settings</code> map passed to <code>exportImage()</code>.
+	See <code>examples/plugins/webp_exporter/WebpExporterPlugin.cpp</code> for a worked example.
+</p>
+
+<hr/>
+
+<h2><a name="json-metadata">JSON metadata file</a></h2>
+<p>
+	Every plugin needs a small JSON file referenced in <code>Q_PLUGIN_METADATA</code>.
+	The content is embedded into the compiled library at build time by the Qt MOC — the file does
+	not need to be distributed alongside the DLL.
+</p>
+<pre><code>{
+    "id":          "com.example.myplugin",
+    "name":        "My Plugin",
+    "version":     "1.0.0",
+    "description": "A short description."
+}
+</code></pre>
+
+<h3>qmake project file</h3>
+<pre><code>QT       += core gui widgets
+CONFIG   += plugin c++17
+CONFIG   -= app_bundle
+TEMPLATE  = lib
+
+TARGET = myplugin
+
+INCLUDEPATH += /path/to/photoflare/src/plugins
+
+SOURCES += MyPlugin.cpp
+OTHER_FILES += myplugin.json
+
+DESTDIR = $$OUT_PWD/plugins
+</code></pre>
+
+<hr/>
+
+<h2><a name="appcontext">AppContext API reference</a></h2>
+<p>
+	<code>AppContext*</code> is passed to your plugin via <code>initialise()</code> and remains valid for the lifetime of the plugin.
+</p>
+<table>
+	<thead><tr><th>Method</th><th>Description</th></tr></thead>
+	<tbody>
+		<tr><td><code>QImage* currentImage()</code></td><td>Returns a pointer to the currently open image, or <code>nullptr</code> if no image is open. Stable for the duration of a single UI operation.</td></tr>
+		<tr><td><code>void markCanvasDirty()</code></td><td>Commits any direct modifications to <code>*currentImage()</code> back to the canvas and triggers a repaint. Call after modifying the image directly.</td></tr>
+		<tr><td><code>void pushUndoState(const QString&amp; label)</code></td><td>Snapshots the current image into the undo stack. Not required when using <code>IFilterPlugin::apply()</code> — the host handles it automatically.</td></tr>
+		<tr><td><code>void registerMenuAction(const QString&amp; path, QAction* action)</code></td><td>Adds an action to the menu bar. Use <code>"/"</code> as a separator, e.g. <code>"Tools/My Plugin"</code>.</td></tr>
+		<tr><td><code>void registerDockPanel(const QString&amp; title, QWidget* panel)</code></td><td>Registers a widget as a dockable side panel.</td></tr>
+		<tr><td><code>void showStatusMessage(const QString&amp; msg, int ms)</code></td><td>Shows a transient message in the status bar.</td></tr>
+		<tr><td><code>QSettings&amp; pluginSettings(const QString&amp; pluginId)</code></td><td>Returns a <code>QSettings</code> instance scoped to your plugin ID for persistent settings storage.</td></tr>
+		<tr><td><code>QWidget* mainWindow()</code></td><td>Returns the main window pointer. Use only to parent dialogs.</td></tr>
+		<tr><td><code>QString appVersion()</code></td><td>Returns the Photoflare version string, e.g. <code>"2.1.0"</code>.</td></tr>
+	</tbody>
+</table>
+
+<p>
+	<a href="index.html">Return to table of contents &gt;&gt;</a>
+</p>
+
+</body>
