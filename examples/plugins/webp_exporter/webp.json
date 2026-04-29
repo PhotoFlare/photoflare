@@ -1,0 +1,6 @@
+{
+    "id":          "org.photoflare.exporters.webp",
+    "name":        "WebP Exporter",
+    "version":     "1.0.0",
+    "description": "Exports images as WebP using Qt's built-in WebP support."
+}

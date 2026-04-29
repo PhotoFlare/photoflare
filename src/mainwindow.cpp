@@ -101,6 +101,13 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "plugins/PluginManager.h"
+#include "workers/pluginfilterworker.h"
+
+#include <QSlider>
+#include <QCheckBox>
+#include <QFormLayout>
+#include <QDialogButtonBox>
 
 #define PAINT_BRUSH ToolManager::instance()->paintBrush()
 #define PAINT_BRUSH_ADV ToolManager::instance()->paintBrushAdv()
@@ -156,6 +163,9 @@ MainWindow::MainWindow() :
 
     // Enable drag-and-drop of image files onto the main window
     setAcceptDrops(true);
+
+    // Load external plugins from the plugins/ directory
+    loadPlugins();
 }
 
 MainWindow::~MainWindow()
@@ -445,6 +455,215 @@ void MainWindow::applyThreadedFilterMP(QString filterName, double dV)
     batchLbl->setText(tr("Working..."));
 }
 
+/*
+
+    | PLUGIN SYSTEM — AppContext implementation |
+
+*/
+
+QImage* MainWindow::currentImage()
+{
+    PaintWidget* w = getCurrentPaintWidget();
+    if (!w) return nullptr;
+    m_pluginImageCache = w->image();
+    return &m_pluginImageCache;
+}
+
+void MainWindow::markCanvasDirty()
+{
+    PaintWidget* w = getCurrentPaintWidget();
+    if (!w || m_pluginImageCache.isNull()) return;
+    const QImage original = w->image();
+    applyFilteredImage(w, original, m_pluginImageCache);
+}
+
+void MainWindow::pushUndoState(const QString& /*label*/)
+{
+    // No-op for filter plugins — applyFilteredImage() -> setImage() handles undo.
+}
+
+void MainWindow::registerMenuAction(const QString& path, QAction* action)
+{
+    ensureMenuPath(path)->addAction(action);
+}
+
+QMenu* MainWindow::ensureMenuPath(const QString& path)
+{
+    const QStringList parts = path.split('/');
+    QMenu* current = nullptr;
+    for (QAction* a : menuBar()->actions()) {
+        if (a->text().remove('&') == parts.first()) {
+            current = a->menu();
+            break;
+        }
+    }
+    if (!current)
+        current = menuBar()->addMenu(parts.first());
+
+    for (int i = 1; i < parts.size() - 1; ++i) {
+        const QString& seg = parts.at(i);
+        QMenu* sub = nullptr;
+        for (QAction* a : current->actions()) {
+            if (a->menu() && a->text().remove('&') == seg) {
+                sub = a->menu();
+                break;
+            }
+        }
+        if (!sub)
+            sub = current->addMenu(seg);
+        current = sub;
+    }
+    return current;
+}
+
+void MainWindow::registerDockPanel(const QString& title, QWidget* panel)
+{
+    auto* dock = new QDockWidget(title, this);
+    dock->setWidget(panel);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
+}
+
+void MainWindow::showStatusMessage(const QString& msg, int ms)
+{
+    statusBar()->showMessage(msg, ms);
+}
+
+QSettings& MainWindow::pluginSettings(const QString& id)
+{
+    if (!m_pluginSettings.contains(id))
+        m_pluginSettings[id] = new QSettings("Photoflare", id, this);
+    return *m_pluginSettings[id];
+}
+
+/*
+
+    | PLUGIN SYSTEM — Loading & dialogs |
+
+*/
+
+void MainWindow::loadPlugins()
+{
+    m_pluginManager = new PluginManager(this, this);
+
+    connect(m_pluginManager, &PluginManager::pluginLoadError,
+            this, [](const QString& path, const QString& err) {
+        qWarning() << "Plugin load error:" << path << err;
+    });
+
+    m_pluginManager->scanDirectories({
+        qApp->applicationDirPath() + "/plugins",
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/plugins"
+    });
+
+    for (IFilterPlugin* f : m_pluginManager->filterPlugins()) {
+        auto* action = new QAction(f->displayName(), this);
+        connect(action, &QAction::triggered, this, [this, f] { showFilterDialog(f); });
+        // Remap plugin-supplied path: replace the first segment with "Plugin Filters"
+        // e.g. "Filters/Noise" -> "Plugin Filters/Noise"
+        QString path = f->menuPath();
+        const int slash = path.indexOf('/');
+        if (slash != -1)
+            path = QStringLiteral("Plugin Filters") + path.mid(slash);
+        else
+            path = QStringLiteral("Plugin Filters");
+        registerMenuAction(path, action);
+    }
+}
+
+void MainWindow::showFilterDialog(IFilterPlugin* plugin)
+{
+    PaintWidget* w = getCurrentPaintWidget();
+    if (!w) return;
+
+    const QImage original = w->image();
+
+    auto* dlg = new QDialog(this);
+    dlg->setWindowTitle(plugin->displayName());
+    auto* layout = new QVBoxLayout(dlg);
+
+    QHash<QString, QWidget*> paramWidgets;
+    for (const PluginParam& p : plugin->parameters()) {
+        auto* row = new QHBoxLayout();
+        row->addWidget(new QLabel(p.label, dlg));
+        QWidget* input = nullptr;
+        if (p.type == PluginParam::Float || p.type == PluginParam::Int) {
+            const int scale = (p.type == PluginParam::Float) ? 100 : 1;
+            auto* slider = new QSlider(Qt::Horizontal, dlg);
+            slider->setRange(qRound(p.minValue.toDouble() * scale),
+                             qRound(p.maxValue.toDouble() * scale));
+            slider->setValue(qRound(p.defaultValue.toDouble() * scale));
+            input = slider;
+        } else if (p.type == PluginParam::Bool) {
+            auto* cb = new QCheckBox(dlg);
+            cb->setChecked(p.defaultValue.toBool());
+            input = cb;
+        }
+        if (input) { row->addWidget(input); paramWidgets[p.id] = input; }
+        layout->addLayout(row);
+    }
+
+    auto* buttons = new QDialogButtonBox(
+        QDialogButtonBox::Ok | QDialogButtonBox::Cancel, dlg);
+    layout->addWidget(buttons);
+    connect(buttons, &QDialogButtonBox::accepted, dlg, &QDialog::accept);
+    connect(buttons, &QDialogButtonBox::rejected, dlg, &QDialog::reject);
+
+    if (dlg->exec() != QDialog::Accepted) {
+        dlg->deleteLater();
+        return;
+    }
+
+    const QVariantMap params = collectParams(plugin, paramWidgets);
+    dlg->deleteLater();
+
+    w->setEnabled(false);
+    batchLbl->setText(tr("Working..."));
+
+    QThread *thread = new QThread(this);
+    PluginFilterWorker *worker = new PluginFilterWorker(plugin, original, params);
+    worker->moveToThread(thread);
+
+    connect(thread, &QThread::started, worker, &PluginFilterWorker::process);
+    connect(worker, &PluginFilterWorker::filterProcessFinished,
+            this, [this, w, original](QImage image) {
+        applyFilteredImage(w, original, image);
+        w->setEnabled(true);
+        batchLbl->setText(tr("Ready"));
+    });
+    connect(worker, &PluginFilterWorker::filterProcessFinished,
+            thread, &QThread::quit);
+    connect(thread, &QThread::finished, worker, &QObject::deleteLater);
+    connect(thread, &QThread::finished, thread, &QObject::deleteLater);
+
+    thread->start();
+}
+
+QVariantMap MainWindow::collectParams(IFilterPlugin* plugin,
+                                       const QHash<QString, QWidget*>& widgets)
+{
+    QVariantMap params;
+    for (const PluginParam& p : plugin->parameters()) {
+        QWidget* w = widgets.value(p.id);
+        if (!w) { params[p.id] = p.defaultValue; continue; }
+        if (p.type == PluginParam::Float) {
+            params[p.id] = qobject_cast<QSlider*>(w)->value() / 100.0;
+        } else if (p.type == PluginParam::Int) {
+            params[p.id] = qobject_cast<QSlider*>(w)->value();
+        } else if (p.type == PluginParam::Bool) {
+            params[p.id] = qobject_cast<QCheckBox*>(w)->isChecked();
+        } else {
+            params[p.id] = p.defaultValue;
+        }
+    }
+    return params;
+}
+
+/*
+
+    | FILTER WORKER |
+
+*/
+
 void MainWindow::applyFilteredImage(PaintWidget *widget, const QImage &original, const QImage &filtered)
 {
     // If the result has the same dimensions and a selection is active, only
@@ -711,6 +930,16 @@ void MainWindow::on_actionSave_As_triggered()
         filters << tr("ppm (*.ppm)");
         filters << tr("ico (*.ico)");
 
+        // Append exporter plugin formats
+        if (m_pluginManager) {
+            for (IExporterPlugin* e : m_pluginManager->exporterPlugins()) {
+                QStringList exts;
+                for (const QString& ext : e->supportedExtensions())
+                    exts << "*." + ext;
+                filters << QString("%1 (%2)").arg(e->formatName(), exts.join(" "));
+            }
+        }
+
         QString defaultFilter;
         if (!suffix.isEmpty())
         {
@@ -767,6 +996,24 @@ void MainWindow::on_actionSave_As_triggered()
             }
         }
         // Save image with the selected quality value
+
+        // Check if an exporter plugin handles this extension first
+        if (m_pluginManager) {
+            const QString ext = QFileInfo(fileName).suffix().toLower();
+            for (IExporterPlugin* e : m_pluginManager->exporterPlugins()) {
+                if (e->supportedExtensions().contains(ext)) {
+                    QString err;
+                    if (!e->exportImage(widget->image(), fileName, {}, err))
+                        showError(err);
+                    else {
+                        SETTINGS->addRecentFile(fileName);
+                        updateRecentFilesMenu();
+                    }
+                    return;
+                }
+            }
+        }
+
         if (saveImage(fileName, quality))
         {
             // Update recents
@@ -2135,7 +2382,9 @@ void MainWindow::onSafeQuitApp()
 
 void MainWindow::on_actionPlugins_triggered()
 {
-    PluginDialog dialog(this);
+    PluginDialog dialog(m_pluginManager, this);
+    connect(&dialog, &PluginDialog::filterRequested,
+            this, &MainWindow::showFilterDialog);
     dialog.exec();
 }
 

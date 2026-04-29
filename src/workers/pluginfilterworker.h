@@ -15,41 +15,33 @@
     along with Photoflare.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#ifndef PLUGINDIALOG_H
-#define PLUGINDIALOG_H
+#ifndef PLUGINFILTERWORKER_H
+#define PLUGINFILTERWORKER_H
 
-#include <QDialog>
-
+#include <QObject>
+#include <QImage>
+#include <QVariantMap>
 #include "../plugins/IPhotoflarePlugin.h"
 
-class PluginManager;
-
-namespace Ui {
-class PluginDialog;
-}
-
-class PluginDialog : public QDialog
+class PluginFilterWorker : public QObject
 {
     Q_OBJECT
-
 public:
-    explicit PluginDialog(PluginManager* manager, QWidget *parent = nullptr);
-    ~PluginDialog();
+    explicit PluginFilterWorker(IFilterPlugin *plugin,
+                                const QImage &image,
+                                const QVariantMap &params,
+                                QObject *parent = nullptr);
+
+public slots:
+    void process();
 
 signals:
-    void filterRequested(IFilterPlugin* plugin);
-
-private slots:
-    void onSelectionChanged();
-    void onApply();
-    void onOpenFolder();
-    void onRescan();
+    void filterProcessFinished(QImage image);
 
 private:
-    void populateList();
-    Ui::PluginDialog *ui;
-    PluginManager* m_manager;
-    QList<IPhotoflarePlugin*> m_plugins;  // parallel to list items
+    IFilterPlugin  *m_plugin;
+    QImage          m_image;
+    QVariantMap     m_params;
 };
 
-#endif // PLUGINDIALOG_H
+#endif // PLUGINFILTERWORKER_H

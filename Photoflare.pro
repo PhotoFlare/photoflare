@@ -97,6 +97,7 @@ SOURCES += src/main.cpp \
     src/progress/batchprogress.cpp \
     src/workers/filterworker.cpp \
     src/workers/filterworkermp.cpp \
+    src/workers/pluginfilterworker.cpp \
     src/workers/FloodFillWorker.cpp \
     src/tools/EraserTool.cpp \
     src/toolSettings/erasersettingswidget.cpp \
@@ -107,6 +108,9 @@ SOURCES += src/main.cpp \
     src/dialogs/dropshadowdialog.cpp
 
 HEADERS += src/mainwindow.h \
+    src/plugins/AppContext.h \
+    src/plugins/IPhotoflarePlugin.h \
+    src/plugins/PluginManager.h \
     src/dialogs/aboutdialog.h \
     src/dialogs/NewDialog.h \
     src/dialogs/textdialog.h \
@@ -152,6 +156,7 @@ HEADERS += src/mainwindow.h \
     src/progress/batchprogress.h \
     src/workers/filterworker.h \
     src/workers/filterworkermp.h \
+    src/workers/pluginfilterworker.h \
     src/workers/FloodFillWorker.h \
     src/tools/EraserTool.h \
     src/toolSettings/erasersettingswidget.h \
