@@ -19,6 +19,7 @@
 #include <QtPlugin>
 #include <QImage>
 #include <QRandomGenerator>
+#include <QtConcurrent>
 
 #include "../../../src/plugins/IPhotoflarePlugin.h"
 #include "../../../src/plugins/AppContext.h"
@@ -76,35 +77,47 @@ public:
         const bool  monochrome = params.value("monochrome", false).toBool();
 
         QImage result = input.convertToFormat(QImage::Format_ARGB32);
-        const int w = result.width();
-        const int h = result.height();
+        const int w               = result.width();
+        const int h               = result.height();
+        const int bytesPerLine    = result.bytesPerLine();
+        // Grab raw pointer once — avoids per-row detach() inside the parallel lambda
+        uchar* data = result.bits();
 
-        for (int y = 0; y < h; ++y) {
-            QRgb* line = reinterpret_cast<QRgb*>(result.scanLine(y));
+        QList<int> rows;
+        rows.reserve(h);
+        for (int y = 0; y < h; ++y)
+            rows.append(y);
+
+        const int noiseRange = static_cast<int>(255.0f * intensity);
+
+        QtConcurrent::blockingMap(rows, [=](int y) {
+            // One RNG per row, seeded by row's grain-cell index for reproducibility
+            const int gy = static_cast<int>(y / grainSize);
+            QRandomGenerator rng(42u + static_cast<quint32>(gy));
+
+            QRgb* line = reinterpret_cast<QRgb*>(data + y * bytesPerLine);
             for (int x = 0; x < w; ++x) {
-                // Snap to grain cell for coarser grain sizes
-                const int gx = static_cast<int>(x / grainSize);
-                const int gy = static_cast<int>(y / grainSize);
-                QRandomGenerator rng(42 + gy * 10000 + gx);
-
                 const int alpha = qAlpha(line[x]);
                 int r = qRed(line[x]);
                 int g = qGreen(line[x]);
                 int b = qBlue(line[x]);
 
                 if (monochrome) {
-                    const int noise = static_cast<int>((rng.generateDouble() - 0.5) * 255.0 * intensity);
+                    const int noise = (static_cast<int>(rng.generate() % (2 * noiseRange + 1))) - noiseRange;
                     r = qBound(0, r + noise, 255);
                     g = qBound(0, g + noise, 255);
                     b = qBound(0, b + noise, 255);
                 } else {
-                    r = qBound(0, r + static_cast<int>((rng.generateDouble() - 0.5) * 255.0 * intensity), 255);
-                    g = qBound(0, g + static_cast<int>((rng.generateDouble() - 0.5) * 255.0 * intensity), 255);
-                    b = qBound(0, b + static_cast<int>((rng.generateDouble() - 0.5) * 255.0 * intensity), 255);
+                    const int nr = (static_cast<int>(rng.generate() % (2 * noiseRange + 1))) - noiseRange;
+                    const int ng = (static_cast<int>(rng.generate() % (2 * noiseRange + 1))) - noiseRange;
+                    const int nb = (static_cast<int>(rng.generate() % (2 * noiseRange + 1))) - noiseRange;
+                    r = qBound(0, r + nr, 255);
+                    g = qBound(0, g + ng, 255);
+                    b = qBound(0, b + nb, 255);
                 }
                 line[x] = qRgba(r, g, b, alpha);
             }
-        }
+        });
         return result;
     }
 

@@ -102,6 +102,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "plugins/PluginManager.h"
+#include "workers/pluginfilterworker.h"
 
 #include <QSlider>
 #include <QCheckBox>
@@ -557,7 +558,15 @@ void MainWindow::loadPlugins()
     for (IFilterPlugin* f : m_pluginManager->filterPlugins()) {
         auto* action = new QAction(f->displayName(), this);
         connect(action, &QAction::triggered, this, [this, f] { showFilterDialog(f); });
-        registerMenuAction(f->menuPath(), action);
+        // Remap plugin-supplied path: replace the first segment with "Plugin Filters"
+        // e.g. "Filters/Noise" -> "Plugin Filters/Noise"
+        QString path = f->menuPath();
+        const int slash = path.indexOf('/');
+        if (slash != -1)
+            path = QStringLiteral("Plugin Filters") + path.mid(slash);
+        else
+            path = QStringLiteral("Plugin Filters");
+        registerMenuAction(path, action);
     }
 }
 
@@ -599,11 +608,34 @@ void MainWindow::showFilterDialog(IFilterPlugin* plugin)
     connect(buttons, &QDialogButtonBox::accepted, dlg, &QDialog::accept);
     connect(buttons, &QDialogButtonBox::rejected, dlg, &QDialog::reject);
 
-    if (dlg->exec() == QDialog::Accepted) {
-        const QImage result = plugin->apply(original, collectParams(plugin, paramWidgets));
-        applyFilteredImage(w, original, result);
+    if (dlg->exec() != QDialog::Accepted) {
+        dlg->deleteLater();
+        return;
     }
+
+    const QVariantMap params = collectParams(plugin, paramWidgets);
     dlg->deleteLater();
+
+    w->setEnabled(false);
+    batchLbl->setText(tr("Working..."));
+
+    QThread *thread = new QThread(this);
+    PluginFilterWorker *worker = new PluginFilterWorker(plugin, original, params);
+    worker->moveToThread(thread);
+
+    connect(thread, &QThread::started, worker, &PluginFilterWorker::process);
+    connect(worker, &PluginFilterWorker::filterProcessFinished,
+            this, [this, w, original](QImage image) {
+        applyFilteredImage(w, original, image);
+        w->setEnabled(true);
+        batchLbl->setText(tr("Ready"));
+    });
+    connect(worker, &PluginFilterWorker::filterProcessFinished,
+            thread, &QThread::quit);
+    connect(thread, &QThread::finished, worker, &QObject::deleteLater);
+    connect(thread, &QThread::finished, thread, &QObject::deleteLater);
+
+    thread->start();
 }
 
 QVariantMap MainWindow::collectParams(IFilterPlugin* plugin,

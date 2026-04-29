@@ -1,4 +1,4 @@
-QT += core gui widgets
+QT += core gui widgets concurrent
 CONFIG += plugin c++17
 CONFIG -= app_bundle
 TEMPLATE = lib
