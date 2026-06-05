@@ -19,11 +19,11 @@
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPNOREPAIR" Value="1" MultiBuildValue="DefaultBuild:1"/>
-    <ROW Property="ARPPRODUCTICON" Value="PhotoFlare_1.exe"/>
+    <ROW Property="ARPPRODUCTICON" Value="PhotoFlare_1.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://photoflare.io"/>
     <ROW Property="Manufacturer" Value="Photoflare.io"/>
-    <ROW Property="ProductCode" Value="1033:{F2A1C3D4-E5B6-7890-ABCD-EF1234567890} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{AE7A077B-214F-4DC7-9BC0-082D1A23E6BF} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Photoflare"/>
     <ROW Property="ProductVersion" Value="1.7.1.0" Options="16"/>
@@ -77,6 +77,7 @@
     <ROW Component="CORE_RL_webp_.dll" ComponentId="{348B64C4-5DD9-4C26-A7DD-F5C9F6E2DB20}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_webp_.dll"/>
     <ROW Component="CORE_RL_xlib_.dll" ComponentId="{A2178E6F-D9C9-4E04-A27E-BFA6D2C241F0}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_xlib_.dll"/>
     <ROW Component="CORE_RL_zlib_.dll" ComponentId="{D80EEBBC-7455-4CF2-B919-71DB053E39EF}" Directory_="APPDIR" Attributes="256" KeyPath="CORE_RL_zlib_.dll"/>
+    <ROW Component="D3Dcompiler_47.dll" ComponentId="{B2B3B4B5-C2C3-D2D3-E2E3-F2F3F4F5F6F7}" Directory_="APPDIR" Attributes="256" KeyPath="D3Dcompiler_47.dll"/>
     <ROW Component="IM_MOD_RL_art_.dll" ComponentId="{17C7434D-E2C3-4563-A63B-54A251670A89}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_art_.dll"/>
     <ROW Component="IM_MOD_RL_avi_.dll" ComponentId="{9156F9D2-98C4-452A-94D4-909729C7629B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_avi_.dll"/>
     <ROW Component="IM_MOD_RL_avs_.dll" ComponentId="{9461C853-BDEE-42F9-8E52-387D0727BE0C}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_avs_.dll"/>
@@ -181,9 +182,6 @@
     <ROW Component="IM_MOD_RL_yuv_.dll" ComponentId="{81FF1D83-E3D6-4FE0-AC64-7092987F099A}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_yuv_.dll"/>
     <ROW Component="PhotoFlare.exe" ComponentId="{CE99A836-A332-41B7-8CEA-B64304A84B03}" Directory_="APPDIR" Attributes="256" KeyPath="PhotoFlare.exe"/>
     <ROW Component="ProductInformation" ComponentId="{1D65AC3D-F912-4D07-86A8-9BC9D948D9E9}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="D3Dcompiler_47.dll" ComponentId="{B2B3B4B5-C2C3-D2D3-E2E3-F2F3F4F5F6F7}" Directory_="APPDIR" Attributes="256" KeyPath="D3Dcompiler_47.dll"/>
-    <ROW Component="gmic_qt.exe" ComponentId="{B1B2B3B4-C1C2-D1D2-E1E2-F1F2F3F4F5F6}" Directory_="APPDIR" Attributes="256" KeyPath="gmic_qt.exe"/>
-    <ROW Component="opengl32sw.dll" ComponentId="{B3B4B5B6-C3C4-D3D4-E3E4-F3F4F5F6F7F8}" Directory_="APPDIR" Attributes="256" KeyPath="opengl32sw.dll"/>
     <ROW Component="Qt6Core.dll" ComponentId="{A1A2A3A4-B1B2-C1C2-D1D2-E1E2E3E4E5E6}" Directory_="APPDIR" Attributes="256" KeyPath="Qt6Core.dll"/>
     <ROW Component="Qt6Gui.dll" ComponentId="{A2A3A4A5-B2B3-C2C3-D2D3-E2E3E4E5E6E7}" Directory_="APPDIR" Attributes="256" KeyPath="Qt6Gui.dll"/>
     <ROW Component="Qt6Network.dll" ComponentId="{A3A4A5A6-B3B4-C3C4-D3D4-E3E4E5E6E7E8}" Directory_="APPDIR" Attributes="256" KeyPath="Qt6Network.dll"/>
@@ -192,21 +190,23 @@
     <ROW Component="Qt6Widgets.dll" ComponentId="{A6A7A8A9-B6B7-C6C7-D6D7-E6E7E8E9EAEB}" Directory_="APPDIR" Attributes="256" KeyPath="Qt6Widgets.dll"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{202F0FB9-770D-44E5-8361-5F049171728D}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="de.qm" ComponentId="{CACBDBC9-72E0-4426-9D7C-808AE0E1DBBF}" Directory_="languages_Dir" Attributes="0" KeyPath="de.qm" Type="0"/>
+    <ROW Component="gmic_qt.exe" ComponentId="{B1B2B3B4-C1C2-D1D2-E1E2-F1F2F3F4F5F6}" Directory_="APPDIR" Attributes="256" KeyPath="gmic_qt.exe"/>
+    <ROW Component="grain.json" ComponentId="{C2C3C4C5-D2D3-E2E3-F2F3-A2A3A4A5A6A7}" Directory_="plugins_Dir" Attributes="0" KeyPath="grain.json" Type="0"/>
+    <ROW Component="grain_plugin.dll" ComponentId="{C1C2C3C4-D1D2-E1E2-F1F2-A1A2A3A4A5A6}" Directory_="plugins_Dir" Attributes="256" KeyPath="grain_plugin.dll"/>
+    <ROW Component="opengl32sw.dll" ComponentId="{B3B4B5B6-C3C4-D3D4-E3E4-F3F4F5F6F7F8}" Directory_="APPDIR" Attributes="256" KeyPath="opengl32sw.dll"/>
     <ROW Component="qgif.dll" ComponentId="{18BC4281-B02D-41E2-BB0C-2E83D0FC38ED}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qgif.dll"/>
     <ROW Component="qicns.dll" ComponentId="{73491785-C752-4CD1-B122-EF8AE35D1AAB}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qicns.dll"/>
     <ROW Component="qico.dll" ComponentId="{2EA6A2C1-408F-4B5D-A418-0EE0ABB279CC}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qico.dll"/>
     <ROW Component="qjpeg.dll" ComponentId="{8F6E5540-C8AE-49B2-BA8C-8D948AEDA577}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qjpeg.dll"/>
     <ROW Component="qminimal.dll" ComponentId="{CC88D05C-634F-4286-B3C1-FFBDB312C048}" Directory_="platforms_Dir" Attributes="256" KeyPath="qminimal.dll"/>
+    <ROW Component="qmodernwindowsstyle.dll" ComponentId="{EE71A219-4628-4703-80DD-3588D2154F1D}" Directory_="styles_Dir" Attributes="256" KeyPath="qmodernwindowsstyle.dll"/>
     <ROW Component="qsvg.dll" ComponentId="{527834BA-26F5-4F23-B4A6-3AC769564E36}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qsvg.dll"/>
+    <ROW Component="qsvgicon.dll" ComponentId="{B4B5B6B7-C4C5-D4D5-E4E5-F4F5F6F7F8F9}" Directory_="iconengines_Dir" Attributes="256" KeyPath="qsvgicon.dll"/>
     <ROW Component="qtga.dll" ComponentId="{5F78C423-277B-48DA-9620-7741E4177551}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qtga.dll"/>
     <ROW Component="qtiff.dll" ComponentId="{638F7C10-FD35-4AED-B61C-C7CBA4630C0C}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qtiff.dll"/>
     <ROW Component="qwbmp.dll" ComponentId="{A4197EF2-79E3-4AD0-A06E-F0BBE967F9AB}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwbmp.dll"/>
     <ROW Component="qwebp.dll" ComponentId="{54D6EFC0-1C85-4500-B07F-7C9275EA1AAF}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwebp.dll"/>
     <ROW Component="qwindows.dll" ComponentId="{5121C9C1-4980-4305-B917-25EFB28C38B9}" Directory_="platforms_Dir" Attributes="256" KeyPath="qwindows.dll"/>
-    <ROW Component="qmodernwindowsstyle.dll" ComponentId="{EE71A219-4628-4703-80DD-3588D2154F1D}" Directory_="styles_Dir" Attributes="256" KeyPath="qmodernwindowsstyle.dll"/>
-    <ROW Component="grain.json" ComponentId="{C2C3C4C5-D2D3-E2E3-F2F3-A2A3A4A5A6A7}" Directory_="plugins_Dir" Attributes="0" KeyPath="grain.json" Type="0"/>
-    <ROW Component="grain_plugin.dll" ComponentId="{C1C2C3C4-D1D2-E1E2-F1F2-A1A2A3A4A5A6}" Directory_="plugins_Dir" Attributes="256" KeyPath="grain_plugin.dll"/>
-    <ROW Component="qsvgicon.dll" ComponentId="{B4B5B6B7-C4C5-D4D5-E4E5-F4F5F6F7F8F9}" Directory_="iconengines_Dir" Attributes="256" KeyPath="qsvgicon.dll"/>
     <ROW Component="vcomp140.dll" ComponentId="{6A51B338-3E59-4E74-A07B-641357DEFB27}" Directory_="APPDIR" Attributes="256" KeyPath="vcomp140.dll"/>
     <ROW Component="vcruntime140_1.dll" ComponentId="{FC2E1E26-CCF8-4B49-86E1-B37CE27D2C9C}" Directory_="APPDIR" Attributes="256" KeyPath="vcruntime140_1.dll"/>
   </COMPONENT>
@@ -244,7 +244,6 @@
     <ROW File="qwebp.dll" Component_="qwebp.dll" FileName="qwebp.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qwebp.dll" SelfReg="false"/>
     <ROW File="qminimal.dll" Component_="qminimal.dll" FileName="qminimal.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\platforms\qminimal.dll" SelfReg="false"/>
     <ROW File="qwindows.dll" Component_="qwindows.dll" FileName="qwindows.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\platforms\qwindows.dll" SelfReg="false"/>
-
     <ROW File="CORE_RL_jbig_.dll" Component_="CORE_RL_jbig_.dll" FileName="CORE_R~9.DLL|CORE_RL_jbig_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_jbig_.dll" SelfReg="false"/>
     <ROW File="CORE_RL_jp2_.dll" Component_="CORE_RL_jp2_.dll" FileName="CORE_~10.DLL|CORE_RL_jp2_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_jp2_.dll" SelfReg="false"/>
     <ROW File="CORE_RL_jpeg_.dll" Component_="CORE_RL_jpeg_.dll" FileName="CORE_~11.DLL|CORE_RL_jpeg_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_jpeg_.dll" SelfReg="false"/>
@@ -421,8 +420,8 @@
     <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
-    <ROW Name="photoflare_studio_ad.png" SourcePath="PhotoFlare_Win_AIP\DATA\photoflare_studio_ad.png"/>
     <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ROW Name="photoflare_studio_ad.png" SourcePath="PhotoFlare_Win_AIP\DATA\photoflare_studio_ad.png"/>
     <ROW Name="tempFiles.dll" SourcePath="&lt;AI_CUSTACTS&gt;tempFiles.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
