@@ -1,7 +1,7 @@
 lessThan(QT_MAJOR_VERSION, 6) {
     error("This project requires Qt 6.4.0 or later")
 }
-isEqual(QT_MAJOR_VERSION, 6) : lessThan(QT_MINOR_VERSION, 5) {
+isEqual(QT_MAJOR_VERSION, 6) : lessThan(QT_MINOR_VERSION, 4) {
     error("This project requires Qt 6.4.0 or later")
 }
 

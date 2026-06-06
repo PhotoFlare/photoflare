@@ -25,6 +25,7 @@
 #include <QPainter>
 #include <QCursor>
 #include <QKeyEvent>
+#include <QApplication>
 
 class QPaintDevice;
 
