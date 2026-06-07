@@ -6,6 +6,8 @@
 
 Photoflare is a powerful yet easy-to-use cross-platform image editor. It suits a wide variety of different tasks and users who value a more nimble workflow. Features include basic image editing capabilities, paint brushes, image filters, colour adjustments and more advanced features such as Batch image processing.
 
+Shoot RAW? [PhotoFlare Lens](https://photoflare.io/lens/) is a free RAW viewer supporting 700+ camera models with non-destructive XMP editing.
+
 Looking for layers, non-destructive editing, and a professional brush engine? Check out [PhotoFlare Studio](https://photoflare.io/studio/).
 
 <img src="https://photoflare.io/wp-content/uploads/2022/03/crossplatform.png">
