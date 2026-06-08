@@ -1031,6 +1031,9 @@ void MainWindow::on_actionSave_As_triggered()
                     else {
                         SETTINGS->addRecentFile(fileName);
                         updateRecentFilesMenu();
+                        widget->setImagePath(fileName);
+                        ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
+                        ui->mdiArea->currentSubWindow()->setWindowModified(false);
                     }
                     return;
                 }
@@ -1042,6 +1045,9 @@ void MainWindow::on_actionSave_As_triggered()
             // Update recents
             SETTINGS->addRecentFile(fileName);
             updateRecentFilesMenu();
+            widget->setImagePath(fileName);
+            ui->mdiArea->currentSubWindow()->setWindowTitle(fileName + " [*]");
+            ui->mdiArea->currentSubWindow()->setWindowModified(false);
         }
         else
             showError(tr("Unable to save image."));
