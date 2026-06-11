@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2023 Dylan Coakley <info@photoflare.io> -->
+<!-- Copyright 2026 Dylan Coakley <info@photoflare.io> -->
 <component type="desktop-application">
   <id>io.photoflare.photoflare</id>
   <metadata_license>FSFAP</metadata_license>
@@ -17,6 +17,8 @@
       <li>Flip, Rotate and scale images.</li>
       <li>Lots of unique image filters.</li>
       <li>Batch processing tool with support for all editor features.</li>
+      <li>Gmic integration</li>
+      <li>Dark mode</li>
       <li>Multiple translations are supported.</li>
     </ul>
   </description>
@@ -26,7 +28,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Main Window</caption>
-      <image>https://photoflare.io/wp-content/uploads/2022/03/crossplatform.png</image>
+      <image>https://photoflare.io/flathub/main.jpg</image>
     </screenshot>
   </screenshots>
 
