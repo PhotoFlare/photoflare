@@ -10,7 +10,7 @@ Shoot RAW? [PhotoFlare Lens](https://photoflare.io/lens/) is a free RAW viewer s
 
 Looking for layers, non-destructive editing, and a professional brush engine? Check out [PhotoFlare Studio](https://photoflare.io/studio/).
 
-<img src="https://photoflare.io/wp-content/uploads/2022/03/crossplatform.png">
+<img src="https://photoflare.io/flathub/main.jpg">
 
 ## Documentation
 Information on current features and how to use the application will be 
