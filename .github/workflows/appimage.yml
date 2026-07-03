@@ -44,6 +44,17 @@ jobs:
           make -j$(nproc)
           make install INSTALL_ROOT=$PWD/appdir
 
+      # AppImages are relocatable and don't inherit the host's XDG_DATA_DIRS,
+      # so MainWindow::loadTranslator() can't find the .qm files installed
+      # under usr/share/photoflare/languages/ (that lookup only works for
+      # .deb installs because /usr/share happens to be a host XDG_DATA_DIR).
+      # Mirror the .qm files next to the binary so the applicationDirPath()
+      # lookup in loadTranslator() finds them.
+      - name: Stage translations next to binary
+        run: |
+          mkdir -p appdir/usr/bin/languages
+          cp appdir/usr/share/photoflare/languages/*.qm appdir/usr/bin/languages/
+
       # Clone gmic-qt and the matching G'MIC source tree, build the standalone
       # gmic_qt binary, and stage it into appdir/usr/bin/ alongside photoflare.
       - name: Build and stage gmic-qt
