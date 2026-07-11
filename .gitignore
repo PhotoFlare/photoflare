@@ -3,6 +3,7 @@ Photoflare.pro.user*
 .vscode/
 *.o
 languages/*.qm
+languages/*.txt
 moc_*.cpp
 ui_*.h
 debian/.debhelper/*

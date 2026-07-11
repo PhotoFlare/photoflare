@@ -4,25 +4,35 @@
 <context>
     <name>BatchProgress</name>
     <message>
-        <location filename="src/progress/batchprogress.ui" line="14"/>
+        <location filename="../src/progress/batchprogress.ui" line="14"/>
         <source>Batch progress</source>
         <translation>Postup zpracování</translation>
+    </message>
+    <message>
+        <location filename="../src/progress/batchprogress.ui" line="39"/>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/progress/batchprogress.ui" line="52"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Zrušit</translation>
     </message>
 </context>
 <context>
     <name>BlurSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/BlurSettingsWidget.ui" line="14"/>
+        <location filename="../src/toolSettings/BlurSettingsWidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/BlurSettingsWidget.ui" line="35"/>
+        <location filename="../src/toolSettings/BlurSettingsWidget.ui" line="25"/>
         <source>Radius</source>
         <translation>Poloměr</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/BlurSettingsWidget.ui" line="60"/>
+        <location filename="../src/toolSettings/BlurSettingsWidget.ui" line="50"/>
         <source>Pressure</source>
         <translation>Tlak</translation>
     </message>
@@ -30,7 +40,7 @@
 <context>
     <name>BrushTypeComboBox</name>
     <message>
-        <location filename="src/widgets/BrushTypeComboBox.ui" line="14"/>
+        <location filename="../src/widgets/BrushTypeComboBox.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
@@ -38,12 +48,12 @@
 <context>
     <name>ColorBoxWidget</name>
     <message>
-        <location filename="src/widgets/ColorBoxWidget.ui" line="19354"/>
+        <location filename="../src/widgets/ColorBoxWidget.ui" line="19354"/>
         <source>&lt;</source>
         <translation>&lt;</translation>
     </message>
     <message>
-        <location filename="src/widgets/ColorBoxWidget.ui" line="19367"/>
+        <location filename="../src/widgets/ColorBoxWidget.ui" line="19367"/>
         <source>&gt;</source>
         <translation>&gt;</translation>
     </message>
@@ -51,32 +61,32 @@
 <context>
     <name>CompressionDialog</name>
     <message>
-        <location filename="src/dialogs/compressiondialog.ui" line="14"/>
+        <location filename="../src/dialogs/compressiondialog.ui" line="17"/>
         <source>JPEG</source>
         <translation>JPEG</translation>
     </message>
     <message>
-        <location filename="src/dialogs/compressiondialog.ui" line="42"/>
+        <location filename="../src/dialogs/compressiondialog.ui" line="45"/>
         <source>Compression:</source>
         <translation>Komprese:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/compressiondialog.ui" line="55"/>
+        <location filename="../src/dialogs/compressiondialog.ui" line="58"/>
         <source>90</source>
         <translation>90</translation>
     </message>
     <message>
-        <location filename="src/dialogs/compressiondialog.ui" line="96"/>
+        <location filename="../src/dialogs/compressiondialog.ui" line="99"/>
         <source>Low quality</source>
         <translation>Nízká kvalita</translation>
     </message>
     <message>
-        <location filename="src/dialogs/compressiondialog.ui" line="109"/>
+        <location filename="../src/dialogs/compressiondialog.ui" line="112"/>
         <source>Best quality</source>
         <translation>Nejlepší kvalita</translation>
     </message>
     <message>
-        <location filename="src/dialogs/compressiondialog.ui" line="122"/>
+        <location filename="../src/dialogs/compressiondialog.ui" line="128"/>
         <source>%</source>
         <translation>%</translation>
     </message>
@@ -84,62 +94,70 @@
 <context>
     <name>EraserSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/erasersettingswidget.ui" line="14"/>
+        <location filename="../src/toolSettings/erasersettingswidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/erasersettingswidget.ui" line="26"/>
-        <source>Radius:</source>
-        <translation>Poloměr:</translation>
+        <location filename="../src/toolSettings/erasersettingswidget.ui" line="23"/>
+        <source>Size:</source>
+        <translation type="unfinished">Velikost:</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/erasersettingswidget.ui" line="73"/>
+        <location filename="../src/toolSettings/erasersettingswidget.ui" line="30"/>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radius:</source>
+        <translation type="vanished">Poloměr:</translation>
+    </message>
+    <message>
         <source>0</source>
-        <translation>0</translation>
+        <translation type="vanished">0</translation>
     </message>
 </context>
 <context>
     <name>GradientDialog</name>
     <message>
-        <location filename="src/dialogs/gradientdialog.ui" line="14"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="17"/>
         <source>Gradient</source>
         <translation>Přechod</translation>
     </message>
     <message>
-        <location filename="src/dialogs/gradientdialog.ui" line="42"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="45"/>
         <source>Direction</source>
         <translation>Směr</translation>
     </message>
     <message>
-        <location filename="src/dialogs/gradientdialog.ui" line="224"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="227"/>
         <source>Duotone</source>
         <translation>Dvojtón</translation>
     </message>
     <message>
-        <location filename="src/dialogs/gradientdialog.ui" line="240"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="243"/>
         <source>Monochromatic</source>
         <translation>Jednobarevný</translation>
     </message>
     <message>
-        <location filename="src/dialogs/gradientdialog.ui" line="255"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="258"/>
         <source>Color 1</source>
         <translation>Barva 1</translation>
     </message>
     <message>
-        <location filename="src/dialogs/gradientdialog.ui" line="277"/>
-        <location filename="src/dialogs/gradientdialog.ui" line="354"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="280"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="357"/>
         <source>Opacity:</source>
         <translation>Neprůhlednost:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/gradientdialog.ui" line="290"/>
-        <location filename="src/dialogs/gradientdialog.ui" line="367"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="293"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="370"/>
         <source>0%</source>
         <translation>0 %</translation>
     </message>
     <message>
-        <location filename="src/dialogs/gradientdialog.ui" line="332"/>
+        <location filename="../src/dialogs/gradientdialog.ui" line="335"/>
         <source>Color 2</source>
         <translation>Barva 2</translation>
     </message>
@@ -147,27 +165,27 @@
 <context>
     <name>HueDialog</name>
     <message>
-        <location filename="src/dialogs/huedialog.ui" line="14"/>
+        <location filename="../src/dialogs/huedialog.ui" line="17"/>
         <source>Hue variation</source>
         <translation>Kolísání odstínu</translation>
     </message>
     <message>
-        <location filename="src/dialogs/huedialog.ui" line="42"/>
+        <location filename="../src/dialogs/huedialog.ui" line="45"/>
         <source>0°</source>
         <translation>0°</translation>
     </message>
     <message>
-        <location filename="src/dialogs/huedialog.ui" line="58"/>
+        <location filename="../src/dialogs/huedialog.ui" line="61"/>
         <source>Color:</source>
         <translation>Barva:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/huedialog.ui" line="980"/>
+        <location filename="../src/dialogs/huedialog.ui" line="998"/>
         <source>Method1 / Colorize</source>
         <translation>Metoda 1/Obarvit</translation>
     </message>
     <message>
-        <location filename="src/dialogs/huedialog.ui" line="996"/>
+        <location filename="../src/dialogs/huedialog.ui" line="1014"/>
         <source>Method2 / Hue</source>
         <translation>Metoda 2/Odstín</translation>
     </message>
@@ -175,7 +193,7 @@
 <context>
     <name>ImagePositionWidget</name>
     <message>
-        <location filename="src/widgets/imagepositionwidget.ui" line="14"/>
+        <location filename="../src/widgets/imagepositionwidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
@@ -183,32 +201,32 @@
 <context>
     <name>LineSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/LineSettingsWidget.ui" line="14"/>
+        <location filename="../src/toolSettings/LineSettingsWidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/LineSettingsWidget.ui" line="35"/>
+        <location filename="../src/toolSettings/LineSettingsWidget.ui" line="25"/>
         <source>Width</source>
         <translation>Šířka</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/LineSettingsWidget.ui" line="55"/>
+        <location filename="../src/toolSettings/LineSettingsWidget.ui" line="45"/>
         <source>Opacity</source>
         <translation>Neprůhlednost</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/LineSettingsWidget.ui" line="83"/>
+        <location filename="../src/toolSettings/LineSettingsWidget.ui" line="73"/>
         <source>Antialias</source>
         <translation>Vyhlazování</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/LineSettingsWidget.ui" line="103"/>
+        <location filename="../src/toolSettings/LineSettingsWidget.ui" line="93"/>
         <source>Arrow</source>
         <translation>Šipka</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/LineSettingsWidget.ui" line="188"/>
+        <location filename="../src/toolSettings/LineSettingsWidget.ui" line="178"/>
         <source>Style:</source>
         <translation>Styl:</translation>
     </message>
@@ -216,17 +234,17 @@
 <context>
     <name>MagicWandSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/MagicWandSettingsWidget.ui" line="14"/>
+        <location filename="../src/toolSettings/MagicWandSettingsWidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/MagicWandSettingsWidget.ui" line="35"/>
+        <location filename="../src/toolSettings/MagicWandSettingsWidget.ui" line="25"/>
         <source>Tolerance</source>
         <translation>Tolerance</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/MagicWandSettingsWidget.ui" line="72"/>
+        <location filename="../src/toolSettings/MagicWandSettingsWidget.ui" line="62"/>
         <source>Color</source>
         <translation>Barevné</translation>
     </message>
@@ -234,1012 +252,1285 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="src/mainwindow.ui" line="31"/>
         <source>PhotoFlare</source>
-        <translation>PhotoFlare</translation>
+        <translation type="vanished">PhotoFlare</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="117"/>
+        <location filename="../src/mainwindow.ui" line="96"/>
         <source>&amp;File</source>
         <translation>&amp;Soubor</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="121"/>
-        <location filename="src/mainwindow.ui" line="1125"/>
+        <location filename="../src/mainwindow.ui" line="100"/>
+        <location filename="../src/mainwindow.ui" line="1162"/>
         <source>Recent Files</source>
         <translation>Naposledy otevřené soubory</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="126"/>
         <source>Import TWAIN</source>
-        <translation>Importovat TWAIN</translation>
+        <translation type="vanished">Importovat TWAIN</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="150"/>
+        <location filename="../src/mainwindow.ui" line="121"/>
         <source>&amp;Edit</source>
         <translation>Úp&amp;ravy</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="178"/>
+        <location filename="../src/mainwindow.ui" line="156"/>
         <source>&amp;Image</source>
         <translation>&amp;Obrázek</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="182"/>
+        <location filename="../src/mainwindow.ui" line="160"/>
         <source>&amp;Mode</source>
         <translation>Reži&amp;m</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="189"/>
-        <location filename="src/mainwindow.ui" line="1252"/>
-        <location filename="src/mainwindow.ui" line="1431"/>
+        <location filename="../src/mainwindow.ui" line="167"/>
+        <location filename="../src/mainwindow.ui" line="1304"/>
+        <location filename="../src/mainwindow.ui" line="1483"/>
         <source>Transform</source>
         <translation>Proměnit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="222"/>
+        <location filename="../src/mainwindow.ui" line="202"/>
         <source>&amp;Selection</source>
         <translation>&amp;Výběr</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="249"/>
+        <location filename="../src/mainwindow.ui" line="229"/>
         <source>&amp;Adjust</source>
         <translation>&amp;Přizpůsobit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="276"/>
+        <location filename="../src/mainwindow.ui" line="256"/>
         <source>&amp;Filter</source>
         <translation>&amp;Filtr</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="280"/>
+        <location filename="../src/mainwindow.ui" line="260"/>
         <source>Deform</source>
         <translation>Přetvořit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="289"/>
+        <location filename="../src/mainwindow.ui" line="270"/>
         <source>Artistic</source>
         <translation>Umělecký</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="297"/>
-        <location filename="src/mainwindow.ui" line="1572"/>
+        <location filename="../src/mainwindow.ui" line="280"/>
+        <location filename="../src/mainwindow.ui" line="1624"/>
         <source>Soften</source>
         <translation>Změkčit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="304"/>
-        <location filename="src/mainwindow.ui" line="1581"/>
+        <location filename="../src/mainwindow.ui" line="287"/>
+        <location filename="../src/mainwindow.ui" line="1633"/>
         <source>Sharpen</source>
         <translation>Zaostřit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="311"/>
+        <location filename="../src/mainwindow.ui" line="294"/>
         <source>Flatten</source>
         <translation>Zploštit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="317"/>
+        <location filename="../src/mainwindow.ui" line="300"/>
         <source>Edges</source>
         <translation>Okraje</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="323"/>
+        <location filename="../src/mainwindow.ui" line="306"/>
         <source>Noise</source>
         <translation>Šum</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="334"/>
+        <location filename="../src/mainwindow.ui" line="317"/>
         <source>Frame</source>
         <translation>Rámeček</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="342"/>
+        <location filename="../src/mainwindow.ui" line="326"/>
         <source>Colour</source>
         <translation>Barva</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="353"/>
+        <location filename="../src/mainwindow.ui" line="338"/>
         <source>Visual Effect</source>
         <translation>Obrazový účinek</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="377"/>
+        <location filename="../src/mainwindow.ui" line="364"/>
         <source>&amp;View</source>
         <translation>Po&amp;hled</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="393"/>
+        <location filename="../src/mainwindow.ui" line="380"/>
         <source>&amp;Tools</source>
         <translation>Nás&amp;troje</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="405"/>
+        <location filename="../src/mainwindow.ui" line="392"/>
         <source>&amp;Help</source>
         <translation>&amp;Nápověda</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="433"/>
+        <location filename="../src/mainwindow.ui" line="420"/>
         <source>Main ToolBar</source>
         <translation>Hlavní nástrojový pruh</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="590"/>
-        <location filename="src/mainwindow.ui" line="625"/>
-        <location filename="src/mainwindow.ui" line="666"/>
-        <location filename="src/mainwindow.ui" line="701"/>
-        <location filename="src/mainwindow.ui" line="736"/>
-        <location filename="src/mainwindow.ui" line="771"/>
-        <location filename="src/mainwindow.ui" line="806"/>
-        <location filename="src/mainwindow.ui" line="841"/>
-        <location filename="src/mainwindow.ui" line="867"/>
-        <location filename="src/mainwindow.ui" line="902"/>
-        <location filename="src/mainwindow.ui" line="937"/>
-        <location filename="src/mainwindow.ui" line="972"/>
+        <location filename="../src/mainwindow.ui" line="588"/>
+        <location filename="../src/mainwindow.ui" line="626"/>
+        <location filename="../src/mainwindow.ui" line="670"/>
+        <location filename="../src/mainwindow.ui" line="708"/>
+        <location filename="../src/mainwindow.ui" line="746"/>
+        <location filename="../src/mainwindow.ui" line="784"/>
+        <location filename="../src/mainwindow.ui" line="822"/>
+        <location filename="../src/mainwindow.ui" line="860"/>
+        <location filename="../src/mainwindow.ui" line="889"/>
+        <location filename="../src/mainwindow.ui" line="927"/>
+        <location filename="../src/mainwindow.ui" line="965"/>
+        <location filename="../src/mainwindow.ui" line="1003"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1024"/>
+        <location filename="../src/mainwindow.ui" line="1055"/>
         <source>Extra ToolBar</source>
         <translation>Další nástrojový pruh</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1097"/>
+        <location filename="../src/mainwindow.ui" line="1134"/>
         <source>&amp;New...</source>
         <translation>&amp;Nový...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1112"/>
+        <location filename="../src/mainwindow.ui" line="1149"/>
         <source>&amp;Open...</source>
         <translation>&amp;Otevřít...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1120"/>
+        <location filename="../src/mainwindow.ui" line="1157"/>
         <source>Revert</source>
         <translation>Vrátit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1134"/>
+        <location filename="../src/mainwindow.ui" line="1171"/>
         <source>&amp;Save</source>
         <translation>&amp;Uložit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1142"/>
+        <location filename="../src/mainwindow.ui" line="1179"/>
         <source>&amp;Save As...</source>
         <translation>Uložit &amp;jako...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1147"/>
+        <location filename="../src/mainwindow.ui" line="1184"/>
         <source>&amp;Close</source>
         <translation>&amp;Zavřít</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1152"/>
+        <location filename="../src/mainwindow.ui" line="1189"/>
         <source>Close &amp;All</source>
         <translation>Zavřít &amp;vše</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1161"/>
+        <location filename="../src/mainwindow.ui" line="1198"/>
         <source>Print...</source>
         <translation>Tisk...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1169"/>
+        <location filename="../src/mainwindow.ui" line="1206"/>
         <source>Image Properties</source>
         <translation>Vlastnosti obrázku</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1174"/>
+        <location filename="../src/mainwindow.ui" line="1211"/>
         <source>&amp;Quit</source>
         <translation>&amp;Ukončit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1183"/>
+        <location filename="../src/mainwindow.ui" line="1220"/>
         <source>Undo</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1192"/>
+        <location filename="../src/mainwindow.ui" line="1229"/>
         <source>Redo</source>
         <translation>Znovu</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1197"/>
+        <location filename="../src/mainwindow.ui" line="1234"/>
         <source>Fade</source>
         <translation>Blednutí</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1202"/>
+        <location filename="../src/mainwindow.ui" line="1239"/>
         <source>Cut</source>
         <translation>Vyjmout</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1207"/>
+        <location filename="../src/mainwindow.ui" line="1244"/>
         <source>Copy</source>
         <translation>Kopírovat</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1212"/>
+        <location filename="../src/mainwindow.ui" line="1253"/>
         <source>Paste</source>
         <translation>Vložit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1217"/>
+        <location filename="../src/mainwindow.ui" line="1262"/>
         <source>Clear</source>
         <translation>Vymazat</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1222"/>
+        <location filename="../src/mainwindow.ui" line="1267"/>
         <source>Paste As New Image</source>
         <translation>Vložit jako nový obrázek</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1227"/>
+        <location filename="../src/mainwindow.ui" line="1279"/>
         <source>Paste Special</source>
         <translation>Vložit zvláštní</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1232"/>
+        <location filename="../src/mainwindow.ui" line="1284"/>
         <source>Stroke and Fill...</source>
         <translation>Tah a výplň...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1237"/>
+        <location filename="../src/mainwindow.ui" line="1289"/>
         <source>Optimized Clipping...</source>
         <translation>Nejlepší oříznutí...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1242"/>
+        <location filename="../src/mainwindow.ui" line="1294"/>
         <source>Validate</source>
         <translation>Schválit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1247"/>
+        <location filename="../src/mainwindow.ui" line="1299"/>
         <source>Options...</source>
         <translation>Volby...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1257"/>
+        <location filename="../src/mainwindow.ui" line="1309"/>
         <source>Define Pattern</source>
         <translation>Stanovit vzorek</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1262"/>
+        <location filename="../src/mainwindow.ui" line="1314"/>
         <source>Fill With Pattern</source>
         <translation>Vyplnit vzorkem</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1267"/>
+        <location filename="../src/mainwindow.ui" line="125"/>
         <source>Purge</source>
         <translation>Očistit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1276"/>
+        <location filename="../src/mainwindow.ui" line="31"/>
+        <source>Photoflare</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="585"/>
+        <source>Eraser Tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="623"/>
+        <source>Spray Can</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="661"/>
+        <source>Pointer Tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="705"/>
+        <source>Line Tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="743"/>
+        <source>Magic Wand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="781"/>
+        <source>Paint Brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="819"/>
+        <source>Advanced Paint Brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="857"/>
+        <source>Blur Tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="886"/>
+        <source>Smudge Tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="924"/>
+        <source>Clone Stamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="962"/>
+        <source>Paint Bucket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1000"/>
+        <source>Colour Picker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1274"/>
+        <source>Ctrl+Shift+V</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1323"/>
         <source>Flip Vertical</source>
         <translation>Převrátit svisle</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1285"/>
+        <location filename="../src/mainwindow.ui" line="1332"/>
         <source>Flip Horizontal</source>
         <translation>Převrátit vodorovně</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1290"/>
+        <location filename="../src/mainwindow.ui" line="1337"/>
         <source>Skew...</source>
         <translation>Naklonit...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1299"/>
+        <location filename="../src/mainwindow.ui" line="1346"/>
         <source>Image Size...</source>
         <translation>Velikost obrázku...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1308"/>
+        <location filename="../src/mainwindow.ui" line="1355"/>
         <source>Canvas Size...</source>
         <translation>Velikost plátna...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1313"/>
+        <location filename="../src/mainwindow.ui" line="1360"/>
         <source>Fit Image...</source>
         <translation>Přizpůsobit obrázek...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1318"/>
+        <location filename="../src/mainwindow.ui" line="1365"/>
         <source>Duplicate</source>
         <translation>Zdvojit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1323"/>
+        <location filename="../src/mainwindow.ui" line="1370"/>
         <source>Crop</source>
         <translation>Oříznout</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1328"/>
+        <location filename="../src/mainwindow.ui" line="1375"/>
         <source>Automatic Crop</source>
         <translation>Automatické oříznutí</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1333"/>
+        <location filename="../src/mainwindow.ui" line="1380"/>
         <source>Outside Frame...</source>
         <translation>Vnější rámeček...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1338"/>
+        <location filename="../src/mainwindow.ui" line="1385"/>
         <source>Outside Drop Shadow...</source>
         <translation>Vnější vrhání stínu...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1347"/>
+        <location filename="../src/mainwindow.ui" line="1390"/>
+        <source>Fill_Rect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1399"/>
         <source>Transparent Colour...</source>
         <translation>Průhledná barva...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1352"/>
+        <location filename="../src/mainwindow.ui" line="1404"/>
         <source>Automatic Transparency</source>
         <translation>Automatická průhlednost</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1357"/>
+        <location filename="../src/mainwindow.ui" line="1409"/>
         <source>Transparency Mask...</source>
         <translation>Maska průhlednosti...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1366"/>
+        <location filename="../src/mainwindow.ui" line="1418"/>
         <source>Text...</source>
         <translation>Text...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1371"/>
+        <location filename="../src/mainwindow.ui" line="1423"/>
         <source>Copyright...</source>
         <translation>Autorská práva...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1386"/>
+        <location filename="../src/mainwindow.ui" line="1438"/>
         <source>Show Selection</source>
         <translation>Zobrazit výběr</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1391"/>
+        <location filename="../src/mainwindow.ui" line="1443"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1396"/>
+        <location filename="../src/mainwindow.ui" line="1448"/>
         <source>Set Shape</source>
         <translation>Nastavit tvar</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1401"/>
+        <location filename="../src/mainwindow.ui" line="1453"/>
         <source>Invert</source>
         <translation>Obrátit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1406"/>
+        <location filename="../src/mainwindow.ui" line="1458"/>
         <source>Manual Settings...</source>
         <translation>Ruční nastavení...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1411"/>
+        <location filename="../src/mainwindow.ui" line="1463"/>
         <source>Center</source>
         <translation>Vystředit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1416"/>
+        <location filename="../src/mainwindow.ui" line="1468"/>
         <source>Fit Ratio</source>
         <translation>Přizpůsobit poměr</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1421"/>
+        <location filename="../src/mainwindow.ui" line="1473"/>
         <source>Contract...</source>
         <translation>Stáhnout...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1426"/>
+        <location filename="../src/mainwindow.ui" line="1478"/>
         <source>Expand...</source>
         <translation>Roztáhnout...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1436"/>
+        <location filename="../src/mainwindow.ui" line="1488"/>
         <source>Antialiasing</source>
         <translation>Vyhlazování</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1441"/>
+        <location filename="../src/mainwindow.ui" line="1493"/>
         <source>Bounding Box</source>
         <translation>Provázaný rámeček</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1446"/>
+        <location filename="../src/mainwindow.ui" line="1498"/>
         <source>Paste and Text Bounding Box</source>
         <translation>Vložit a textový provázaný rámeček</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1451"/>
+        <location filename="../src/mainwindow.ui" line="1503"/>
         <source>Copy Shape</source>
         <translation>Kopírovat tvar</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1456"/>
+        <location filename="../src/mainwindow.ui" line="1508"/>
         <source>Paste Shape</source>
         <translation>Vložit tvar</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1461"/>
+        <location filename="../src/mainwindow.ui" line="1513"/>
         <source>Load Shape</source>
         <translation>Nahrát tvar</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1466"/>
+        <location filename="../src/mainwindow.ui" line="1518"/>
         <source>Save Shape</source>
         <translation>Uložit tvar</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1471"/>
+        <location filename="../src/mainwindow.ui" line="1523"/>
         <source>Bright/Contrast...</source>
         <translation>Jas/Kontrast...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1476"/>
+        <location filename="../src/mainwindow.ui" line="1528"/>
         <source>Hue/Saturation...</source>
         <translation>Odstín/Sytost...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1481"/>
+        <location filename="../src/mainwindow.ui" line="1533"/>
         <source>Colour Balance...</source>
         <translation>Vyvážení barev...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1486"/>
+        <location filename="../src/mainwindow.ui" line="1538"/>
         <source>Gamma Correct...</source>
         <translation>Oprava gamy...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1495"/>
+        <location filename="../src/mainwindow.ui" line="1547"/>
         <source>Auto Levels</source>
         <translation>Automatické úrovně</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1504"/>
+        <location filename="../src/mainwindow.ui" line="1556"/>
         <source>Auto Contrast</source>
         <translation>Automatický kontrast</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1509"/>
+        <location filename="../src/mainwindow.ui" line="1561"/>
         <source>More Shadows</source>
         <translation>Více stínů</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1514"/>
+        <location filename="../src/mainwindow.ui" line="1566"/>
         <source>More Highlights</source>
         <translation>Více zvýraznění</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1519"/>
+        <location filename="../src/mainwindow.ui" line="1571"/>
         <source>Levels...</source>
         <translation>Úrovně...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1524"/>
+        <location filename="../src/mainwindow.ui" line="1576"/>
         <source>Swap RGB Channel...</source>
         <translation>Vyměnit kanál RGB...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1529"/>
+        <location filename="../src/mainwindow.ui" line="1581"/>
         <source>Replace Colour...</source>
         <translation>Nahradit barvu...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1534"/>
+        <location filename="../src/mainwindow.ui" line="1586"/>
         <source>Replace Colour Range...</source>
         <translation>Nahradit barevný rozsah...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1539"/>
+        <location filename="../src/mainwindow.ui" line="1591"/>
         <source>Duotone...</source>
         <translation>Dvojtón...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1544"/>
+        <location filename="../src/mainwindow.ui" line="1596"/>
         <source>Dithering</source>
         <translation>Roztřesení</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1549"/>
+        <location filename="../src/mainwindow.ui" line="1601"/>
         <source>Negative</source>
         <translation>Negativ</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1554"/>
         <source>Posterize...</source>
-        <translation>Posterizace...</translation>
+        <translation type="vanished">Posterizace...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1563"/>
+        <location filename="../src/mainwindow.ui" line="1615"/>
         <source>Hue Variation...</source>
         <translation>Kolísání odstínu...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1586"/>
+        <location filename="../src/mainwindow.ui" line="1638"/>
         <source>Relief</source>
         <translation>Reliéf</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1591"/>
+        <location filename="../src/mainwindow.ui" line="1643"/>
         <source>Stylize</source>
         <translation>Stylizování</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1596"/>
+        <location filename="../src/mainwindow.ui" line="1648"/>
         <source>Aged Effect</source>
         <translation>Zestárnutí</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1601"/>
+        <location filename="../src/mainwindow.ui" line="1653"/>
         <source>Texture</source>
         <translation>Povrch</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1606"/>
+        <location filename="../src/mainwindow.ui" line="1658"/>
         <source>Other</source>
         <translation>Jiné</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1611"/>
+        <location filename="../src/mainwindow.ui" line="1671"/>
         <source>Filterbar</source>
         <translation>Filtrovací pruh</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1616"/>
+        <location filename="../src/mainwindow.ui" line="1679"/>
         <source>Toolpalette</source>
         <translation>Paleta nástrojů</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1621"/>
         <source>Show Grid</source>
-        <translation>Zobrazit mřížku</translation>
+        <translation type="vanished">Zobrazit mřížku</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1626"/>
+        <location filename="../src/mainwindow.ui" line="1606"/>
+        <source>Posterize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1663"/>
+        <source>G&apos;MIC-Qt...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1687"/>
+        <source>Show Grid...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1692"/>
+        <source>Grid Settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1695"/>
+        <location filename="../src/mainwindow.cpp" line="2126"/>
+        <source>Grid Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1710"/>
+        <source>Show Rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="1715"/>
         <source>Snap To Grid</source>
         <translation>Přichytávat k mřížce</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1631"/>
+        <location filename="../src/mainwindow.ui" line="1720"/>
         <source>Zoom In</source>
         <translation>Přiblížit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1636"/>
+        <location filename="../src/mainwindow.ui" line="1729"/>
         <source>Zoom Out</source>
         <translation>Oddálit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1641"/>
+        <location filename="../src/mainwindow.ui" line="1738"/>
         <source>Original Size</source>
         <translation>Původní velikost</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1646"/>
+        <location filename="../src/mainwindow.ui" line="1747"/>
         <source>Auto Zoom</source>
         <translation>Automatické zvětšení</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1651"/>
+        <location filename="../src/mainwindow.ui" line="1759"/>
         <source>Full Screen</source>
         <translation>Na celou obrazovku</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1660"/>
+        <location filename="../src/mainwindow.ui" line="1768"/>
         <source>Automate/Batch...</source>
         <translation>Automaticky/Dávkově...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1665"/>
+        <location filename="../src/mainwindow.ui" line="1773"/>
         <source>Set Wallpaper</source>
         <translation>Nastavit pozadí</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1670"/>
+        <location filename="../src/mainwindow.ui" line="1778"/>
         <source>Export As Icon...</source>
         <translation>Exportovat jako ikonu...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1679"/>
+        <location filename="../src/mainwindow.ui" line="1787"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Nastavení</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1684"/>
+        <location filename="../src/mainwindow.ui" line="1792"/>
         <source>Information</source>
         <translation>Informace</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1689"/>
+        <location filename="../src/mainwindow.ui" line="1797"/>
         <source>&amp;About</source>
         <translation>&amp;O programu</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1698"/>
-        <location filename="src/mainwindow.ui" line="1701"/>
+        <location filename="../src/mainwindow.ui" line="1806"/>
+        <location filename="../src/mainwindow.ui" line="1809"/>
         <source>Scan</source>
         <translation>Prohledat</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1713"/>
+        <location filename="../src/mainwindow.ui" line="1824"/>
         <source>RGB Mode</source>
         <translation>Režim RGB</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1725"/>
+        <location filename="../src/mainwindow.ui" line="1836"/>
         <source>Indexed Mode</source>
         <translation>Režim rejstříku</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1734"/>
+        <location filename="../src/mainwindow.ui" line="1845"/>
         <source>brightminus</source>
         <translation>Jas minus</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1737"/>
+        <location filename="../src/mainwindow.ui" line="1848"/>
         <source>Brightness (-)</source>
         <translation>Jas (-)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1746"/>
+        <location filename="../src/mainwindow.ui" line="1857"/>
         <source>Brightplus</source>
         <translation>Jas plus</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1749"/>
+        <location filename="../src/mainwindow.ui" line="1860"/>
         <source>Brightness (+)</source>
         <translation>Jas (+)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1758"/>
+        <location filename="../src/mainwindow.ui" line="1869"/>
         <source>contrastminus</source>
         <translation>Kontrast minus</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1761"/>
+        <location filename="../src/mainwindow.ui" line="1872"/>
         <source>Contrast (-)</source>
         <translation>Kontrast (-)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1770"/>
+        <location filename="../src/mainwindow.ui" line="1881"/>
         <source>contrastplus</source>
         <translation>Kontrast plus</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1773"/>
+        <location filename="../src/mainwindow.ui" line="1884"/>
         <source>Contrast (+)</source>
         <translation>Kontrast (+)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1782"/>
+        <location filename="../src/mainwindow.ui" line="1893"/>
         <source>saturationminus</source>
         <translation>Sytost minus</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1785"/>
+        <location filename="../src/mainwindow.ui" line="1896"/>
         <source>Saturation (-)</source>
         <translation>Sytost (-)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1794"/>
+        <location filename="../src/mainwindow.ui" line="1905"/>
         <source>saturationplus</source>
         <translation>Sytost plus</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1797"/>
+        <location filename="../src/mainwindow.ui" line="1908"/>
         <source>Saturation (+)</source>
         <translation>Sytost (+)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1806"/>
+        <location filename="../src/mainwindow.ui" line="1917"/>
         <source>gammaCorrectminus</source>
         <translation>Oprava gamy minus</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1809"/>
+        <location filename="../src/mainwindow.ui" line="1920"/>
         <source>Gamma Correct (-)</source>
         <translation>Oprava gamy (-)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1818"/>
+        <location filename="../src/mainwindow.ui" line="1929"/>
         <source>gammaCorrectplus</source>
         <translation>Oprava gamy plus</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1821"/>
+        <location filename="../src/mainwindow.ui" line="1932"/>
         <source>Gamma Correct (+)</source>
         <translation>Oprava gamy (+)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1830"/>
-        <location filename="src/mainwindow.ui" line="1833"/>
+        <location filename="../src/mainwindow.ui" line="1941"/>
+        <location filename="../src/mainwindow.ui" line="1944"/>
         <source>Gray Scale</source>
         <translation>Odstíny šedé</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1842"/>
+        <location filename="../src/mainwindow.ui" line="1953"/>
         <source>Old Photo</source>
         <translation>Stará fotografie</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1845"/>
+        <location filename="../src/mainwindow.ui" line="1956"/>
         <source>Old Photography</source>
         <translation>Stará fotografie</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1854"/>
-        <location filename="src/mainwindow.ui" line="1857"/>
+        <location filename="../src/mainwindow.ui" line="1965"/>
+        <location filename="../src/mainwindow.ui" line="1968"/>
         <source>Dust Reduction</source>
         <translation>Zmenšení prachu</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1866"/>
-        <location filename="src/mainwindow.ui" line="1869"/>
+        <location filename="../src/mainwindow.ui" line="1977"/>
+        <location filename="../src/mainwindow.ui" line="1980"/>
         <source>Blur</source>
         <translation>Rozostřit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1878"/>
-        <location filename="src/mainwindow.ui" line="1881"/>
+        <location filename="../src/mainwindow.ui" line="1989"/>
+        <location filename="../src/mainwindow.ui" line="1992"/>
         <source>Reinforce</source>
         <translation>Posílit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1890"/>
+        <location filename="../src/mainwindow.ui" line="2001"/>
         <source>gradient</source>
         <translation>Přechod</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1893"/>
+        <location filename="../src/mainwindow.ui" line="2004"/>
         <source>Gradient</source>
         <translation>Přechod</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1902"/>
+        <location filename="../src/mainwindow.ui" line="2013"/>
         <source>Rotate CCW</source>
         <translation>Otočit proti směru hodinových ručiček</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1911"/>
+        <location filename="../src/mainwindow.ui" line="2022"/>
         <source>Rotate CW</source>
         <translation>Otočit po směru hodinových ručiček</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1916"/>
+        <location filename="../src/mainwindow.ui" line="2027"/>
         <source>&amp;Oil Paint</source>
         <translation>&amp;Olejomalba</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1921"/>
+        <location filename="../src/mainwindow.ui" line="2032"/>
         <source>&amp;Charcoal Drawing</source>
         <translation>Kreslení &amp;uhlem</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1926"/>
+        <location filename="../src/mainwindow.ui" line="2037"/>
+        <source>Pixelate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2042"/>
+        <source>Vignette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2047"/>
+        <source>Pixel Scatter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2052"/>
+        <source>Sketch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2057"/>
         <source>Swirl</source>
         <translation>Vír</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1931"/>
+        <location filename="../src/mainwindow.ui" line="2062"/>
         <source>Donate</source>
         <translation>Darování</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1936"/>
+        <location filename="../src/mainwindow.ui" line="2067"/>
         <source>Acquire image...</source>
         <translation>Získat obrázek...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1941"/>
+        <location filename="../src/mainwindow.ui" line="2072"/>
         <source>Select source...</source>
         <translation>Vybrat zdroj...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1946"/>
+        <location filename="../src/mainwindow.ui" line="2077"/>
         <source>Solarize</source>
         <translation>Přeexponovat</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1951"/>
+        <location filename="../src/mainwindow.ui" line="2082"/>
         <source>Wave</source>
         <translation>Zvlnit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1956"/>
+        <location filename="../src/mainwindow.ui" line="2087"/>
         <source>Implode</source>
         <translation>Zhroutit se směrem dovnitř</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1961"/>
+        <location filename="../src/mainwindow.ui" line="2092"/>
         <source>Emboss</source>
         <translation>Vyrýt reliéf</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1966"/>
+        <location filename="../src/mainwindow.ui" line="2097"/>
         <source>Trim</source>
         <translation>Zastřihnout</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1971"/>
+        <location filename="../src/mainwindow.ui" line="2102"/>
         <source>Gaussian</source>
         <translation>Gaussův</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1976"/>
+        <location filename="../src/mainwindow.ui" line="2107"/>
         <source>Impulse</source>
         <translation>Podnět</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1981"/>
+        <location filename="../src/mainwindow.ui" line="2112"/>
         <source>Laplacian</source>
         <translation>Laplaceovský</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1986"/>
+        <location filename="../src/mainwindow.ui" line="2117"/>
         <source>Poisson</source>
         <translation>Otrávit</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1991"/>
+        <location filename="../src/mainwindow.ui" line="2122"/>
         <source>MonoChromatic</source>
         <translation>Jednobarevný</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="1996"/>
+        <location filename="../src/mainwindow.ui" line="2127"/>
         <source>Equalize</source>
         <translation>Vyrovnat</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2001"/>
-        <location filename="src/mainwindow.ui" line="2004"/>
+        <location filename="../src/mainwindow.ui" line="2132"/>
+        <location filename="../src/mainwindow.ui" line="2135"/>
         <source>Crop center</source>
         <translation>Oříznout ke středu</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2009"/>
-        <location filename="src/mainwindow.ui" line="2012"/>
+        <location filename="../src/mainwindow.ui" line="2140"/>
+        <location filename="../src/mainwindow.ui" line="2143"/>
         <source>Simple frame</source>
         <translation>Jednoduchý rámeček</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2017"/>
+        <location filename="../src/mainwindow.ui" line="2148"/>
         <source>Motion blur</source>
         <translation>Pohybové rozostření</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2022"/>
+        <location filename="../src/mainwindow.ui" line="2153"/>
         <source>Normalize</source>
         <translation>Normalizovat</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2027"/>
+        <location filename="../src/mainwindow.ui" line="2158"/>
         <source>3D frame</source>
         <translation>Trojrozměrný rámeček</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2032"/>
+        <location filename="../src/mainwindow.ui" line="2163"/>
         <source>Explode</source>
         <translation>Vybuchnout</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2037"/>
+        <location filename="../src/mainwindow.ui" line="2168"/>
         <source>Despeckle</source>
         <translation>Odstranit zrnění</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2046"/>
+        <location filename="../src/mainwindow.ui" line="2177"/>
         <source>Sepia</source>
         <translation>Sépie</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2051"/>
+        <location filename="../src/mainwindow.ui" line="2182"/>
         <source>Black and white</source>
         <translation>Černá a bílá</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2056"/>
-        <source>Opacity</source>
-        <translation>Neprůhlednost</translation>
+        <location filename="../src/mainwindow.ui" line="2187"/>
+        <source>Opacity...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2061"/>
+        <location filename="../src/mainwindow.ui" line="2202"/>
+        <source>Colour Threshold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2207"/>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2212"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2217"/>
+        <source>History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2222"/>
+        <source>Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2227"/>
+        <source>Free Rotate...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="vanished">Neprůhlednost</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2192"/>
         <source>Plugins</source>
         <translation>Přídavné moduly</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.ui" line="2066"/>
+        <location filename="../src/mainwindow.ui" line="2197"/>
         <source>Check for updates...</source>
         <translation>Vyhledat aktualizace...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="252"/>
-        <location filename="src/mainwindow.cpp" line="274"/>
+        <location filename="../src/mainwindow.cpp" line="229"/>
+        <location filename="../src/mainwindow.cpp" line="428"/>
+        <location filename="../src/mainwindow.cpp" line="458"/>
+        <location filename="../src/mainwindow.cpp" line="638"/>
+        <location filename="../src/mainwindow.cpp" line="2459"/>
+        <location filename="../src/mainwindow.cpp" line="2816"/>
+        <location filename="../src/mainwindow.cpp" line="2857"/>
         <source>Ready</source>
         <translation>Připraven</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="295"/>
+        <location filename="../src/mainwindow.cpp" line="432"/>
+        <location filename="../src/mainwindow.cpp" line="462"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
+        <location filename="../src/mainwindow.cpp" line="2823"/>
+        <location filename="../src/mainwindow.cpp" line="2864"/>
         <source>Working...</source>
         <translation>Pracuje...</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="316"/>
+        <location filename="../src/mainwindow.cpp" line="719"/>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="730"/>
+        <source>All Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="757"/>
         <source>Open File</source>
         <translation>Otevřít soubor</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="317"/>
         <source>All Files (*);;Image Files (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</source>
-        <translation>Všechny soubory (*);;Obrázkové soubory (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</translation>
+        <translation type="vanished">Všechny soubory (*);;Obrázkové soubory (*.png *.jpg *.jpeg *.gif);;PNG(*.png);;JPEG(*.jpg *.jpeg);;GIF(*.gif);;TIFF(*.tif *.tiff);;BMP(*.bmp);;ICO(*.ico)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="354"/>
+        <location filename="../src/mainwindow.cpp" line="763"/>
+        <source>No Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="837"/>
         <source>Please open a valid image file</source>
         <translation>Otevřete, prosím, platný obrázkový soubor</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="422"/>
+        <location filename="../src/mainwindow.cpp" line="847"/>
+        <source>Image does not exist at this file path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="859"/>
+        <source>multiple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="860"/>
+        <source>Animated GIF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="861"/>
+        <source>This GIF contains %1 frames. Only the first frame will be opened for editing. Animation is not supported in this version.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="948"/>
         <source>png (*.png)</source>
         <translation>PNG (*.png)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="423"/>
+        <location filename="../src/mainwindow.cpp" line="949"/>
         <source>jpg (*.jpg *.jpeg)</source>
         <translation>JPG (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="424"/>
+        <location filename="../src/mainwindow.cpp" line="950"/>
         <source>bmp (*.bmp)</source>
         <translation>BMP (*.bmp)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="425"/>
+        <location filename="../src/mainwindow.cpp" line="951"/>
         <source>pbm (*.pbm)</source>
         <translation>PBM (*.pbm)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="426"/>
+        <location filename="../src/mainwindow.cpp" line="952"/>
         <source>pgm (*.pgm)</source>
         <translation>PGM (*.pgm)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="427"/>
+        <location filename="../src/mainwindow.cpp" line="953"/>
         <source>ppm (*.ppm)</source>
         <translation>PPM (*.ppm)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="428"/>
+        <location filename="../src/mainwindow.cpp" line="954"/>
         <source>ico (*.ico)</source>
         <translation>ICO (*.ico)</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="444"/>
+        <location filename="../src/mainwindow.cpp" line="981"/>
         <source>Save File</source>
         <translation>Uložit soubor</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="499"/>
-        <location filename="src/mainwindow.cpp" line="524"/>
+        <location filename="../src/mainwindow.cpp" line="1053"/>
         <source>Unable to save image.</source>
         <translation>Nelze uložit obrázek.</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="1939"/>
+        <location filename="../src/mainwindow.cpp" line="1428"/>
+        <source>Set Rotate Degrees</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1429"/>
+        <source>Degrees:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1447"/>
+        <source>Resize Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1464"/>
+        <source>Resize Canvas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1672"/>
+        <source>(%1, %2) (%3 x %4 pixels)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1747"/>
+        <source>Set Image Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1748"/>
+        <source>Opacity:</source>
+        <translation type="unfinished">Neprůhlednost:</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="2094"/>
+        <source>Set Grid size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="2095"/>
+        <location filename="../src/mainwindow.cpp" line="2127"/>
+        <source>Cell width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="2159"/>
+        <location filename="../src/mainwindow.cpp" line="2166"/>
+        <location filename="../src/mainwindow.cpp" line="2193"/>
+        <location filename="../src/mainwindow.cpp" line="2209"/>
+        <source>G&apos;MIC-Qt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="2159"/>
+        <source>Failed to create temporary input file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="2166"/>
+        <source>Failed to save image for G&apos;MIC-Qt.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="2194"/>
+        <source>gmic_photoflare_qt not found. Please install G&apos;MIC-Qt or place the gmic_photoflare_qt binary next to photoflare.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="2210"/>
+        <source>gmic_qt.exe failed (exit code %1):
+%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="3253"/>
         <source>Unsaved Changes</source>
         <translation>Neuložené změny</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="1939"/>
+        <location filename="../src/mainwindow.cpp" line="3253"/>
         <source>Save changes before leaving?</source>
         <translation>Uložit změny před ukončením?</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="2242"/>
+        <location filename="../src/mainwindow.cpp" line="3642"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -1247,129 +1538,141 @@
 <context>
     <name>NewDialog</name>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="19"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="22"/>
         <source>New</source>
         <translation>Nová</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="47"/>
-        <location filename="src/dialogs/NewDialog.ui" line="125"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="56"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="142"/>
         <source>Width:</source>
         <translation>Šířka:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="86"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="98"/>
         <source>Pixels</source>
         <translation>Pixelů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="91"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="103"/>
         <source>Cm</source>
         <translation>Cm</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="96"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="108"/>
         <source>Inches</source>
         <translation>Palců</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="110"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="113"/>
+        <location filename="../src/dialogs/NewDialog.cpp" line="375"/>
+        <location filename="../src/dialogs/NewDialog.cpp" line="378"/>
+        <source>Percent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/NewDialog.ui" line="127"/>
         <source>Size in Pixels/Memory</source>
         <translation>Velikost v obrazových bodech (pixely)/paměť</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="138"/>
-        <location filename="src/dialogs/NewDialog.ui" line="406"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="155"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="446"/>
         <source>Height:</source>
         <translation>Výška:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="151"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="168"/>
         <source>Memory:</source>
         <translation>Paměť:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="228"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="263"/>
         <source>New Size</source>
         <translation>Nová velikost</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="299"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="334"/>
         <source>Position:</source>
         <translation>Poloha:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="326"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="361"/>
         <source>(none)</source>
         <translation>(žádná)</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="331"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="366"/>
         <source>100 x 100 pixels</source>
         <translation>100 x 100 obrazových bodů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="336"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="371"/>
         <source>640 x 480 pixels</source>
         <translation>640 x 480 obrazových bodů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="341"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="376"/>
         <source>800 x 600 pixels</source>
         <translation>800 x 600 obrazových bodů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="346"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="381"/>
         <source>1024 x 768 pixels</source>
         <translation>1024 x 768 obrazových bodů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="351"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="386"/>
         <source>1366 x 768 pixels</source>
         <translation>1366 x 768 obrazových bodů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="356"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="391"/>
         <source>1600 x 900 pixels</source>
         <translation>1600 x 900 obrazových bodů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="361"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="396"/>
         <source>1920 x 1080 pixels</source>
         <translation>1920 x 1080 obrazových bodů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="366"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="401"/>
+        <source>2560 x 1440 pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/NewDialog.ui" line="406"/>
         <source>3840 x 2160 pixels</source>
         <translation>3840 x 2160 obrazových bodů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="380"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="420"/>
         <source>Preset Size:</source>
         <translation>Velikost přednastavení:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="393"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="433"/>
         <source>Background colour:</source>
         <translation>Barva pozadí:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="438"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="481"/>
         <source>Colour</source>
         <translation>Barva</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="451"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="494"/>
         <source>Resolution:</source>
         <translation>Rozlišení:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="475"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="521"/>
         <source>Pixels/cm</source>
         <translation>Pixely/cm</translation>
     </message>
     <message>
-        <location filename="src/dialogs/NewDialog.ui" line="480"/>
+        <location filename="../src/dialogs/NewDialog.ui" line="526"/>
         <source>Pixels/inch</source>
         <translation>Pixely/palce</translation>
     </message>
@@ -1377,17 +1680,17 @@
 <context>
     <name>OuterFrameDialog</name>
     <message>
-        <location filename="src/dialogs/outerframedialog.ui" line="14"/>
+        <location filename="../src/dialogs/outerframedialog.ui" line="17"/>
         <source>Outside frame</source>
         <translation>Vnější rámeček</translation>
     </message>
     <message>
-        <location filename="src/dialogs/outerframedialog.ui" line="52"/>
+        <location filename="../src/dialogs/outerframedialog.ui" line="55"/>
         <source>Width:</source>
         <translation>Šířka:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/outerframedialog.ui" line="65"/>
+        <location filename="../src/dialogs/outerframedialog.ui" line="68"/>
         <source>Colour:</source>
         <translation>Barva:</translation>
     </message>
@@ -1395,22 +1698,22 @@
 <context>
     <name>PaintBrushAdvSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="14"/>
+        <location filename="../src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="73"/>
+        <location filename="../src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="63"/>
         <source>Pressure</source>
         <translation>Tlak</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="107"/>
+        <location filename="../src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="97"/>
         <source>Step</source>
         <translation>Krok</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="140"/>
+        <location filename="../src/toolSettings/PaintBrushAdvSettingsWidget.ui" line="130"/>
         <source>Fade</source>
         <translation>Blednutí</translation>
     </message>
@@ -1418,38 +1721,38 @@
 <context>
     <name>PaintBrushSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/PaintBrushSettingsWidget.ui" line="14"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushSettingsWidget.ui" line="20"/>
-        <location filename="src/toolSettings/PaintBrushSettingsWidget.ui" line="56"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="55"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="105"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushSettingsWidget.ui" line="79"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="135"/>
         <source>&amp;Radius:</source>
         <translation>&amp;Poloměr:</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushSettingsWidget.ui" line="89"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="91"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushSettingsWidget.ui" line="109"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="128"/>
         <source>Pressure</source>
         <translation>Tlak</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushSettingsWidget.ui" line="116"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="23"/>
         <source>100</source>
         <translation>100</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/PaintBrushSettingsWidget.ui" line="148"/>
+        <location filename="../src/toolSettings/PaintBrushSettingsWidget.ui" line="98"/>
         <source>&amp;Anti-aliasing</source>
         <translation>&amp;Vyhlazování</translation>
     </message>
@@ -1457,30 +1760,82 @@
 <context>
     <name>PluginDialog</name>
     <message>
-        <location filename="src/dialogs/plugindialog.ui" line="14"/>
+        <location filename="../src/dialogs/plugindialog.ui" line="17"/>
         <source>Plugin Manager</source>
         <translation>Správce přídavných modulů</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="31"/>
+        <source>Plugins folder:  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="37"/>
+        <source>Open Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="41"/>
+        <source>Rescan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="48"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="83"/>
+        <source>── Load errors ──</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="87"/>
+        <source>No plugins found. Place plugin DLL files in the</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="88"/>
+        <source>folder shown below, then click Rescan.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="96"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/plugindialog.cpp" line="97"/>
+        <source>Exporter</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PointerSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/pointersettingswidget.ui" line="14"/>
+        <location filename="../src/toolSettings/pointersettingswidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/pointersettingswidget.ui" line="26"/>
+        <location filename="../src/toolSettings/pointersettingswidget.ui" line="23"/>
+        <location filename="../src/toolSettings/pointersettingswidget.ui" line="46"/>
+        <location filename="../src/toolSettings/pointersettingswidget.ui" line="66"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/pointersettingswidget.ui" line="55"/>
+        <location filename="../src/toolSettings/pointersettingswidget.ui" line="86"/>
+        <source>Stroke Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/toolSettings/pointersettingswidget.ui" line="100"/>
         <source>Stroke</source>
         <translation>Tah</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/pointersettingswidget.ui" line="68"/>
+        <location filename="../src/toolSettings/pointersettingswidget.ui" line="107"/>
         <source>Fill</source>
         <translation>Vyplnit</translation>
     </message>
@@ -1488,106 +1843,453 @@
 <context>
     <name>PointerTool</name>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="118"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1086"/>
         <source>Crop</source>
         <translation>Oříznout</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="127"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1095"/>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="128"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1096"/>
         <source>Save as</source>
         <translation>Uložit jako</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="129"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1097"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="132"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1100"/>
         <source>Copy</source>
         <translation>Kopírovat</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="133"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1101"/>
         <source>Paste</source>
         <translation>Vložit</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="141"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1103"/>
+        <source>Paste as new image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tools/PointerTool.cpp" line="1112"/>
         <source>Image size</source>
         <translation>Velikost obrázku</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="142"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1113"/>
         <source>Canvas size</source>
         <translation>Velikost plátna</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="145"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1116"/>
         <source>Undo</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="src/tools/PointerTool.cpp" line="146"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1117"/>
         <source>Redo</source>
         <translation>Znovu</translation>
     </message>
 </context>
 <context>
+    <name>PrefsDialog</name>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="17"/>
+        <source>Preferences</source>
+        <translation>Nastavení</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="49"/>
+        <source>&amp;Folders</source>
+        <translation>&amp;Složky</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="61"/>
+        <source>Opening folder</source>
+        <translation>Složka k otevření</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="84"/>
+        <location filename="../src/dialogs/prefsdialog.ui" line="120"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="107"/>
+        <source>Saving folder</source>
+        <translation>Složka pro ukládání</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="133"/>
+        <source>Remember previous opened folder</source>
+        <translation>Pamatovat si předchozí otevřenou složku</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="146"/>
+        <source>Remember previous save folder</source>
+        <translation>Pamatovat si předchozí ukládací složku</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="152"/>
+        <source>S&amp;aving</source>
+        <translation>&amp;Ukládání</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="164"/>
+        <source>Default file format</source>
+        <translation>Výchozí souborový formát</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="180"/>
+        <source>&amp;Compression</source>
+        <translation>&amp;Komprese</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="192"/>
+        <source>Always show dialog</source>
+        <translation>Vždy zobrazit dialog</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="211"/>
+        <source>Set default compression</source>
+        <translation>Nastavit výchozí kompresi</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="261"/>
+        <source>Compression</source>
+        <translation>Komprese</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="274"/>
+        <source>90</source>
+        <translation>90</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="280"/>
+        <source>&amp;Layout</source>
+        <translation>&amp;Rozvržení</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="292"/>
+        <source>Multi-Window Mode</source>
+        <translation>Víceokenní režim</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="305"/>
+        <source>Default Toolpalette Location</source>
+        <translation>Umístění výchozí palety nástrojů</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="328"/>
+        <source>Zoom direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="351"/>
+        <source>Icon theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="367"/>
+        <source>&amp;Default Values</source>
+        <translation>&amp;Výchozí hodnoty</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="379"/>
+        <source>Default Units</source>
+        <translation>Výchozí jednotky</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="393"/>
+        <source>Pixels</source>
+        <translation>Pixely</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="398"/>
+        <source>CM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="403"/>
+        <source>Inches</source>
+        <translation type="unfinished">Palců</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="417"/>
+        <source>Memorize parameters</source>
+        <translation>Pamatovat si parametry</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="423"/>
+        <source>&amp;History</source>
+        <translation>&amp;Historie</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="435"/>
+        <source>Image History Size</source>
+        <translation>Velikost historie obrázků</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="473"/>
+        <source>24</source>
+        <translation>24</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="479"/>
+        <source>&amp;Startup</source>
+        <translation>&amp;Spouštění</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="491"/>
+        <source>Maximize on Startup</source>
+        <translation>Zvětšit při spuštění</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.ui" line="514"/>
+        <source>Language</source>
+        <translation>Jazyk</translation>
+    </message>
+    <message>
+        <source>Restart to apply</source>
+        <translation type="vanished">Pro použití spustit znovu</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="51"/>
+        <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="51"/>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="59"/>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="59"/>
+        <source>Inverted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="81"/>
+        <source>png (*.png)</source>
+        <translation>PNG (*.png)</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="82"/>
+        <source>jpg (*.jpg *.jpeg)</source>
+        <translation>JPG (*.jpg *.jpeg)</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="83"/>
+        <source>bmp (*.bmp)</source>
+        <translation>BMP (*.bmp)</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="84"/>
+        <source>pbm (*.pbm)</source>
+        <translation>PBM (*.pbm)</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="85"/>
+        <source>pgm (*.pgm)</source>
+        <translation>PGM (*.pgm)</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="86"/>
+        <source>ppm (*.ppm)</source>
+        <translation>PPM (*.ppm)</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="87"/>
+        <source>ico (*.ico)</source>
+        <translation>ICO (*.ico)</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="98"/>
+        <source>English</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="99"/>
+        <source>French</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="100"/>
+        <source>Dutch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="101"/>
+        <source>German</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="102"/>
+        <source>Chinese (CN)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="103"/>
+        <source>Chinese (TW)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="104"/>
+        <source>Czech Republic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="105"/>
+        <source>Korean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="106"/>
+        <source>Portuguese (PT)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="107"/>
+        <source>Portuguese (BR)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="108"/>
+        <source>Sweden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="109"/>
+        <source>Russian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="110"/>
+        <source>Indonesian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="111"/>
+        <source>Spanish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="112"/>
+        <source>Japanese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="113"/>
+        <source>Turkish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="216"/>
+        <source>Open Directory</source>
+        <translation>Otevřít adresář</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="225"/>
+        <source>Save Directory</source>
+        <translation>Uložit adresář</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="src/main.cpp" line="27"/>
         <source>PhotoFlare</source>
-        <translation>PhotoFlare</translation>
+        <translation type="vanished">PhotoFlare</translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="28"/>
         <source>1.5.0</source>
-        <translation>1.5.0</translation>
+        <translation type="vanished">1.5.0</translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="29"/>
         <source>photoflare.io</source>
-        <translation>photoflare.io</translation>
+        <translation type="vanished">photoflare.io</translation>
     </message>
     <message>
-        <location filename="src/main.cpp" line="30"/>
         <source>photoflare</source>
-        <translation>photoflare</translation>
+        <translation type="vanished">photoflare</translation>
     </message>
     <message>
-        <location filename="src/mainwindow.cpp" line="95"/>
+        <location filename="../src/mainwindow.cpp" line="131"/>
         <source>Untitled</source>
         <translation>Bez názvu</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="781"/>
+        <location filename="../src/mainwindow.cpp" line="790"/>
+        <source>No Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RulerWidget</name>
+    <message>
+        <location filename="../src/widgets/RulerWidget.cpp" line="251"/>
+        <source>Pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/RulerWidget.cpp" line="252"/>
+        <source>Inches</source>
+        <translation type="unfinished">Palců</translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/RulerWidget.cpp" line="253"/>
+        <source>Centimeters</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ScanDevicesDialog</name>
     <message>
-        <location filename="src/dialogs/scandevicesdialog.ui" line="14"/>
         <source>Select source</source>
-        <translation>Vybrat zdroj</translation>
+        <translation type="vanished">Vybrat zdroj</translation>
     </message>
 </context>
 <context>
     <name>SmudgeSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/smudgesettingswidget.ui" line="14"/>
+        <location filename="../src/toolSettings/smudgesettingswidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/smudgesettingswidget.ui" line="26"/>
+        <location filename="../src/toolSettings/smudgesettingswidget.ui" line="23"/>
         <source>Radius</source>
         <translation>Poloměr</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/smudgesettingswidget.ui" line="39"/>
+        <location filename="../src/toolSettings/smudgesettingswidget.ui" line="40"/>
         <source>Pressure</source>
         <translation>Tlak</translation>
     </message>
@@ -1595,27 +2297,27 @@
 <context>
     <name>SprayCanSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/SprayCanSettingsWidget.ui" line="14"/>
+        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/SprayCanSettingsWidget.ui" line="35"/>
+        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="25"/>
         <source>Radius</source>
         <translation>Poloměr</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/SprayCanSettingsWidget.ui" line="60"/>
+        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="53"/>
         <source>Pressure</source>
         <translation>Tlak</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/SprayCanSettingsWidget.ui" line="94"/>
+        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="87"/>
         <source>Dispersion</source>
         <translation>Rozptyl</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/SprayCanSettingsWidget.ui" line="127"/>
+        <location filename="../src/toolSettings/SprayCanSettingsWidget.ui" line="120"/>
         <source>Rainbow</source>
         <translation>Duha</translation>
     </message>
@@ -1623,37 +2325,37 @@
 <context>
     <name>StampSettingsWidget</name>
     <message>
-        <location filename="src/toolSettings/StampSettingsWidget.ui" line="14"/>
+        <location filename="../src/toolSettings/StampSettingsWidget.ui" line="14"/>
         <source>Form</source>
         <translation>Formulář</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/StampSettingsWidget.ui" line="35"/>
+        <location filename="../src/toolSettings/StampSettingsWidget.ui" line="25"/>
         <source>Radius</source>
         <translation>Poloměr</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/StampSettingsWidget.ui" line="60"/>
+        <location filename="../src/toolSettings/StampSettingsWidget.ui" line="50"/>
         <source>Pressure</source>
         <translation>Tlak</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/StampSettingsWidget.ui" line="94"/>
+        <location filename="../src/toolSettings/StampSettingsWidget.ui" line="84"/>
         <source>Step</source>
         <translation>Krok</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/StampSettingsWidget.ui" line="127"/>
+        <location filename="../src/toolSettings/StampSettingsWidget.ui" line="117"/>
         <source>Fixed</source>
         <translation>Pevné</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/StampSettingsWidget.ui" line="134"/>
+        <location filename="../src/toolSettings/StampSettingsWidget.ui" line="124"/>
         <source>Precise</source>
         <translation>Přesné</translation>
     </message>
     <message>
-        <location filename="src/toolSettings/StampSettingsWidget.ui" line="141"/>
+        <location filename="../src/toolSettings/StampSettingsWidget.ui" line="131"/>
         <source>Diffuse</source>
         <translation>Rozptýlené</translation>
     </message>
@@ -1661,37 +2363,41 @@
 <context>
     <name>TransparentDialog</name>
     <message>
-        <location filename="src/dialogs/transparentdialog.ui" line="14"/>
         <source>Transparent color</source>
-        <translation>Průhledná barva</translation>
+        <translation type="vanished">Průhledná barva</translation>
     </message>
     <message>
-        <location filename="src/dialogs/transparentdialog.ui" line="51"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="17"/>
+        <source>Transparent colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/transparentdialog.ui" line="54"/>
         <source>Tolerance:</source>
         <translation>Tolerance:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/transparentdialog.ui" line="64"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="67"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="src/dialogs/transparentdialog.ui" line="93"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="99"/>
         <source>Color:</source>
         <translation>Barva:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/transparentdialog.ui" line="109"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="115"/>
         <source>Preview</source>
         <translation>Náhled</translation>
     </message>
     <message>
-        <location filename="src/dialogs/transparentdialog.ui" line="122"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="128"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="src/dialogs/transparentdialog.ui" line="135"/>
+        <location filename="../src/dialogs/transparentdialog.ui" line="141"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
@@ -1699,486 +2405,784 @@
 <context>
     <name>aboutDialog</name>
     <message>
-        <location filename="src/dialogs/aboutdialog.ui" line="22"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="25"/>
         <source>About</source>
         <translation>O programu</translation>
     </message>
     <message>
-        <location filename="src/dialogs/aboutdialog.ui" line="34"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="37"/>
         <source>&amp;Close</source>
         <translation>&amp;Zavřít</translation>
     </message>
     <message>
-        <location filename="src/dialogs/aboutdialog.ui" line="47"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="56"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Textový štítek&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="src/dialogs/aboutdialog.ui" line="63"/>
-        <location filename="src/dialogs/aboutdialog.ui" line="76"/>
-        <location filename="src/dialogs/aboutdialog.ui" line="89"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="75"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="91"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="107"/>
         <source>TextLabel</source>
         <translation>Textový štítek</translation>
     </message>
     <message>
-        <location filename="src/dialogs/aboutdialog.ui" line="142"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="163"/>
         <source>C&amp;redits</source>
         <translation>&amp;Zásluhy</translation>
     </message>
     <message>
-        <location filename="src/dialogs/aboutdialog.cpp" line="20"/>
-        <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Translators&lt;/b&gt;&lt;br&gt;FR - Ludovic&lt;br&gt;NL - Freek&lt;br&gt;DE - Freacore&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
-        <translation>&lt;b&gt;Vývojáři&lt;/b&gt;&lt;br&gt;Obchodní - ICS&lt;br&gt;Vedení - Dylan Coakley&lt;br&gt;Vývojář - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Grafika&lt;/b&gt;&lt;br&gt;Hlavní ikona - Robert BM&lt;br&gt;Výtvarná stránka internetových stránek - Raqasa&lt;br&gt;Ikony programů - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Propagační média&lt;/b&gt;&lt;br&gt;Umělecký návrhář - Catherine Fister&lt;br&gt;Reklama - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Přispěvatelé&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Ikona projektu Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Překladatelé&lt;/b&gt;&lt;br&gt;FR - Ludovic&lt;br&gt;NL - Freek&lt;br&gt;DE - Freacore&lt;br&gt;&lt;br&gt;&lt;b&gt;Zvláštní poděkování&lt;/b&gt;&lt;br&gt;Chci poděkovat Samantě. Je to skvělá osoba. Je světlem mého života a jsem velice rád, že jsem ji našel.</translation>
+        <location filename="../src/dialogs/aboutdialog.ui" line="180"/>
+        <source>Developers</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/aboutdialog.cpp" line="48"/>
+        <location filename="../src/dialogs/aboutdialog.ui" line="210"/>
+        <source>Graphics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/aboutdialog.ui" line="231"/>
+        <source>Translators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/aboutdialog.ui" line="252"/>
+        <source>Contributors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br&gt;Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Graphics&lt;/b&gt;&lt;br&gt;Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Promotional Media&lt;/b&gt;&lt;br&gt;Art Designer - Catherine Fister&lt;br&gt;Advertising - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Contributors&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Translators&lt;/b&gt;&lt;br&gt;FR - Ludovic&lt;br&gt;NL - Freek&lt;br&gt;DE - Freacore&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
+        <translation type="vanished">&lt;b&gt;Vývojáři&lt;/b&gt;&lt;br&gt;Obchodní - ICS&lt;br&gt;Vedení - Dylan Coakley&lt;br&gt;Vývojář - Dmitry Vasilenko&lt;br&gt;&lt;br&gt;&lt;b&gt;Grafika&lt;/b&gt;&lt;br&gt;Hlavní ikona - Robert BM&lt;br&gt;Výtvarná stránka internetových stránek - Raqasa&lt;br&gt;Ikony programů - Attari B&lt;br&gt;&lt;br&gt;&lt;b&gt;Propagační média&lt;/b&gt;&lt;br&gt;Umělecký návrhář - Catherine Fister&lt;br&gt;Reklama - Don Murphy&lt;br&gt;&lt;br&gt;&lt;b&gt;Přispěvatelé&lt;/b&gt;&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Ikona projektu Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Překladatelé&lt;/b&gt;&lt;br&gt;FR - Ludovic&lt;br&gt;NL - Freek&lt;br&gt;DE - Freacore&lt;br&gt;&lt;br&gt;&lt;b&gt;Zvláštní poděkování&lt;/b&gt;&lt;br&gt;Chci poděkovat Samantě. Je to skvělá osoba. Je světlem mého života a jsem velice rád, že jsem ji našel.</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="31"/>
+        <source>Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Marek Mosna&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;Debian package - Dylan Aïssi&lt;br&gt;AppImage package - probonopd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="39"/>
+        <source>Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Imerion&lt;br&gt;Application icons - Attari B&lt;br&gt;Art Designer - Catherine Hegedusich&lt;br&gt;Advertising - Don Murphy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="48"/>
+        <source>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G.&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram&lt;br&gt;JA - hmatrjp&lt;br&gt;TR - sabriunal&lt;br&gt;KO - VenusGirl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="65"/>
+        <source>eltonfabricio10 - Code&lt;br&gt;AngryPenguinPL - Code&lt;br&gt;Carlo Vaccari - Code&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
         <source> Community Edition</source>
         <translation> Komunitní vydání</translation>
     </message>
     <message>
-        <location filename="src/dialogs/aboutdialog.cpp" line="49"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="86"/>
         <source>A simple but featureful editor.</source>
         <translation>Jednoduchý funkcemi nabitý editor.</translation>
     </message>
     <message>
-        <location filename="src/dialogs/aboutdialog.cpp" line="50"/>
+        <location filename="../src/dialogs/aboutdialog.cpp" line="87"/>
+        <source>&lt;a href=&apos;https://www.photoflare.io&apos;&gt;https://www.photoflare.io&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&lt;a href=&apos;http://www.photoflare.io&apos;&gt;http://www.photoflare.io&lt;/a&gt;</source>
-        <translation>&lt;a href=&apos;http://www.photoflare.io&apos;&gt;http://www.photoflare.io&lt;/a&gt;</translation>
+        <translation type="vanished">&lt;a href=&apos;http://www.photoflare.io&apos;&gt;http://www.photoflare.io&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
     <name>batchDialog</name>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="14"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="17"/>
         <source>Automate/Batch</source>
         <translation>Automaticky/Dávkově</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="49"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="52"/>
         <source>Files</source>
         <translation>Soubory</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="77"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="92"/>
         <source>Source Format</source>
         <translation>Zdrojový formát</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="100"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="115"/>
         <source>Output Folder</source>
         <translation>Výstupní složka</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="126"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="141"/>
         <source>Output Format</source>
         <translation>Výstupní formát</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="155"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="170"/>
         <source>Add Files</source>
         <translation>Přidat soubory</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="168"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="183"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="174"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="189"/>
         <source>Image Size</source>
         <translation>Velikost obrázku</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="186"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="201"/>
         <source>Image size</source>
         <translation>Velikost obrázku</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="202"/>
-        <location filename="src/dialogs/batchdialog.ui" line="335"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="217"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="359"/>
         <source>Height:</source>
         <translation>Výška:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="265"/>
-        <location filename="src/dialogs/batchdialog.ui" line="319"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="286"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="343"/>
         <source>Width:</source>
         <translation>Šířka:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="281"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="302"/>
         <source>Preserve aspect ratio</source>
         <translation>Zachovat poměr stran</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="348"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="372"/>
         <source>Canvas size</source>
         <translation>Velikost plátna</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="393"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="420"/>
         <source>Pixels</source>
         <translation>Pixelů</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="398"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="425"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="415"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="442"/>
         <source>Unit:</source>
         <translation>Jednotka:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="444"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="471"/>
         <source>Background:</source>
         <translation>Pozadí:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="473"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="500"/>
         <source>Position:</source>
         <translation>Poloha:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="479"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="506"/>
         <source>Adjust Levels</source>
         <translation>Úprava úrovní</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="601"/>
-        <location filename="src/dialogs/batchdialog.ui" line="646"/>
-        <location filename="src/dialogs/batchdialog.ui" line="691"/>
-        <location filename="src/dialogs/batchdialog.ui" line="736"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="628"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="673"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="718"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="763"/>
         <source>&lt;Alls&gt;</source>
         <translation>&lt;Vše&gt;</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="606"/>
-        <location filename="src/dialogs/batchdialog.ui" line="651"/>
-        <location filename="src/dialogs/batchdialog.ui" line="696"/>
-        <location filename="src/dialogs/batchdialog.ui" line="741"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="633"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="678"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="723"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="768"/>
         <source>Red</source>
         <translation>Červená</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="611"/>
-        <location filename="src/dialogs/batchdialog.ui" line="656"/>
-        <location filename="src/dialogs/batchdialog.ui" line="701"/>
-        <location filename="src/dialogs/batchdialog.ui" line="746"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="638"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="683"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="728"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="773"/>
         <source>Green</source>
         <translation>Zelená</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="616"/>
-        <location filename="src/dialogs/batchdialog.ui" line="661"/>
-        <location filename="src/dialogs/batchdialog.ui" line="706"/>
-        <location filename="src/dialogs/batchdialog.ui" line="751"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="643"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="688"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="733"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="778"/>
         <source>Blue</source>
         <translation>Modrá</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="621"/>
-        <location filename="src/dialogs/batchdialog.ui" line="666"/>
-        <location filename="src/dialogs/batchdialog.ui" line="711"/>
-        <location filename="src/dialogs/batchdialog.ui" line="756"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="648"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="693"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="738"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="783"/>
         <source>Cyan</source>
         <translation>Azurová</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="626"/>
-        <location filename="src/dialogs/batchdialog.ui" line="671"/>
-        <location filename="src/dialogs/batchdialog.ui" line="716"/>
-        <location filename="src/dialogs/batchdialog.ui" line="761"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="653"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="698"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="743"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="788"/>
         <source>Magenta</source>
         <translation>Purpurová</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="631"/>
-        <location filename="src/dialogs/batchdialog.ui" line="676"/>
-        <location filename="src/dialogs/batchdialog.ui" line="721"/>
-        <location filename="src/dialogs/batchdialog.ui" line="766"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="658"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="703"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="748"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="793"/>
         <source>Yellow</source>
         <translation>Žlutá</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="780"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="807"/>
         <source>Brightness</source>
         <translation>Jas</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="793"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="820"/>
         <source>Contrast</source>
         <translation>Kontrast</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="806"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="833"/>
         <source>Saturation</source>
         <translation>Sytost</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="819"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="846"/>
         <source>Gamma correct</source>
         <translation>Oprava gamy</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="832"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="859"/>
         <source>Channel</source>
         <translation>Kanál</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="845"/>
-        <location filename="src/dialogs/batchdialog.ui" line="858"/>
-        <location filename="src/dialogs/batchdialog.ui" line="871"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="872"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="885"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="898"/>
         <source>0%</source>
         <translation>0 %</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="884"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="911"/>
         <source>1.00</source>
         <translation>1.00</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="890"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="917"/>
         <source>Filters</source>
         <translation>Filtry</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="902"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="929"/>
         <source>Available</source>
         <translation>Dostupné</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="925"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="952"/>
         <source>Enabled</source>
         <translation>Povoleno</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="941"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="978"/>
+        <source>&gt;</source>
+        <translation type="unfinished">&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.ui" line="994"/>
+        <source>&lt;</source>
+        <translation type="unfinished">&lt;</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.ui" line="1000"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="315"/>
         <source>Transform</source>
         <translation>Proměnit</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="968"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="1027"/>
         <source>Rotate 90° CCW</source>
         <translation>Otočit 90° proti směru hodinových ručiček</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="984"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="1043"/>
         <source>Rotate 180°</source>
         <translation>Otočit o 180°</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="997"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="1056"/>
         <source>Rotate</source>
         <translation>Otočit</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="1013"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="1072"/>
         <source>Rotate 90° CW</source>
         <translation>Otočit 90° po směru hodinových ručiček</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="1045"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="1104"/>
         <source>Flip vertical</source>
         <translation>Převrátit svisle</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="1064"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="1123"/>
         <source>Flip horizontal</source>
         <translation>Převrátit vodorovně</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="1077"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="1136"/>
         <source>Flip</source>
         <translation>Převrátit</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.ui" line="1084"/>
+        <location filename="../src/dialogs/batchdialog.ui" line="1143"/>
         <source>Summary</source>
         <translation>Shrnutí</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="35"/>
         <source>*.png</source>
-        <translation>*.png</translation>
+        <translation type="vanished">*.png</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="36"/>
         <source>*.jpg</source>
-        <translation>*.jpg</translation>
+        <translation type="vanished">*.jpg</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="37"/>
         <source>*.gif</source>
-        <translation>*.gif</translation>
+        <translation type="vanished">*.gif</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="43"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="70"/>
         <source>Oil</source>
         <translation>Olej</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="44"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="71"/>
         <source>Charcoal</source>
         <translation>Uhel</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="72"/>
         <source>Swirl</source>
         <translation>Vír</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="46"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="73"/>
         <source>Solarize</source>
         <translation>Přeexponovat</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="47"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="74"/>
         <source>Wave</source>
         <translation>Vlna</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="48"/>
-        <location filename="src/dialogs/batchdialog.cpp" line="56"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="75"/>
         <source>Implode</source>
         <translation>Zhroutit se směrem dovnitř</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="49"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="77"/>
         <source>Soften</source>
         <translation>Změkčit</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="50"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="78"/>
         <source>Blur</source>
         <translation>Rozostřit</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="51"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="80"/>
         <source>Sharpen</source>
         <translation>Zaostřit</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="52"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="81"/>
         <source>Reinforce</source>
         <translation>Posílit</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="53"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="82"/>
+        <source>Emboss</source>
+        <translation type="unfinished">Vyrýt reliéf</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="83"/>
+        <source>Sketch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="84"/>
         <source>Grayscale</source>
         <translation>Odstíny šedé</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="54"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="85"/>
+        <source>Black and white</source>
+        <translation type="unfinished">Černá a bílá</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="86"/>
         <source>Old Photo</source>
         <translation>Stará fotografie</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="55"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="87"/>
         <source>Sepia</source>
         <translation>Sépie</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="57"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="76"/>
         <source>Explode</source>
         <translation>Vybuchnout</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="58"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="89"/>
         <source>Simple Frame</source>
         <translation>Jednoduchý rámeček</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="59"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="90"/>
         <source>3D Frame</source>
         <translation>Trojrozměrný rámeček</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="60"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="91"/>
         <source>Normalize</source>
         <translation>Normalizovat</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="61"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="79"/>
         <source>Motion Blur</source>
         <translation>Pohybové rozostření</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="62"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="56"/>
+        <source>All formats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="88"/>
+        <source>Negative</source>
+        <translation type="unfinished">Negativ</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="92"/>
+        <source>Auto levels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="93"/>
+        <source>Auto contrast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="94"/>
         <source>Crop to center</source>
         <translation>Oříznout ke středu</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="63"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="95"/>
         <source>Equalize colours</source>
         <translation>Vyrovnat barvy</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="64"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="96"/>
         <source>Monochrome edges</source>
         <translation>Jednobarevné okraje</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="65"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="97"/>
+        <source>Pixelate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="98"/>
+        <source>Vignette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="99"/>
+        <source>Posterize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="100"/>
+        <source>Pixel Scatter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="101"/>
         <source>Gaussian noise</source>
         <translation>Gaussův šum</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="66"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="102"/>
+        <source>Impulse noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="103"/>
+        <source>Laplacian noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="104"/>
+        <source>Poisson noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="105"/>
+        <source>Dust Reduction</source>
+        <translation type="unfinished">Zmenšení prachu</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="106"/>
+        <source>Despeckle</source>
+        <translation type="unfinished">Odstranit zrnění</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="107"/>
+        <source>Trim</source>
+        <translation type="unfinished">Zastřihnout</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="108"/>
         <source>Drop shadow</source>
         <translation>Vrhání stínu</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="67"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="109"/>
         <source>Opacity</source>
         <translation>Neprůhlednost</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="97"/>
-        <source>Please add files to the batch file list and set output folder.</source>
-        <translation>Přidejte, prosím, soubory do seznamu souborů k dávkovému zpracování a nastavte výstupní složku.</translation>
+        <location filename="../src/dialogs/batchdialog.cpp" line="158"/>
+        <source>Batch files required</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="370"/>
+        <location filename="../src/dialogs/batchdialog.cpp" line="159"/>
+        <source>Please add files to the batch list.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="167"/>
+        <source>Output directory required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="168"/>
+        <source>Please set the output folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="232"/>
+        <source>Input files (%1):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="239"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="240"/>
+        <source>Folder:</source>
+        <translation type="unfinished">Složka:</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="241"/>
+        <source>Format:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="244"/>
+        <source>Source filter:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="251"/>
+        <source>Resize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="257"/>
+        <source>Image size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="263"/>
+        <source>Canvas size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="264"/>
+        <source>Background color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="266"/>
+        <source>Top Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="266"/>
+        <source>Top Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="266"/>
+        <source>Top Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="267"/>
+        <source>Center Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="267"/>
+        <source>Center</source>
+        <translation type="unfinished">Vystředit</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="267"/>
+        <source>Center Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="268"/>
+        <source>Bottom Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="268"/>
+        <source>Bottom Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="268"/>
+        <source>Bottom Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="272"/>
+        <source>Image position:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="284"/>
+        <source>Adjustments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="287"/>
+        <source>Brightness:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="293"/>
+        <source>Contrast:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="299"/>
+        <source>Saturation:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="305"/>
+        <source>Gamma:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="325"/>
+        <source>Rotate:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="332"/>
+        <source>Flip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="338"/>
+        <source>Filters (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="349"/>
+        <source>Batch processing finished successfully !</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="555"/>
+        <source>Image Files (*.png *.jpg *.jpeg *.gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please add files to the batch file list and set output folder.</source>
+        <translation type="vanished">Přidejte, prosím, soubory do seznamu souborů k dávkovému zpracování a nastavte výstupní složku.</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/batchdialog.cpp" line="555"/>
         <source>Select Files</source>
         <translation>Vybrat soubory</translation>
     </message>
     <message>
-        <location filename="src/dialogs/batchdialog.cpp" line="371"/>
         <source>Image Files (*.png *.jpg *.jpeg *.gif);;All Files (*)</source>
-        <translation>Obrázkové soubory (*.png *.jpg *.jpeg *.gif);;Všechny soubory (*)</translation>
+        <translation type="vanished">Obrázkové soubory (*.png *.jpg *.jpeg *.gif);;Všechny soubory (*)</translation>
     </message>
 </context>
 <context>
     <name>checkupdateDialog</name>
     <message>
-        <location filename="src/dialogs/checkupdatedialog.ui" line="17"/>
+        <location filename="../src/dialogs/checkupdatedialog.ui" line="17"/>
         <source>Updates</source>
         <translation>Aktualizace</translation>
     </message>
     <message>
-        <location filename="src/dialogs/checkupdatedialog.ui" line="29"/>
+        <location filename="../src/dialogs/checkupdatedialog.ui" line="29"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="src/dialogs/checkupdatedialog.ui" line="42"/>
+        <location filename="../src/dialogs/checkupdatedialog.ui" line="42"/>
         <source>Checking for updates...</source>
         <translation>Hledají se aktualizace...</translation>
     </message>
     <message>
-        <location filename="src/dialogs/checkupdatedialog.ui" line="55"/>
+        <location filename="../src/dialogs/checkupdatedialog.ui" line="55"/>
         <source>Download</source>
         <translation>Stáhnout</translation>
     </message>
     <message>
-        <location filename="src/dialogs/checkupdatedialog.cpp" line="50"/>
+        <location filename="../src/dialogs/checkupdatedialog.cpp" line="64"/>
         <source>New version available</source>
         <translation>Je dostupná nová verze</translation>
     </message>
     <message>
-        <location filename="src/dialogs/checkupdatedialog.cpp" line="55"/>
+        <location filename="../src/dialogs/checkupdatedialog.cpp" line="69"/>
         <source>No updates available</source>
         <translation>Nejsou dostpné žádné aktualizace</translation>
     </message>
@@ -2186,12 +3190,12 @@
 <context>
     <name>colourManagerDialog</name>
     <message>
-        <location filename="src/dialogs/colourmanagerdialog.ui" line="14"/>
+        <location filename="../src/dialogs/colourmanagerdialog.ui" line="17"/>
         <source>Colour palettes</source>
         <translation>Palety s barvami</translation>
     </message>
     <message>
-        <location filename="src/dialogs/colourmanagerdialog.ui" line="73"/>
+        <location filename="../src/dialogs/colourmanagerdialog.ui" line="76"/>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
@@ -2199,37 +3203,37 @@
 <context>
     <name>dropshadowDialog</name>
     <message>
-        <location filename="src/dialogs/dropshadowdialog.ui" line="14"/>
+        <location filename="../src/dialogs/dropshadowdialog.ui" line="17"/>
         <source>Drop shadow</source>
         <translation>Vrhání stínu</translation>
     </message>
     <message>
-        <location filename="src/dialogs/dropshadowdialog.ui" line="42"/>
+        <location filename="../src/dialogs/dropshadowdialog.ui" line="45"/>
         <source>Blur radius</source>
         <translation>Poloměr rozostření</translation>
     </message>
     <message>
-        <location filename="src/dialogs/dropshadowdialog.ui" line="55"/>
+        <location filename="../src/dialogs/dropshadowdialog.ui" line="58"/>
         <source>Padding</source>
         <translation>Výplň</translation>
     </message>
     <message>
-        <location filename="src/dialogs/dropshadowdialog.ui" line="68"/>
+        <location filename="../src/dialogs/dropshadowdialog.ui" line="71"/>
         <source>Colour</source>
         <translation>Barva</translation>
     </message>
     <message>
-        <location filename="src/dialogs/dropshadowdialog.ui" line="111"/>
+        <location filename="../src/dialogs/dropshadowdialog.ui" line="114"/>
         <source>Offset x</source>
         <translation>Posun x</translation>
     </message>
     <message>
-        <location filename="src/dialogs/dropshadowdialog.ui" line="124"/>
+        <location filename="../src/dialogs/dropshadowdialog.ui" line="127"/>
         <source>Offset y</source>
         <translation>Posun y</translation>
     </message>
     <message>
-        <location filename="src/dialogs/dropshadowdialog.ui" line="157"/>
+        <location filename="../src/dialogs/dropshadowdialog.ui" line="160"/>
         <source>Default values</source>
         <translation>Výchozí hodnoty</translation>
     </message>
@@ -2237,321 +3241,172 @@
 <context>
     <name>imagePropertiesDialog</name>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="14"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="17"/>
         <source>Image Properties</source>
         <translation>Vlastnosti obrázku</translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="42"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="27"/>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="45"/>
         <source>Image name:</source>
         <translation>Název obrázku:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="61"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="62"/>
         <source>Folder:</source>
         <translation>Složka:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="74"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="79"/>
         <source>Size:</source>
         <translation>Velikost:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="87"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="93"/>
         <source>Color count:</source>
         <translation>Počet barev:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="100"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="107"/>
+        <source>File type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="121"/>
         <source>File size:</source>
         <translation>Velikost souboru:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="113"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="135"/>
         <source>Date:</source>
         <translation>Datum:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="126"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="149"/>
         <source>Memory size:</source>
         <translation>Velikost paměti:</translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="139"/>
-        <source>Undo Cache Size</source>
-        <translation>Velikost vyrovnávací paměti pro kroky nazpět</translation>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="163"/>
+        <source>Undo cache size:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="152"/>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="165"/>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="178"/>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="191"/>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="204"/>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="217"/>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="230"/>
-        <location filename="src/dialogs/imagepropertiesdialog.ui" line="243"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="178"/>
+        <source>EXIF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="203"/>
+        <source>Property</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="208"/>
+        <source>Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Undo Cache Size</source>
+        <translation type="vanished">Velikost vyrovnávací paměti pro kroky nazpět</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="52"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="69"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="86"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="100"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="114"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="128"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="142"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="156"/>
+        <location filename="../src/dialogs/imagepropertiesdialog.ui" line="170"/>
         <source>TextLabel</source>
         <translation>Textový štítek</translation>
     </message>
-</context>
-<context>
-    <name>PrefsDialog</name>
     <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="14"/>
-        <source>Preferences</source>
-        <translation>Nastavení</translation>
+        <location filename="../src/dialogs/imagepropertiesdialog.cpp" line="32"/>
+        <source>Untitled</source>
+        <translation type="unfinished">Bez názvu</translation>
     </message>
     <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="46"/>
-        <source>&amp;Folders</source>
-        <translation>&amp;Složky</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="58"/>
-        <source>Opening folder</source>
-        <translation>Složka k otevření</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="81"/>
-        <location filename="src/dialogs/prefsdialog.ui" line="117"/>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="104"/>
-        <source>Saving folder</source>
-        <translation>Složka pro ukládání</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="130"/>
-        <source>Remember previous opened folder</source>
-        <translation>Pamatovat si předchozí otevřenou složku</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="143"/>
-        <source>Remember previous save folder</source>
-        <translation>Pamatovat si předchozí ukládací složku</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="149"/>
-        <source>S&amp;aving</source>
-        <translation>&amp;Ukládání</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="161"/>
-        <source>Default file format</source>
-        <translation>Výchozí souborový formát</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="177"/>
-        <source>&amp;Compression</source>
-        <translation>&amp;Komprese</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="189"/>
-        <source>Always show dialog</source>
-        <translation>Vždy zobrazit dialog</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="208"/>
-        <source>Set default compression</source>
-        <translation>Nastavit výchozí kompresi</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="258"/>
-        <source>Compression</source>
-        <translation>Komprese</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="271"/>
-        <source>90</source>
-        <translation>90</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="277"/>
-        <source>&amp;Layout</source>
-        <translation>&amp;Rozvržení</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="289"/>
-        <source>Multi-Window Mode</source>
-        <translation>Víceokenní režim</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="302"/>
-        <source>Default Toolpalette Location</source>
-        <translation>Umístění výchozí palety nástrojů</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="318"/>
-        <source>&amp;Default Values</source>
-        <translation>&amp;Výchozí hodnoty</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="330"/>
-        <source>Default Units</source>
-        <translation>Výchozí jednotky</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="344"/>
-        <source>Pixels</source>
-        <translation>Pixely</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="358"/>
-        <source>Memorize parameters</source>
-        <translation>Pamatovat si parametry</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="364"/>
-        <source>&amp;History</source>
-        <translation>&amp;Historie</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="376"/>
-        <source>Image History Size</source>
-        <translation>Velikost historie obrázků</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="414"/>
-        <source>24</source>
-        <translation>24</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="420"/>
-        <source>&amp;Startup</source>
-        <translation>&amp;Spouštění</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="432"/>
-        <source>Maximize on Startup</source>
-        <translation>Zvětšit při spuštění</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="455"/>
-        <source>Language</source>
-        <translation>Jazyk</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.ui" line="468"/>
-        <source>Restart to apply</source>
-        <translation>Pro použití spustit znovu</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="52"/>
-        <source>png (*.png)</source>
-        <translation>PNG (*.png)</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="53"/>
-        <source>jpg (*.jpg *.jpeg)</source>
-        <translation>JPG (*.jpg *.jpeg)</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="54"/>
-        <source>bmp (*.bmp)</source>
-        <translation>BMP (*.bmp)</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="55"/>
-        <source>pbm (*.pbm)</source>
-        <translation>PBM (*.pbm)</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="56"/>
-        <source>pgm (*.pgm)</source>
-        <translation>PGM (*.pgm)</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="57"/>
-        <source>ppm (*.ppm)</source>
-        <translation>PPM (*.ppm)</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="58"/>
-        <source>ico (*.ico)</source>
-        <translation>ICO (*.ico)</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="150"/>
-        <source>Open Directory</source>
-        <translation>Otevřít adresář</translation>
-    </message>
-    <message>
-        <location filename="src/dialogs/prefsdialog.cpp" line="159"/>
-        <source>Save Directory</source>
-        <translation>Uložit adresář</translation>
+        <location filename="../src/dialogs/imagepropertiesdialog.cpp" line="125"/>
+        <source>No EXIF data available</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>textDialog</name>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="14"/>
+        <location filename="../src/dialogs/textdialog.ui" line="17"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="33"/>
+        <location filename="../src/dialogs/textdialog.ui" line="36"/>
         <source>&amp;Text</source>
         <translation>&amp;Text</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="55"/>
+        <location filename="../src/dialogs/textdialog.ui" line="61"/>
         <source>Font</source>
         <translation>Písmo</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="68"/>
+        <location filename="../src/dialogs/textdialog.ui" line="74"/>
         <source>Size</source>
         <translation>Velikost</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="94"/>
+        <location filename="../src/dialogs/textdialog.ui" line="103"/>
         <source>Text Input</source>
         <translation>Zadávání textu</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="117"/>
+        <location filename="../src/dialogs/textdialog.ui" line="126"/>
         <source>Preview</source>
         <translation>Náhled</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="145"/>
+        <location filename="../src/dialogs/textdialog.ui" line="154"/>
         <source>AbYz</source>
         <translation>AbYz</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="162"/>
+        <location filename="../src/dialogs/textdialog.ui" line="171"/>
         <source>Bold</source>
         <translation>Tučně</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="175"/>
+        <location filename="../src/dialogs/textdialog.ui" line="184"/>
         <source>Italic</source>
         <translation>Kurzívou</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="188"/>
+        <location filename="../src/dialogs/textdialog.ui" line="197"/>
         <source>Strike out</source>
         <translation>Přeškrtnutí</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="201"/>
+        <location filename="../src/dialogs/textdialog.ui" line="210"/>
         <source>Underline</source>
         <translation>Podtržení</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="214"/>
+        <location filename="../src/dialogs/textdialog.ui" line="223"/>
         <source>Colour</source>
         <translation>Barva</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="243"/>
+        <location filename="../src/dialogs/textdialog.ui" line="258"/>
         <source>Antialias</source>
         <translation>Vyhlazování</translation>
     </message>
     <message>
-        <location filename="src/dialogs/textdialog.ui" line="266"/>
+        <location filename="../src/dialogs/textdialog.ui" line="281"/>
         <source>Enter some text to continue</source>
         <translation>Pro pokračování zadejte nějaký text</translation>
     </message>

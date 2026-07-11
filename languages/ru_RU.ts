@@ -894,7 +894,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1695"/>
-        <location filename="../src/mainwindow.cpp" line="2120"/>
+        <location filename="../src/mainwindow.cpp" line="2126"/>
         <source>Grid Settings</source>
         <translation>Настройки сетки</translation>
     </message>
@@ -1315,9 +1315,9 @@
         <location filename="../src/mainwindow.cpp" line="428"/>
         <location filename="../src/mainwindow.cpp" line="458"/>
         <location filename="../src/mainwindow.cpp" line="638"/>
-        <location filename="../src/mainwindow.cpp" line="2453"/>
-        <location filename="../src/mainwindow.cpp" line="2810"/>
-        <location filename="../src/mainwindow.cpp" line="2851"/>
+        <location filename="../src/mainwindow.cpp" line="2459"/>
+        <location filename="../src/mainwindow.cpp" line="2816"/>
+        <location filename="../src/mainwindow.cpp" line="2857"/>
         <source>Ready</source>
         <translation>Готов</translation>
     </message>
@@ -1325,8 +1325,8 @@
         <location filename="../src/mainwindow.cpp" line="432"/>
         <location filename="../src/mainwindow.cpp" line="462"/>
         <location filename="../src/mainwindow.cpp" line="627"/>
-        <location filename="../src/mainwindow.cpp" line="2817"/>
-        <location filename="../src/mainwindow.cpp" line="2858"/>
+        <location filename="../src/mainwindow.cpp" line="2823"/>
+        <location filename="../src/mainwindow.cpp" line="2864"/>
         <source>Working...</source>
         <translation>Работаю...</translation>
     </message>
@@ -1428,76 +1428,76 @@
         <translation>Сохранить файл</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1047"/>
+        <location filename="../src/mainwindow.cpp" line="1053"/>
         <source>Unable to save image.</source>
         <translation>Невозможно сохранить изображение.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1422"/>
+        <location filename="../src/mainwindow.cpp" line="1428"/>
         <source>Set Rotate Degrees</source>
         <translation>Угол поворота</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1423"/>
+        <location filename="../src/mainwindow.cpp" line="1429"/>
         <source>Degrees:</source>
         <translation>Градусы:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1441"/>
+        <location filename="../src/mainwindow.cpp" line="1447"/>
         <source>Resize Image</source>
         <translation>Изменить размер изображения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1458"/>
+        <location filename="../src/mainwindow.cpp" line="1464"/>
         <source>Resize Canvas</source>
         <translation>Изменить размер холста</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1666"/>
+        <location filename="../src/mainwindow.cpp" line="1672"/>
         <source>(%1, %2) (%3 x %4 pixels)</source>
         <translation>(%1, %2) (%3 × %4 пикселей)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1741"/>
+        <location filename="../src/mainwindow.cpp" line="1747"/>
         <source>Set Image Opacity</source>
         <translation>Установить непрозрачность изображения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1742"/>
+        <location filename="../src/mainwindow.cpp" line="1748"/>
         <source>Opacity:</source>
         <translation>Непрозрачность:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2088"/>
+        <location filename="../src/mainwindow.cpp" line="2094"/>
         <source>Set Grid size</source>
         <translation>Установить размер сетки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2089"/>
-        <location filename="../src/mainwindow.cpp" line="2121"/>
+        <location filename="../src/mainwindow.cpp" line="2095"/>
+        <location filename="../src/mainwindow.cpp" line="2127"/>
         <source>Cell width</source>
         <translation>Ширина ячейки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2153"/>
-        <location filename="../src/mainwindow.cpp" line="2160"/>
-        <location filename="../src/mainwindow.cpp" line="2187"/>
-        <location filename="../src/mainwindow.cpp" line="2203"/>
+        <location filename="../src/mainwindow.cpp" line="2159"/>
+        <location filename="../src/mainwindow.cpp" line="2166"/>
+        <location filename="../src/mainwindow.cpp" line="2193"/>
+        <location filename="../src/mainwindow.cpp" line="2209"/>
         <source>G&apos;MIC-Qt</source>
         <translation>Фильтры G&apos;MIC-Qt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2153"/>
+        <location filename="../src/mainwindow.cpp" line="2159"/>
         <source>Failed to create temporary input file.</source>
         <translation>Не удалось создать временный входной файл.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2160"/>
+        <location filename="../src/mainwindow.cpp" line="2166"/>
         <source>Failed to save image for G&apos;MIC-Qt.</source>
         <translation>Не удалось сохранить изображение для G’MIC-Qt.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2188"/>
+        <location filename="../src/mainwindow.cpp" line="2194"/>
         <source>gmic_photoflare_qt not found. Please install G&apos;MIC-Qt or place the gmic_photoflare_qt binary next to photoflare.</source>
         <translation>gmic_photoflare_qt не найден. Пожалуйста, установите G&apos;MIC-Qt или поместите исполняемый файл gmic_photoflare_qt рядом с photoflare.</translation>
     </message>
@@ -1506,24 +1506,24 @@
         <translation type="vanished">gmic_qt не найден. Установите G’MIC-Qt или поместите исполняемый файл gmic_qt рядом с Photoflare.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2204"/>
+        <location filename="../src/mainwindow.cpp" line="2210"/>
         <source>gmic_qt.exe failed (exit code %1):
 %2</source>
         <translation>gmic_qt.exe завершился с ошибкой (код %1):
 %2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="3247"/>
+        <location filename="../src/mainwindow.cpp" line="3253"/>
         <source>Unsaved Changes</source>
         <translation>Подтверждение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="3247"/>
+        <location filename="../src/mainwindow.cpp" line="3253"/>
         <source>Save changes before leaving?</source>
         <translation>Сохранить изменения?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="3636"/>
+        <location filename="../src/mainwindow.cpp" line="3642"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -1840,57 +1840,57 @@
 <context>
     <name>PointerTool</name>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="934"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1086"/>
         <source>Crop</source>
         <translation>Урезать</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="943"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1095"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="944"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1096"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="945"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1097"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="948"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1100"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="949"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1101"/>
         <source>Paste</source>
         <translation>Вставить</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="951"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1103"/>
         <source>Paste as new image</source>
         <translation>Вставить как новое изображение</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="960"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1112"/>
         <source>Image size</source>
         <translation>Размер изображения</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="961"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1113"/>
         <source>Canvas size</source>
         <translation>Размер холста</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="964"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1116"/>
         <source>Undo</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../src/tools/PointerTool.cpp" line="965"/>
+        <location filename="../src/tools/PointerTool.cpp" line="1117"/>
         <source>Redo</source>
         <translation>Повторить</translation>
     </message>

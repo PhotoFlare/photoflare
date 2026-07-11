@@ -5,7 +5,7 @@ example run: python3 diffing_tool.py de
 python3 diffing_tool.py de nl fr -> produces de.txt, nl.txt, fr.txt
 """
 import sys
-EN_FILE = open("en.ts", "r")
+EN_FILE = open("en.ts", "r", encoding="utf-8")
 EN_STRINGS = []
 
 for en_string in EN_FILE:
@@ -14,8 +14,8 @@ for en_string in EN_FILE:
         EN_STRINGS.append(en_string[8:-10])
 
 for lang_short in sys.argv[1:]:
-    LANG_FILE = open(lang_short + ".ts", "r")
-    DIFF_FILE_OUTPUT = open(lang_short + ".txt", "w")
+    LANG_FILE = open(lang_short + ".ts", "r", encoding="utf-8")
+    DIFF_FILE_OUTPUT = open(lang_short + ".txt", "w", encoding="utf-8")
     LANG_STRING_LIST, DIFF_LIST = [], []
 
     for lang_string in LANG_FILE:
