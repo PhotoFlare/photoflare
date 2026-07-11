@@ -67,9 +67,11 @@ jobs:
           wget --no-check-certificate --quiet -O "$GMIC_SRC/CImg.h" \
             "https://github.com/GreycLab/CImg/raw/${CIMG_TAG}/CImg.h"
           wget --quiet -O /tmp/gmic-src.tar.gz \
-            "https://github.com/GreycLab/gmic/releases/download/${CIMG_TAG}/gmic_${CIMG_TAG#v.}.tar.gz"
+            "https://github.com/GreycLab/gmic/releases/download/${CIMG_TAG}/gmic_${CIMG_TAG#v.}.tar.gz" \
+            || { echo "Failed to download gmic source tarball"; exit 1; }
           tar -xzf /tmp/gmic-src.tar.gz -C "$GMIC_SRC" --strip-components=2 \
-            "gmic-${CIMG_TAG#v.}/src/gmic_stdlib_community.h"
+            "gmic-${CIMG_TAG#v.}/src/gmic_stdlib_community.h" \
+            || { echo "Failed to extract gmic_stdlib_community.h from tarball"; exit 1; }
           cmake gmic-qt-src -B build-gmic-qt \
             -DCMAKE_PREFIX_PATH="${QT_ROOT_DIR}" \
             -DBUILD_WITH_QT6=ON \
