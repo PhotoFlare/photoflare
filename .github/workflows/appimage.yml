@@ -66,7 +66,10 @@ jobs:
           CIMG_TAG="v.${GMIC_VER:0:1}.${GMIC_VER:1:1}.${GMIC_VER:2:1}"
           wget --no-check-certificate --quiet -O "$GMIC_SRC/CImg.h" \
             "https://github.com/GreycLab/CImg/raw/${CIMG_TAG}/CImg.h"
-          make -C "$GMIC_SRC" gmic_stdlib_community.h
+          wget --quiet -O /tmp/gmic-src.tar.gz \
+            "https://github.com/GreycLab/gmic/releases/download/${CIMG_TAG}/gmic_${CIMG_TAG#v.}.tar.gz"
+          tar -xzf /tmp/gmic-src.tar.gz -C "$GMIC_SRC" --strip-components=2 \
+            "gmic-${CIMG_TAG#v.}/src/gmic_stdlib_community.h"
           cmake gmic-qt-src -B build-gmic-qt \
             -DCMAKE_PREFIX_PATH="${QT_ROOT_DIR}" \
             -DBUILD_WITH_QT6=ON \
