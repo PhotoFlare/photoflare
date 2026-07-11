@@ -2462,8 +2462,9 @@ void MainWindow::loadTranslator(const QString &langCode)
     for (int i = 0; i < paths.length(); i++) {
         QFileInfo check_file(paths[i] + "/languages/" + langCode + ".qm");
         if (check_file.exists() && check_file.isFile()) {
-            m_translator->load(langCode + ".qm", paths[i] + "/languages/");
-            break;
+            if (m_translator->load(langCode + ".qm", paths[i] + "/languages/")) {
+                break;
+            }
         }
     }
     qApp->installTranslator(m_translator);

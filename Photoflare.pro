@@ -26,6 +26,12 @@ win32 {
     RC_ICONS += assets/light/pixmaps/logo.ico
 }
 
+# Suppress warnings from vendored third-party headers we don't control.
+win32-msvc {
+    # C4828: illegal character in GraphicsMagick's cdl.h (non-UTF-8 byte in a vendored header)
+    QMAKE_CXXFLAGS += /wd4828
+}
+
 # Project settings for Linux and Hurd. Adjust the paths as needed on your system.
 linux|hurd {
     INCLUDEPATH += /usr/include/GraphicsMagick

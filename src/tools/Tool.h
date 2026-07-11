@@ -48,7 +48,7 @@ public:
     virtual void onMousePress(const QPoint &pos, Qt::MouseButton button);
     virtual void onMouseMove(const QPoint &pos);
     virtual void onMouseRelease(const QPoint &pos);
-    virtual void onHover(const QPoint &pos) {}
+    virtual void onHover(const QPoint &pos) { Q_UNUSED(pos); }
     virtual void onKeyPressed(QKeyEvent *keyEvent);
     virtual void onKeyReleased(QKeyEvent *keyEvent);
     virtual void disconnect();

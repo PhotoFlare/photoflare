@@ -66,7 +66,7 @@ void SprayCanTool::timerEvent(QTimerEvent *event)
         if(d->rainbow) 
         {
             x = (x + 1)%100;
-            d->rainbowColor = d->rainbowColor.fromHslF(x/100.0, 0.95, 0.5);
+            d->rainbowColor = d->rainbowColor.fromHslF(x/100.0f, 0.95f, 0.5f);
         }
 
         QPainter painter(m_paintDevice);
