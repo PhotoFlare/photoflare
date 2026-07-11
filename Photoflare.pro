@@ -21,9 +21,42 @@ INCLUDEPATH += ./src/widgets \
 
 # Project settings for Windows. Adjust the paths as needed on your system.
 win32 {
-    INCLUDEPATH +=  $$PWD/external/GraphicsMagick-1.3.28/Magick++/lib
-    LIBS += -L$$PWD/external/GraphicsMagick-1.3.28/VisualMagick/lib -lCORE_RL_Magick++_
+    # GraphicsMagick is provided via vcpkg (classic mode). Adjust VCPKG_ROOT if
+    # your vcpkg installation lives somewhere other than C:/vcpkg.
+    # Install with: vcpkg install graphicsmagick:x64-windows
+    VCPKG_ROOT = C:/vcpkg/installed/x64-windows
+    INCLUDEPATH += $$VCPKG_ROOT/include/GraphicsMagick
+    LIBS += -L$$VCPKG_ROOT/lib -lGraphicsMagick++ -lGraphicsMagick
     RC_ICONS += assets/light/pixmaps/logo.ico
+
+    # vcpkg builds shared DLLs (GraphicsMagick itself plus its delegate libs:
+    # freetype, libpng, tiff, libjpeg-turbo, libwebp, bzip2, zlib, lzma, brotli).
+    # Copy them next to the built exe so the app can find them at launch.
+    # The MSVC spec places the target in an OUT_PWD/debug or OUT_PWD/release
+    # subdirectory (DESTDIR), so the DLLs need to go there too, not OUT_PWD.
+    CONFIG(debug, debug|release) {
+        DLL_DEST_DIR = $$OUT_PWD/debug
+    } else {
+        DLL_DEST_DIR = $$OUT_PWD/release
+    }
+    QMAKE_POST_LINK += $$quote(cmd /c copy /y \"$$shell_path($$VCPKG_ROOT/bin)\\*.dll\" \"$$shell_path($$DLL_DEST_DIR)\" >nul$$escape_expand(\n\t))
+
+    # GraphicsMagick also needs its *.mgk config files (colors.mgk, modules.mgk,
+    # delegates.mgk, type.mgk, etc.) at runtime. It looks for them relative to
+    # the running executable, so copy vcpkg's copies of them alongside the exe.
+    # vcpkg splits these across two separate directories:
+    #   share/graphicsmagick/<ver>/config  -> colors.mgk, log.mgk, modules.mgk
+    #   lib/GraphicsMagick-<ver>/config    -> delegates.mgk, type*.mgk
+    GM_CONFIG_MARKER = $$files($$VCPKG_ROOT/share/graphicsmagick/colors.mgk, true)
+    !isEmpty(GM_CONFIG_MARKER) {
+        GM_CONFIG_DIR = $$dirname(GM_CONFIG_MARKER)
+        QMAKE_POST_LINK += $$quote(cmd /c copy /y \"$$shell_path($$GM_CONFIG_DIR)\\*.mgk\" \"$$shell_path($$DLL_DEST_DIR)\" >nul$$escape_expand(\n\t))
+    }
+    GM_TYPE_CONFIG_MARKER = $$files($$VCPKG_ROOT/lib/delegates.mgk, true)
+    !isEmpty(GM_TYPE_CONFIG_MARKER) {
+        GM_TYPE_CONFIG_DIR = $$dirname(GM_TYPE_CONFIG_MARKER)
+        QMAKE_POST_LINK += $$quote(cmd /c copy /y \"$$shell_path($$GM_TYPE_CONFIG_DIR)\\*.mgk\" \"$$shell_path($$DLL_DEST_DIR)\" >nul$$escape_expand(\n\t))
+    }
 }
 
 # Suppress warnings from vendored third-party headers we don't control.
@@ -42,15 +75,15 @@ linux|hurd {
 
 # Project settings for Mac OS. Adjust the paths as needed on your system.
 macx {
-  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagick++
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagick
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagickWand
-  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
-  DEPENDPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagick++.la
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagick.la
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagickWand.la
+  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.47/include/GraphicsMagick
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.47/lib/ -lGraphicsMagick++
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.47/lib/ -lGraphicsMagick
+  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.47/lib/ -lGraphicsMagickWand
+  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.47/include/GraphicsMagick
+  DEPENDPATH += /usr/local/Cellar/graphicsmagick/1.3.47/include/GraphicsMagick
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.47/lib/libGraphicsMagick++.la
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.47/lib/libGraphicsMagick.la
+  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.47/lib/libGraphicsMagickWand.la
   LIBS += -lbz2 -lxml2 -lz -lm -L /usr/local/lib /usr/local/lib/libomp.dylib
   QMAKE_CXXFLAGS += -Xpreprocessor -fopenmp -lomp -I/usr/local/include
   QMAKE_LFLAGS += -lomp
