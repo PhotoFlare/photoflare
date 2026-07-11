@@ -31,6 +31,7 @@ public:
 
     void setOverlayImage(const QImage& image);
     void onDeactivated() override;
+    QCursor getCursor() override;
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     void onMouseRelease(const QPoint &pos) override;
@@ -83,6 +84,7 @@ private:
     int x_pos;
     int y_pos;
     void setupRightClickMenu(bool execute);
+    void updateCursor(const QCursor &cursor);
 };
 
 #endif // POINTERTOOL_H

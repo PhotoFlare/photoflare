@@ -192,30 +192,59 @@ public:
             cornerSize = 20;
         }
 
-        //Draw the selection hotspots
-        if(selection.size() == 4)
+        //Draw the selection hotspots. Uses the bounding box so this works for
+        //rect, ellipse and lasso selections alike, matching PointerTool's
+        //corner hit-test geometry. Edges are resized by dragging the
+        //selection border itself (see PointerTool's edge hit-test strips),
+        //so no separate edge handles are drawn here.
+        QRect rect = selection.boundingRect();
+        if(rect.width() > 0 && rect.height() > 0 && hotspotVisible)
         {
-            QRect rect(selection.at(0),selection.at(3));
-            if(rect.topLeft() != rect.bottomLeft() && hotspotVisible)
-            {
-                QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
-                penbg.setColor(Qt::white);
-                painter.setPen(penbg);
-                painter.setBrush(QBrush());
-                painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
-                painter.drawPolygon(QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize));
-                painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
-                painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
+            QPoint topLeft = rect.topLeft();
+            QPoint bottomRight = rect.bottomRight();
 
-                QPen cornerpen = QPen(QBrush(), scaledVal, Qt::DashLine);
-                cornerpen.setColor(Qt::gray);
-                painter.setPen(cornerpen);
+            QRect tl(topLeft.x(),                  topLeft.y(),                  cornerSize, cornerSize);
+            QRect tr(bottomRight.x() - cornerSize, topLeft.y(),                  cornerSize, cornerSize);
+            QRect br(bottomRight.x() - cornerSize, bottomRight.y() - cornerSize, cornerSize, cornerSize);
+            QRect bl(topLeft.x(),                  bottomRight.y() - cornerSize, cornerSize, cornerSize);
+
+            // Thin dotted outline of the bounding box itself — skipped for
+            // plain rectangle selections (where it would exactly overlap the
+            // selection outline and add nothing). For ellipse/lasso
+            // selections it shows the resize boundary that the corner
+            // handles and edge-drag strips operate on.
+            const bool isRectSelection = (selection == QPolygon(rect));
+            if (!isRectSelection)
+            {
+                const float boundWidth = qBound(0.5f, 1.0f / effectiveScale, 10.0f);
+                QPen boundBg(Qt::white, boundWidth, Qt::DotLine);
+                painter.setPen(boundBg);
                 painter.setBrush(QBrush());
-                painter.drawPolygon(QRect(selection.at(0).x(),selection.at(0).y(), cornerSize, cornerSize));
-                painter.drawPolygon(QRect(selection.at(1).x()-cornerSize,selection.at(1).y(), cornerSize, cornerSize));
-                painter.drawPolygon(QRect(selection.at(2).x()-cornerSize,selection.at(2).y()-cornerSize, cornerSize, cornerSize));
-                painter.drawPolygon(QRect(selection.at(3).x(),selection.at(3).y()-cornerSize, cornerSize, cornerSize));
+                painter.drawRect(rect);
+
+                QPen boundFg(Qt::gray, boundWidth, Qt::DotLine);
+                boundFg.setDashOffset(2);
+                painter.setPen(boundFg);
+                painter.drawRect(rect);
             }
+
+            QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);
+            penbg.setColor(Qt::white);
+            painter.setPen(penbg);
+            painter.setBrush(QBrush());
+            painter.drawPolygon(tl);
+            painter.drawPolygon(tr);
+            painter.drawPolygon(br);
+            painter.drawPolygon(bl);
+
+            QPen cornerpen = QPen(QBrush(), scaledVal, Qt::DashLine);
+            cornerpen.setColor(Qt::gray);
+            painter.setPen(cornerpen);
+            painter.setBrush(QBrush());
+            painter.drawPolygon(tl);
+            painter.drawPolygon(tr);
+            painter.drawPolygon(br);
+            painter.drawPolygon(bl);
         }
         //Grey and white dashed line for visibility no matter the background colours
         QPen penbg = QPen(QBrush(), scaledVal, Qt::SolidLine);

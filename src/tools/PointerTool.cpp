@@ -30,7 +30,7 @@
 //#include <QDebug>
 
 enum SelectionMode {SELECT, HAND, RESIZE, STROKE, FILL, MOVE};
-enum Corner {TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT};
+enum Corner {TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT, TOP_EDGE, RIGHT_EDGE, BOTTOM_EDGE, LEFT_EDGE};
 enum OverlayHandle { OV_NONE, OV_BODY, OV_CORNER_TL, OV_CORNER_TR, OV_CORNER_BR, OV_CORNER_BL, OV_ROTATE };
 
 class PointerToolPrivate
@@ -56,12 +56,18 @@ public:
     QRect topRightCorner;
     QRect bottomRightCorner;
     QRect bottomLeftCorner;
+    QRect topEdge;
+    QRect rightEdge;
+    QRect bottomEdge;
+    QRect leftEdge;
     Corner corner;
     QColor fillColor;
     QColor strokeColor;
     PointerTool::SelectionShape selectionShape = PointerTool::RECT;
     QPolygon lassoPolygon;           // accumulated freehand points
     QPolygon lassoStartPolygon;      // copy at drag start for MOVE mode
+    QRect    resizeStartRect;        // selection bounds at the start of a corner-drag resize
+    QPolygon resizeStartLasso;       // lasso polygon at the start of a corner-drag resize
     // Paste overlay transform state
     int    overlayRotation = 0;      // degrees
     double overlayScale    = 1.0;
@@ -71,6 +77,11 @@ public:
     int     dragStartRotation = 0;
     QPointF dragStartCanvasPos;
     bool overlayJustCommitted = false; // suppress selection clear on the paired MouseRelease
+    // Last cursor emitted via cursorChanged(). PaintWidget's view-level mouse
+    // move handler calls Tool::getCursor() as a fallback after each move —
+    // caching here means that fallback reflects the current hover/resize
+    // state instead of stomping it back to the default arrow cursor.
+    QCursor currentCursor = Qt::ArrowCursor;
 };
 
 static QPolygon makeEllipsePolygon(const QPoint &topLeft, const QPoint &bottomRight, int steps = 64)
@@ -88,6 +99,61 @@ static QPolygon makeEllipsePolygon(const QPoint &topLeft, const QPoint &bottomRi
                        qRound(cy + ry * qSin(angle)));
     }
     return poly;
+}
+
+// Fills in the four corner hotspot squares (cornerSize x cornerSize) plus
+// four edge hit-test strips that span the entire bounding-box edge between
+// the corners (not just a small handle at the midpoint) so the selection
+// border itself is draggable to resize a single dimension. Shape-agnostic:
+// works for rect, ellipse and lasso selections since they all track a
+// bounding box in firstPos/secondPos.
+static void computeCornerRects(const QPoint &topLeft, const QPoint &bottomRight, int cornerSize,
+                                QRect &tl, QRect &tr, QRect &br, QRect &bl,
+                                QRect &top, QRect &right, QRect &bottom, QRect &left)
+{
+    tl = QRect(topLeft.x(),                  topLeft.y(),                  cornerSize, cornerSize);
+    tr = QRect(bottomRight.x() - cornerSize, topLeft.y(),                  cornerSize, cornerSize);
+    br = QRect(bottomRight.x() - cornerSize, bottomRight.y() - cornerSize, cornerSize, cornerSize);
+    bl = QRect(topLeft.x(),                  bottomRight.y() - cornerSize, cornerSize, cornerSize);
+
+    // Hit-test strips along each edge, excluding the corner zones, centred
+    // on the border line so the visible selection outline itself is the
+    // resize handle — no separate midpoint square is drawn.
+    const int edgeThickness = qMax(4, cornerSize / 2);
+    const int innerLeft   = topLeft.x() + cornerSize;
+    const int innerRight  = bottomRight.x() - cornerSize;
+    const int innerTop    = topLeft.y() + cornerSize;
+    const int innerBottom = bottomRight.y() - cornerSize;
+
+    top    = QRect(innerLeft, topLeft.y() - edgeThickness / 2,     innerRight - innerLeft, edgeThickness);
+    bottom = QRect(innerLeft, bottomRight.y() - edgeThickness / 2, innerRight - innerLeft, edgeThickness);
+    left   = QRect(topLeft.x() - edgeThickness / 2,     innerTop, edgeThickness, innerBottom - innerTop);
+    right  = QRect(bottomRight.x() - edgeThickness / 2, innerTop, edgeThickness, innerBottom - innerTop);
+}
+
+// Maps every point of poly from the fromRect coordinate space into the
+// toRect coordinate space (independent X/Y scale + translate). Used to
+// resize an arbitrary lasso polygon by dragging a bounding-box corner
+// handle, the same way a rect or ellipse selection is resized.
+static QPolygon mapPolygonToRect(const QPolygon &poly, const QRect &fromRect, const QRect &toRect)
+{
+    if (poly.isEmpty())
+        return poly;
+    const double fromW = fromRect.right()  - fromRect.left();
+    const double fromH = fromRect.bottom() - fromRect.top();
+    if (qFuzzyIsNull(fromW) || qFuzzyIsNull(fromH))
+        return poly;
+    const double sx = (toRect.right()  - toRect.left()) / fromW;
+    const double sy = (toRect.bottom() - toRect.top())  / fromH;
+    QPolygon result;
+    result.reserve(poly.size());
+    for (const QPoint &p : poly)
+    {
+        const double nx = toRect.left() + (p.x() - fromRect.left()) * sx;
+        const double ny = toRect.top()  + (p.y() - fromRect.top())  * sy;
+        result << QPoint(qRound(nx), qRound(ny));
+    }
+    return result;
 }
 
 // Returns the canvas-space centre of the pasted overlay (after scale, before rotation it's
@@ -237,6 +303,25 @@ PointerTool::~PointerTool()
     delete d;
 }
 
+QCursor PointerTool::getCursor()
+{
+    return d->currentCursor;
+}
+
+// Emits cursorChanged() and also caches the cursor on d->currentCursor.
+// PaintWidget's view-level mouse-move handler calls Tool::getCursor() as a
+// fallback after every move; because PointerTool is a singleton shared by
+// every tab, PaintWidget::setPaintTool() disconnects *all* receivers of
+// cursorChanged() (via disconnect(tool, &Tool::cursorChanged, nullptr,
+// nullptr)) whenever a tab is (re)activated. A signal-based cache would be
+// wiped out by that disconnect, so the cache is updated here via a plain
+// function call instead.
+void PointerTool::updateCursor(const QCursor &cursor)
+{
+    d->currentCursor = cursor;
+    emit cursorChanged(cursor);
+}
+
 void PointerTool::onCrop()
 {
     QRect rect;
@@ -306,30 +391,28 @@ void PointerTool::restoreSelection(const QPolygon &poly)
 {
     const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
     d->lassoPolygon.clear();
-    if (poly.size() == 4) {
-        d->firstPos = poly.at(0);
-        d->secondPos = poly.at(2);
-        d->topLeftCorner     = QRect(poly.at(0).x(),              poly.at(0).y(),              cornerSize, cornerSize);
-        d->topRightCorner    = QRect(poly.at(1).x() - cornerSize, poly.at(1).y(),              cornerSize, cornerSize);
-        d->bottomRightCorner = QRect(poly.at(2).x() - cornerSize, poly.at(2).y() - cornerSize, cornerSize, cornerSize);
-        d->bottomLeftCorner  = QRect(poly.at(3).x(),              poly.at(3).y() - cornerSize, cornerSize, cornerSize);
-    } else if (poly.size() >= 3 && d->selectionShape == PointerTool::LASSO) {
-        // Restore a lasso polygon; bounding rect used for hit-testing
-        d->lassoPolygon  = poly;
-        const QRect bb   = poly.boundingRect();
-        d->firstPos      = bb.topLeft();
-        d->secondPos     = bb.bottomRight();
-        d->topLeftCorner     = QRect();
-        d->topRightCorner    = QRect();
-        d->bottomRightCorner = QRect();
-        d->bottomLeftCorner  = QRect();
-    } else {
+    if (poly.isEmpty()) {
         d->firstPos          = QPoint();
         d->secondPos         = QPoint();
         d->topLeftCorner     = QRect();
         d->topRightCorner    = QRect();
         d->bottomRightCorner = QRect();
         d->bottomLeftCorner  = QRect();
+        d->topEdge           = QRect();
+        d->rightEdge         = QRect();
+        d->bottomEdge        = QRect();
+        d->leftEdge          = QRect();
+    } else {
+        // Bounding box drives the corner-drag hotspots for every shape —
+        // rect, ellipse and lasso selections can all be resized this way.
+        const QRect bb = poly.boundingRect();
+        d->firstPos  = bb.topLeft();
+        d->secondPos = bb.bottomRight();
+        computeCornerRects(bb.topLeft(), bb.bottomRight(), cornerSize,
+                            d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                            d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
+        if (d->selectionShape == PointerTool::LASSO && poly.size() >= 3)
+            d->lassoPolygon = poly;
     }
     d->selectionMode = SELECT;
 }
@@ -394,7 +477,7 @@ void PointerTool::setOverlayImage(const QImage& image)
     d->activeHandle    = OV_NONE;
     // Hide any existing selection marquee while the paste overlay is active.
     emit selectionChanged(QPolygon());
-    emit cursorChanged(Qt::DragCopyCursor);
+    updateCursor(Qt::DragCopyCursor);
     const QImage *paintImage = dynamic_cast<QImage*>(m_paintDevice);
     if (paintImage) {
         float dashW    = (m_scale < 0.5f) ? 5.0f : (m_scale > 1.0f) ? 1.0f : 2.0f;
@@ -436,44 +519,74 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
             // sync regardless of how the selection was last set.
             {
                 const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
-                QPolygon sel(QRect(d->firstPos, d->secondPos).normalized());
-                if (sel.size() == 4) {
-                    d->topLeftCorner     = QRect(sel.at(0).x(),              sel.at(0).y(),              cornerSize, cornerSize);
-                    d->topRightCorner    = QRect(sel.at(1).x() - cornerSize, sel.at(1).y(),              cornerSize, cornerSize);
-                    d->bottomRightCorner = QRect(sel.at(2).x() - cornerSize, sel.at(2).y() - cornerSize, cornerSize, cornerSize);
-                    d->bottomLeftCorner  = QRect(sel.at(3).x(),              sel.at(3).y() - cornerSize, cornerSize, cornerSize);
+                const QRect normSel = QRect(d->firstPos, d->secondPos).normalized();
+                if (!normSel.isNull()) {
+                    computeCornerRects(normSel.topLeft(), normSel.bottomRight(), cornerSize,
+                                        d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                                        d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
                 }
             }
             const QRect selectionRect = QRect(d->firstPos, d->secondPos).normalized();
             d->firstPos = pos;
             d->secondPos = pos;
 
-            if(d->selectionShape == PointerTool::RECT)
+            // Corner and edge handles resize the selection's bounding box
+            // regardless of shape — rect, ellipse and lasso selections are
+            // all rebuilt from their original geometry mapped into the new
+            // bounds.
+            if(d->topLeftCorner.contains(pos))
             {
-                if(d->topLeftCorner.contains(pos))
-                {
-                    d->corner = TOP_LEFT;
-                    d->selectionMode = RESIZE;
-                    emit cursorChanged(Qt::SizeFDiagCursor);
-                }
-                else if(d->topRightCorner.contains(pos))
-                {
-                    d->corner = TOP_RIGHT;
-                    d->selectionMode = RESIZE;
-                    emit cursorChanged(Qt::SizeBDiagCursor);
-                }
-                else if(d->bottomLeftCorner.contains(pos))
-                {
-                    d->corner = BOTTOM_LEFT;
-                    d->selectionMode = RESIZE;
-                    emit cursorChanged(Qt::SizeBDiagCursor);
-                }
-                else if(d->bottomRightCorner.contains(pos))
-                {
-                    d->corner = BOTTOM_RIGHT;
-                    d->selectionMode = RESIZE;
-                    emit cursorChanged(Qt::SizeFDiagCursor);
-                }
+                d->corner = TOP_LEFT;
+                d->selectionMode = RESIZE;
+                updateCursor(Qt::SizeFDiagCursor);
+            }
+            else if(d->topRightCorner.contains(pos))
+            {
+                d->corner = TOP_RIGHT;
+                d->selectionMode = RESIZE;
+                updateCursor(Qt::SizeBDiagCursor);
+            }
+            else if(d->bottomLeftCorner.contains(pos))
+            {
+                d->corner = BOTTOM_LEFT;
+                d->selectionMode = RESIZE;
+                updateCursor(Qt::SizeBDiagCursor);
+            }
+            else if(d->bottomRightCorner.contains(pos))
+            {
+                d->corner = BOTTOM_RIGHT;
+                d->selectionMode = RESIZE;
+                updateCursor(Qt::SizeFDiagCursor);
+            }
+            else if(d->topEdge.contains(pos))
+            {
+                d->corner = TOP_EDGE;
+                d->selectionMode = RESIZE;
+                updateCursor(Qt::SizeVerCursor);
+            }
+            else if(d->bottomEdge.contains(pos))
+            {
+                d->corner = BOTTOM_EDGE;
+                d->selectionMode = RESIZE;
+                updateCursor(Qt::SizeVerCursor);
+            }
+            else if(d->leftEdge.contains(pos))
+            {
+                d->corner = LEFT_EDGE;
+                d->selectionMode = RESIZE;
+                updateCursor(Qt::SizeHorCursor);
+            }
+            else if(d->rightEdge.contains(pos))
+            {
+                d->corner = RIGHT_EDGE;
+                d->selectionMode = RESIZE;
+                updateCursor(Qt::SizeHorCursor);
+            }
+
+            if (d->selectionMode == RESIZE)
+            {
+                d->resizeStartRect  = selectionRect;
+                d->resizeStartLasso = d->lassoPolygon;
             }
 
             if(d->selectionMode == SELECT && !selectionRect.isEmpty() && selectionRect.contains(pos))
@@ -491,7 +604,7 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                     d->dragAnchor = pos;
                     d->firstPos = d->moveStartFirst;
                     d->secondPos = d->moveStartSecond;
-                    emit cursorChanged(Qt::SizeAllCursor);
+                    updateCursor(Qt::SizeAllCursor);
                 }
             }
 
@@ -549,11 +662,11 @@ void PointerTool::onMousePress(const QPoint &pos, Qt::MouseButton button)
                     d->dragStartRotation   = d->overlayRotation;
                     d->dragStartCanvasPos  = QPointF(pos);
                     if (hit == OV_BODY)
-                        emit cursorChanged(Qt::OpenHandCursor);
+                        updateCursor(Qt::OpenHandCursor);
                     else if (hit == OV_ROTATE)
-                        emit cursorChanged(Qt::CrossCursor);
+                        updateCursor(Qt::CrossCursor);
                     else
-                        emit cursorChanged(Qt::SizeFDiagCursor);
+                        updateCursor(Qt::SizeFDiagCursor);
                 }
             }
         }
@@ -586,7 +699,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
                 const QPointF delta = QPointF(pos) - d->dragStartCanvasPos;
                 d->imagePos = QPoint(qRound(d->dragStartImagePos.x() + delta.x()),
                                      qRound(d->dragStartImagePos.y() + delta.y()));
-                emit cursorChanged(Qt::ClosedHandCursor);
+                updateCursor(Qt::ClosedHandCursor);
             }
             else if (d->activeHandle == OV_ROTATE)
             {
@@ -596,7 +709,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
                                                  d->image);
                 const double angle = qAtan2(pos.y() - c.y(), pos.x() - c.x()) * 180.0 / M_PI + 90.0;
                 d->overlayRotation = qRound(angle);
-                emit cursorChanged(Qt::CrossCursor);
+                updateCursor(Qt::CrossCursor);
             }
             else
             {
@@ -608,7 +721,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
                 const double currDist = (QPointF(pos) - c).manhattanLength();
                 if (origDist > 1.0)
                     d->overlayScale = qMax(0.05, d->dragStartScale * (currDist / origDist));
-                emit cursorChanged(Qt::SizeFDiagCursor);
+                updateCursor(Qt::SizeFDiagCursor);
             }
 
             const QImage *paintImage = dynamic_cast<QImage*>(m_paintDevice);
@@ -661,8 +774,39 @@ void PointerTool::onMouseMove(const QPoint &pos)
                 d->topLeftCorner.moveTo(QPoint(d->bottomLeftCorner.x(), d->topLeftCorner.y()));
                 d->bottomRightCorner.moveTo(QPoint(d->bottomRightCorner.x(), d->bottomLeftCorner.y()));
             }
+            else if(d->corner == TOP_EDGE)
+            {
+                d->topLeftCorner.moveTo(QPoint(d->topLeftCorner.x(), d->secondPos.y()));
+                d->topRightCorner.moveTo(QPoint(d->topRightCorner.x(), d->secondPos.y()));
+            }
+            else if(d->corner == BOTTOM_EDGE)
+            {
+                d->bottomLeftCorner.moveTo(QPoint(d->bottomLeftCorner.x(), d->secondPos.y()));
+                d->bottomRightCorner.moveTo(QPoint(d->bottomRightCorner.x(), d->secondPos.y()));
+            }
+            else if(d->corner == LEFT_EDGE)
+            {
+                d->topLeftCorner.moveTo(QPoint(d->secondPos.x(), d->topLeftCorner.y()));
+                d->bottomLeftCorner.moveTo(QPoint(d->secondPos.x(), d->bottomLeftCorner.y()));
+            }
+            else if(d->corner == RIGHT_EDGE)
+            {
+                d->topRightCorner.moveTo(QPoint(d->secondPos.x(), d->topRightCorner.y()));
+                d->bottomRightCorner.moveTo(QPoint(d->secondPos.x(), d->bottomRightCorner.y()));
+            }
 
-            emit selectionChanged(QRect(d->topLeftCorner.topLeft(),d->bottomRightCorner.bottomRight()));
+            {
+                const QRect newRect(d->topLeftCorner.topLeft(), d->bottomRightCorner.bottomRight());
+                QPolygon selection;
+                if (d->selectionShape == PointerTool::ELLIPSE)
+                    selection = makeEllipsePolygon(newRect.topLeft(), newRect.bottomRight());
+                else if (d->selectionShape == PointerTool::LASSO)
+                    selection = mapPolygonToRect(d->resizeStartLasso, d->resizeStartRect, newRect);
+                else
+                    selection = QPolygon(newRect);
+
+                emit selectionChanged(selection);
+            }
             emit painted(m_paintDevice);
         }
         else if(d->selectionMode == STROKE)
@@ -689,7 +833,7 @@ void PointerTool::onMouseMove(const QPoint &pos)
 
 void PointerTool::onMouseRelease(const QPoint &pos)
 {
-    emit cursorChanged(Qt::ArrowCursor);
+    updateCursor(Qt::ArrowCursor);
     emit showhotspots();
 
     if(d->selectionMode == HAND)
@@ -703,10 +847,10 @@ void PointerTool::onMouseRelease(const QPoint &pos)
         const int handleR = (m_scale > 1.0f) ? 10 : (m_scale < 0.5f ? 40 : 20);
         const OverlayHandle hit = hitTestOverlay(pos, d->imagePos, d->image,
                                                   d->overlayRotation, d->overlayScale, handleR);
-        if (hit == OV_BODY)        emit cursorChanged(Qt::OpenHandCursor);
-        else if (hit == OV_ROTATE) emit cursorChanged(Qt::CrossCursor);
-        else if (hit != OV_NONE)   emit cursorChanged(Qt::SizeFDiagCursor);
-        else                       emit cursorChanged(Qt::DragCopyCursor);
+        if (hit == OV_BODY)        updateCursor(Qt::OpenHandCursor);
+        else if (hit == OV_ROTATE) updateCursor(Qt::CrossCursor);
+        else if (hit != OV_NONE)   updateCursor(Qt::SizeFDiagCursor);
+        else                       updateCursor(Qt::DragCopyCursor);
     }
     else if(d->selectionMode == SELECT)
     {
@@ -739,22 +883,19 @@ void PointerTool::onMouseRelease(const QPoint &pos)
                 const QRect bb = selection.boundingRect();
                 d->firstPos  = bb.topLeft();
                 d->secondPos = bb.bottomRight();
-                d->topLeftCorner     = QRect();
-                d->topRightCorner    = QRect();
-                d->bottomRightCorner = QRect();
-                d->bottomLeftCorner  = QRect();
+                computeCornerRects(bb.topLeft(), bb.bottomRight(), cornerSize,
+                                    d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                                    d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
             } else if (d->selectionShape == PointerTool::ELLIPSE) {
                 selection = makeEllipsePolygon(topLeft, bottomRight);
-                d->topLeftCorner     = QRect();
-                d->topRightCorner    = QRect();
-                d->bottomRightCorner = QRect();
-                d->bottomLeftCorner  = QRect();
+                computeCornerRects(topLeft, bottomRight, cornerSize,
+                                    d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                                    d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
             } else {
                 selection = QPolygon(QRect(topLeft, bottomRight));
-                d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
-                d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
-                d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
-                d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
+                computeCornerRects(topLeft, bottomRight, cornerSize,
+                                    d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                                    d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
             }
             emit selectionChanged(selection);
 
@@ -769,8 +910,17 @@ void PointerTool::onMouseRelease(const QPoint &pos)
     }
     else if(d->selectionMode == RESIZE)
     {
-        d->firstPos = d->topLeftCorner.topLeft();
-        d->secondPos = d->bottomRightCorner.bottomRight();
+        const QRect newRect(d->topLeftCorner.topLeft(), d->bottomRightCorner.bottomRight());
+        if (d->selectionShape == PointerTool::LASSO)
+            d->lassoPolygon = mapPolygonToRect(d->resizeStartLasso, d->resizeStartRect, newRect);
+        d->firstPos = newRect.topLeft();
+        d->secondPos = newRect.bottomRight();
+        // Corner rects already track the dragged bounds; refresh the edge
+        // hotspots to match so a follow-up edge-drag hits the right spot.
+        const int cornerSize = (m_scale > 1.0f) ? 20 : (m_scale < 0.5f ? 100 : 50);
+        computeCornerRects(d->firstPos, d->secondPos, cornerSize,
+                            d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                            d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
         d->selectionMode = SELECT;
         emit painted(m_paintDevice);
     }
@@ -787,22 +937,20 @@ void PointerTool::onMouseRelease(const QPoint &pos)
             const QRect bb = selection.boundingRect();
             d->firstPos  = bb.topLeft();
             d->secondPos = bb.bottomRight();
-            d->topLeftCorner     = QRect();
-            d->topRightCorner    = QRect();
-            d->bottomRightCorner = QRect();
-            d->bottomLeftCorner  = QRect();
+            computeCornerRects(bb.topLeft(), bb.bottomRight(), cornerSize,
+                                d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                                d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
         } else if (d->selectionShape == PointerTool::ELLIPSE) {
             selection = makeEllipsePolygon(d->firstPos, d->secondPos);
-            d->topLeftCorner     = QRect();
-            d->topRightCorner    = QRect();
-            d->bottomRightCorner = QRect();
-            d->bottomLeftCorner  = QRect();
+            computeCornerRects(d->firstPos, d->secondPos, cornerSize,
+                                d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                                d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
         } else {
             selection = QPolygon(QRect(d->firstPos, d->secondPos).normalized());
-            d->topLeftCorner     = QRect(selection.at(0).x(),              selection.at(0).y(),              cornerSize, cornerSize);
-            d->topRightCorner    = QRect(selection.at(1).x() - cornerSize, selection.at(1).y(),              cornerSize, cornerSize);
-            d->bottomRightCorner = QRect(selection.at(2).x() - cornerSize, selection.at(2).y() - cornerSize, cornerSize, cornerSize);
-            d->bottomLeftCorner  = QRect(selection.at(3).x(),              selection.at(3).y() - cornerSize, cornerSize, cornerSize);
+            const QRect normSel = QRect(d->firstPos, d->secondPos).normalized();
+            computeCornerRects(normSel.topLeft(), normSel.bottomRight(), cornerSize,
+                                d->topLeftCorner, d->topRightCorner, d->bottomRightCorner, d->bottomLeftCorner,
+                                d->topEdge, d->rightEdge, d->bottomEdge, d->leftEdge);
         }
         emit selectionChanged(selection);
         d->selectionMode = SELECT;
@@ -817,40 +965,44 @@ void PointerTool::onHover(const QPoint &pos)
         const int handleR = (m_scale > 1.0f) ? 10 : (m_scale < 0.5f ? 40 : 20);
         const OverlayHandle hit = hitTestOverlay(pos, d->imagePos, d->image,
                                                   d->overlayRotation, d->overlayScale, handleR);
-        if      (hit == OV_BODY)   emit cursorChanged(Qt::OpenHandCursor);
-        else if (hit == OV_ROTATE) emit cursorChanged(Qt::CrossCursor);
-        else if (hit != OV_NONE)   emit cursorChanged(Qt::SizeFDiagCursor);
-        else                       emit cursorChanged(Qt::DragCopyCursor);
+        if      (hit == OV_BODY)   updateCursor(Qt::OpenHandCursor);
+        else if (hit == OV_ROTATE) updateCursor(Qt::CrossCursor);
+        else if (hit != OV_NONE)   updateCursor(Qt::SizeFDiagCursor);
+        else                       updateCursor(Qt::DragCopyCursor);
         return;
     }
     if (d->selectionMode != SELECT)
     {
-        emit cursorChanged(Qt::ArrowCursor);
+        updateCursor(Qt::ArrowCursor);
         return;
     }
     const QRect selRect = QRect(d->firstPos, d->secondPos).normalized();
     if (!d->topLeftCorner.isNull())
     {
         if (d->topLeftCorner.contains(pos))
-            { emit cursorChanged(Qt::SizeFDiagCursor); return; }
+            { updateCursor(Qt::SizeFDiagCursor); return; }
         if (d->topRightCorner.contains(pos))
-            { emit cursorChanged(Qt::SizeBDiagCursor); return; }
+            { updateCursor(Qt::SizeBDiagCursor); return; }
         if (d->bottomRightCorner.contains(pos))
-            { emit cursorChanged(Qt::SizeFDiagCursor); return; }
+            { updateCursor(Qt::SizeFDiagCursor); return; }
         if (d->bottomLeftCorner.contains(pos))
-            { emit cursorChanged(Qt::SizeBDiagCursor); return; }
+            { updateCursor(Qt::SizeBDiagCursor); return; }
+        if (d->topEdge.contains(pos) || d->bottomEdge.contains(pos))
+            { updateCursor(Qt::SizeVerCursor); return; }
+        if (d->leftEdge.contains(pos) || d->rightEdge.contains(pos))
+            { updateCursor(Qt::SizeHorCursor); return; }
     }
     if (!selRect.isEmpty() && selRect.contains(pos)) {
         if (d->selectionShape == PointerTool::LASSO && !d->lassoPolygon.isEmpty()) {
             if (d->lassoPolygon.containsPoint(pos, Qt::OddEvenFill))
-                emit cursorChanged(Qt::SizeAllCursor);
+                updateCursor(Qt::SizeAllCursor);
             else
-                emit cursorChanged(Qt::ArrowCursor);
+                updateCursor(Qt::ArrowCursor);
         } else {
-            emit cursorChanged(Qt::SizeAllCursor);
+            updateCursor(Qt::SizeAllCursor);
         }
     } else
-        emit cursorChanged(Qt::ArrowCursor);
+        updateCursor(Qt::ArrowCursor);
 }
 
 void PointerTool::onKeyPressed(QKeyEvent *keyEvent)
