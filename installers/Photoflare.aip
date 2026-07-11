@@ -89,7 +89,6 @@
     <ROW Component="IM_MOD_RL_cmyk_.dll" ComponentId="{83C1A0CC-7218-4B9E-B09B-5024B29C9692}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_cmyk_.dll"/>
     <ROW Component="IM_MOD_RL_cut_.dll" ComponentId="{7CA09AA4-0AEA-4E66-A14F-6D889C748A9C}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_cut_.dll"/>
     <ROW Component="IM_MOD_RL_dcm_.dll" ComponentId="{C8BF4BDA-25C4-41C9-9274-5C6A4AE8C23F}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dcm_.dll"/>
-    <ROW Component="IM_MOD_RL_dcraw_.dll" ComponentId="{714E0E42-2C1D-4478-AB07-0E2A63BCB713}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dcraw_.dll"/>
     <ROW Component="IM_MOD_RL_dib_.dll" ComponentId="{959D4E27-A12B-44FB-9BFD-F7FD80408E71}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dib_.dll"/>
     <ROW Component="IM_MOD_RL_dps_.dll" ComponentId="{9AE9DF4A-00BE-492E-87A9-5E4B24B37F6B}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dps_.dll"/>
     <ROW Component="IM_MOD_RL_dpx_.dll" ComponentId="{3CFC6120-75DB-43FA-AEB7-733D2845930E}" Directory_="APPDIR" Attributes="256" KeyPath="IM_MOD_RL_dpx_.dll"/>
@@ -261,7 +260,6 @@
     <ROW File="IM_MOD_RL_cmyk_.dll" Component_="IM_MOD_RL_cmyk_.dll" FileName="IM_MOD~9.DLL|IM_MOD_RL_cmyk_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_cmyk_.dll" SelfReg="false"/>
     <ROW File="IM_MOD_RL_cut_.dll" Component_="IM_MOD_RL_cut_.dll" FileName="IM_MO~10.DLL|IM_MOD_RL_cut_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_cut_.dll" SelfReg="false"/>
     <ROW File="IM_MOD_RL_dcm_.dll" Component_="IM_MOD_RL_dcm_.dll" FileName="IM_MO~11.DLL|IM_MOD_RL_dcm_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dcm_.dll" SelfReg="false"/>
-    <ROW File="IM_MOD_RL_dcraw_.dll" Component_="IM_MOD_RL_dcraw_.dll" FileName="IM_MO~12.DLL|IM_MOD_RL_dcraw_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dcraw_.dll" SelfReg="false"/>
     <ROW File="IM_MOD_RL_dib_.dll" Component_="IM_MOD_RL_dib_.dll" FileName="IM_MO~13.DLL|IM_MOD_RL_dib_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dib_.dll" SelfReg="false"/>
     <ROW File="IM_MOD_RL_dps_.dll" Component_="IM_MOD_RL_dps_.dll" FileName="IM_MO~14.DLL|IM_MOD_RL_dps_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dps_.dll" SelfReg="false"/>
     <ROW File="IM_MOD_RL_dpx_.dll" Component_="IM_MOD_RL_dpx_.dll" FileName="IM_MO~15.DLL|IM_MOD_RL_dpx_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\IM_MOD_RL_dpx_.dll" SelfReg="false"/>
@@ -666,7 +664,6 @@
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_cmyk_.dll"/>
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_cut_.dll"/>
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_dcm_.dll"/>
-    <ROW Feature_="MainProgram" Component_="IM_MOD_RL_dcraw_.dll"/>
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_dib_.dll"/>
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_dps_.dll"/>
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_dpx_.dll"/>

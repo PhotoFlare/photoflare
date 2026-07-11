@@ -728,16 +728,6 @@ void MainWindow::on_actionOpen_triggered()
         "PGM(*.pgm *.PGM);;"
         "PPM(*.ppm *.PPM);;" +
         tr("All Files") + "(*)";
-/*
- *  Previously supported RAW formats
-    "ARW (*.arw *.srf *.sr2);;"
-    "BAY (*.bay);;"
-    "CR2 (*.crw *.cr2);;"
-    "DCS (*.dcs *.dcr *.drf *.k25 *.kdc);;"
-    "MOS (*.mos);;"
-    "NEF (*.nef *.nrw);;"
-    "RAW (*.raw *.rw2)"));
-*/
 
     // Proxy model that filters out dot-prefixed files/dirs cross-platform.
     // QDir::Hidden is not used because on Windows it matches the OS hidden
