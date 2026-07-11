@@ -1260,8 +1260,34 @@ void MainWindow::onPaste()
     if (widget)
     {
         QClipboard *clipboard = QApplication::clipboard();
-        on_toolButtonPointer_clicked();
-        MOUSE_POINTER->setOverlayImage(clipboard->image());
+        const QMimeData *mimeData = clipboard->mimeData();
+        if (mimeData->hasImage())
+        {
+            on_toolButtonPointer_clicked();
+            MOUSE_POINTER->setOverlayImage(clipboard->image());
+        }
+        else if (mimeData->hasUrls())
+        {
+            // Clipboard holds file references (e.g. a file copied in a file
+            // browser) rather than raw image data. Load the first local
+            // image file and paste it as an overlay onto the canvas.
+            for (const QUrl &url : mimeData->urls())
+            {
+                if (!url.isLocalFile())
+                    continue;
+                const QString fileName = prepareFile(url.toLocalFile());
+                if (!fileName.isEmpty())
+                {
+                    QImage image(fileName);
+                    if (!image.isNull())
+                    {
+                        on_toolButtonPointer_clicked();
+                        MOUSE_POINTER->setOverlayImage(image);
+                    }
+                }
+                break;
+            }
+        }
     }
     else
     {
@@ -1281,15 +1307,26 @@ void MainWindow::on_actionPaste_triggered()
 
 void MainWindow::on_actionPaste_as_new_image_triggered()
 {
-    on_actionCopy_triggered();  
     QClipboard *clipboard = QApplication::clipboard();
-    if(clipboard->mimeData()->hasImage())
+    const QMimeData *mimeData = clipboard->mimeData();
+    if(mimeData->hasImage())
     {
         addPaintWidget(createPaintWidget(clipboard->image().size(),Qt::white));
         PaintWidget *widget = getCurrentPaintWidget();
         if (widget)
         {
             widget->setImage(clipboard->image());
+        }
+    }
+    else if (mimeData->hasUrls())
+    {
+        // Clipboard holds file references (e.g. a file copied in a file
+        // browser) rather than raw image data. Open each local image file
+        // as a new tab, same as dropping files onto the window.
+        for (const QUrl &url : mimeData->urls())
+        {
+            if (url.isLocalFile())
+                openFile(url.toLocalFile());
         }
     }
 }
