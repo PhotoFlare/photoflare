@@ -84,14 +84,21 @@ fi
 GMIC_SRC="$GMIC_QT_CLONE/gmic/src"
 GMIC_VER=$(grep -oP '(?<=gmic_version )\d+' "$GMIC_SRC/gmic.h")
 CIMG_TAG="v.${GMIC_VER:0:1}.${GMIC_VER:1:1}.${GMIC_VER:2:1}"
-if [[ ! -f "$GMIC_SRC/CImg.h" ]]; then
+if [[ ! -s "$GMIC_SRC/CImg.h" ]]; then
     echo "  Downloading CImg.h at tag $CIMG_TAG ..."
     wget --no-check-certificate --quiet -O "$GMIC_SRC/CImg.h" \
         "https://github.com/GreycLab/CImg/raw/${CIMG_TAG}/CImg.h"
 fi
-if [[ ! -f "$GMIC_SRC/gmic_stdlib_community.h" ]]; then
-    echo "  Generating gmic_stdlib_community.h ..."
-    make -C "$GMIC_SRC" gmic_stdlib_community.h
+if [[ ! -s "$GMIC_SRC/gmic_stdlib_community.h" ]]; then
+    echo "  Downloading gmic_stdlib_community.h ..."
+    GMIC_VERSION="${CIMG_TAG#v.}"
+    wget --quiet -O /tmp/gmic-src.tar.gz \
+        "https://github.com/GreycLab/gmic/releases/download/v.${GMIC_VERSION}/gmic_${GMIC_VERSION}.tar.gz" \
+        || { echo "Failed to download gmic source tarball"; exit 1; }
+    tar -xzf /tmp/gmic-src.tar.gz -C "$GMIC_SRC" --wildcards --strip-components=2 \
+        "*/src/gmic_stdlib_community.h" \
+        || { echo "Failed to extract gmic_stdlib_community.h from tarball"; exit 1; }
+    rm -f /tmp/gmic-src.tar.gz
 fi
 
 # Ensure lrelease (Qt6) is on PATH for the gmic-qt translations Makefile
