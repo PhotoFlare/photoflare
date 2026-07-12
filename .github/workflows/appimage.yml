@@ -70,9 +70,30 @@ jobs:
           wget --quiet -O /tmp/gmic-src.tar.gz \
             "https://github.com/GreycLab/gmic/releases/download/v.${GMIC_VERSION}/gmic_${GMIC_VERSION}.tar.gz" \
             || { echo "Failed to download gmic source tarball"; exit 1; }
-          tar -xzf /tmp/gmic-src.tar.gz -C "$GMIC_SRC" --wildcards --strip-components=2 \
+          # Extract into a scratch directory rather than relying on a fixed
+          # --strip-components depth: the internal folder nesting of the
+          # release tarball has changed between GMIC releases, which
+          # previously caused the file to silently land in the wrong place
+          # (tar still exits 0) while the stub copy from the git checkout
+          # -- which doesn't define data_gmic/size_data_gmic -- got compiled.
+          rm -rf /tmp/gmic-stdlib-extract
+          mkdir -p /tmp/gmic-stdlib-extract
+          tar -xzf /tmp/gmic-src.tar.gz -C /tmp/gmic-stdlib-extract --wildcards \
             "*/src/gmic_stdlib_community.h" \
             || { echo "Failed to extract gmic_stdlib_community.h from tarball"; exit 1; }
+          EXTRACTED_HEADER=$(find /tmp/gmic-stdlib-extract -name gmic_stdlib_community.h | head -n1)
+          if [ -z "$EXTRACTED_HEADER" ]; then
+            echo "gmic_stdlib_community.h not found in extracted tarball"
+            exit 1
+          fi
+          cp "$EXTRACTED_HEADER" "$GMIC_SRC/gmic_stdlib_community.h"
+          # Sanity check: this header must define the data_gmic/size_data_gmic
+          # symbols that gmic.cpp's decompress_stdlib() expects, otherwise fail
+          # fast here instead of with a confusing compile error later.
+          if ! grep -q 'data_gmic' "$GMIC_SRC/gmic_stdlib_community.h"; then
+            echo "gmic_stdlib_community.h does not define data_gmic; aborting"
+            exit 1
+          fi
           cmake gmic-qt-src -B build-gmic-qt \
             -DCMAKE_PREFIX_PATH="${QT_ROOT_DIR}" \
             -DBUILD_WITH_QT6=ON \
