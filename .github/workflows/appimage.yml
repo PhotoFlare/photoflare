@@ -60,7 +60,11 @@ jobs:
       - name: Build and stage gmic-qt
         run: |
           git clone --depth 1 --branch v.3.4.2 https://github.com/c-koi/gmic-qt.git gmic-qt-src
-          git clone --depth 1 --branch v.3.7.5 https://github.com/GreycLab/gmic.git gmic-qt-src/gmic
+          # Pin to the latest GMIC release tag, not an older one: gmic.eu only
+          # hosts gmic_stdlib_community<VERSION>.h for the current release, so
+          # an older pinned tag (e.g. v.3.7.5) results in a 404 there and a
+          # broken/empty header that fails to define data_gmic/size_data_gmic.
+          git clone --depth 1 --branch v.4.0.2 https://github.com/GreycLab/gmic.git gmic-qt-src/gmic
           GMIC_SRC="$PWD/gmic-qt-src/gmic/src"
           GMIC_VER=$(grep -oP '(?<=gmic_version )\d+' "$GMIC_SRC/gmic.h")
           CIMG_TAG="v.${GMIC_VER:0:1}.${GMIC_VER:1:1}.${GMIC_VER:2:1}"
