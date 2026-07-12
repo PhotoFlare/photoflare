@@ -60,23 +60,34 @@ jobs:
       - name: Build and stage gmic-qt
         run: |
           git clone --depth 1 --branch v.3.4.2 https://github.com/c-koi/gmic-qt.git gmic-qt-src
-          # Pin to the latest GMIC release tag, not an older one: gmic.eu only
-          # hosts gmic_stdlib_community<VERSION>.h for the current release, so
-          # an older pinned tag (e.g. v.3.7.5) results in a 404 there and a
-          # broken/empty header that fails to define data_gmic/size_data_gmic.
-          git clone --depth 1 --branch v.4.0.2 https://github.com/GreycLab/gmic.git gmic-qt-src/gmic
+          # Pin GMIC core to v.3.7.6: it's the last release where gmic::init_rc()
+          # still returns bool. gmic-qt v.3.4.2 (last tagged gmic-qt release, and
+          # its current master branch too) calls it as `create && gmic::init_rc()`,
+          # which fails to compile against gmic >= v.4.0.0, where init_rc() was
+          # changed to return void. Bumping GMIC core past v.4.0.0 (as previously
+          # tried) breaks this API compatibility, even though it fixes the stdlib
+          # header 404 below.
+          git clone --depth 1 --branch v.3.7.6 https://github.com/GreycLab/gmic.git gmic-qt-src/gmic
           GMIC_SRC="$PWD/gmic-qt-src/gmic/src"
           GMIC_VER=$(grep -oP '(?<=gmic_version )\d+' "$GMIC_SRC/gmic.h")
           CIMG_TAG="v.${GMIC_VER:0:1}.${GMIC_VER:1:1}.${GMIC_VER:2:1}"
           wget --no-check-certificate --quiet -O "$GMIC_SRC/CImg.h" \
             "https://github.com/GreycLab/CImg/raw/${CIMG_TAG}/CImg.h"
-          # gmic_stdlib_community.h is not reliably present at a stable path
-          # inside the GitHub release tarball (its internal layout has changed
-          # between releases). GMIC's own Makefile and CMake (FindGMicStdlib.cmake)
-          # both fetch this generated header straight from gmic.eu using the
-          # plain numeric gmic_version (e.g. 375), so do the same here instead.
+          # gmic.eu only hosts gmic_stdlib_community<VERSION>.h for whatever the
+          # CURRENT GMIC release is (older pinned versions 404 there), but the
+          # header's compressed G'MIC-script content isn't version-locked at
+          # compile time -- it's just a `data_gmic`/`size_data_gmic` byte array,
+          # and CMake's GMIC_PATH build only checks gmic.h vs CImg.h consistency,
+          # not the stdlib header's version. So resolve whatever the latest GMIC
+          # release actually is and fetch that header, decoupled from the core
+          # version pinned above for API compatibility.
+          LATEST_GMIC_TAG=$(curl -fsSL https://api.github.com/repos/GreycLab/gmic/releases/latest \
+            | grep -oP '"tag_name":\s*"\K[^"]+') \
+            || { echo "Failed to resolve latest GMIC release tag"; exit 1; }
+          LATEST_GMIC_VER="${LATEST_GMIC_TAG#v.}"
+          LATEST_GMIC_VER="${LATEST_GMIC_VER//./}"
           wget --quiet -O "$GMIC_SRC/gmic_stdlib_community.h" \
-            "https://gmic.eu/gmic_stdlib_community${GMIC_VER}.h" \
+            "https://gmic.eu/gmic_stdlib_community${LATEST_GMIC_VER}.h" \
             || { echo "Failed to download gmic_stdlib_community.h"; exit 1; }
           # Sanity check: this header must define the data_gmic/size_data_gmic
           # symbols that gmic.cpp's decompress_stdlib() expects, otherwise fail
