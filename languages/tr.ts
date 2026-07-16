@@ -2441,7 +2441,7 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="48"/>
-        <source>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G.&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram&lt;br&gt;JA - hmatrjp&lt;br&gt;TR - sabriunal&lt;br&gt;KO - VenusGirl</source>
+        <source>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G., Gerd M. Hofmann&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram&lt;br&gt;JA - hmatrjp&lt;br&gt;TR - sabriunal&lt;br&gt;KO - VenusGirl</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

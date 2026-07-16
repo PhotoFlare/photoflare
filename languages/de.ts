@@ -110,7 +110,7 @@
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation type="vanished">Radius:</translation>
     </message>
     <message>
         <source>0</source>
@@ -549,7 +549,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1274"/>
         <source>Ctrl+Shift+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Shift+V</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1279"/>
@@ -608,7 +608,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1695"/>
-        <location filename="../src/mainwindow.cpp" line="2126"/>
+        <location filename="../src/mainwindow.cpp" line="2153"/>
         <source>Grid Settings</source>
         <translation>Gitter-Einstellungen</translation>
     </message>
@@ -1335,9 +1335,9 @@
         <location filename="../src/mainwindow.cpp" line="428"/>
         <location filename="../src/mainwindow.cpp" line="458"/>
         <location filename="../src/mainwindow.cpp" line="638"/>
-        <location filename="../src/mainwindow.cpp" line="2459"/>
-        <location filename="../src/mainwindow.cpp" line="2816"/>
-        <location filename="../src/mainwindow.cpp" line="2857"/>
+        <location filename="../src/mainwindow.cpp" line="2487"/>
+        <location filename="../src/mainwindow.cpp" line="2844"/>
+        <location filename="../src/mainwindow.cpp" line="2885"/>
         <source>Ready</source>
         <translation>Bereit</translation>
     </message>
@@ -1345,8 +1345,8 @@
         <location filename="../src/mainwindow.cpp" line="432"/>
         <location filename="../src/mainwindow.cpp" line="462"/>
         <location filename="../src/mainwindow.cpp" line="627"/>
-        <location filename="../src/mainwindow.cpp" line="2823"/>
-        <location filename="../src/mainwindow.cpp" line="2864"/>
+        <location filename="../src/mainwindow.cpp" line="2851"/>
+        <location filename="../src/mainwindow.cpp" line="2892"/>
         <source>Working...</source>
         <translation>Verarbeitung...</translation>
     </message>
@@ -1361,7 +1361,7 @@
         <translation>Alle Dateien</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="757"/>
+        <location filename="../src/mainwindow.cpp" line="747"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
     </message>
@@ -1370,167 +1370,167 @@
         <translation type="vanished">Alle Dateien</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="763"/>
+        <location filename="../src/mainwindow.cpp" line="753"/>
         <source>No Preview</source>
         <translation>Keine Vorschau</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="837"/>
+        <location filename="../src/mainwindow.cpp" line="827"/>
         <source>Please open a valid image file</source>
         <translation>Bitte eine gültige Bilddatei auswählen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="847"/>
+        <location filename="../src/mainwindow.cpp" line="837"/>
         <source>Image does not exist at this file path</source>
         <translation>Bild existiert nicht unter diesem Pfad</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="859"/>
+        <location filename="../src/mainwindow.cpp" line="849"/>
         <source>multiple</source>
         <translation>mehrfach</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="860"/>
+        <location filename="../src/mainwindow.cpp" line="850"/>
         <source>Animated GIF</source>
         <translation>Animiertes GIF</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="861"/>
+        <location filename="../src/mainwindow.cpp" line="851"/>
         <source>This GIF contains %1 frames. Only the first frame will be opened for editing. Animation is not supported in this version.</source>
         <translation>Dieses GIF enthält %1 Ebenen. Nur die erste Ebene wird zur Bearbeitung geöffnet, Animation wird in dieser Programmversion nicht unterstützt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="948"/>
+        <location filename="../src/mainwindow.cpp" line="938"/>
         <source>png (*.png)</source>
         <translation>png (*.png)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="949"/>
+        <location filename="../src/mainwindow.cpp" line="939"/>
         <source>jpg (*.jpg *.jpeg)</source>
         <translation>jpg (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="950"/>
+        <location filename="../src/mainwindow.cpp" line="940"/>
         <source>bmp (*.bmp)</source>
         <translation>bmp (*.bmp)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="951"/>
+        <location filename="../src/mainwindow.cpp" line="941"/>
         <source>pbm (*.pbm)</source>
         <translation>pbm (*.pbm)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="952"/>
+        <location filename="../src/mainwindow.cpp" line="942"/>
         <source>pgm (*.pgm)</source>
         <translation>pgm (*.pgm)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="953"/>
+        <location filename="../src/mainwindow.cpp" line="943"/>
         <source>ppm (*.ppm)</source>
         <translation>ppm (*.ppm)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="954"/>
+        <location filename="../src/mainwindow.cpp" line="944"/>
         <source>ico (*.ico)</source>
         <translation>ico (*.ico)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="981"/>
+        <location filename="../src/mainwindow.cpp" line="971"/>
         <source>Save File</source>
         <translation>Bestand opslaan</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1053"/>
+        <location filename="../src/mainwindow.cpp" line="1043"/>
         <source>Unable to save image.</source>
         <translation>Bild kann nicht gespeichert werden.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1428"/>
+        <location filename="../src/mainwindow.cpp" line="1455"/>
         <source>Set Rotate Degrees</source>
         <translation>Drehwinkel einstellen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1429"/>
+        <location filename="../src/mainwindow.cpp" line="1456"/>
         <source>Degrees:</source>
         <translation>Gradmaß</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1447"/>
+        <location filename="../src/mainwindow.cpp" line="1474"/>
         <source>Resize Image</source>
         <translation>Bildgröße ändern</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1464"/>
+        <location filename="../src/mainwindow.cpp" line="1491"/>
         <source>Resize Canvas</source>
         <translation>Leinwandgröße ändern</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1672"/>
+        <location filename="../src/mainwindow.cpp" line="1699"/>
         <source>(%1, %2) (%3 x %4 pixels)</source>
         <translation>(%1, %2) (%3 x %4 Pixel)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1747"/>
+        <location filename="../src/mainwindow.cpp" line="1774"/>
         <source>Set Image Opacity</source>
         <translation>Bilddeckkraft einstellen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1748"/>
+        <location filename="../src/mainwindow.cpp" line="1775"/>
         <source>Opacity:</source>
         <translation>Deckkraft:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2094"/>
+        <location filename="../src/mainwindow.cpp" line="2121"/>
         <source>Set Grid size</source>
         <translation>Gittergröße einstellen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2095"/>
-        <location filename="../src/mainwindow.cpp" line="2127"/>
+        <location filename="../src/mainwindow.cpp" line="2122"/>
+        <location filename="../src/mainwindow.cpp" line="2154"/>
         <source>Cell width</source>
         <translation>Zellbreite</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2159"/>
-        <location filename="../src/mainwindow.cpp" line="2166"/>
+        <location filename="../src/mainwindow.cpp" line="2186"/>
         <location filename="../src/mainwindow.cpp" line="2193"/>
-        <location filename="../src/mainwindow.cpp" line="2209"/>
+        <location filename="../src/mainwindow.cpp" line="2220"/>
+        <location filename="../src/mainwindow.cpp" line="2236"/>
         <source>G&apos;MIC-Qt</source>
         <translation>G&apos;MIC-Qt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2159"/>
+        <location filename="../src/mainwindow.cpp" line="2186"/>
         <source>Failed to create temporary input file.</source>
         <translation>Fehler beim Erstellen der temporären Eingabedatei</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2166"/>
+        <location filename="../src/mainwindow.cpp" line="2193"/>
         <source>Failed to save image for G&apos;MIC-Qt.</source>
         <translation>Bild für G&apos;MIC-Qt kann nicht gesichert werden</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2194"/>
+        <location filename="../src/mainwindow.cpp" line="2221"/>
         <source>gmic_photoflare_qt not found. Please install G&apos;MIC-Qt or place the gmic_photoflare_qt binary next to photoflare.</source>
         <translation>gmic_photoflare_qt wurde nicht gefunden. Bitte installieren Sie G’MIC-Qt oder legen Sie die Binärdatei gmic_photoflare_qt neben Photoflare ab</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="2210"/>
+        <location filename="../src/mainwindow.cpp" line="2237"/>
         <source>gmic_qt.exe failed (exit code %1):
 %2</source>
         <translation>Fehler bei gmic_qt.exe failed (exit code %1)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="3253"/>
+        <location filename="../src/mainwindow.cpp" line="3281"/>
         <source>Unsaved Changes</source>
         <translation>Nicht gespeicherte Änderungen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="3253"/>
+        <location filename="../src/mainwindow.cpp" line="3281"/>
         <source>Save changes before leaving?</source>
         <translation>Speichern Sie die Änderungen vor dem Verlassen?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="3642"/>
+        <location filename="../src/mainwindow.cpp" line="3670"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
@@ -1569,12 +1569,12 @@
         <location filename="../src/dialogs/NewDialog.cpp" line="375"/>
         <location filename="../src/dialogs/NewDialog.cpp" line="378"/>
         <source>Percent</source>
-        <translation type="unfinished"></translation>
+        <translation>Percent</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="361"/>
         <source>(none)</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine</translation>
     </message>
     <message>
         <location filename="../src/dialogs/NewDialog.ui" line="366"/>
@@ -2137,82 +2137,82 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="98"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>Englisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="99"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Französisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="100"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Niederländisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="101"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>Deutsch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="102"/>
         <source>Chinese (CN)</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinesisch (CN)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="103"/>
         <source>Chinese (TW)</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinesisch (TW)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="104"/>
         <source>Czech Republic</source>
-        <translation type="unfinished"></translation>
+        <translation>Tschechisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="105"/>
         <source>Korean</source>
-        <translation type="unfinished"></translation>
+        <translation>Koreanisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="106"/>
         <source>Portuguese (PT)</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugiesisch (PT)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="107"/>
         <source>Portuguese (BR)</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugiesisch (BR)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="108"/>
         <source>Sweden</source>
-        <translation type="unfinished"></translation>
+        <translation>Schwedisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="109"/>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
+        <translation>Russisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="110"/>
         <source>Indonesian</source>
-        <translation type="unfinished"></translation>
+        <translation>Indonesisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="111"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="112"/>
         <source>Japanese</source>
-        <translation type="unfinished"></translation>
+        <translation>Japanisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="113"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Türkisch</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="216"/>
@@ -2249,8 +2249,8 @@
         <translation>Unbenannt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="781"/>
-        <location filename="../src/mainwindow.cpp" line="790"/>
+        <location filename="../src/mainwindow.cpp" line="771"/>
+        <location filename="../src/mainwindow.cpp" line="780"/>
         <source>No Preview</source>
         <translation>Keine Vorschau</translation>
     </message>
@@ -2455,22 +2455,22 @@
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="31"/>
         <source>Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Marek Mosna&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;Debian package - Dylan Aïssi&lt;br&gt;AppImage package - probonopd</source>
-        <translation type="unfinished"></translation>
+        <translation>Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Marek Mosna&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;Debian package - Dylan Aïssi&lt;br&gt;AppImage package - probonopd</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="39"/>
         <source>Main icon - Robert BM&lt;br&gt;Website graphics - Raqasa&lt;br&gt;Application icons - Imerion&lt;br&gt;Application icons - Attari B&lt;br&gt;Art Designer - Catherine Hegedusich&lt;br&gt;Advertising - Don Murphy</source>
-        <translation type="unfinished"></translation>
+        <translation>Commercial - ICS&lt;br&gt;Lead - Dylan Coakley&lt;br&gt;Developer - Marek Mosna&lt;br&gt;Developer - Dmitry Vasilenko&lt;br&gt;Debian package - Dylan Aïssi&lt;br&gt;AppImage package - probonopd</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="48"/>
-        <source>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G.&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram&lt;br&gt;JA - hmatrjp&lt;br&gt;TR - sabriunal&lt;br&gt;KO - VenusGirl</source>
-        <translation type="unfinished"></translation>
+        <source>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G., Gerd M. Hofmann&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram&lt;br&gt;JA - hmatrjp&lt;br&gt;TR - sabriunal&lt;br&gt;KO - VenusGirl</source>
+        <translation>FR - Ludovic, N.&lt;br&gt;NL - Freek P.&lt;br&gt;DE - Steffen G., Gerd M. Hofmann&lt;br&gt;zh_TW - Coolshou&lt;br&gt;zh_CN - Nichts H.&lt;br&gt;CS - Pafri&lt;br&gt;pt_BR - eltonfabricio10&lt;br&gt;pt_PT - eltonfabricio10&lt;br&gt;SV - eson57&lt;br&gt;RU - Alex K.&lt;br&gt;ID - triyanwn&lt;br&gt;ES - darkshram&lt;br&gt;JA - hmatrjp&lt;br&gt;TR - sabriunal&lt;br&gt;KO - VenusGirl</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="65"/>
         <source>eltonfabricio10 - Code&lt;br&gt;AngryPenguinPL - Code&lt;br&gt;Carlo Vaccari - Code&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</source>
-        <translation type="unfinished"></translation>
+        <translation>eltonfabricio10 - Code&lt;br&gt;AngryPenguinPL - Code&lt;br&gt;Carlo Vaccari - Code&lt;br&gt;Duzy Chan - Code&lt;br&gt;Samuel Cowen - Code&lt;br&gt;Richard Senior - GNU Autotools&lt;br&gt;Alexandre Kharlamov - Code&lt;br&gt;Michael Sheppard - Code&lt;br&gt;Helene Levernieux - Project Icon&lt;br&gt;&lt;br&gt;&lt;b&gt;Special thanks&lt;/b&gt;&lt;br&gt;I would like to thank Samantha for being an absolute gem of a person. You light up my life and I&apos;m so glad to have found you.</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
@@ -2485,7 +2485,7 @@
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="87"/>
         <source>&lt;a href=&apos;https://www.photoflare.io&apos;&gt;https://www.photoflare.io&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&apos;https://www.photoflare.io&apos;&gt;https://www.photoflare.io&lt;/a&gt;</translation>
     </message>
     <message>
         <source>&lt;a href=&apos;http://www.photoflare.io&apos;&gt;http://www.photoflare.io&lt;/a&gt;</source>
@@ -3000,7 +3000,7 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="239"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausgabe</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="240"/>
@@ -3010,52 +3010,52 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="241"/>
         <source>Format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Format</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="244"/>
         <source>Source filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Quellfilter</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="251"/>
         <source>Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Größe ändern</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="257"/>
         <source>Image size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildgröße</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="263"/>
         <source>Canvas size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Leinwandgröße</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="264"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hintergrundfarbe</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="266"/>
         <source>Top Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben links</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="266"/>
         <source>Top Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben mitte</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="266"/>
         <source>Top Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben rechts</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="267"/>
         <source>Center Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitte links</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="267"/>
@@ -3065,77 +3065,77 @@
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="267"/>
         <source>Center Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitte rechts</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="268"/>
         <source>Bottom Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten links</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="268"/>
         <source>Bottom Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten mitte</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="268"/>
         <source>Bottom Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten rechts</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="272"/>
         <source>Image position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildposition</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="284"/>
         <source>Adjustments</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassungen</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="287"/>
         <source>Brightness:</source>
-        <translation type="unfinished"></translation>
+        <translation>Helligkeit</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="293"/>
         <source>Contrast:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrast</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="299"/>
         <source>Saturation:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sättigung</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="305"/>
         <source>Gamma:</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamma</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="325"/>
         <source>Rotate:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotieren</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="332"/>
         <source>Flip:</source>
-        <translation type="unfinished"></translation>
+        <translation>Spiegeln</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="338"/>
         <source>Filters (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter (%1)</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="349"/>
         <source>Batch processing finished successfully !</source>
-        <translation type="unfinished"></translation>
+        <translation>Stapelverarbeitung erfolgreich abgeschlossen!</translation>
     </message>
     <message>
         <location filename="../src/dialogs/batchdialog.cpp" line="555"/>
         <source>Image Files (*.png *.jpg *.jpeg *.gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilddateien (*.png *.jpg *.jpeg *.gif)</translation>
     </message>
     <message>
         <source>Please add files to the batch file list and set output folder.</source>
@@ -3276,7 +3276,7 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="27"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="45"/>
@@ -3301,7 +3301,7 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="107"/>
         <source>File type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateityp:</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="121"/>
@@ -3321,22 +3321,22 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="163"/>
         <source>Undo cache size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cache-Größe rückgängig</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="178"/>
         <source>EXIF</source>
-        <translation type="unfinished"></translation>
+        <translation>EXIF</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="203"/>
         <source>Property</source>
-        <translation type="unfinished"></translation>
+        <translation>Eigenschaft</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.ui" line="208"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Wert</translation>
     </message>
     <message>
         <source>Undo Cache Size</source>
@@ -3358,12 +3358,12 @@
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.cpp" line="32"/>
         <source>Untitled</source>
-        <translation type="unfinished">Unbenannt</translation>
+        <translation>Unbenannt</translation>
     </message>
     <message>
         <location filename="../src/dialogs/imagepropertiesdialog.cpp" line="125"/>
         <source>No EXIF data available</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine EXIF-Daten vorhanden</translation>
     </message>
 </context>
 <context>
@@ -3471,4 +3471,3 @@
     </message>
 </context>
 </TS>
-
