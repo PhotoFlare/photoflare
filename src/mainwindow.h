@@ -316,6 +316,7 @@ private:
     QLabel *selectionLbl;
 
     QTranslator *m_translator = nullptr;
+    QTranslator *m_qtTranslator = nullptr;
     PluginManager* m_pluginManager = nullptr;
     QImage         m_pluginImageCache;
     QHash<QString, QSettings*> m_pluginSettings;

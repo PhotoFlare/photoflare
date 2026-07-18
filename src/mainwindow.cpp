@@ -101,6 +101,7 @@
 #include "workers/FloodFillWorker.h"
 
 #include <QTranslator>
+#include <QLibraryInfo>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "plugins/PluginManager.h"
@@ -2446,7 +2447,14 @@ void MainWindow::loadTranslator(const QString &langCode)
     if (m_translator) {
         qApp->removeTranslator(m_translator);
         delete m_translator;
+        m_translator = nullptr;
     }
+    if (m_qtTranslator) {
+        qApp->removeTranslator(m_qtTranslator);
+        delete m_qtTranslator;
+        m_qtTranslator = nullptr;
+    }
+
     m_translator = new QTranslator(this);
     QStringList paths = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
     paths.prepend(QCoreApplication::applicationDirPath());
@@ -2459,6 +2467,31 @@ void MainWindow::loadTranslator(const QString &langCode)
         }
     }
     qApp->installTranslator(m_translator);
+
+    // Qt's own dialogs and standard buttons (e.g. the "OK"/"Cancel" text on
+    // QDialogButtonBox, QMessageBox, QColorDialog, QFileDialog) are translated
+    // via Qt's own "qtbase" catalog, not the application's translation file.
+    // Without loading it, those strings stay in English even when the rest
+    // of the UI is translated. The .pro file bundles qtbase_<lang>.qm next to
+    // our own .qm files so deployed builds (no Qt SDK installed) still work;
+    // fall back to the Qt SDK's own translations directory for dev builds
+    // where that bundling step hasn't been (re-)run yet.
+    m_qtTranslator = new QTranslator(this);
+    bool qtTranslatorLoaded = false;
+    for (int i = 0; i < paths.length() && !qtTranslatorLoaded; i++) {
+        QFileInfo check_file(paths[i] + "/languages/qtbase_" + langCode + ".qm");
+        if (check_file.exists() && check_file.isFile()) {
+            qtTranslatorLoaded = m_qtTranslator->load(QStringLiteral("qtbase_") + langCode, paths[i] + "/languages/");
+        }
+    }
+    if (!qtTranslatorLoaded) {
+        const QString qtTranslationsPath = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+        qtTranslatorLoaded = m_qtTranslator->load(QLocale(langCode), QStringLiteral("qtbase"), QStringLiteral("_"), qtTranslationsPath)
+                          || m_qtTranslator->load(QStringLiteral("qtbase_") + langCode, qtTranslationsPath);
+    }
+    if (qtTranslatorLoaded) {
+        qApp->installTranslator(m_qtTranslator);
+    }
 }
 
 void MainWindow::onLanguageChanged(const QString &langCode)

@@ -3422,7 +3422,7 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="103"/>
         <source>Text Input</source>
-        <translation>Text Eingabe</translation>
+        <translation>Text Eingat</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="126"/>
@@ -3437,7 +3437,7 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="171"/>
         <source>Bold</source>
-        <translation>Fett gedruckt</translation>
+        <translation>Fett</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="184"/>
@@ -3447,7 +3447,7 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="197"/>
         <source>Strike out</source>
-        <translation>Durchstreichen</translation>
+        <translation>Durchstreich</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="210"/>

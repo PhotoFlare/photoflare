@@ -232,6 +232,7 @@ TRANSLATIONS = languages/en.ts \
 TRANSLATIONS_FILES =
 
 qtPrepareTool(LRELEASE, lrelease)
+QT_TRANSLATIONS_DIR = $$[QT_INSTALL_TRANSLATIONS]
 for(tsfile, TRANSLATIONS) {
     qmfile = $$shadowed($$tsfile)
     qmfile ~= s,.ts$,.qm,
@@ -242,6 +243,20 @@ for(tsfile, TRANSLATIONS) {
     command = $$LRELEASE -removeidentical $$tsfile -qm $$qmfile
     system($$command)|error("Failed to run: $$command")
     TRANSLATIONS_FILES += $$qmfile
+
+    # Bundle Qt's own "qtbase" catalog (translates standard dialog/button
+    # text such as OK/Cancel) alongside our app catalog. Without this, those
+    # strings only translate on machines that have the Qt SDK installed,
+    # since our loader otherwise only looks next to the executable.
+    langCode = $$basename(tsfile)
+    langCode ~= s,\\.ts$,,
+    qtBaseQmSrc = $${QT_TRANSLATIONS_DIR}/qtbase_$${langCode}.qm
+    exists($$qtBaseQmSrc) {
+        qtBaseQmDest = $$qmdir/qtbase_$${langCode}.qm
+        copycmd = $$QMAKE_COPY $$system_path($$qtBaseQmSrc) $$system_path($$qtBaseQmDest)
+        system($$copycmd)|error("Failed to run: $$copycmd")
+        TRANSLATIONS_FILES += $$qtBaseQmDest
+    }
 }
 
 # installs
