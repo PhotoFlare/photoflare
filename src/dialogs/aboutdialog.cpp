@@ -48,7 +48,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
     ui->translateTextArea->setText(tr(
         "FR - Ludovic, N."
         "<br>NL - Freek P."
-        "<br>DE - Steffen G."
+        "<br>DE - Steffen G., Gerd M. Hofmann"
         "<br>zh_TW - Coolshou"
         "<br>zh_CN - Nichts H."
         "<br>CS - Pafri"

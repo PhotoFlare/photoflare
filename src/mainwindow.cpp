@@ -2169,6 +2169,7 @@ void MainWindow::on_actionShow_rulers_triggered()
         bool visible = !widget->isRulersVisible();
         widget->showRulers(visible);
         ui->actionShow_rulers->setChecked(visible);
+        SETTINGS->setValue("showRulers", visible);
     } else {
         ui->actionShow_rulers->setChecked(false);
     }
@@ -3428,6 +3429,7 @@ PaintWidget *MainWindow::createPaintWidget(const QSize &imageSize, const QColor 
 void MainWindow::addPaintWidget(PaintWidget *widget)
 {
     widget->autoScale();
+    widget->showRulers(SETTINGS->value("showRulers", true).toBool());
 
     connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
         this->zoomCombo->setItemText(0, QString::number(static_cast<int>(scale*100)).append("%"));
