@@ -42,6 +42,18 @@
     <string notr="true"/>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item row="0" column="0">
      <widget class="QMdiArea" name="mdiArea">
       <property name="styleSheet">
@@ -471,13 +483,13 @@ QScrollBar::handle {
    </property>
    <property name="minimumSize">
     <size>
-     <width>150</width>
+     <width>160</width>
      <height>400</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>150</width>
+     <width>160</width>
      <height>400</height>
     </size>
    </property>
@@ -559,13 +571,13 @@ QToolButton:checked {
         <enum>QLayout::SetDefaultConstraint</enum>
        </property>
        <property name="leftMargin">
-        <number>10</number>
+        <number>15</number>
        </property>
        <property name="topMargin">
         <number>0</number>
        </property>
        <property name="rightMargin">
-        <number>10</number>
+        <number>15</number>
        </property>
        <property name="bottomMargin">
         <number>0</number>
