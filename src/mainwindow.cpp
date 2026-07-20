@@ -130,6 +130,13 @@ namespace
 {
     // Evaluated at each call site so it picks up live language changes
     inline QString untitledTabName() { return QObject::tr("Untitled"); }
+
+    // Common UI spacing values, kept in one place so dock/status bar
+    // padding stays consistent as the layout evolves.
+    constexpr int kDockContentMargin = 4;
+    constexpr int kDockContentSpacing = 2;
+    constexpr int kStatusBarBatchLabelRightMargin = 100;
+    constexpr int kStatusBarSelectionLabelLeftMargin = 10;
 }
 
 MainWindow::MainWindow() :
@@ -228,11 +235,11 @@ void MainWindow::setupWorkspace()
 
     // Setup status text defaults
     batchLbl = new QLabel(tr("Ready"));
-    batchLbl->setStyleSheet("margin:0 100 0 0");
+    batchLbl->setContentsMargins(0, 0, kStatusBarBatchLabelRightMargin, 0);
     ui->statusBar->addWidget(batchLbl);
 
     selectionLbl = new QLabel();
-    selectionLbl->setStyleSheet("margin:0 0 0 10");
+    selectionLbl->setContentsMargins(kStatusBarSelectionLabelLeftMargin, 0, 0, 0);
     ui->statusBar->addWidget(selectionLbl);
 
     // Disable undo/redo buttons on startup
@@ -349,8 +356,8 @@ void MainWindow::addSettingsWidgets()
     // Create a proper vertical layout on the dock's content widget so settings
     // widgets stack correctly and don't overlap inside QDockWidgetLayout.
     QVBoxLayout *layout = new QVBoxLayout(ui->dockWidgetContents);
-    layout->setContentsMargins(4, 4, 4, 4);
-    layout->setSpacing(2);
+    layout->setContentsMargins(kDockContentMargin, kDockContentMargin, kDockContentMargin, kDockContentMargin);
+    layout->setSpacing(kDockContentSpacing);
 
     m_ptSettingsWidget = new PointerSettingsWidget(ui->dockWidgetContents);
     layout->addWidget(m_ptSettingsWidget);

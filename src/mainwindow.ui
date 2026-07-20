@@ -497,7 +497,8 @@ QScrollBar::handle {
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">QDockWidget::title { padding: 2px 4px; }
+QDockWidget { border-right: 1px solid palette(mid); }</string>
    </property>
    <property name="floating">
     <bool>false</bool>
@@ -526,25 +527,6 @@ QScrollBar::handle {
       <width>0</width>
       <height>0</height>
      </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QToolButton {
-border: none;
-}
-
-QToolButton:hover {
-	background: #ddd;
-	border-radius:4px;
-	border: 1px solid #eee;
-}
-
-QToolButton:checked {
-	background: #ddd;
-	border-radius:4px;
-	border: 1px solid #c0c2c2;
-}
-
-</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
      <property name="spacing">
@@ -1035,21 +1017,21 @@ QToolButton:checked {
           <bool>true</bool>
          </property>
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="minimumSize">
           <size>
-           <width>150</width>
-           <height>200</height>
+           <width>133</width>
+           <height>177</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>200</width>
-           <height>200</height>
+           <width>133</width>
+           <height>177</height>
           </size>
          </property>
          <property name="cursor">
@@ -1119,15 +1101,18 @@ QToolButton:checked {
   <widget class="QDockWidget" name="dockWidgetSettings">
    <property name="minimumSize">
     <size>
-     <width>150</width>
+     <width>160</width>
      <height>38</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>150</width>
+     <width>160</width>
      <height>400</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QDockWidget::title { padding: 2px 4px; }</string>
    </property>
    <property name="features">
     <set>QDockWidget::DockWidgetMovable</set>
