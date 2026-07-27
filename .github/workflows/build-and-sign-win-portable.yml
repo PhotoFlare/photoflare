@@ -25,6 +25,11 @@ jobs:
           repository: PhotoFlare/photoflare-pkg
           path: photoflare-pkg
 
+      - name: Restore GraphicsMagick dev files
+        run: |
+          New-Item -ItemType Directory -Path "photoflare\external\GraphicsMagick-1.3.28" -Force | Out-Null
+          Copy-Item photoflare-pkg\windows\graphicsmagick-dev\* photoflare\external\GraphicsMagick-1.3.28\ -Recurse -Force
+
       # ------------------------------------------------------------------
       # 2. Toolchain
       # ------------------------------------------------------------------
