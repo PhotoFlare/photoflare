@@ -55,6 +55,14 @@ jobs:
         working-directory: src
         run: Get-ChildItem -Recurse -Filter "photoflare.exe"
 
+      - name: Debug - locate plugins and languages folders
+        working-directory: src
+        run: |
+          Write-Host "--- plugins ---"
+          Get-ChildItem -Recurse -Directory -Filter "plugins"
+          Write-Host "--- languages ---"
+          Get-ChildItem -Recurse -Directory -Filter "languages"
+
       # ------------------------------------------------------------------
       # 4. Assemble the portable package
       # ------------------------------------------------------------------
