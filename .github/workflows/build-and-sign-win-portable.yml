@@ -1,0 +1,111 @@
+name: build-and-sign-win-portable
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      # ------------------------------------------------------------------
+      # 1. Checkout source
+      # ------------------------------------------------------------------
+      - name: Checkout photoflare
+        uses: actions/checkout@v4
+        with:
+          path: photoflare
+
+      - name: Checkout photoflare-pkg (Windows deps)
+        uses: actions/checkout@v4
+        with:
+          repository: PhotoFlare/photoflare-pkg
+          path: photoflare-pkg
+
+      # ------------------------------------------------------------------
+      # 2. Toolchain
+      # ------------------------------------------------------------------
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.7.3'
+          arch: 'win64_msvc2019_64' # TODO: adjust if you use a different arch/compiler
+
+      - name: Setup MSVC dev environment
+        uses: ilammy/msvc-dev-cmd@v1
+
+      # ------------------------------------------------------------------
+      # 3. Build
+      # ------------------------------------------------------------------
+      - name: Build photoflare
+        working-directory: photoflare
+        run: |
+          qmake photoflare.pro          # TODO: replace with your actual build command
+          nmake                         # (or jom, or a CMake build - swap in your real steps)
+
+      # ------------------------------------------------------------------
+      # 4. Assemble the portable package
+      # ------------------------------------------------------------------
+      - name: Assemble portable package
+        shell: pwsh
+        run: |
+          $out = "photoflare\build\output"
+          New-Item -ItemType Directory -Path $out -Force | Out-Null
+
+          # Your own build output
+          Copy-Item photoflare\build\photoflare.exe $out\ -Force
+          Copy-Item photoflare\build\photoflare.ini $out\ -Force
+          Copy-Item photoflare\languages $out\languages -Recurse -Force
+          Copy-Item photoflare\plugins $out\plugins -Recurse -Force
+
+          # Qt runtime, auto-detected from the built exe
+          windeployqt "$out\photoflare.exe"
+
+          # Third-party deps checked out from photoflare-pkg
+          Copy-Item photoflare-pkg\windows\graphicsmagick\* $out\ -Force
+          Copy-Item photoflare-pkg\windows\gmic\gmic_qt.exe $out\ -Force
+
+          # Portable marker file
+          New-Item -Path "$out\portable" -ItemType File -Force | Out-Null
+
+      # ------------------------------------------------------------------
+      # 5. Upload unsigned artifact
+      # ------------------------------------------------------------------
+      - name: Upload unsigned artifact
+        id: upload-unsigned-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: photoflare-unsigned
+          path: photoflare\build\output\photoflare.exe
+
+      # ------------------------------------------------------------------
+      # 6. Submit to SignPath and wait for the signed result
+      # ------------------------------------------------------------------
+      - name: Submit signing request
+        uses: signpath/github-action-submit-signing-request@v2
+        with:
+          api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
+          organization-id: 'a0d93669-036e-4935-85d0-ad3813a95399'
+          project-slug: 'photoflare'
+          signing-policy-slug: 'test-signing'
+          artifact-configuration-slug: 'initial'
+          github-artifact-id: '${{ steps.upload-unsigned-artifact.outputs.artifact-id }}'
+          wait-for-completion: true
+          output-artifact-directory: 'signed'
+
+      # ------------------------------------------------------------------
+      # 7. Rebuild the final portable folder with the signed exe
+      # ------------------------------------------------------------------
+      - name: Swap in signed exe
+        shell: pwsh
+        run: |
+          Copy-Item signed\photoflare.exe photoflare\build\output\photoflare.exe -Force
+
+      - name: Upload signed portable package
+        uses: actions/upload-artifact@v4
+        with:
+          name: photoflare-portable-signed
+          path: photoflare\build\output\
