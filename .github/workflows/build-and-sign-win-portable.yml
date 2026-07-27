@@ -17,7 +17,7 @@ jobs:
       - name: Checkout photoflare
         uses: actions/checkout@v4
         with:
-          path: photoflare
+          path: src
 
       - name: Checkout photoflare-pkg (Windows deps)
         uses: actions/checkout@v4
@@ -27,8 +27,8 @@ jobs:
 
       - name: Restore GraphicsMagick dev files
         run: |
-          New-Item -ItemType Directory -Path "photoflare\external\GraphicsMagick-1.3.28" -Force | Out-Null
-          Copy-Item photoflare-pkg\windows\graphicsmagick-dev\* photoflare\external\GraphicsMagick-1.3.28\ -Recurse -Force
+          New-Item -ItemType Directory -Path "src\external\GraphicsMagick-1.3.28" -Force | Out-Null
+          Copy-Item photoflare-pkg\windows\graphicsmagick-dev\* src\external\GraphicsMagick-1.3.28\ -Recurse -Force
 
       # ------------------------------------------------------------------
       # 2. Toolchain
@@ -46,10 +46,14 @@ jobs:
       # 3. Build
       # ------------------------------------------------------------------
       - name: Build photoflare
-        working-directory: photoflare
+        working-directory: src\photoflare
         run: |
           qmake photoflare.pro          # TODO: replace with your actual build command
           nmake                         # (or jom, or a CMake build - swap in your real steps)
+
+      - name: Debug - list build output
+        working-directory: src
+        run: Get-ChildItem -Recurse -Filter "photoflare.exe"
 
       # ------------------------------------------------------------------
       # 4. Assemble the portable package
@@ -57,14 +61,13 @@ jobs:
       - name: Assemble portable package
         shell: pwsh
         run: |
-          $out = "photoflare\build\output"
+          $out = "src\photoflare\build\output"
           New-Item -ItemType Directory -Path $out -Force | Out-Null
 
           # Your own build output
-          Copy-Item photoflare\build\photoflare.exe $out\ -Force
-          Copy-Item photoflare\build\photoflare.ini $out\ -Force
-          Copy-Item photoflare\languages $out\languages -Recurse -Force
-          Copy-Item photoflare\plugins $out\plugins -Recurse -Force
+          Copy-Item src\photoflare\build\photoflare.exe $out\ -Force
+          Copy-Item src\photoflare\languages $out\languages -Recurse -Force
+          Copy-Item src\photoflare\plugins $out\plugins -Recurse -Force
 
           # Qt runtime, auto-detected from the built exe
           windeployqt "$out\photoflare.exe"
@@ -84,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: photoflare-unsigned
-          path: photoflare\build\output\photoflare.exe
+          path: src\photoflare\build\output\photoflare.exe
 
       # ------------------------------------------------------------------
       # 6. Submit to SignPath and wait for the signed result
@@ -107,10 +110,10 @@ jobs:
       - name: Swap in signed exe
         shell: pwsh
         run: |
-          Copy-Item signed\photoflare.exe photoflare\build\output\photoflare.exe -Force
+          Copy-Item signed\photoflare.exe src\photoflare\build\output\photoflare.exe -Force
 
       - name: Upload signed portable package
         uses: actions/upload-artifact@v4
         with:
           name: photoflare-portable-signed
-          path: photoflare\build\output\
+          path: src\photoflare\build\output\
