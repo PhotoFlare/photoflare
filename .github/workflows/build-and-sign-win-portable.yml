@@ -46,7 +46,7 @@ jobs:
       # 3. Build
       # ------------------------------------------------------------------
       - name: Build photoflare
-        working-directory: src\photoflare
+        working-directory: src
         run: |
           qmake photoflare.pro          # TODO: replace with your actual build command
           nmake                         # (or jom, or a CMake build - swap in your real steps)
@@ -61,13 +61,13 @@ jobs:
       - name: Assemble portable package
         shell: pwsh
         run: |
-          $out = "src\photoflare\build\output"
+          $out = "src\build\output"
           New-Item -ItemType Directory -Path $out -Force | Out-Null
 
           # Your own build output
-          Copy-Item src\photoflare\build\photoflare.exe $out\ -Force
-          Copy-Item src\photoflare\languages $out\languages -Recurse -Force
-          Copy-Item src\photoflare\plugins $out\plugins -Recurse -Force
+          Copy-Item src\build\photoflare.exe $out\ -Force
+          Copy-Item src\languages $out\languages -Recurse -Force
+          Copy-Item src\plugins $out\plugins -Recurse -Force
 
           # Qt runtime, auto-detected from the built exe
           windeployqt "$out\photoflare.exe"
@@ -87,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: photoflare-unsigned
-          path: src\photoflare\build\output\photoflare.exe
+          path: src\build\output\photoflare.exe
 
       # ------------------------------------------------------------------
       # 6. Submit to SignPath and wait for the signed result
@@ -110,10 +110,10 @@ jobs:
       - name: Swap in signed exe
         shell: pwsh
         run: |
-          Copy-Item signed\photoflare.exe src\photoflare\build\output\photoflare.exe -Force
+          Copy-Item signed\photoflare.exe src\build\output\photoflare.exe -Force
 
       - name: Upload signed portable package
         uses: actions/upload-artifact@v4
         with:
           name: photoflare-portable-signed
-          path: src\photoflare\build\output\
+          path: src\build\output\
