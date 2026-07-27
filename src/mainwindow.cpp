@@ -725,7 +725,7 @@ void MainWindow::on_actionOpen_triggered()
 {
     const QString filters =
         tr("Image Files") +
-        "(*.png *.PNG *.jpg *.jpeg *.JPG *.JPEG *.gif *.GIF *.tif *.tiff *.TIF *.TIFF *.bmp *.BMP *.ico *.ICO *.pbm *.PBM *.pgm *.PGM *.ppm *.PPM);;"
+        "(*.png *.PNG *.jpg *.jpeg *.JPG *.JPEG *.gif *.GIF *.tif *.tiff *.TIF *.TIFF *.bmp *.BMP *.ico *.ICO *.pbm *.PBM *.pgm *.PGM *.ppm *.PPM *.webp);;"
         "PNG(*.png *.PNG);;"
         "JPEG(*.jpg *.jpeg *.JPG *.JPEG);;"
         "GIF(*.gif *.GIF);;"
@@ -734,7 +734,8 @@ void MainWindow::on_actionOpen_triggered()
         "ICO(*.ico *.ICO);;"
         "PBM(*.pbm *.PBM);;"
         "PGM(*.pgm *.PGM);;"
-        "PPM(*.ppm *.PPM);;" +
+        "PPM(*.ppm *.PPM);;"
+        "WEBP(*.webp *.WEBP);;" +
         tr("All Files") + "(*)";
 
     // Proxy model that filters out dot-prefixed files/dirs cross-platform.
