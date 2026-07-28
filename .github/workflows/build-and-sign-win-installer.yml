@@ -2,14 +2,18 @@ name: build-and-sign-win-installer
 
 on:
   workflow_dispatch:
-  # Trigger once portable workflow is stable.
-  # workflow_run:
-  #   workflows: ["build-and-sign-win-portable"]
-  #   types: [completed]
+    inputs:
+      portable_run_id:
+        description: 'Run ID of the build-and-sign-win-portable run to pull artifacts from (only needed when triggering manually)'
+        required: false
+  workflow_run:
+    workflows: ["build-and-sign-win-portable"]
+    types: [completed]
 
 jobs:
   build-installer:
     runs-on: windows-latest
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
 
     steps:
       # ------------------------------------------------------------------
@@ -20,13 +24,16 @@ jobs:
 
       # ------------------------------------------------------------------
       # 2. Get the already-signed portable package
-      #    (produced by the build-and-sign.yml workflow)
+      #    (produced by the build-and-sign-win-portable workflow)
       # ------------------------------------------------------------------
       - name: Download signed portable package
         uses: actions/download-artifact@v4
         with:
           name: photoflare-portable-signed
           path: installers\PhotoFlare_Win_AIP
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ github.event.workflow_run.id || inputs.portable_run_id }}
 
       # ------------------------------------------------------------------
       # 3. Build the installer with Advanced Installer
@@ -63,7 +70,7 @@ jobs:
           organization-id: 'a0d93669-036e-4935-85d0-ad3813a95399'
           project-slug: 'photoflare'
           signing-policy-slug: 'test-signing'
-          artifact-configuration-slug: 'initial'
+          artifact-configuration-slug: 'github-installer'
           github-artifact-id: '${{ steps.upload-unsigned-installer.outputs.artifact-id }}'
           wait-for-completion: true
           output-artifact-directory: 'installer-signed'
