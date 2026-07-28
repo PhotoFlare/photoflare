@@ -108,8 +108,7 @@ jobs:
       - name: Set exe version info
         shell: pwsh
         run: |
-          npm install -g rcedit
-          rcedit "src\build\output\photoflare.exe" `
+          npx --yes rcedit-cli "src\build\output\photoflare.exe" `
             --set-file-version "${{ steps.version.outputs.version }}" `
             --set-product-version "${{ steps.version.outputs.version }}"
 
