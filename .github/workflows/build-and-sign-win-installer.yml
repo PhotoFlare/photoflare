@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: photoflare-installer-unsigned
-          path: installer-output\*.exe
+          path: installer-output\*.msi
 
       # ------------------------------------------------------------------
       # 6. Submit to SignPath and wait for the signed result
