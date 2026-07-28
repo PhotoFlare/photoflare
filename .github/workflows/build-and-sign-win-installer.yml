@@ -41,14 +41,14 @@ jobs:
       - name: Build installer with Advanced Installer
         uses: caphyon/advinst-github-action@main
         with:
-          advinst-version: '21.9'
+          advinst-version: '23.9'
           advinst-license: '${{ secrets.ADVINST_LICENSE_KEY }}'
           advinst-enable-automation: 'true'
           aip-path: '${{ github.workspace }}\installers\Photoflare.aip'
           aip-build-name: DefaultBuild
           aip-output-dir: '${{ github.workspace }}\installer-output'
           aip-commands: |
-            SetVersion 1.7.3.0
+            SetVersion ${{ steps.version.outputs.version }}
 
       # ------------------------------------------------------------------
       # 4. Upload the unsigned installer output

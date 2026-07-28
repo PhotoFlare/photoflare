@@ -37,7 +37,8 @@ jobs:
         uses: jurplel/install-qt-action@v4
         with:
           version: '6.7.3'
-          arch: 'win64_msvc2019_64' # TODO: adjust if you use a different arch/compiler
+          arch: 'win64_msvc2019_64'
+          modules: 'qtimageformats'
 
       - name: Setup MSVC dev environment
         uses: ilammy/msvc-dev-cmd@v1
@@ -48,8 +49,8 @@ jobs:
       - name: Build photoflare
         working-directory: src
         run: |
-          qmake photoflare.pro          # TODO: replace with your actual build command
-          nmake                         # (or jom, or a CMake build - swap in your real steps)
+          qmake photoflare.pro
+          nmake
 
       - name: Debug - list build output
         working-directory: src
@@ -75,9 +76,13 @@ jobs:
           # Your own build output
           Copy-Item src\release\photoflare.exe $out\ -Force
           Copy-Item src\languages $out\languages -Recurse -Force
+          Copy-Item src\installers\assets\logo.ico $out\ -Force
+          Copy-Item src\installers\assets\gplv3eula.rtf $out\ -Force
+          New-Item -ItemType Directory -Path "$out\DATA" -Force | Out-Null
+          Copy-Item src\installers\assets\DATA\photoflare_studio_ad.png "$out\DATA\" -Force
 
           # Qt runtime, auto-detected from the built exe
-          windeployqt "$out\photoflare.exe"
+          windeployqt --compiler-runtime "$out\photoflare.exe"
 
           # Third-party deps checked out from photoflare-pkg
           Copy-Item photoflare-pkg\windows\graphicsmagick\* $out\ -Force
@@ -87,7 +92,29 @@ jobs:
           New-Item -Path "$out\portable" -ItemType File -Force | Out-Null
 
       # ------------------------------------------------------------------
-      # 5. Upload unsigned artifact
+      # 5. Set exe version info
+      # ------------------------------------------------------------------
+
+      - name: Read version from stable.json
+        id: version
+        shell: pwsh
+        run: |
+          $raw = Get-Content src\versions\stable.json -Raw
+          $version = $raw.Trim()
+          $fullVersion = "$version.0"
+          Write-Host "Read version: $version -> using $fullVersion"
+          echo "version=$fullVersion" >> $env:GITHUB_OUTPUT
+
+      - name: Set exe version info
+        shell: pwsh
+        run: |
+          npm install -g rcedit
+          rcedit "src\build\output\photoflare.exe" `
+            --set-file-version "${{ steps.version.outputs.version }}" `
+            --set-product-version "${{ steps.version.outputs.version }}"
+
+      # ------------------------------------------------------------------
+      # 6. Upload unsigned artifact
       # ------------------------------------------------------------------
       - name: Upload unsigned artifact
         id: upload-unsigned-artifact
@@ -97,7 +124,7 @@ jobs:
           path: src\build\output\photoflare.exe
 
       # ------------------------------------------------------------------
-      # 6. Submit to SignPath and wait for the signed result
+      # 7. Submit to SignPath and wait for the signed result
       # ------------------------------------------------------------------
       - name: Submit signing request
         uses: signpath/github-action-submit-signing-request@v2
@@ -112,7 +139,7 @@ jobs:
           output-artifact-directory: 'signed'
 
       # ------------------------------------------------------------------
-      # 7. Rebuild the final portable folder with the signed exe
+      # 8. Rebuild the final portable folder with the signed exe
       # ------------------------------------------------------------------
       - name: Swap in signed exe
         shell: pwsh
