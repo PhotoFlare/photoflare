@@ -36,7 +36,20 @@ jobs:
           run-id: ${{ github.event.workflow_run.id || inputs.portable_run_id }}
 
       # ------------------------------------------------------------------
-      # 3. Build the installer with Advanced Installer
+      # 3. Read version from stable.json
+      # ------------------------------------------------------------------
+      - name: Read version from stable.json
+        id: version
+        shell: pwsh
+        run: |
+          $raw = Get-Content versions\stable.json -Raw
+          $version = $raw.Trim()
+          $fullVersion = "$version.0"
+          Write-Host "Read version: $version -> using $fullVersion"
+          echo "version=$fullVersion" >> $env:GITHUB_OUTPUT
+
+      # ------------------------------------------------------------------
+      # 4. Build the installer with Advanced Installer
       # ------------------------------------------------------------------
       - name: Build installer with Advanced Installer
         uses: caphyon/advinst-github-action@main
@@ -51,7 +64,7 @@ jobs:
             SetVersion ${{ steps.version.outputs.version }}
 
       # ------------------------------------------------------------------
-      # 4. Upload the unsigned installer output
+      # 5. Upload the unsigned installer output
       # ------------------------------------------------------------------
       - name: Upload unsigned installer
         id: upload-unsigned-installer
@@ -61,7 +74,7 @@ jobs:
           path: installer-output\*.exe
 
       # ------------------------------------------------------------------
-      # 5. Submit to SignPath and wait for the signed result
+      # 6. Submit to SignPath and wait for the signed result
       # ------------------------------------------------------------------
       - name: Submit installer for signing
         uses: signpath/github-action-submit-signing-request@v2
@@ -76,7 +89,7 @@ jobs:
           output-artifact-directory: 'installer-signed'
 
       # ------------------------------------------------------------------
-      # 6. Upload the final signed installer
+      # 7. Upload the final signed installer
       # ------------------------------------------------------------------
       - name: Upload signed installer
         uses: actions/upload-artifact@v4
