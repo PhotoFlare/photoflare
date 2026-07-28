@@ -105,10 +105,15 @@ jobs:
           Write-Host "Read version: $version -> using $fullVersion"
           echo "version=$fullVersion" >> $env:GITHUB_OUTPUT
 
+      - name: Download rcedit
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe" -OutFile "$env:RUNNER_TEMP\rcedit.exe"
+
       - name: Set exe version info
         shell: pwsh
         run: |
-          npx --yes rcedit-cli "src\build\output\photoflare.exe" `
+          & "$env:RUNNER_TEMP\rcedit.exe" "src\build\output\photoflare.exe" `
             --set-file-version "${{ steps.version.outputs.version }}" `
             --set-product-version "${{ steps.version.outputs.version }}"
 
