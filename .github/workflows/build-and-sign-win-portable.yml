@@ -106,7 +106,7 @@ jobs:
           organization-id: 'a0d93669-036e-4935-85d0-ad3813a95399'
           project-slug: 'photoflare'
           signing-policy-slug: 'test-signing'
-          artifact-configuration-slug: 'initial'
+          artifact-configuration-slug: 'github'
           github-artifact-id: '${{ steps.upload-unsigned-artifact.outputs.artifact-id }}'
           wait-for-completion: true
           output-artifact-directory: 'signed'
