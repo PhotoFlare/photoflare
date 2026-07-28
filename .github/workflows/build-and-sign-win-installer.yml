@@ -41,7 +41,7 @@ jobs:
       - name: Build installer with Advanced Installer
         uses: caphyon/advinst-github-action@main
         with:
-          advinst-version: '19.9'
+          advinst-version: '21.9'
           advinst-license: '${{ secrets.ADVINST_LICENSE_KEY }}'
           advinst-enable-automation: 'true'
           aip-path: '${{ github.workspace }}\installers\Photoflare.aip'
