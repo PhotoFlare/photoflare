@@ -75,7 +75,6 @@ jobs:
           # Your own build output
           Copy-Item src\release\photoflare.exe $out\ -Force
           Copy-Item src\languages $out\languages -Recurse -Force
-          Copy-Item src\plugins $out\plugins -Recurse -Force
 
           # Qt runtime, auto-detected from the built exe
           windeployqt "$out\photoflare.exe"
