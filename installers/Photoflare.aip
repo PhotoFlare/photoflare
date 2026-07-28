@@ -194,7 +194,6 @@
     <ROW Component="qicns.dll" ComponentId="{73491785-C752-4CD1-B122-EF8AE35D1AAB}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qicns.dll"/>
     <ROW Component="qico.dll" ComponentId="{2EA6A2C1-408F-4B5D-A418-0EE0ABB279CC}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qico.dll"/>
     <ROW Component="qjpeg.dll" ComponentId="{8F6E5540-C8AE-49B2-BA8C-8D948AEDA577}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qjpeg.dll"/>
-    <ROW Component="qminimal.dll" ComponentId="{CC88D05C-634F-4286-B3C1-FFBDB312C048}" Directory_="platforms_Dir" Attributes="256" KeyPath="qminimal.dll"/>
     <ROW Component="qmodernwindowsstyle.dll" ComponentId="{EE71A219-4628-4703-80DD-3588D2154F1D}" Directory_="styles_Dir" Attributes="256" KeyPath="qmodernwindowsstyle.dll"/>
     <ROW Component="qsvg.dll" ComponentId="{527834BA-26F5-4F23-B4A6-3AC769564E36}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qsvg.dll"/>
     <ROW Component="qsvgicon.dll" ComponentId="{B4B5B6B7-C4C5-D4D5-E4E5-F4F5F6F7F8F9}" Directory_="iconengines_Dir" Attributes="256" KeyPath="qsvgicon.dll"/>
@@ -238,7 +237,6 @@
     <ROW File="qtiff.dll" Component_="qtiff.dll" FileName="qtiff.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qtiff.dll" SelfReg="false"/>
     <ROW File="qwbmp.dll" Component_="qwbmp.dll" FileName="qwbmp.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qwbmp.dll" SelfReg="false"/>
     <ROW File="qwebp.dll" Component_="qwebp.dll" FileName="qwebp.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\imageformats\qwebp.dll" SelfReg="false"/>
-    <ROW File="qminimal.dll" Component_="qminimal.dll" FileName="qminimal.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\platforms\qminimal.dll" SelfReg="false"/>
     <ROW File="qwindows.dll" Component_="qwindows.dll" FileName="qwindows.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\platforms\qwindows.dll" SelfReg="false"/>
     <ROW File="CORE_RL_jbig_.dll" Component_="CORE_RL_jbig_.dll" FileName="CORE_R~9.DLL|CORE_RL_jbig_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_jbig_.dll" SelfReg="false"/>
     <ROW File="CORE_RL_jp2_.dll" Component_="CORE_RL_jp2_.dll" FileName="CORE_~10.DLL|CORE_RL_jp2_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_jp2_.dll" SelfReg="false"/>
@@ -770,7 +768,6 @@
     <ROW Feature_="MainProgram" Component_="qicns.dll"/>
     <ROW Feature_="MainProgram" Component_="qico.dll"/>
     <ROW Feature_="MainProgram" Component_="qjpeg.dll"/>
-    <ROW Feature_="MainProgram" Component_="qminimal.dll"/>
     <ROW Feature_="MainProgram" Component_="qsvg.dll"/>
     <ROW Feature_="MainProgram" Component_="qtga.dll"/>
     <ROW Feature_="MainProgram" Component_="qtiff.dll"/>

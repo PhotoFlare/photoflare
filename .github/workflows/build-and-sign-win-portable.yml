@@ -83,6 +83,12 @@ jobs:
 
           # Qt runtime, auto-detected from the built exe
           windeployqt --compiler-runtime "$out\photoflare.exe"
+          
+          # windeployqt only scans photoflare.exe's own deps, these two are
+          # needed by GraphicsMagick (OpenMP + VC++ runtime) but go undetected
+          # since GraphicsMagick DLLs are copied in after windeployqt runs
+          Copy-Item "$env:VCToolsRedistDir\x64\Microsoft.VC*.CRT\vcruntime140_1.dll" $out\ -Force
+          Copy-Item "$env:VCToolsRedistDir\x64\Microsoft.VC*.OpenMP\vcomp140.dll" $out\ -Force
 
           # Third-party deps checked out from photoflare-pkg
           Copy-Item photoflare-pkg\windows\graphicsmagick\* $out\ -Force
