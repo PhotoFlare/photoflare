@@ -40,6 +40,16 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.7.3" date="2026-07-31">
+        <description>
+          <ul>
+            <li>Updated German translation.</li>
+            <li>Fixed ruler setting not maintained.</li>
+            <li>CI pipeline to build and sign Windows builds.</li>
+            <li>Code improvements.</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.7.2" date="2026-05-19">
         <description>
           <ul>

@@ -208,7 +208,7 @@
     <ATTRIBUTE name="CurrentFeature" value="MainProgram"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="PhotoFlare.exe" Component_="PhotoFlare.exe" FileName="PHOTOF~1.EXE|photoflare.exe" Version="1.7.2.0" Attributes="0" SourcePath="PhotoFlare_Win_AIP\PhotoFlare.exe" SelfReg="false"/>
+    <ROW File="PhotoFlare.exe" Component_="PhotoFlare.exe" FileName="PHOTOF~1.EXE|photoflare.exe" Version="1.7.3.0" Attributes="0" SourcePath="PhotoFlare_Win_AIP\PhotoFlare.exe" SelfReg="false"/>
     <ROW File="CORE_RL_bzlib_.dll" Component_="CORE_RL_bzlib_.dll" FileName="CORE_R~1.DLL|CORE_RL_bzlib_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_bzlib_.dll" SelfReg="false"/>
     <ROW File="CORE_RL_lcms_.dll" Component_="CORE_RL_lcms_.dll" FileName="CORE_R~2.DLL|CORE_RL_lcms_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_lcms_.dll" SelfReg="false"/>
     <ROW File="CORE_RL_libxml_.dll" Component_="CORE_RL_libxml_.dll" FileName="CORE_R~3.DLL|CORE_RL_libxml_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_libxml_.dll" SelfReg="false"/>
