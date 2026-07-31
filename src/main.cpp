@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
         // App details
         app.setApplicationName("photoflare");
         app.setApplicationVersion("1.7.3");
-        app.setOrganizationDomain("photoflare.io");
+        app.setOrganizationDomain("PhotoFlare");
 
         // Setup Default settings
         if (Settings::isPortableMode()) {
