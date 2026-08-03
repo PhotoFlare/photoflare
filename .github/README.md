@@ -1,7 +1,7 @@
 # Photoflare
 
 [![License: GPL v3+](https://img.shields.io/badge/License-GPL-yellowgreen.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![GitHub release](https://img.shields.io/badge/Release-1.7.3-green.svg)](https://github.com/PhotoFlare/photoflare/releases)
+[![GitHub release](https://img.shields.io/badge/Release-1.7.4-green.svg)](https://github.com/PhotoFlare/photoflare/releases)
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/photoflare.svg)](https://repology.org/project/photoflare/versions)
 
 Photoflare is a powerful yet easy-to-use cross-platform image editor. It suits a wide variety of different tasks and users who value a more nimble workflow. Features include basic image editing capabilities, paint brushes, image filters, colour adjustments and more advanced features such as Batch image processing.
