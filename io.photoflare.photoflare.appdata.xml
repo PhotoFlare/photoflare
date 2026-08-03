@@ -40,6 +40,13 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.7.4" date="2026-08-03">
+        <description>
+          <ul>
+            <li>Fixed duplicate config folder created on Linux after organization rename.</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.7.3" date="2026-07-31">
         <description>
           <ul>
