@@ -39,7 +39,8 @@ int main(int argc, char *argv[])
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("1.7.3");
+        app.setApplicationVersion("1.7.4");
+        app.setOrganizationName("PhotoFlare");
         app.setOrganizationDomain("PhotoFlare");
 
         // Setup Default settings
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
                 SETTINGS->setDefaultSettings();
             }
         } else {
-            QString loc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io";
+            QString loc = QDir(QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)).filePath(QCoreApplication::organizationName());
             if(!QDir(loc).exists())
             {
                 QDir().mkdir(loc);
@@ -64,7 +65,7 @@ int main(int argc, char *argv[])
         if (Settings::isPortableMode()) {
             pluginLoc = QCoreApplication::applicationDirPath() + "/plugins";
         } else {
-            pluginLoc = QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)+"photoflare.io/plugins";
+            pluginLoc = QDir(QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)).filePath(QCoreApplication::organizationName()+"/plugins");
         }
         if(!QDir(pluginLoc).exists())
         {
