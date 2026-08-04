@@ -15,7 +15,10 @@
 #                   apt Qt6 packages are 6.4.x, which is below gmic-qt's
 #                   minimum supported Qt6 version.
 #
-# Output: photoflare_<VERSION>_<ARCH>.deb in the repo root.
+# Output: photoflare_<VERSION>~<CODENAME>1_<ARCH>.deb in the repo root, where
+# CODENAME is auto-detected from /etc/os-release (e.g. noble on 24.04) and
+# runtime Depends are resolved from the build machine's actual libraries, so
+# the same command produces a correct package on 24.04, 26.04, etc.
 #
 # Requirements (Ubuntu):
 #   sudo apt-get install -y build-essential dpkg-dev \
@@ -70,12 +73,16 @@ if command -v apt-get &>/dev/null; then
 fi
 echo ""
 
-# Parse version from the DEBIAN control file (may include a suffix like ~noble1)
-VERSION="$(grep -oP '(?<=^Version: )\S+' installers/deb/DEBIAN/control)"
-if [[ -z "$VERSION" ]]; then
+# Base version comes from the control file; the distro suffix is derived from
+# whatever Ubuntu release this script is actually run on, so the same command
+# produces a correctly-labelled package on 24.04, 26.04, etc.
+BASE_VERSION="$(grep -oP '(?<=^Version: )\S+' installers/deb/DEBIAN/control)"
+if [[ -z "$BASE_VERSION" ]]; then
     echo "ERROR: could not parse Version from installers/deb/DEBIAN/control"
     exit 1
 fi
+CODENAME="$(. /etc/os-release && echo "${VERSION_CODENAME:-unknown}")"
+VERSION="${BASE_VERSION}~${CODENAME}1"
 ARCH="$(dpkg --print-architecture)"
 DEB_NAME="photoflare_${VERSION}_${ARCH}.deb"
 
@@ -90,6 +97,21 @@ mkdir -p "$STAGING_DIR"
 "$QMAKE" CONFIG+=release CONFIG+=packaging PREFIX=/usr
 make -j"$(nproc)"
 make install INSTALL_ROOT="$STAGING_DIR"
+echo ""
+
+# Resolve the photoflare binary's actual shared-library dependencies to the
+# packages that provide them on this build machine, rather than hardcoding
+# version-specific names (e.g. Ubuntu 24.04's libXXXt64 renames) that break
+# on other releases.
+echo "=== Resolving runtime dependencies ==="
+# Query one library at a time (not via xargs batching) and tolerate lookup
+# failures — with set -e/pipefail, one unowned library (e.g. not installed
+# via apt) would otherwise abort the whole pipeline.
+SHLIB_DEPENDS="$( (ldd "$STAGING_DIR/usr/bin/photoflare" \
+    | awk '{print $3}' | grep '^/' | sort -u \
+    | while read -r lib; do dpkg -S "$lib" 2>/dev/null || true; done) \
+    | cut -d: -f1 | sort -u | paste -sd, - || true)"
+echo "Detected: $SHLIB_DEPENDS"
 echo ""
 
 if [[ $WITH_GMIC -eq 1 ]]; then
@@ -155,12 +177,17 @@ echo ""
 
 fi # WITH_GMIC
 
-# Stage DEBIAN control metadata, refreshing Installed-Size
+# Stage DEBIAN control metadata, refreshing Version, Installed-Size and Depends
 echo "=== Staging DEBIAN control ==="
 mkdir -p "$STAGING_DIR/DEBIAN"
 INSTALLED_SIZE="$(du -sk "$STAGING_DIR/usr" | cut -f1)"
-awk -v size="$INSTALLED_SIZE" \
-    '{ if ($0 ~ /^Installed-Size:/) print "Installed-Size: " size; else print }' \
+awk -v version="$VERSION" -v size="$INSTALLED_SIZE" -v deps="$SHLIB_DEPENDS" \
+    '{
+        if ($0 ~ /^Version:/) print "Version: " version;
+        else if ($0 ~ /^Installed-Size:/) print "Installed-Size: " size;
+        else if ($0 ~ /^Depends:/) print $0 ", " deps;
+        else print
+    }' \
     installers/deb/DEBIAN/control > "$STAGING_DIR/DEBIAN/control"
 
 # Set correct permissions
