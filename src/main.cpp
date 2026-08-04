@@ -23,6 +23,7 @@
 #include <QStandardPaths>
 #include <QDir>
 #include <QFile>
+#include <QSettings>
 
 #include "mainwindow.h"
 #include "Settings.h"
@@ -52,24 +53,25 @@ int main(int argc, char *argv[])
                 SETTINGS->setDefaultSettings();
             }
         } else {
-            QString loc = QDir(QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)).filePath(QCoreApplication::organizationName());
-            if(!QDir(loc).exists())
-            {
-                QDir().mkdir(loc);
+            // QStandardPaths::locate() with an empty filename is unreliable across
+            // Qt versions/distros, so check QSettings' own backing store instead.
+            QSettings settings;
+            if (settings.allKeys().isEmpty()) {
                 SETTINGS->setDefaultSettings();
             }
         }
 
         // Setup plugins folder if needed
+        // Must match the directory MainWindow::loadPlugins() scans.
         QString pluginLoc;
         if (Settings::isPortableMode()) {
             pluginLoc = QCoreApplication::applicationDirPath() + "/plugins";
         } else {
-            pluginLoc = QDir(QStandardPaths::locate(QStandardPaths::ConfigLocation, QString(), QStandardPaths::LocateDirectory)).filePath(QCoreApplication::organizationName()+"/plugins");
+            pluginLoc = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/plugins";
         }
         if(!QDir(pluginLoc).exists())
         {
-            QDir().mkdir(pluginLoc);
+            QDir().mkpath(pluginLoc);
         }
 
         // Set language based on System locale

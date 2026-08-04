@@ -2466,6 +2466,10 @@ void MainWindow::loadTranslator(const QString &langCode)
     m_translator = new QTranslator(this);
     QStringList paths = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
     paths.prepend(QCoreApplication::applicationDirPath());
+    #ifdef APP_PREFIX
+        // Hardcoded fallback in case XDG_DATA_DIRS doesn't include the install prefix's share dir.
+        paths.append(QStringLiteral(APP_PREFIX) + "/share/" + QCoreApplication::applicationName());
+    #endif
     for (int i = 0; i < paths.length(); i++) {
         QFileInfo check_file(paths[i] + "/languages/" + langCode + ".qm");
         if (check_file.exists() && check_file.isFile()) {
