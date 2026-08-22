@@ -118,6 +118,7 @@
         <file alias="assets/pixmaps/flags/Japan.png">assets/light/pixmaps/flags/Japan.png</file>
         <file alias="assets/pixmaps/flags/Turkey.png">assets/light/pixmaps/flags/Turkey.png</file>
         <file alias="assets/pixmaps/flags/South-Korea.png">assets/light/pixmaps/flags/South-Korea.png</file>
+        <file alias="assets/pixmaps/flags/Poland.png">assets/light/pixmaps/flags/Poland.png</file>
     </qresource>
     <qresource prefix="/cursors">
         <file alias="assets/cursors/color-picker.png">assets/light/cursors/color-picker.png</file>

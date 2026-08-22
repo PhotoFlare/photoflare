@@ -144,6 +144,10 @@ int main(int argc, char *argv[])
             {
                 lang = "ko";
             }
+            else if(sysLanguage == "Poland")
+            {
+                lang = "pl";
+            }
             else
             {
                 lang = "en";
