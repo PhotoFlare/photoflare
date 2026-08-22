@@ -68,6 +68,7 @@ jobs:
             -DCMAKE_PREFIX_PATH="${QT_ROOT_DIR}" \
             -DCMAKE_OSX_ARCHITECTURES="${{ matrix.arch }}" \
             -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 \
+            -DCMAKE_CXX_FLAGS="-D_LIBCPP_DISABLE_AVAILABILITY" \
             -DBUILD_WITH_QT6=ON \
             -DGMIC_QT_HOST=none \
             -DENABLE_SYSTEM_GMIC=OFF \
