@@ -40,19 +40,20 @@ linux|hurd {
     LIBS += -fopenmp
 }
 
-# Project settings for Mac OS. Adjust the paths as needed on your system.
+# Project settings for Mac OS. Resolved dynamically via `brew --prefix` so this
+# works on both Intel (/usr/local) and Apple Silicon (/opt/homebrew) installs,
+# regardless of the installed graphicsmagick/libomp version.
 macx {
-  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagick++
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagick
-  LIBS += -L/usr/local/Cellar/graphicsmagick/1.3.35/lib/ -lGraphicsMagickWand
-  INCLUDEPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
-  DEPENDPATH += /usr/local/Cellar/graphicsmagick/1.3.35/include/GraphicsMagick
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagick++.la
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagick.la
-  PRE_TARGETDEPS += /usr/local/Cellar/graphicsmagick/1.3.35/lib/libGraphicsMagickWand.la
-  LIBS += -lbz2 -lxml2 -lz -lm -L /usr/local/lib /usr/local/lib/libomp.dylib
-  QMAKE_CXXFLAGS += -Xpreprocessor -fopenmp -lomp -I/usr/local/include
+  GM_PREFIX = $$system(brew --prefix graphicsmagick 2>/dev/null)
+  isEmpty(GM_PREFIX): GM_PREFIX = /usr/local
+  OMP_PREFIX = $$system(brew --prefix libomp 2>/dev/null)
+  isEmpty(OMP_PREFIX): OMP_PREFIX = /usr/local
+
+  INCLUDEPATH += $$GM_PREFIX/include/GraphicsMagick
+  DEPENDPATH += $$GM_PREFIX/include/GraphicsMagick
+  LIBS += -L$$GM_PREFIX/lib/ -lGraphicsMagick++ -lGraphicsMagick -lGraphicsMagickWand
+  LIBS += -lbz2 -lxml2 -lz -lm -L$$OMP_PREFIX/lib $$OMP_PREFIX/lib/libomp.dylib
+  QMAKE_CXXFLAGS += -Xpreprocessor -fopenmp -I$$OMP_PREFIX/include
   QMAKE_LFLAGS += -lomp
 }
 
