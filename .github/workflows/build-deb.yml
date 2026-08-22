@@ -1,0 +1,50 @@
+name: Build Debian package
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  deb:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # 24.04's apt Qt6 is 6.4.x, below gmic-qt's minimum supported
+          # version, so this build omits G'MIC-Qt.
+          - runner: ubuntu-24.04
+            with_gmic: false
+          # 26.04 (preview GH runner, no SLA) ships apt Qt6 >=6.5, so
+          # gmic-qt can be built against system Qt and depend on apt
+          # packages normally, without needing to bundle a separate Qt.
+          - runner: ubuntu-26.04
+            with_gmic: true
+
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build .deb
+        run: |
+          sudo apt-get update
+          bash installers/build_deb.sh ${{ matrix.with_gmic && '--with-gmic' || '' }}
+
+      - name: Locate built package
+        id: pkg
+        run: echo "path=$(ls photoflare_*.deb)" >> "$GITHUB_OUTPUT"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: photoflare-deb-${{ matrix.runner }}
+          path: ${{ steps.pkg.outputs.path }}
+          if-no-files-found: error
+
+      - name: Upload to release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.pkg.outputs.path }}
