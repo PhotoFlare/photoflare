@@ -1,0 +1,123 @@
+name: Build macOS DMG
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  dmg:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-14      # Apple Silicon
+            arch: arm64
+            qt_arch: clang_64
+          - runner: macos-13      # Intel
+            arch: x86_64
+            qt_arch: clang_64
+
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Qt 6
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.7.*'
+          host: 'mac'
+          target: 'desktop'
+          arch: ${{ matrix.qt_arch }}
+
+      - name: Install build dependencies
+        run: brew install graphicsmagick libomp fftw
+
+      # Build the standalone gmic_qt binary the same way as the Linux AppImage
+      # workflow, so macOS users get the G'MIC-Qt filter too.
+      - name: Build and stage gmic-qt
+        run: |
+          git clone --depth 1 --branch v.3.4.2 https://github.com/c-koi/gmic-qt.git gmic-qt-src
+          # Pin GMIC core to v.3.7.6: it's the last release where gmic::init_rc()
+          # still returns bool (gmic-qt v.3.4.2 calls it as `create && gmic::init_rc()`,
+          # which fails to compile against gmic >= v.4.0.0 where init_rc() returns void).
+          git clone --depth 1 --branch v.3.7.6 https://github.com/GreycLab/gmic.git gmic-qt-src/gmic
+          GMIC_SRC="$PWD/gmic-qt-src/gmic/src"
+          GMIC_VER=$(grep -oE 'gmic_version [0-9]+' "$GMIC_SRC/gmic.h" | grep -oE '[0-9]+')
+          CIMG_TAG="v.${GMIC_VER:0:1}.${GMIC_VER:1:1}.${GMIC_VER:2:1}"
+          curl -fsSL -o "$GMIC_SRC/CImg.h" \
+            "https://github.com/GreycLab/CImg/raw/${CIMG_TAG}/CImg.h"
+          # gmic.eu only hosts the stdlib header for whatever the CURRENT release is;
+          # its script content isn't version-locked at compile time, so fetch whatever
+          # is latest, decoupled from the core version pinned above for API compatibility.
+          LATEST_GMIC_TAG=$(curl -fsSL https://api.github.com/repos/GreycLab/gmic/releases/latest \
+            | grep -oE '"tag_name": *"[^"]+"' | grep -oE 'v\.[0-9.]+') \
+            || { echo "Failed to resolve latest GMIC release tag"; exit 1; }
+          LATEST_GMIC_VER="${LATEST_GMIC_TAG#v.}"
+          LATEST_GMIC_VER="${LATEST_GMIC_VER//./}"
+          curl -fsSL -o "$GMIC_SRC/gmic_stdlib_community.h" \
+            "https://gmic.eu/gmic_stdlib_community${LATEST_GMIC_VER}.h" \
+            || { echo "Failed to download gmic_stdlib_community.h"; exit 1; }
+          if ! grep -q 'data_gmic' "$GMIC_SRC/gmic_stdlib_community.h"; then
+            echo "gmic_stdlib_community.h does not define data_gmic; aborting"
+            exit 1
+          fi
+          cmake gmic-qt-src -B build-gmic-qt \
+            -DCMAKE_PREFIX_PATH="${QT_ROOT_DIR}" \
+            -DCMAKE_OSX_ARCHITECTURES="${{ matrix.arch }}" \
+            -DBUILD_WITH_QT6=ON \
+            -DGMIC_QT_HOST=none \
+            -DENABLE_SYSTEM_GMIC=OFF \
+            -DGMIC_PATH="$PWD/gmic-qt-src/gmic/src" \
+            -DENABLE_FFTW3=ON \
+            -DENABLE_CURL=ON \
+            -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-gmic-qt --parallel
+
+      - name: Build photoflare
+        run: |
+          qmake CONFIG+=release
+          make -j$(sysctl -n hw.ncpu)
+
+      - name: Deploy Qt frameworks into the app bundle
+        run: "${QT_ROOT_DIR}/bin/macdeployqt photoflare.app"
+
+      - name: Stage gmic-qt and translations into the app bundle
+        run: |
+          cp build-gmic-qt/gmic_qt photoflare.app/Contents/MacOS/gmic_photoflare_qt
+          mkdir -p photoflare.app/Contents/MacOS/languages
+          cp languages/*.qm photoflare.app/Contents/MacOS/languages/
+
+      # No Apple Developer certificate is available for this project, so ad-hoc
+      # sign the bundle (--sign -) instead. Without any signature at all, macOS
+      # (especially Apple Silicon) refuses to launch the quarantined app with
+      # a generic "is damaged and can't be opened" error. Ad-hoc signing avoids
+      # that, though Gatekeeper will still warn on first launch since it's not
+      # notarized (users need to right-click > Open, or `xattr -dr com.apple.quarantine`).
+      - name: Ad-hoc sign the app bundle
+        run: codesign --force --deep --sign - photoflare.app
+
+      - name: Read version from stable.json
+        id: version
+        run: echo "version=$(tr -d '[:space:]' < versions/stable.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Create DMG
+        run: |
+          DMG_NAME="photoflare-${{ steps.version.outputs.version }}-macos-${{ matrix.arch }}.dmg"
+          hdiutil create -volname Photoflare -srcfolder photoflare.app -ov -format UDZO "$DMG_NAME"
+          echo "DMG_NAME=$DMG_NAME" >> "$GITHUB_ENV"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: photoflare-macos-${{ matrix.arch }}
+          path: ${{ env.DMG_NAME }}
+          if-no-files-found: error
+
+      - name: Upload to release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.DMG_NAME }}
