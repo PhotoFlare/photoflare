@@ -1,0 +1,57 @@
+name: Build Flatpak
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  flatpak:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install flatpak and flatpak-builder
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder
+
+      - name: Add Flathub remote and install KDE Platform/SDK
+        run: |
+          flatpak remote-add --user --if-not-exists flathub \
+            https://flathub.org/repo/flathub.flatpakrepo
+          flatpak install --user -y flathub org.kde.Platform//6.7 org.kde.Sdk//6.7
+
+      # The manifest's "photoflare" module pins a hardcoded commit for
+      # reproducible local builds; override it to the commit actually being
+      # built here so CI packages the real tagged/dispatched source.
+      - name: Pin manifest to current commit
+        run: |
+          jq --arg sha "$GITHUB_SHA" \
+            '(.modules[] | select(.name == "photoflare") | .sources[0].commit) = $sha' \
+            flatpak/flatpak_build.json > /tmp/flatpak_build.json
+          mv /tmp/flatpak_build.json flatpak/flatpak_build.json
+
+      - name: Build Flatpak repo
+        run: |
+          flatpak-builder --repo=repo --force-clean \
+            build-flatpak flatpak/flatpak_build.json
+
+      - name: Create Flatpak bundle
+        run: |
+          flatpak build-bundle repo photoflare.flatpak io.photoflare.photoflare
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: photoflare-flatpak
+          path: photoflare.flatpak
+          if-no-files-found: error
+
+      - name: Upload to release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: photoflare.flatpak
