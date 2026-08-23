@@ -1162,7 +1162,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="2013"/>
         <source>Rotate CCW</source>
-        <translation>Gegen denn Uhrzeigersinn drehen</translation>
+        <translation>Gegen den Uhrzeigersinn drehen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2022"/>
@@ -3422,7 +3422,7 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="103"/>
         <source>Text Input</source>
-        <translation>Text Eingat</translation>
+        <translation>Text</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="126"/>
@@ -3447,12 +3447,12 @@
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="197"/>
         <source>Strike out</source>
-        <translation>Durchstreich</translation>
+        <translation>Durchgestrichen</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="210"/>
         <source>Underline</source>
-        <translation>Unterstreichen</translation>
+        <translation>Unterstrichen</translation>
     </message>
     <message>
         <location filename="../src/dialogs/textdialog.ui" line="223"/>
