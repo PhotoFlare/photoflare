@@ -426,6 +426,9 @@ void MainWindow::applyThreadedFilter(QString filterName, double dV, std::functio
     if (widget)
         widget->setEnabled(false);
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
+    connect(worker, &FilterWorker::filterError, this, [this](const QString &message) {
+        showError(message);
+    });
     connect(worker, &FilterWorker::filterProcessFinished, this, [this, widget, postProcess, original](QImage image) {
         if (widget) {
             applyFilteredImage(widget, original, image);
@@ -458,6 +461,9 @@ void MainWindow::applyThreadedFilterMP(QString filterName, double dV)
     if (widget)
         widget->setEnabled(false);
     connect(thread, SIGNAL(started()), worker, SLOT(process()));
+    connect(worker, &FilterWorkerMP::filterError, this, [this](const QString &message) {
+        showError(message);
+    });
     connect(worker, &FilterWorkerMP::filterProcessFinished, this, [this, widget, original](QImage image) {
         if (widget) {
             applyFilteredImage(widget, original, image);

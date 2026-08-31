@@ -20,7 +20,7 @@
 #include "filterworker.h"
 #include "FilterManager.h"
 
-//#include <QDebug>
+#include <QDebug>
 
 FilterWorker::FilterWorker(QObject *parent) : QObject(parent)
 {
@@ -264,8 +264,14 @@ void FilterWorker::process()
         newImage = FilterManager::instance()->colourthreshold(currentImage);
     }
 
-    } catch (...) {
+    } catch (const std::exception &e) {
+        qWarning() << "Filter" << currentFilter << "failed, image left unmodified:" << e.what();
         newImage = currentImage;
+        emit filterError(tr("Filter '%1' failed: %2").arg(currentFilter, QString::fromUtf8(e.what())));
+    } catch (...) {
+        qWarning() << "Filter" << currentFilter << "failed with an unknown exception, image left unmodified.";
+        newImage = currentImage;
+        emit filterError(tr("Filter '%1' failed with an unknown error.").arg(currentFilter));
     }
 
     emit filterProcessFinished(newImage);

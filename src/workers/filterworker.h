@@ -37,6 +37,7 @@ public slots:
 
 signals:
     void filterProcessFinished(QImage image);
+    void filterError(const QString &message);
 
 private:
     MainWindow* m_parent;
