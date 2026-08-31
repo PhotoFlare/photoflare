@@ -64,6 +64,10 @@ void FilterWorkerMP::process()
         QImage newImageSlice(currentImageSlice);
 //        qDebug() << "current image dims: " +currentImageSlice.height() << ", " << currentImageSlice.width();
 
+        // Exceptions must be caught here, not left to escape the omp parallel
+        // region (that terminates the whole process instead of being catchable).
+        try {
+
         if(currentFilter == "gammacorrectminus")
         {
             newImageSlice = FilterManager::instance()->setGamma(currentImageSlice, 0.9);
@@ -275,6 +279,10 @@ void FilterWorkerMP::process()
         else if(currentFilter == "colourthreshold")
         {
             newImageSlice = FilterManager::instance()->colourthreshold(currentImageSlice);
+        }
+
+        } catch (...) {
+            newImageSlice = currentImageSlice;
         }
 
         // Setup new image by joining the slices together
