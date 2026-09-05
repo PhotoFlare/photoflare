@@ -825,34 +825,47 @@ QPolygon FilterManager::selectArea(const QImage &image, const QPoint &pos, int t
 
 QImage FilterManager::floodFillOpacity(const QImage &image, const QColor &color, int tolerance)
 {
-    QScopedPointer<Magick::Image> magickImage( d->fromQtImage(image) );
+    Magick::Image *magickImage = nullptr;
+    try {
+        magickImage = d->fromQtImage(image);
+        // fromQtImage can fail to encode/decode the blob; don't dereference a null image.
+        if (!magickImage)
+            return image;
 
-    Magick::Color targetColor = Magick::ColorRGB(color.redF(), color.greenF(), color.blueF());
-    bool changeStartColor = (targetColor == Magick::ColorRGB(0, 0, 0)) ? true : false;
-    if(targetColor.alpha() == 1.0f)
-        return image;
+        Magick::Color targetColor = Magick::ColorRGB(color.redF(), color.greenF(), color.blueF());
+        bool changeStartColor = (targetColor == Magick::ColorRGB(0, 0, 0)) ? true : false;
+        if(targetColor.alpha() == 1.0f) {
+            delete magickImage;
+            return image;
+        }
 
-    magickImage->colorFuzz((double)tolerance / 100.0 * MaxRGBDouble);
-    for(unsigned int j=0; j<magickImage->rows(); j++)
-    {
-        for(unsigned int i=0; i<magickImage->columns(); i++)
+        magickImage->colorFuzz((double)tolerance / 100.0 * MaxRGBDouble);
+        for(unsigned int j=0; j<magickImage->rows(); j++)
         {
-            Magick::Color color = magickImage->pixelColor(i,j);
-            if(color.alpha() != 1.0f && color == targetColor)
+            for(unsigned int i=0; i<magickImage->columns(); i++)
             {
-                if(changeStartColor)
-                    magickImage->opaque(Magick::ColorRGB(0, 0, 0), Magick::ColorRGB(0.97f, 0.82f, 0.65f));
+                Magick::Color color = magickImage->pixelColor(i,j);
+                if(color.alpha() != 1.0f && color == targetColor)
+                {
+                    if(changeStartColor)
+                        magickImage->opaque(Magick::ColorRGB(0, 0, 0), Magick::ColorRGB(0.97f, 0.82f, 0.65f));
 
-                magickImage->floodFillColor(i, j, targetColor);
+                    magickImage->floodFillColor(i, j, targetColor);
 
-                if(changeStartColor)
-                    magickImage->opaque(Magick::ColorRGB(0.97f, 0.82f, 0.65f), Magick::ColorRGB(0, 0, 0));
+                    if(changeStartColor)
+                        magickImage->opaque(Magick::ColorRGB(0.97f, 0.82f, 0.65f), Magick::ColorRGB(0, 0, 0));
 
-                magickImage->transparent(targetColor);
+                    magickImage->transparent(targetColor);
+                }
             }
         }
+        QImage modifiedImage = d->toQtImage(magickImage);
+        delete magickImage;
+        return modifiedImage;
+    } catch (...) {
+        delete magickImage;
+        throw;
     }
-    return d->toQtImage(magickImage.data());
 }
 
 QImage FilterManager::pixelate(const QImage &image)

@@ -1619,7 +1619,15 @@ void MainWindow::onTransparentAccepted()
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImage(FilterManager::instance()->floodFillOpacity(widget->image(), transparentDialog->color(), transparentDialog->tolerance()));
+    {
+        try {
+            widget->setImage(FilterManager::instance()->floodFillOpacity(widget->image(), transparentDialog->color(), transparentDialog->tolerance()));
+        } catch (const std::exception &e) {
+            showError(tr("Transparent colour failed: %1").arg(QString::fromUtf8(e.what())));
+        } catch (...) {
+            showError(tr("Transparent colour failed with an unknown error."));
+        }
+    }
 }
 
 void MainWindow::onTransparentRejected()
@@ -1633,7 +1641,15 @@ void MainWindow::onPreviewTransparent(QColor color, int tolerance)
 {
     PaintWidget *widget = getCurrentPaintWidget();
     if (widget)
-        widget->setImageOriginal(FilterManager::instance()->floodFillOpacity(origImage, color, tolerance));
+    {
+        try {
+            widget->setImageOriginal(FilterManager::instance()->floodFillOpacity(origImage, color, tolerance));
+        } catch (const std::exception &e) {
+            showError(tr("Transparent colour failed: %1").arg(QString::fromUtf8(e.what())));
+        } catch (...) {
+            showError(tr("Transparent colour failed with an unknown error."));
+        }
+    }
 }
 
 void MainWindow::onTextToolFinished()
