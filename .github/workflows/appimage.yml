@@ -58,6 +58,8 @@ jobs:
       # Clone gmic-qt and the matching G'MIC source tree, build the standalone
       # gmic_qt binary, and stage it into appdir/usr/bin/ alongside photoflare.
       - name: Build and stage gmic-qt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git clone --depth 1 --branch v.3.4.2 https://github.com/c-koi/gmic-qt.git gmic-qt-src
           # Pin GMIC core to v.3.7.6: it's the last release where gmic::init_rc()
@@ -81,7 +83,14 @@ jobs:
           # not the stdlib header's version. So resolve whatever the latest GMIC
           # release actually is and fetch that header, decoupled from the core
           # version pinned above for API compatibility.
-          LATEST_GMIC_TAG=$(curl -fsSL https://api.github.com/repos/GreycLab/gmic/releases/latest \
+          # Authenticate with the auto-provided GITHUB_TOKEN: unauthenticated
+          # api.github.com requests share a 60/hr-per-IP quota across all
+          # GitHub-hosted runners and get 403'd easily; a Bearer token raises
+          # this to 1000/hr and is scoped to this repo's own install token.
+          LATEST_GMIC_TAG=$(curl -fsSL \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/GreycLab/gmic/releases/latest \
             | grep -oP '"tag_name":\s*"\K[^"]+') \
             || { echo "Failed to resolve latest GMIC release tag"; exit 1; }
           LATEST_GMIC_VER="${LATEST_GMIC_TAG#v.}"
