@@ -32,7 +32,7 @@ jobs:
           arch: ${{ matrix.qt_arch }}
 
       - name: Install build dependencies
-        run: brew install graphicsmagick libomp fftw
+        run: brew install graphicsmagick libomp fftw dylibbundler
 
       # Build the standalone gmic_qt binary the same way as the Linux AppImage
       # workflow, so macOS users get the G'MIC-Qt filter too.
@@ -82,14 +82,32 @@ jobs:
           qmake CONFIG+=release
           make -j$(sysctl -n hw.ncpu)
 
-      - name: Deploy Qt frameworks into the app bundle
-        run: "${QT_ROOT_DIR}/bin/macdeployqt photoflare.app"
-
       - name: Stage gmic-qt and translations into the app bundle
         run: |
           cp build-gmic-qt/gmic_qt photoflare.app/Contents/MacOS/gmic_photoflare_qt
           mkdir -p photoflare.app/Contents/MacOS/languages
           cp languages/*.qm photoflare.app/Contents/MacOS/languages/
+
+      # -executable also fixes up gmic_photoflare_qt's Qt dependencies, since it's
+      # a separate binary staged into the bundle rather than the main executable.
+      - name: Deploy Qt frameworks into the app bundle
+        run: |
+          "${QT_ROOT_DIR}/bin/macdeployqt" photoflare.app \
+            -executable=photoflare.app/Contents/MacOS/gmic_photoflare_qt
+
+      # macdeployqt only handles Qt; graphicsmagick/libomp/fftw (and their own
+      # transitive deps, e.g. GraphicsMagick's image format libs) are linked from
+      # Homebrew with absolute install-name paths, so without this the app only
+      # runs on machines that happen to have the exact same Homebrew formulae
+      # installed. dylibbundler copies them into Contents/Frameworks and rewrites
+      # every load command to @executable_path/../Frameworks/.
+      - name: Bundle non-Qt (Homebrew) dependencies
+        run: |
+          dylibbundler -cd -of -b -ns \
+            -x photoflare.app/Contents/MacOS/photoflare \
+            -x photoflare.app/Contents/MacOS/gmic_photoflare_qt \
+            -d photoflare.app/Contents/Frameworks \
+            -p @executable_path/../Frameworks/
 
       # No Apple Developer certificate is available for this project, so ad-hoc
       # sign the bundle (--sign -) instead. Without any signature at all, macOS
