@@ -258,6 +258,11 @@ for(tsfile, TRANSLATIONS) {
         copycmd = $$QMAKE_COPY $$system_path($$qtBaseQmSrc) $$system_path($$qtBaseQmDest)
         system($$copycmd)|error("Failed to run: $$copycmd")
         TRANSLATIONS_FILES += $$qtBaseQmDest
+    } else {
+        # Not fatal (English-only Qt dialogs still work), but easy to miss:
+        # on Ubuntu/Debian, qt6-base-dev does NOT ship qtbase_*.qm - they are
+        # in the separate qt6-translations-l10n package.
+        warning("qtbase_$${langCode}.qm not found under $$QT_TRANSLATIONS_DIR - Qt's own dialog strings (OK/Cancel/etc) will not be translated for $$langCode. Install qt6-translations-l10n to fix.")
     }
 }
 

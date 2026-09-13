@@ -22,6 +22,7 @@ parts:
     build-packages:
       - qt6-base-dev
       - qt6-tools-dev-tools
+      - qt6-translations-l10n
       - libgraphicsmagick++-dev
       - libomp-dev
     override-build: |

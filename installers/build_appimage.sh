@@ -13,7 +13,13 @@
 #
 # Requirements (Ubuntu/Debian):
 #   sudo apt-get install -y libgraphicsmagick++-dev libomp-dev \
-#     libfftw3-dev libcurl4-openssl-dev qt6-base-dev qt6-tools-dev qt6-tools-dev-tools
+#     libfftw3-dev libcurl4-openssl-dev qt6-base-dev qt6-tools-dev qt6-tools-dev-tools \
+#     qt6-translations-l10n
+#
+# qt6-translations-l10n ships Qt's own qtbase_*.qm catalogs (QColorDialog/
+# QMessageBox/etc). Without it, Photoflare.pro silently skips bundling them
+# (see the QT_INSTALL_TRANSLATIONS check below) and the AppImage ships with
+# untranslated Qt dialogs.
 
 set -euo pipefail
 
@@ -55,8 +61,25 @@ if command -v apt-get &>/dev/null; then
     $SUDO apt-get install -y \
         libgraphicsmagick++-dev libomp-dev \
         libfftw3-dev libcurl4-openssl-dev \
-        qt6-base-dev qt6-tools-dev qt6-tools-dev-tools
+        qt6-base-dev qt6-tools-dev qt6-tools-dev-tools \
+        qt6-translations-l10n
 fi
+echo ""
+
+# Verify Qt's own base translations (qtbase_*.qm) are actually available.
+# Photoflare.pro silently skips bundling them if missing (see its
+# QT_TRANSLATIONS_DIR loop), which would otherwise ship an AppImage with
+# untranslated Qt dialogs (OK/Cancel/etc) with no build-time indication.
+QT_TRANSLATIONS_DIR="$("$QMAKE" -query QT_INSTALL_TRANSLATIONS 2>/dev/null || true)"
+if [[ -z "$QT_TRANSLATIONS_DIR" || ! -d "$QT_TRANSLATIONS_DIR" ]] \
+    || ! compgen -G "$QT_TRANSLATIONS_DIR/qtbase_*.qm" > /dev/null; then
+    echo "ERROR: Qt base translations (qtbase_*.qm) not found under '${QT_TRANSLATIONS_DIR:-<unknown>}'." >&2
+    echo "The produced AppImage would silently ship without translations for Qt's own" >&2
+    echo "dialogs (QColorDialog/QMessageBox/etc). Install them and retry:" >&2
+    echo "  sudo apt-get install qt6-translations-l10n" >&2
+    exit 1
+fi
+echo "Found Qt base translations: $QT_TRANSLATIONS_DIR"
 echo ""
 
 # Build photoflare and stage into appdir/

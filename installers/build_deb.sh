@@ -23,7 +23,13 @@
 # Requirements (Ubuntu):
 #   sudo apt-get install -y build-essential dpkg-dev \
 #     libgraphicsmagick++-dev libomp-dev \
-#     qt6-base-dev qt6-tools-dev qt6-tools-dev-tools qt6-image-formats-plugins
+#     qt6-base-dev qt6-tools-dev qt6-tools-dev-tools qt6-image-formats-plugins \
+#     qt6-translations-l10n
+#
+# qt6-translations-l10n ships Qt's own qtbase_*.qm catalogs (QColorDialog/
+# QMessageBox/etc); qt6-base-dev does not include them. Without it,
+# Photoflare.pro bundles the package without those catalogs (Qt dialogs
+# fall back to English) - see the QT_TRANSLATIONS_DIR loop in Photoflare.pro.
 #
 # Note on WSL: staging is done under /tmp rather than the repo (which may be
 # on an NTFS-backed /mnt/c mount) because chmod is unreliable there and .deb
@@ -66,7 +72,8 @@ if command -v apt-get &>/dev/null; then
     $SUDO apt-get install -y \
         build-essential dpkg-dev \
         libgraphicsmagick++-dev libomp-dev \
-        qt6-base-dev qt6-tools-dev qt6-tools-dev-tools qt6-image-formats-plugins
+        qt6-base-dev qt6-tools-dev qt6-tools-dev-tools qt6-image-formats-plugins \
+        qt6-translations-l10n
     if [[ $WITH_GMIC -eq 1 ]]; then
         $SUDO apt-get install -y cmake git wget libfftw3-dev libcurl4-openssl-dev
     fi

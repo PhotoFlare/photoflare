@@ -55,6 +55,21 @@ jobs:
           mkdir -p appdir/usr/bin/languages
           cp appdir/usr/share/photoflare/languages/*.qm appdir/usr/bin/languages/
 
+      # Defense-in-depth: aqt-installed Qt SDKs bundle qtbase_*.qm by default
+      # (unlike Ubuntu's apt packages, which split them into a separate
+      # qt6-translations-l10n package), so this should always pass here.
+      # Guards against that assumption silently breaking in the future.
+      - name: Verify Qt base translations were bundled
+        run: |
+          shopt -s nullglob
+          qm_files=(appdir/usr/bin/languages/qtbase_*.qm)
+          if [[ ${#qm_files[@]} -eq 0 ]]; then
+            echo "ERROR: no qtbase_*.qm files were bundled into appdir/usr/bin/languages/." >&2
+            echo "Qt's own dialog strings (OK/Cancel/etc) would ship untranslated." >&2
+            exit 1
+          fi
+          echo "Found ${#qm_files[@]} qtbase_*.qm files."
+
       # Clone gmic-qt and the matching G'MIC source tree, build the standalone
       # gmic_qt binary, and stage it into appdir/usr/bin/ alongside photoflare.
       #
