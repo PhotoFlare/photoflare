@@ -1098,22 +1098,22 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1917"/>
         <source>gammaCorrectminus</source>
-        <translation>gammaCorrectminus</translation>
+        <translation>Gammakorrektur (-)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1920"/>
         <source>Gamma Correct (-)</source>
-        <translation>Gamma Correct (-)</translation>
+        <translation>Gammakorrektur (-)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1929"/>
         <source>gammaCorrectplus</source>
-        <translation>gammacorrectplus (+)</translation>
+        <translation>Gammakorrektur (+)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1932"/>
         <source>Gamma Correct (+)</source>
-        <translation>Gamma Correct (+)</translation>
+        <translation>Gammakorrektur (+)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1941"/>
@@ -2033,7 +2033,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="423"/>
         <source>&amp;History</source>
-        <translation>&amp;Geschichte</translation>
+        <translation>&amp;Historie</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="435"/>
