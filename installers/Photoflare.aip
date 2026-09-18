@@ -185,6 +185,8 @@
     <ROW Component="SHORTCUTDIR" ComponentId="{202F0FB9-770D-44E5-8361-5F049171728D}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="de.qm" ComponentId="{CACBDBC9-72E0-4426-9D7C-808AE0E1DBBF}" Directory_="languages_Dir" Attributes="0" KeyPath="de.qm" Type="0"/>
     <ROW Component="gmic_qt.exe" ComponentId="{B1B2B3B4-C1C2-D1D2-E1E2-F1F2F3F4F5F6}" Directory_="APPDIR" Attributes="256" KeyPath="gmic_qt.exe"/>
+    <ROW Component="libpng16.dll" ComponentId="{B7B8B9BA-C7C8-D7D8-E7E8-F7F8F9FAFBFC}" Directory_="APPDIR" Attributes="256" KeyPath="libpng16.dll"/>
+    <ROW Component="z.dll" ComponentId="{B9BABBBC-C9CA-CBCC-D9DA-DBDCDDDEDFE0}" Directory_="APPDIR" Attributes="256" KeyPath="z.dll"/>
     <ROW Component="grain.json" ComponentId="{C2C3C4C5-D2D3-E2E3-F2F3-A2A3A4A5A6A7}" Directory_="plugins_Dir" Attributes="0" KeyPath="grain.json" Type="0"/>
     <ROW Component="grain_plugin.dll" ComponentId="{C1C2C3C4-D1D2-E1E2-F1F2-A1A2A3A4A5A6}" Directory_="plugins_Dir" Attributes="256" KeyPath="grain_plugin.dll"/>
     <ROW Component="opengl32sw.dll" ComponentId="{B3B4B5B6-C3C4-D3D4-E3E4-F3F4F5F6F7F8}" Directory_="APPDIR" Attributes="256" KeyPath="opengl32sw.dll"/>
@@ -219,6 +221,8 @@
     <ROW File="CORE_RL_zlib_.dll" Component_="CORE_RL_zlib_.dll" FileName="CORE_R~8.DLL|CORE_RL_zlib_.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\CORE_RL_zlib_.dll" SelfReg="false"/>
     <ROW File="D3Dcompiler_47.dll" Component_="D3Dcompiler_47.dll" FileName="D3DCOM~1.DLL|D3Dcompiler_47.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\D3Dcompiler_47.dll" SelfReg="false"/>
     <ROW File="gmic_qt.exe" Component_="gmic_qt.exe" FileName="gmic_qt.exe" Attributes="0" SourcePath="PhotoFlare_Win_AIP\gmic_qt.exe" SelfReg="false"/>
+    <ROW File="libpng16.dll" Component_="libpng16.dll" FileName="libpng16.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\libpng16.dll" SelfReg="false"/>
+    <ROW File="z.dll" Component_="z.dll" FileName="z.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\z.dll" SelfReg="false"/>
     <ROW File="opengl32sw.dll" Component_="opengl32sw.dll" FileName="OPENGL~1.DLL|opengl32sw.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\opengl32sw.dll" SelfReg="false"/>
     <ROW File="Qt6Core.dll" Component_="Qt6Core.dll" FileName="Qt6Core.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\Qt6Core.dll" SelfReg="false"/>
     <ROW File="Qt6Gui.dll" Component_="Qt6Gui.dll" FileName="Qt6Gui.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\Qt6Gui.dll" SelfReg="false"/>
@@ -627,6 +631,8 @@
     <ROW Feature_="MainProgram" Component_="CORE_RL_webp_.dll"/>
     <ROW Feature_="MainProgram" Component_="CORE_RL_xlib_.dll"/>
     <ROW Feature_="MainProgram" Component_="CORE_RL_zlib_.dll"/>
+    <ROW Feature_="MainProgram" Component_="libpng16.dll"/>
+    <ROW Feature_="MainProgram" Component_="z.dll"/>
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_art_.dll"/>
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_avi_.dll"/>
     <ROW Feature_="MainProgram" Component_="IM_MOD_RL_avs_.dll"/>
