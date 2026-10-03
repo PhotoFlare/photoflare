@@ -1962,8 +1962,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="351"/>
-        <source>Icon theme</source>
-        <translation>Motyw ikon</translation>
+        <source>Theme</source>
+        <translation>Motyw</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="367"/>
@@ -2044,6 +2044,11 @@
         <location filename="../src/dialogs/prefsdialog.cpp" line="59"/>
         <source>Inverted</source>
         <translation>Odwrócony</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>
+        <source>System</source>
+        <translation>Systemowy</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>

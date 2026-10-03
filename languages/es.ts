@@ -1994,8 +1994,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="351"/>
-        <source>Icon theme</source>
-        <translation type="unfinished"></translation>
+        <source>Theme</source>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="367"/>
@@ -2080,6 +2080,11 @@
         <location filename="../src/dialogs/prefsdialog.cpp" line="59"/>
         <source>Inverted</source>
         <translation>Invertido</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>
+        <source>System</source>
+        <translation>Sistema</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>

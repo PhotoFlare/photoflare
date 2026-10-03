@@ -338,7 +338,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="labelIconTheme">
+    <widget class="QLabel" name="labelTheme">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -348,10 +348,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>Icon theme</string>
+      <string>Theme</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="iconThemeCBox">
+    <widget class="QComboBox" name="themeCBox">
      <property name="geometry">
       <rect>
        <x>20</x>

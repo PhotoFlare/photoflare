@@ -133,6 +133,7 @@ HEADERS += src/mainwindow.h \
     src/widgets/PaintWidget.h \
     src/widgets/RulerWidget.h \
     src/Settings.h \
+    src/Theme.h \
     src/managers/FilterManager.h \
     src/managers/ToolManager.h \
     src/tools/Tool.h \

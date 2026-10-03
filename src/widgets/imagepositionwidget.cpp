@@ -22,6 +22,7 @@
 #include <QApplication>
 #include <QPalette>
 #include "../Settings.h"
+#include "../Theme.h"
 //#include <QDebug>
 
 ImagePositionWidget::ImagePositionWidget(QWidget *parent) :
@@ -29,10 +30,7 @@ ImagePositionWidget::ImagePositionWidget(QWidget *parent) :
     ui(new Ui::ImagePositionWidget)
 {
     ui->setupUi(this);
-    const QString theme = SETTINGS->getIconTheme();
-    const bool dark = (theme == QLatin1String("dark")) ||
-                      (theme == QLatin1String("auto") &&
-                       qApp->palette().color(QPalette::Window).lightness() < 128);
+    const bool dark = Theme::isDark(Theme::modeFromSetting(SETTINGS->getTheme()));
     iconSepia = dark ? ":/icons-dark/assets/icons/toolbar2/sepia.png"
                      : ":/icons/assets/icons/toolbar2/sepia.png";
     iconGray  = dark ? ":/icons-dark/assets/icons/toolbar2/grayscale.png"

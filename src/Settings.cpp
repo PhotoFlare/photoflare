@@ -58,7 +58,11 @@ public:
         zoomDirection = settings->value("zoomDirection").toString();
         memDialogParams = settings->value("memorizeParamsEnabled").toBool();
         unit = settings->value("unit").toInt();
-        iconTheme = settings->value("iconTheme", "auto").toString();
+        // Migrate legacy "iconTheme" (auto/light/dark) when "theme" is not yet set
+        QString legacyTheme = settings->value("iconTheme", "auto").toString();
+        if (legacyTheme == "auto")
+            legacyTheme = "system";
+        theme = settings->value("theme", legacyTheme).toString();
         primaryColor = QColor(settings->value("primaryColor", "#000000").toString());
         secondaryColor = QColor(settings->value("secondaryColor", "#ff0000").toString());
         selectedTool = settings->value("selectedTool", "pointer").toString();
@@ -95,7 +99,7 @@ public:
     QString zoomDirection;
     bool memDialogParams;
     int unit;
-    QString iconTheme;
+    QString theme;
     QColor primaryColor;
     QColor secondaryColor;
     QString selectedTool;
@@ -148,7 +152,7 @@ void Settings::setDefaultSettings()
     d->setValue("prevOpenedSave", false);
     d->setValue("saveFormatEnabled", false);
     d->setValue("unit", 0);
-    d->setValue("iconTheme", "auto");
+    d->setValue("theme", "system");
 }
 
 void Settings::setUnit(int unitcode)
@@ -162,15 +166,15 @@ int Settings::getUnit() const
     return d->unit;
 }
 
-void Settings::setIconTheme(const QString &theme)
+void Settings::setTheme(const QString &theme)
 {
-    d->iconTheme = theme;
-    d->setValue("iconTheme", theme);
+    d->theme = theme;
+    d->setValue("theme", theme);
 }
 
-QString Settings::getIconTheme() const
+QString Settings::getTheme() const
 {
-    return d->iconTheme;
+    return d->theme;
 }
 
 void Settings::setMaximizeWindow(bool maximize)

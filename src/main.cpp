@@ -27,6 +27,7 @@
 
 #include "mainwindow.h"
 #include "Settings.h"
+#include "Theme.h"
 
 
 int main(int argc, char *argv[])
@@ -154,6 +155,8 @@ int main(int argc, char *argv[])
             }
             SETTINGS->setUserLanguage(lang);
         }
+
+        Theme::apply(Theme::modeFromSetting(SETTINGS->getTheme()));
 
         MainWindow w;
         w.show();

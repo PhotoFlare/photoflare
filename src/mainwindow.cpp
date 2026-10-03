@@ -70,6 +70,7 @@
 #include "./toolSettings/SmudgeSettingsWidget.h"
 
 #include "Settings.h"
+#include "Theme.h"
 #include "managers/ToolManager.h"
 #include "managers/FilterManager.h"
 
@@ -206,8 +207,7 @@ void MainWindow::setupWorkspace()
         ui->mdiArea->setViewMode(QMdiArea::TabbedView);
     }
     // Set tab height based on the system DPI, with a minimum of 30px.
-    const int tabHeight = qMax(30, qRound(30.0 * ui->mdiArea->logicalDpiY() / 96.0));
-    ui->mdiArea->setStyleSheet(QString("QTabBar::tab { height: %1px; }").arg(tabHeight));
+    applyTabStyle();
     // Disable the left/right scroll arrow buttons on the tab bar — they overlap the tab labels.
     // Tabs are still navigable via the mouse wheel over the tab bar.
     if (QTabBar *tabBar = ui->mdiArea->findChild<QTabBar*>()) {
@@ -2466,7 +2466,7 @@ void MainWindow::batchProcess_batchProgress(int index,int total)
 void MainWindow::on_actionPreferences_triggered()
 {
     prefsDialog = new PrefsDialog(this);
-    QObject::connect(prefsDialog, SIGNAL(iconThemeChanged()), this, SLOT(applyIconTheme()));
+    QObject::connect(prefsDialog, &PrefsDialog::themeChanged, this, &MainWindow::onThemeChanged);
     QObject::connect(prefsDialog, &PrefsDialog::languageChanged, this, &MainWindow::onLanguageChanged);
     QObject::connect(prefsDialog, &PrefsDialog::dockLayoutChanged, this, &MainWindow::onDockLayoutChanged);
     prefsDialog->show();
@@ -3878,12 +3878,44 @@ static QString iconPath(const QString &lightPath, bool dark)
     return p;
 }
 
+void MainWindow::applyTabStyle()
+{
+    const bool dark = Theme::isDark(Theme::modeFromSetting(SETTINGS->getTheme()));
+    const QPalette pal = dark ? Theme::darkPalette() : Theme::lightPalette();
+    const QString selectedBg = dark ? QStringLiteral("#505050") : QStringLiteral("#ffffff");
+
+    // Workspace behind the documents (visible when no image is open).
+    ui->mdiArea->setBackground(QBrush(dark ? QColor(0x1e, 0x1e, 0x1e) : QColor(0xd8, 0xd8, 0xd8)));
+
+    // Tab height follows the system DPI, with a minimum of 30px.
+    const int tabHeight = qMax(30, qRound(30.0 * ui->mdiArea->logicalDpiY() / 96.0));
+    ui->mdiArea->setStyleSheet(QString(
+        "QTabBar { background: %2; }"
+        "QTabBar::tab { height: %1px; padding: 0 12px; background: %3; color: %4;"
+        "  border: 1px solid %5; border-bottom: none; }"
+        "QTabBar::tab:selected { background: %6; border-bottom: 2px solid %7; }"
+        "QTabBar::tab:hover:!selected { background: %8; }")
+        .arg(tabHeight)
+        .arg(pal.color(QPalette::Window).name())
+        .arg(pal.color(QPalette::Button).name())
+        .arg(pal.color(QPalette::ButtonText).name())
+        .arg(dark ? QStringLiteral("#555555") : QStringLiteral("#c0c0c0"))
+        .arg(selectedBg)
+        .arg(pal.color(QPalette::Highlight).name())
+        .arg(dark ? QStringLiteral("#464646") : QStringLiteral("#eeeeee")));
+}
+
+void MainWindow::onThemeChanged()
+{
+    Theme::apply(Theme::modeFromSetting(SETTINGS->getTheme()));
+    applyIconTheme();
+}
+
 void MainWindow::applyIconTheme()
 {
-    const QString theme = SETTINGS->getIconTheme();
-    const bool dark = (theme == QLatin1String("dark")) ||
-                      (theme == QLatin1String("auto") &&
-                       qApp->palette().color(QPalette::Window).lightness() < 128);
+    const bool dark = Theme::isDark(Theme::modeFromSetting(SETTINGS->getTheme()));
+
+    applyTabStyle();
 
     // Toolpalette checked/hover style
     const QString darkToolButtonStyle =

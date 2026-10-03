@@ -79,6 +79,8 @@ public:
 public slots:
     void handleMessage(const QString& message);
     void applyIconTheme();
+    void applyTabStyle();
+    void onThemeChanged();
 
 private slots:
     void setupWorkspace();

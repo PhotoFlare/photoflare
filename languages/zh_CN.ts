@@ -1992,8 +1992,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="351"/>
-        <source>Icon theme</source>
-        <translation type="unfinished"></translation>
+        <source>Theme</source>
+        <translation>主题</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="367"/>
@@ -2078,6 +2078,11 @@
         <location filename="../src/dialogs/prefsdialog.cpp" line="59"/>
         <source>Inverted</source>
         <translation>颠倒</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>
+        <source>System</source>
+        <translation>系统</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.cpp" line="66"/>

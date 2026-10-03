@@ -63,13 +63,13 @@ PrefsDialog::PrefsDialog(QWidget *parent) :
         ui->zoomDirection->setCurrentIndex(1);
     }
 
-    QStringList iconThemes(QStringList() << tr("Auto") << tr("Light") << tr("Dark"));
-    ui->iconThemeCBox->addItems(iconThemes);
+    QStringList themes(QStringList() << tr("System") << tr("Light") << tr("Dark"));
+    ui->themeCBox->addItems(themes);
     {
-        const QString t = SETTINGS->getIconTheme();
-        if (t == "light")     ui->iconThemeCBox->setCurrentIndex(1);
-        else if (t == "dark") ui->iconThemeCBox->setCurrentIndex(2);
-        else                  ui->iconThemeCBox->setCurrentIndex(0);
+        const QString t = SETTINGS->getTheme();
+        if (t == "light")     ui->themeCBox->setCurrentIndex(1);
+        else if (t == "dark") ui->themeCBox->setCurrentIndex(2);
+        else                  ui->themeCBox->setCurrentIndex(0);
     }
 
     //Default values tab
@@ -175,9 +175,12 @@ void PrefsDialog::on_buttonBox_accepted()
     emit dockLayoutChanged();
     SETTINGS->setZoomDirection(QString::number(ui->zoomDirection->currentIndex()));
     {
-        static const char* themeKeys[] = {"auto", "light", "dark"};
-        SETTINGS->setIconTheme(QLatin1String(themeKeys[ui->iconThemeCBox->currentIndex()]));
-        emit iconThemeChanged();
+        static const char* themeKeys[] = {"system", "light", "dark"};
+        const QString newTheme = QLatin1String(themeKeys[ui->themeCBox->currentIndex()]);
+        if (newTheme != SETTINGS->getTheme()) {
+            SETTINGS->setTheme(newTheme);
+            emit themeChanged();
+        }
     }
 
     //Default values tab

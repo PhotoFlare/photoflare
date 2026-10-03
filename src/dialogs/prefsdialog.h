@@ -45,7 +45,7 @@ private slots:
     void addFlagIcons(int languages);
 
 signals:
-    void iconThemeChanged();
+    void themeChanged();
     void languageChanged(const QString &langCode);
     void dockLayoutChanged();
 

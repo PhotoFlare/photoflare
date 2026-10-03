@@ -72,8 +72,8 @@ public:
     bool getMemParamsEnabled() const;
     void setUnit(int);
     int getUnit() const;
-    void setIconTheme(const QString &theme);
-    QString getIconTheme() const;
+    void setTheme(const QString &theme);
+    QString getTheme() const;
     void setMainWindowState(const QByteArray &state);
     QByteArray mainWindowState() const;
     void setPrimaryColor(const QColor &color);
