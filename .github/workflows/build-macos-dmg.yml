@@ -14,7 +14,7 @@ jobs:
         include:
           # arm64 only: GitHub's Intel/x64 macOS images are paid "larger
           # runners" requiring org-level provisioning, not available here.
-          - runner: macos-14      # Apple Silicon
+          - runner: macos-15      # Apple Silicon
             arch: arm64
             qt_arch: clang_64
 
