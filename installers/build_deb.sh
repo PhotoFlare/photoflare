@@ -52,18 +52,6 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Resolve qmake
-if [[ -n "$QT_PREFIX" ]]; then
-    QMAKE="$QT_PREFIX/bin/qmake"
-else
-    QMAKE=$(command -v qmake6 || command -v qmake || true)
-fi
-if [[ -z "$QMAKE" || ! -x "$QMAKE" ]]; then
-    echo "ERROR: qmake not found. Install qt6-base-dev or pass --prefix /path/to/qt6"
-    exit 1
-fi
-echo "Using qmake: $QMAKE"
-
 # Install build dependencies
 echo "=== Installing build dependencies ==="
 if command -v apt-get &>/dev/null; then
@@ -78,6 +66,19 @@ if command -v apt-get &>/dev/null; then
         $SUDO apt-get install -y cmake git wget libfftw3-dev libcurl4-openssl-dev
     fi
 fi
+echo ""
+
+# Resolve qmake (after installing dependencies, which provide it)
+if [[ -n "$QT_PREFIX" ]]; then
+    QMAKE="$QT_PREFIX/bin/qmake"
+else
+    QMAKE=$(command -v qmake6 || command -v qmake || true)
+fi
+if [[ -z "$QMAKE" || ! -x "$QMAKE" ]]; then
+    echo "ERROR: qmake not found. Install qt6-base-dev or pass --prefix /path/to/qt6"
+    exit 1
+fi
+echo "Using qmake: $QMAKE"
 echo ""
 
 # Base version comes from the control file; the distro suffix is derived from
