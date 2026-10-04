@@ -188,9 +188,10 @@ fi # WITH_GMIC
 echo "=== Staging DEBIAN control ==="
 mkdir -p "$STAGING_DIR/DEBIAN"
 INSTALLED_SIZE="$(du -sk "$STAGING_DIR/usr" | cut -f1)"
-awk -v version="$VERSION" -v size="$INSTALLED_SIZE" -v deps="$SHLIB_DEPENDS" \
+awk -v version="$VERSION" -v size="$INSTALLED_SIZE" -v deps="$SHLIB_DEPENDS" -v arch="$ARCH" \
     '{
         if ($0 ~ /^Version:/) print "Version: " version;
+        else if ($0 ~ /^Architecture:/) print "Architecture: " arch;
         else if ($0 ~ /^Installed-Size:/) print "Installed-Size: " size;
         else if ($0 ~ /^Depends:/) print $0 ", " deps;
         else print

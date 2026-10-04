@@ -21,6 +21,11 @@ jobs:
           # packages normally, without needing to bundle a separate Qt.
           - runner: ubuntu-26.04
             with_gmic: true
+          # Native arm64 builds on GitHub's hosted ARM runners.
+          - runner: ubuntu-24.04-arm
+            with_gmic: false
+          - runner: ubuntu-26.04-arm
+            with_gmic: true
 
     runs-on: ${{ matrix.runner }}
 
