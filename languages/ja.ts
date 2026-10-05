@@ -159,7 +159,7 @@
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="17"/>
         <source>Hue variation</source>
-        <translation>色相の変化</translation>
+        <translation>色相</translation>
     </message>
     <message>
         <location filename="../src/dialogs/huedialog.ui" line="45"/>
@@ -467,7 +467,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1157"/>
         <source>Revert</source>
-        <translation>読み込み直す</translation>
+        <translation>再読み込み</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1171"/>
@@ -832,7 +832,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1615"/>
         <source>Hue Variation...</source>
-        <translation>色相の変化...</translation>
+        <translation>色相...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1638"/>
@@ -1270,7 +1270,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="2197"/>
         <source>Check for updates...</source>
-        <translation>更新を確認...</translation>
+        <translation>更新の確認...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2202"/>
@@ -1963,6 +1963,10 @@
         <location filename="../src/dialogs/prefsdialog.ui" line="328"/>
         <source>Zoom direction</source>
         <translation>ズームの方向</translation>
+    </message>
+    <message>
+        <source>Icon theme</source>
+        <translation>アイコンテーマ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="351"/>
