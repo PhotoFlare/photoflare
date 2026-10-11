@@ -1,7 +1,12 @@
 name: photoflare
+title: PhotoFlare
 version: 1.7.5
 summary: PhotoFlare
 description: Simple but powerful Cross Platform image editor
+license: GPL-3.0
+website: https://photoflare.io
+source-code: https://github.com/PhotoFlare/photoflare
+issues: https://github.com/PhotoFlare/photoflare/issues
 icon: installers/deb/DEBIAN/usr/share/icons/hicolor/48x48/apps/photoflare.png
 type: app
 
@@ -11,7 +16,7 @@ grade: stable
 
 apps:
   photoflare:
-    command: $SNAP/usr/local/bin/photoflare
+    command: usr/local/bin/photoflare
     desktop: usr/local/share/applications/photoflare.desktop
 
 parts:
