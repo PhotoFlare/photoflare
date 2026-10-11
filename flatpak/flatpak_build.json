@@ -25,7 +25,6 @@
         },
         {
             "name": "fftw3",
-            "x-todo": "Verify fftw3 sha256 before release.",
             "buildsystem": "autotools",
             "config-opts": [
                 "--enable-shared",
@@ -36,7 +35,7 @@
                 {
                     "type": "archive",
                     "url": "https://fftw.org/fftw-3.3.10.tar.gz",
-                    "sha256": "TODO-verify-sha256"
+                    "sha256": "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
                 }
             ]
         },

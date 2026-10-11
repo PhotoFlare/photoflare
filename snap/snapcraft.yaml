@@ -76,10 +76,22 @@ parts:
       - qt6-base-dev
       - qt6-tools-dev
       - qt6-tools-dev-tools
+      - qt6-l10n-tools
       - libfftw3-dev
       - libcurl4-openssl-dev
       - libomp-dev
     override-build: |
+      # gmic-qt's translations/lrelease.sh only looks for `lrelease` or
+      # `lrelease-qt5` on PATH; Qt 6 installs it under /usr/lib/qt6/bin.
+      mkdir -p $CRAFT_PART_BUILD/qt-tools-bin
+      for candidate in /usr/lib/qt6/bin/lrelease /usr/lib/qt6/libexec/lrelease /usr/bin/lrelease-qt6; do
+        if [ -x "$candidate" ]; then
+          ln -sf "$candidate" $CRAFT_PART_BUILD/qt-tools-bin/lrelease
+          break
+        fi
+      done
+      test -x $CRAFT_PART_BUILD/qt-tools-bin/lrelease
+      export PATH="$CRAFT_PART_BUILD/qt-tools-bin:$PATH"
       craftctl default
       mv $CRAFT_PART_INSTALL/usr/bin/gmic_qt $CRAFT_PART_INSTALL/usr/bin/gmic_photoflare_qt
     stage-packages:
