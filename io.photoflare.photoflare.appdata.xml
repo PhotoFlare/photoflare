@@ -40,6 +40,19 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.7.5" date="2026-10-11">
+        <description>
+          <ul>
+            <li>Added Polish translation and updated German and Japanese translations.</li>
+            <li>Replaced icon selection with theme selection in preferences.</li>
+            <li>Rulers are now off by default.</li>
+            <li>Fixed startup setting issue and handling of missing XDG_DATA_DIRS.</li>
+            <li>Fixed crashes on macOS with certain filters and transparent colors.</li>
+            <li>Updated G'MIC to v4.0.5.</li>
+            <li>New CI workflows for macOS, Snap, Flatpak and Ubuntu (including ARM) builds.</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.7.4" date="2026-08-03">
         <description>
           <ul>
