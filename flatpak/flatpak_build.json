@@ -74,6 +74,10 @@
         {
             "name": "photoflare",
             "buildsystem": "qmake",
+            "config-opts": [
+                "INCLUDEPATH+=/app/include/GraphicsMagick",
+                "LIBS+=-L/app/lib"
+            ],
             "sources": [
                 {
                     "type": "git",
