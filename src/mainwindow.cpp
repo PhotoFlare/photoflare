@@ -3496,7 +3496,7 @@ PaintWidget *MainWindow::createPaintWidget(const QSize &imageSize, const QColor 
 void MainWindow::addPaintWidget(PaintWidget *widget)
 {
     widget->autoScale();
-    widget->showRulers(SETTINGS->value("showRulers", true).toBool());
+    widget->showRulers(SETTINGS->value("showRulers", false).toBool());
 
     connect(widget, &PaintWidget::zoomChanged, [this] (float scale) {
         this->zoomCombo->setItemText(0, QString::number(static_cast<int>(scale*100)).append("%"));

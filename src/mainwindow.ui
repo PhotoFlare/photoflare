@@ -1701,7 +1701,7 @@ QDockWidget { border-right: 1px solid palette(mid); }</string>
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="text">
     <string>Show Rulers</string>
