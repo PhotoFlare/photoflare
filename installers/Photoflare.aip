@@ -364,6 +364,21 @@
     <ROW File="ja.qm" Component_="de.qm" FileName="ja.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\ja.qm" SelfReg="false"/>
     <ROW File="ko.qm" Component_="de.qm" FileName="ko.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\ko.qm" SelfReg="false"/>
     <ROW File="tr.qm" Component_="de.qm" FileName="tr.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\tr.qm" SelfReg="false"/>
+    <ROW File="pl.qm" Component_="de.qm" FileName="pl.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\pl.qm" SelfReg="false"/>
+    <ROW File="qtbase_cs.qm" Component_="de.qm" FileName="QTBASE~1.QM|qtbase_cs.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_cs.qm" SelfReg="false"/>
+    <ROW File="qtbase_de.qm" Component_="de.qm" FileName="QTBASE~2.QM|qtbase_de.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_de.qm" SelfReg="false"/>
+    <ROW File="qtbase_en.qm" Component_="de.qm" FileName="QTBASE~3.QM|qtbase_en.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_en.qm" SelfReg="false"/>
+    <ROW File="qtbase_es.qm" Component_="de.qm" FileName="QTBASE~4.QM|qtbase_es.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_es.qm" SelfReg="false"/>
+    <ROW File="qtbase_fr.qm" Component_="de.qm" FileName="QTBASE~5.QM|qtbase_fr.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_fr.qm" SelfReg="false"/>
+    <ROW File="qtbase_ja.qm" Component_="de.qm" FileName="QTBASE~6.QM|qtbase_ja.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_ja.qm" SelfReg="false"/>
+    <ROW File="qtbase_ko.qm" Component_="de.qm" FileName="QTBASE~7.QM|qtbase_ko.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_ko.qm" SelfReg="false"/>
+    <ROW File="qtbase_nl.qm" Component_="de.qm" FileName="QTBASE~8.QM|qtbase_nl.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_nl.qm" SelfReg="false"/>
+    <ROW File="qtbase_pl.qm" Component_="de.qm" FileName="QTBASE~9.QM|qtbase_pl.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_pl.qm" SelfReg="false"/>
+    <ROW File="qtbase_pt_BR.qm" Component_="de.qm" FileName="QTBAS~10.QM|qtbase_pt_BR.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_pt_BR.qm" SelfReg="false"/>
+    <ROW File="qtbase_ru_RU.qm" Component_="de.qm" FileName="QTBAS~11.QM|qtbase_ru_RU.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_ru_RU.qm" SelfReg="false"/>
+    <ROW File="qtbase_tr.qm" Component_="de.qm" FileName="QTBAS~12.QM|qtbase_tr.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_tr.qm" SelfReg="false"/>
+    <ROW File="qtbase_zh_CN.qm" Component_="de.qm" FileName="QTBAS~13.QM|qtbase_zh_CN.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_zh_CN.qm" SelfReg="false"/>
+    <ROW File="qtbase_zh_TW.qm" Component_="de.qm" FileName="QTBAS~14.QM|qtbase_zh_TW.qm" Attributes="0" SourcePath="PhotoFlare_Win_AIP\languages\qtbase_zh_TW.qm" SelfReg="false"/>
     <ROW File="grain.json" Component_="grain.json" FileName="GRAIN~1.JSO|grain.json" Attributes="0" SourcePath="PhotoFlare_Win_AIP\plugins\grain.json" SelfReg="false"/>
     <ROW File="grain_plugin.dll" Component_="grain_plugin.dll" FileName="GRAIN~2.DLL|grain_plugin.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\plugins\grain_plugin.dll" SelfReg="false"/>
     <ROW File="qsvgicon.dll" Component_="qsvgicon.dll" FileName="qsvgicon.dll" Attributes="0" SourcePath="PhotoFlare_Win_AIP\iconengines\qsvgicon.dll" SelfReg="false"/>

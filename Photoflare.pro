@@ -254,6 +254,10 @@ for(tsfile, TRANSLATIONS) {
     langCode = $$basename(tsfile)
     langCode ~= s,\\.ts$,,
     qtBaseQmSrc = $${QT_TRANSLATIONS_DIR}/qtbase_$${langCode}.qm
+    # Qt names some catalogs by language only (e.g. qtbase_ru.qm for ru_RU).
+    !exists($$qtBaseQmSrc) {
+        qtBaseQmSrc = $${QT_TRANSLATIONS_DIR}/qtbase_$$section(langCode, _, 0, 0).qm
+    }
     exists($$qtBaseQmSrc) {
         qtBaseQmDest = $$qmdir/qtbase_$${langCode}.qm
         copycmd = $$QMAKE_COPY $$system_path($$qtBaseQmSrc) $$system_path($$qtBaseQmDest)
