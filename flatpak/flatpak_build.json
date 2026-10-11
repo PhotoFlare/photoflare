@@ -49,7 +49,7 @@
             },
             "build-commands": [
                 "wget --no-check-certificate --quiet -O gmic/src/CImg.h https://github.com/GreycLab/CImg/raw/v.3.7.5/CImg.h",
-                "make -C gmic/src gmic_stdlib_community.h",
+                "LATEST_VER=$(git ls-remote --tags --refs https://github.com/GreycLab/gmic.git 'v.*' | sed 's|.*refs/tags/v\\.||' | grep -E '^[0-9]+\\.[0-9]+\\.[0-9]+$' | sort -V | tail -n1 | tr -d '.') && test -n \"$LATEST_VER\" && wget --quiet -O gmic/src/gmic_stdlib_community.h \"https://gmic.eu/gmic_stdlib_community${LATEST_VER}.h\" && grep -q data_gmic gmic/src/gmic_stdlib_community.h",
                 "cmake . -B _build -DBUILD_WITH_QT6=ON -DGMIC_QT_HOST=none -DENABLE_SYSTEM_GMIC=OFF -DGMIC_PATH=/run/build/gmic-qt/gmic/src -DENABLE_FFTW3=ON -DENABLE_CURL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXE_LINKER_FLAGS=-no-pie",
                 "cmake --build _build --parallel 1",
                 "cmake --install _build --prefix /app",

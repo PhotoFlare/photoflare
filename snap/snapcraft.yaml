@@ -102,7 +102,9 @@ parts:
       done
       test -x /usr/local/bin/lrelease
       craftctl default
-      mv $CRAFT_PART_INSTALL/usr/bin/gmic_qt $CRAFT_PART_INSTALL/usr/bin/gmic_photoflare_qt
+      # The cmake plugin's default prefix is /usr/local, so the binary lands in
+      # usr/local/bin, next to the photoflare binary where the app looks for it.
+      mv $CRAFT_PART_INSTALL/usr/local/bin/gmic_qt $CRAFT_PART_INSTALL/usr/local/bin/gmic_photoflare_qt
     stage-packages:
       - libfftw3-double3
       - libomp5-18
