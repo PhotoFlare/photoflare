@@ -68,7 +68,15 @@ parts:
       PATCH=$(echo $GMIC_VER | cut -c3)
       wget --no-check-certificate --quiet -O "$GMIC_SRC/CImg.h" \
         "https://github.com/GreycLab/CImg/raw/v.${MAJOR}.${MINOR}.${PATCH}/CImg.h"
-      make -C "$GMIC_SRC" gmic_stdlib_community.h
+      # `make gmic_stdlib_community.h` yields an empty header here, and gmic.eu
+      # only hosts the header for the current G'MIC release (pinned tags 404).
+      # The header is only a data_gmic byte array, so fetch the latest one.
+      LATEST_VER=$(git ls-remote --tags --refs https://github.com/GreycLab/gmic.git 'v.*' \
+        | sed 's|.*refs/tags/v\.||' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n1 | tr -d '.')
+      test -n "$LATEST_VER"
+      wget --quiet -O "$GMIC_SRC/gmic_stdlib_community.h" \
+        "https://gmic.eu/gmic_stdlib_community${LATEST_VER}.h"
+      grep -q 'data_gmic' "$GMIC_SRC/gmic_stdlib_community.h"
     build-packages:
       - cmake
       - make
@@ -83,15 +91,16 @@ parts:
     override-build: |
       # gmic-qt's translations/lrelease.sh only looks for `lrelease` or
       # `lrelease-qt5` on PATH; Qt 6 installs it under /usr/lib/qt6/bin.
-      mkdir -p $CRAFT_PART_BUILD/qt-tools-bin
+      # `craftctl default` runs the cmake steps in a separate process that does
+      # not inherit PATH changes from this script, so link it into a directory
+      # that is already on PATH (the build runs in a disposable instance).
       for candidate in /usr/lib/qt6/bin/lrelease /usr/lib/qt6/libexec/lrelease /usr/bin/lrelease-qt6; do
         if [ -x "$candidate" ]; then
-          ln -sf "$candidate" $CRAFT_PART_BUILD/qt-tools-bin/lrelease
+          ln -sf "$candidate" /usr/local/bin/lrelease
           break
         fi
       done
-      test -x $CRAFT_PART_BUILD/qt-tools-bin/lrelease
-      export PATH="$CRAFT_PART_BUILD/qt-tools-bin:$PATH"
+      test -x /usr/local/bin/lrelease
       craftctl default
       mv $CRAFT_PART_INSTALL/usr/bin/gmic_qt $CRAFT_PART_INSTALL/usr/bin/gmic_photoflare_qt
     stage-packages:
