@@ -50,6 +50,10 @@ parts:
       - -DCMAKE_EXE_LINKER_FLAGS=-no-pie
     override-pull: |
       craftctl default
+      # core24 ships Qt 6.4.2, but gmic-qt's CMakeLists requests Qt >= 6.5.0.
+      # The source has no 6.5-only API usage, so relax the minimum version.
+      sed -i 's/set(MIN_QT_VERSION 6\.5\.0)/set(MIN_QT_VERSION 6.4.0)/' CMakeLists.txt
+      grep -q 'MIN_QT_VERSION 6.4.0' CMakeLists.txt
       # Clone the matching G'MIC source one level above the gmic-qt checkout so
       # that gmic-qt's CMakeLists default GMIC_PATH (../gmic/src) resolves correctly.
       git clone --depth 1 --branch v.3.7.5 \

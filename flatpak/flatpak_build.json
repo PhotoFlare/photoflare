@@ -44,8 +44,9 @@
             "name": "gmic-qt",
             "buildsystem": "simple",
             "build-options": {
-                "x-note": "network:true is needed to fetch CImg.h and gmic_stdlib_community.h which are not in the gmic git repo. Not suitable for Flathub submission.",
-                "network": true
+                "build-args": [
+                    "--share=network"
+                ]
             },
             "build-commands": [
                 "wget --no-check-certificate --quiet -O gmic/src/CImg.h https://github.com/GreycLab/CImg/raw/v.3.7.5/CImg.h",

@@ -92,7 +92,7 @@ jobs:
 
           # Third-party deps checked out from photoflare-pkg
           Copy-Item photoflare-pkg\windows\graphicsmagick\* $out\ -Force
-          Copy-Item photoflare-pkg\windows\gmic\gmic_qt.exe $out\ -Force
+          Copy-Item photoflare-pkg\windows\gmic\* $out\ -Force
 
           # Portable marker file
           New-Item -Path "$out\portable" -ItemType File -Force | Out-Null
