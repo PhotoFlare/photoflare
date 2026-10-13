@@ -83,14 +83,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git clone --depth 1 --branch v.3.4.2 https://github.com/c-koi/gmic-qt.git gmic-qt-src
-          # Pin GMIC core to v.3.7.6: it's the last release where gmic::init_rc()
-          # still returns bool. gmic-qt v.3.4.2 (last tagged gmic-qt release, and
-          # its current master branch too) calls it as `create && gmic::init_rc()`,
-          # which fails to compile against gmic >= v.4.0.0, where init_rc() was
-          # changed to return void. Bumping GMIC core past v.4.0.0 (as previously
-          # tried) breaks this API compatibility, even though it fixes the stdlib
-          # header 404 below.
-          git clone --depth 1 --branch v.3.7.6 https://github.com/GreycLab/gmic.git gmic-qt-src/gmic
+          # Pin GMIC core to v.4.0.5. (gmic::init_rc() returned void only in
+          # v.4.0.0-ish releases, which broke gmic-qt's `create && gmic::init_rc()`;
+          # v.4.0.5 returns bool again, so it compiles with gmic-qt v.3.4.2.)
+          git clone --depth 1 --branch v.4.0.5 https://github.com/GreycLab/gmic.git gmic-qt-src/gmic
           GMIC_SRC="$PWD/gmic-qt-src/gmic/src"
           GMIC_VER=$(grep -oP '(?<=gmic_version )\d+' "$GMIC_SRC/gmic.h")
           CIMG_TAG="v.${GMIC_VER:0:1}.${GMIC_VER:1:1}.${GMIC_VER:2:1}"

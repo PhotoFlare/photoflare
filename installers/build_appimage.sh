@@ -99,7 +99,7 @@ CMAKE_PREFIX=""
 
 if [[ ! -d "$GMIC_QT_CLONE" ]]; then
     git clone --depth 1 --branch v.3.4.2 https://github.com/c-koi/gmic-qt.git "$GMIC_QT_CLONE"
-    git clone --depth 1 --branch v.3.7.5 https://github.com/GreycLab/gmic.git "$GMIC_QT_CLONE/gmic"
+    git clone --depth 1 --branch v.4.0.5 https://github.com/GreycLab/gmic.git "$GMIC_QT_CLONE/gmic"
 fi
 
 # Pre-fetch CImg.h from the matching versioned tag — the gmic Makefile's CImg.h

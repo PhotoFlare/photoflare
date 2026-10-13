@@ -61,7 +61,7 @@ parts:
       grep -q 'MIN_QT_VERSION 6.4.0' CMakeLists.txt
       # Clone the matching G'MIC source one level above the gmic-qt checkout so
       # that gmic-qt's CMakeLists default GMIC_PATH (../gmic/src) resolves correctly.
-      git clone --depth 1 --branch v.3.7.5 \
+      git clone --depth 1 --branch v.4.0.5 \
         https://github.com/GreycLab/gmic.git \
         $CRAFT_PART_SRC/../gmic
       # Pre-fetch CImg.h from the matching versioned tag — the gmic Makefile's
