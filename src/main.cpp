@@ -24,11 +24,39 @@
 #include <QDir>
 #include <QFile>
 #include <QSettings>
+#include <QLocale>
+#include <QSet>
 
 #include "mainwindow.h"
 #include "Settings.h"
 #include "Theme.h"
 
+namespace {
+    // Maps the system locale to one of the bundled translations (languages/*.ts).
+    QString systemLanguageCode()
+    {
+        static const QSet<QString> supported = {
+            "en", "fr", "de", "nl", "cs", "sv", "id", "es", "ja", "tr", "ko", "pl"
+        };
+        const QLocale locale = QLocale::system();
+        const QString code = QLocale::languageToCode(locale.language());
+
+        if (code == "zh") {
+            const bool traditional = locale.script() == QLocale::TraditionalChineseScript
+                || locale.territory() == QLocale::Taiwan
+                || locale.territory() == QLocale::HongKong
+                || locale.territory() == QLocale::Macao;
+            return traditional ? "zh_TW" : "zh_CN";
+        }
+        if (code == "pt") {
+            return locale.territory() == QLocale::Brazil ? "pt_BR" : "pt_PT";
+        }
+        if (code == "ru") {
+            return "ru_RU";
+        }
+        return supported.contains(code) ? code : "en";
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -78,82 +106,7 @@ int main(int argc, char *argv[])
         // Set language based on System locale
         if(SETTINGS->getUserLanguage() == "notset")
         {
-            QString sysLanguage =  QLocale::countryToString(QLocale::system().country());
-            QString lang;
-
-            if(sysLanguage == "United States")
-            {
-                lang = "en";
-            }
-            else if(sysLanguage == "France")
-            {
-                lang = "fr";
-            }
-            else if(sysLanguage == "Germany")
-            {
-                lang = "de";
-            }
-            else if(sysLanguage == "Netherlands")
-            {
-                lang = "nl";
-            }
-            else if(sysLanguage == "China")
-            {
-                lang = "zh_CN";
-            }
-            else if(sysLanguage == "Taiwan")
-            {
-                lang = "zh_TW";
-            }
-            else if(sysLanguage == "Czech Republic")
-            {
-                lang = "cs";
-            }
-            else if(sysLanguage == "Portugal")
-            {
-                lang = "pt_PT";
-            }
-            else if(sysLanguage == "Brazil")
-            {
-                lang = "pt_BR";
-            }
-            else if(sysLanguage == "Sweden")
-            {
-                lang = "sv";
-            }
-            else if(sysLanguage == "Russian")
-            {
-                lang = "ru_RU";
-            }
-            else if(sysLanguage == "Indonesian")
-            {
-                lang = "id";
-            }
-            else if(sysLanguage == "Spanish")
-            {
-                lang = "es";
-            }
-            else if(sysLanguage == "Japan")
-            {
-                lang = "ja";
-            }
-            else if(sysLanguage == "Turkey")
-            {
-                lang = "tr";
-            }
-            else if(sysLanguage == "Korean")
-            {
-                lang = "ko";
-            }
-            else if(sysLanguage == "Poland")
-            {
-                lang = "pl";
-            }
-            else
-            {
-                lang = "en";
-            }
-            SETTINGS->setUserLanguage(lang);
+            SETTINGS->setUserLanguage(systemLanguageCode());
         }
 
         Theme::apply(Theme::modeFromSetting(SETTINGS->getTheme()));
