@@ -2482,8 +2482,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
-        <source> Community Edition</source>
-        <translation> Komunitní vydání</translation>
+        <source>Community Edition</source>
+        <translation>Komunitní vydání</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="86"/>

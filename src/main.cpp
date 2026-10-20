@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     {
         // App details
         app.setApplicationName("photoflare");
-        app.setApplicationVersion("1.7.5");
+        app.setApplicationVersion("1.7.6");
         app.setOrganizationName("PhotoFlare");
         app.setOrganizationDomain("PhotoFlare");
 

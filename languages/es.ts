@@ -2477,8 +2477,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
-        <source> Community Edition</source>
-        <translation> Edición de Comunidad</translation>
+        <source>Community Edition</source>
+        <translation>Edición de Comunidad</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="86"/>

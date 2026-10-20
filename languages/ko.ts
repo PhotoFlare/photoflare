@@ -2431,8 +2431,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
-        <source> Community Edition</source>
-        <translation> 커뮤니티 에디션</translation>
+        <source>Community Edition</source>
+        <translation>커뮤니티 에디션</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="86"/>

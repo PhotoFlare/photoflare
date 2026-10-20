@@ -328,7 +328,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="294"/>
         <source>Flatten</source>
-        <translation>Ebnen</translation>
+        <translation>Ebenen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="300"/>
@@ -660,7 +660,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="125"/>
         <source>Purge</source>
-        <translation>Reinigen</translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="31"/>
@@ -1978,7 +1978,7 @@
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="280"/>
         <source>&amp;Layout</source>
-        <translation>&amp;Layout</translation>
+        <translation>&amp;Oberfläche</translation>
     </message>
     <message>
         <location filename="../src/dialogs/prefsdialog.ui" line="292"/>
@@ -2480,7 +2480,7 @@
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
         <source> Community Edition</source>
-        <translation>Community Edition</translation>
+        <translation>Community-Ausgabe</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="86"/>

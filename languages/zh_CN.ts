@@ -2462,8 +2462,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
-        <source> Community Edition</source>
-        <translation> 社区版</translation>
+        <source>Community Edition</source>
+        <translation>社区版</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="86"/>

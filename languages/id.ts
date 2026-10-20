@@ -2439,8 +2439,8 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
-        <source> Community Edition</source>
-        <translation> Edisi Komunitas</translation>
+        <source>Community Edition</source>
+        <translation>Edisi Komunitas</translation>
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="86"/>

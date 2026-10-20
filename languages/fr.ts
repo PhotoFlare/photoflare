@@ -2466,7 +2466,7 @@
     </message>
     <message>
         <location filename="../src/dialogs/aboutdialog.cpp" line="85"/>
-        <source> Community Edition</source>
+        <source>Community Edition</source>
         <translation>Version community</translation>
     </message>
     <message>

@@ -3,7 +3,7 @@
  <class>batchDialog</class>
  <widget class="QDialog" name="batchDialog">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::WindowModality::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -29,10 +29,10 @@
     </rect>
    </property>
    <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+    <enum>Qt::Orientation::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
    </property>
   </widget>
   <widget class="QTabWidget" name="tabWidget">
@@ -67,16 +67,16 @@
       <string notr="true"/>
      </property>
      <property name="dragDropMode">
-      <enum>QAbstractItemView::DropOnly</enum>
+      <enum>QAbstractItemView::DragDropMode::DropOnly</enum>
      </property>
      <property name="alternatingRowColors">
       <bool>true</bool>
      </property>
      <property name="selectionMode">
-      <enum>QAbstractItemView::NoSelection</enum>
+      <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
      </property>
      <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectItems</enum>
+      <enum>QAbstractItemView::SelectionBehavior::SelectItems</enum>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -524,10 +524,10 @@
       <number>1</number>
      </property>
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="tickPosition">
-      <enum>QSlider::TicksBelow</enum>
+      <enum>QSlider::TickPosition::TicksBelow</enum>
      </property>
      <property name="tickInterval">
       <number>10</number>
@@ -549,10 +549,10 @@
       <number>100</number>
      </property>
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="tickPosition">
-      <enum>QSlider::TicksBelow</enum>
+      <enum>QSlider::TickPosition::TicksBelow</enum>
      </property>
      <property name="tickInterval">
       <number>10</number>
@@ -574,10 +574,10 @@
       <number>100</number>
      </property>
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="tickPosition">
-      <enum>QSlider::TicksBelow</enum>
+      <enum>QSlider::TickPosition::TicksBelow</enum>
      </property>
      <property name="tickInterval">
       <number>10</number>
@@ -605,10 +605,10 @@
       <number>100</number>
      </property>
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="tickPosition">
-      <enum>QSlider::TicksBelow</enum>
+      <enum>QSlider::TickPosition::TicksBelow</enum>
      </property>
      <property name="tickInterval">
       <number>10</number>
@@ -972,7 +972,7 @@
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="text">
       <string>&gt;</string>
@@ -988,7 +988,7 @@
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="text">
       <string>&lt;</string>
@@ -1004,7 +1004,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>191</width>
+       <width>241</width>
        <height>121</height>
       </rect>
      </property>
@@ -1019,7 +1019,7 @@
        <rect>
         <x>10</x>
         <y>60</y>
-        <width>151</width>
+        <width>221</width>
         <height>17</height>
        </rect>
       </property>
@@ -1035,7 +1035,7 @@
        <rect>
         <x>10</x>
         <y>80</y>
-        <width>131</width>
+        <width>221</width>
         <height>17</height>
        </rect>
       </property>
@@ -1046,9 +1046,9 @@
      <widget class="QCheckBox" name="rotateCheckBox">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>151</width>
+        <x>10</x>
+        <y>10</y>
+        <width>221</width>
         <height>17</height>
        </rect>
       </property>
@@ -1064,7 +1064,7 @@
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>141</width>
+        <width>221</width>
         <height>17</height>
        </rect>
       </property>
@@ -1081,7 +1081,7 @@
       <rect>
        <x>10</x>
        <y>140</y>
-       <width>191</width>
+       <width>241</width>
        <height>91</height>
       </rect>
      </property>
@@ -1096,7 +1096,7 @@
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>141</width>
+        <width>221</width>
         <height>17</height>
        </rect>
       </property>
@@ -1115,7 +1115,7 @@
        <rect>
         <x>10</x>
         <y>60</y>
-        <width>151</width>
+        <width>221</width>
         <height>17</height>
        </rect>
       </property>
@@ -1126,9 +1126,9 @@
      <widget class="QCheckBox" name="flipCheckBox">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>131</width>
+        <x>10</x>
+        <y>10</y>
+        <width>221</width>
         <height>17</height>
        </rect>
       </property>
