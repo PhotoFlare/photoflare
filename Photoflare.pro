@@ -5,7 +5,7 @@ isEqual(QT_MAJOR_VERSION, 6) : lessThan(QT_MINOR_VERSION, 4) {
     error("This project requires Qt 6.4.0 or later")
 }
 
-QT += core gui widgets printsupport
+QT += core gui widgets printsupport network
 
 TARGET = photoflare
 TEMPLATE = app
@@ -58,6 +58,7 @@ macx {
 }
 
 SOURCES += src/main.cpp \
+    src/SingleInstance.cpp \
     src/mainwindow.cpp \
     src/dialogs/aboutdialog.cpp \
     src/dialogs/NewDialog.cpp \
@@ -115,6 +116,7 @@ SOURCES += src/main.cpp \
     src/dialogs/dropshadowdialog.cpp
 
 HEADERS += src/mainwindow.h \
+    src/SingleInstance.h \
     src/plugins/AppContext.h \
     src/plugins/IPhotoflarePlugin.h \
     src/plugins/PluginManager.h \
@@ -208,10 +210,6 @@ FORMS += src/mainwindow.ui \
 RESOURCES += \
     Icons.qrc \
     IconsDark.qrc
-
-include (external/qt-solutions/qtsingleapplication/qtsingleapplication.pri)
-
-INCLUDEPATH += external/qt-solutions/qtsingleapplication
 
 TRANSLATIONS = languages/en.ts \
                languages/fr.ts \

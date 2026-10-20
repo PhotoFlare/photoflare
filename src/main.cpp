@@ -19,16 +19,18 @@
 
 //#include <QDebug>
 
-#include <QtSingleApplication>
+#include <QApplication>
 #include <QStandardPaths>
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QSettings>
 #include <QLocale>
 #include <QSet>
 
 #include "mainwindow.h"
 #include "Settings.h"
+#include "SingleInstance.h"
 #include "Theme.h"
 
 namespace {
@@ -61,11 +63,26 @@ namespace {
 int main(int argc, char *argv[])
 {
     QApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
-    QtSingleApplication app("Photoflare", argc, argv);
+    QApplication app(argc, argv);
     // Fix wayland titlebar icons
     QApplication::setDesktopFileName("photoflare");
 
-    if(!app.isRunning())
+    SingleInstance instance("Photoflare");
+    bool runHere = instance.isPrimary();
+    if(!runHere)
+    {
+        // Forward absolute paths: the primary instance has a different working directory.
+        QStringList files;
+        const QStringList args = app.arguments();
+        for (int i = 1; i < args.size(); ++i)
+        {
+            files << QFileInfo(args.at(i)).absoluteFilePath();
+        }
+        // If the primary can't be reached, open a normal window instead of silently doing nothing.
+        runHere = !instance.sendMessages(files);
+    }
+
+    if(runHere)
     {
         // App details
         app.setApplicationName("photoflare");
@@ -115,28 +132,20 @@ int main(int argc, char *argv[])
         w.show();
 
         // Pass filenames to be opened
-        if(argc > 1)
+        const QStringList args = app.arguments();
+        for (int i = 1; i < args.size(); ++i)
         {
-            for (int i = 1; i < argc; ++i)
-            {
-                w.handleMessage(QString(argv[i]));
-            }
+            w.handleMessage(args.at(i));
         }
 
-        app.setActivationWindow(&w, true);
-        QObject::connect(&app, SIGNAL(messageReceived(QString)), &w, SLOT(handleMessage(QString)));
+        QObject::connect(&instance, &SingleInstance::messageReceived, &w, &MainWindow::handleMessage);
+        QObject::connect(&instance, &SingleInstance::activationRequested, &w, [&w]() {
+            w.setWindowState(w.windowState() & ~Qt::WindowMinimized);
+            w.raise();
+            w.activateWindow();
+        });
 
         return app.exec();
-    }
-    else
-    {
-        if(argc > 1)
-        {
-            for (int i = 1; i < argc; ++i)
-            {
-                app.sendMessage(QString(argv[i]));
-            }
-        }
     }
     return 0;
 }
