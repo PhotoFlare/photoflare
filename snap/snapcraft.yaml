@@ -11,13 +11,23 @@ icon: installers/deb/DEBIAN/usr/share/icons/hicolor/48x48/apps/photoflare.png
 type: app
 
 base: core24
-confinement: classic
+confinement: strict
 grade: stable
 
 apps:
   photoflare:
-    command: usr/local/bin/photoflare
-    desktop: usr/local/share/applications/photoflare.desktop
+    # Wrapper sets the GraphicsMagick module/config paths, then execs photoflare.
+    command: bin/photoflare-launch
+    desktop: usr/share/applications/photoflare.desktop
+    common-id: io.photoflare.photoflare
+    # Qt 6 (and the desktop/wayland/x11/opengl/unity7 plugs) come from the
+    # kf6-core24 content snap via this extension.
+    extensions: [kde-neon-qt6]
+    plugs:
+      - home             # open/save images in the user's home
+      - removable-media  # open/save images on USB drives / external disks
+      - network          # update check, G'MIC filter updates
+      - cups             # printing (File > Print)
 
 parts:
   photoflare:
@@ -25,20 +35,35 @@ parts:
     source-type: local
     plugin: nil
     build-packages:
-      - qt6-base-dev
-      - qt6-tools-dev-tools
-      - qt6-translations-l10n
       - libgraphicsmagick++-dev
       - libomp-dev
+      - qt6-translations-l10n
     override-build: |
-      qmake6 $CRAFT_PART_SRC
+      # PREFIX=/usr so data (translations, icons) lands in $SNAP/usr/share,
+      # which is on XDG_DATA_DIRS inside the snap.
+      qmake6 PREFIX=/usr $CRAFT_PART_SRC
       make -j$(nproc)
       make install INSTALL_ROOT=$CRAFT_PART_INSTALL
+      # The desktop file's themed icon name can't be resolved from the host.
+      sed -i 's|^Icon=.*|Icon=${SNAP}/usr/share/icons/hicolor/256x256/apps/photoflare.png|' \
+        $CRAFT_PART_INSTALL/usr/share/applications/photoflare.desktop
+      mkdir -p $CRAFT_PART_INSTALL/bin
+      cat > $CRAFT_PART_INSTALL/bin/photoflare-launch <<'EOF'
+      #!/bin/sh
+      # Point GraphicsMagick at its staged config and coder/filter modules,
+      # since its compiled-in paths refer to the host /usr/lib, not $SNAP.
+      cfg=$(find "$SNAP/usr/lib" "$SNAP/usr/share" -maxdepth 3 -type d -path '*GraphicsMagick*' -name config 2>/dev/null | head -n1)
+      [ -n "$cfg" ] && export MAGICK_CONFIGURE_PATH="$cfg"
+      coders=$(find "$SNAP/usr/lib" -maxdepth 4 -type d -path '*GraphicsMagick*' -name coders 2>/dev/null | head -n1)
+      [ -n "$coders" ] && export MAGICK_CODER_MODULE_PATH="$coders"
+      filters=$(find "$SNAP/usr/lib" -maxdepth 4 -type d -path '*GraphicsMagick*' -name filters 2>/dev/null | head -n1)
+      [ -n "$filters" ] && export MAGICK_FILTER_MODULE_PATH="$filters"
+      exec "$SNAP/usr/bin/photoflare" "$@"
+      EOF
+      chmod +x $CRAFT_PART_INSTALL/bin/photoflare-launch
     stage-packages:
       - libgraphicsmagick++-q16-12t64
       - libomp5-18
-      - libqt6printsupport6
-      - qt6-image-formats-plugins
 
   gmic-qt:
     source: https://github.com/c-koi/gmic-qt.git
@@ -52,6 +77,7 @@ parts:
       - -DENABLE_FFTW3=ON
       - -DENABLE_CURL=ON
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_EXE_LINKER_FLAGS=-no-pie
     override-pull: |
       craftctl default
@@ -86,20 +112,17 @@ parts:
       - cmake
       - make
       - wget
-      - qt6-base-dev
-      - qt6-tools-dev
-      - qt6-tools-dev-tools
-      - qt6-l10n-tools
       - libfftw3-dev
       - libcurl4-openssl-dev
       - libomp-dev
     override-build: |
       # gmic-qt's translations/lrelease.sh only looks for `lrelease` or
-      # `lrelease-qt5` on PATH; Qt 6 installs it under /usr/lib/qt6/bin.
-      # `craftctl default` runs the cmake steps in a separate process that does
-      # not inherit PATH changes from this script, so link it into a directory
-      # that is already on PATH (the build runs in a disposable instance).
-      for candidate in /usr/lib/qt6/bin/lrelease /usr/lib/qt6/libexec/lrelease /usr/bin/lrelease-qt6; do
+      # `lrelease-qt5` on PATH; Qt 6 installs it under /usr/lib/qt6/bin (or in
+      # the kf6-core24 SDK snap). `craftctl default` runs the cmake steps in a
+      # separate process that does not inherit PATH changes from this script,
+      # so link it into a directory that is already on PATH (the build runs in
+      # a disposable instance).
+      for candidate in /snap/kf6-core24-sdk/current/usr/lib/qt6/bin/lrelease /snap/kf6-core24-sdk/current/usr/bin/lrelease /usr/lib/qt6/bin/lrelease /usr/lib/qt6/libexec/lrelease /usr/bin/lrelease-qt6; do
         if [ -x "$candidate" ]; then
           ln -sf "$candidate" /usr/local/bin/lrelease
           break
@@ -107,9 +130,10 @@ parts:
       done
       test -x /usr/local/bin/lrelease
       craftctl default
-      # The cmake plugin's default prefix is /usr/local, so the binary lands in
-      # usr/local/bin, next to the photoflare binary where the app looks for it.
-      mv $CRAFT_PART_INSTALL/usr/local/bin/gmic_qt $CRAFT_PART_INSTALL/usr/local/bin/gmic_photoflare_qt
+      # Install prefix is /usr, so the binary lands in usr/bin next to the
+      # photoflare binary where the app looks for it.
+      mv $CRAFT_PART_INSTALL/usr/bin/gmic_qt $CRAFT_PART_INSTALL/usr/bin/gmic_photoflare_qt
     stage-packages:
       - libfftw3-double3
       - libomp5-18
+      - libcurl4t64
