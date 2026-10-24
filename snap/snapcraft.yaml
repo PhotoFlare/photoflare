@@ -115,6 +115,8 @@ parts:
       - libfftw3-dev
       - libcurl4-openssl-dev
       - libomp-dev
+      - qt6-l10n-tools   # provides lrelease (not in the kf6 SDK snap)
+      - qt6-tools-dev-tools
     override-build: |
       # gmic-qt's translations/lrelease.sh only looks for `lrelease` or
       # `lrelease-qt5` on PATH; Qt 6 installs it under /usr/lib/qt6/bin (or in
@@ -122,9 +124,9 @@ parts:
       # separate process that does not inherit PATH changes from this script,
       # so link it into a directory that is already on PATH (the build runs in
       # a disposable instance).
-      for candidate in /snap/kf6-core24-sdk/current/usr/lib/qt6/bin/lrelease /snap/kf6-core24-sdk/current/usr/bin/lrelease /usr/lib/qt6/bin/lrelease /usr/lib/qt6/libexec/lrelease /usr/bin/lrelease-qt6; do
-        if [ -x "$candidate" ]; then
-          ln -sf "$candidate" /usr/local/bin/lrelease
+      for candidate in /snap/kf6-core24-sdk/current/usr/lib/qt6/bin/lrelease /snap/kf6-core24-sdk/current/usr/bin/lrelease /usr/lib/qt6/bin/lrelease /usr/lib/qt6/libexec/lrelease /usr/bin/lrelease-qt6 "$(command -v lrelease-qt6 || true)" "$(command -v lrelease || true)"; do
+        if [ -n "$candidate" ] && [ -x "$candidate" ]; then
+          [ "$candidate" = /usr/local/bin/lrelease ] || ln -sf "$candidate" /usr/local/bin/lrelease
           break
         fi
       done
