@@ -79,6 +79,17 @@ void EraserTool::setWidth(int width)
     emit cursorChanged(getCursor());
 }
 
+void EraserTool::setCapStyle(Qt::PenCapStyle capStyle)
+{
+    d->primaryPen.setCapStyle(capStyle);
+    emit cursorChanged(getCursor());
+}
+
+Qt::PenCapStyle EraserTool::capStyle() const
+{
+    return d->primaryPen.capStyle();
+}
+
 void EraserTool::setSecondaryColor(const QColor &color)
 {
     d->secondaryPen.setColor(color);

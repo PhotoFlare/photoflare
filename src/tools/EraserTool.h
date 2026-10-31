@@ -30,6 +30,8 @@ public:
 
     void setWidth(int width);
     int width() const;
+    void setCapStyle(Qt::PenCapStyle capStyle);
+    Qt::PenCapStyle capStyle() const;
     void onMousePress(const QPoint &pos, Qt::MouseButton button) override;
     void onMouseMove(const QPoint &pos) override;
     QCursor getCursor() override;

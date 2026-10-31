@@ -18,20 +18,66 @@
     <number>0</number>
    </property>
    <item row="0" column="0">
+    <widget class="QToolButton" name="buttonRoundCap">
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../Icons.qrc">
+       <normaloff>:/brushes/assets/brushes/circle.png</normaloff>:/brushes/assets/brushes/circle.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QToolButton" name="buttonSquareCap">
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../Icons.qrc">
+       <normaloff>:/brushes/assets/brushes/square.png</normaloff>:/brushes/assets/brushes/square.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
       <string>Size:</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
+   <item row="1" column="1">
     <widget class="QLabel" name="radiusValueLabel">
      <property name="text">
       <string>1</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="2">
+   <item row="2" column="0" colspan="2">
     <widget class="QSlider" name="radiusSlider">
      <property name="minimum">
       <number>1</number>
@@ -61,6 +107,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

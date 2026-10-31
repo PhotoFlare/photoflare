@@ -40,6 +40,17 @@
   </provides>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.7.6" date="2026-10-31">
+        <description>
+          <ul>
+            <li>New application icon across Windows, macOS, Linux, Snap and Flatpak.</li>
+            <li>Added a macOS app icon and scalable/512px icons for Linux.</li>
+            <li>Added round and square shape options to the Eraser tool.</li>
+            <li>Fixed remaining translation issues and improved language detection at startup.</li>
+            <li>Removed the old single instance method.</li>
+          </ul>
+        </description>
+    </release>
     <release version="1.7.5" date="2026-10-11">
         <description>
           <ul>

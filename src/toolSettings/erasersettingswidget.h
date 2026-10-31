@@ -33,6 +33,7 @@ public:
     ~EraserSettingsWidget();
 
     int radius() const;
+    Qt::PenCapStyle capStyle() const;
     void saveSettings() const;
     void loadSettings();
 
@@ -41,6 +42,8 @@ signals:
 
 private slots:
     void on_radiusSlider_valueChanged(int value);
+    void on_buttonRoundCap_clicked();
+    void on_buttonSquareCap_clicked();
 
 protected:
     void changeEvent(QEvent *e) override;

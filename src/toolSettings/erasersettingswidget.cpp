@@ -26,6 +26,8 @@ EraserSettingsWidget::EraserSettingsWidget(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->radiusSlider, &QSlider::valueChanged, this, &EraserSettingsWidget::settingsChanged);
+    connect(ui->buttonRoundCap, &QToolButton::clicked, this, &EraserSettingsWidget::settingsChanged);
+    connect(ui->buttonSquareCap, &QToolButton::clicked, this, &EraserSettingsWidget::settingsChanged);
 }
 
 EraserSettingsWidget::~EraserSettingsWidget()
@@ -45,17 +47,39 @@ int EraserSettingsWidget::radius() const
     return ui->radiusSlider->value();
 }
 
+Qt::PenCapStyle EraserSettingsWidget::capStyle() const
+{
+    return ui->buttonRoundCap->isChecked() ? Qt::RoundCap : Qt::SquareCap;
+}
+
 void EraserSettingsWidget::on_radiusSlider_valueChanged(int value)
 {
     ui->radiusValueLabel->setText(QString::number(value));
 }
 
+void EraserSettingsWidget::on_buttonRoundCap_clicked()
+{
+    ui->buttonRoundCap->setChecked(true);
+    ui->buttonSquareCap->setChecked(false);
+}
+
+void EraserSettingsWidget::on_buttonSquareCap_clicked()
+{
+    ui->buttonRoundCap->setChecked(false);
+    ui->buttonSquareCap->setChecked(true);
+}
+
 void EraserSettingsWidget::saveSettings() const
 {
     SETTINGS->setValue("toolSettings/eraser/radius", radius());
+    SETTINGS->setValue("toolSettings/eraser/roundCap", capStyle() == Qt::RoundCap);
 }
 
 void EraserSettingsWidget::loadSettings()
 {
     ui->radiusSlider->setValue(SETTINGS->value("toolSettings/eraser/radius", 10).toInt());
+    // The eraser has always been square, so keep that as the default.
+    const bool roundCap = SETTINGS->value("toolSettings/eraser/roundCap", false).toBool();
+    ui->buttonRoundCap->setChecked(roundCap);
+    ui->buttonSquareCap->setChecked(!roundCap);
 }

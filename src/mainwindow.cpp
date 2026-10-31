@@ -3130,6 +3130,7 @@ void MainWindow::onBlurSettingsChanged()
 void MainWindow::onEraserSettingsChanged()
 {
     ERASER_TOOL->setWidth(m_eraserSettingsWidget->radius());
+    ERASER_TOOL->setCapStyle(m_eraserSettingsWidget->capStyle());
 }
 
 void MainWindow::onSmudgeSettingsChanged()
