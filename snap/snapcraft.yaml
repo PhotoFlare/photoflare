@@ -7,7 +7,7 @@ license: GPL-3.0
 website: https://photoflare.io
 source-code: https://github.com/PhotoFlare/photoflare
 issues: https://github.com/PhotoFlare/photoflare/issues
-icon: installers/deb/DEBIAN/usr/share/icons/hicolor/48x48/apps/photoflare.png
+icon: installers/deb/DEBIAN/usr/share/icons/hicolor/256x256/apps/photoflare.png
 type: app
 
 base: core24

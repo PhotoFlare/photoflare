@@ -55,6 +55,7 @@ macx {
   LIBS += -lbz2 -lxml2 -lz -lm -L$$OMP_PREFIX/lib $$OMP_PREFIX/lib/libomp.dylib
   QMAKE_CXXFLAGS += -Xpreprocessor -fopenmp -I$$OMP_PREFIX/include
   QMAKE_LFLAGS += -lomp
+  ICON = $$PWD/assets/macos/photoflare.icns
 }
 
 SOURCES += src/main.cpp \
