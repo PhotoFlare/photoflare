@@ -44,7 +44,7 @@ jobs:
       # timeout-minutes bounds a genuine hang instead of the 6h job default;
       # --verbose prints each compiler invocation so progress is visible.
       - name: Build and stage gmic-qt
-        timeout-minutes: 30
+        timeout-minutes: 60
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -92,7 +92,10 @@ jobs:
             -DENABLE_FFTW3=ON \
             -DENABLE_CURL=ON \
             -DCMAKE_BUILD_TYPE=Release
-          cmake --build build-gmic-qt --parallel --verbose
+          # Bound the job count: a bare --parallel makes Unix Makefiles run
+          # `make -j` (unlimited), launching every CImg-heavy TU at once and
+          # exhausting the runner's RAM until the step times out.
+          cmake --build build-gmic-qt --parallel "$(sysctl -n hw.ncpu)" --verbose
 
       - name: Build photoflare
         run: |

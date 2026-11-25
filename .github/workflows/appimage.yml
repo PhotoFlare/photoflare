@@ -132,7 +132,7 @@ jobs:
             -DENABLE_CURL=ON \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_EXE_LINKER_FLAGS="-no-pie"
-          cmake --build build-gmic-qt --parallel --verbose
+          cmake --build build-gmic-qt --parallel "$(nproc)" --verbose
           cp build-gmic-qt/gmic_qt appdir/usr/bin/gmic_photoflare_qt
 
       # Download linuxdeploy and its Qt plugin into a tools/ subdirectory
