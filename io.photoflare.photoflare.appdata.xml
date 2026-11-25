@@ -23,7 +23,17 @@
     </ul>
   </description>
 
+  <developer id="io.photoflare">
+    <name>Photoflare Developers</name>
+  </developer>
+  <url type="homepage">https://photoflare.io</url>
+  <url type="bugtracker>https://github.com/PhotoFlare/photoflare/issues</url>
+  <url type="vcs-browser">https://github.com/PhotoFlare/photoflare</url>
   <launchable type="desktop-id">photoflare.desktop</launchable>
+  <provides>
+    <binary>photoflare</binary>
+  </provides>
+  <content_rating type="oars-1.1" />
 
   <screenshots>
     <screenshot type="default">
@@ -32,13 +42,7 @@
     </screenshot>
   </screenshots>
 
-  <url type="homepage">https://photoflare.io</url>
-  <project_group>Photoflare</project_group>
 
-  <provides>
-    <binary>photoflare</binary>
-  </provides>
-  <content_rating type="oars-1.1" />
   <releases>
     <release version="1.7.6" date="2026-11-25">
         <description>
