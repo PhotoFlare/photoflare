@@ -137,7 +137,7 @@ jobs:
       # 7. Submit to SignPath and wait for the signed result
       # ------------------------------------------------------------------
       - name: Submit signing request
-        uses: signpath/github-action-submit-signing-request@v2
+        uses: signpath/github-action-submit-signing-request@v3
         with:
           api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
           organization-id: 'a0d93669-036e-4935-85d0-ad3813a95399'
