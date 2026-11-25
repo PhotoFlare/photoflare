@@ -39,19 +39,25 @@ jobs:
           flatpak-builder --repo=repo --force-clean \
             build-flatpak flatpak/flatpak_build.json
 
+      - name: Read version from stable.json
+        id: version
+        run: echo "version=$(tr -d '[:space:]' < versions/stable.json)" >> "$GITHUB_OUTPUT"
+
       - name: Create Flatpak bundle
         run: |
-          flatpak build-bundle repo photoflare.flatpak io.photoflare.photoflare
+          FLATPAK_NAME="photoflare-${{ steps.version.outputs.version }}-linux-x86_64.flatpak"
+          flatpak build-bundle repo "$FLATPAK_NAME" io.photoflare.photoflare
+          echo "FLATPAK_NAME=$FLATPAK_NAME" >> "$GITHUB_ENV"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: photoflare-flatpak
-          path: photoflare.flatpak
+          path: ${{ env.FLATPAK_NAME }}
           if-no-files-found: error
 
       - name: Upload to release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: photoflare.flatpak
+          files: ${{ env.FLATPAK_NAME }}
