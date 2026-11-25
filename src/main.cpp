@@ -38,7 +38,7 @@ namespace {
     QString systemLanguageCode()
     {
         static const QSet<QString> supported = {
-            "en", "fr", "de", "nl", "cs", "sv", "id", "es", "ja", "tr", "ko", "pl"
+            "en", "fr", "de", "nl", "cs", "sv", "id", "es", "ja", "tr", "ko", "pl", "it"
         };
         const QLocale locale = QLocale::system();
         const QString code = QLocale::languageToCode(locale.language());
