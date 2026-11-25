@@ -38,6 +38,11 @@ parts:
       - libgraphicsmagick++-dev
       - libomp-dev
       - qt6-translations-l10n
+      # Qt6Gui links against libGLX/libOpenGL; the SDK snap doesn't ship their
+      # .so dev symlinks, so the link step fails with "cannot find -lGLX".
+      - libgl-dev
+      - libglx-dev
+      - libopengl-dev
     override-build: |
       # PREFIX=/usr so data (translations, icons) lands in $SNAP/usr/share,
       # which is on XDG_DATA_DIRS inside the snap.
